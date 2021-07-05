@@ -21,5 +21,6 @@ public class Solution48 {
 48. 旋转图像
 https://leetcode-cn.com/problems/rotate-image/submissions/
 
-矩阵顺时针翻转 90 度
+模板题。矩阵顺时针翻转 90 度
+现实生活中，可以拿一个类似矩形的物体进行模拟。事实上，不一定要上下翻转（左右翻转亦可）
  */
