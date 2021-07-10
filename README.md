@@ -49,6 +49,10 @@ for (int i = 1; i < diff.length; i++) {
 }
 ```
 
+- [1094. 拼车](https://leetcode-cn.com/problems/car-pooling/)
+- [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
+- [1854. 人口最多的年份](https://leetcode-cn.com/problems/maximum-population-year/)
+
 ### 快速幂
 
 ```java
@@ -68,3 +72,22 @@ public long fastPower(long x, long pow, int mod) {
     return ans;
 }
 ```
+
+### 双指针
+
+二分搜索
+滑动窗口
+快慢指针
+
+### 买卖股票系列
+
+- [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/solution/) 暴力解法、动态规划（Java）
+- [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/) 暴力搜索、贪心算法、动态规划（Java）
+- [123. 买卖股票的最佳时机 III](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iii/) 动态规划（Java）
+- [188. 买卖股票的最佳时机 IV](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-iv) 动态规划（「力扣」更新过用例，只有优化空间的版本可以 AC）
+- [309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown) 动态规划（Java）
+- [714. 买卖股票的最佳时机含手续费](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee) 动态规划（Java）
+
+### 打家劫舍系列
+
+https://leetcode-cn.com/problems/house-robber/
