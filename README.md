@@ -6,6 +6,23 @@ leetcode-n 存放 100(n-1)+1 ~ 100n 的题目
 
 如 leetcode-19 存放 1801 ~ 1900 的题目
 
+## UT、TDD、ATDD
+
+单元测试框架
+
+- [junit4](https://github.com/junit-team/junit4)
+- [junit5](https://github.com/junit-team/junit5)
+- [testng](https://github.com/cbeust/testng)
+- [mockito](https://github.com/mockito/mockito)
+- [powermock](https://github.com/powermock/powermock)
+
+junit5 断言：
+
+- Assertions.assertEquals
+- Assertions.assertTrue
+- Assertions.assertFalse
+- Assertions.assertArrayEquals
+
 ## 常用算法模板
 
 ### 前缀和
@@ -75,7 +92,7 @@ public long fastPower(long x, long pow, int mod) {
 
 ### 双指针
 
-二分搜索
+二分搜索（二分找单元素，二分找左边界，二分找右边界）
 滑动窗口
 快慢指针
 
