@@ -66,5 +66,5 @@ public class Solution21 {
 21. 合并两个有序链表
 https://leetcode-cn.com/problems/merge-two-sorted-lists/
 
-经典题。链表合并
+经典题。链表合并。
  */

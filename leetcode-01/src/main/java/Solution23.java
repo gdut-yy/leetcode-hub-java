@@ -3,9 +3,6 @@ import java.util.PriorityQueue;
 
 public class Solution23 {
     public ListNode mergeKLists(ListNode[] lists) {
-//        if (lists == null) {
-//            return null;
-//        }
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         for (ListNode listNode : lists) {
             while (listNode != null) {

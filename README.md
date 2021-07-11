@@ -1,41 +1,41 @@
 # leetcode-hub-java
 
-基于 java11 + junit5 + allure2 的 leetcode 题解
+基于 java11 + junit5 + allure2 的 leetcode 练习仓库（拼搏百天，要完成 300 道 leetcode 题目！额，走错片场了。。）。
 
-leetcode-n 存放 100(n-1)+1 ~ 100n 的题目
-
-如 leetcode-19 存放 1801 ~ 1900 的题目
+其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
 
 ## UT、TDD、ATDD
 
-单元测试框架
+java 项目中常见的测试框架：
 
 - [junit4](https://github.com/junit-team/junit4)
 - [junit5](https://github.com/junit-team/junit5)
 - [testng](https://github.com/cbeust/testng)
 - [mockito](https://github.com/mockito/mockito)
 - [powermock](https://github.com/powermock/powermock)
+- [jmh](https://github.com/openjdk/jmh)
 
-junit5 断言：
+junit5 常用断言：
 
 - Assertions.assertEquals
 - Assertions.assertTrue
 - Assertions.assertFalse
 - Assertions.assertArrayEquals
 
+注意：由于 leetcode 部分题目使用了自定义对象（如 21、23 题等），使用 Assertions.assertEquals 对自定义对象进行判等时要注意重写 equals 方法。根据编码规范，在重写 equals 方法的同时也须重写 hashCode 方法（否则在 HashSet, HashTable, HashMap 等集合中将存在重复元素）。
+
 ## 常用算法模板
 
-### 前缀和
+### 前缀和数组
 
 ```
 nums   3 5 2 -2
 preSum 0 3 8 10 8
 
-nums[i..j] 的累加和 = preSum[j + 1] - preSum[i]
+使用场景：求 nums[i..j] 的累加和（preSum[j + 1] - preSum[i] 即可）
 ```
 
 ```java
-// 前缀和数组
 int len = nums.length;
 int[] preSum = new int[len + 1];
 preSum[0] = 0;
@@ -51,6 +51,7 @@ nums 8  2 6  3 1
 diff 8 -6 4 -3 2
 
 diff[i] = nums[i] - nums[i - 1]
+使用场景：对 nums[i..j] 区间同时增加或减少某个数值。
 ```
 
 ```java
@@ -93,8 +94,15 @@ public long fastPower(long x, long pow, int mod) {
 ### 双指针
 
 二分搜索（二分找单元素，二分找左边界，二分找右边界）
+
 滑动窗口
+
 快慢指针
+
+- [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
+- [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
+- [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+- [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
 
 ### 买卖股票系列
 
@@ -107,4 +115,23 @@ public long fastPower(long x, long pow, int mod) {
 
 ### 打家劫舍系列
 
-https://leetcode-cn.com/problems/house-robber/
+- [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+- [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)
+
+### 存在重复元素系列
+
+- [217. 存在重复元素](https://leetcode-cn.com/problems/contains-duplicate/)
+- [219. 存在重复元素 II](https://leetcode-cn.com/problems/contains-duplicate-ii/)
+- [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
+
+### 广度优先搜索 BFS
+
+### 深度优先搜索 DFS
+
+### KMP 算法
+
+- [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+
+### Manacher 马拉车算法
+
+- [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
