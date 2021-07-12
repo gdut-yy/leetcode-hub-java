@@ -126,6 +126,9 @@ public long fastPower(long x, long pow, int mod) {
 
 ### 广度优先搜索 BFS
 
+- [1293. 网格中的最短路径](https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
+- [1926. 迷宫中离入口最近的出口](https://leetcode-cn.com/problems/nearest-exit-from-entrance-in-maze/submissions/)
+
 ### 深度优先搜索 DFS
 
 ### KMP 算法
