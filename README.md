@@ -1,10 +1,12 @@
 # leetcode-hub-java
 
-基于 java11 + junit5 + allure2 的 leetcode 练习仓库（拼搏百天，要完成 300 道 leetcode 题目！额，走错片场了。。）。
+基于 java11 + junit5 + allure2 的 leetcode 练习仓库
+
+（拼搏百天，我要完成 300 道 leetcode 题！额。。不好意思，走错片场了。。
 
 其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
 
-## UT、TDD、ATDD
+## UT、TDD
 
 java 项目中常见的测试框架：
 
@@ -97,6 +99,11 @@ public long fastPower(long x, long pow, int mod) {
 
 滑动窗口
 
+- [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 双指针-滑动窗口
+- [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 双指针-滑动窗口
+- [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 滑动窗口-固定窗口
+- [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 滑动窗口-固定窗口
+
 快慢指针
 
 - [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
@@ -125,6 +132,40 @@ public long fastPower(long x, long pow, int mod) {
 - [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
 
 ### 广度优先搜索 BFS
+
+```java
+public int bfs(char[][] maze, int[] entrance) {
+    int mazeM = maze.length;
+    int mazeN = maze[0].length;
+    int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    maze[entrance[0]][entrance[1]] = '+';
+    Queue<int[]> queue = new LinkedList<>();
+    queue.add(new int[]{entrance[0], entrance[1], 0});
+
+    while (!queue.isEmpty()) {
+        int size = queue.size();
+        for (int i = 0; i < size; i++) {
+            int[] cur = queue.poll();
+            if (cur == null) {
+                break;
+            }
+            for (int[] dir : direction) {
+                int nextM = cur[0] + dir[0];
+                int nextN = cur[1] + dir[1];
+                int step = cur[2] + 1;
+                if (nextM >= 0 && nextM < mazeM && nextN >= 0 && nextN < mazeN && maze[nextM][nextN] == '.') {
+                    if (nextM == 0 || nextN == 0 || nextM == mazeM - 1 || nextN == mazeN - 1) {
+                        return step;
+                    }
+                    maze[nextM][nextN] = '+';
+                    queue.add(new int[]{nextM, nextN, step});
+                }
+            }
+        }
+    }
+    return -1;
+}
+```
 
 - [1293. 网格中的最短路径](https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
 - [1926. 迷宫中离入口最近的出口](https://leetcode-cn.com/problems/nearest-exit-from-entrance-in-maze/submissions/)
