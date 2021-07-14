@@ -28,12 +28,6 @@ public class Solution23 {
         }
 
         // junit
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        // junit
         @Override
         public boolean equals(Object o) {
             if (this == o) return true;

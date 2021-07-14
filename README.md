@@ -106,10 +106,14 @@ public long fastPower(long x, long pow, int mod) {
 
 快慢指针
 
+- [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
 - [26. 删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 - [27. 移除元素](https://leetcode-cn.com/problems/remove-element/)
 - [83. 删除排序链表中的重复元素](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/)
+- [141. 环形链表](https://leetcode-cn.com/problems/linked-list-cycle/)
+- [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
 - [283. 移动零](https://leetcode-cn.com/problems/move-zeroes/)
+- [876. 链表的中间结点](https://leetcode-cn.com/problems/middle-of-the-linked-list/)
 
 ### 买卖股票系列
 
