@@ -46,6 +46,8 @@ for (int i = 0; i < len; i++) {
 }
 ```
 
+- [848. 字母移位](https://leetcode-cn.com/problems/shifting-letters/) “反向前缀和”
+
 ### 差分数组
 
 ```
@@ -69,9 +71,10 @@ for (int i = 1; i < diff.length; i++) {
 }
 ```
 
-- [1094. 拼车](https://leetcode-cn.com/problems/car-pooling/)
-- [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/)
-- [1854. 人口最多的年份](https://leetcode-cn.com/problems/maximum-population-year/)
+- [845. 数组中的最长山脉](https://leetcode-cn.com/problems/longest-mountain-in-array/) “反向差分”
+- [1094. 拼车](https://leetcode-cn.com/problems/car-pooling/) 区间加减
+- [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/) 区间加减
+- [1854. 人口最多的年份](https://leetcode-cn.com/problems/maximum-population-year/) 区间加减
 
 ### 快速幂
 
@@ -93,6 +96,8 @@ public long fastPower(long x, long pow, int mod) {
 }
 ```
 
+- [1922. 统计好数字的数目](https://leetcode-cn.com/problems/count-good-numbers/)
+
 ### 双指针
 
 二分搜索（二分找单元素，二分找左边界，二分找右边界）
@@ -101,8 +106,8 @@ public long fastPower(long x, long pow, int mod) {
 
 - [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/) 双指针-滑动窗口
 - [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/) 双指针-滑动窗口
-- [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 滑动窗口-固定窗口
-- [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 滑动窗口-固定窗口
+- [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/) 固定大小窗口
+- [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/) 固定大小窗口
 
 快慢指针
 
@@ -183,3 +188,7 @@ public int bfs(char[][] maze, int[] entrance) {
 ### Manacher 马拉车算法
 
 - [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+
+### 约瑟夫环问题
+
+- [1823. 找出游戏的获胜者](https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game/)

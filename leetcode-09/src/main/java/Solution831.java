@@ -43,6 +43,6 @@ public class Solution831 {
 https://leetcode-cn.com/problems/masking-personal-information/
 
 本题有取巧的成分。字符串 S，它可能是一个 邮箱地址 ，也可能是一串 电话号码。
-根据这点可以通过 @ 字符进行区分（实际项目中行不通，需用正则表达式）。
-保留数字可用 s.replaceAll("\\D+", "");
+根据这点可以通过 @ 字符进行区分（实际项目中需用正则表达式更精确进行判断）。
+字符串中仅保留数字可用 String.replaceAll("\\D+", "");
  */
