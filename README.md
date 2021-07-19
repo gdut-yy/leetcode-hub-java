@@ -6,6 +6,10 @@
 
 其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
 
+```sh
+mvn clean test -T 1C
+```
+
 ## UT、TDD
 
 java 项目中常见的测试框架：
@@ -192,3 +196,15 @@ public int bfs(char[][] maze, int[] entrance) {
 ### 约瑟夫环问题
 
 - [1823. 找出游戏的获胜者](https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game/)
+
+### 数制转换
+
+- [12. 整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman/)
+- [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/)
+- [504. 七进制数](https://leetcode-cn.com/problems/base-7/)
+
+### 59. 螺旋矩阵 II
+
+- [54. 螺旋矩阵](https://leetcode-cn.com/problems/spiral-matrix/)
+- [59. 螺旋矩阵 II](https://leetcode-cn.com/problems/spiral-matrix-ii/)
+- [885. 螺旋矩阵 III](https://leetcode-cn.com/problems/spiral-matrix-iii/)
