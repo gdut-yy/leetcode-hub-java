@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class Solution869 {
+    public boolean reorderedPowerOf2(int n) {
+        int[] nArr = caseNum2Array(n);
+        // int 32bit
+        for (int i = 0; i < 32; i++) {
+            int powStr = (int) Math.pow(2, i);
+            if (Arrays.equals(nArr, caseNum2Array(powStr))) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] caseNum2Array(int num) {
+        // 0~9 10 个字符
+        int[] res = new int[10];
+        for (char ch : String.valueOf(num).toCharArray()) {
+            res[ch - '0']++;
+        }
+        return res;
+    }
+}
+/*
+869. 重新排序得到 2 的幂
+https://leetcode-cn.com/problems/reordered-power-of-2/
+
+按任何顺序重排，但是字符出现次数是不变的。
+魔鬼数字解释：
+32: int 最大是 32bit
+10: 0~9 共 10 个字符
+ */
