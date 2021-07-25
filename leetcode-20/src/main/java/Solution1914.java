@@ -75,6 +75,7 @@ public class Solution1914 {
 1914. 循环轮转矩阵
 https://leetcode-cn.com/problems/cyclically-rotating-a-grid/
 
+第 247 场周赛 T2。
 没啥好的办法，逐层去模拟，将矩阵降维为数组模拟操作，操作完再将数组还原为矩阵。
 注意推倒转换方法的时候，不要用正方形，容易出错，譬如可选用 8*4 矩阵。
  */

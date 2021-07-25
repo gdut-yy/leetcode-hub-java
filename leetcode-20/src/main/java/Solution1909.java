@@ -27,5 +27,6 @@ public class Solution1909 {
 1909. 删除一个元素使数组严格递增
 https://leetcode-cn.com/problems/remove-one-element-to-make-the-array-strictly-increasing/
 
+第 55 场双周赛 T1。
 枚举任意下标对 (i, i+1) 均满足严格递增。当不满足时，可以选择删除 (i, i+1) 之一并判断删除后是否满足严格递增。
  */

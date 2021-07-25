@@ -67,6 +67,7 @@ public class Solution1922 {
 1922. 统计好数字的数目
 https://leetcode-cn.com/problems/count-good-numbers/
 
+第 248 场周赛 T3。
 找规律 + 快速幂
 打表找规律，一开始求出 n = 4 结果是 320，随后发现题目注明 “可能包含前导 0”，那就很简单了：
 奇数: (5^(pow+1) * 4^pow) % mod == (5 * 20^pow) % mod

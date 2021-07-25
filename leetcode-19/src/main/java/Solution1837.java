@@ -12,5 +12,6 @@ public class Solution1837 {
 1837. K 进制表示下的各位数字总和
 https://leetcode-cn.com/problems/sum-of-digits-in-base-k/
 
-周赛签到题。进制转换
+第 238 场周赛 T1。
+进制转换
  */

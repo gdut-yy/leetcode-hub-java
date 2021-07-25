@@ -20,5 +20,6 @@ public class Solution1869 {
 1869. 哪种连续子字符串更长
 https://leetcode-cn.com/problems/longer-contiguous-segments-of-ones-than-zeros/submissions/
 
-第 242 场周赛签到题。String#split 后统计最大值进行比较即可。
+第 242 场周赛 T1。
+String#split() 后统计最大值进行比较即可。
  */

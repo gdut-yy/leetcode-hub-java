@@ -55,5 +55,6 @@ public class Solution1537 {
 1537. 最大得分
 https://leetcode-cn.com/problems/get-the-maximum-score/
 
+第 200 场周赛 T4。
 很有意思的一道题，前缀和 + 二分搜索即可。
  */

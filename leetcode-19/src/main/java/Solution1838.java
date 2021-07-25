@@ -33,5 +33,6 @@ public class Solution1838 {
 1838. 最高频元素的频数
 https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element/
 
+第 238 场周赛 T2。
 滑动窗口+前缀和。滑动窗口又名“双指针”、“尺取法” 英文为 "two pointers"
  */

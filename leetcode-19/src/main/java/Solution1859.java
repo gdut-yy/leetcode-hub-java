@@ -20,5 +20,6 @@ public class Solution1859 {
 1859. 将句子排序
 https://leetcode-cn.com/problems/sorting-the-sentence/
 
-第 52 场双周赛签到题。1位整数（0-9），难度很低了，String#substring 分离字符串与数字，按序拼接即可。
+第 52 场双周赛 T1。
+1 位整数（0-9），难度很低了，String#substring 分离字符串与数字，按序拼接即可。
  */

@@ -16,5 +16,6 @@ public class Solution1823 {
 1823. 找出游戏的获胜者
 https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game/
 
+第 236 场周赛 T2。
 经典问题-约瑟夫环
  */

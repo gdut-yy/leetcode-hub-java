@@ -21,5 +21,6 @@ public class Solution1833 {
 1833. 雪糕的最大数量
 https://leetcode-cn.com/problems/maximum-ice-cream-bars/
 
+第 237 场周赛 T2。
 贪心法+前缀和。要想买尽可能多的雪糕，当然是从最便宜的开始买。
  */

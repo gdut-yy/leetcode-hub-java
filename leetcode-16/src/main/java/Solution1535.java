@@ -21,6 +21,7 @@ public class Solution1535 {
 1535. 找出数组游戏的赢家
 https://leetcode-cn.com/problems/find-the-winner-of-an-array-game/
 
+第 200 场周赛 T2。
 用 List<Integer> 根据题意进行模拟可以通过，但实际上并不需要移动数组：
 arr[0] 与 arr[1] 的较大值与 arr[2] 比较
 然后较大值再与 arr[3] 比较

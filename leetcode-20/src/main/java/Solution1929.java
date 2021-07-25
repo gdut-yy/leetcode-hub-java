@@ -15,5 +15,6 @@ public class Solution1929 {
 1929. 数组串联
 https://leetcode-cn.com/problems/concatenation-of-array/
 
-第 249 场周赛签到题。按题意写即可。
+第 249 场周赛 T1。
+按题意写即可。
  */

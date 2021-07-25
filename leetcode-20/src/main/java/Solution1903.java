@@ -17,5 +17,6 @@ public class Solution1903 {
 1903. 字符串中的最大奇数
 https://leetcode-cn.com/problems/largest-odd-number-in-string/
 
-周赛签到题。从后往前找到第一个奇数的下标，截取的子字符串即为最大奇数。
+第 246 场周赛 T1。
+从后往前找到第一个奇数的下标，截取的子字符串即为最大奇数。
  */

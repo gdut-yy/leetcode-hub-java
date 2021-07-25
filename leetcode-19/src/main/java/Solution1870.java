@@ -32,6 +32,7 @@ public class Solution1870 {
 1870. 准时到达的列车最小时速
 https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time/
 
+第 242 场周赛 T2。
 二分查找。分为三种，找一个目标，找左边界，找右边界。
 本题为寻找左侧边界。
  */

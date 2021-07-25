@@ -38,6 +38,7 @@ public class Solution1881 {
 1881. 插入后的最大值
 https://leetcode-cn.com/problems/maximum-value-after-insertion/
 
+第 243 场周赛 T2。
 题目给出一个大整数，问如何通过插入一个数字后达到数值最大化。
 对于正数。不难想到：从左往右，如果大于后一个数，就置于其前即可；
 负数同理：从左往右，如果小于后一个数，就置于其前即可。

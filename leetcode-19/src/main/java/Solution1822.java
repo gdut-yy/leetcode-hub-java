@@ -22,7 +22,8 @@ public class Solution1822 {
 1822. 数组元素积的符号
 https://leetcode-cn.com/problems/sign-of-the-product-of-an-array/
 
-周赛签到题。正数个数无须统计，因为怎么乘也是正数。
+第 236 场周赛 T1。
+正数个数无须统计，因为怎么乘也是正数。
 统计负数的个数，若为个数为奇数，则结果为负数
 如果中途出现 0，根据 0 乘以任何数都得 0，剪枝返回
  */

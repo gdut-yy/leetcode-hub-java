@@ -42,5 +42,6 @@ public class Solution1926 {
 1926. 迷宫中离入口最近的出口
 https://leetcode-cn.com/problems/nearest-exit-from-entrance-in-maze/submissions/
 
+第 56 场双周赛 T2。
 BFS
  */

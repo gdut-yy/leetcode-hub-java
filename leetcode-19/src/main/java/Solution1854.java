@@ -34,5 +34,6 @@ public class Solution1854 {
 1854. 人口最多的年份
 https://leetcode-cn.com/problems/maximum-population-year/
 
+第 240 场周赛 T1。
 差分数组。区间为 100，暴力也是可以的。
  */

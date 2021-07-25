@@ -12,5 +12,6 @@ public class Solution1920 {
 1920. 基于排列构建数组
 https://leetcode-cn.com/problems/build-array-from-permutation/
 
-周赛签到题。ans[i] = nums[nums[i]
+第 248 场周赛 T1。
+ans[i] = nums[nums[i]
  */

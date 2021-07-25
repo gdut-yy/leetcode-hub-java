@@ -21,5 +21,6 @@ public class Solution1832 {
 1832. 判断句子是否为全字母句
 https://leetcode-cn.com/problems/check-if-the-sentence-is-pangram/
 
-周赛签到题。用一个长度为 26 的一维数组统计出现次数即可。
+第 237 场周赛 T1。
+用一个长度为 26 的一维数组统计出现次数即可。
  */

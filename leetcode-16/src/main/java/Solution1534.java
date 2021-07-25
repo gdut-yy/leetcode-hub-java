@@ -25,6 +25,7 @@ public class Solution1534 {
 1534. 统计好三元组
 https://leetcode-cn.com/problems/count-good-triplets/
 
+第 200 场周赛 T1。
 暴力枚举即可。时间复杂度 O(n^3)
 可以进行剪枝，时间复杂度 O(n^2)
 抽取方法避免嵌套过深。

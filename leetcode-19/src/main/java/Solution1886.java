@@ -34,5 +34,6 @@ public class Solution1886 {
 1886. 判断矩阵经轮转后是否一致
 https://leetcode-cn.com/problems/determine-whether-matrix-can-be-obtained-by-rotation/
 
+第 244 场周赛 T1。
 矩阵旋转 90 度。参考 Solution48.java
  */

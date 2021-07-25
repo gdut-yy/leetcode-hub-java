@@ -60,5 +60,6 @@ public class Solution1904 {
 1904. 你完成的完整对局数
 https://leetcode-cn.com/problems/the-number-of-full-rounds-you-have-played/
 
+第 246 场周赛 T2。
 考察边界值处理。需注意用例 startTime = "00:47", finishTime = "00:57" 避免返回负值
  */

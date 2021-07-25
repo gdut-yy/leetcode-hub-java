@@ -23,5 +23,6 @@ public class Solution1893 {
 1893. 检查是否区域内所有整数都被覆盖
 https://leetcode-cn.com/problems/check-if-all-the-integers-in-a-range-are-covered/
 
-周赛签到题。由于数组长度非常小，直接进行模拟即可。
+第 54 场双周赛 T1。
+由于数组长度非常小，直接进行模拟即可。
  */
