@@ -28,7 +28,10 @@ junit5 常用断言：
 - Assertions.assertFalse
 - Assertions.assertArrayEquals
 
-注意：由于 leetcode 部分题目使用了自定义对象（如 21、23 题等），使用 Assertions.assertEquals 对自定义对象进行判等时要注意重写 equals 方法。根据编码规范，在重写 equals 方法的同时也须重写 hashCode 方法（否则在 HashSet, HashTable, HashMap 等集合中将存在重复元素）。
+注意：由于 leetcode 部分题目使用了自定义对象，`Assertions.assertEquals` 已不能满足这种场景需要（需重写自定义对象的 equals 与 hashCode 方法），我们可以使用自定义断言对这类对象进行判定：
+
+- ListNode 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)` 第 19、21、23、83、141、142、876 题等；
+- TreeNode 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
 
 ## 常用算法模板
 
@@ -201,7 +204,7 @@ public int bfs(char[][] maze, int[] entrance) {
 
 - [12. 整数转罗马数字](https://leetcode-cn.com/problems/integer-to-roman/)
 - [13. 罗马数字转整数](https://leetcode-cn.com/problems/roman-to-integer/)
-- [504. 七进制数](https://leetcode-cn.com/problems/base-7/)  
+- [504. 七进制数](https://leetcode-cn.com/problems/base-7/)
 
 ### 螺旋矩阵
 

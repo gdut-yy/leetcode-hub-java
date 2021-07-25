@@ -16,15 +16,15 @@ public class TreeNode {
         this.right = right;
     }
 
-    public static boolean assertTreeNodeEquals(TreeNode p, TreeNode q) {
-        if (p == null && q == null) {
+    public static boolean assertTreeNodeEquals(TreeNode expected, TreeNode actual) {
+        if (expected == null && actual == null) {
             return true;
-        } else if (p == null || q == null) {
+        } else if (expected == null || actual == null) {
             return false;
-        } else if (p.val != q.val) {
+        } else if (expected.val != actual.val) {
             return false;
         } else {
-            return assertTreeNodeEquals(p.left, q.left) && assertTreeNodeEquals(p.right, q.right);
+            return assertTreeNodeEquals(expected.left, actual.left) && assertTreeNodeEquals(expected.right, actual.right);
         }
     }
 }

@@ -18,30 +18,6 @@ public class Solution23 {
         }
         return dummy.next;
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        // junit
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            ListNode listNode = (ListNode) o;
-            return val == listNode.val;
-        }
-
-        // junit
-        @Override
-        public int hashCode() {
-            return Objects.hash(val);
-        }
-    }
 }
 /*
 23. 合并K个升序链表

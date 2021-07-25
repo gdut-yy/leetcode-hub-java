@@ -21,16 +21,6 @@ public class Solution142 {
         }
         return left;
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 }
 /*
 142. 环形链表 II

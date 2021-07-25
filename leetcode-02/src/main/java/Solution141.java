@@ -11,16 +11,6 @@ public class Solution141 {
         }
         return false;
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-            next = null;
-        }
-    }
 }
 /*
 141. 环形链表

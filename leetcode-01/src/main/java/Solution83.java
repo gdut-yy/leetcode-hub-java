@@ -21,38 +21,6 @@ public class Solution83 {
         // 注意是返回头节点
         return head;
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode() {
-        }
-
-        ListNode(int val) {
-            this.val = val;
-        }
-
-        ListNode(int val, ListNode next) {
-            this.val = val;
-            this.next = next;
-        }
-
-        // junit
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            ListNode listNode = (ListNode) o;
-            return val == listNode.val;
-        }
-
-        // junit
-        @Override
-        public int hashCode() {
-            return Objects.hash(val);
-        }
-    }
 }
 /*
 83. 删除排序链表中的重复元素

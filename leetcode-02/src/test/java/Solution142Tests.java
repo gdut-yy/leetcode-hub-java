@@ -6,31 +6,31 @@ public class Solution142Tests {
 
     @Test
     public void example1() {
-        Solution142.ListNode head = new Solution142.ListNode(3);
-        head.next = new Solution142.ListNode(2);
-        head.next.next = new Solution142.ListNode(0);
-        head.next.next.next = new Solution142.ListNode(-4);
+        ListNode head = new ListNode(3);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(0);
+        head.next.next.next = new ListNode(-4);
         head.next.next.next.next = head.next;
         // expected
-        Solution142.ListNode expected = head.next;
+        ListNode expected = head.next;
         Assertions.assertEquals(expected, solution142.detectCycle(head));
     }
 
     @Test
     public void example2() {
-        Solution142.ListNode head = new Solution142.ListNode(1);
-        head.next = new Solution142.ListNode(2);
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
         head.next.next = head;
         // expected
-        Solution142.ListNode expected = head;
+        ListNode expected = head;
         Assertions.assertEquals(expected, solution142.detectCycle(head));
     }
 
     @Test
     public void example3() {
-        Solution142.ListNode head = new Solution142.ListNode(1);
+        ListNode head = new ListNode(1);
         // expected
-        Solution142.ListNode expected = null;
+        ListNode expected = null;
         Assertions.assertEquals(expected, solution142.detectCycle(head));
     }
 }

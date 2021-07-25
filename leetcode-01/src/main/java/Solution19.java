@@ -21,30 +21,6 @@ public class Solution19 {
         left.next = left.next.next;
         return head;
     }
-
-    public static class ListNode {
-        int val;
-        ListNode next;
-
-        ListNode(int x) {
-            val = x;
-        }
-
-        // junit
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            ListNode listNode = (ListNode) o;
-            return val == listNode.val;
-        }
-
-        // junit
-        @Override
-        public int hashCode() {
-            return Objects.hash(val);
-        }
-    }
 }
 /*
 19. 删除链表的倒数第 N 个结点

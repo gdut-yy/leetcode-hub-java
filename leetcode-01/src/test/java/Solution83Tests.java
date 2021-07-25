@@ -6,37 +6,26 @@ public class Solution83Tests {
 
     @Test
     public void example1() {
-        Solution83.ListNode head =
-                new Solution83.ListNode(1,
-                        new Solution83.ListNode(1,
-                                new Solution83.ListNode(2)
-                        )
-                );
-        Solution83.ListNode expected =
-                new Solution83.ListNode(1,
-                        new Solution83.ListNode(2)
-                );
-        Assertions.assertEquals(expected, solution83.deleteDuplicates(head));
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        // expected
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(2);
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution83.deleteDuplicates(head)));
     }
 
     @Test
     public void example2() {
-        Solution83.ListNode head =
-                new Solution83.ListNode(1,
-                        new Solution83.ListNode(1,
-                                new Solution83.ListNode(2,
-                                        new Solution83.ListNode(3,
-                                                new Solution83.ListNode(3)
-                                        )
-                                )
-                        )
-                );
-        Solution83.ListNode expected =
-                new Solution83.ListNode(1,
-                        new Solution83.ListNode(2,
-                                new Solution83.ListNode(3)
-                        )
-                );
-        Assertions.assertEquals(expected, solution83.deleteDuplicates(head));
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(1);
+        head.next.next = new ListNode(2);
+        head.next.next.next = new ListNode(3);
+        head.next.next.next.next = new ListNode(3);
+        // expected
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(2);
+        expected.next.next = new ListNode(3);
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution83.deleteDuplicates(head)));
     }
 }

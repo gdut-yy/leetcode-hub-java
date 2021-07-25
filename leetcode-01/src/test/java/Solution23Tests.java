@@ -7,44 +7,44 @@ public class Solution23Tests {
 
     @Test
     public void example1() {
-        Solution23.ListNode listNode1;
-        listNode1 = new Solution23.ListNode(1);
-        listNode1.next = new Solution23.ListNode(4);
-        listNode1.next.next = new Solution23.ListNode(5);
-        Solution23.ListNode listNode2;
-        listNode2 = new Solution23.ListNode(1);
-        listNode2.next = new Solution23.ListNode(3);
-        listNode2.next.next = new Solution23.ListNode(4);
-        Solution23.ListNode listNode3;
-        listNode3 = new Solution23.ListNode(2);
-        listNode3.next = new Solution23.ListNode(6);
-        Solution23.ListNode[] lists = {listNode1, listNode2, listNode3};
+        ListNode listNode1;
+        listNode1 = new ListNode(1);
+        listNode1.next = new ListNode(4);
+        listNode1.next.next = new ListNode(5);
+        ListNode listNode2;
+        listNode2 = new ListNode(1);
+        listNode2.next = new ListNode(3);
+        listNode2.next.next = new ListNode(4);
+        ListNode listNode3;
+        listNode3 = new ListNode(2);
+        listNode3.next = new ListNode(6);
+        ListNode[] lists = {listNode1, listNode2, listNode3};
         // expected
-        Solution23.ListNode expected;
-        expected = new Solution23.ListNode(1);
-        expected.next = new Solution23.ListNode(1);
-        expected.next.next = new Solution23.ListNode(2);
-        expected.next.next.next = new Solution23.ListNode(3);
-        expected.next.next.next.next = new Solution23.ListNode(4);
-        expected.next.next.next.next.next = new Solution23.ListNode(4);
-        expected.next.next.next.next.next.next = new Solution23.ListNode(5);
-        expected.next.next.next.next.next.next.next = new Solution23.ListNode(6);
-        Assertions.assertEquals(expected, solution23.mergeKLists(lists));
+        ListNode expected;
+        expected = new ListNode(1);
+        expected.next = new ListNode(1);
+        expected.next.next = new ListNode(2);
+        expected.next.next.next = new ListNode(3);
+        expected.next.next.next.next = new ListNode(4);
+        expected.next.next.next.next.next = new ListNode(4);
+        expected.next.next.next.next.next.next = new ListNode(5);
+        expected.next.next.next.next.next.next.next = new ListNode(6);
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution23.mergeKLists(lists)));
     }
 
     @Test
     public void example2() {
-        Solution23.ListNode[] lists = {};
+        ListNode[] lists = {};
         // expected
-        Solution23.ListNode expected = null;
-        Assertions.assertEquals(expected, solution23.mergeKLists(lists));
+        ListNode expected = null;
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution23.mergeKLists(lists)));
     }
 
     @Test
     public void example3() {
-        Solution23.ListNode[] lists = {null};
+        ListNode[] lists = {null};
         // expected
-        Solution23.ListNode expected = null;
-        Assertions.assertEquals(expected, solution23.mergeKLists(lists));
+        ListNode expected = null;
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution23.mergeKLists(lists)));
     }
 }

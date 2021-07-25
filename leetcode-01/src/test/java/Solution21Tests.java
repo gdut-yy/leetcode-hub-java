@@ -6,46 +6,35 @@ public class Solution21Tests {
 
     @Test
     public void example1() {
-        Solution21.ListNode l1 =
-                new Solution21.ListNode(1,
-                        new Solution21.ListNode(2,
-                                new Solution21.ListNode(4)
-                        )
-                );
-        Solution21.ListNode l2 =
-                new Solution21.ListNode(1,
-                        new Solution21.ListNode(3,
-                                new Solution21.ListNode(4)
-                        )
-                );
-        Solution21.ListNode expected =
-                new Solution21.ListNode(1,
-                        new Solution21.ListNode(1,
-                                new Solution21.ListNode(2,
-                                        new Solution21.ListNode(3,
-                                                new Solution21.ListNode(4,
-                                                        new Solution21.ListNode(4)
-                                                )
-                                        )
-                                )
-                        )
-                );
-        Assertions.assertEquals(expected, solution21.mergeTwoLists(l1, l2));
+        ListNode l1 = new ListNode(1);
+        l1.next = new ListNode(2);
+        l1.next.next = new ListNode(4);
+        ListNode l2 = new ListNode(1);
+        l2.next = new ListNode(3);
+        l2.next.next = new ListNode(4);
+        // expected
+        ListNode expected = new ListNode(1);
+        expected.next = new ListNode(1);
+        expected.next.next = new ListNode(2);
+        expected.next.next.next = new ListNode(3);
+        expected.next.next.next.next = new ListNode(4);
+        expected.next.next.next.next.next = new ListNode(4);
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution21.mergeTwoLists(l1, l2)));
     }
 
     @Test
     public void example2() {
-        Solution21.ListNode l1 = null;
-        Solution21.ListNode l2 = null;
-        Solution21.ListNode expected = null;
-        Assertions.assertEquals(expected, solution21.mergeTwoLists(l1, l2));
+        ListNode l1 = null;
+        ListNode l2 = null;
+        ListNode expected = null;
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution21.mergeTwoLists(l1, l2)));
     }
 
     @Test
     public void example3() {
-        Solution21.ListNode l1 = null;
-        Solution21.ListNode l2 = new Solution21.ListNode(0);
-        Solution21.ListNode expected = new Solution21.ListNode(0);
-        Assertions.assertEquals(expected, solution21.mergeTwoLists(l1, l2));
+        ListNode l1 = null;
+        ListNode l2 = new ListNode(0);
+        ListNode expected = new ListNode(0);
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution21.mergeTwoLists(l1, l2)));
     }
 }
