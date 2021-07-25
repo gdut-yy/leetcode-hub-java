@@ -16,5 +16,6 @@ public class Solution876 {
 876. 链表的中间结点
 https://leetcode-cn.com/problems/middle-of-the-linked-list/
 
-双指针-快慢指针，当快指针以两倍步长走完时，慢指针刚好到达中点。
+第 95 场周赛 T1。
+双指针。快慢指针。当快指针以两倍步长走完时，慢指针刚好到达中点。
  */

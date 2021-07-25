@@ -16,7 +16,8 @@ public class Solution867 {
 867. 转置矩阵
 https://leetcode-cn.com/problems/transpose-matrix/
 
-第 92 场周赛签到题。
+第 92 场周赛 T1。
+
 1 2 3      1 4
 4 5 6  =>  2 5
            3 6

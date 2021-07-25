@@ -25,6 +25,6 @@ public class Solution832 {
 832. 翻转图像
 https://leetcode-cn.com/problems/flipping-an-image/
 
-第 84 场周赛签到题。
+第 84 场周赛 T1。
 根据题意进行模拟即可
  */

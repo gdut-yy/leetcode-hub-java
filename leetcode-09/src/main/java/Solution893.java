@@ -39,6 +39,7 @@ public class Solution893 {
 893. 特殊等价字符串组
 https://leetcode-cn.com/problems/groups-of-special-equivalent-strings/
 
+第 99 场周赛 T2。
 经过任意次交换字符串 s 任意两个偶数下标的字符或任意两个奇数下标的字符，使字符串 s 与字符串 t 相等，s 与 t 即是特殊等价字符串
 由此易得出，统计两个字符串偶数下标字符频次与奇数下标字符频次，如果相等，即为特殊等价字符串
 

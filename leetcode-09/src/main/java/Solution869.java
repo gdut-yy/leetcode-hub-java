@@ -26,6 +26,7 @@ public class Solution869 {
 869. 重新排序得到 2 的幂
 https://leetcode-cn.com/problems/reordered-power-of-2/
 
+第 93 场周赛 T2。
 按任何顺序重排，但是字符出现次数是不变的。
 魔鬼数字解释：
 32: int 最大是 32bit

@@ -24,7 +24,7 @@ public class Solution836 {
 836. 矩形重叠
 https://leetcode-cn.com/problems/rectangle-overlap/
 
-第 85 场周赛签到题。
+第 85 场周赛 T1。
 需要明确的是，只在角或边接触的两个矩形不构成重叠。
 用草稿纸稍微推导一下即可
  */

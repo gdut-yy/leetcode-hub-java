@@ -19,7 +19,7 @@ public class Solution848 {
 848. 字母移位
 https://leetcode-cn.com/problems/shifting-letters/
 
-第 88 场周赛签到题。
+第 88 场周赛 T1。
 最后的字母移位次数最少，而最前面的字母却是所有次数之和。
 类前缀和，可以构造出反向前缀和。根据题意进行模拟即可。
 注意 int[] 的前缀和数组会溢出，需用 long[]

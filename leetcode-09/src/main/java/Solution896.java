@@ -35,5 +35,6 @@ public class Solution896 {
 896. 单调数列
 https://leetcode-cn.com/problems/monotonic-array/
 
-第 100 场周赛签到题。分别判断 单调递增 或 单调递减即可。|| 自带剪枝
+第 100 场周赛 T1。
+分别判断 单调递增 或 单调递减 即可。|| 自带剪枝
  */

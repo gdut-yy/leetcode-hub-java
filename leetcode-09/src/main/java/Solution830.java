@@ -33,6 +33,6 @@ public class Solution830 {
 830. 较大分组的位置
 https://leetcode-cn.com/problems/positions-of-large-groups/
 
-第 83 场周赛签到题。
+第 83 场周赛 T1。
 类双指针。末位补 0 防止越界。注意 List.of() 写法
  */

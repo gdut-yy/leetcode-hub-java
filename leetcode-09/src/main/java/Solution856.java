@@ -19,6 +19,7 @@ public class Solution856 {
 856. 括号的分数
 https://leetcode-cn.com/problems/score-of-parentheses/
 
+第 90 场周赛 T2。
 官方题解十分巧妙：只有 () 会对字符串 s 贡献实质的分数，其它的括号只会将分数乘二或者将分数累加。
 因此，可以找到每一个 () 对应的深度 x，答案就是 2^x 的累加和
 时间复杂度 O(n)

@@ -37,6 +37,7 @@ public class Solution846 {
 846. 一手顺子
 https://leetcode-cn.com/problems/hand-of-straights/
 
+第 87 场周赛 T3。
 此题目与 1296 重复：https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
 TreeMap 很少登场，特性类似优先队列，根据 key 升序排序。
 暴力模拟。从最小的牌开始取，连续取，若取完，即可以完成分组

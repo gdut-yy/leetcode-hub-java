@@ -42,4 +42,8 @@ public class Solution859 {
 /*
 859. 亲密字符串
 https://leetcode-cn.com/problems/buddy-strings/
+
+第 90 场周赛 T1。
+给定两个由小写字母构成的字符串 A 和 B ，只要我们可以通过交换 A 中的两个字母得到与 B 相等的结果，就返回 true ；否则返回 false 。
+交换 A 中的两个字母。则两个字符串各字符频次必须相等。
  */
