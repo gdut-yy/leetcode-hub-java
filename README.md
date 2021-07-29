@@ -6,8 +6,21 @@
 
 其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
 
+
+
 ```sh
-mvn clean test -T 1C
+# jdk11:
+mvn clean test
+
+# 如果你系统 PATH 中使用的是 jdk8，需要指定 jdk11：
+"C:\Program Files\Java\jdk-11\bin\java.exe" \
+-Dmaven.multiModuleProjectDirectory=C:\Users\DEVYY\Documents\GitHub\LTS\leetcode-hub-java \
+"-Dmaven.home=C:\Program Files\apache-maven-3.3.9" \
+"-Dclassworlds.conf=C:\Program Files\apache-maven-3.3.9\bin\m2.conf" \
+-Dfile.encoding=UTF-8 \
+-classpath "C:\Program Files\apache-maven-3.3.9\boot\plexus-classworlds-2.5.2.jar" \
+org.codehaus.classworlds.Launcher \
+clean test
 ```
 
 ## UT、TDD
@@ -218,3 +231,10 @@ public int bfs(char[][] maze, int[] entrance) {
 - [114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
 - [116. 填充每个节点的下一个右侧节点指针](https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/)
 - [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+
+### 单调栈
+
+- [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/)
+- [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
+- [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
+- [1944. 队列中可以看到的人数](https://leetcode-cn.com/problems/number-of-visible-people-in-a-queue/)
