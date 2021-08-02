@@ -1,18 +1,19 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Solution1944 {
     public int[] canSeePersonsCount(int[] heights) {
         int len = heights.length;
         int[] res = new int[len];
         // 单调栈
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         for (int i = len - 1; i >= 0; i--) {
-            while (!stack.empty() && stack.peek() <= heights[i]) {
+            while (!stack.isEmpty() && stack.peek() <= heights[i]) {
                 // 单调栈中比自己低的都能看到
                 res[i]++;
                 stack.pop();
             }
-            if (!stack.empty()) {
+            if (!stack.isEmpty()) {
                 // 能看到一个比自己高的
                 res[i]++;
             }

@@ -6,8 +6,6 @@
 
 其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
 
-
-
 ```sh
 # jdk11:
 mvn clean test
@@ -233,6 +231,16 @@ public int bfs(char[][] maze, int[] entrance) {
 - [226. 翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
 
 ### 单调栈
+
+注意：Java 中 "栈" 应使用 Deque 代替 Stack（Java 官方建议）。即
+
+```java
+// Bad
+Stack<Character> stack = new Stack<>();
+
+// Good
+Deque<Character> stack = new ArrayDeque<>();
+```
 
 - [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/)
 - [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)

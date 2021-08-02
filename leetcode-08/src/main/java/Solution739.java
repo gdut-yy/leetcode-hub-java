@@ -1,16 +1,17 @@
-import java.util.Stack;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 public class Solution739 {
     public int[] dailyTemperatures(int[] temperatures) {
         int len = temperatures.length;
         int[] res = new int[len];
         // 单调栈 存放数组元素下标而非数组元素
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         for (int i = len - 1; i >= 0; i--) {
-            while (!stack.empty() && temperatures[stack.peek()] <= temperatures[i]) {
+            while (!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
                 stack.pop();
             }
-            if (!stack.empty()) {
+            if (!stack.isEmpty()) {
                 res[i] = stack.peek() - i;
             } else {
                 res[i] = 0;

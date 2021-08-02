@@ -1,11 +1,12 @@
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Stack;
 
 public class Solution496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         // 单调栈
-        Stack<Integer> stack = new Stack<>();
+        Deque<Integer> stack = new ArrayDeque<>();
         Map<Integer, Integer> resMap = new HashMap<>();
         for (int i = nums2.length - 1; i >= 0; i--) {
             while (!stack.isEmpty() && stack.peek() <= nums2[i]) {
