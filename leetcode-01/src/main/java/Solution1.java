@@ -5,20 +5,20 @@ public class Solution1 {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
+            // 2  => 0
+            // 7  => 1
+            // 11 => 2
+            // 15 => 3
             map.put(nums[i], i);
-            // 0 => 2
-            // 1 => 7
-            // 2 => 11
-            // 3 => 15
         }
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
+            int want = target - nums[i];
             // complement => 9 - 2 = 7
-            if (map.containsKey(complement) && map.get(complement) != i) {
-                return new int[]{i, map.get(complement)};
+            if (map.containsKey(want) && map.get(want) != i) {
+                return new int[]{i, map.get(want)};
             }
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[]{};
     }
 }
 /*

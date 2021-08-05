@@ -1,10 +1,7 @@
 public class Solution1954 {
     public long minimumPerimeter(long neededApples) {
-        // 打表
-        // 10^14 233920
-        // 10^15 503968
-        long[] sum = new long[503968];
-        for (int i = 1; i < 503968; i++) {
+        long[] sum = new long[62997];
+        for (int i = 1; i < 62997; i++) {
             sum[i] = sum[i - 1] + 12L * i * i;
             if (sum[i] >= neededApples) {
                 return i * 8;
@@ -14,6 +11,9 @@ public class Solution1954 {
     }
 
     public static void main(String[] args) {
+        // long[] sum = new long[n] n 可以先取一个较大的数，然后计算边界值时的 i，再缩小到临界值，降低判题时的内存使用率
+        // 10^15 503968
+        // 那么 n 可以取 503968 / 8 + 1, 即 62997
         long max = (long) Math.pow(10, 15);
         System.out.println(new Solution1954().minimumPerimeter(max));
     }
