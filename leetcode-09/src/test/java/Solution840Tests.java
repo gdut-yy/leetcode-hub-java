@@ -16,7 +16,6 @@ public class Solution840Tests {
     }
 
     // 以下为解答错误的补充用例
-
     @Test
     public void example2() {
         int[][] grid = {

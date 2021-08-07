@@ -44,6 +44,8 @@ junit5 常用断言：
 - ListNode 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)` 第 19、21、23、83、141、142、876 题等；
 - TreeNode 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
 
+部分题目符合题意的答案可能并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5 题等；
+
 ## 常用算法模板
 
 ### 前缀和数组
