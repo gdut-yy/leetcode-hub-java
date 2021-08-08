@@ -62,7 +62,8 @@ public class Solution5 {
      * @return 最长回文子串
      */
     public String longestPalindrome2(String s) {
-        int start = 0, end = -1;
+        int start = 0;
+        int end = -1;
         // 填充字符 # (统一 长度为奇数、长度为奇数 两种场景)
         // aaba => #a#a#b#a#
         StringBuilder stringBuilder = new StringBuilder("#");
@@ -106,7 +107,7 @@ public class Solution5 {
         return ans.toString();
     }
 
-    public int expand(String s, int left, int right) {
+    private int expand(String s, int left, int right) {
         while (left >= 0 && right < s.length() && s.charAt(left) == s.charAt(right)) {
             left--;
             right++;

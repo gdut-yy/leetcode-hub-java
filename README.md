@@ -1,22 +1,22 @@
 # leetcode-hub-java
 
-基于 java11 + junit5 + allure2 的 leetcode 练习仓库
+基于 `jdk11` + `junit5` 的 leetcode 练习仓库。
 
-（拼搏百天，我要完成 300 道 leetcode 题！额。。不好意思，走错片场了。。
+（拼搏百天，我要完成 300 道 leetcode 题！额，不好意思，走错片场了。。。
 
-其中，leetcode-n 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 leetcode-19 存放 1801 ~ 1900 的题目）。
+`leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 
 ```sh
 # jdk11:
 mvn clean test
 
-# 如果你系统 PATH 中使用的是 jdk8，需要指定 jdk11：
+# 如果系统 PATH 中使用的是 jdk8，需要指定 jdk11:
 "C:\Program Files\Java\jdk-11\bin\java.exe" \
 -Dmaven.multiModuleProjectDirectory=C:\Users\DEVYY\Documents\GitHub\LTS\leetcode-hub-java \
-"-Dmaven.home=C:\Program Files\apache-maven-3.3.9" \
-"-Dclassworlds.conf=C:\Program Files\apache-maven-3.3.9\bin\m2.conf" \
+"-Dmaven.home=C:\Program Files\apache-maven-3.8.1" \
+"-Dclassworlds.conf=C:\Program Files\apache-maven-3.8.1\bin\m2.conf" \
 -Dfile.encoding=UTF-8 \
--classpath "C:\Program Files\apache-maven-3.3.9\boot\plexus-classworlds-2.5.2.jar" \
+-classpath "C:\Program Files\apache-maven-3.8.1\boot\plexus-classworlds-2.5.2.jar" \
 org.codehaus.classworlds.Launcher \
 clean test
 ```
@@ -39,12 +39,13 @@ junit5 常用断言：
 - Assertions.assertFalse
 - Assertions.assertArrayEquals
 
-注意：由于 leetcode 部分题目使用了自定义对象，`Assertions.assertEquals` 已不能满足这种场景需要（需重写自定义对象的 equals 与 hashCode 方法），我们可以使用自定义断言对这类对象进行判定：
+思考：一些较为特殊的判题 UT 写法：
 
-- ListNode 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)` 第 19、21、23、83、141、142、876 题等；
-- TreeNode 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
-
-部分题目符合题意的答案可能并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5 题等；
+1. 部分题目使用了自定义对象，`Assertions.assertEquals` 已不能满足这种场景需要（或需重写自定义对象的 `equals` 与 `hashCode` 方法），可以使用自定义断言对这类对象进行判定：
+   - `ListNode` 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)` 第 19、21、23、83、141、142、876 题等；
+   - `TreeNode` 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
+2. 部分题目符合题意的答案并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5 题等；
+3. 部分题目符合题意的答案是一个集合，但对集合元素的顺序没有要求，可以对 `expected` 和 `actual` 集合进行排序后判等，如第 46、51 题等；
 
 ## 常用算法模板
 
@@ -199,7 +200,10 @@ public int bfs(char[][] maze, int[] entrance) {
 - [1293. 网格中的最短路径](https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
 - [1926. 迷宫中离入口最近的出口](https://leetcode-cn.com/problems/nearest-exit-from-entrance-in-maze/submissions/)
 
-### 深度优先搜索 DFS
+### 深度优先搜索 DFS（回溯算法）
+
+- [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+- [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
 
 ### KMP 算法
 
@@ -234,17 +238,19 @@ public int bfs(char[][] maze, int[] entrance) {
 
 ### 单调栈
 
-注意：Java 中 "栈" 应使用 Deque 代替 Stack（Java 官方建议）。即
+注意：Java 中 "栈" 应使用 Deque 代替 Stack（Java 官方建议）。即：
 
 ```java
 // Bad
-Stack<Character> stack = new Stack<>();
+Stack<T> stack = new Stack<>();
 
 // Good
-Deque<Character> stack = new ArrayDeque<>();
+Deque<T> stack = new ArrayDeque<>();
 ```
 
 - [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/)
 - [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
 - [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
 - [1944. 队列中可以看到的人数](https://leetcode-cn.com/problems/number-of-visible-people-in-a-queue/)
+
+（全文完）
