@@ -18,7 +18,7 @@ public class Solution1961Tests {
         Assertions.assertFalse(solution1961.isPrefixString(s, words));
     }
 
-    // 以下为解答错误的补充用例
+    // 补充用例
     @Test
     public void example3() {
         String s = "a";

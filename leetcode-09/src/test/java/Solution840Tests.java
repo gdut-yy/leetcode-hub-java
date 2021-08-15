@@ -15,7 +15,7 @@ public class Solution840Tests {
         Assertions.assertEquals(expected, solution840.numMagicSquaresInside(grid));
     }
 
-    // 以下为解答错误的补充用例
+    // 补充用例
     @Test
     public void example2() {
         int[][] grid = {

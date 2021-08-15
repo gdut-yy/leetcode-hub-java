@@ -13,10 +13,10 @@ mvn clean test
 # 如果系统 PATH 中使用的是 jdk8，需要指定 jdk11:
 "C:\Program Files\Java\jdk-11\bin\java.exe" \
 -Dmaven.multiModuleProjectDirectory=C:\Users\DEVYY\Documents\GitHub\LTS\leetcode-hub-java \
-"-Dmaven.home=C:\Program Files\apache-maven-3.8.1" \
-"-Dclassworlds.conf=C:\Program Files\apache-maven-3.8.1\bin\m2.conf" \
+"-Dmaven.home=C:\Program Files\apache-maven-3.8.2" \
+"-Dclassworlds.conf=C:\Program Files\apache-maven-3.8.2\bin\m2.conf" \
 -Dfile.encoding=UTF-8 \
--classpath "C:\Program Files\apache-maven-3.8.1\boot\plexus-classworlds-2.5.2.jar" \
+-classpath "C:\Program Files\apache-maven-3.8.2\boot\plexus-classworlds-2.6.0.jar" \
 org.codehaus.classworlds.Launcher \
 clean test
 ```
@@ -101,6 +101,8 @@ for (int i = 1; i < diff.length; i++) {
 
 ```java
 public long fastPower(long x, long pow, int mod) {
+    // 取模
+    x %= mod;
     long ans = 1;
     while (pow > 0) {
         if (pow % 2 == 1) {
@@ -252,5 +254,16 @@ Deque<T> stack = new ArrayDeque<>();
 - [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
 - [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
 - [1944. 队列中可以看到的人数](https://leetcode-cn.com/problems/number-of-visible-people-in-a-queue/)
+
+## 学习资源
+
+- [OI-Wiki](https://oi-wiki.org/)
+- [codeforces](https://codeforces.com/)
+- [北大 OJ](http://poj.org/)
+- [中科大 OJ](http://acm.ustc.edu.cn/ustcoj/)
+- [杭电 OJ](https://www.acm.hdu.edu.cn/)
+- [哈工大 OJ](http://acm.hit.edu.cn/)
+- [洛谷](https://www.luogu.com.cn/)
+- [labuladong](https://labuladong.gitbook.io/algo/)
 
 （全文完）

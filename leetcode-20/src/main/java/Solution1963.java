@@ -16,11 +16,7 @@ public class Solution1963 {
             }
         }
         int sz = stack.size();
-        if (sz % 2 == 0) {
-            return sz / 2;
-        } else {
-            return sz / 2 + 1;
-        }
+        return (sz + 1) / 2;
     }
 }
 /*
@@ -38,4 +34,6 @@ https://leetcode-cn.com/problems/minimum-number-of-swaps-to-make-the-string-bala
 
 当不匹配数为偶数时，最小交换次数 = n / 2
 当不匹配数为奇数时，最小交换次数 = n / 2 + 1
+
+可直接简化成最小交换次数 = (n + 1) / 2
  */

@@ -40,7 +40,7 @@ public class Solution5Tests {
         Assertions.assertTrue(expectedList.contains(solution5.longestPalindrome2(s)));
     }
 
-    // 以下为解答错误的补充用例
+    // 补充用例
     @Test
     public void example5() {
         String s = "bb";

@@ -25,7 +25,7 @@ public class Solution917Tests {
         Assertions.assertEquals(expected, solution917.reverseOnlyLetters(s));
     }
 
-    // 以下为解答错误的补充用例
+    // 补充用例
     @Test
     public void example4() {
         String s = "7_28]";
