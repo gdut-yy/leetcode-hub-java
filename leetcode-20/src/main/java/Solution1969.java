@@ -95,18 +95,15 @@ public class Solution1969 {
         }
     }
 
-    public static long fastPower(long x, long pow, int mod) {
-        // 取模
+    private static long fastPower(long x, long pow, int mod) {
         x %= mod;
         long ans = 1;
         while (pow > 0) {
             if (pow % 2 == 1) {
                 ans *= x;
-                // 取模
                 ans %= mod;
             }
             x *= x;
-            // 取模
             x %= mod;
             pow /= 2;
         }

@@ -13,16 +13,15 @@ public class Solution1922 {
         }
     }
 
-    public long fastPower(long x, long pow, int mod) {
+    private long fastPower(long x, long pow, int mod) {
+        x %= mod;
         long ans = 1;
         while (pow > 0) {
             if (pow % 2 == 1) {
                 ans *= x;
-                // 取模
                 ans %= mod;
             }
             x *= x;
-            // 取模
             x %= mod;
             pow /= 2;
         }

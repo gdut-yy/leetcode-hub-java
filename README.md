@@ -100,7 +100,7 @@ for (int i = 1; i < diff.length; i++) {
 ### 快速幂
 
 ```java
-public long fastPower(long x, long pow, int mod) {
+private long fastPower(long x, long pow, int mod) {
     // 取模
     x %= mod;
     long ans = 1;
@@ -120,6 +120,7 @@ public long fastPower(long x, long pow, int mod) {
 ```
 
 - [1922. 统计好数字的数目](https://leetcode-cn.com/problems/count-good-numbers/)
+- [1969. 数组元素的最小非零乘积](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/)
 
 ### 双指针
 
@@ -214,6 +215,7 @@ public int bfs(char[][] maze, int[] entrance) {
 ### Manacher 马拉车算法
 
 - [5. 最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+- [1960. 两个回文子字符串长度的最大乘积](https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/)
 
 ### 约瑟夫环问题
 
