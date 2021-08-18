@@ -29,6 +29,8 @@
         <module>leetcode-18</module>
         <module>leetcode-19</module>
         <module>leetcode-20</module>
+        <module>leetcode-offer1</module>
+        <module>leetcode-offer2</module>
     </modules>
     <packaging>pom</packaging>
 
