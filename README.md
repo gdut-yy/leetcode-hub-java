@@ -274,4 +274,18 @@ Deque<T> stack = new ArrayDeque<>();
 - [洛谷](https://www.luogu.com.cn/)
 - [labuladong](https://labuladong.gitbook.io/algo/)
 
+## 《剑指 Offer（专项突破版）》
+
+整数
+
+1. [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
+2. [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/)
+3. [338. 比特位计数](https://leetcode-cn.com/problems/counting-bits/)
+4. [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
+5. [318. 最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/)
+
+数组
+
+6. [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
+
 （全文完）

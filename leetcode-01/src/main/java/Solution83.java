@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Solution83 {
     public ListNode deleteDuplicates(ListNode head) {
         if (head == null) {
