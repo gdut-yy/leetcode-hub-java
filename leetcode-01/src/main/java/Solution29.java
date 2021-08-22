@@ -21,7 +21,8 @@ public class Solution29 {
         while (dividend <= divisor) {
             int value = divisor;
             int quotient = 1;
-            while (value >= Integer.MIN_VALUE >> 1 && dividend <= value + value) {
+            // Integer.MIN_VALUE / 2
+            while (value >= (Integer.MIN_VALUE >> 1) && dividend <= value + value) {
                 quotient += quotient;
                 value += value;
             }
@@ -35,5 +36,5 @@ public class Solution29 {
 29. 两数相除
 https://leetcode-cn.com/problems/divide-two-integers/
 
-思维题（实际意义不大）
+思维题（实际工程中意义不大）
  */

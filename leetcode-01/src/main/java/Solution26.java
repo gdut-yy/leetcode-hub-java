@@ -5,7 +5,8 @@ public class Solution26 {
         if (nums.length == 0) {
             return 0;
         }
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         while (right < nums.length) {
             if (nums[left] != nums[right]) {
                 // left 先加再赋值，因为 left 本身是需要返回的
@@ -22,5 +23,5 @@ public class Solution26 {
 26. 删除有序数组中的重复项
 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
 
-双指针。快慢指针。
+双指针。
  */

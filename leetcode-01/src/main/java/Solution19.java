@@ -3,20 +3,20 @@ public class Solution19 {
         if (head == null) {
             return null;
         }
-        ListNode left = head;
-        ListNode right = head;
+        ListNode slow = head;
+        ListNode fast = head;
         for (int i = 0; i < n; i++) {
-            right = right.next;
+            fast = fast.next;
         }
-        if (right == null) {
+        if (fast == null) {
             return head.next;
         }
-        // 上文已保证 right != null
-        while (right.next != null) {
-            left = left.next;
-            right = right.next;
+        // 上文已保证 fast != null
+        while (fast.next != null) {
+            slow = slow.next;
+            fast = fast.next;
         }
-        left.next = left.next.next;
+        slow.next = slow.next.next;
         return head;
     }
 }
@@ -24,5 +24,5 @@ public class Solution19 {
 19. 删除链表的倒数第 N 个结点
 https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 
-让快指针先走 n 步，然后快慢指针同速前进
+双指针-快慢指针。让快指针先走 n 步，然后同速前进
  */

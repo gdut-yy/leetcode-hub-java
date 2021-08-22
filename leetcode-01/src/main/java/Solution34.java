@@ -61,5 +61,5 @@ public class Solution34 {
 34. 在排序数组中查找元素的第一个和最后一个位置
 https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-二分搜索
+二分搜索找左/右边界
  */

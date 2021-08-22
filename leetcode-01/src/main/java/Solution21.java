@@ -1,5 +1,3 @@
-import java.util.Objects;
-
 public class Solution21 {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
         ListNode merge = new ListNode();

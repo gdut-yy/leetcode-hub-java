@@ -39,11 +39,7 @@ public class Solution300 {
     public int lengthOfLIS2(int[] nums) {
         // 1 <= nums.length <= 2500
         int numsLen = nums.length;
-
         int len = 1;
-        // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
-        int[] dp = new int[numsLen];
-        dp[0] = 1;
 
         // d[i] 表示长度为 i 的最长上升子序列的末尾元素的最小值，用 len 记录目前最长上升子序列的长度
         int[] d = new int[numsLen + 1];
@@ -68,7 +64,6 @@ public class Solution300 {
                 }
                 d[pos + 1] = nums[i];
             }
-            dp[i] = len;
         }
         return len;
     }
@@ -77,8 +72,10 @@ public class Solution300 {
 300. 最长递增子序列
 https://leetcode-cn.com/problems/longest-increasing-subsequence/
 
-LIS 模板题
-二分优化后
+LIS 模板题。二分优化后：
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
+
+相似题目：
+第 1964 题 https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position/
  */

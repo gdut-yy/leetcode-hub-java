@@ -17,5 +17,5 @@ public class Solution283 {
 283. 移动零
 https://leetcode-cn.com/problems/move-zeroes/submissions/
 
-双指针。快慢指针。相当于 27 题需要移除的元素为 0，然后剩余的数组部分再补充上 0。
+双指针。相当于 27 题需要移除的元素为 0，然后剩余的数组部分再补充上 0。
  */

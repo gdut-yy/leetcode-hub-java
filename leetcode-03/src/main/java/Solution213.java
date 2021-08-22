@@ -32,5 +32,5 @@ public class Solution213 {
 https://leetcode-cn.com/problems/house-robber-ii/
 
 打家劫舍系列。难度升级，围成一个圈，即首尾不能同时偷。
-有一种取巧的办法：沿用 198 题的解法，取 [0, n-1] 与 [1, n] 二者中的最大值。
+有一种取巧的办法：沿用第 198 题的解法，取 [0, n-1] 与 [1, n] 二者中的最大值。
  */

@@ -10,6 +10,7 @@ public class Solution713Tests {
         int k = 100;
         int expected = 8;
         Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK(nums, k));
+        Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK2(nums, k));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution713Tests {
         int k = 0;
         int expected = 0;
         Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK(nums, k));
+        Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK2(nums, k));
     }
 
     @Test
@@ -26,5 +28,6 @@ public class Solution713Tests {
         int k = 9931;
         int expected = 4370;
         Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK(nums, k));
+        Assertions.assertEquals(expected, solution713.numSubarrayProductLessThanK2(nums, k));
     }
 }

@@ -8,8 +8,9 @@ public class Solution125 {
         // 只考虑字母和数字字符，可以忽略字母的大小写
         String str = s.toLowerCase(Locale.ENGLISH).replaceAll("[^0-9a-z]+", "");
         int len = str.length();
-        for (int i = 0; i < len / 2; i++) {
-            if (str.charAt(i) != str.charAt(len - 1 - i)) {
+        for (int left = 0; left < len / 2; left++) {
+            int right = len - 1 - left;
+            if (str.charAt(left) != str.charAt(right)) {
                 return false;
             }
         }

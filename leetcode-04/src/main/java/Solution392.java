@@ -2,6 +2,7 @@ public class Solution392 {
     public boolean isSubsequence(String s, String t) {
         int curIndex = -1;
         for (char ch : s.toCharArray()) {
+            // jdk indexOf
             curIndex = t.indexOf(ch, curIndex + 1);
             if (curIndex == -1) {
                 return false;

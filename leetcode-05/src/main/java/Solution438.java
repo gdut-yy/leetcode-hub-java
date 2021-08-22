@@ -55,5 +55,5 @@ https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/
 
 字母异位词指字母相同，但排列不同的字符串。
 滑动窗口-固定窗口。由于是固定窗口，所以可以不用双指针，只用一个指针就 ok
-本题于 567 题几乎一致。
+本题与第 567 题几乎一致。
  */

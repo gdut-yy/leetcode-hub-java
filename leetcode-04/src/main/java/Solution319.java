@@ -16,5 +16,4 @@ https://leetcode-cn.com/problems/bulb-switcher/
 找出 n 轮后有多少个亮着的灯泡。
 
 平方根。
-
  */

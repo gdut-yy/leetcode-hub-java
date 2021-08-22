@@ -24,5 +24,5 @@ public class Solution83 {
 83. 删除排序链表中的重复元素
 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
 
-双指针。快慢指针。27 题的指针版。
+双指针。第 27 题的指针版。
  */

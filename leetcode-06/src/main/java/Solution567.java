@@ -53,5 +53,5 @@ public class Solution567 {
 https://leetcode-cn.com/problems/permutation-in-string/
 
 滑动窗口-固定窗口。由于是固定窗口，所以可以不用双指针，只用一个指针就 ok
-本题于 438 题几乎一致。
+本题与第 438 题几乎一致。
  */

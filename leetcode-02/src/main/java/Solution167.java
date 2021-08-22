@@ -3,6 +3,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution167 {
+    /**
+     * 二分法（时间复杂度不如 HashMap 法）
+     *
+     * @param numbers 升序排列 的整数数组
+     * @param target  目标数
+     * @return 两个数满足相加之和等于目标数
+     */
     public int[] twoSum2(int[] numbers, int target) {
         for (int i = 0; i < numbers.length; i++) {
             int cur = numbers[i];
@@ -19,6 +26,13 @@ public class Solution167 {
         return new int[]{-1, -1};
     }
 
+    /**
+     * HashMap 法
+     *
+     * @param numbers 升序排列 的整数数组
+     * @param target  目标数
+     * @return 两个数满足相加之和等于目标数
+     */
     public int[] twoSum(int[] numbers, int target) {
         Map<Integer, Integer> map = new HashMap<>();
         for (int i = 0; i < numbers.length; i++) {
@@ -45,5 +59,5 @@ https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
 
 第 1 题两数之和的简化版。没错，确实是简化版，区别在于第 1 题数组无序，这题数组有序。
 HashMap 解法: 时间复杂度 O(n)
-二分搜索解法: 时间复杂度 O(nlogn), 因此本题二分搜索并不是优选方法
+二分搜索解法: 时间复杂度 O(nlogn), 本题二分搜索并不是优选方法
  */

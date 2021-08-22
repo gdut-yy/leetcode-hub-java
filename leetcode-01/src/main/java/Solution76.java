@@ -12,7 +12,8 @@ public class Solution76 {
             tCntMap.put(t.charAt(i), tCntMap.getOrDefault(t.charAt(i), 0) + 1);
         }
         // 双指针-滑动窗口
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         // 此处有坑，不能直接 s.length() 因为存在 s = "a", t = "b" 用例
         int ansLen = Integer.MAX_VALUE;
         int ansStart = 0;

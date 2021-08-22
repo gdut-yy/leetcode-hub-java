@@ -10,7 +10,7 @@ public class Solution15 {
         }
         int i = 0;
         while (i < nums.length - 2) {
-            // 双指针 “两数之和”
+            // “两数之和” 双指针法
             twoSum(nums, i, res);
             int tmp = nums[i];
             // 去除重复的元组
@@ -45,7 +45,11 @@ public class Solution15 {
 15. 三数之和
 https://leetcode-cn.com/problems/3sum/
 
-两数之和 升级版，先选出一个数，余下两个数用双指针方法解决
+两数之和 升级版。相关题目：
+第 1 题 https://leetcode-cn.com/problems/two-sum/
+第 167 题 https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+
+先选出一个数，余下两个数用双指针方法解决
 时间复杂度 O(n^2)
 其中排序时间复杂度 O(nlogn)
  */

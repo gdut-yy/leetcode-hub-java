@@ -17,13 +17,14 @@ public class Solution56 {
         List<int[]> resList = new ArrayList<>();
         for (int i = 1; i < intervals.length; i++) {
             int[] interval = intervals[i];
+            // case1:
             // left-------------------------right
             //      interval[0]-interval[1]
             if (left <= interval[0] && right >= interval[1]) {
                 // 无需处理 忽略即可
                 continue;
             }
-
+            // case2:
             // left-------------right
             //      interval[0]-------interval[1]
             if (right >= interval[0] && right <= interval[1]) {
@@ -31,7 +32,7 @@ public class Solution56 {
                 right = interval[1];
                 continue;
             }
-
+            // case3:
             // left-right
             //            interval[0]-interval[1]
             if (right < interval[0]) {
@@ -56,5 +57,5 @@ public class Solution56 {
 56. 合并区间
 https://leetcode-cn.com/problems/merge-intervals/
 
-排序，分情况合并区间即可。
+排序后分三种情况合并区间即可。
  */

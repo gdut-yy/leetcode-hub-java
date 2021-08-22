@@ -26,6 +26,9 @@ public class Solution525 {
 525. 连续数组
 https://leetcode-cn.com/problems/contiguous-array/
 
+给定一个二进制数组 nums , 找到含有相同数量的 0 和 1 的最长连续子数组，并返回该子数组的长度。
+将 0 看成 -1，等价于求最长和为 0 的连续子数组。参考第 560 题实现思路。
+
 时间复杂度 O(n)
 空间复杂度 O(n)
  */
