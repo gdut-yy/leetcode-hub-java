@@ -295,4 +295,14 @@ Deque<T> stack = new ArrayDeque<>();
 12. [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index/)
 13. [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 
+### 字符串
+
+14. [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)
+15. [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
+16. [3. 无重复字符的最长子串](https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/)
+17. [76. 最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+18. [125. 验证回文串](https://leetcode-cn.com/problems/valid-palindrome/submissions/)
+19. [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)
+20. [647. 回文子串](https://leetcode-cn.com/problems/palindromic-substrings/)
+
 （全文完）
