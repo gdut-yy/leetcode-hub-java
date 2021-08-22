@@ -276,7 +276,7 @@ Deque<T> stack = new ArrayDeque<>();
 
 ## 《剑指 Offer（专项突破版）》
 
-整数
+### 整数
 
 1. [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
 2. [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/)
@@ -284,8 +284,15 @@ Deque<T> stack = new ArrayDeque<>();
 4. [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
 5. [318. 最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/)
 
-数组
+### 数组
 
 6. [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
+7. [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
+8. [209. 长度最小的子数组](https://leetcode-cn.com/problems/minimum-size-subarray-sum/)
+9. [713. 乘积小于 K 的子数组](https://leetcode-cn.com/problems/subarray-product-less-than-k/)
+10. [560. 和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+11. [525. 连续数组](https://leetcode-cn.com/problems/contiguous-array/)
+12. [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index/)
+13. [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 
 （全文完）

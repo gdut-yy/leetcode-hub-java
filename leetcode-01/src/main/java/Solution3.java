@@ -6,7 +6,8 @@ public class Solution3 {
         Map<Character, Integer> sCntMap = new HashMap<>();
         int ans = 0;
         // 双指针-滑动窗口
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         while (right < s.length()) {
             // 右指针右移
             char addCh = s.charAt(right);
