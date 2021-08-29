@@ -1,24 +1,15 @@
 import java.util.Arrays;
 
-public class SolutionLCP28 {
-    public int purchasePlans(int[] nums, int target) {
-        Arrays.sort(nums);
-        int len = nums.length;
+public class SolutionLCP18 {
+    public int breakfastNumber(int[] staple, int[] drinks, int x) {
         long cnt = 0;
-        for (int i = 0; i < len - 1; i++) {
-            // 超出时间限制
-//            for (int j = i + 1; j < len; j++) {
-//                if (nums[i] + nums[j] <= target) {
-//                    cnt++;
-//                }
-//            }
-
-            // 二分优化
-            int j = binarySearchRightBound(nums, target - nums[i]);
-            if (j > i) {
-                cnt = cnt + j - i;
-            } else {
-                break;
+        Arrays.sort(staple);
+        Arrays.sort(drinks);
+        for (int i = 0; i < staple.length; i++) {
+            int want = x - staple[i];
+            int idx = binarySearchRightBound(drinks, want);
+            if (idx >= 0 && idx < drinks.length) {
+                cnt += idx + 1;
             }
         }
         return (int) (cnt % 1000000007);
@@ -44,9 +35,9 @@ public class SolutionLCP28 {
     }
 }
 /*
-LCP 28. 采购方案
-https://leetcode-cn.com/problems/4xy4Wx/
+LCP 18. 早餐组合
+https://leetcode-cn.com/problems/2vYnGI/
 
-类似 LCP17 排序 + 二分
+排序 + 二分
 时间复杂度 O(nlogn)
  */
