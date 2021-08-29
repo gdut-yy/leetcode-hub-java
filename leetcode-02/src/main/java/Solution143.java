@@ -8,7 +8,7 @@ public class Solution143 {
             slow = slow.next;
             fast = fast.next;
             if (fast.next != null) {
-                fast = fast.next.next;
+                fast = fast.next;
             }
         }
         ListNode tmp = slow.next;

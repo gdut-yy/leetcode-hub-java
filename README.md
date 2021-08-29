@@ -317,4 +317,13 @@ Deque<T> stack = new ArrayDeque<>();
 28. [430]()
 29. [708]()
 
+### 哈希表
+
+30. [380. O(1) 时间插入、删除和获取随机元素](https://leetcode-cn.com/problems/insert-delete-getrandom-o1/)
+31. [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
+32. [242. 有效的字母异位词](https://leetcode-cn.com/problems/valid-anagram/)
+33. [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
+34. [953. 验证外星语词典](https://leetcode-cn.com/problems/verifying-an-alien-dictionary/)
+35. [539. 最小时间差](https://leetcode-cn.com/problems/minimum-time-difference/)
+
 （全文完）
