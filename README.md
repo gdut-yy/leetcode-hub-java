@@ -258,6 +258,17 @@ Stack<T> stack = new Stack<>();
 Deque<T> stack = new ArrayDeque<>();
 ```
 
+注意二者转 stream 时的顺序：
+
+```java
+Stack<Integer> stack1 = new Stack<>();
+Deque<Integer> stack2 = new ArrayDeque<>();
+stack1.push(1); stack1.push(2); stack1.push(3);
+stack2.push(1); stack2.push(2); stack2.push(3);
+System.out.println(Arrays.toString(stack1.stream().mapToInt(i -> i).toArray())); // [1, 2, 3]
+System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray())); // [3, 2, 1]
+```
+
 - [496. 下一个更大元素 I](https://leetcode-cn.com/problems/next-greater-element-i/)
 - [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
 - [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
@@ -325,5 +336,13 @@ Deque<T> stack = new ArrayDeque<>();
 33. [49. 字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 34. [953. 验证外星语词典](https://leetcode-cn.com/problems/verifying-an-alien-dictionary/)
 35. [539. 最小时间差](https://leetcode-cn.com/problems/minimum-time-difference/)
+
+### 栈
+
+36. [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+37. [735. 行星碰撞](https://leetcode-cn.com/problems/asteroid-collision/)
+38. [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
+39. [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+40. [85. 最大矩形](https://leetcode-cn.com/problems/maximal-rectangle/)
 
 （全文完）
