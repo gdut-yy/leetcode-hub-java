@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Pony.ai-002. 车辆安排
+ * https://leetcode-cn.com/problems/aLtKLZ/
+ */
 public class Ponyai002 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
@@ -51,9 +55,6 @@ public class Ponyai002 {
     }
 }
 /*
-Pony.ai-002. 车辆安排
-https://leetcode-cn.com/problems/aLtKLZ/
-
 目前小马智行已经获得了加州 RoboTaxi 服务的许可，意味着小马智行已经可以在加州向所有的公众提供服务。
 于是在未来的某一天，小马智行在加州已经拥有了 N 辆自动驾驶车辆可以面向公众服务，这些车总共有 26 种颜色，颜色分别为小写字母 a 到 z。
 现在已知在 Pony 的服务系统 PonyPilot 中，总共有 M 个乘客正在排队，其中每个乘客也有各自的车辆颜色偏好,颜色范围也是 a 到 z。

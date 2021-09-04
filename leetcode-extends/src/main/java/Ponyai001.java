@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * Pony.ai-001. 车队管理
+ * https://leetcode-cn.com/problems/nDTGrx/
+ */
 public class Ponyai001 {
     private static final int[][] DIRECTION = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};
 
@@ -82,9 +86,6 @@ public class Ponyai001 {
     }
 }
 /*
-Pony.ai-001. 车队管理
-https://leetcode-cn.com/problems/nDTGrx/
-
 小马智行(Pony.ai) 在广州南沙区有一支稳定运营的自动驾驶车队，可以将南沙区的地图看做一个二维的网格图，小马智行的广州 office 在 (0, 0) 位置。
 公司现在有 n 台车，每天会按如下规则从围绕南沙区进行路测：
 

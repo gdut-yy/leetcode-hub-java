@@ -5,6 +5,10 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 
+/**
+ * meituan-002. 小美的仓库整理
+ * https://leetcode-cn.com/problems/TJZLyC/
+ */
 public class Meituan002 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
@@ -12,14 +16,14 @@ public class Meituan002 {
         // input
         int n = Integer.parseInt(reader.readLine());
         int[] w = new int[n];
-        String[] line = reader.readLine().split(" ");
+        String[] line1 = reader.readLine().split(" ");
         for (int i = 0; i < n; i++) {
-            w[i] = Integer.parseInt(line[i]);
+            w[i] = Integer.parseInt(line1[i]);
         }
         int[] order = new int[n];
-        line = reader.readLine().split(" ");
+        String[] line2 = reader.readLine().split(" ");
         for (int i = 0; i < n; i++) {
-            order[i] = Integer.parseInt(line[i]);
+            order[i] = Integer.parseInt(line2[i]);
         }
 
         // solution
@@ -72,7 +76,7 @@ public class Meituan002 {
         int[] parent;
         // 记录每棵树的重量
         int[] rank;
-        // (可选) 连通分量
+        // 连通分量
         int[] count;
 
         public UnionFind(int n) {
@@ -132,9 +136,6 @@ public class Meituan002 {
     }
 }
 /*
-meituan-002. 小美的仓库整理
-https://leetcode-cn.com/problems/TJZLyC/
-
 小美是美团仓库的管理员，她会根据单据的要求按顺序取出仓库中的货物，每取出一件货物后会把剩余货物重新堆放，使得自己方便查找。
 已知货物入库的时候是按顺序堆放在一起的。如果小美取出其中一件货物，则会把货物所在的一堆物品以取出的货物为界分成两堆，
 这样可以保证货物局部的顺序不变。
@@ -142,6 +143,7 @@ https://leetcode-cn.com/problems/TJZLyC/
 已知货物最初是按 1~n 的顺序堆放的，每件货物的重量为 w[i] ,小美会根据单据依次不放回的取出货物。请问根据上述操作，
 小美每取出一件货物之后，重量和最大的一堆货物重量是多少？
 
+格式：
 输入：
 - 输入第一行包含一个正整数 n ，表示货物的数量。
 - 输入第二行包含 n 个正整数，表示 1~n 号货物的重量 w[i] 。
@@ -149,6 +151,7 @@ https://leetcode-cn.com/problems/TJZLyC/
 输出：
 - 输出包含 n 行，每行一个整数，表示每取出一件货物以后，对于重量和最大的一堆货物，其重量和为多少。
 
+示例：
 输入：
 5
 3 2 4 4 5
@@ -160,6 +163,9 @@ https://leetcode-cn.com/problems/TJZLyC/
 3
 0
 解释：
-原本的状态是 {{3,2,4,4,5}} ，取出 4 号货物后，得到 {{3,2,4},{5}} ，第一堆货物的和是 9 ，然后取出 3 号货物得到 {{3,2}{5}} ，
-此时第一堆和第二堆的和都是 5 ，以此类推。
+原本的状态是 {{3,2,4,4,5}} ，取出 4 号货物后，得到 {{3,2,4},{5}} ，第一堆货物的和是 9 ，然后取出 3 号货物得到 {{3,2}{5}} ，此时第一堆和第二堆的和都是 5 ，以此类推。
+
+提示：
+1 <= n <= 50000
+1 <= w[i] <= 100
  */
