@@ -4,7 +4,7 @@ import java.util.List;
 public class Solution897 {
     public TreeNode increasingBST(TreeNode root) {
         List<Integer> orderList = new ArrayList<>();
-        traverse(root, orderList);
+        inorder(root, orderList);
 
         TreeNode cur = new TreeNode(-1);
         TreeNode dummy = cur;
@@ -15,14 +15,14 @@ public class Solution897 {
         return dummy.right;
     }
 
-    public void traverse(TreeNode root, List<Integer> list) {
+    public void inorder(TreeNode root, List<Integer> list) {
         if (root == null) {
             return;
         }
-        traverse(root.left, list);
+        inorder(root.left, list);
         // 中序遍历
         list.add(root.val);
-        traverse(root.right, list);
+        inorder(root.right, list);
     }
 }
 /*
@@ -30,5 +30,5 @@ public class Solution897 {
 https://leetcode-cn.com/problems/increasing-order-search-tree/
 
 第 100 场周赛 T2。
-中序遍历即可。
+中序遍历。
  */

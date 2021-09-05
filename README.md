@@ -354,4 +354,19 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 45. [513. 找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/) 两个队列实现二叉树广搜
 46. [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/) 两个队列实现二叉树广搜
 
+### 树
+
+47. [814. 二叉树剪枝](https://leetcode-cn.com/problems/binary-tree-pruning/)
+48. [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
+49. [129. 求根节点到叶节点数字之和](https://leetcode-cn.com/problems/sum-root-to-leaf-numbers/)
+50. [437. 路径总和 III](https://leetcode-cn.com/problems/path-sum-iii/)
+51. [124. 二叉树中的最大路径和](https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/)
+52. [897. 递增顺序搜索树](https://leetcode-cn.com/problems/increasing-order-search-tree/)
+53. [$285. 二叉搜索树中的中序后继](https://leetcode-cn.com/problems/inorder-successor-in-bst/) | [《剑指 Offer II》053. 二叉搜索树中的中序后继](https://leetcode-cn.com/problems/P5rCT8/)
+54. [538. 把二叉搜索树转换为累加树](https://leetcode-cn.com/problems/convert-bst-to-greater-tree/)
+55. [173. 二叉搜索树迭代器](https://leetcode-cn.com/problems/binary-search-tree-iterator/)
+56. [653. 两数之和 IV - 输入 BST](https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/)
+57. [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
+58. [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i/)
+
 （全文完）
