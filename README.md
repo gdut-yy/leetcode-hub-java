@@ -345,4 +345,13 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 39. [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 40. [85. 最大矩形](https://leetcode-cn.com/problems/maximal-rectangle/)
 
+### 队列
+
+41. [$346. 数据流中的移动平均值](https://leetcode-cn.com/problems/moving-average-from-data-stream/) | [《剑指 Offer II》041. 滑动窗口的平均值](https://leetcode-cn.com/problems/qIsx9U/)
+42. [933. 最近的请求次数](https://leetcode-cn.com/problems/number-of-recent-calls/)
+43. [919. 完全二叉树插入器](https://leetcode-cn.com/problems/complete-binary-tree-inserter/)
+44. [515. 在每个树行中找最大值](https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/) 两个队列实现二叉树广搜
+45. [513. 找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/) 两个队列实现二叉树广搜
+46. [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/) 两个队列实现二叉树广搜
+
 （全文完）
