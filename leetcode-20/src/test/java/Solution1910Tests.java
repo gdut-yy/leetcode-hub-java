@@ -6,14 +6,16 @@ public class Solution1910Tests {
 
     @Test
     public void example1() {
-        String s = "daabcbaabcbc", part = "abc";
+        String s = "daabcbaabcbc";
+        String part = "abc";
         String expected = "dab";
         Assertions.assertEquals(expected, solution1910.removeOccurrences(s, part));
     }
 
     @Test
     public void example2() {
-        String s = "axxxxyyyyb", part = "xy";
+        String s = "axxxxyyyyb";
+        String part = "xy";
         String expected = "ab";
         Assertions.assertEquals(expected, solution1910.removeOccurrences(s, part));
     }

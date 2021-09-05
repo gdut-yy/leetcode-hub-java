@@ -23,7 +23,6 @@ public class Solution21 {
             }
             merge.next = new ListNode();
             merge = merge.next;
-
         }
         return res;
     }

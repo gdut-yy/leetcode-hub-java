@@ -2,7 +2,8 @@ import java.util.Arrays;
 
 public class Solution283 {
     public void moveZeroes(int[] nums) {
-        int left = 0, right = 0;
+        int left = 0;
+        int right = 0;
         while (right < nums.length) {
             if (nums[right] != 0) {
                 nums[left] = nums[right];

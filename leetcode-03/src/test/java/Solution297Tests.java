@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution297Tests {
-    private final Solution297 solution297 = new Solution297();
+    private final Solution297.Codec codec = new Solution297.Codec();
 
     @Test
     public void example1() {
@@ -11,29 +11,29 @@ public class Solution297Tests {
         root.right = new TreeNode(3);
         root.right.left = new TreeNode(4);
         root.right.right = new TreeNode(5);
-        String serializeStr = solution297.serialize(root);
-        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, solution297.deserialize(serializeStr)));
+        String serializeStr = codec.serialize(root);
+        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example2() {
         TreeNode root = null;
-        String serializeStr = solution297.serialize(root);
-        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, solution297.deserialize(serializeStr)));
+        String serializeStr = codec.serialize(root);
+        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example3() {
         TreeNode root = new TreeNode(1);
-        String serializeStr = solution297.serialize(root);
-        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, solution297.deserialize(serializeStr)));
+        String serializeStr = codec.serialize(root);
+        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example4() {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
-        String serializeStr = solution297.serialize(root);
-        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, solution297.deserialize(serializeStr)));
+        String serializeStr = codec.serialize(root);
+        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 }

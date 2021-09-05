@@ -19,14 +19,14 @@ public class Solution56 {
             int[] interval = intervals[i];
             // case1:
             // left-------------------------right
-            //      interval[0]-interval[1]
+            // -----interval[0]-interval[1]
             if (left <= interval[0] && right >= interval[1]) {
                 // 无需处理 忽略即可
                 continue;
             }
             // case2:
             // left-------------right
-            //      interval[0]-------interval[1]
+            // -----interval[0]-------interval[1]
             if (right >= interval[0] && right <= interval[1]) {
                 // 合并处理
                 right = interval[1];
@@ -34,7 +34,7 @@ public class Solution56 {
             }
             // case3:
             // left-right
-            //            interval[0]-interval[1]
+            // -----------interval[0]-interval[1]
             if (right < interval[0]) {
                 // left right 已再无合并可能，添加进 list
                 resList.add(new int[]{left, right});

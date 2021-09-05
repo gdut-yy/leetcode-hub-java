@@ -8,7 +8,8 @@ public class Solution728Tests {
 
     @Test
     public void example1() {
-        int left = 1, right = 22;
+        int left = 1;
+        int right = 22;
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22);
         Assertions.assertEquals(expected, solution728.selfDividingNumbers(left, right));
     }

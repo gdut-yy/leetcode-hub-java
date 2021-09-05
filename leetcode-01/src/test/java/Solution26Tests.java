@@ -9,7 +9,6 @@ public class Solution26Tests {
         int[] nums = {1, 1, 2};
         int expected = 2;
         Assertions.assertEquals(expected, solution26.removeDuplicates(nums));
-
     }
 
     @Test

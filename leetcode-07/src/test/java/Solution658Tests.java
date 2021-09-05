@@ -9,7 +9,8 @@ public class Solution658Tests {
     @Test
     public void example1() {
         int[] arr = {1, 2, 3, 4, 5};
-        int k = 4, x = 3;
+        int k = 4;
+        int x = 3;
         List<Integer> expected = List.of(1, 2, 3, 4);
         Assertions.assertEquals(expected, solution658.findClosestElements(arr, k, x));
     }
@@ -17,7 +18,8 @@ public class Solution658Tests {
     @Test
     public void example2() {
         int[] arr = {1, 2, 3, 4, 5};
-        int k = 4, x = -1;
+        int k = 4;
+        int x = -1;
         List<Integer> expected = List.of(1, 2, 3, 4);
         Assertions.assertEquals(expected, solution658.findClosestElements(arr, k, x));
     }

@@ -7,14 +7,16 @@ public class Solution1893Tests {
     @Test
     public void example1() {
         int[][] ranges = {{1, 2}, {3, 4}, {5, 6}};
-        int left = 2, right = 5;
+        int left = 2;
+        int right = 5;
         Assertions.assertTrue(solution1893.isCovered(ranges, left, right));
     }
 
     @Test
     public void example2() {
         int[][] ranges = {{1, 10}, {10, 20}};
-        int left = 21, right = 21;
+        int left = 21;
+        int right = 21;
         Assertions.assertFalse(solution1893.isCovered(ranges, left, right));
     }
 }

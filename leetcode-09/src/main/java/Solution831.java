@@ -31,10 +31,10 @@ public class Solution831 {
         }
     }
 
-    private static final Pattern emailPattern = Pattern.compile("^[a-zA-Z]{2,}@[a-zA-Z]{2,}.[a-zA-Z]{2,}$");
+    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z]{2,}@[a-zA-Z]{2,}.[a-zA-Z]{2,}$");
 
     private boolean isEmail(String s) {
-        Matcher matcher = emailPattern.matcher(s);
+        Matcher matcher = EMAIL_PATTERN.matcher(s);
         return matcher.matches();
     }
 }

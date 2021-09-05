@@ -6,7 +6,8 @@ public class Solution28Tests {
 
     @Test
     public void example1() {
-        String haystack = "hello", needle = "ll";
+        String haystack = "hello";
+        String needle = "ll";
         int expected = 2;
         Assertions.assertEquals(expected, solution28.strStr(haystack, needle));
         Assertions.assertEquals(expected, solution28.strStr2(haystack, needle));
@@ -14,7 +15,8 @@ public class Solution28Tests {
 
     @Test
     public void example2() {
-        String haystack = "aaaaa", needle = "bba";
+        String haystack = "aaaaa";
+        String needle = "bba";
         int expected = -1;
         Assertions.assertEquals(expected, solution28.strStr(haystack, needle));
         Assertions.assertEquals(expected, solution28.strStr2(haystack, needle));
@@ -22,7 +24,8 @@ public class Solution28Tests {
 
     @Test
     public void example3() {
-        String haystack = "", needle = "";
+        String haystack = "";
+        String needle = "";
         int expected = 0;
         Assertions.assertEquals(expected, solution28.strStr(haystack, needle));
         Assertions.assertEquals(expected, solution28.strStr2(haystack, needle));

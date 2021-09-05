@@ -26,9 +26,6 @@ public class Solution51Tests {
         List<List<String>> expected = new ArrayList<>(List.of(
                 List.of(".Q..", "...Q", "Q...", "..Q."), List.of("..Q.", "Q...", "...Q", ".Q..")
         ));
-//        List<List<String>> expected = new ArrayList<>(List.of(
-//                List.of("..Q.", "Q...", "...Q", ".Q.."), List.of(".Q..", "...Q", "Q...", "..Q.")
-//        ));
         actual.sort(comparator);
         expected.sort(comparator);
         Assertions.assertEquals(expected, actual);

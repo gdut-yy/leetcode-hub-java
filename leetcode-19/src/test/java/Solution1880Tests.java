@@ -6,19 +6,25 @@ public class Solution1880Tests {
 
     @Test
     public void example1() {
-        String firstWord = "acb", secondWord = "cba", targetWord = "cdb";
+        String firstWord = "acb";
+        String secondWord = "cba";
+        String targetWord = "cdb";
         Assertions.assertTrue(solution1880.isSumEqual(firstWord, secondWord, targetWord));
     }
 
     @Test
     public void example2() {
-        String firstWord = "aaa", secondWord = "a", targetWord = "aab";
+        String firstWord = "aaa";
+        String secondWord = "a";
+        String targetWord = "aab";
         Assertions.assertFalse(solution1880.isSumEqual(firstWord, secondWord, targetWord));
     }
 
     @Test
     public void example3() {
-        String firstWord = "aaa", secondWord = "a", targetWord = "aaaa";
+        String firstWord = "aaa";
+        String secondWord = "a";
+        String targetWord = "aaaa";
         Assertions.assertTrue(solution1880.isSumEqual(firstWord, secondWord, targetWord));
     }
 }

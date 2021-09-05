@@ -6,19 +6,22 @@ public class Solution205Tests {
 
     @Test
     public void example1() {
-        String s = "egg", t = "add";
+        String s = "egg";
+        String t = "add";
         Assertions.assertTrue(solution205.isIsomorphic(s, t));
     }
 
     @Test
     public void example2() {
-        String s = "foo", t = "bar";
+        String s = "foo";
+        String t = "bar";
         Assertions.assertFalse(solution205.isIsomorphic(s, t));
     }
 
     @Test
     public void example3() {
-        String s = "paper", t = "title";
+        String s = "paper";
+        String t = "title";
         Assertions.assertTrue(solution205.isIsomorphic(s, t));
     }
 }

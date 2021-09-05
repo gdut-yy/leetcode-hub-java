@@ -81,14 +81,6 @@ public class Solution1960 {
                     ans = Math.max(ans, (long) len1 * len2);
                 }
             }
-//            for (int[] beginEnd2 : beginEndList) {
-//                int secI = beginEnd2[0];
-//                if (secI > firstJ) {
-//                    int secJ = beginEnd2[1];
-//                    int len2 = secJ - secI + 1;
-//                    ans = Math.max(ans, (long) len1 * len2);
-//                }
-//            }
         }
         return ans;
     }

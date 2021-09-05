@@ -76,7 +76,8 @@ public class Solution5 {
 
         // 臂长
         List<Integer> armLen = new ArrayList<>();
-        int right = -1, j = -1;
+        int right = -1;
+        int j = -1;
         for (int i = 0; i < s.length(); ++i) {
             int curArmLen;
             if (right >= i) {

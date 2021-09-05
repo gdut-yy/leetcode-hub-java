@@ -6,21 +6,24 @@ public class Solution1668Tests {
 
     @Test
     public void example1() {
-        String sequence = "ababc", word = "ab";
+        String sequence = "ababc";
+        String word = "ab";
         int expected = 2;
         Assertions.assertEquals(expected, solution1668.maxRepeating(sequence, word));
     }
 
     @Test
     public void example2() {
-        String sequence = "ababc", word = "ba";
+        String sequence = "ababc";
+        String word = "ba";
         int expected = 1;
         Assertions.assertEquals(expected, solution1668.maxRepeating(sequence, word));
     }
 
     @Test
     public void example3() {
-        String sequence = "ababc", word = "ac";
+        String sequence = "ababc";
+        String word = "ac";
         int expected = 0;
         Assertions.assertEquals(expected, solution1668.maxRepeating(sequence, word));
     }

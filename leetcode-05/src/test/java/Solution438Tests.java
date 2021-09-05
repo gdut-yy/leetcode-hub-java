@@ -8,14 +8,16 @@ public class Solution438Tests {
 
     @Test
     public void example1() {
-        String s = "cbaebabacd", p = "abc";
+        String s = "cbaebabacd";
+        String p = "abc";
         List<Integer> expected = List.of(0, 6);
         Assertions.assertEquals(expected, solution438.findAnagrams(s, p));
     }
 
     @Test
     public void example2() {
-        String s = "abab", p = "ab";
+        String s = "abab";
+        String p = "ab";
         List<Integer> expected = List.of(0, 1, 2);
         Assertions.assertEquals(expected, solution438.findAnagrams(s, p));
     }
