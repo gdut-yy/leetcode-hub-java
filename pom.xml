@@ -36,6 +36,7 @@
     <properties>
         <org.junit.jupiter.junit-jupiter.version>5.7.2</org.junit.jupiter.junit-jupiter.version>
         <commons-io.commons-io.version>2.11.0</commons-io.commons-io.version>
+        <com.alibaba.fastjson.version>1.2.78</com.alibaba.fastjson.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
 
@@ -60,10 +61,17 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
         <dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${commons-io.commons-io.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>${com.alibaba.fastjson.version}</version>
         </dependency>
     </dependencies>
 
