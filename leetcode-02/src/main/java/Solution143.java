@@ -49,6 +49,12 @@ public class Solution143 {
 143. 重排链表
 https://leetcode-cn.com/problems/reorder-list/
 
+L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
+即：
+1,2,3,4,5
+=>
+1,5,2,4,3
+
 Step1: 找链表的中间结点。第 876 题 https://leetcode-cn.com/problems/middle-of-the-linked-list/
 Step2: 反转链表。第 206 题 https://leetcode-cn.com/problems/reverse-linked-list/
 Step3: 连接链表。

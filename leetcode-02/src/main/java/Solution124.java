@@ -19,8 +19,16 @@ public class Solution124 {
     }
 }
 /*
-437. 路径总和 III
-https://leetcode-cn.com/problems/path-sum-iii/
+124. 二叉树中的最大路径和
+https://leetcode-cn.com/problems/binary-tree-maximum-path-sum/
+
+ -10
+ / \
+9   20
+   /  \
+  15   7
+
+15 + 20 + 7 = 42
 
 后序遍历
  */

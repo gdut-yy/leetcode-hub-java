@@ -13,6 +13,8 @@ public class Solution53 {
 53. 最大子序和
 https://leetcode-cn.com/problems/maximum-subarray/
 
+给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
+
 动态规划
 时间复杂度 O(n)
 空间复杂度 O(1)

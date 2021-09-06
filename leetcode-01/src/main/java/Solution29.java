@@ -36,5 +36,9 @@ public class Solution29 {
 29. 两数相除
 https://leetcode-cn.com/problems/divide-two-integers/
 
+为什么 value >= 0xc0000000？
+1. divisor 是负数 => value 是负数
+2.0xc0000000 == Integer.MIN_VALUE / 2
+3.>= 0xc0000000 是为了避免两个负数相加溢出
 思维题（实际工程中意义不大）
  */

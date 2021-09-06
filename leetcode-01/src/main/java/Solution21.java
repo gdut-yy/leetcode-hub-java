@@ -32,4 +32,5 @@ public class Solution21 {
 https://leetcode-cn.com/problems/merge-two-sorted-lists/
 
 经典题。链表合并。
+数组合并可参考第 4 题 https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  */

@@ -24,5 +24,25 @@ public class Solution114 {
 114. 二叉树展开为链表
 https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
 
+   1
+  / \
+ 2   5
+/ \   \
+3  4   6
+
+=>
+
+1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+         \
+          6
+
 二叉树后序遍历
  */

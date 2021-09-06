@@ -28,5 +28,14 @@ https://leetcode-cn.com/problems/linked-list-cycle-ii/
 
 给定一个链表，返回链表开始入环的第一个节点。如果链表无环，则返回 null。
 比 141 题难度升级。要返回入环的第一个节点
-双指针-快慢指针。快慢指针相遇时，让慢指针指向头节点，然后快慢指针以相同速度前进，再次相遇时所在的节点位置就是环开始的位置
+双指针-快慢指针。慢指针每次走一步，快指针每次走两步。快慢指针相遇时，让慢指针指向头节点，
+然后快慢指针以相同速度前进，再次相遇时所在的节点位置就是环开始的位置
+
+fast = lenA + lenB + lenC
+slow = lenA + lenB
+显然 lenC = lenA + lenB
+
+慢指针指向头节点，再相遇
+fast = lenA + lenA + lenB = lenA + lenC
+slow = lenA
  */

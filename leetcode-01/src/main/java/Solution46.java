@@ -41,6 +41,7 @@ public class Solution46 {
 46. 全排列
 https://leetcode-cn.com/problems/permutations/
 
+给定一个不含重复数字的数组 nums ，返回其 所有可能的全排列 。你可以 按任意顺序 返回答案。
 回溯算法。
 时间复杂度 O(n×n!)
 空间复杂度 O(n)
