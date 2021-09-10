@@ -38,6 +38,6 @@ public abstract class AbstractOjTests {
     protected void doAssertion() throws IOException {
         String actual = FileUtils.readFileToString(actualFile, StandardCharsets.UTF_8.name());
         String expected = FileUtils.readFileToString(outputFile, StandardCharsets.UTF_8.name());
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected.trim(), actual.trim());
     }
 }
