@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+	<localRepository>C:\Users\DEVYY\Documents\maven</localRepository>
+
+	<offline>false</offline>
+
+	<mirrors>
+		<mirror>
+			<id>huaweicloud</id>
+			<mirrorOf>*</mirrorOf>
+			<url>https://mirrors.huaweicloud.com/repository/maven/</url>
+		</mirror>
+	</mirrors>
+
+	<profiles>
+		<profile>
+			<id>jdk17</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+				<jdk>17</jdk>
+			</activation>
+			<properties>
+				<maven.complier.source>17</maven.complier.source>
+				<maven.complier.tatget>17</maven.complier.tatget>
+				<maven.complier.compilerVersion>17</maven.complier.compilerVersion>
+			</properties>
+		</profile>
+	</profiles>
+
+</settings>
