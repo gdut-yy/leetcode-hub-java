@@ -1,3 +1,7 @@
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -6,28 +10,48 @@ import java.util.Stack;
  * https://leetcode-cn.com/problems/vgKew1/
  */
 public class Ponyai004 {
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt(), h = in.nextInt();
-        Stack<Node> s = new Stack<>();
-        for (int i = 1; i <= n; i++) {
-            int now = in.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
+        String[] line0 = reader.readLine().split(" ");
+        int n = Integer.parseInt(line0[0]);
+        int h = Integer.parseInt(line0[1]);
+        String[] line1 = reader.readLine().split(" ");
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = Integer.parseInt(line1[i]);
+        }
+        int[] res = solution(n, h, nums);
+        for (int re : res) {
+            writer.write(String.valueOf(re));
+            writer.write(System.lineSeparator());
+        }
+        writer.close();
+        reader.close();
+    }
+
+    private static int[] solution(int n, int h, int[] nums) {
+        Deque<Node> stack = new ArrayDeque<>();
+        int[] res = new int[n];
+        for (int i = 0; i < n; i++) {
+            int now = nums[i];
             double slope = 0.0;
             if (now != 0) {
-                slope = (now - h) * 1.0 / i;
+                slope = (now - h) * 1.0 / (i + 1);
             }
             // 精度
             double eps = 1e-10;
-            while (!s.isEmpty() && (slope - s.peek().slope) >= eps) {
-                s.pop();
+            while (!stack.isEmpty() && (slope - stack.peek().slope) >= eps) {
+                stack.pop();
             }
-            if (s.isEmpty()) {
-                System.out.println(0);
+            if (stack.isEmpty()) {
+                res[i] = 0;
             } else {
-                System.out.println(s.peek().id);
+                res[i] = stack.peek().id;
             }
-            s.add(new Node(i, slope));
+            stack.push(new Node(i + 1, slope));
         }
+        return res;
     }
 
     private static class Node {

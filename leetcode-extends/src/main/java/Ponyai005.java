@@ -1,4 +1,57 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 public class Ponyai005 {
+    static int[][] lines;
+    static int n, k, a, b;
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+
+        n = Integer.parseInt(reader.readLine());
+        lines = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            String[] s = reader.readLine().split(" ");
+            for (int j = 0; j < n; j++) {
+                lines[i][j] = Integer.parseInt(s[j]);
+            }
+        }
+
+        String[] s = reader.readLine().split(" ");
+        reader.close();
+        a = Integer.parseInt(s[0]);
+        b = Integer.parseInt(s[1]);
+        k = Integer.parseInt(s[2]);
+
+        if (!satisfy(0)) {
+            System.out.println(-1);
+            return;
+        }
+
+        int L = 0, R = k;
+        while (L < R) {
+            int mid = (L + R + 1) >> 1;
+            if (satisfy(mid)) L = mid;
+            else R = mid - 1;
+        }
+
+        System.out.println(L);
+    }
+
+    static boolean satisfy(int cost) {
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (k - cost <= Math.min(lines[i][j],
+                        Math.min(lines[i][a] + cost + lines[b][j],
+                                lines[i][b] + cost + lines[a][j]))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
 /*
 Pony.ai-005. 新增的专线
