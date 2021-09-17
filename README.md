@@ -143,15 +143,25 @@ private long fastPower(long x, long pow, int mod) {
 - [1922. 统计好数字的数目](https://leetcode-cn.com/problems/count-good-numbers/)
 - [1969. 数组元素的最小非零乘积](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/)
 
-### 双指针
+### 二分查找
 
-二分搜索（二分找单元素，二分找左边界，二分找右边界）
+朴素二分
 
-- [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 - [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
+
+左边界二分
+
+- [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
+- [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
 - [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
 - [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
 - [1870. 准时到达的列车最小时速](https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time/)
+
+右边界二分
+
+- [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+
+### 双指针
 
 滑动窗口
 

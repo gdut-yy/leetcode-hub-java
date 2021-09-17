@@ -5,10 +5,10 @@ public class Solution875 {
         // piles.length <= H <= 10^9
         int left = 1;
         int right = 1000000000;
-        while (left <= right) {
-            int mid = (left + right) / 2;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             if (canMinEatingSpeed(piles, h, mid)) {
-                right = mid - 1;
+                right = mid;
             } else {
                 left = mid + 1;
             }

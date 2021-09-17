@@ -4,17 +4,16 @@ public class Solution1870 {
         if (hour <= dist.length - 1) {
             return -1;
         }
-
         // 左边界二分
         // n == dist.length
-        // 1 <= n <= 105
+        // 1 <= n <= 10^5
         int left = 0;
         int right = 10000000;
-        while (left <= right) {
-            int mid = (left + right) / 2;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             // 不能抵达就继续加速，在右分区查找
             if (canMinSpeedOnTime(dist, hour, mid)) {
-                right = mid - 1;
+                right = mid;
             } else {
                 left = mid + 1;
             }

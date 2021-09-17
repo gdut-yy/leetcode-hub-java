@@ -10,6 +10,7 @@ public class Solution34Tests {
         int target = 8;
         int[] expected = {3, 4};
         Assertions.assertArrayEquals(expected, solution34.searchRange(nums, target));
+        Assertions.assertArrayEquals(expected, solution34.searchRange2(nums, target));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution34Tests {
         int target = 6;
         int[] expected = {-1, -1};
         Assertions.assertArrayEquals(expected, solution34.searchRange(nums, target));
+        Assertions.assertArrayEquals(expected, solution34.searchRange2(nums, target));
     }
 
     @Test
@@ -26,5 +28,6 @@ public class Solution34Tests {
         int target = 0;
         int[] expected = {-1, -1};
         Assertions.assertArrayEquals(expected, solution34.searchRange(nums, target));
+        Assertions.assertArrayEquals(expected, solution34.searchRange2(nums, target));
     }
 }

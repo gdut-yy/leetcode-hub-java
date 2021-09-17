@@ -5,10 +5,10 @@ public class Solution1011 {
         // 1 <= weights[i] <= 500
         int left = 1;
         int right = 2500000;
-        while (left <= right) {
-            int mid = (left + right) / 2;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
             if (canShipWithinDays(weights, days, mid)) {
-                right = mid - 1;
+                right = mid;
             } else {
                 left = mid + 1;
             }
