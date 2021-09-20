@@ -446,6 +446,15 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 57. [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
 58. [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i/)
 
+### 10 前缀树
+
+62. [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
+63. [648. 单词替换](https://leetcode-cn.com/problems/replace-words/)
+64. [676. 实现一个魔法字典](https://leetcode-cn.com/problems/implement-magic-dictionary/)
+65. [820. 单词的压缩编码](https://leetcode-cn.com/problems/short-encoding-of-words/)
+66. [677. 键值映射](https://leetcode-cn.com/problems/map-sum-pairs/)
+67. [421. 数组中两个数的最大异或值](https://leetcode-cn.com/problems/maximum-xor-of-two-numbers-in-an-array/)
+
 ### 11 二分查找
 
 68. [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
