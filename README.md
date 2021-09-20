@@ -145,6 +145,46 @@ private long fastPower(long x, long pow, int mod) {
 
 ### 二分查找
 
+```java
+private int binarySearchLeftBound(int[] nums, int target) {
+    if (nums.length == 0) {
+        return -1;
+    }
+    int left = 0;
+    int right = nums.length;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            right = mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid;
+        }
+    }
+    return left;
+}
+
+private static int binarySearchRightBound(int[] nums, int target) {
+    if (nums.length == 0) {
+        return -1;
+    }
+    int left = 0;
+    int right = nums.length;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            left = mid + 1;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid;
+        }
+    }
+    return left - 1;
+}
+```
+
 朴素二分
 
 - [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
@@ -245,6 +285,11 @@ public int bfs(char[][] maze, int[] entrance) {
 - [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 - [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
 
+### 并查集（UnionFind）
+
+- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+- [1992. 找到所有的农场组](https://leetcode-cn.com/problems/find-all-groups-of-farmland/)
+
 ### KMP 算法
 
 - [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
@@ -318,7 +363,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 
 ## 《剑指 Offer（专项突破版）》
 
-### 整数
+### 1 整数
 
 1. [29. 两数相除](https://leetcode-cn.com/problems/divide-two-integers/)
 2. [67. 二进制求和](https://leetcode-cn.com/problems/add-binary/)
@@ -326,7 +371,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 4. [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
 5. [318. 最大单词长度乘积](https://leetcode-cn.com/problems/maximum-product-of-word-lengths/)
 
-### 数组
+### 2 数组
 
 6. [167. 两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
 7. [15. 三数之和](https://leetcode-cn.com/problems/3sum/)
@@ -337,7 +382,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 12. [724. 寻找数组的中心下标](https://leetcode-cn.com/problems/find-pivot-index/)
 13. [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 
-### 字符串
+### 3 字符串
 
 14. [567. 字符串的排列](https://leetcode-cn.com/problems/permutation-in-string/)
 15. [438. 找到字符串中所有字母异位词](https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/)
@@ -347,7 +392,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 19. [680. 验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)
 20. [647. 回文子串](https://leetcode-cn.com/problems/palindromic-substrings/)
 
-### 链表
+### 4 链表
 
 21. [19. 删除链表的倒数第 N 个结点](https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/)
 22. [142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
@@ -359,7 +404,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 28. [430]()
 29. [708]()
 
-### 哈希表
+### 5 哈希表
 
 30. [380. O(1) 时间插入、删除和获取随机元素](https://leetcode-cn.com/problems/insert-delete-getrandom-o1/)
 31. [146. LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
@@ -368,7 +413,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 34. [953. 验证外星语词典](https://leetcode-cn.com/problems/verifying-an-alien-dictionary/)
 35. [539. 最小时间差](https://leetcode-cn.com/problems/minimum-time-difference/)
 
-### 栈
+### 6 栈
 
 36. [150. 逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
 37. [735. 行星碰撞](https://leetcode-cn.com/problems/asteroid-collision/)
@@ -376,7 +421,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 39. [84. 柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 40. [85. 最大矩形](https://leetcode-cn.com/problems/maximal-rectangle/)
 
-### 队列
+### 7 队列
 
 41. [$346. 数据流中的移动平均值](https://leetcode-cn.com/problems/moving-average-from-data-stream/) | [《剑指 Offer II》041. 滑动窗口的平均值](https://leetcode-cn.com/problems/qIsx9U/)
 42. [933. 最近的请求次数](https://leetcode-cn.com/problems/number-of-recent-calls/)
@@ -385,7 +430,7 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 45. [513. 找树左下角的值](https://leetcode-cn.com/problems/find-bottom-left-tree-value/) 两个队列实现二叉树广搜
 46. [199. 二叉树的右视图](https://leetcode-cn.com/problems/binary-tree-right-side-view/) 两个队列实现二叉树广搜
 
-### 树
+### 8 树
 
 47. [814. 二叉树剪枝](https://leetcode-cn.com/problems/binary-tree-pruning/)
 48. [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
@@ -399,5 +444,14 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 56. [653. 两数之和 IV - 输入 BST](https://leetcode-cn.com/problems/two-sum-iv-input-is-a-bst/)
 57. [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
 58. [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i/)
+
+### 11 二分查找
+
+68. [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
+69. [852. 山脉数组的峰顶索引](https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/)
+70. [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
+71. [528. 按权重随机选择](https://leetcode-cn.com/problems/random-pick-with-weight/)
+72. [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
+73. [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
 
 （全文完）
