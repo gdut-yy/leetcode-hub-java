@@ -478,4 +478,16 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 77. [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
 78. [23. 合并 K 个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
 
+### 13 回溯法
+
+79. [78. 子集](https://leetcode-cn.com/problems/subsets/)
+80. [77. 组合](https://leetcode-cn.com/problems/combinations/)
+81. [39. 组合总和](https://leetcode-cn.com/problems/combination-sum/)
+82. [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)
+83. [46. 全排列](https://leetcode-cn.com/problems/permutations/)
+84. [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
+85. [22]()
+86. [131]()
+87. [93]()
+
 （全文完）
