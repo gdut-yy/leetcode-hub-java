@@ -446,6 +446,12 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 57. [220. 存在重复元素 III](https://leetcode-cn.com/problems/contains-duplicate-iii/)
 58. [729. 我的日程安排表 I](https://leetcode-cn.com/problems/my-calendar-i/)
 
+### 9 堆
+
+59. [703. 数据流中的第 K 大元素](https://leetcode-cn.com/problems/kth-largest-element-in-a-stream/)
+60. [347. 前 K 个高频元素](https://leetcode-cn.com/problems/top-k-frequent-elements/)
+61. [373. 查找和最小的 K 对数字](https://leetcode-cn.com/problems/find-k-pairs-with-smallest-sums/)
+
 ### 10 前缀树
 
 62. [208. 实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
