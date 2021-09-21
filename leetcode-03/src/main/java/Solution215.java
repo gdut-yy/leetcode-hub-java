@@ -1,9 +1,59 @@
 import java.util.Arrays;
+import java.util.Random;
 
 public class Solution215 {
+    /**
+     * 数组排序后，返回对应下标
+     * 时间复杂度 O(nlogn)
+     */
     public int findKthLargest(int[] nums, int k) {
         Arrays.sort(nums);
         return nums[nums.length - k];
+    }
+
+    /**
+     * 快排 partition 函数
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public int findKthLargest2(int[] nums, int k) {
+        int target = nums.length - k;
+        int start = 0;
+        int end = nums.length - 1;
+        int idx = partition(nums, start, end);
+        while (idx != target) {
+            if (idx > target) {
+                end = idx - 1;
+            } else {
+                start = idx + 1;
+            }
+            idx = partition(nums, start, end);
+        }
+        return nums[idx];
+    }
+
+    private int partition(int[] nums, int start, int end) {
+        int random = new Random().nextInt(end - start + 1) + start;
+        swap(nums, random, end);
+
+        int small = start - 1;
+        for (int i = start; i < end; i++) {
+            if (nums[i] < nums[end]) {
+                small++;
+                swap(nums, i, small);
+            }
+        }
+        small++;
+        swap(nums, small, end);
+        return small;
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        if (i != j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
     }
 }
 /*

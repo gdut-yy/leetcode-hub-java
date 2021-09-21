@@ -470,4 +470,12 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 72. [69. x 的平方根](https://leetcode-cn.com/problems/sqrtx/)
 73. [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
 
+### 12 排序
+
+74. [56. 合并区间](https://leetcode-cn.com/problems/merge-intervals/)
+75. [1122. 数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)
+76. [215. 数组中的第 K 个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
+77. [148. 排序链表](https://leetcode-cn.com/problems/sort-list/)
+78. [23. 合并 K 个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
 （全文完）

@@ -34,8 +34,6 @@ public class Solution373 {
     /**
      * 优先队列（小顶堆）
      * 时间复杂度 O(klogk)
-     *
-     * 
      */
     public List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
         PriorityQueue<int[]> priorityQueue
