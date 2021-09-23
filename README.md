@@ -490,4 +490,24 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 86. [131]()
 87. [93]()
 
+### 14 动态规划
+
+88. [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
+89. [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+90. [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)
+91. [$256. 粉刷房子](https://leetcode-cn.com/problems/paint-house/) | [《剑指 Offer II》091. 粉刷房子](https://leetcode-cn.com/problems/JEj789/)
+92. [926. 将字符串翻转到单调递增](https://leetcode-cn.com/problems/flip-string-to-monotone-increasing/)
+93. [873. 最长的斐波那契子序列的长度](https://leetcode-cn.com/problems/length-of-longest-fibonacci-subsequence/)
+94. [132. 分割回文串 II](https://leetcode-cn.com/problems/palindrome-partitioning-ii/)
+95. [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
+96. [97. 交错字符串](https://leetcode-cn.com/problems/interleaving-string/)
+97. [115]()
+98. [62]()
+99. [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
+100.  [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
+101.  [416]()
+102.  [494]()
+103.  [322]()
+104.  [377]()
+
 （全文完）
