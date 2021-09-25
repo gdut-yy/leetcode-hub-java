@@ -402,8 +402,8 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 25. [445. 两数相加 II](https://leetcode-cn.com/problems/add-two-numbers-ii/)
 26. [143. 重排链表](https://leetcode-cn.com/problems/reorder-list/)
 27. [234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)
-28. [430]()
-29. [708]()
+28. [430. 扁平化多级双向链表](https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/)
+29. [$708. 循环有序列表的插入](https://leetcode-cn.com/problems/insert-into-a-sorted-circular-linked-list/) | [《剑指 Offer II》029. 排序的循环链表](https://leetcode-cn.com/problems/4ueAj6/)
 
 ### 5 哈希表
 
@@ -486,9 +486,9 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 82. [40. 组合总和 II](https://leetcode-cn.com/problems/combination-sum-ii/)
 83. [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 84. [47. 全排列 II](https://leetcode-cn.com/problems/permutations-ii/)
-85. [22]()
-86. [131]()
-87. [93]()
+85. [22. 括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+86. [131. 分割回文串](https://leetcode-cn.com/problems/palindrome-partitioning/)
+87. [93. 复原 IP 地址](https://leetcode-cn.com/problems/restore-ip-addresses/)
 
 ### 14 动态规划
 
@@ -543,8 +543,8 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 并查集
 
 116. [547]()
-117. []()
-118. []()
-119. []()
+117. [839]()
+118. [684]()
+119. [128]()
 
 （全文完）

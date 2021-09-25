@@ -2,6 +2,10 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution346 {
+    /**
+     * 剑指 Offer II 041. 滑动窗口的平均值
+     * https://leetcode-cn.com/problems/qIsx9U/
+     */
     static class MovingAverage {
         private final Queue<Integer> queue;
         private final int capacity;
