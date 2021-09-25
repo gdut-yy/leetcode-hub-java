@@ -492,6 +492,8 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 
 ### 14 动态规划
 
+单序列问题
+
 88. [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
 89. [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
 90. [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)
@@ -499,15 +501,24 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 92. [926. 将字符串翻转到单调递增](https://leetcode-cn.com/problems/flip-string-to-monotone-increasing/)
 93. [873. 最长的斐波那契子序列的长度](https://leetcode-cn.com/problems/length-of-longest-fibonacci-subsequence/)
 94. [132. 分割回文串 II](https://leetcode-cn.com/problems/palindrome-partitioning-ii/)
+
+双序列问题
+
 95. [1143. 最长公共子序列](https://leetcode-cn.com/problems/longest-common-subsequence/)
 96. [97. 交错字符串](https://leetcode-cn.com/problems/interleaving-string/)
-97. [115]()
-98. [62]()
+97. [115. 不同的子序列](https://leetcode-cn.com/problems/distinct-subsequences/)
+
+矩阵路径问题
+
+98. [62. 不同路径](https://leetcode-cn.com/problems/unique-paths/)
 99. [64. 最小路径和](https://leetcode-cn.com/problems/minimum-path-sum/)
 100.  [120. 三角形最小路径和](https://leetcode-cn.com/problems/triangle/)
-101.  [416]()
-102.  [494]()
-103.  [322]()
-104.  [377]()
+
+背包问题
+
+101.  [416. 分割等和子集](https://leetcode-cn.com/problems/partition-equal-subset-sum/)
+102.  [494. 目标和](https://leetcode-cn.com/problems/target-sum/)
+103.  [322. 零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+104.  [377. 组合总和 Ⅳ](https://leetcode-cn.com/problems/combination-sum-iv/)
 
 （全文完）
