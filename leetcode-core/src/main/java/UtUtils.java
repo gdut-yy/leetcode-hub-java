@@ -43,11 +43,22 @@ public class UtUtils {
      * @return int[]
      */
     public static int[] loadingInts(String fileName) throws IOException {
-        // 从 src/main/resources 下加载
-        File file = new File(UtUtils.class.getResource(fileName).getPath());
-        String fileStr = FileUtils.readFileToString(file, StandardCharsets.UTF_8.name());
+        return loadingInts(fileName, 0);
+    }
 
-        List<Integer> list = JSON.parseArray(fileStr, Integer.class);
+    /**
+     * loadingInts
+     *
+     * @param fileName 文件名
+     * @param line     行号
+     * @return int[]
+     * @throws IOException e
+     */
+    public static int[] loadingInts(String fileName, int line) throws IOException {
+        // 从 src/main/resources 下加载
+        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
+        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+        List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
         return list.stream().mapToInt(i -> i).toArray();
     }
 
@@ -58,15 +69,41 @@ public class UtUtils {
      * @return int[][]
      */
     public static int[][] loadingInts2(String fileName) throws IOException {
-        // 从 src/main/resources 下加载
-        File file = new File(UtUtils.class.getResource(fileName).getPath());
-        String fileStr = FileUtils.readFileToString(file, StandardCharsets.UTF_8.name());
+        return loadingInts2(fileName, 0);
+    }
 
-        List<int[]> list = JSON.parseArray(fileStr, int[].class);
+    /**
+     * loadingInts2
+     *
+     * @param fileName 文件名
+     * @param line     行号
+     * @return int[][]
+     * @throws IOException e
+     */
+    public static int[][] loadingInts2(String fileName, int line) throws IOException {
+        // 从 src/main/resources 下加载
+        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
+        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+        List<int[]> list = JSON.parseArray(lines.get(line), int[].class);
         int[][] res = new int[list.size()][];
         for (int i = 0; i < list.size(); i++) {
             res[i] = list.get(i);
         }
         return res;
+    }
+
+    /**
+     * loadingLong
+     *
+     * @param fileName 文件名
+     * @param line     行号
+     * @return long
+     * @throws IOException e
+     */
+    public static long loadingLong(String fileName, int line) throws IOException {
+        // 从 src/main/resources 下加载
+        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
+        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+        return Long.parseLong(lines.get(line));
     }
 }
