@@ -536,15 +536,15 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 
 拓扑排序
 
-113. [210]()
-114. [269]()
-115. [444]()
+113. [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+114. [$269. 火星词典](https://leetcode-cn.com/problems/alien-dictionary/) | [《剑指 Offer II》114. 外星文字典](https://leetcode-cn.com/problems/Jf1JuT/)
+115. [$444. 序列重建](https://leetcode-cn.com/problems/sequence-reconstruction/) | [《剑指 Offer II》115. 重建序列](https://leetcode-cn.com/problems/ur2n8P/)
 
 并查集
 
-116. [547]()
-117. [839]()
-118. [684]()
-119. [128]()
+116. [547. 省份数量](https://leetcode-cn.com/problems/number-of-provinces/)
+117. [839. 相似字符串组](https://leetcode-cn.com/problems/similar-string-groups/)
+118. [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/)
+119. [128. 最长连续序列](https://leetcode-cn.com/problems/longest-consecutive-sequence/)
 
 （全文完）
