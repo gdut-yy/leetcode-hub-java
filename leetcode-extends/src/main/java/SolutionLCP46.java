@@ -4,16 +4,19 @@ import java.util.Map;
 import java.util.Set;
 
 public class SolutionLCP46 {
+    /**
+     * 一元一次方程法
+     */
     public int[] volunteerDeployment(int[] finalCnt, long totalNum, int[][] edges, int[][] plans) {
         Map<Integer, Set<Integer>> fromToMap = buildFromToMap(edges);
         // 第 1 ~ n-1 个场馆
         int n = finalCnt.length + 1;
-
         // f(x) = a * x + b
         int[] ai = new int[n];
         ai[0] = 1;
         int[] bi = new int[n];
         System.arraycopy(finalCnt, 0, bi, 1, n - 1);
+
         // 反推
         int plansLen = plans.length;
         for (int i = plansLen - 1; i >= 0; i--) {
@@ -26,15 +29,13 @@ public class SolutionLCP46 {
                 bi[idx] *= 2;
             } else {
                 Set<Integer> tos = fromToMap.getOrDefault(idx, new HashSet<>());
-                if (num == 2) {
-                    // 将编号为 idx 的场馆相邻的场馆的志愿者人数都加上编号为 idx 的场馆的志愿者人数；
-                    for (int to : tos) {
+                for (int to : tos) {
+                    if (num == 2) {
+                        // 将编号为 idx 的场馆相邻的场馆的志愿者人数都加上编号为 idx 的场馆的志愿者人数；
                         ai[to] -= ai[idx];
                         bi[to] -= bi[idx];
-                    }
-                } else {
-                    // 将编号为 idx 的场馆相邻的场馆的志愿者人数都减去编号为 idx 的场馆的志愿者人数。
-                    for (int to : tos) {
+                    } else {
+                        // 将编号为 idx 的场馆相邻的场馆的志愿者人数都减去编号为 idx 的场馆的志愿者人数。
                         ai[to] += ai[idx];
                         bi[to] += bi[idx];
                     }
@@ -71,68 +72,72 @@ public class SolutionLCP46 {
         return fromToMap;
     }
 
+    /**
+     * 二分查找法
+     */
     public int[] volunteerDeployment2(int[] finalCnt, long totalNum, int[][] edges, int[][] plans) {
         Map<Integer, Set<Integer>> fromToMap = buildFromToMap(edges);
         // 第 1 ~ n-1 个场馆
         int n = finalCnt.length + 1;
-        int[] curCnt = new int[n];
+        long[] curCnt = new long[n];
+        long[] finalCntLong = new long[finalCnt.length];
+        for (int i = 0; i < finalCnt.length; i++) {
+            finalCntLong[i] = finalCnt[i];
+        }
         // 二分？
         int left = 0;
         int right = 1000000000;
+        // 单调性
+        long leftSum = getOriginTotal(plans, fromToMap, finalCntLong, curCnt, left);
+        long rightSum = getOriginTotal(plans, fromToMap, finalCntLong, curCnt, right);
+        boolean isAsc = leftSum < rightSum;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            System.arraycopy(finalCnt, 0, curCnt, 1, n - 1);
-            long sum = extracted(plans, fromToMap, curCnt, mid);
+            long sum = getOriginTotal(plans, fromToMap, finalCntLong, curCnt, mid);
             if (sum == totalNum) {
-                return curCnt;
-            } else if (sum < totalNum) {
-                left = mid + 1;
+                int[] res = new int[curCnt.length];
+                for (int i = 0; i < curCnt.length; i++) {
+                    res[i] = (int) curCnt[i];
+                }
+                return res;
+            } else if (sum > totalNum) {
+                if (isAsc) {
+                    right = mid - 1;
+                } else {
+                    left = mid + 1;
+                }
             } else {
-                right = mid - 1;
+                if (isAsc) {
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
             }
         }
-        // 二分？
-        left = 0;
-        right = 1000000000;
-        while (left <= right) {
-            int mid = left + (right - left) / 2;
-            System.arraycopy(finalCnt, 0, curCnt, 1, n - 1);
-            long sum = extracted(plans, fromToMap, curCnt, mid);
-            if (sum == totalNum) {
-                return curCnt;
-            } else if (sum < totalNum) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
-        }
-//        System.arraycopy(finalCnt, 0, curCnt, 1, n - 1);
-//        long sum = extracted(plans, fromToMap, curCnt, 46909233);
         return new int[]{};
     }
 
-    private long extracted(int[][] plans, Map<Integer, Set<Integer>> fromToMap, int[] curCnt, int idx0) {
+    private long getOriginTotal(int[][] plans, Map<Integer, Set<Integer>> fromToMap, long[] finalCntLong,
+                                long[] curCnt, int idx0) {
+        System.arraycopy(finalCntLong, 0, curCnt, 1, curCnt.length - 1);
         curCnt[0] = idx0;
         // 反推
         int plansLen = plans.length;
         for (int i = plansLen - 1; i >= 0; i--) {
-            int[] plan = plans[i];
             // 第 i 天对编号 idx 的场馆执行了第 num 种调配方案
-            int num = plan[0];
-            int idx = plan[1];
+            int num = plans[i][0];
+            int idx = plans[i][1];
             if (num == 1) {
                 // 将编号为 idx 的场馆内的志愿者人数减半；
                 curCnt[idx] *= 2;
             } else {
                 Set<Integer> tos = fromToMap.getOrDefault(idx, new HashSet<>());
-                if (num == 2) {
-                    // 将编号为 idx 的场馆相邻的场馆的志愿者人数都加上编号为 idx 的场馆的志愿者人数；
-                    for (int to : tos) {
+                for (int to : tos) {
+                    if (num == 2) {
+                        // 将编号为 idx 的场馆相邻的场馆的志愿者人数都加上编号为 idx 的场馆的志愿者人数；
                         curCnt[to] -= curCnt[idx];
-                    }
-                } else {
-                    // 将编号为 idx 的场馆相邻的场馆的志愿者人数都减去编号为 idx 的场馆的志愿者人数。
-                    for (int to : tos) {
+                    } else {
+                        // 将编号为 idx 的场馆相邻的场馆的志愿者人数都减去编号为 idx 的场馆的志愿者人数。
                         curCnt[to] += curCnt[idx];
                     }
                 }

@@ -14,6 +14,7 @@ public class SolutionLCP46Tests {
         int[][] plans = {{2, 1}, {1, 0}, {3, 0}};
         int[] expected = {5, 7, 9};
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
+        Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     @Test
@@ -24,6 +25,7 @@ public class SolutionLCP46Tests {
         int[][] plans = {{1, 1}, {3, 3}, {2, 5}, {1, 0}};
         int[] expected = {10, 16, 9, 4, 7, 8};
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
+        Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     // 补充用例
@@ -38,6 +40,7 @@ public class SolutionLCP46Tests {
         // x = 11403923
         int[] expected = UtUtils.loadingInts("lcp/46/example3-expected.txt");
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
+        Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     @Test
@@ -51,6 +54,7 @@ public class SolutionLCP46Tests {
         // x = 46909233
         int[] expected = UtUtils.loadingInts("lcp/46/example4-expected.txt");
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
+        Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     @Test
@@ -64,5 +68,6 @@ public class SolutionLCP46Tests {
         // x = 1969498
         int[] expected = UtUtils.loadingInts("lcp/46/example5-expected.txt");
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
+        Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 }
