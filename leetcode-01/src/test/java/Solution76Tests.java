@@ -20,8 +20,7 @@ public class Solution76Tests {
         Assertions.assertEquals(expected, solution76.minWindow(s, t));
     }
 
-    // --- 以下为解答错误的补充用例
-
+    // 补充用例
     @Test
     public void example3() {
         String s = "aa";
