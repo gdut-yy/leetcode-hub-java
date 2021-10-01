@@ -2,6 +2,14 @@ import java.util.Arrays;
 import java.util.TreeMap;
 
 public class Solution34 {
+    /**
+     * 二分查找
+     * 时间复杂度 O(logn)
+     *
+     * @param nums   升序排列的整数数组 nums
+     * @param target 目标值 target
+     * @return 给定目标值在数组中的开始位置和结束位置
+     */
     public int[] searchRange(int[] nums, int target) {
         if (Arrays.binarySearch(nums, target) < 0) {
             return new int[]{-1, -1};

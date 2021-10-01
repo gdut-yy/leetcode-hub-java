@@ -18,6 +18,7 @@ public class Solution2Tests {
         expected.next = new ListNode(0);
         expected.next.next = new ListNode(8);
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers(l1, l2)));
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers2(l1, l2)));
     }
 
     @Test
@@ -28,6 +29,7 @@ public class Solution2Tests {
         // expected
         ListNode expected = new ListNode(0);
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers(l1, l2)));
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers2(l1, l2)));
     }
 
     @Test
@@ -54,5 +56,6 @@ public class Solution2Tests {
         expected.next.next.next.next.next.next = new ListNode(0);
         expected.next.next.next.next.next.next.next = new ListNode(1);
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers(l1, l2)));
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution2.addTwoNumbers2(l1, l2)));
     }
 }
