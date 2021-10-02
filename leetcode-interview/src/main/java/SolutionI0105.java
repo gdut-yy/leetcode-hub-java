@@ -53,7 +53,7 @@ public class SolutionI0105 {
 https://leetcode-cn.com/problems/one-away-lcci/
 
 双指针。分三种情况。
-长度相差 > 1。无解
-长度相差 = 1。双指针 + 一次机会
-长度相等。逐位比较 + 一次机会
+case1: 长度相差 > 1。无解
+case2: 长度相差 = 1。双指针 + 一次机会
+case3: 长度相等。逐位比较 + 一次机会
  */

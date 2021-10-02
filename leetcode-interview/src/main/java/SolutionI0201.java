@@ -35,4 +35,5 @@ https://leetcode-cn.com/problems/remove-duplicate-node-lcci/
 HashSet 判断是否重复。
 相似题目: 83. 删除排序链表中的重复元素
 https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+注意重复元素定义的区别。
  */

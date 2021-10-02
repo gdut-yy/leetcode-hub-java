@@ -27,4 +27,13 @@ public class Solution33Tests {
         int expected = -1;
         Assertions.assertEquals(expected, solution33.search(nums, target));
     }
+
+    // 补充用例
+    @Test
+    public void example4() {
+        int[] nums = {1, 3};
+        int target = 0;
+        int expected = -1;
+        Assertions.assertEquals(expected, solution33.search(nums, target));
+    }
 }

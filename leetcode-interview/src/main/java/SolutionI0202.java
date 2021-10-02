@@ -25,4 +25,5 @@ https://leetcode-cn.com/problems/kth-node-from-end-of-list-lcci/
 
 相似题目: 19. 删除链表的倒数第 N 个结点
 https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
+注意返回和删除的区别。
  */
