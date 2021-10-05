@@ -1,5 +1,29 @@
 public class Solution53 {
+    /**
+     * 动态规划
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     */
     public int maxSubArray(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < len; i++) {
+            dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            max = Math.max(max, dp[i]);
+        }
+        return max;
+    }
+
+    /**
+     * 动态规划（状态压缩）
+     * <p>
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public int maxSubArray2(int[] nums) {
         int pre = 0;
         int maxAns = nums[0];
         for (int num : nums) {
