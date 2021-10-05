@@ -29,7 +29,7 @@ public class SolutionLCP39 {
 LCP 39. 无人机方阵
 https://leetcode-cn.com/problems/0jQkd0/
 
-LCCUP'21 T1。
+LCCUP 力扣杯 2021 秋季编程大赛个人赛 T1。
 注意： 调整无人机的位置布局时无人机的位置可以随意变动。
 看着题目的动图还以为是矩阵行列变换。
 HashMap 统计频次即可。

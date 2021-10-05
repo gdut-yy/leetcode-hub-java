@@ -48,6 +48,7 @@
         <module>codeforces-15</module>
         <module>codeforces-16</module>
         <module>leetcode-interview</module>
+        <module>leetcode-offer</module>
     </modules>
     <packaging>pom</packaging>
 

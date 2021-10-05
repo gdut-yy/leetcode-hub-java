@@ -54,6 +54,7 @@ public class SolutionLCP45 {
 LCP 45. 自行车炫技赛场
 https://leetcode-cn.com/problems/kplEvH/
 
+LCCUP 力扣杯 2021 秋季编程大赛战队赛 T2。
 广度优先搜索。
 注意简单地开一个二维 visited 数组
 要用带状态 visited 数组（三维数组。经过不同轨迹到达到同一坐标位置的速度可能不一样，需要分开考虑）

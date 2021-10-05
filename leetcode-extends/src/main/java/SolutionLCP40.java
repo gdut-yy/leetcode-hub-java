@@ -60,7 +60,7 @@ public class SolutionLCP40 {
 LCP 40. 心算挑战
 https://leetcode-cn.com/problems/uOAnQW/
 
-LCCUP'21 T1。
+LCCUP 力扣杯 2021 秋季编程大赛个人赛 T2。
 找数学规律。
 时间复杂度 O(nlogn) 即排序时间复杂度
  */

@@ -21,5 +21,6 @@ public class SolutionLCP44 {
 LCP 44. 开幕式焰火
 https://leetcode-cn.com/problems/sZ59z6/
 
+LCCUP 力扣杯 2021 秋季编程大赛战队赛 T1。
 前序遍历。
  */

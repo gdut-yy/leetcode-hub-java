@@ -6,7 +6,10 @@
 
 （拼搏 300 天，完成 1000 道 leetcode 题！
 
-`leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
+- `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
+- `leetcode-extends` 存放 LCCUP/OJ 题目
+- `leetcode-interview` 存放 《程序员面试金典》 题目。
+- `leetcode-offer` 存放 《剑指 Offer》 题目。
 
 ## 环境信息
 
