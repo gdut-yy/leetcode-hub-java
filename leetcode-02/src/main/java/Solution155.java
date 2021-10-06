@@ -49,4 +49,8 @@ top() —— 获取栈顶元素。
 getMin() —— 检索栈中的最小元素。
 
 双栈实现最小栈。
+类似题目: 剑指 Offer 30. 包含min函数的栈
+https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/
+面试题 03.02. 栈的最小值
+https://leetcode-cn.com/problems/min-stack-lcci/
  */
