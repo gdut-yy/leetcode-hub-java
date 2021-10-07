@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 public class Solution430Tests {
     private final Solution430 solution430 = new Solution430();
 
-
     @Test
     public void example1() {
         //  1---2---3---4---5---6--NULL
@@ -63,7 +62,6 @@ public class Solution430Tests {
 
         Assertions.assertTrue(Node.assertNodeEquals(expected, solution430.flatten(head)));
     }
-
 
     @Test
     public void example2() {
