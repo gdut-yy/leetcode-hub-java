@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
@@ -22,10 +23,13 @@ public class UtUtils {
         }
         return o1.size() - o2.size();
     };
+
     /**
      * List<List<String>> expected 类型比较
      */
     public static final Comparator<List<String>> STRING_LIST_COMPARATOR = (o1, o2) -> {
+        Collections.sort(o1);
+        Collections.sort(o2);
         // o1.size() != o2.size();
         int minLen = Math.min(o1.size(), o2.size());
         for (int i = 0; i < minLen; i++) {
