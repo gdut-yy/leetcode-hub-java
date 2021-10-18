@@ -18,6 +18,5 @@ public class Solution2027 {
 https://leetcode-cn.com/problems/minimum-moves-to-convert-string/
 
 第 261 场周赛 T1。
-
 固定大小的滑动窗口。
  */
