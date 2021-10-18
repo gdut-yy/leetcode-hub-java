@@ -23,7 +23,7 @@ public class Solution2044 {
         return treeMap.lastEntry().getValue();
     }
 
-    public List<List<Integer>> subsets(int[] nums) {
+    private List<List<Integer>> subsets(int[] nums) {
         List<List<Integer>> resList = new ArrayList<>();
         if (nums.length == 0) {
             return resList;

@@ -18,8 +18,8 @@ public class Solution62 {
     /**
      * 动态规划
      * <p>
-     * 时间复杂度 O(m)
-     * 空间复杂度 O(1)
+     * 时间复杂度 O(mn)
+     * 空间复杂度 O(mn)
      */
     public int uniquePaths2(int m, int n) {
         int[][] dp = new int[m][n];
