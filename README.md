@@ -73,7 +73,7 @@ junit5 常用断言：
    - `TreeNode` 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
 2. 部分题目符合题意的答案并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5 题等；
 3. 部分题目符合题意的答案是一个集合，但对集合元素的顺序没有要求，可以对 `expected` 和 `actual` 集合进行排序后判等，如第 30、46、51 题等；
-4. 部分题目是非精确判等（随机问题），如第 528 题等；
+4. 部分题目是非精确判等（随机问题），如第 384、528 题等；
 
 ## 常用算法模板
 
