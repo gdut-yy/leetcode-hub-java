@@ -26,4 +26,14 @@ public class Solution2043Tests {
         // 返回 false ，交易无效，因为账户 10 并不存在。
         Assertions.assertFalse(bank.withdraw(10, 50));
     }
+
+    // 补充用例
+    @Test
+    public void example2() {
+        long[] balance = {0};
+        Solution2043.Bank bank = new Solution2043.Bank(balance);
+        Assertions.assertTrue(bank.deposit(1, 2));
+        Assertions.assertTrue(bank.transfer(1, 1, 1));
+        Assertions.assertFalse(bank.transfer(1, 1, 3));
+    }
 }

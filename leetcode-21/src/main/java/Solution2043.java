@@ -15,10 +15,9 @@ public class Solution2043 {
         public boolean transfer(int account1, int account2, long money) {
             if (hashMap.containsKey(account1) && hashMap.containsKey(account2)) {
                 long balance1 = hashMap.get(account1);
-                long balance2 = hashMap.get(account2);
                 if (balance1 >= money) {
                     hashMap.put(account1, balance1 - money);
-                    hashMap.put(account2, balance2 + money);
+                    hashMap.put(account2, hashMap.get(account2) + money);
                     return true;
                 }
             }
@@ -52,4 +51,5 @@ https://leetcode-cn.com/problems/simple-bank-system/
 
 第 263 场周赛 T2。
 HashMap 模拟。
+2021-10-20 rejudge WA: transfer account1 account2 是同一个账户时的情况
  */
