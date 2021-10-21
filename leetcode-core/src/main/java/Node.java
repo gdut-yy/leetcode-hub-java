@@ -1,3 +1,5 @@
+import com.alibaba.fastjson.JSON;
+
 public class Node {
     public int val;
     public Node prev;
@@ -21,5 +23,11 @@ public class Node {
         } else {
             return assertNodeEquals(expected.next, actual.next);
         }
+    }
+
+    public static boolean assertNodeEquals2(Node expected, Node actual) {
+        String expectedJson = JSON.toJSONString(expected);
+        String actualJson = JSON.toJSONString(actual);
+        return expectedJson.equals(actualJson);
     }
 }
