@@ -47,6 +47,6 @@ https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/
 解释: 有两个最长递增子序列，分别是 [1, 3, 4, 7] 和[1, 3, 5, 7]。
 
 LIS 进阶版。LIS 有两种解法，动态规划 O(n^2) 和 贪心+二分 O(nlogn)
-类似题目: 300. 最长递增子序列
+相似题目: 300. 最长递增子序列
 https://leetcode-cn.com/problems/longest-increasing-subsequence/
  */

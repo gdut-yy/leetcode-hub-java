@@ -40,6 +40,6 @@ https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/
 时间复杂度 O(nlog(r-l))
 时间复杂度 O(1)
 
-类似题目: 668. 乘法表中第k小的数
+相似题目: 668. 乘法表中第k小的数
 https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/
  */

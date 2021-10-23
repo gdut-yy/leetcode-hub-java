@@ -29,6 +29,6 @@ https://leetcode-cn.com/problems/delete-operation-for-two-strings/
 给定两个单词 word1 和 word2，找到使得 word1 和 word2 相同所需的最小步数，每步可以删除任意一个字符串中的一个字符。
 
 LCS 变形。最小步数 = word1 长度 + word2 长度 - 两倍 LCS 长度
-类似题目: 1143. 最长公共子序列
+相似题目: 1143. 最长公共子序列
 https://leetcode-cn.com/problems/longest-common-subsequence/
  */

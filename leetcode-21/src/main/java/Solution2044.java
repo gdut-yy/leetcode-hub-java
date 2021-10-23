@@ -51,6 +51,6 @@ https://leetcode-cn.com/problems/count-number-of-maximum-bitwise-or-subsets/
 第 263 场周赛 T3。
 1 <= nums.length <= 16
 考虑 时间复杂度 O(2^n) 的枚举子集。
-类似题目: 78. 子集
+相似题目: 78. 子集
 https://leetcode-cn.com/problems/subsets/
  */

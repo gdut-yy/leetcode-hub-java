@@ -22,7 +22,4 @@ https://leetcode-cn.com/problems/shan-chu-lian-biao-de-jie-dian-lcof/
 
 输入: head = [4,5,1,9], val = 5
 输出: [4,1,9]
-
-类似题目:
-
  */

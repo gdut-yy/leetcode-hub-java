@@ -30,6 +30,6 @@ https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/
 给定高度m 、宽度n 的一张 m * n的乘法表，以及正整数k，你需要返回表中第k 小的数字。
 
 左边界二分。
-类似题目: 378. 有序矩阵中第 K 小的元素
+相似题目: 378. 有序矩阵中第 K 小的元素
 https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/
  */

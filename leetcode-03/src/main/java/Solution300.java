@@ -76,6 +76,6 @@ LIS 模板题。二分优化后：
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
 
-相似题目：
-第 1964 题 https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position/
+相似题目: 1964. 找出到每个位置为止最长的有效障碍赛跑路线
+https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position/
  */
