@@ -24,4 +24,6 @@ Boyer-Moore 投票算法
 
 同: 剑指 Offer 39. 数组中出现次数超过一半的数字
 https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
+时间复杂度 O(n)
+空间复杂度 O(1)
  */
