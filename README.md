@@ -374,6 +374,24 @@ public int bfs(char[][] maze, int[] entrance) {
 
 ### 约瑟夫环问题
 
+```java
+// n 人，编号 0 ~ n-1
+public int josephus(int n, int m) {
+    if (n == 1) {
+        return 0;
+    }
+    return (josephus(n - 1, m) + m) % n;
+}
+
+// n 人，编号 1 ~ n
+public int josephus(int n, int k) {
+    if (n == 1) {
+        return 1;
+    }
+    return (josephus(n - 1, k) + k - 1) % n + 1;
+}
+```
+
 - [1823. 找出游戏的获胜者](https://leetcode-cn.com/problems/find-the-winner-of-the-circular-game/)
 
 ### 数制转换

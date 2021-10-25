@@ -1,5 +1,6 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class SolutionO20 {
     public boolean isNumber(String s) {
@@ -151,6 +152,14 @@ public class SolutionO20 {
         CHAR_ILLEGAL
     }
 
+    private static final Pattern PATTERN = Pattern.compile("^\\s*[+-]?((\\d*\\.?\\d+)|(\\d+\\.?))([eE][+-]?\\d+)?\\s*$");
+
+    /**
+     * 正则表达式
+     */
+    public boolean isNumber2(String s) {
+        return PATTERN.matcher(s).matches();
+    }
 }
 /*
 剑指 Offer 20. 表示数值的字符串
