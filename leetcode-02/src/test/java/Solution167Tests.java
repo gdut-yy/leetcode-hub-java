@@ -11,6 +11,7 @@ public class Solution167Tests {
         int[] expected = {1, 2};
         Assertions.assertArrayEquals(expected, solution167.twoSum(numbers, target));
         Assertions.assertArrayEquals(expected, solution167.twoSum2(numbers, target));
+        Assertions.assertArrayEquals(expected, solution167.twoSum3(numbers, target));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution167Tests {
         int[] expected = {1, 3};
         Assertions.assertArrayEquals(expected, solution167.twoSum(numbers, target));
         Assertions.assertArrayEquals(expected, solution167.twoSum2(numbers, target));
+        Assertions.assertArrayEquals(expected, solution167.twoSum3(numbers, target));
     }
 
     @Test
@@ -29,5 +31,6 @@ public class Solution167Tests {
         int[] expected = {1, 2};
         Assertions.assertArrayEquals(expected, solution167.twoSum(numbers, target));
         Assertions.assertArrayEquals(expected, solution167.twoSum2(numbers, target));
+        Assertions.assertArrayEquals(expected, solution167.twoSum3(numbers, target));
     }
 }

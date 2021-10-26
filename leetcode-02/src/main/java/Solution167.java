@@ -4,11 +4,8 @@ import java.util.Map;
 
 public class Solution167 {
     /**
-     * 二分法（时间复杂度不如 HashMap 法）
-     *
-     * @param numbers 升序排列 的整数数组
-     * @param target  目标数
-     * @return 两个数满足相加之和等于目标数
+     * 二分法
+     * 时间复杂度 O(nlogn)
      */
     public int[] twoSum2(int[] numbers, int target) {
         for (int i = 0; i < numbers.length; i++) {
@@ -28,10 +25,7 @@ public class Solution167 {
 
     /**
      * HashMap 法
-     *
-     * @param numbers 升序排列 的整数数组
-     * @param target  目标数
-     * @return 两个数满足相加之和等于目标数
+     * 时间复杂度 O(n)
      */
     public int[] twoSum(int[] numbers, int target) {
         Map<Integer, Integer> map = new HashMap<>();
@@ -51,6 +45,26 @@ public class Solution167 {
             }
         }
         return new int[]{};
+    }
+
+    /**
+     * 双指针
+     * 时间复杂度 O(n)
+     */
+    public int[] twoSum3(int[] numbers, int target) {
+        int left = 0;
+        int right = numbers.length - 1;
+        while (left < right) {
+            int sum = numbers[left] + numbers[right];
+            if (sum == target) {
+                return new int[]{left + 1, right + 1};
+            } else if (sum < target) {
+                ++left;
+            } else {
+                --right;
+            }
+        }
+        return new int[]{-1, -1};
     }
 }
 /*
