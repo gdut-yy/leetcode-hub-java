@@ -9,6 +9,7 @@ public class Solution191Tests {
         int n = 0b00000000000000000000000000001011;
         int expected = 3;
         Assertions.assertEquals(expected, solution191.hammingWeight(n));
+        Assertions.assertEquals(expected, solution191.hammingWeight2(n));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution191Tests {
         int n = 0b00000000000000000000000010000000;
         int expected = 1;
         Assertions.assertEquals(expected, solution191.hammingWeight(n));
+        Assertions.assertEquals(expected, solution191.hammingWeight2(n));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution191Tests {
         int n = 0b11111111111111111111111111111101;
         int expected = 31;
         Assertions.assertEquals(expected, solution191.hammingWeight(n));
+        Assertions.assertEquals(expected, solution191.hammingWeight2(n));
     }
 }

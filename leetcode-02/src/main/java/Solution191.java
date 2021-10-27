@@ -8,6 +8,10 @@ public class Solution191 {
         }
         return ret;
     }
+
+    public int hammingWeight2(int n) {
+        return Integer.bitCount(n);
+    }
 }
 /*
 191. 位1的个数
