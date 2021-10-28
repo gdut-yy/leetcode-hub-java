@@ -6,9 +6,7 @@ public class SolutionO06Tests {
 
     @Test
     public void example1() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(3);
-        head.next.next = new ListNode(2);
+        ListNode head = ListNode.buildListNode(new int[]{1, 3, 2});
         int[] expected = {2, 3, 1};
         Assertions.assertArrayEquals(expected, solutionO06.reversePrint(head));
     }

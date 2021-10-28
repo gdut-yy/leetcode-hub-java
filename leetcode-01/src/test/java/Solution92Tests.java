@@ -6,29 +6,19 @@ public class Solution92Tests {
 
     @Test
     public void example1() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2, 3, 4, 5});
         int left = 2;
         int right = 4;
-        // expected
-        ListNode expected = new ListNode(1);
-        expected.next = new ListNode(4);
-        expected.next.next = new ListNode(3);
-        expected.next.next.next = new ListNode(2);
-        expected.next.next.next.next = new ListNode(5);
+        ListNode expected = ListNode.buildListNode(new int[]{1, 4, 3, 2, 5});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution92.reverseBetween(head, left, right)));
     }
 
     @Test
     public void example2() {
-        ListNode head = new ListNode(5);
+        ListNode head = ListNode.buildListNode(new int[]{5});
         int left = 1;
         int right = 1;
-        // expected
-        ListNode expected = new ListNode(5);
+        ListNode expected = ListNode.buildListNode(new int[]{5});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution92.reverseBetween(head, left, right)));
     }
 }

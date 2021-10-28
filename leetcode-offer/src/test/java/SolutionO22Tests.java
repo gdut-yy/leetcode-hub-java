@@ -6,15 +6,9 @@ public class SolutionO22Tests {
 
     @Test
     public void example1() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2, 3, 4, 5});
         int k = 2;
-        // expected
-        ListNode expected = new ListNode(4);
-        expected.next = new ListNode(5);
+        ListNode expected = ListNode.buildListNode(new int[]{4, 5});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solutionO22.getKthFromEnd(head, k)));
     }
 }

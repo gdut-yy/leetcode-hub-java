@@ -6,17 +6,9 @@ public class SolutionI0205Tests {
 
     @Test
     public void example1() {
-        ListNode l1 = new ListNode(7);
-        l1.next = new ListNode(1);
-        l1.next.next = new ListNode(6);
-
-        ListNode l2 = new ListNode(5);
-        l2.next = new ListNode(9);
-        l2.next.next = new ListNode(2);
-
-        ListNode expected = new ListNode(2);
-        expected.next = new ListNode(1);
-        expected.next.next = new ListNode(9);
+        ListNode l1 = ListNode.buildListNode(new int[]{7, 1, 6});
+        ListNode l2 = ListNode.buildListNode(new int[]{5, 9, 2});
+        ListNode expected = ListNode.buildListNode(new int[]{2, 1, 9});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solutionI0205.addTwoNumbers(l1, l2)));
     }
 }

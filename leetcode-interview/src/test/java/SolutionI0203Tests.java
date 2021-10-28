@@ -6,12 +6,8 @@ public class SolutionI0203Tests {
 
     @Test
     public void example1() {
-        ListNode head = new ListNode(5);
-        head.next = new ListNode(1);
-        head.next.next = new ListNode(9);
-
-        ListNode expected = new ListNode(1);
-        expected.next = new ListNode(9);
+        ListNode head = ListNode.buildListNode(new int[]{5, 1, 9});
+        ListNode expected = ListNode.buildListNode(new int[]{1, 9});
         solutionI0203.deleteNode(head);
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, head));
     }

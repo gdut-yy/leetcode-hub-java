@@ -7,16 +7,11 @@ public class SolutionI0207Tests {
     @Test
     public void example1() {
         // headC 为相交部分
-        ListNode headC = new ListNode(8);
-        headC.next = new ListNode(4);
-        headC.next.next = new ListNode(5);
+        ListNode headC = ListNode.buildListNode(new int[]{8, 4, 5});
 
-        ListNode headA = new ListNode(4);
-        headA.next = new ListNode(1);
+        ListNode headA = ListNode.buildListNode(new int[]{4, 1});
         headA.next.next = headC;
-        ListNode headB = new ListNode(5);
-        headB.next = new ListNode(0);
-        headB.next.next = new ListNode(1);
+        ListNode headB = ListNode.buildListNode(new int[]{5, 0, 1});
         headB.next.next.next = headC;
         // expected
         ListNode expected = headC;
@@ -26,14 +21,11 @@ public class SolutionI0207Tests {
     @Test
     public void example2() {
         // headC 为相交部分
-        ListNode headC = new ListNode(2);
-        headC.next = new ListNode(4);
+        ListNode headC = ListNode.buildListNode(new int[]{2, 4});
 
-        ListNode headA = new ListNode(0);
-        headA.next = new ListNode(9);
-        headA.next.next = new ListNode(1);
+        ListNode headA = ListNode.buildListNode(new int[]{0, 9, 1});
         headA.next.next.next = headC;
-        ListNode headB = new ListNode(3);
+        ListNode headB = ListNode.buildListNode(new int[]{3});
         headB.next = headC;
         // expected
         ListNode expected = headC;
@@ -45,11 +37,8 @@ public class SolutionI0207Tests {
         // headC 为相交部分
         ListNode headC = null;
 
-        ListNode headA = new ListNode(2);
-        headA.next = new ListNode(6);
-        headA.next.next = new ListNode(4);
-        ListNode headB = new ListNode(1);
-        headB.next = new ListNode(5);
+        ListNode headA = ListNode.buildListNode(new int[]{2, 6, 4});
+        ListNode headB = ListNode.buildListNode(new int[]{1, 5});
         // expected
         ListNode expected = headC;
         Assertions.assertEquals(expected, solutionI0207.getIntersectionNode(headA, headB));

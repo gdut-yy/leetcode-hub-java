@@ -6,39 +6,25 @@ public class Solution19Tests {
 
     @Test
     public void example1() {
-        ListNode head;
-        head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(3);
-        head.next.next.next = new ListNode(4);
-        head.next.next.next.next = new ListNode(5);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2, 3, 4, 5});
         int n = 2;
-        // expected
-        ListNode expected;
-        expected = new ListNode(1);
-        expected.next = new ListNode(2);
-        expected.next.next = new ListNode(3);
-        expected.next.next.next = new ListNode(5);
+        ListNode expected = ListNode.buildListNode(new int[]{1, 2, 3, 5});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution19.removeNthFromEnd(head, n)));
     }
 
     @Test
     public void example2() {
-        ListNode head = new ListNode(1);
+        ListNode head = ListNode.buildListNode(new int[]{1});
         int n = 1;
-        // expected
         ListNode expected = null;
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution19.removeNthFromEnd(head, n)));
     }
 
     @Test
     public void example3() {
-        ListNode head;
-        head = new ListNode(1);
-        head.next = new ListNode(2);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2});
         int n = 1;
-        // expected
-        ListNode expected = new ListNode(1);
+        ListNode expected = ListNode.buildListNode(new int[]{1});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution19.removeNthFromEnd(head, n)));
     }
 }

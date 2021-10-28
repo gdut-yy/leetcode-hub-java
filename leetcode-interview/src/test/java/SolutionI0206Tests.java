@@ -6,17 +6,13 @@ public class SolutionI0206Tests {
 
     @Test
     public void example1() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2});
         Assertions.assertFalse(solutionI0206.isPalindrome(head));
     }
 
     @Test
     public void example2() {
-        ListNode head = new ListNode(1);
-        head.next = new ListNode(2);
-        head.next.next = new ListNode(2);
-        head.next.next.next = new ListNode(1);
+        ListNode head = ListNode.buildListNode(new int[]{1, 2, 2, 1});
         Assertions.assertTrue(solutionI0206.isPalindrome(head));
     }
 }

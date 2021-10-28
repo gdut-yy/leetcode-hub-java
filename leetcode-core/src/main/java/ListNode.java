@@ -20,4 +20,14 @@ public class ListNode {
             return assertListNodeEquals(expected.next, actual.next);
         }
     }
+
+    public static ListNode buildListNode(int[] nums) {
+        ListNode dummy = new ListNode(-1);
+        ListNode head = dummy;
+        for (int num : nums) {
+            head.next = new ListNode(num);
+            head = head.next;
+        }
+        return dummy.next;
+    }
 }
