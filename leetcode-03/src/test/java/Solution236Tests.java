@@ -6,15 +6,7 @@ public class Solution236Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(5);
-        root.right = new TreeNode(1);
-        root.left.left = new TreeNode(6);
-        root.left.right = new TreeNode(2);
-        root.right.left = new TreeNode(0);
-        root.right.right = new TreeNode(8);
-        root.left.right.left = new TreeNode(7);
-        root.left.right.right = new TreeNode(4);
+        TreeNode root = TreeNode.buildTreeNode("[3,5,1,6,2,0,8,null,null,7,4]");
         TreeNode p = new TreeNode(5);
         TreeNode q = new TreeNode(1);
         TreeNode expected = root;
@@ -23,18 +15,19 @@ public class Solution236Tests {
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(5);
-        root.right = new TreeNode(1);
-        root.left.left = new TreeNode(6);
-        root.left.right = new TreeNode(2);
-        root.right.left = new TreeNode(0);
-        root.right.right = new TreeNode(8);
-        root.left.right.left = new TreeNode(7);
-        root.left.right.right = new TreeNode(4);
+        TreeNode root = TreeNode.buildTreeNode("[3,5,1,6,2,0,8,null,null,7,4]");
         TreeNode p = new TreeNode(5);
         TreeNode q = new TreeNode(4);
         TreeNode expected = root.left;
+        Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution236.lowestCommonAncestor(root, p, q)));
+    }
+
+    @Test
+    public void example3() {
+        TreeNode root = TreeNode.buildTreeNode("[1,2]");
+        TreeNode p = new TreeNode(1);
+        TreeNode q = new TreeNode(2);
+        TreeNode expected = root;
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution236.lowestCommonAncestor(root, p, q)));
     }
 }

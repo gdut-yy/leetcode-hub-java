@@ -6,33 +6,28 @@ public class Solution297Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
-        root.right.left = new TreeNode(4);
-        root.right.right = new TreeNode(5);
+        TreeNode root = TreeNode.buildTreeNode("[1,2,3,null,null,4,5]");
         String serializeStr = codec.serialize(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example2() {
-        TreeNode root = null;
+        TreeNode root = TreeNode.buildTreeNode("[]");
         String serializeStr = codec.serialize(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example3() {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[1]");
         String serializeStr = codec.serialize(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }
 
     @Test
     public void example4() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
+        TreeNode root = TreeNode.buildTreeNode("[1,2]");
         String serializeStr = codec.serialize(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(root, codec.deserialize(serializeStr)));
     }

@@ -6,19 +6,13 @@ public class Solution98Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(2);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(3);
+        TreeNode root = TreeNode.buildTreeNode("[2,1,3]");
         Assertions.assertTrue(solution98.isValidBST(root));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(4);
-        root.right.left = new TreeNode(3);
-        root.right.right = new TreeNode(6);
+        TreeNode root = TreeNode.buildTreeNode("[5,1,4,null,null,3,6]");
         Assertions.assertFalse(solution98.isValidBST(root));
     }
 }

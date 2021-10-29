@@ -6,35 +6,24 @@ public class Solution114Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(4);
-        root.right = new TreeNode(5);
-        root.right.right = new TreeNode(6);
-
-        TreeNode expected = new TreeNode(1);
-        expected.right = new TreeNode(2);
-        expected.right.right = new TreeNode(3);
-        expected.right.right.right = new TreeNode(4);
-        expected.right.right.right.right = new TreeNode(5);
-        expected.right.right.right.right.right = new TreeNode(6);
+        TreeNode root = TreeNode.buildTreeNode("[1,2,5,3,4,null,6]");
+        TreeNode expected = TreeNode.buildTreeNode("[1,null,2,null,3,null,4,null,5,null,6]");
         solution114.flatten(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, root));
     }
 
     @Test
     public void example2() {
-        TreeNode root = null;
-        TreeNode expected = null;
+        TreeNode root = TreeNode.buildTreeNode("[]");
+        TreeNode expected = TreeNode.buildTreeNode("[]");
         solution114.flatten(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, root));
     }
 
     @Test
     public void example3() {
-        TreeNode root = new TreeNode(0);
-        TreeNode expected = new TreeNode(0);
+        TreeNode root = TreeNode.buildTreeNode("[0]");
+        TreeNode expected = TreeNode.buildTreeNode("[0]");
         solution114.flatten(root);
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, root));
     }

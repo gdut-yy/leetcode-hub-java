@@ -6,61 +6,36 @@ public class Solution872Tests {
 
     @Test
     public void example1() {
-        TreeNode root1 = new TreeNode(3);
-        root1.left = new TreeNode(5);
-        root1.right = new TreeNode(1);
-        root1.left.left = new TreeNode(6);
-        root1.left.right = new TreeNode(2);
-        root1.right.left = new TreeNode(9);
-        root1.right.right = new TreeNode(8);
-        root1.left.right.left = new TreeNode(7);
-        root1.left.right.right = new TreeNode(4);
-
-        TreeNode root2 = new TreeNode(3);
-        root2.left = new TreeNode(5);
-        root2.right = new TreeNode(1);
-        root2.left.left = new TreeNode(6);
-        root2.left.right = new TreeNode(7);
-        root2.right.left = new TreeNode(4);
-        root2.right.right = new TreeNode(2);
-        root2.right.right.left = new TreeNode(9);
-        root2.right.right.right = new TreeNode(8);
+        TreeNode root1 = TreeNode.buildTreeNode("[3,5,1,6,2,9,8,null,null,7,4]");
+        TreeNode root2 = TreeNode.buildTreeNode("[3,5,1,6,7,4,2,null,null,null,null,null,null,9,8]");
         Assertions.assertTrue(solution872.leafSimilar(root1, root2));
     }
 
     @Test
     public void example2() {
-        TreeNode root1 = new TreeNode(1);
-        TreeNode root2 = new TreeNode(1);
+        TreeNode root1 = TreeNode.buildTreeNode("[1]");
+        TreeNode root2 = TreeNode.buildTreeNode("[1]");
         Assertions.assertTrue(solution872.leafSimilar(root1, root2));
     }
 
     @Test
     public void example3() {
-        TreeNode root1 = new TreeNode(1);
-        TreeNode root2 = new TreeNode(2);
+        TreeNode root1 = TreeNode.buildTreeNode("[1]");
+        TreeNode root2 = TreeNode.buildTreeNode("[2]");
         Assertions.assertFalse(solution872.leafSimilar(root1, root2));
     }
 
     @Test
     public void example4() {
-        TreeNode root1 = new TreeNode(1);
-        root1.left = new TreeNode(2);
-
-        TreeNode root2 = new TreeNode(2);
-        root2.left = new TreeNode(2);
+        TreeNode root1 = TreeNode.buildTreeNode("[1,2]");
+        TreeNode root2 = TreeNode.buildTreeNode("[2,2]");
         Assertions.assertTrue(solution872.leafSimilar(root1, root2));
     }
 
     @Test
     public void example5() {
-        TreeNode root1 = new TreeNode(1);
-        root1.left = new TreeNode(2);
-        root1.right = new TreeNode(3);
-
-        TreeNode root2 = new TreeNode(1);
-        root2.left = new TreeNode(3);
-        root2.right = new TreeNode(2);
+        TreeNode root1 = TreeNode.buildTreeNode("[1,2,3]");
+        TreeNode root2 = TreeNode.buildTreeNode("[1,3,2]");
         Assertions.assertFalse(solution872.leafSimilar(root1, root2));
     }
 }

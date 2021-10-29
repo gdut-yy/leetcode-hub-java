@@ -8,11 +8,7 @@ public class SolutionO07Tests {
     public void example1() {
         int[] preorder = {3, 9, 20, 15, 7};
         int[] inorder = {9, 3, 15, 20, 7};
-        TreeNode expected = new TreeNode(3);
-        expected.left = new TreeNode(9);
-        expected.right = new TreeNode(20);
-        expected.right.left = new TreeNode(15);
-        expected.right.right = new TreeNode(7);
+        TreeNode expected = TreeNode.buildTreeNode("[3,9,20,null,null,15,7]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solutionO07.buildTree(preorder, inorder)));
     }
 
@@ -20,7 +16,7 @@ public class SolutionO07Tests {
     public void example2() {
         int[] preorder = {-1};
         int[] inorder = {-1};
-        TreeNode expected = new TreeNode(-1);
+        TreeNode expected = TreeNode.buildTreeNode("[-1]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solutionO07.buildTree(preorder, inorder)));
     }
 }

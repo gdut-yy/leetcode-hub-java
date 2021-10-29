@@ -6,63 +6,29 @@ public class Solution538Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(4);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(6);
-        root.left.left = new TreeNode(0);
-        root.left.right = new TreeNode(2);
-        root.right.left = new TreeNode(5);
-        root.right.right = new TreeNode(7);
-
-        root.left.right.right = new TreeNode(3);
-        root.right.right.right = new TreeNode(8);
-        // expected
-        TreeNode expected = new TreeNode(30);
-        expected.left = new TreeNode(36);
-        expected.right = new TreeNode(21);
-        expected.left.left = new TreeNode(36);
-        expected.left.right = new TreeNode(35);
-        expected.right.left = new TreeNode(26);
-        expected.right.right = new TreeNode(15);
-
-        expected.left.right.right = new TreeNode(33);
-        expected.right.right.right = new TreeNode(8);
+        TreeNode root = TreeNode.buildTreeNode("[4,1,6,0,2,5,7,null,null,null,3,null,null,null,8]");
+        TreeNode expected = TreeNode.buildTreeNode("[30,36,21,36,35,26,15,null,null,null,33,null,null,null,8]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution538.convertBST(root)));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(0);
-        root.right = new TreeNode(1);
-        // expected
-        TreeNode expected = new TreeNode(1);
-        expected.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[0,null,1]");
+        TreeNode expected = TreeNode.buildTreeNode("[1,null,1]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution538.convertBST(root)));
     }
 
     @Test
     public void example3() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(0);
-        root.right = new TreeNode(2);
-        // expected
-        TreeNode expected = new TreeNode(3);
-        expected.left = new TreeNode(3);
-        expected.right = new TreeNode(2);
+        TreeNode root = TreeNode.buildTreeNode("[1,0,2]");
+        TreeNode expected = TreeNode.buildTreeNode("[3,3,2]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution538.convertBST(root)));
     }
 
     @Test
     public void example4() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(4);
-        root.left.left = new TreeNode(1);
-        // expected
-        TreeNode expected = new TreeNode(7);
-        expected.left = new TreeNode(9);
-        expected.right = new TreeNode(4);
-        expected.left.left = new TreeNode(10);
+        TreeNode root = TreeNode.buildTreeNode("[3,2,4,1]");
+        TreeNode expected = TreeNode.buildTreeNode("[7,9,4,10]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution538.convertBST(root)));
     }
 }

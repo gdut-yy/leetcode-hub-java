@@ -6,32 +6,21 @@ public class Solution112Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(4);
-        root.right = new TreeNode(8);
-        root.left.left = new TreeNode(11);
-        root.right.left = new TreeNode(13);
-        root.right.right = new TreeNode(4);
-        root.left.left.left = new TreeNode(7);
-        root.left.left.right = new TreeNode(2);
-        root.right.right.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[5,4,8,11,null,13,4,7,2,null,null,null,1]");
         int targetSum = 22;
         Assertions.assertTrue(solution112.hasPathSum(root, targetSum));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        TreeNode root = TreeNode.buildTreeNode("[1,2,3]");
         int targetSum = 5;
         Assertions.assertFalse(solution112.hasPathSum(root, targetSum));
     }
 
     @Test
     public void example3() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
+        TreeNode root = TreeNode.buildTreeNode("[1,2]");
         int targetSum = 0;
         Assertions.assertFalse(solution112.hasPathSum(root, targetSum));
     }

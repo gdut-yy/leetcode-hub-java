@@ -6,9 +6,7 @@ public class Solution285Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(2);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(3);
+        TreeNode root = TreeNode.buildTreeNode("[2,1,3]");
         TreeNode p = new TreeNode(1);
         TreeNode expected = root;
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution285.inorderSuccessor(root, p)));
@@ -16,12 +14,7 @@ public class Solution285Tests {
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(3);
-        root.right = new TreeNode(6);
-        root.left.left = new TreeNode(2);
-        root.left.right = new TreeNode(4);
-        root.left.left.left = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[5,3,6,2,4,null,null,1]");
         TreeNode p = new TreeNode(6);
         TreeNode expected = null;
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution285.inorderSuccessor(root, p)));

@@ -6,23 +6,13 @@ public class Solution110Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(20);
-        root.right.left = new TreeNode(15);
-        root.right.right = new TreeNode(7);
+        TreeNode root = TreeNode.buildTreeNode("[3,9,20,null,null,15,7]");
         Assertions.assertTrue(solution110.isBalanced(root));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(2);
-        root.left.left = new TreeNode(3);
-        root.left.right = new TreeNode(3);
-        root.left.left.left = new TreeNode(4);
-        root.left.left.right = new TreeNode(4);
+        TreeNode root = TreeNode.buildTreeNode("[1,2,2,3,3,null,null,4,4]");
         Assertions.assertFalse(solution110.isBalanced(root));
     }
 

@@ -6,24 +6,9 @@ public class Solution617Tests {
 
     @Test
     public void example1() {
-        TreeNode root1 = new TreeNode(1);
-        root1.left = new TreeNode(3);
-        root1.right = new TreeNode(2);
-        root1.left.left = new TreeNode(5);
-
-        TreeNode root2 = new TreeNode(2);
-        root2.left = new TreeNode(1);
-        root2.right = new TreeNode(3);
-        root2.left.right = new TreeNode(4);
-        root2.right.right = new TreeNode(7);
-
-        TreeNode expected = new TreeNode(3);
-        expected.left = new TreeNode(4);
-        expected.right = new TreeNode(5);
-        expected.left.left = new TreeNode(5);
-        expected.left.right = new TreeNode(4);
-        expected.right.right = new TreeNode(7);
-
+        TreeNode root1 = TreeNode.buildTreeNode("[1,3,2,5]");
+        TreeNode root2 = TreeNode.buildTreeNode("[2,1,3,null,4,null,7]");
+        TreeNode expected = TreeNode.buildTreeNode("[3,4,5,5,4,null,7]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution617.mergeTrees(root1, root2)));
     }
 }

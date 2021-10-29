@@ -6,20 +6,14 @@ public class Solution129Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(2);
-        root.right = new TreeNode(3);
+        TreeNode root = TreeNode.buildTreeNode("[1,2,3]");
         int expected = 25;
         Assertions.assertEquals(expected, solution129.sumNumbers(root));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(4);
-        root.left = new TreeNode(9);
-        root.right = new TreeNode(0);
-        root.left.left = new TreeNode(5);
-        root.left.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[4,9,0,5,1]");
         int expected = 1026;
         Assertions.assertEquals(expected, solution129.sumNumbers(root));
     }

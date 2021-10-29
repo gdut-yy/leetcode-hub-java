@@ -6,10 +6,7 @@ public class SolutionO54Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(3);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(4);
-        root.left.right = new TreeNode(2);
+        TreeNode root = TreeNode.buildTreeNode("[3,1,4,null,2]");
         int k = 1;
         int expected = 4;
         Assertions.assertEquals(expected, solutionO54.kthLargest(root, k));
@@ -17,12 +14,7 @@ public class SolutionO54Tests {
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(5);
-        root.left = new TreeNode(3);
-        root.right = new TreeNode(6);
-        root.left.left = new TreeNode(2);
-        root.left.right = new TreeNode(4);
-        root.left.left.left = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[5,3,6,2,4,null,null,1]");
         int k = 3;
         int expected = 4;
         Assertions.assertEquals(expected, solutionO54.kthLargest(root, k));

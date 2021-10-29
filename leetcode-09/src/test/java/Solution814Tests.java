@@ -6,50 +6,22 @@ public class Solution814Tests {
 
     @Test
     public void example1() {
-        TreeNode root = new TreeNode(1);
-        root.right = new TreeNode(0);
-        root.right.left = new TreeNode(0);
-        root.right.right = new TreeNode(1);
-        // expected
-        TreeNode expected = new TreeNode(1);
-        expected.right = new TreeNode(0);
-        expected.right.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[1,null,0,0,1]");
+        TreeNode expected = TreeNode.buildTreeNode("[1,null,0,null,1]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution814.pruneTree(root)));
     }
 
     @Test
     public void example2() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(0);
-        root.right = new TreeNode(1);
-        root.left.left = new TreeNode(0);
-        root.left.right = new TreeNode(0);
-        root.right.left = new TreeNode(0);
-        root.right.right = new TreeNode(1);
-        // expected
-        TreeNode expected = new TreeNode(1);
-        expected.right = new TreeNode(1);
-        expected.right.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[1,0,1,0,0,0,1]");
+        TreeNode expected = TreeNode.buildTreeNode("[1,null,1,null,1]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution814.pruneTree(root)));
     }
 
     @Test
     public void example3() {
-        TreeNode root = new TreeNode(1);
-        root.left = new TreeNode(1);
-        root.right = new TreeNode(0);
-        root.left.left = new TreeNode(1);
-        root.left.right = new TreeNode(1);
-        root.right.left = new TreeNode(0);
-        root.right.right = new TreeNode(1);
-        root.left.left.left = new TreeNode(0);
-        // expected
-        TreeNode expected = new TreeNode(1);
-        expected.left = new TreeNode(1);
-        expected.right = new TreeNode(0);
-        expected.left.left = new TreeNode(1);
-        expected.left.right = new TreeNode(1);
-        expected.right.right = new TreeNode(1);
+        TreeNode root = TreeNode.buildTreeNode("[1,1,0,1,1,0,1,0]");
+        TreeNode expected = TreeNode.buildTreeNode("[1,1,0,1,1,null,1]");
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution814.pruneTree(root)));
     }
 }
