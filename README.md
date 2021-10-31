@@ -154,9 +154,6 @@ private long fastPower(long x, long pow, int mod) {
 
 ```java
 private int binarySearchLeftBound(int[] nums, int target) {
-    if (nums.length == 0) {
-        return -1;
-    }
     int left = 0;
     int right = nums.length;
     while (left < right) {
@@ -173,9 +170,6 @@ private int binarySearchLeftBound(int[] nums, int target) {
 }
 
 private static int binarySearchRightBound(int[] nums, int target) {
-    if (nums.length == 0) {
-        return -1;
-    }
     int left = 0;
     int right = nums.length;
     while (left < right) {
@@ -407,6 +401,56 @@ public int josephus(int n, int k) {
 - [885. 螺旋矩阵 III](https://leetcode-cn.com/problems/spiral-matrix-iii/)
 
 ### 二叉树
+
+前序遍历 (preorder)、中序遍历 (inorder)、后序遍历 (postorder)
+
+- [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
+- [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
+- [145. 二叉树的后序遍历](https://leetcode-cn.com/problems/binary-tree-postorder-traversal/)
+
+扩展到 N 叉树（N 叉树没有 中序遍历）
+
+- [589. N 叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
+- [590. N 叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)
+
+层序遍历
+
+- [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
+- [107. 二叉树的层序遍历 II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
+- [103. 二叉树的锯齿形层序遍历](https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/)
+- [104. 二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
+- [111. 二叉树的最小深度](https://leetcode-cn.com/problems/minimum-depth-of-binary-tree/)
+- [637. 二叉树的层平均值](https://leetcode-cn.com/problems/average-of-levels-in-binary-tree/)
+
+```java
+public List<List<Integer>> levelOrder(TreeNode root) {
+    List<List<Integer>> resList = new ArrayList<>();
+    if (root == null) {
+        return resList;
+    }
+    Queue<TreeNode> queue = new LinkedList<>();
+    queue.add(root);
+    while (!queue.isEmpty()) {
+        List<Integer> curLevel = new ArrayList<>();
+        int size = queue.size();
+        for (int i = 0; i < size; i++) {
+            // 上下文已保证 cur 不为 null
+            TreeNode cur = queue.remove();
+            curLevel.add(cur.val);
+            if (cur.left != null) {
+                queue.add(cur.left);
+            }
+            if (cur.right != null) {
+                queue.add(cur.right);
+            }
+        }
+        resList.add(curLevel);
+    }
+    return resList;
+}
+```
+
+其他
 
 - [100. 相同的树](https://leetcode-cn.com/problems/same-tree/)
 - [114. 二叉树展开为链表](https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/)
