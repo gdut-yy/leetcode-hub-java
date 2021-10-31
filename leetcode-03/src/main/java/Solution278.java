@@ -19,6 +19,18 @@ public class Solution278 extends VersionControl {
         super(bad);
     }
 }
+
+class VersionControl {
+    int bad;
+
+    public VersionControl(int bad) {
+        this.bad = bad;
+    }
+
+    boolean isBadVersion(int version) {
+        return version >= bad;
+    }
+}
 /*
 278. 第一个错误的版本
 https://leetcode-cn.com/problems/first-bad-version/

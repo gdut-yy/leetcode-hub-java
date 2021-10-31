@@ -28,6 +28,20 @@ public class Solution430 {
         }
         return tail;
     }
+
+    static class Node {
+        public int val;
+        public Node prev;
+        public Node next;
+        public Node child;
+
+        public Node() {
+        }
+
+        public Node(int _val) {
+            val = _val;
+        }
+    }
 }
 /*
 430. 扁平化多级双向链表

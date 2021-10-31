@@ -23,6 +23,26 @@ public class Solution78 {
             subset.removeLast();
         }
     }
+
+    /**
+     * 状态压缩 DP
+     */
+    public List<List<Integer>> subsets2(int[] nums) {
+        List<List<Integer>> resList = new ArrayList<>();
+        int len = nums.length;
+        // 状态压缩 dp
+        for (int state = 0; state < (1 << len); state++) {
+            List<Integer> curList = new ArrayList<>();
+            for (int k = 0; k < len; k++) {
+                // 第 k 位被选中
+                if (((state >> k) & 1) == 1) {
+                    curList.add(nums[k]);
+                }
+            }
+            resList.add(curList);
+        }
+        return resList;
+    }
 }
 /*
 78. 子集

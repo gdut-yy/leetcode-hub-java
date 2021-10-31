@@ -1,6 +1,9 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ * 二叉树
+ */
 public class TreeNode {
     int val;
     TreeNode left;
@@ -13,12 +16,13 @@ public class TreeNode {
         this.val = val;
     }
 
-    TreeNode(int val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
-
+    /**
+     * 自定义断言
+     *
+     * @param expected 期望值
+     * @param actual   实际值
+     * @return true 相等
+     */
     public static boolean assertTreeNodeEquals(TreeNode expected, TreeNode actual) {
         if (expected == null && actual == null) {
             return true;
@@ -31,6 +35,12 @@ public class TreeNode {
         }
     }
 
+    /**
+     * 构造 TreeNode
+     *
+     * @param text text
+     * @return TreeNode
+     */
     public static TreeNode buildTreeNode(String text) {
         if (text.equals("[]")) {
             return null;

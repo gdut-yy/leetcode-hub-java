@@ -1,4 +1,3 @@
-import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -24,8 +23,6 @@ public class SolutionO36Tests {
         expected.left.left.left = expected.right.right;
         expected.left.left.left.left = expected.right;
         expected.left.left.left.left.left = expected;
-
-        SolutionO36.Node actual = solutionO36.treeToDoublyList(root);
-        Assertions.assertEquals(JSON.toJSONString(expected), JSON.toJSONString(actual));
+        Assertions.assertTrue(UtUtils.assertJsonEquals(expected, solutionO36.treeToDoublyList(root)));
     }
 }

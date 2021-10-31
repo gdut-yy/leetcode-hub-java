@@ -1,5 +1,31 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution136 {
+    /**
+     * HashMap
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     */
     public int singleNumber(int[] nums) {
+        Map<Integer, Integer> cntMap = new HashMap<>();
+        for (int num : nums) {
+            cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
+            if (entry.getValue() == 1) {
+                return entry.getKey();
+            }
+        }
+        return -1;
+    }
+
+    /**
+     * 位运算
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public int singleNumber2(int[] nums) {
         int single = 0;
         for (int num : nums) {
             single ^= num;

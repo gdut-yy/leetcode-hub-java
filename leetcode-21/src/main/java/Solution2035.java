@@ -56,7 +56,7 @@ public class Solution2035 {
             TreeSet<Integer> treeSet = nums2subsetMap.getOrDefault(i, new TreeSet<>());
             int sum = 0;
             for (int k = 0; k < n; k++) {
-                if (((state >> k) & 1) > 0) {
+                if (((state >> k) & 1) == 1) {
                     sum += nums[k];
                 }
             }

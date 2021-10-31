@@ -9,6 +9,7 @@ public class Solution136Tests {
         int[] nums = {2, 2, 1};
         int expected = 1;
         Assertions.assertEquals(expected, solution136.singleNumber(nums));
+        Assertions.assertEquals(expected, solution136.singleNumber2(nums));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution136Tests {
         int[] nums = {4, 1, 2, 1, 2};
         int expected = 4;
         Assertions.assertEquals(expected, solution136.singleNumber(nums));
+        Assertions.assertEquals(expected, solution136.singleNumber2(nums));
     }
 }

@@ -68,11 +68,14 @@ junit5 常用断言：
 
 思考：一些较为特殊的判题 UT 写法：
 
-1. 部分题目使用了自定义对象，`Assertions.assertEquals` 已不能满足这种场景需要（或需重写自定义对象的 `equals` 与 `hashCode` 方法），可以使用自定义断言对这类对象进行判定：
-   - `ListNode` 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)` 第 19、21、23、83、141、142、876 题等；
-   - `TreeNode` 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)` 第 114、226 题等；
-2. 部分题目符合题意的答案并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5 题等；
-3. 部分题目符合题意的答案是一个集合，但对集合元素的顺序没有要求，可以对 `expected` 和 `actual` 集合进行排序后判等，如第 30、46、51 题等；
+1. 部分题目使用了自定义对象（链表、二叉树等），`Assertions.assertEquals` 不能满足这种场景，可使用自定义断言对这类对象进行判等：
+   - `ListNode` 可参考 `ListNode#assertListNodeEquals(ListNode expected, ListNode actual)`，如第 2、19、21、23、82 题等；
+   - `TreeNode` 可参考 `TreeNode#assertTreeNodeEquals(TreeNode expected, TreeNode actual)`，如第 105、114、156、226、235 题等；
+   - 不失一般性地，其他自定义对象可参考 `UtUtils#assertJsonEquals(Object expected, Object actual)`，如第 138、430、708 题等；
+2. 部分题目符合题意的答案并不止一个，可以构造一个 `List<T> expectedList` 去判断是否 `contains()` 如第 5、162 题等；
+3. 部分题目符合题意的答案是一个集合，但对集合元素的顺序没有要求，可以对 `expected` 和 `actual` 集合进行排序后判等：
+   - `List<List<Integer>>` 可参考 `UtUtils#INTEGER_LIST_COMPARATOR`，如第 18、39、40、46、47 题等；
+   - `List<List<String>>` 可参考 `UtUtils#STRING_LIST_COMPARATOR`，如第 49、51 题等；
 4. 部分题目是非精确判等（随机问题），如第 384、528 题等；
 
 ## 常用算法模板
@@ -95,7 +98,8 @@ for (int i = 0; i < len; i++) {
 }
 ```
 
-- [848. 字母移位](https://leetcode-cn.com/problems/shifting-letters/) “反向前缀和”
+- [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
+- [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/) （二维前缀和）
 
 ### 差分数组
 
@@ -402,7 +406,7 @@ public int josephus(int n, int k) {
 
 ### 二叉树
 
-前序遍历 (preorder)、中序遍历 (inorder)、后序遍历 (postorder)
+二叉树前序遍历 (preorder)、中序遍历 (inorder)、后序遍历 (postorder)
 
 - [144. 二叉树的前序遍历](https://leetcode-cn.com/problems/binary-tree-preorder-traversal/)
 - [94. 二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
@@ -413,7 +417,7 @@ public int josephus(int n, int k) {
 - [589. N 叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
 - [590. N 叉树的后序遍历](https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/)
 
-层序遍历
+二叉树层序遍历
 
 - [102. 二叉树的层序遍历](https://leetcode-cn.com/problems/binary-tree-level-order-traversal/)
 - [107. 二叉树的层序遍历 II](https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/)
@@ -450,6 +454,11 @@ public List<List<Integer>> levelOrder(TreeNode root) {
 }
 ```
 
+二叉树序列化
+
+- [297. 二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
+- [449. 序列化和反序列化二叉搜索树](https://leetcode-cn.com/problems/serialize-and-deserialize-bst/)
+
 其他
 
 - [100. 相同的树](https://leetcode-cn.com/problems/same-tree/)
@@ -484,6 +493,81 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 - [503. 下一个更大元素 II](https://leetcode-cn.com/problems/next-greater-element-ii/)
 - [739. 每日温度](https://leetcode-cn.com/problems/daily-temperatures/)
 - [1944. 队列中可以看到的人数](https://leetcode-cn.com/problems/number-of-visible-people-in-a-queue/)
+
+### 状态压缩 DP
+
+```java
+public List<List<Integer>> subsets(int[] nums) {
+    List<List<Integer>> resList = new ArrayList<>();
+    int len = nums.length;
+    // 状态压缩 dp
+    for (int state = 0; state < (1 << len); state++) {
+        List<Integer> curList = new ArrayList<>();
+        for (int k = 0; k < len; k++) {
+            // 第 k 位被选中
+            if (((state >> k) & 1) == 1) {
+                curList.add(nums[k]);
+            }
+        }
+        resList.add(curList);
+    }
+    return resList;
+}
+```
+
+- [78. 子集](https://leetcode-cn.com/problems/subsets/)
+- [90. 子集 II](https://leetcode-cn.com/problems/subsets-ii/)
+- [1049. 最后一块石头的重量 II](https://leetcode-cn.com/problems/last-stone-weight-ii/)
+- [1755. 最接近目标值的子序列和](https://leetcode-cn.com/problems/closest-subsequence-sum/)
+- [2035. 将数组分成两个数组并最小化数组和的差](https://leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/)
+
+### 只出现一次的数字系列
+
+1. [136. 只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
+2. [137. 只出现一次的数字 II](https://leetcode-cn.com/problems/single-number-ii/)
+3. [260. 只出现一次的数字 III](https://leetcode-cn.com/problems/single-number-iii/)
+
+```java
+// 给定一个非空整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+public int singleNumber(int[] nums) {
+    int single = 0;
+    for (int num : nums) {
+        single ^= num;
+    }
+    return single;
+}
+
+// 给你一个整数数组 nums ，除某个元素仅出现 一次 外，其余每个元素都恰出现 三次 。请你找出并返回那个只出现了一次的元素。
+public int singleNumber2(int[] nums) {
+    int a = 0;
+    int b = 0;
+    for (int num : nums) {
+        b = ~a & (b ^ num);
+        a = ~b & (a ^ num);
+    }
+    return b;
+}
+
+// 给定一个整数数组 nums，其中恰好有两个元素只出现一次，其余所有元素均出现两次。找出只出现一次的那两个元素。你可以按 任意顺序 返回答案。
+public int[] singleNumber2(int[] nums) {
+    int xorsum = 0;
+    for (int num : nums) {
+        xorsum ^= num;
+    }
+    // 防止溢出
+    int lsb = (xorsum == Integer.MIN_VALUE ? xorsum : xorsum & (-xorsum));
+    int type1 = 0;
+    int type2 = 0;
+    for (int num : nums) {
+        if ((num & lsb) != 0) {
+            type1 ^= num;
+        } else {
+            type2 ^= num;
+        }
+    }
+    return new int[]{type1, type2};
+}
+```
 
 ## 学习资源
 

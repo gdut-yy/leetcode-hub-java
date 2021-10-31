@@ -1,15 +1,8 @@
-import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution138Tests {
     private final Solution138 solution138 = new Solution138();
-
-    private boolean assertNodeEquals(Solution138.Node expected, Solution138.Node actual) {
-        String expectedJson = JSON.toJSONString(expected);
-        String actualJson = JSON.toJSONString(actual);
-        return expectedJson.equals(actualJson);
-    }
 
     @Test
     public void example1() {
@@ -28,7 +21,7 @@ public class Solution138Tests {
         node2.random = node4;
         node3.random = node2;
         node4.random = head;
-        Assertions.assertTrue(assertNodeEquals(head, solution138.copyRandomList(head)));
+        Assertions.assertTrue(UtUtils.assertJsonEquals(head, solution138.copyRandomList(head)));
     }
 
     @Test
@@ -39,7 +32,7 @@ public class Solution138Tests {
         node1.next = null;
         head.random = node1;
         node1.random = node1;
-        Assertions.assertTrue(assertNodeEquals(head, solution138.copyRandomList(head)));
+        Assertions.assertTrue(UtUtils.assertJsonEquals(head, solution138.copyRandomList(head)));
     }
 
     @Test
@@ -53,12 +46,12 @@ public class Solution138Tests {
         head.random = null;
         node1.random = head;
         node2.random = null;
-        Assertions.assertTrue(assertNodeEquals(head, solution138.copyRandomList(head)));
+        Assertions.assertTrue(UtUtils.assertJsonEquals(head, solution138.copyRandomList(head)));
     }
 
     @Test
     public void example4() {
         Solution138.Node head = null;
-        Assertions.assertTrue(assertNodeEquals(head, solution138.copyRandomList(head)));
+        Assertions.assertTrue(UtUtils.assertJsonEquals(head, solution138.copyRandomList(head)));
     }
 }

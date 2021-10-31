@@ -41,7 +41,7 @@ public class UtUtils {
     };
 
     /**
-     * loadingInts
+     * resources 文件加载 int[]
      *
      * @param fileName 文件名
      * @return int[]
@@ -51,7 +51,7 @@ public class UtUtils {
     }
 
     /**
-     * loadingInts
+     * resources 文件加载 int[]
      *
      * @param fileName 文件名
      * @param line     行号
@@ -59,7 +59,6 @@ public class UtUtils {
      * @throws IOException e
      */
     public static int[] loadingInts(String fileName, int line) throws IOException {
-        // 从 src/main/resources 下加载
         File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
         List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
         List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
@@ -67,7 +66,7 @@ public class UtUtils {
     }
 
     /**
-     * loadingInts2
+     * resources 文件加载 int[][]
      *
      * @param fileName 文件名
      * @return int[][]
@@ -77,7 +76,7 @@ public class UtUtils {
     }
 
     /**
-     * loadingInts2
+     * resources 文件加载 int[][]
      *
      * @param fileName 文件名
      * @param line     行号
@@ -85,7 +84,6 @@ public class UtUtils {
      * @throws IOException e
      */
     public static int[][] loadingInts2(String fileName, int line) throws IOException {
-        // 从 src/main/resources 下加载
         File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
         List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
         List<int[]> list = JSON.parseArray(lines.get(line), int[].class);
@@ -97,7 +95,7 @@ public class UtUtils {
     }
 
     /**
-     * loadingLong
+     * resources 文件加载 long
      *
      * @param fileName 文件名
      * @param line     行号
@@ -105,9 +103,19 @@ public class UtUtils {
      * @throws IOException e
      */
     public static long loadingLong(String fileName, int line) throws IOException {
-        // 从 src/main/resources 下加载
         File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
         List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
         return Long.parseLong(lines.get(line));
+    }
+
+    /**
+     * 通过 JSON 序列化判等自定义对象
+     *
+     * @param expected expected
+     * @param actual   actual
+     * @return boolean
+     */
+    public static boolean assertJsonEquals(Object expected, Object actual) {
+        return JSON.toJSONString(expected).equals(JSON.toJSONString(actual));
     }
 }

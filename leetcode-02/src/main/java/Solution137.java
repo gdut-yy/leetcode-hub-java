@@ -2,6 +2,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution137 {
+    /**
+     * HashMap
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     */
     public int singleNumber(int[] nums) {
         Map<Integer, Integer> cntMap = new HashMap<>();
         for (int num : nums) {
@@ -13,6 +18,21 @@ public class Solution137 {
             }
         }
         return -1;
+    }
+
+    /**
+     * 数字电路设计优化
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(1)
+     */
+    public int singleNumber2(int[] nums) {
+        int a = 0;
+        int b = 0;
+        for (int num : nums) {
+            b = ~a & (b ^ num);
+            a = ~b & (a ^ num);
+        }
+        return b;
     }
 }
 /*

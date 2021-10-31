@@ -20,7 +20,7 @@ public class Solution1049 {
             // nums1 子集和
             int sum1 = 0;
             for (int k = 0; k < len1; k++) {
-                if (((state >> k) & 1) > 0) {
+                if (((state >> k) & 1) == 1) {
                     sum1 += nums1[k];
                 }
             }

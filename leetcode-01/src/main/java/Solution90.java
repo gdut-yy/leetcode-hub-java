@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 public class Solution90 {
     public List<List<Integer>> subsetsWithDup(int[] nums) {
@@ -32,6 +34,25 @@ public class Solution90 {
             next++;
         }
         return next;
+    }
+
+    public List<List<Integer>> subsetsWithDup2(int[] nums) {
+        Set<List<Integer>> resSet = new HashSet<>();
+        // 90. 子集 II 可能包含重复元素
+        Arrays.sort(nums);
+        int len = nums.length;
+        // 状态压缩 dp
+        for (int state = 0; state < (1 << len); state++) {
+            List<Integer> curList = new ArrayList<>();
+            for (int k = 0; k < len; k++) {
+                // 第 k 位被选中
+                if (((state >> k) & 1) == 1) {
+                    curList.add(nums[k]);
+                }
+            }
+            resSet.add(curList);
+        }
+        return new ArrayList<>(resSet);
     }
 }
 /*
