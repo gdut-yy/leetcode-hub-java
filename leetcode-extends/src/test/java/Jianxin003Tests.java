@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Jainxin003Tests {
-    private final Jainxin003 jainxin003 = new Jainxin003();
+public class Jianxin003Tests {
+    private final Jianxin003 jianxin003 = new Jianxin003();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Jainxin003Tests {
         int start = 1;
         int end = 7;
         int[] expected = {1, 2, 3, 4, 8, 7};
-        Assertions.assertArrayEquals(expected, jainxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Jainxin003Tests {
         int start = 9;
         int end = 1;
         int[] expected = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        Assertions.assertArrayEquals(expected, jainxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
     }
 
     // 补充用例
@@ -29,7 +29,7 @@ public class Jainxin003Tests {
         int start = 7415;
         int end = 2871;
         int[] expected = {7415, 699, 4880, 473, 7721, 2871};
-        Assertions.assertArrayEquals(expected, jainxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -38,6 +38,15 @@ public class Jainxin003Tests {
         int start = 9906;
         int end = 853;
         int[] expected = {9906, 2269, 4614, 970, 9027, 853};
-        Assertions.assertArrayEquals(expected, jainxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+    }
+
+    @Test
+    public void example5() {
+        int[][] lines = {{4165, 8075, 3072, 6302, 3747, 3616, 1893}, {7431, 3616, 3747, 1893, 8075, 3219}, {3072, 6302, 3747}, {3616, 3969}, {7431, 3616}};
+        int start = 4165;
+        int end = 3219;
+        int[] expected = {4165, 8075, 3219};
+        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
     }
 }

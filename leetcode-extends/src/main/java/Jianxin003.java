@@ -1,6 +1,12 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
 
-public class Jainxin003 {
+public class Jianxin003 {
     public int[] metroRouteDesignI(int[][] lines, int start, int end) {
         // @see Solution815
         Map<Integer, List<Integer>> stopRoutesMap = buildStopRoutesMap(lines);
@@ -8,7 +14,6 @@ public class Jainxin003 {
         // BFS
         Queue<Node> queue = new LinkedList<>();
         queue.add(new Node(start, List.of(start)));
-        boolean[] visited = new boolean[lines.length];
         boolean found = false;
         List<List<Integer>> resList = new ArrayList<>();
         while (!found && !queue.isEmpty()) {
@@ -20,42 +25,39 @@ public class Jainxin003 {
                 // 当前车站的线路集合
                 List<Integer> routesList = stopRoutesMap.get(stop);
                 for (int route : routesList) {
-                    if (!visited[route]) {
-                        visited[route] = true;
-                        int[] stops = lines[route];
-                        int idx = getIdx(stops, stop);
-                        // 向左走
-                        List<Integer> tmpList = new ArrayList<>();
-                        for (int j = idx - 1; j >= 0; j--) {
-                            tmpList.add(stops[j]);
-                            if (stops[j] == end || stopRoutesMap.get(stops[j]).size() > 1) {
-                                List<Integer> nextList = new ArrayList<>(memoList);
-                                nextList.addAll(tmpList);
-                                if (stops[j] == end) {
-                                    resList.add(nextList);
-                                    found = true;
-                                    break;
-                                } else {
-                                    // 添加当前线路的 "换乘站"
-                                    queue.add(new Node(stops[j], nextList));
-                                }
+                    int[] stops = lines[route];
+                    int idx = getIdx(stops, stop);
+                    // 向左走
+                    List<Integer> tmpList = new ArrayList<>();
+                    for (int j = idx - 1; j >= 0; j--) {
+                        tmpList.add(stops[j]);
+                        if (stops[j] == end || stopRoutesMap.get(stops[j]).size() > 1) {
+                            List<Integer> nextList = new ArrayList<>(memoList);
+                            nextList.addAll(tmpList);
+                            if (stops[j] == end) {
+                                resList.add(nextList);
+                                found = true;
+                                break;
+                            } else {
+                                // 添加当前线路的 "换乘站"
+                                queue.add(new Node(stops[j], nextList));
                             }
                         }
-                        // 向右走
-                        tmpList.clear();
-                        for (int j = idx + 1; j < stops.length; j++) {
-                            tmpList.add(stops[j]);
-                            if (stops[j] == end || stopRoutesMap.get(stops[j]).size() > 1) {
-                                List<Integer> nextList = new ArrayList<>(memoList);
-                                nextList.addAll(tmpList);
-                                if (stops[j] == end) {
-                                    resList.add(nextList);
-                                    found = true;
-                                    break;
-                                } else {
-                                    // 添加当前线路的 "换乘站"
-                                    queue.add(new Node(stops[j], nextList));
-                                }
+                    }
+                    // 向右走
+                    tmpList.clear();
+                    for (int j = idx + 1; j < stops.length; j++) {
+                        tmpList.add(stops[j]);
+                        if (stops[j] == end || stopRoutesMap.get(stops[j]).size() > 1) {
+                            List<Integer> nextList = new ArrayList<>(memoList);
+                            nextList.addAll(tmpList);
+                            if (stops[j] == end) {
+                                resList.add(nextList);
+                                found = true;
+                                break;
+                            } else {
+                                // 添加当前线路的 "换乘站"
+                                queue.add(new Node(stops[j], nextList));
                             }
                         }
                     }
@@ -63,8 +65,16 @@ public class Jainxin003 {
             }
         }
 
+        // 要求路线上无重复的站点
+        List<List<Integer>> resList2 = new ArrayList<>();
+        for (List<Integer> res : resList) {
+            if (res.size() == new HashSet<>(res).size()) {
+                resList2.add(res);
+            }
+        }
+
         // 返回字典序最小的路线
-        resList.sort((o1, o2) -> {
+        resList2.sort((o1, o2) -> {
             int size = Math.min(o1.size(), o2.size());
             for (int i = 0; i < size; i++) {
                 if (!o1.get(i).equals(o2.get(i))) {
@@ -73,8 +83,7 @@ public class Jainxin003 {
             }
             return o1.size() - o2.size();
         });
-        System.out.println(resList);
-        return resList.get(0).stream().mapToInt(i -> i).toArray();
+        return resList2.get(0).stream().mapToInt(i -> i).toArray();
     }
 
     private int getIdx(int[] nums, int target) {
