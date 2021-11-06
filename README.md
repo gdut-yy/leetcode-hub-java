@@ -132,27 +132,83 @@ for (int i = 1; i < diff.length; i++) {
 ### 快速幂
 
 ```java
-private long fastPower(long x, long pow, int mod) {
-    // 取模
-    x %= mod;
-    long ans = 1;
-    while (pow > 0) {
-        if (pow % 2 == 1) {
-            ans *= x;
-            // 取模
-            ans %= mod;
+    /**
+     * 快速幂 res = a^b % mod
+     */
+    private int quickPow(long a, long b, int mod) {
+        a %= mod;
+        long res = 1;
+        while (b > 0) {
+            if (b % 2 == 1) {
+                res *= a;
+                res %= mod;
+            }
+            a *= a;
+            a %= mod;
+            b /= 2;
         }
-        x *= x;
-        // 取模
-        x %= mod;
-        pow /= 2;
+        return (int) res;
     }
-    return ans;
-}
 ```
 
 - [1922. 统计好数字的数目](https://leetcode-cn.com/problems/count-good-numbers/)
 - [1969. 数组元素的最小非零乘积](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/)
+
+### 矩阵快速幂
+
+```java
+    /**
+     * 矩阵快速幂 res = f(n)
+     */
+    private int getFn(int[] f, int[][] mPowN) {
+        int len = f.length;
+        int res = 0;
+        for (int i = 0; i < len; i++) {
+            res += mPowN[len - 1][i] * f[len - 1 - i];
+        }
+        return res;
+    }
+
+    /**
+     * 矩阵快速幂 res = a^n
+     */
+    private int[][] matQuickPow(int[][] a, int n) {
+        int len = a.length;
+        // 对角矩阵
+        int[][] res = new int[len][len];
+        for (int i = 0; i < len; i++) {
+            res[i][i] = 1;
+        }
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                res = matMulti(res, a);
+            }
+            n >>= 1;
+            a = matMulti(a, a);
+        }
+        return res;
+    }
+
+    /**
+     * 矩阵快速幂 res = a * b
+     */
+    private int[][] matMulti(int[][] a, int[][] b) {
+        int len = a.length;
+        int[][] res = new int[len][len];
+        for (int i = 0; i < len; i++) {
+            for (int j = 0; j < len; j++) {
+                for (int k = 0; k < len; k++) {
+                    res[i][j] += a[i][k] * b[k][j];
+                }
+            }
+        }
+        return res;
+    }
+```
+
+- [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+- [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
+- [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number/)
 
 ### 二分查找
 

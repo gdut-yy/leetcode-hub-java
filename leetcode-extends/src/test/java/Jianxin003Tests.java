@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 public class Jianxin003Tests {
     private final Jianxin003 jianxin003 = new Jianxin003();
 
+    private final Jianxin003_2 jianxin003_2 = new Jianxin003_2();
+
     @Test
     public void example1() {
         int[][] lines = {{1, 2, 3, 4, 5}, {2, 10, 14, 15, 16}, {10, 8, 12, 13}, {7, 8, 4, 9, 11}};
@@ -11,6 +13,7 @@ public class Jianxin003Tests {
         int end = 7;
         int[] expected = {1, 2, 3, 4, 8, 7};
         Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -20,6 +23,7 @@ public class Jianxin003Tests {
         int end = 1;
         int[] expected = {9, 8, 7, 6, 5, 4, 3, 2, 1};
         Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
     }
 
     // 补充用例
@@ -30,6 +34,7 @@ public class Jianxin003Tests {
         int end = 2871;
         int[] expected = {7415, 699, 4880, 473, 7721, 2871};
         Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -39,6 +44,7 @@ public class Jianxin003Tests {
         int end = 853;
         int[] expected = {9906, 2269, 4614, 970, 9027, 853};
         Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -48,5 +54,6 @@ public class Jianxin003Tests {
         int end = 3219;
         int[] expected = {4165, 8075, 3219};
         Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
     }
 }

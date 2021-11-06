@@ -2,6 +2,7 @@ public class Solution1891 {
     public int maxLength(int[] ribbons, int k) {
         int left = 1;
         int right = 100001;
+        // [true, true, true, true,] false, false, false
         // 右边界二分
         while (left < right) {
             int mid = left + (right - left) / 2;
