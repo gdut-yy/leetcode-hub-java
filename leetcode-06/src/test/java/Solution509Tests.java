@@ -9,6 +9,7 @@ public class Solution509Tests {
         int n = 2;
         int expected = 1;
         Assertions.assertEquals(expected, solution509.fib(n));
+        Assertions.assertEquals(expected, solution509.fib2(n));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution509Tests {
         int n = 3;
         int expected = 2;
         Assertions.assertEquals(expected, solution509.fib(n));
+        Assertions.assertEquals(expected, solution509.fib2(n));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution509Tests {
         int n = 4;
         int expected = 3;
         Assertions.assertEquals(expected, solution509.fib(n));
+        Assertions.assertEquals(expected, solution509.fib2(n));
     }
 }

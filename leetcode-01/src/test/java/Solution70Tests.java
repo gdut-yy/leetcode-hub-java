@@ -9,6 +9,7 @@ public class Solution70Tests {
         int n = 2;
         int expected = 2;
         Assertions.assertEquals(expected, solution70.climbStairs(n));
+        Assertions.assertEquals(expected, solution70.climbStairs2(n));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution70Tests {
         int n = 3;
         int expected = 3;
         Assertions.assertEquals(expected, solution70.climbStairs(n));
+        Assertions.assertEquals(expected, solution70.climbStairs2(n));
     }
 }

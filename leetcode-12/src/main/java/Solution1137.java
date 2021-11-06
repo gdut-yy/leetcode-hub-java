@@ -1,28 +1,13 @@
-public class Solution509 {
-    /**
-     * 动态规划
-     * 时间复杂度 O(n)
-     * 空间复杂度 O(n) 可用滚动数组优化至 o(1)
-     */
-    public int fib(int n) {
-        int[] dp = new int[n + 2];
-        dp[0] = 0;
-        dp[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            dp[i] = dp[i - 1] + dp[i - 2];
-        }
-        return dp[n];
-    }
-
+public class Solution1137 {
     /**
      * 矩阵快速幂
      * 时间复杂度 O(logn)
      * 空间复杂度 O(1)
      */
-    public int fib2(int n) {
-        int[][] mat = {{1, 1}, {1, 0}};
+    public int tribonacci(int n) {
+        int[][] mat = {{1, 1, 1}, {1, 0, 0}, {0, 1, 0}};
         int[][] mPowN = matQuickPow(mat, n);
-        int[] f = {0, 1};
+        int[] f = {0, 1, 1};
         return getFn(f, mPowN);
     }
 
@@ -75,17 +60,15 @@ public class Solution509 {
     }
 }
 /*
-509. 斐波那契数
-https://leetcode-cn.com/problems/fibonacci-number/
+1137. 第 N 个泰波那契数
+https://leetcode-cn.com/problems/n-th-tribonacci-number/
 
-斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：
-F(0) = 0，F(1) = 1
-F(n) = F(n - 1) + F(n - 2)，其中 n > 1
-给你 n ，请计算 F(n) 。
-0 <= n <= 30
+泰波那契序列 Tn 定义如下： 
+T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
+给你整数 n，请返回第 n 个泰波那契数 Tn 的值。
 
 相似题目: 70. 爬楼梯
 https://leetcode-cn.com/problems/climbing-stairs/
-1137. 第 N 个泰波那契数
-https://leetcode-cn.com/problems/n-th-tribonacci-number/
+509. 斐波那契数
+https://leetcode-cn.com/problems/fibonacci-number/
  */
