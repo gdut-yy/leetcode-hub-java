@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution117 {
+public class Solution116 {
     public Node connect(Node root) {
         if (root == null) {
             return null;
@@ -50,10 +50,10 @@ public class Solution117 {
     }
 }
 /*
-117. 填充每个节点的下一个右侧节点指针 II
-https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/
+116. 填充每个节点的下一个右侧节点指针
+https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
 
-给定一个二叉树
+给定一个 完美二叉树 ，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
 struct Node {
   int val;
   Node *left;
@@ -64,6 +64,6 @@ struct Node {
 初始状态下，所有 next 指针都被设置为 NULL。
 
 层次遍历。
-同: 116. 填充每个节点的下一个右侧节点指针
-https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
+同: 117. 填充每个节点的下一个右侧节点指针 II
+https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/
  */

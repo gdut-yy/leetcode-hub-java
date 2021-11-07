@@ -3,23 +3,25 @@ public class Solution10 {
         int m = s.length();
         int n = p.length();
 
-        boolean[][] f = new boolean[m + 1][n + 1];
-        f[0][0] = true;
-        for (int i = 0; i <= m; ++i) {
-            for (int j = 1; j <= n; ++j) {
+        // dp[i][j] 表示 s 的前 i 个字符与 p 中的前 j 个字符是否能够匹配
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 0; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
                 if (p.charAt(j - 1) == '*') {
-                    f[i][j] = f[i][j - 2];
+                    dp[i][j] = dp[i][j - 2];
                     if (matches(s, p, i, j - 1)) {
-                        f[i][j] = f[i][j] || f[i - 1][j];
+                        dp[i][j] = dp[i][j] || dp[i - 1][j];
                     }
                 } else {
+                    // 如果 p 的第 j 个字符是一个小写字母，那么我们必须在 s 中匹配一个相同的小写字母
                     if (matches(s, p, i, j)) {
-                        f[i][j] = f[i - 1][j - 1];
+                        dp[i][j] = dp[i - 1][j - 1];
                     }
                 }
             }
         }
-        return f[m][n];
+        return dp[m][n];
     }
 
     private boolean matches(String s, String p, int i, int j) {
@@ -40,4 +42,10 @@ https://leetcode-cn.com/problems/regular-expression-matching/
 '.' 匹配任意单个字符
 '*' 匹配零个或多个前面的那一个元素
 所谓匹配，是要涵盖 整个 字符串 s的，而不是部分字符串。
+
+动态规划。
+时间复杂度 O(mn)
+空间复杂度 O(mn)
+相似题目: 44. 通配符匹配
+https://leetcode-cn.com/problems/wildcard-matching/
  */

@@ -24,20 +24,6 @@ public class Solution117Tests {
         expected.left.right.next = expected.right.right;
         // actual
         Solution117.Node actual = solution117.connect(root);
-        Assertions.assertTrue(assertNodeEquals(expected, actual));
-    }
-
-    public boolean assertNodeEquals(Solution117.Node expected, Solution117.Node actual) {
-        if (expected == null && actual == null) {
-            return true;
-        } else if (expected == null || actual == null) {
-            return false;
-        } else if (expected.val != actual.val) {
-            return false;
-        } else {
-            return assertNodeEquals(expected.left, actual.left)
-                    && assertNodeEquals(expected.right, actual.right)
-                    && assertNodeEquals(expected.next, actual.next);
-        }
+        Assertions.assertTrue(UtUtils.assertJsonEquals(expected, actual));
     }
 }
