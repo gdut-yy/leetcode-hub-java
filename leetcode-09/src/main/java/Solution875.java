@@ -1,13 +1,13 @@
 public class Solution875 {
     public int minEatingSpeed(int[] piles, int h) {
-        // 左边界二分
         // 1 <= piles.length <= 10^4
         // piles.length <= H <= 10^9
         int left = 1;
-        int right = 1000000000;
+        int right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (canMinEatingSpeed(piles, h, mid)) {
+            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            if (checkMid(piles, h, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -16,14 +16,10 @@ public class Solution875 {
         return left;
     }
 
-    private boolean canMinEatingSpeed(int[] piles, int h, int k) {
+    private boolean checkMid(int[] piles, int h, int mid) {
         int cnt = 0;
         for (int pile : piles) {
-            if (pile % k == 0) {
-                cnt += pile / k;
-            } else {
-                cnt += pile / k + 1;
-            }
+            cnt += Math.ceil(pile / (double) mid);
         }
         return cnt <= h;
     }
@@ -33,5 +29,12 @@ public class Solution875 {
 https://leetcode-cn.com/problems/koko-eating-bananas/
 
 第 94 场周赛 T3。
+
+珂珂喜欢吃香蕉。这里有 N 堆香蕉，第 i 堆中有 piles[i] 根香蕉。警卫已经离开了，将在 H 小时后回来。
+珂珂可以决定她吃香蕉的速度 K （单位：根/小时）。每个小时，她将会选择一堆香蕉，从中吃掉 K 根。如果这堆香蕉少于 K 根，
+她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。
+珂珂喜欢慢慢吃，但仍然想在警卫回来前吃掉所有的香蕉。
+返回她可以在 H 小时内吃掉所有香蕉的最小速度 K（K 为整数）。
+
 左边界二分
  */

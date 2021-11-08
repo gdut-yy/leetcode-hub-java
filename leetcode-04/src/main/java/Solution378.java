@@ -1,12 +1,12 @@
 public class Solution378 {
     public int kthSmallest(int[][] matrix, int k) {
         int n = matrix.length;
-        // 左边界二分
         int left = matrix[0][0];
         int right = matrix[n - 1][n - 1];
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (check(matrix, k, mid)) {
+            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            if (checkMid(matrix, k, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -15,7 +15,7 @@ public class Solution378 {
         return left;
     }
 
-    private boolean check(int[][] matrix, int k, int mid) {
+    private boolean checkMid(int[][] matrix, int k, int mid) {
         // 左下角开始
         int curM = matrix.length - 1;
         int curN = 0;

@@ -1,13 +1,13 @@
 public class Solution1011 {
     public int shipWithinDays(int[] weights, int days) {
-        // 左边界二分
         // 1 <= D <= weights.length <= 5 * 10^4
         // 1 <= weights[i] <= 500
         int left = 1;
-        int right = 2500000;
+        int right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (canShipWithinDays(weights, days, mid)) {
+            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            if (checkMid(weights, days, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -16,21 +16,21 @@ public class Solution1011 {
         return left;
     }
 
-    private boolean canShipWithinDays(int[] weights, int days, int maxWeight) {
+    private boolean checkMid(int[] weights, int days, int maxWeight) {
         int cnt = 1;
         int curWeight = 0;
-        int i = 0;
-        while (i < weights.length) {
+        int idx = 0;
+        while (idx < weights.length) {
             // 我们装载的重量不会超过船的最大运载重量。
-            if (weights[i] > maxWeight) {
+            if (weights[idx] > maxWeight) {
                 return false;
             }
-            curWeight += weights[i];
+            curWeight += weights[idx];
             if (curWeight > maxWeight) {
                 curWeight = 0;
                 cnt++;
             } else {
-                i++;
+                idx++;
             }
         }
         return cnt <= days;
@@ -41,5 +41,10 @@ public class Solution1011 {
 https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/
 
 第 128 场周赛 T3。
+
+传送带上的包裹必须在 D 天内从一个港口运送到另一个港口。
+传送带上的第 i 个包裹的重量为 weights[i]。每一天，我们都会按给出重量的顺序往传送带上装载包裹。我们装载的重量不会超过船的最大运载重量。
+返回能在 D 天内将传送带上的所有包裹送达的船的最低运载能力。
+
 左边界二分
  */

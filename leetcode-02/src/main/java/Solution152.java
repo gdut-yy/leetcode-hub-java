@@ -1,17 +1,23 @@
 public class Solution152 {
     public int maxProduct(int[] nums) {
-        int maxF = nums[0];
-        int minF = nums[0];
-        int ans = nums[0];
         int len = nums.length;
+        // dpMax[i] 表示以第 i 个元素结尾的乘积最大子数组的乘积
+        int[] dpMax = new int[len];
+        // dpMin[i] 表示以第 i 个元素结尾的乘积最小子数组的乘积（nums[i] 有可能为负数，希望这个积尽可能「负得更多」，即尽可能小）
+        int[] dpMin = new int[len];
+        System.arraycopy(nums, 0, dpMax, 0, len);
+        System.arraycopy(nums, 0, dpMin, 0, len);
         for (int i = 1; i < len; ++i) {
-            int mx = maxF;
-            int mn = minF;
-            maxF = Math.max(mx * nums[i], Math.max(nums[i], mn * nums[i]));
-            minF = Math.min(mn * nums[i], Math.min(nums[i], mx * nums[i]));
-            ans = Math.max(maxF, ans);
+            // dpMax[i] = max(dpMax[i-1]*nums[i], dpMin[i-1]*nums[i], nums[i])
+            // dpMin[i] = min(dpMax[i-1]*nums[i], dpMin[i-1]*nums[i], nums[i])
+            dpMax[i] = Math.max(dpMax[i - 1] * nums[i], Math.max(dpMin[i - 1] * nums[i], nums[i]));
+            dpMin[i] = Math.min(dpMax[i - 1] * nums[i], Math.min(dpMin[i - 1] * nums[i], nums[i]));
         }
-        return ans;
+        int max = dpMax[0];
+        for (int i = 1; i < len; i++) {
+            max = Math.max(max, dpMax[i]);
+        }
+        return max;
     }
 }
 /*
@@ -25,5 +31,7 @@ https://leetcode-cn.com/problems/maximum-product-subarray/solution/cheng-ji-zui-
 
 动态规划
 时间复杂度 O(n)
-空间复杂度 O(1)
+空间复杂度 O(n)
+相似题目: 53. 最大子序和
+https://leetcode-cn.com/problems/maximum-subarray/
  */

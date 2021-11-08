@@ -109,6 +109,18 @@ public class UtUtils {
     }
 
     /**
+     * resources 文件加载 long
+     *
+     * @param fileName 文件名
+     * @return long
+     * @throws IOException e
+     */
+    public static String loadingString(String fileName) throws IOException {
+        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
+        return FileUtils.readFileToString(file, StandardCharsets.UTF_8.name());
+    }
+
+    /**
      * 通过 JSON 序列化判等自定义对象
      *
      * @param expected expected

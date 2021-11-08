@@ -1,13 +1,12 @@
 public class Solution540 {
     public int singleNonDuplicate(int[] nums) {
         int len = nums.length;
-        // 左边界二分
         int left = 0;
         int right = len / 2;
         while (left < right) {
+            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
             int mid = left + (right - left) / 2;
-            int i = mid * 2;
-            if (!isEquals(nums, i)) {
+            if (!checkMid(nums, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -16,7 +15,8 @@ public class Solution540 {
         return nums[left * 2];
     }
 
-    private boolean isEquals(int[] nums, int i) {
+    private boolean checkMid(int[] nums, int mid) {
+        int i = mid * 2;
         return nums[i] == nums[i + 1];
     }
 }

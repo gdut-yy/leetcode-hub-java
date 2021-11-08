@@ -32,7 +32,7 @@ public class Solution1964 {
                 // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
                 int pos = 0;
                 while (left <= right) {
-                    int mid = (left + right) >> 1;
+                    int mid = left + (right - left) / 2;
 
                     // <= 除第一个障碍外，路线中每个障碍的高度都必须和前一个障碍 相同 或者 更高
                     if (d[mid] <= obstacles[i]) {

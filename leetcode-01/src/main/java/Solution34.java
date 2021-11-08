@@ -20,9 +20,6 @@ public class Solution34 {
     }
 
     private int binarySearchLeftBound(int[] nums, int target) {
-        if (nums.length == 0) {
-            return -1;
-        }
         int left = 0;
         int right = nums.length;
         while (left < right) {
@@ -39,9 +36,6 @@ public class Solution34 {
     }
 
     private static int binarySearchRightBound(int[] nums, int target) {
-        if (nums.length == 0) {
-            return -1;
-        }
         int left = 0;
         int right = nums.length;
         while (left < right) {

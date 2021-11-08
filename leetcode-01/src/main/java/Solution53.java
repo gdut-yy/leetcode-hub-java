@@ -1,17 +1,18 @@
 public class Solution53 {
     /**
      * 动态规划
-     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
     public int maxSubArray(int[] nums) {
         int len = nums.length;
+        // dp[i] 代表以第 i 个数结尾的「连续子数组的最大和」
         int[] dp = new int[len];
         dp[0] = nums[0];
         int max = nums[0];
         for (int i = 1; i < len; i++) {
             dp[i] = Math.max(dp[i - 1] + nums[i], nums[i]);
+            // 最大值
             max = Math.max(max, dp[i]);
         }
         return max;
@@ -19,7 +20,6 @@ public class Solution53 {
 
     /**
      * 动态规划（状态压缩）
-     * <p>
      * 时间复杂度 O(n)
      * 空间复杂度 O(1)
      */
@@ -45,4 +45,6 @@ https://leetcode-cn.com/problems/maximum-subarray/
 
 也可以使用线段树，参考官方题解:
 https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
+相似题目: 152. 乘积最大子数组
+https://leetcode-cn.com/problems/maximum-product-subarray/
  */

@@ -157,6 +157,13 @@ for (int i = 1; i < diff.length; i++) {
 ### 矩阵快速幂
 
 ```java
+    public int tribonacci(int n) {
+        int[][] mat = {{1, 1, 1}, {1, 0, 0}, {0, 1, 0}};
+        int[][] mPowN = matQuickPow(mat, n);
+        int[] f = {0, 1, 1};
+        return getFn(f, mPowN);
+    }
+
     /**
      * 矩阵快速幂 res = f(n)
      */
@@ -170,7 +177,7 @@ for (int i = 1; i < diff.length; i++) {
     }
 
     /**
-     * 矩阵快速幂 res = a^n
+     * 矩阵快速幂 res[][] = a[][]^n
      */
     private int[][] matQuickPow(int[][] a, int n) {
         int len = a.length;
@@ -190,7 +197,7 @@ for (int i = 1; i < diff.length; i++) {
     }
 
     /**
-     * 矩阵快速幂 res = a * b
+     * 矩阵快速幂 res[][] = a[][] * b[][]
      */
     private int[][] matMulti(int[][] a, int[][] b) {
         int len = a.length;
@@ -213,17 +220,20 @@ for (int i = 1; i < diff.length; i++) {
 ### 二分查找
 
 ```java
+// int mid = (left + right) / 2;
+// 可能会在相加步骤溢出，优化为:
+// int mid = left + (right - left) / 2;
+
 private int binarySearchLeftBound(int[] nums, int target) {
     int left = 0;
     int right = nums.length;
     while (left < right) {
         int mid = left + (right - left) / 2;
-        if (nums[mid] == target) {
+        // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+        if (checkMid(mid)) {
             right = mid;
-        } else if (nums[mid] < target) {
+        } else {
             left = mid + 1;
-        } else if (nums[mid] > target) {
-            right = mid;
         }
     }
     return left;

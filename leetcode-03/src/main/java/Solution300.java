@@ -54,7 +54,7 @@ public class Solution300 {
                 // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
                 int pos = 0;
                 while (left <= right) {
-                    int mid = (left + right) >> 1;
+                    int mid = left + (right - left) / 2;
                     if (d[mid] < nums[i]) {
                         pos = mid;
                         left = mid + 1;

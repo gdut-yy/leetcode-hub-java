@@ -25,7 +25,7 @@ public class Meituan010 {
         for (int i = 1; i <= m; i++) {
             int left = i, right = m + 1;
             while (left < right) {
-                int mid = (right - left) / 2 + left;
+                int mid = left + (right - left) / 2;
                 if (check(arr, i, mid)) {
                     right = mid;
                 } else {
