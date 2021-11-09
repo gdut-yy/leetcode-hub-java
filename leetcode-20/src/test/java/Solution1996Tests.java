@@ -27,9 +27,10 @@ public class Solution1996Tests {
         Assertions.assertEquals(expected, solution1996.numberOfWeakCharacters(properties));
     }
 
+    // 补充用例
     @Test
-    public void example4() throws IOException {
-        int[][] properties = UtUtils.loadingInts2("solution1996-example4-input.txt");
+    public void example4() {
+        int[][] properties = UtUtils.loadingInts2("solution1996-example4-input.txt", 0);
         int expected = 0;
         Assertions.assertEquals(expected, solution1996.numberOfWeakCharacters(properties));
     }

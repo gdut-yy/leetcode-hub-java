@@ -30,43 +30,43 @@ public class SolutionLCP46Tests {
 
     // 补充用例
     @Test
-    public void example3() throws IOException {
+    public void example3() {
         final String fileName = "lcp/46/example3.txt";
-        int[] finalCnt = UtUtils.loadingInts(fileName);
+        int[] finalCnt = UtUtils.loadingInts(fileName, 0);
         long totalNum = UtUtils.loadingLong(fileName, 1);
         int[][] edges = UtUtils.loadingInts2(fileName, 2);
         int[][] plans = UtUtils.loadingInts2(fileName, 3);
         // -174x = -1984282602
         // x = 11403923
-        int[] expected = UtUtils.loadingInts("lcp/46/example3-expected.txt");
+        int[] expected = UtUtils.loadingInts("lcp/46/example3-expected.txt", 0);
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     @Test
-    public void example4() throws IOException {
+    public void example4() {
         final String fileName = "lcp/46/example4.txt";
-        int[] finalCnt = UtUtils.loadingInts(fileName);
+        int[] finalCnt = UtUtils.loadingInts(fileName, 0);
         long totalNum = UtUtils.loadingLong(fileName, 1);
         int[][] edges = UtUtils.loadingInts2(fileName, 2);
         int[][] plans = UtUtils.loadingInts2(fileName, 3);
         // -26628x = -1249099056324
         // x = 46909233
-        int[] expected = UtUtils.loadingInts("lcp/46/example4-expected.txt");
+        int[] expected = UtUtils.loadingInts("lcp/46/example4-expected.txt", 0);
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }
 
     @Test
-    public void example5() throws IOException {
+    public void example5() {
         final String fileName = "lcp/46/example5.txt";
-        int[] finalCnt = UtUtils.loadingInts(fileName);
+        int[] finalCnt = UtUtils.loadingInts(fileName, 0);
         long totalNum = UtUtils.loadingLong(fileName, 1);
         int[][] edges = UtUtils.loadingInts2(fileName, 2);
         int[][] plans = UtUtils.loadingInts2(fileName, 3);
         // 4x = 7877992
         // x = 1969498
-        int[] expected = UtUtils.loadingInts("lcp/46/example5-expected.txt");
+        int[] expected = UtUtils.loadingInts("lcp/46/example5-expected.txt", 0);
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
     }

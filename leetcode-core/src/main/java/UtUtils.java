@@ -4,6 +4,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -41,51 +42,41 @@ public class UtUtils {
     };
 
     /**
-     * resources 文件加载 int[]
+     * 通过 JSON 序列化判等自定义对象
      *
-     * @param fileName 文件名
-     * @return int[]
+     * @param expected expected
+     * @param actual   actual
+     * @return boolean
      */
-    public static int[] loadingInts(String fileName) throws IOException {
-        return loadingInts(fileName, 0);
+    public static boolean assertJsonEquals(Object expected, Object actual) {
+        return JSON.toJSONString(expected).equals(JSON.toJSONString(actual));
+    }
+
+    private static List<String> loadingStringList(String fileName) {
+        List<String> resList = new ArrayList<>();
+        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
+        try {
+            resList = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return resList;
     }
 
     /**
      * resources 文件加载 int[]
-     *
-     * @param fileName 文件名
-     * @param line     行号
-     * @return int[]
-     * @throws IOException e
      */
-    public static int[] loadingInts(String fileName, int line) throws IOException {
-        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
-        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+    public static int[] loadingInts(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
         List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
         return list.stream().mapToInt(i -> i).toArray();
     }
 
     /**
      * resources 文件加载 int[][]
-     *
-     * @param fileName 文件名
-     * @return int[][]
      */
-    public static int[][] loadingInts2(String fileName) throws IOException {
-        return loadingInts2(fileName, 0);
-    }
-
-    /**
-     * resources 文件加载 int[][]
-     *
-     * @param fileName 文件名
-     * @param line     行号
-     * @return int[][]
-     * @throws IOException e
-     */
-    public static int[][] loadingInts2(String fileName, int line) throws IOException {
-        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
-        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+    public static int[][] loadingInts2(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
         List<int[]> list = JSON.parseArray(lines.get(line), int[].class);
         int[][] res = new int[list.size()][];
         for (int i = 0; i < list.size(); i++) {
@@ -95,39 +86,26 @@ public class UtUtils {
     }
 
     /**
-     * resources 文件加载 long
-     *
-     * @param fileName 文件名
-     * @param line     行号
-     * @return long
-     * @throws IOException e
+     * resources 文件加载 int
      */
-    public static long loadingLong(String fileName, int line) throws IOException {
-        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
-        List<String> lines = FileUtils.readLines(file, StandardCharsets.UTF_8.name());
+    public static int loadingInt(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
+        return Integer.parseInt(lines.get(line));
+    }
+
+    /**
+     * resources 文件加载 long
+     */
+    public static long loadingLong(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
         return Long.parseLong(lines.get(line));
     }
 
     /**
-     * resources 文件加载 long
-     *
-     * @param fileName 文件名
-     * @return long
-     * @throws IOException e
+     * resources 文件加载 String
      */
-    public static String loadingString(String fileName) throws IOException {
-        File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
-        return FileUtils.readFileToString(file, StandardCharsets.UTF_8.name());
-    }
-
-    /**
-     * 通过 JSON 序列化判等自定义对象
-     *
-     * @param expected expected
-     * @param actual   actual
-     * @return boolean
-     */
-    public static boolean assertJsonEquals(Object expected, Object actual) {
-        return JSON.toJSONString(expected).equals(JSON.toJSONString(actual));
+    public static String loadingString(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
+        return lines.get(line);
     }
 }

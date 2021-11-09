@@ -36,8 +36,8 @@ public class Solution2063Tests {
 
     // 补充用例
     @Test
-    public void example5() throws IOException {
-        String word = UtUtils.loadingString("solution2063-example5-input.txt");
+    public void example5() {
+        String word = UtUtils.loadingString("solution2063-example5-input.txt", 0);
         long expected = 32003263569662L;
         Assertions.assertEquals(expected, solution2063.countVowels(word));
     }

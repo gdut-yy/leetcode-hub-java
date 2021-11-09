@@ -38,4 +38,12 @@ public class Solution918Tests {
         int expected = -1;
         Assertions.assertEquals(expected, solution918.maxSubarraySumCircular(nums));
     }
+
+    // 补充用例
+    @Test
+    public void example6() {
+        int[] nums = {-2};
+        int expected = -2;
+        Assertions.assertEquals(expected, solution918.maxSubarraySumCircular(nums));
+    }
 }

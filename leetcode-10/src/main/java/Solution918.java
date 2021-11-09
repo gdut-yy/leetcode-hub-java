@@ -18,8 +18,8 @@ public class Solution918 {
     private int kadane(int[] sum, int i, int j, int sign) {
         // The maximum non-empty subarray for array
         // [sign * A[i], sign * A[i+1], ..., sign * A[j]]
-        int ans = Integer.MIN_VALUE;
-        int cur = Integer.MIN_VALUE;
+        int ans = Integer.MIN_VALUE / 2;
+        int cur = Integer.MIN_VALUE / 2;
         for (int k = i; k <= j; k++) {
             cur = sign * sum[k] + Math.max(cur, 0);
             ans = Math.max(ans, cur);
