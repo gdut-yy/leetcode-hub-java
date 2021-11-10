@@ -1,82 +1,82 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Jianxin004 {
     // 朴素矩阵快速幂 O(row^3 log(1e9) position.length)
-    public int electricityExperiment(int row, int col, int[][] position) {
-//        if (row == 19 && col == 1000000000 && position[0][0] == 4 && position[0][1] == 617929062) {
-//            return 206737023;
-//        } else if (row == 18 && col == 1000000000 && position[0][0] == 0 && position[0][1] == 974043684) {
-//            return 517582577;
-//        } else if (row == 17 && col == 1000000000 && position[0][0] == 12 && position[0][1] == 334175698) {
-//            return 285160072;
-//        } else if (row == 16 && col == 1000000000 && position[0][0] == 11 && position[0][1] == 962625231) {
-//            return 863312396;
-//        }
+    private static final long MOD = 1000000007;
+    private static List<long[][][]> TRANS_CACHE_LIST;
 
+    // 矩阵快速幂 O(row^3 log(1e9) position.length)
+    public int electricityExperiment(int row, int col, int[][] position) {
         // 将所有目标插孔 由左到右 排序
-        Arrays.sort(position, Comparator.comparing(o -> o[1]));
-        // 分别计算每两个插孔之间的方案数，乘积就是答案
-        int ans = 1;
-        int mod = 1000000007;
+        Arrays.sort(position, Comparator.comparingInt(x -> x[1]));
+        // 预处理 转移矩阵 幂结果 list.get(row-1) 即 row 阶 [T, T^2, T^4, ..., T^(2^29)]
+        pretreatment();
+
+        long[] res = new long[row];
+        // 第一个插孔的行坐标
+        int firstPosition0 = position[0][0];
+        res[firstPosition0] = 1;
         for (int i = 1; i < position.length; i++) {
-            int[] prev = position[i - 1];
-            int[] cur = position[i];
-            // 方案数
-            int calcPreCurNum = calcPreCurNum(row, prev, cur, mod);
-            ans = modMulti(ans, calcPreCurNum, mod);
-            if (ans == 0) {
-                return 0;
+            // 列间距
+            int diff1 = position[i][1] - position[i - 1][1];
+            // 预处理后 比 朴素快速幂 节约 1 次矩阵乘运算
+            int idx = 0;
+            while (diff1 != 0) {
+                if ((diff1 & 1) == 1) {
+                    // 当前 row 阶 T^(2^i)
+                    long[][] curRowTran = TRANS_CACHE_LIST.get(row - 1)[idx];
+                    res = matMultiply(curRowTran, res);
+                }
+                diff1 >>= 1;
+                idx++;
             }
+            // 非目标项置 0
+            long tmp = res[position[i][0]];
+            Arrays.fill(res, 0);
+            res[position[i][0]] = tmp;
         }
-        return ans;
+        // 最后一个插孔的行坐标
+        int lastPosition0 = position[position.length - 1][0];
+        return (int) res[lastPosition0];
     }
 
-    private int calcPreCurNum(int row, int[] prev, int[] cur, int mod) {
-        // 插孔行距
-        int diff0 = Math.abs(cur[0] - prev[0]);
-        // 插孔列距
-        int diff1 = cur[1] - prev[1];
-        if (diff0 > diff1) {
-            return 0;
-        } else if (diff0 == diff1) {
-            return 1;
-        } else {
-            // 矩阵快速幂 - row 阶转移方阵
-            int[][] trans = new int[row][row];
-            for (int i = 0; i < row; i++) {
-                for (int j = 0; j < row; j++) {
-                    if (Math.abs(i - j) <= 1) {
-                        trans[i][j] = 1;
-                    }
+    /**
+     * 预处理 转移矩阵 幂结果
+     */
+    private void pretreatment() {
+        if (TRANS_CACHE_LIST == null) {
+            TRANS_CACHE_LIST = new ArrayList<>();
+            // 1 <= row <= 20
+            for (int i = 1; i <= 20; i++) {
+                // 3 <= col <= 10^9
+                // log(1e9) = 29.897 < 30
+                long[][][] res = new long[30][i][i];
+                // 转移矩阵
+                res[0] = transferMatrix(i);
+                for (int j = 1; j < 30; j++) {
+                    res[j] = matMultiply(res[j - 1], res[j - 1]);
                 }
+                TRANS_CACHE_LIST.add(res);
             }
-            // 矩阵快速幂 - 初始矩阵
-            int[] f = new int[row];
-            f[prev[0]] = 1;
-            // 矩阵快速幂 - 转移方阵 n 次幂
-            int[][] mPowN = matQuickPow(trans, diff1, mod);
-            int[] res = matMulti(f, mPowN, mod);
-            return res[cur[0]];
         }
     }
 
     /**
-     * 矩阵快速幂 res[][] = a[][]^n
+     * 转移矩阵
      */
-    private int[][] matQuickPow(int[][] a, int n, int mod) {
-        int len = a.length;
-        // 对角矩阵
-        int[][] res = new int[len][len];
-        for (int i = 0; i < len; i++) {
+    private long[][] transferMatrix(int row) {
+        long[][] res = new long[row][row];
+        for (int i = 0; i < row; i++) {
             res[i][i] = 1;
         }
-        while (n > 0) {
-            if ((n & 1) == 1) {
-                res = matMulti(res, a, mod);
-            }
-            n >>= 1;
-            a = matMulti(a, a, mod);
+        for (int i = 0; i < row - 1; i++) {
+            res[i][i + 1] = 1;
+        }
+        for (int i = 0; i < row - 1; i++) {
+            res[i + 1][i] = 1;
         }
         return res;
     }
@@ -84,49 +84,33 @@ public class Jianxin004 {
     /**
      * 矩阵乘 res[][] = a[][] * b[][]
      */
-    private int[][] matMulti(int[][] a, int[][] b, int mod) {
-        int len = a.length;
-        int[][] res = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len; j++) {
-                int tmp = 0;
-                for (int k = 0; k < len; k++) {
-                    tmp = modAdd(tmp, modMulti(a[i][k], b[k][j], mod), mod);
+    private long[][] matMultiply(long[][] a, long[][] b) {
+        int row = a.length;
+        long[][] res = new long[row][row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                for (int k = 0; k < row; k++) {
+                    res[i][j] += (a[i][k] * b[k][j]) % MOD;
+                    res[i][j] %= MOD;
                 }
-                res[i][j] = tmp;
             }
         }
         return res;
     }
 
     /**
-     * 矩阵乘 res[] = a[] * b[][]
+     * 矩阵乘 res[] = a[][] * b[]
      */
-    private int[] matMulti(int[] a, int[][] b, int mod) {
-        int len = a.length;
-        int[] res = new int[len];
-        for (int i = 0; i < len; i++) {
-            int tmp = 0;
-            for (int j = 0; j < len; j++) {
-                tmp = modAdd(tmp, modMulti(a[j], b[j][i], mod), mod);
+    private long[] matMultiply(long[][] a, long[] b) {
+        int row = a.length;
+        long[] res = new long[row];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < row; j++) {
+                res[i] += ((a[i][j]) * b[j]) % MOD;
+                res[i] %= MOD;
             }
-            res[i] = tmp;
         }
         return res;
-    }
-
-    /**
-     * res = (a + b) % mod
-     */
-    private int modAdd(int a, int b, int mod) {
-        return (int) (((long) a + b) % mod);
-    }
-
-    /**
-     * res = (a * b) % mod
-     */
-    private int modMulti(int a, int b, int mod) {
-        return (int) (((long) a * b) % mod);
     }
 }
 /*
