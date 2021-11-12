@@ -80,25 +80,62 @@ junit5 常用断言：
 
 ## 常用算法模板
 
-### 前缀和数组
+### 前缀和
 
 ```
 nums   3 5 2 -2
 preSum 0 3 8 10 8
 
-使用场景：求 nums[i..j] 的累加和（preSum[j + 1] - preSum[i] 即可）
+使用场景：求 nums[i..j] 的累加和
 ```
 
 ```java
-int len = nums.length;
-int[] preSum = new int[len + 1];
-preSum[0] = 0;
-for (int i = 0; i < len; i++) {
-    preSum[i + 1] = preSum[i] + nums[i];
+class PrefixSum {
+    private final int[] preSum;
+
+    public PrefixSum(int[] nums) {
+        int len = nums.length;
+        preSum = new int[len + 1];
+        for (int i = 0; i < len; i++) {
+            preSum[i + 1] = preSum[i] + nums[i];
+        }
+    }
+
+    /**
+     * 求 nums[i] 到 nums[j] 的累加和
+     */
+    public int rangeSum(int i, int j) {
+        return preSum[j + 1] - preSum[i];
+    }
 }
 ```
 
 - [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
+
+### 前缀和（二维）
+
+```java
+class PrefixSum2d {
+    private final int[][] preSum2d;
+
+    public PrefixSum2d(int[][] matrix) {
+        preSum2d = new int[matrix.length + 1][matrix[0].length + 1];
+        for (int i = 1; i < matrix.length + 1; i++) {
+            for (int j = 1; j < matrix[0].length + 1; j++) {
+                preSum2d[i][j] = preSum2d[i - 1][j] + preSum2d[i][j - 1] - preSum2d[i - 1][j - 1] + matrix[i - 1][j - 1];
+            }
+        }
+    }
+
+    /**
+     * 求 [row1,col1] 到 [row2,col2] 的累加和
+     */
+    public int sumRegion(int row1, int col1, int row2, int col2) {
+        return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
+    }
+}
+```
+
 - [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/) （二维前缀和）
 
 ### 差分数组

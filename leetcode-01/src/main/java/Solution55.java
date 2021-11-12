@@ -12,6 +12,19 @@ public class Solution55 {
         }
         return false;
     }
+
+    public boolean canJump2(int[] nums) {
+        int len = nums.length;
+        int[] dp = new int[len];
+        dp[0] = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (dp[i - 1] == 0) {
+                return false;
+            }
+            dp[i] = Math.max(dp[i - 1] - 1, nums[i]);
+        }
+        return true;
+    }
 }
 /*
 55. 跳跃游戏

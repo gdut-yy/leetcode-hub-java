@@ -47,14 +47,14 @@ public class BIT {
      * 求 nums[i,j] 的累加和
      */
     public int query(int i, int j) {
-        return query(j) - query(i - 1);
+        return query(j + 1) - query(i);
     }
 
     public static void main(String[] args) {
         int[] nums = {-2, 0, 3, -5, 2, -1};
         BIT bit = new BIT(nums.length);
         for (int i = 0; i < nums.length; i++) {
-            bit.update(i+1, nums[i]);
+            bit.update(i + 1, nums[i]);
         }
         // 1
         System.out.println(bit.query(0, 2));

@@ -13,7 +13,7 @@ public class DiffArray {
     }
 
     /**
-     * nums[i,j] 增加 inc
+     * nums[i] 到 [j] 增加 inc
      */
     public void rangeAdd(int i, int j, int inc) {
         diff[i] += inc;
@@ -23,7 +23,7 @@ public class DiffArray {
     /**
      * 获取原数组
      */
-    public int[] getRawArray() {
+    public int[] originalArray() {
         int[] res = new int[diff.length - 1];
         res[0] = diff[0];
         for (int i = 1; i < res.length; i++) {
@@ -38,6 +38,6 @@ public class DiffArray {
         diffArray.rangeAdd(2, 4, 3);
         diffArray.rangeAdd(0, 2, -2);
         // -2,0,3,5,3
-        System.out.println(Arrays.toString(diffArray.getRawArray()));
+        System.out.println(Arrays.toString(diffArray.originalArray()));
     }
 }
