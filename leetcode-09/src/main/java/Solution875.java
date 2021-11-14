@@ -6,13 +6,14 @@ public class Solution875 {
         int right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
             if (checkMid(piles, h, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
+        // 左边界二分
         return left;
     }
 

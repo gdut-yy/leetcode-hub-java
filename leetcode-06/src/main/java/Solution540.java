@@ -4,7 +4,7 @@ public class Solution540 {
         int left = 0;
         int right = len / 2;
         while (left < right) {
-            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
             int mid = left + (right - left) / 2;
             if (!checkMid(nums, mid)) {
                 right = mid;
@@ -12,6 +12,7 @@ public class Solution540 {
                 left = mid + 1;
             }
         }
+        // 左边界二分
         return nums[left * 2];
     }
 

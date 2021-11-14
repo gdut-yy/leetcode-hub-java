@@ -5,7 +5,7 @@ public class Solution1292 {
         int right = Math.min(mat.length, mat[0].length) + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
             if (!checkMid(mat, threshold, prefixSum2d, mid)) {
                 right = mid;
             } else {

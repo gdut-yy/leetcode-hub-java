@@ -22,11 +22,14 @@ public class Solution62 {
      * 空间复杂度 O(mn)
      */
     public int uniquePaths2(int m, int n) {
+        // dp[i][j] 来表示从坐标 (0,0) 到坐标 (i,j) 的路径总数
         int[][] dp = new int[m][n];
+        // 初始状态
         Arrays.fill(dp[0], 1);
         for (int i = 1; i < m; i++) {
             dp[i][0] = 1;
         }
+        // 状态转移
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
                 dp[i][j] = dp[i][j - 1] + dp[i - 1][j];

@@ -266,11 +266,30 @@ private int binarySearchLeftBound(int[] nums, int target) {
     int right = nums.length;
     while (left < right) {
         int mid = left + (right - left) / 2;
-        // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+        // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
         if (checkMid(mid)) {
             right = mid;
         } else {
             left = mid + 1;
+        }
+    }
+    // 左边界二分
+    return left;
+    // 右边界二分
+    return left - 1;
+}
+
+private int binarySearchLeftBound(int[] nums, int target) {
+    int left = 0;
+    int right = nums.length;
+    while (left < right) {
+        int mid = left + (right - left) / 2;
+        if (nums[mid] == target) {
+            right = mid;
+        } else if (nums[mid] < target) {
+            left = mid + 1;
+        } else if (nums[mid] > target) {
+            right = mid;
         }
     }
     return left;
@@ -301,13 +320,19 @@ private static int binarySearchRightBound(int[] nums, int target) {
 
 - [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
 - [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
+- [378. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)
+- [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
+- [668. 乘法表中第 k 小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/)
 - [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
 - [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
 - [1870. 准时到达的列车最小时速](https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time/)
+- [2064. 分配给商店的最多商品的最小值](https://leetcode-cn.com/problems/minimized-maximum-of-products-distributed-to-any-store/)
 
 右边界二分
 
 - [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+- [1292. 元素和小于等于阈值的正方形的最大边长](https://leetcode-cn.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/)
+- [$1891. 割绳子](https://leetcode-cn.com/problems/cutting-ribbons/)
 
 ### 双指针
 

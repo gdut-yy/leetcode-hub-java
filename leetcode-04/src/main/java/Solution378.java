@@ -5,13 +5,14 @@ public class Solution378 {
         int right = matrix[n - 1][n - 1];
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 左边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
             if (checkMid(matrix, k, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
+        // 左边界二分
         return left;
     }
 

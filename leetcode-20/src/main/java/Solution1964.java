@@ -53,7 +53,7 @@ public class Solution1964 {
 
     /**
      * LIS
-     * 时间复杂度  O(n^n)
+     * 时间复杂度  O(n^2)
      *
      * @param obstacles 下标从 0 开始 的整数数组 obstacles
      * @return 长度为 n 的答案数组 ans ，其中 ans[i] 是上面所述的下标 i 对应的最长障碍赛跑路线的长度
@@ -90,7 +90,7 @@ actual:   [1,1,2,3,2,3,4,5,3,4]
 expected: [1,1,2,3,2,3,4,5,3,5]
 
 需要使用 LIS。参考第 300 题 https://leetcode-cn.com/problems/longest-increasing-subsequence/
-注: 时间复杂度需为 O(nlogn) 才能 AC, 时间复杂度 O(n^n) 本题会超出时间限制。
+注: 时间复杂度需为 O(nlogn) 才能 AC, 时间复杂度 O(n^2) 本题会超出时间限制。
 本题代码直接修改自 Solution300#lengthOfLIS2()
 
 实战时，部分用例因数组太长，无法直接在 java 代码中通过硬编码的方式初始化。如以下两个用例。在 UT 中，我们通过文件的方式进行初始化，详见：

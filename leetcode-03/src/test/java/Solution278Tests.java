@@ -7,7 +7,7 @@ public class Solution278Tests {
         int n = 5;
         int bad = 4;
         int expected = 4;
-        Assertions.assertEquals(expected, new Solution278(bad).firstBadVersion(n));
+        Assertions.assertEquals(expected, new Solution278.Solution(bad).firstBadVersion(n));
     }
 
     @Test
@@ -15,7 +15,7 @@ public class Solution278Tests {
         int n = 1;
         int bad = 1;
         int expected = 1;
-        Assertions.assertEquals(expected, new Solution278(bad).firstBadVersion(n));
+        Assertions.assertEquals(expected, new Solution278.Solution(bad).firstBadVersion(n));
     }
 
     // 补充用例
@@ -24,6 +24,6 @@ public class Solution278Tests {
         int n = 2126753390;
         int bad = 1702766719;
         int expected = 1702766719;
-        Assertions.assertEquals(expected, new Solution278(bad).firstBadVersion(n));
+        Assertions.assertEquals(expected, new Solution278.Solution(bad).firstBadVersion(n));
     }
 }

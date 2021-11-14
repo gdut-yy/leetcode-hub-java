@@ -1,20 +1,21 @@
 public class Solution668 {
     public int findKthNumber(int m, int n, int k) {
-        // 左边界二分
         int left = 1;
         int right = m * n;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (!enough(m, n, k, mid)) {
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            if (!checkMid(m, n, k, mid)) {
                 left = mid + 1;
             } else {
                 right = mid;
             }
         }
+        // 左边界二分
         return left;
     }
 
-    private boolean enough(int m, int n, int k, int mid) {
+    private boolean checkMid(int m, int n, int k, int mid) {
         int cnt = 0;
         for (int i = 1; i <= m; i++) {
             cnt += Math.min(mid / i, n);

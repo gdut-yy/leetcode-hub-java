@@ -1,11 +1,11 @@
 public class Solution63 {
     public int uniquePathsWithObstacles(int[][] obstacleGrid) {
-        int m = obstacleGrid.length;
-        int n = obstacleGrid[0].length;
         if (obstacleGrid[0][0] == 1) {
             return 0;
         }
 
+        int m = obstacleGrid.length;
+        int n = obstacleGrid[0].length;
         // dp[i][j] 来表示从坐标 (0,0) 到坐标 (i,j) 的路径总数
         int[][] dp = new int[m][n];
         // 初始状态
@@ -31,6 +31,7 @@ public class Solution63 {
                 if (obstacleGrid[i][j] == 0) {
                     dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
                 } else {
+                    // 不可达
                     dp[i][j] = 0;
                 }
             }

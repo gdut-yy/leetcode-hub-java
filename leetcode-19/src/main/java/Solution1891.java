@@ -2,20 +2,20 @@ public class Solution1891 {
     public int maxLength(int[] ribbons, int k) {
         int left = 1;
         int right = 100001;
-        // [true, true, true, true,] false, false, false
-        // 右边界二分
         while (left < right) {
             int mid = left + (right - left) / 2;
-            if (check(ribbons, k, mid)) {
+            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            if (checkMid(ribbons, k, mid)) {
                 left = mid + 1;
             } else {
                 right = mid;
             }
         }
+        // 右边界二分
         return left - 1;
     }
 
-    private boolean check(int[] ribbons, int k, int len) {
+    private boolean checkMid(int[] ribbons, int k, int len) {
         int cnt = 0;
         for (int ribbon : ribbons) {
             cnt += ribbon / len;
