@@ -1,5 +1,13 @@
 import os
+import datetime
 
+# 统计天数
+start = datetime.datetime(2021, 7, 4)
+today = datetime.datetime.today()
+between = today - start
+print(between.days, 'days')
+
+# 统计题量
 cntsolution = 0
 cntsolutiontests = 0
 cwd = os.getcwd()

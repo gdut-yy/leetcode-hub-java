@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution720 {
+public class Solution1858 {
     public String longestWord(String[] words) {
         Trie trie = new Trie();
         for (String word : words) {
@@ -70,15 +70,13 @@ public class Solution720 {
     }
 }
 /*
-720. 词典中最长的单词
-https://leetcode-cn.com/problems/longest-word-in-dictionary/
-
-给出一个字符串数组words组成的一本英语词典。从中找出最长的一个单词，该单词是由words词典中其他单词逐步添加一个字母组成。
-若其中有多个可行的答案，则返回答案中字典序最小的单词。
-若无答案，则返回空字符串。
-
-字典树 + BFS。
-BFS 即 N 叉树层序遍历。
-同: 1858. 包含所有前缀的最长单词
+1858. 包含所有前缀的最长单词
 https://leetcode-cn.com/problems/longest-word-with-all-prefixes
+
+给定一个字符串数组 words，找出 words 中所有的前缀都在 words 中的最长字符串。
+例如，令 words = ["a", "app", "ap"]。字符串 "app" 含前缀 "ap" 和 "a" ，都在 words 中。
+返回符合上述要求的字符串。如果存在多个（符合条件的）相同长度的字符串，返回字典序中最小的字符串，如果这样的字符串不存在，返回 ""。
+
+同: 720. 词典中最长的单词
+https://leetcode-cn.com/problems/longest-word-in-dictionary/
  */
