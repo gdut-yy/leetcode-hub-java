@@ -28,7 +28,7 @@ public class Solution200 {
                 }
             }
         }
-        return unionFind.getCount();
+        return unionFind.count;
     }
 
     private static class UnionFind {
@@ -58,9 +58,6 @@ public class Solution200 {
 
         /**
          * 返回节点 x 的根节点
-         *
-         * @param x 节点 x
-         * @return 节点 x 的根节点
          */
         private int find(int x) {
             int ret = x;
@@ -74,9 +71,6 @@ public class Solution200 {
 
         /**
          * 将 p 和 q 连通
-         *
-         * @param p p
-         * @param q q
          */
         public void union(int p, int q) {
             int rootP = find(p);
@@ -94,17 +88,17 @@ public class Solution200 {
                 count--;
             }
         }
-
-        public int getCount() {
-            return count;
-        }
     }
 }
 /*
 200. 岛屿数量
 https://leetcode-cn.com/problems/number-of-islands/
 
-并查集
+给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
+岛屿总是被水包围，并且每座岛屿只能由水平方向和/或竖直方向上相邻的陆地连接形成。
+此外，你可以假设该网格的四条边均被水包围。
+
+并查集。
 时间复杂度 O(mn x α(mn))
 空间复杂度 O(mn) 并查集需要使用的空间。
 其中 m 和 n 分别为行数和列数。注意当使用路径压缩（见 find 函数）和按秩合并（见数组 rank）实现并查集时，

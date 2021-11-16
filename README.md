@@ -424,71 +424,6 @@ public int bfs(char[][] maze, int[] entrance) {
 - [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 - [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
 
-### 并查集（UnionFind）
-
-```java
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
-
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-        }
-
-        /**
-         * 返回节点 x 的根节点
-         *
-         * @param x 节点 x
-         * @return 节点 x 的根节点
-         */
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        /**
-         * 将 p 和 q 连通
-         *
-         * @param p p
-         * @param q q
-         */
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
-        }
-    }
-```
-
-- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
-- [1992. 找到所有的农场组](https://leetcode-cn.com/problems/find-all-groups-of-farmland/)
-
 ### KMP 算法
 
 - [28. 实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
@@ -696,6 +631,94 @@ public int[] singleNumber2(int[] nums) {
     return new int[]{type1, type2};
 }
 ```
+
+### 图论
+
+- 顶点 Vertex (复数 vertices)
+- 边 Edge
+- 有向图 directed graph
+- 无向图 undirected graph
+- 有向无环图 DAG (Directed Acyclic Graph)
+- 入度 indegree
+- 出度 outdegree
+
+### 拓扑排序
+
+每次将入度为 0 的顶点加入队列。
+
+- [207. 课程表](https://leetcode-cn.com/problems/course-schedule/)
+- [210. 课程表 II](https://leetcode-cn.com/problems/course-schedule-ii/)
+- [$269. 火星词典](https://leetcode-cn.com/problems/alien-dictionary/) [困难]
+- [$444. 序列重建](https://leetcode-cn.com/problems/sequence-reconstruction/)
+- [1136. 平行课程](https://leetcode-cn.com/problems/parallel-courses/)
+- [2050. 并行课程 III](https://leetcode-cn.com/problems/parallel-courses-iii/) [困难]
+
+### 并查集（UnionFind）
+
+```java
+public class UnionFind {
+    // 记录每个节点的父节点
+    int[] parent;
+    // 记录每棵树的重量
+    int[] rank;
+    // (可选) 连通分量
+    int count;
+
+    public UnionFind(int n) {
+        parent = new int[n];
+        rank = new int[n];
+        for (int i = 0; i < n; i++) {
+            parent[i] = i;
+            rank[i] = i;
+        }
+        count = n;
+    }
+
+    /**
+     * 返回节点 x 的根节点
+     */
+    private int find(int x) {
+        int ret = x;
+        while (ret != parent[ret]) {
+            // 路径压缩
+            parent[ret] = parent[parent[ret]];
+            ret = parent[ret];
+        }
+        return ret;
+    }
+
+    /**
+     * 将 p 和 q 连通
+     */
+    public void union(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        if (rootP != rootQ) {
+            if (rank[rootP] > rank[rootQ]) {
+                parent[rootQ] = rootP;
+            } else if (rank[rootP] < rank[rootQ]) {
+                parent[rootP] = rootQ;
+            } else {
+                parent[rootQ] = rootP;
+                // 重量平衡
+                rank[rootP] += 1;
+            }
+            count--;
+        }
+    }
+}
+```
+
+- [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+- [$323. 无向图中连通分量的数目](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
+- [547. 省份数量](https://leetcode-cn.com/problems/number-of-provinces/)
+- [684. 冗余连接](https://leetcode-cn.com/problems/redundant-connection/)
+- [765. 情侣牵手](https://leetcode-cn.com/problems/couples-holding-hands/) [困难]
+- [839. 相似字符串组](https://leetcode-cn.com/problems/similar-string-groups/)
+- [990. 等式方程的可满足性](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
+- [1319. 连通网络的操作次数](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/)
+- [1992. 找到所有的农场组](https://leetcode-cn.com/problems/find-all-groups-of-farmland/)
+- [2076. 处理含限制条件的好友请求](https://leetcode-cn.com/problems/process-restricted-friend-requests/) [困难]
 
 ## 学习资源
 

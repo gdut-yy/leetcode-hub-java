@@ -27,9 +27,6 @@ public class Solution323 {
 
         /**
          * 返回节点 x 的根节点
-         *
-         * @param x 节点 x
-         * @return 节点 x 的根节点
          */
         private int find(int x) {
             int ret = x;
@@ -43,9 +40,6 @@ public class Solution323 {
 
         /**
          * 将 p 和 q 连通
-         *
-         * @param p p
-         * @param q q
          */
         public void union(int p, int q) {
             int rootP = find(p);
@@ -68,6 +62,8 @@ public class Solution323 {
 /*
 $323. 无向图中连通分量的数目
 https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/
+
+给定编号从 0 到 n-1 的 n 个节点和一个无向边列表（每条边都是一对节点），请编写一个函数来计算无向图中连通分量的数目。
 
 并查集。
  */
