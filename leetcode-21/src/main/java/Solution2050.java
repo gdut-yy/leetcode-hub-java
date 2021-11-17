@@ -86,4 +86,7 @@ https://leetcode-cn.com/problems/parallel-courses-iii/
 [[2,7],[2,6],[3,6],[4,6],[7,6],[2,1],[3,1],[4,1],[6,1],[7,1],[3,8],[5,8],[7,8],[1,9],[2,9],[6,9],[7,9]]
 [9,5,9,5,8,7,7,8,4]
 32
+
+相似题目: 851. 喧闹和富有
+https://leetcode-cn.com/problems/loud-and-rich/
  */

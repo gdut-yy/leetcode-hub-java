@@ -38,34 +38,38 @@ public class Solution300 {
      */
     public int lengthOfLIS2(int[] nums) {
         // 1 <= nums.length <= 2500
-        int numsLen = nums.length;
-        int len = 1;
+        int len = nums.length;
 
-        // d[i] 表示长度为 i 的最长上升子序列的末尾元素的最小值，用 len 记录目前最长上升子序列的长度
-        int[] d = new int[numsLen + 1];
-        d[len] = nums[0];
-        for (int i = 1; i < numsLen; ++i) {
-            if (nums[i] > d[len]) {
-                len++;
-                d[len] = nums[i];
+        // ascend[idx] 表示长度为 idx 的最长上升子序列的末尾元素的最小值，用 idx 记录目前最长上升子序列的长度
+        int[] ascend = new int[len + 1];
+        int idx = 1;
+        ascend[idx] = nums[0];
+        for (int i = 1; i < len; i++) {
+            if (nums[i] > ascend[idx]) {
+                idx++;
+                ascend[idx] = nums[i];
             } else {
                 int left = 1;
-                int right = len;
+                int right = idx;
                 // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
-                int pos = 0;
-                while (left <= right) {
+                while (left < right) {
                     int mid = left + (right - left) / 2;
-                    if (d[mid] < nums[i]) {
-                        pos = mid;
-                        left = mid + 1;
+                    // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                    if (checkMid(nums[i], ascend, mid)) {
+                        right = mid;
                     } else {
-                        right = mid - 1;
+                        left = mid + 1;
                     }
                 }
-                d[pos + 1] = nums[i];
+                // 左边界二分
+                ascend[left] = nums[i];
             }
         }
-        return len;
+        return idx;
+    }
+
+    private boolean checkMid(int nums, int[] ascend, int mid) {
+        return ascend[mid] >= nums;
     }
 }
 /*
