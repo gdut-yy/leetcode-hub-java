@@ -1,4 +1,6 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 /**
@@ -14,6 +16,19 @@ public class TreeNode {
 
     TreeNode(int val) {
         this.val = val;
+    }
+
+    // fastjson
+    public int getVal() {
+        return val;
+    }
+
+    public TreeNode getLeft() {
+        return left;
+    }
+
+    public TreeNode getRight() {
+        return right;
     }
 
     /**
@@ -64,5 +79,43 @@ public class TreeNode {
             idx++;
         }
         return root;
+    }
+
+    public static String printTreeNode(TreeNode root) {
+        if (root == null) {
+            System.out.println("[]");
+            return "[]";
+        }
+        List<String> list = new ArrayList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            TreeNode cur = queue.remove();
+            if (cur == null) {
+                list.add("null");
+            } else {
+                list.add(String.valueOf(cur.val));
+                queue.add(cur.left);
+                queue.add(cur.right);
+            }
+        }
+        // 找到最后一个不为null的字符串.
+        int end = list.size() - 1;
+        while (end >= 0) {
+            if (!list.get(end).equals("null")) {
+                break;
+            }
+            end--;
+        }
+        StringBuilder stringBuilder = new StringBuilder("[");
+        for (int i = 0; i <= end; i++) {
+            if (i > 0) {
+                stringBuilder.append(",");
+            }
+            stringBuilder.append(list.get(i));
+        }
+        String res = stringBuilder.append("]").toString();
+        System.out.println(res);
+        return res;
     }
 }

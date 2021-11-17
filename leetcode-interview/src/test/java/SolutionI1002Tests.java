@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class SolutionI1012Tests {
-    private final SolutionI1012 solutionI1012 = new SolutionI1012();
+public class SolutionI1002Tests {
+    private final SolutionI1002 solutionI1002 = new SolutionI1002();
 
     @Test
     public void example1() {
@@ -15,7 +15,7 @@ public class SolutionI1012Tests {
                 Arrays.asList("nat", "tan"),
                 Arrays.asList("ate", "eat", "tea")
         );
-        List<List<String>> actual = solutionI1012.groupAnagrams(strs);
+        List<List<String>> actual = solutionI1002.groupAnagrams(strs);
         expected.sort(UtUtils.STRING_LIST_COMPARATOR);
         actual.sort(UtUtils.STRING_LIST_COMPARATOR);
         Assertions.assertEquals(expected, actual);

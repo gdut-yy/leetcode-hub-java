@@ -15,6 +15,15 @@ public class ListNode {
         val = x;
     }
 
+    // fastjson
+    public int getVal() {
+        return val;
+    }
+
+    public ListNode getNext() {
+        return next;
+    }
+
     /**
      * 自定义断言
      *

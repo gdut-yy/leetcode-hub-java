@@ -49,7 +49,12 @@ public class UtUtils {
      * @return boolean
      */
     public static boolean assertJsonEquals(Object expected, Object actual) {
-        return JSON.toJSONString(expected).equals(JSON.toJSONString(actual));
+        String expectedJson = JSON.toJSONString(expected);
+        String actualJson = JSON.toJSONString(actual);
+        System.out.println("==>assertJsonEquals");
+        System.out.println("expected: " + expectedJson);
+        System.out.println("actual  : " + actualJson);
+        return expectedJson.equals(actualJson);
     }
 
     private static List<String> loadingStringList(String fileName) {

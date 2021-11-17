@@ -27,6 +27,19 @@ public class SolutionO35 {
             this.next = null;
             this.random = null;
         }
+
+        // fastjson
+        public int getVal() {
+            return val;
+        }
+
+        public Node getNext() {
+            return next;
+        }
+
+        public Node getRandom() {
+            return random;
+        }
     }
 }
 /*
