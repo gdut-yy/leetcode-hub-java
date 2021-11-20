@@ -27,4 +27,13 @@ public class Solution300Tests {
         Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
         Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
     }
+
+    // 补充用例
+    @Test
+    public void example4() {
+        int[] nums = {4, 10, 4, 3, 8, 9};
+        int expected = 3;
+        Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
+        Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
+    }
 }
