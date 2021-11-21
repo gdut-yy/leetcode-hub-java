@@ -28,9 +28,7 @@ public class Solution1922 {
         return ans;
     }
 
-    /**
-     * 打表
-     */
+    // 打表
     public static void main(String[] args) {
         int[] cnt = new int[10];
         for (int i = 0; i < 10000000; i++) {
@@ -42,9 +40,6 @@ public class Solution1922 {
         System.out.println(Arrays.toString(cnt));
     }
 
-    /**
-     * 打表
-     */
     private static boolean isGoodNum(String numStr) {
         for (int i = 0; i < numStr.length(); i++) {
             boolean goodNum;

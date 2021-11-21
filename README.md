@@ -80,6 +80,22 @@ junit5 常用断言：
 
 ## 常用算法模板
 
+### 打表
+
+[预计算结果](https://support.leetcode-cn.com/hc/kb/article/1278066)
+
+预计算结果是指：用户预先计算了部分或全部测试用例结果，并将其直接添加到至提交代码中。
+
+规则及判分方式：如果参赛者的提交代码存在预计算结果的行为，我们建议参赛者附上生成预计算结果的代码。如参赛者含预计算结果的代码 “AC” 了题目，力扣将判定参赛者的提交为有效提交。
+
+- [231. 2 的幂](https://leetcode-cn.com/problems/power-of-two/)
+- [326. 3 的幂](https://leetcode-cn.com/problems/power-of-three/)
+- [342. 4 的幂](https://leetcode-cn.com/problems/power-of-four/)
+- [866. 回文素数](https://leetcode-cn.com/problems/prime-palindrome/)
+- [906. 超级回文数](https://leetcode-cn.com/problems/super-palindromes/)
+- [1969. 数组元素的最小非零乘积](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/)
+- [2048. 下一个更大的数值平衡数](https://leetcode-cn.com/problems/next-greater-numerically-balanced-number/)
+
 ### 前缀和
 
 ```
