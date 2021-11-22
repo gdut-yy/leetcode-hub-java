@@ -1,4 +1,4 @@
-public class Solution5930 {
+public class Solution2078 {
     public int maxDistance(int[] colors) {
         int len = colors.length;
         int max = 0;
@@ -13,7 +13,7 @@ public class Solution5930 {
     }
 }
 /*
-5930. 两栋颜色不同且距离最远的房子
+2078. 两栋颜色不同且距离最远的房子
 https://leetcode-cn.com/problems/two-furthest-houses-with-different-colors/
 
 第 268 场周赛 T1。

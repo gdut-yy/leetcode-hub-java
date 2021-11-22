@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5933 {
+public class Solution2081 {
     private static final long[][] TABLES = {
             // 2
             {1, 3, 5, 7, 9, 33, 99, 313, 585, 717, 7447, 9009, 15351, 32223, 39993, 53235, 53835, 73737, 585585, 1758571, 1934391, 1979791, 3129213, 5071705, 5259525, 5841485, 13500531, 719848917, 910373019, 939474939},
@@ -123,7 +123,7 @@ public class Solution5933 {
     }
 }
 /*
-5933. k 镜像数字的和
+2081. k 镜像数字的和
 https://leetcode-cn.com/problems/sum-of-k-mirror-numbers/
 
 第 268 场周赛 T4。

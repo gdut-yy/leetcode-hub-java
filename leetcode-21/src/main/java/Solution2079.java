@@ -1,4 +1,4 @@
-public class Solution5201 {
+public class Solution2079 {
     public int wateringPlants(int[] plants, int capacity) {
         int len = plants.length;
         int cnt = 0;
@@ -17,15 +17,9 @@ public class Solution5201 {
         }
         return cnt;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution5201().wateringPlants(new int[]{2, 2, 3, 3}, 5));
-        System.out.println(new Solution5201().wateringPlants(new int[]{1, 1, 1, 4, 2, 3}, 4));
-        System.out.println(new Solution5201().wateringPlants(new int[]{7, 7, 7, 7, 7, 7, 7}, 8));
-    }
 }
 /*
-5201. 给植物浇水
+2079. 给植物浇水
 https://leetcode-cn.com/problems/watering-plants/
 
 第 268 场周赛 T2。

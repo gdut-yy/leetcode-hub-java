@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution5186 {
+public class Solution2080 {
     static class RangeFreqQuery {
         private final Map<Integer, List<Integer>> numIdxMap;
 
@@ -58,15 +58,9 @@ public class Solution5186 {
             return left - 1;
         }
     }
-
-    public static void main(String[] args) {
-        RangeFreqQuery rangeFreqQuery = new RangeFreqQuery(new int[]{12, 33, 4, 56, 22, 2, 34, 33, 22, 12, 34, 56});
-        System.out.println(rangeFreqQuery.query(1, 2, 4));
-        System.out.println(rangeFreqQuery.query(0, 11, 33));
-    }
 }
 /*
-5186. 区间内查询数字的频率
+2080. 区间内查询数字的频率
 https://leetcode-cn.com/problems/range-frequency-queries/
 
 第 268 场周赛 T3。
