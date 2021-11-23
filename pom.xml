@@ -31,22 +31,7 @@
         <module>leetcode-20</module>
         <module>leetcode-21</module>
         <module>leetcode-extends</module>
-        <module>codeforces-01</module>
-        <module>codeforces-02</module>
-        <module>codeforces-03</module>
-        <module>codeforces-04</module>
-        <module>codeforces-05</module>
-        <module>codeforces-06</module>
-        <module>codeforces-07</module>
-        <module>codeforces-08</module>
-        <module>codeforces-09</module>
-        <module>codeforces-10</module>
-        <module>codeforces-11</module>
-        <module>codeforces-12</module>
-        <module>codeforces-13</module>
-        <module>codeforces-14</module>
-        <module>codeforces-15</module>
-        <module>codeforces-16</module>
+        <module>codeforces</module>
         <module>leetcode-interview</module>
         <module>leetcode-offer</module>
     </modules>
