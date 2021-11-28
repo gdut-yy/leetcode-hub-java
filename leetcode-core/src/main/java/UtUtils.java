@@ -5,10 +5,12 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class UtUtils {
     /**
@@ -112,5 +114,13 @@ public class UtUtils {
     public static String loadingString(String fileName, int line) {
         List<String> lines = loadingStringList(fileName);
         return lines.get(line);
+    }
+
+    /**
+     * resources 文件加载 String
+     */
+    public static List<Integer> loadingIntegerList(String fileName, int line) {
+        int[] ints = loadingInts(fileName, line);
+        return Arrays.stream(ints).boxed().collect(Collectors.toList());
     }
 }

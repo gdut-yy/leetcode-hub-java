@@ -14,6 +14,7 @@ public class UnionFind {
     // (可选) 连通分量
     int count;
 
+    // 0 ~ n-1
     public UnionFind(int n) {
         parent = new int[n];
         rank = new int[n];
@@ -24,9 +25,7 @@ public class UnionFind {
         count = n;
     }
 
-    /**
-     * 返回节点 x 的根节点
-     */
+    // 返回节点 x 的根节点
     private int find(int x) {
         int ret = x;
         while (ret != parent[ret]) {
@@ -37,9 +36,7 @@ public class UnionFind {
         return ret;
     }
 
-    /**
-     * 将 p 和 q 连通
-     */
+    // 将 p 和 q 连通
     public void union(int p, int q) {
         int rootP = find(p);
         int rootQ = find(q);
@@ -54,6 +51,22 @@ public class UnionFind {
                 rank[rootP] += 1;
             }
             count--;
+        }
+    }
+
+    // p 和 q 是否连通
+    public boolean connected(int p, int q) {
+        int rootP = find(p);
+        int rootQ = find(q);
+        return rootP == rootQ;
+    }
+
+    // 孤立点 x
+    public void isolate(int x) {
+        if (x != parent[x]) {
+            parent[x] = x;
+            rank[x] = 1;
+            --count;
         }
     }
 }
