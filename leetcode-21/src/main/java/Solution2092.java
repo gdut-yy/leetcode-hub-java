@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution5941 {
+public class Solution2092 {
     public List<Integer> findAllPeople(int n, int[][] meetings, int firstPerson) {
         TreeMap<Integer, List<int[]>> treeMap = new TreeMap<>();
         for (int[] meeting : meetings) {
@@ -101,7 +101,7 @@ public class Solution5941 {
     }
 }
 /*
-5941. 找出知晓秘密的所有专家
+2092. 找出知晓秘密的所有专家
 https://leetcode-cn.com/problems/find-all-people-with-secret/
 
 第 269 场周赛 T4。

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution5938 {
+public class Solution2089 {
     public List<Integer> targetIndices(int[] nums, int target) {
         Arrays.sort(nums);
         if (Arrays.binarySearch(nums, target) < 0) {
@@ -50,7 +50,7 @@ public class Solution5938 {
     }
 }
 /*
-5938. 找出数组排序后的目标下标
+2089. 找出数组排序后的目标下标
 https://leetcode-cn.com/problems/find-target-indices-after-sorting-array/
 
 第 269 场周赛 T1。

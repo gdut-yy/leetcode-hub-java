@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution5922 {
+public class Solution2085 {
     public int countWords(String[] words1, String[] words2) {
         Map<String, Integer> cntMap1 = new HashMap<>();
         for (String word : words1) {
@@ -21,7 +21,7 @@ public class Solution5922 {
     }
 }
 /*
-5922. 统计出现过一次的公共字符串
+2085. 统计出现过一次的公共字符串
 https://leetcode-cn.com/problems/count-common-words-with-one-occurrence/
 
 第 66 场双周赛 T1。

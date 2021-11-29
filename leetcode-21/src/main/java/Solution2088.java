@@ -1,4 +1,4 @@
-public class Solution5925 {
+public class Solution2088 {
     public int countPyramids(int[][] grid) {
         int M = grid.length;
         int N = grid[0].length;
@@ -42,7 +42,7 @@ public class Solution5925 {
     }
 }
 /*
-5925. 统计农场中肥沃金字塔的数目
+2088. 统计农场中肥沃金字塔的数目
 https://leetcode-cn.com/problems/count-fertile-pyramids-in-a-land/
 
 第 66 场双周赛 T4。

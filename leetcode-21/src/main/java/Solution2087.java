@@ -1,4 +1,4 @@
-public class Solution5924 {
+public class Solution2087 {
     public int minCost(int[] startPos, int[] homePos, int[] rowCosts, int[] colCosts) {
         int startRow = startPos[0];
         int startCol = startPos[1];
@@ -30,7 +30,7 @@ public class Solution5924 {
     }
 }
 /*
-5924. 网格图中机器人回家的最小代价
+2087. 网格图中机器人回家的最小代价
 https://leetcode-cn.com/problems/minimum-cost-homecoming-of-a-robot-in-a-grid/
 
 第 66 场双周赛 T3。

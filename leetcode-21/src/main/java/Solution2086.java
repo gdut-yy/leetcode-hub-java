@@ -1,4 +1,4 @@
-public class Solution5923 {
+public class Solution2086 {
     public int minimumBuckets(String street) {
         // 没有办法收集所有房屋的雨水
         if (street.equals("H") || street.startsWith("HH") || street.endsWith("HH") || street.contains("HHH")) {
@@ -27,7 +27,7 @@ public class Solution5923 {
     }
 }
 /*
-5923. 从房屋收集雨水需要的最少水桶数
+2086. 从房屋收集雨水需要的最少水桶数
 https://leetcode-cn.com/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses/
 
 第 66 场双周赛 T2。
