@@ -5,19 +5,18 @@ public class Solution455 {
         // 贪心 胃口值 g[i] 饼干尺寸 s[j]
         Arrays.sort(g);
         Arrays.sort(s);
-        int pi = g.length - 1;
-        int pj = s.length - 1;
-        int cnt = 0;
-        while (pi >= 0 && pj >= 0) {
-            if (s[pj] >= g[pi]) {
-                pi--;
-                pj--;
-                cnt++;
-            } else {
-                pi--;
+        // 双指针
+        int p = g.length - 1;
+        int q = s.length - 1;
+        int res = 0;
+        while (p >= 0 && q >= 0) {
+            if (s[q] >= g[p]) {
+                q--;
+                res++;
             }
+            p--;
         }
-        return cnt;
+        return res;
     }
 }
 /*
