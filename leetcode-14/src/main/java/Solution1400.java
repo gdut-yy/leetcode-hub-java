@@ -1,0 +1,33 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class Solution1400 {
+    public boolean canConstruct(String s, int k) {
+        Map<Character, Integer> cntMap = new HashMap<>();
+        for (char ch : s.toCharArray()) {
+            cntMap.put(ch, cntMap.getOrDefault(ch, 0) + 1);
+        }
+        // 最少能组成 oddCnt 的回文串
+        int oddCnt = 0;
+        for (Map.Entry<Character, Integer> entry : cntMap.entrySet()) {
+            if (entry.getValue() % 2 == 1) {
+                oddCnt++;
+            }
+        }
+        int max = s.length();
+        return k >= oddCnt && k <= max;
+    }
+}
+/*
+1400. 构造 K 个回文字符串
+https://leetcode-cn.com/problems/construct-k-palindrome-strings/
+
+给你一个字符串 s 和一个整数 k 。请你用 s 字符串中 所有字符 构造 k 个非空 回文串 。
+如果你可以用 s 中所有字符构造 k 个回文字符串，那么请你返回 True ，否则返回 False 。
+
+贪心。
+需判断字符串 s 能组成的最少回文个数与最多回文数，k 介于二者之间即可。
+字符频数为偶数的字符可以成对组合，因此只需考虑字符频数为奇数情况，
+有多少个频数为奇数，就必须要组成多少个回文串。
+最多回文串等于字符串长度。
+ */
