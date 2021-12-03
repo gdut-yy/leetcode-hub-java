@@ -26,10 +26,6 @@ public class Solution1968 {
         }
         return true;
     }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution1968().rearrangeArray(new int[]{1, 2, 3, 4, 5})));
-    }
 }
 /*
 1968. 构造元素不等于两相邻元素平均值的数组

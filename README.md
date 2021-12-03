@@ -1,6 +1,6 @@
 # leetcode-hub-java
 
-基于 `jdk17` + `maven3.8` + `junit5` 的 leetcode 练习仓库。
+基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
 ~~（拼搏百天，我要完成 300 道 leetcode 题！（Day86 已完成 300 题）~~
 
@@ -35,7 +35,7 @@ Build #IU-212.5284.40, built on September 14, 2021
 
 ```sh
 # jdk17:
-mvn clean test -gs settings.xml
+mvn clean test jacoco:report -s settings.xml
 
 # 如果系统 PATH 中使用的是 jdk8，需要指定 jdk17:
 "C:\Program Files\Java\jdk-17\bin\java.exe" \
@@ -45,7 +45,7 @@ mvn clean test -gs settings.xml
 -Dfile.encoding=UTF-8 \
 -classpath "C:\Program Files\apache-maven-3.8.2\boot\plexus-classworlds-2.6.0.jar" \
 org.codehaus.classworlds.Launcher \
-clean test -gs settings.xml
+clean test jacoco:report -s settings.xml
 ```
 
 ## UT、TDD
@@ -58,6 +58,7 @@ java 项目中常见的测试框架：
 - [mockito](https://github.com/mockito/mockito)
 - [powermock](https://github.com/powermock/powermock)
 - [jmh](https://github.com/openjdk/jmh)
+- [jacoco](https://github.com/jacoco/jacoco)
 
 junit5 常用断言：
 

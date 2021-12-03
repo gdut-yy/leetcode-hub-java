@@ -2,6 +2,10 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Solution85 {
+    /**
+     * 剑指 Offer II 040. 矩阵中最大的矩形
+     * https://leetcode-cn.com/problems/PLYXKQ/
+     */
     public int maximalRectangle(String[] matrix) {
         char[][] chars = new char[matrix.length][];
         for (int i = 0; i < matrix.length; i++) {
@@ -10,6 +14,10 @@ public class Solution85 {
         return maximalRectangle(chars);
     }
 
+    /**
+     * 85. 最大矩形
+     * https://leetcode-cn.com/problems/maximal-rectangle/
+     */
     public int maximalRectangle(char[][] matrix) {
         if (matrix.length == 0 || matrix[0].length == 0) {
             return 0;
@@ -60,6 +68,8 @@ public class Solution85 {
 /*
 85. 最大矩形
 https://leetcode-cn.com/problems/maximal-rectangle/
+
+给定一个仅包含 0 和 1 、大小为 rows x cols 的二维二进制矩阵，找出只包含 1 的最大矩形，并返回其面积。
 
 转化成第 84 题的场景求解。
  */

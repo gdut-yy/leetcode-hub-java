@@ -26,10 +26,6 @@ public class Solution84 {
 
         return maxArea;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution84().largestRectangleArea(new int[]{3, 2, 5, 4, 6, 1, 4, 2}));
-    }
 }
 /*
 84. 柱状图中最大的矩形

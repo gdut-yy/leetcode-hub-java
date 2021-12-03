@@ -55,22 +55,6 @@ public class Solution2069 {
             return curDir;
         }
     }
-
-    public static void main(String[] args) {
-        Robot robot = new Robot(6, 3);
-        robot.move(2);  // 机器人朝东移动 2 步，到达 (2, 0) ，并朝东。
-        robot.move(2);  // 机器人朝东移动 2 步，到达 (4, 0) ，并朝东。
-        System.out.println(Arrays.toString(robot.getPos())); // 返回 [4, 0]
-        System.out.println(robot.getDir()); // 返回 "East"
-        robot.move(2);  // 朝东移动 1 步到达 (5, 0) ，并朝东。
-        // 下一步继续往东移动将出界，所以逆时针转变方向朝北。
-        // 然后，往北移动 1 步到达 (5, 1) ，并朝北。
-        robot.move(1);  // 朝北移动 1 步到达 (5, 2) ，并朝 北 （不是朝西）。
-        robot.move(4);  // 下一步继续往北移动将出界，所以逆时针转变方向朝西。
-        // 然后，移动 4 步到 (1, 2) ，并朝西。
-        System.out.println(Arrays.toString(robot.getPos())); // 返回 [1, 2]
-        System.out.println(robot.getDir()); // 返回 "West"
-    }
 }
 /*
 2069. 模拟行走机器人 II
