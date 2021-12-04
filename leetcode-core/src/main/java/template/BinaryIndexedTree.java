@@ -7,11 +7,11 @@ package template;
  * 它可以以 O(logn) 的时间得到任意前缀和：
  * 并同时支持在 O(logn) 时间内支持动态单点值的修改。空间复杂度 O(n)。
  */
-public class BIT {
+public class BinaryIndexedTree {
     int n;
     int[] tree;
 
-    public BIT(int n) {
+    public BinaryIndexedTree(int n) {
         this.n = n;
         this.tree = new int[n + 1];
     }
@@ -52,7 +52,7 @@ public class BIT {
 
     public static void main(String[] args) {
         int[] nums = {-2, 0, 3, -5, 2, -1};
-        BIT bit = new BIT(nums.length);
+        BinaryIndexedTree bit = new BinaryIndexedTree(nums.length);
         for (int i = 0; i < nums.length; i++) {
             bit.update(i + 1, nums[i]);
         }
