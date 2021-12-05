@@ -10,6 +10,7 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 0, 0}, {0, 0, 1}, {1, 1, 0}};
         int expected = 8;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 1}, {1, 1}, {1, 1}};
         int expected = 0;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     // 补充用例
@@ -27,6 +29,7 @@ public class Solution1947Tests {
         int[][] mentors = {{0, 1, 1, 0, 0, 0, 0}, {0, 1, 0, 0, 0, 0, 1}, {0, 1, 0, 1, 0, 0, 1}, {1, 0, 0, 0, 1, 0, 1}, {1, 1, 1, 1, 1, 0, 0}};
         int expected = 24;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     @Test
@@ -35,6 +38,7 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 0, 1, 0, 1}, {1, 0, 1, 1, 0}};
         int expected = 8;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     @Test
@@ -43,6 +47,7 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 0, 1}, {0, 1, 1}, {0, 1, 0}, {1, 1, 0}};
         int expected = 9;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     @Test
@@ -51,6 +56,7 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 0, 0, 0, 0, 1}, {0, 1, 0, 0, 1, 1}, {0, 1, 0, 0, 1, 1}};
         int expected = 10;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 
     @Test
@@ -59,5 +65,6 @@ public class Solution1947Tests {
         int[][] mentors = {{1, 1, 0, 0, 0, 0, 1, 0}, {1, 0, 1, 1, 0, 0, 1, 0}, {1, 1, 1, 0, 1, 0, 1, 0}, {1, 0, 1, 1, 1, 0, 0, 1}, {0, 0, 0, 0, 1, 0, 0, 1}, {0, 0, 1, 0, 1, 0, 0, 0}, {1, 1, 0, 1, 0, 0, 0, 1}};
         int expected = 40;
         Assertions.assertEquals(expected, solution1947.maxCompatibilitySum(students, mentors));
+        Assertions.assertEquals(expected, solution1947.maxCompatibilitySum2(students, mentors));
     }
 }

@@ -2,7 +2,7 @@
 
 基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
-~~（拼搏百天，我要完成 300 道 leetcode 题！（Day86 已完成 300 题）~~
+~~（拼搏百天，我要完成 300 道 leetcode 题！（Day86 已完成 300 题，Day154 已完成 700 题）~~
 
 （拼搏 300 天，完成 1000 道 leetcode 题！
 
@@ -659,7 +659,7 @@ public int[] singleNumber2(int[] nums) {
 - 入度 indegree
 - 出度 outdegree
 
-### 拓扑排序
+### 拓扑排序 (Topological Sort)
 
 每次将入度为 0 的顶点加入队列。
 
@@ -670,7 +670,7 @@ public int[] singleNumber2(int[] nums) {
 - [1136. 平行课程](https://leetcode-cn.com/problems/parallel-courses/)
 - [2050. 并行课程 III](https://leetcode-cn.com/problems/parallel-courses-iii/) [困难]
 
-### 并查集（UnionFind）
+### 并查集 (UnionFind)
 
 ```java
 public class UnionFind {
@@ -737,15 +737,39 @@ public class UnionFind {
 - [1992. 找到所有的农场组](https://leetcode-cn.com/problems/find-all-groups-of-farmland/)
 - [2076. 处理含限制条件的好友请求](https://leetcode-cn.com/problems/process-restricted-friend-requests/) [困难]
 
-### 最短路
+### 最短路 (Shortest Path)
 
-Floyd 求任意两个结点之间的最短路。 时间复杂度 O(n^3)
-
-Dijkstra 求解 非负权图 上单源最短路径的算法。时间复杂度 O(n^2)
-
-Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
+- Floyd 求任意两个结点之间的最短路。 时间复杂度 O(n^3)
+- Dijkstra 求解 非负权图 上单源最短路径的算法。时间复杂度 O(n^2)
+- Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
 
 - [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/)
+
+### 欧拉回路 (Eulerian Circuit)
+
+Hierholzer 算法
+
+- [332. 重新安排行程](https://leetcode-cn.com/problems/reconstruct-itinerary/)
+
+### 二分图最大权匹配
+
+二部图 Bipartite Graph
+
+匈牙利算法（KM 算法）
+
+- [1066. 校园自行车分配 II](https://leetcode-cn.com/problems/campus-bikes-ii/)
+- [1947. 最大兼容性评分和](https://leetcode-cn.com/problems/maximum-compatibility-score-sum/)
+
+### 最小生成树 (Minimum Spanning Trees)
+
+- Prim（普里姆）算法
+- Kruskal（克鲁斯卡尔）算法 边优先 O(mlogm) m 条边
+
+### 网络流问题 (Network Flow Problems)
+
+- Ford-Fulkerson 算法（最坏情况时间复杂度 O(f\*m) f 为最大流大小 m 为边的数量）
+- Edmonds-Karp 算法 最短路 时间复杂度 O(n\*m^2) n 为顶点数量 m 为边数量
+- Dinic 算法 时间复杂度 O(m\*n^2) level graph
 
 ## 学习资源
 
@@ -756,7 +780,6 @@ Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
 - [杭电 OJ](https://www.acm.hdu.edu.cn/)
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
-- [labuladong](https://labuladong.gitbook.io/algo/)
 - [excalidraw](https://excalidraw.com/)
 
 ## 《剑指 Offer（专项突破版）》

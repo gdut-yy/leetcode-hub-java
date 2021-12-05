@@ -2,8 +2,42 @@ package template;
 
 /**
  * 二分查找
+ * <p>
+ * 时间复杂度 O(logn)
  */
 public class BinarySearch {
+    private int binarySearchLeftBound(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                right = mid;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid;
+            }
+        }
+        return left;
+    }
+
+    private static int binarySearchRightBound(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (nums[mid] == target) {
+                left = mid + 1;
+            } else if (nums[mid] < target) {
+                left = mid + 1;
+            } else if (nums[mid] > target) {
+                right = mid;
+            }
+        }
+        return left - 1;
+    }
+
     private int binarySearchLeftBound(boolean[] nums) {
         int left = 0;
         int right = nums.length;
