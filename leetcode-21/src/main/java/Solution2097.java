@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution5932 {
+public class Solution2097 {
     private Map<Integer, Queue<Integer>> outGraph;
     private List<int[]> resList;
 
@@ -56,7 +56,7 @@ public class Solution5932 {
     }
 }
 /*
-5932. 合法重新排列数对
+2097. 合法重新排列数对
 https://leetcode-cn.com/problems/valid-arrangement-of-pairs/
 
 第 270 场周赛 T4。

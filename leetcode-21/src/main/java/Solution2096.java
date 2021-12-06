@@ -1,4 +1,4 @@
-public class Solution5944 {
+public class Solution2096 {
     private String path;
 
     public String getDirections(TreeNode root, int startValue, int destValue) {
@@ -36,7 +36,7 @@ public class Solution5944 {
     }
 }
 /*
-5944. 从二叉树一个节点到另一个节点每一步的方向
+2096. 从二叉树一个节点到另一个节点每一步的方向
 https://leetcode-cn.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/
 
 第 270 场周赛 T3。

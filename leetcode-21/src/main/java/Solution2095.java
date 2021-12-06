@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5943 {
+public class Solution2095 {
     public ListNode deleteMiddle(ListNode head) {
         int[] nums = toArray(head);
         int n = nums.length;
@@ -46,7 +46,7 @@ public class Solution5943 {
     }
 }
 /*
-5943. 删除链表的中间节点
+2095. 删除链表的中间节点
 https://leetcode-cn.com/problems/delete-the-middle-node-of-a-linked-list/
 
 第 270 场周赛 T2。

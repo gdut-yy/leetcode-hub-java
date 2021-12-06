@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5944Tests {
-    private final Solution5944 solution5944 = new Solution5944();
+public class Solution2096Tests {
+    private final Solution2096 solution2096 = new Solution2096();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution5944Tests {
         int startValue = 3;
         int destValue = 6;
         String expected = "UURL";
-        Assertions.assertEquals(expected, solution5944.getDirections(root, startValue, destValue));
+        Assertions.assertEquals(expected, solution2096.getDirections(root, startValue, destValue));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution5944Tests {
         int startValue = 2;
         int destValue = 1;
         String expected = "L";
-        Assertions.assertEquals(expected, solution5944.getDirections(root, startValue, destValue));
+        Assertions.assertEquals(expected, solution2096.getDirections(root, startValue, destValue));
     }
 }

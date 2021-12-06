@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution5942 {
+public class Solution2094 {
     public int[] findEvenNumbers(int[] digits) {
         // 3 <= digits.length <= 100
         int len = digits.length;
@@ -77,7 +77,7 @@ public class Solution5942 {
     }
 }
 /*
-5942. 找出 3 位偶数
+2094. 找出 3 位偶数
 https://leetcode-cn.com/problems/finding-3-digit-even-numbers/
 
 第 270 场周赛 T1。
