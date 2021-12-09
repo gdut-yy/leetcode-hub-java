@@ -7,12 +7,15 @@ public class SolutionO67 {
     private static final String IN_NUMBER = "in_number";
     private static final String END = "end";
 
-    private static final Map<String, String[]> TRANSFER = new HashMap<>() {{
-        put(START, new String[]{START, SIGNED, IN_NUMBER, END});
-        put(SIGNED, new String[]{END, END, IN_NUMBER, END});
-        put(IN_NUMBER, new String[]{END, END, IN_NUMBER, END});
-        put(END, new String[]{END, END, END, END});
-    }};
+    private static final Map<String, String[]> TRANSFER;
+
+    static {
+        TRANSFER = new HashMap<>();
+        TRANSFER.put(START, new String[]{START, SIGNED, IN_NUMBER, END});
+        TRANSFER.put(SIGNED, new String[]{END, END, IN_NUMBER, END});
+        TRANSFER.put(IN_NUMBER, new String[]{END, END, IN_NUMBER, END});
+        TRANSFER.put(END, new String[]{END, END, END, END});
+    }
 
     private int sign = 1;
     private long ans = 0;

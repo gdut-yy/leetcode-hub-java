@@ -7,76 +7,76 @@ public class SolutionO20 {
         Map<State, Map<CharType, State>> transfer = new HashMap<>();
 
         // 起始的空格（初始状态）
-        Map<CharType, State> initialMap = new HashMap<>() {{
-            put(CharType.CHAR_SPACE, State.STATE_INITIAL);
-            put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
-            put(CharType.CHAR_POINT, State.STATE_POINT_WITHOUT_INT);
-            put(CharType.CHAR_SIGN, State.STATE_INT_SIGN);
-        }};
+        Map<CharType, State> initialMap = new HashMap<>();
+        initialMap.put(CharType.CHAR_SPACE, State.STATE_INITIAL);
+        initialMap.put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
+        initialMap.put(CharType.CHAR_POINT, State.STATE_POINT_WITHOUT_INT);
+        initialMap.put(CharType.CHAR_SIGN, State.STATE_INT_SIGN);
+
         transfer.put(State.STATE_INITIAL, initialMap);
 
         // 符号位
-        Map<CharType, State> intSignMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
-            put(CharType.CHAR_POINT, State.STATE_POINT_WITHOUT_INT);
-        }};
+        Map<CharType, State> intSignMap = new HashMap<>();
+        intSignMap.put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
+        intSignMap.put(CharType.CHAR_POINT, State.STATE_POINT_WITHOUT_INT);
+
         transfer.put(State.STATE_INT_SIGN, intSignMap);
 
         // 整数部分（接受状态）
-        Map<CharType, State> integerMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
-            put(CharType.CHAR_EXP, State.STATE_EXP);
-            put(CharType.CHAR_POINT, State.STATE_POINT);
-            put(CharType.CHAR_SPACE, State.STATE_END);
-        }};
+        Map<CharType, State> integerMap = new HashMap<>();
+        integerMap.put(CharType.CHAR_NUMBER, State.STATE_INTEGER);
+        integerMap.put(CharType.CHAR_EXP, State.STATE_EXP);
+        integerMap.put(CharType.CHAR_POINT, State.STATE_POINT);
+        integerMap.put(CharType.CHAR_SPACE, State.STATE_END);
+
         transfer.put(State.STATE_INTEGER, integerMap);
 
         // 左侧有整数的小数点（接受状态）
-        Map<CharType, State> pointMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
-            put(CharType.CHAR_EXP, State.STATE_EXP);
-            put(CharType.CHAR_SPACE, State.STATE_END);
-        }};
+        Map<CharType, State> pointMap = new HashMap<>();
+        pointMap.put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
+        pointMap.put(CharType.CHAR_EXP, State.STATE_EXP);
+        pointMap.put(CharType.CHAR_SPACE, State.STATE_END);
+
         transfer.put(State.STATE_POINT, pointMap);
 
         // 左侧无整数的小数点（根据前面的第二条额外规则，需要对左侧有无整数的两种小数点做区分）
-        Map<CharType, State> pointWithoutIntMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
-        }};
+        Map<CharType, State> pointWithoutIntMap = new HashMap<>();
+        pointWithoutIntMap.put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
+
         transfer.put(State.STATE_POINT_WITHOUT_INT, pointWithoutIntMap);
 
         // 小数部分（接受状态）
-        Map<CharType, State> fractionMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
-            put(CharType.CHAR_EXP, State.STATE_EXP);
-            put(CharType.CHAR_SPACE, State.STATE_END);
-        }};
+        Map<CharType, State> fractionMap = new HashMap<>();
+        fractionMap.put(CharType.CHAR_NUMBER, State.STATE_FRACTION);
+        fractionMap.put(CharType.CHAR_EXP, State.STATE_EXP);
+        fractionMap.put(CharType.CHAR_SPACE, State.STATE_END);
+
         transfer.put(State.STATE_FRACTION, fractionMap);
 
         // 字符 e
-        Map<CharType, State> expMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
-            put(CharType.CHAR_SIGN, State.STATE_EXP_SIGN);
-        }};
+        Map<CharType, State> expMap = new HashMap<>();
+        expMap.put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
+        expMap.put(CharType.CHAR_SIGN, State.STATE_EXP_SIGN);
+
         transfer.put(State.STATE_EXP, expMap);
 
         // 指数部分的符号位
-        Map<CharType, State> expSignMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
-        }};
+        Map<CharType, State> expSignMap = new HashMap<>();
+        expSignMap.put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
+
         transfer.put(State.STATE_EXP_SIGN, expSignMap);
 
         // 指数部分的整数部分（接受状态）
-        Map<CharType, State> expNumberMap = new HashMap<>() {{
-            put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
-            put(CharType.CHAR_SPACE, State.STATE_END);
-        }};
+        Map<CharType, State> expNumberMap = new HashMap<>();
+        expNumberMap.put(CharType.CHAR_NUMBER, State.STATE_EXP_NUMBER);
+        expNumberMap.put(CharType.CHAR_SPACE, State.STATE_END);
+
         transfer.put(State.STATE_EXP_NUMBER, expNumberMap);
 
         // 末尾的空格（接受状态）
-        Map<CharType, State> endMap = new HashMap<>() {{
-            put(CharType.CHAR_SPACE, State.STATE_END);
-        }};
+        Map<CharType, State> endMap = new HashMap<>();
+        endMap.put(CharType.CHAR_SPACE, State.STATE_END);
+
         transfer.put(State.STATE_END, endMap);
 
         // 确定有限状态自动机（DFA）
