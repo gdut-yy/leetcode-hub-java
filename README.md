@@ -55,10 +55,13 @@ java 项目中常见的测试框架：
 - [junit4](https://github.com/junit-team/junit4)
 - [junit5](https://github.com/junit-team/junit5)
 - [testng](https://github.com/cbeust/testng)
-- [mockito](https://github.com/mockito/mockito)
-- [powermock](https://github.com/powermock/powermock)
 - [jmh](https://github.com/openjdk/jmh)
 - [jacoco](https://github.com/jacoco/jacoco)
+
+mock 框架：
+
+- [mockito](https://github.com/mockito/mockito)
+- [powermock](https://github.com/powermock/powermock)
 
 junit5 常用断言：
 
