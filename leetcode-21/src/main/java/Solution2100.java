@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution5935 {
+public class Solution2100 {
     public List<Integer> goodDaysToRobBank(int[] security, int time) {
         int len = security.length;
         // 预处理，满足记为 1，计算前缀和
@@ -67,7 +67,7 @@ public class Solution5935 {
     }
 }
 /*
-5935. 适合打劫银行的日子
+2100. 适合打劫银行的日子
 https://leetcode-cn.com/problems/find-good-days-to-rob-the-bank/
 
 第 67 场双周赛 T2。

@@ -1,4 +1,4 @@
-public class Solution5955 {
+public class Solution2106 {
     public int maxTotalFruits(int[][] fruits, int startPos, int k) {
         // 0 <= startPos, positioni <= 2 * 10^5
         // 预处理前缀和
@@ -51,7 +51,7 @@ public class Solution5955 {
     }
 }
 /*
-5955. 摘水果
+2106. 摘水果
 https://leetcode-cn.com/problems/maximum-fruits-harvested-after-at-most-k-steps/
 
 第 271 场周赛 T4。

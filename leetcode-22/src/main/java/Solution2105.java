@@ -1,4 +1,4 @@
-public class Solution5954 {
+public class Solution2105 {
     public int minimumRefill(int[] plants, int capacityA, int capacityB) {
         int n = plants.length;
         int halfLen = n / 2;
@@ -51,7 +51,7 @@ public class Solution5954 {
     }
 }
 /*
-5954. 给植物浇水 II
+2105. 给植物浇水 II
 https://leetcode-cn.com/problems/watering-plants-ii/
 
 第 271 场周赛 T3。

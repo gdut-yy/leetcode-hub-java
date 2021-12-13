@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution5952 {
+public class Solution2103 {
     public int countPoints(String rings) {
         int n = rings.length() / 2;
         Map<Character, Set<Character>> cntMap = new HashMap<>();
@@ -26,7 +26,7 @@ public class Solution5952 {
     }
 }
 /*
-5952. 环和杆
+2103. 环和杆
 https://leetcode-cn.com/problems/rings-and-rods/
 
 第 271 场周赛 T1。

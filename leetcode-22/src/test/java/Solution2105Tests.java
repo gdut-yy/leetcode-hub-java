@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5954Tests {
-    private final Solution5954 solution5954 = new Solution5954();
+public class Solution2105Tests {
+    private final Solution2105 solution2105 = new Solution2105();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution5954Tests {
         int capacityA = 5;
         int capacityB = 5;
         int expected = 1;
-        Assertions.assertEquals(expected, solution5954.minimumRefill(plants, capacityA, capacityB));
+        Assertions.assertEquals(expected, solution2105.minimumRefill(plants, capacityA, capacityB));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution5954Tests {
         int capacityA = 3;
         int capacityB = 4;
         int expected = 2;
-        Assertions.assertEquals(expected, solution5954.minimumRefill(plants, capacityA, capacityB));
+        Assertions.assertEquals(expected, solution2105.minimumRefill(plants, capacityA, capacityB));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Solution5954Tests {
         int capacityA = 10;
         int capacityB = 8;
         int expected = 0;
-        Assertions.assertEquals(expected, solution5954.minimumRefill(plants, capacityA, capacityB));
+        Assertions.assertEquals(expected, solution2105.minimumRefill(plants, capacityA, capacityB));
     }
 
     @Test
@@ -37,7 +37,7 @@ public class Solution5954Tests {
         int capacityA = 6;
         int capacityB = 5;
         int expected = 2;
-        Assertions.assertEquals(expected, solution5954.minimumRefill(plants, capacityA, capacityB));
+        Assertions.assertEquals(expected, solution2105.minimumRefill(plants, capacityA, capacityB));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class Solution5954Tests {
         int capacityA = 5;
         int capacityB = 5;
         int expected = 1;
-        Assertions.assertEquals(expected, solution5954.minimumRefill(plants, capacityA, capacityB));
+        Assertions.assertEquals(expected, solution2105.minimumRefill(plants, capacityA, capacityB));
     }
 }

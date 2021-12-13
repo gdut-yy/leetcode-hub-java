@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5937Tests {
+public class Solution2102Tests {
     @Test
     public void example1() {
         // 初始化系统
-        Solution5937.SORTracker tracker = new Solution5937.SORTracker();
+        Solution2102.SORTracker tracker = new Solution2102.SORTracker();
         // 添加 name="bradford" 且 score=2 的景点。
         tracker.add("bradford", 2);
         // 添加 name="branford" 且 score=3 的景点。

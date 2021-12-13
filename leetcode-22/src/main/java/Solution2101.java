@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution5936 {
+public class Solution2101 {
     private Map<Integer, List<Integer>> outGraph;
 
     public int maximumDetonation(int[][] bombs) {
@@ -70,7 +70,7 @@ public class Solution5936 {
     }
 }
 /*
-5936. 引爆最多的炸弹
+2101. 引爆最多的炸弹
 https://leetcode-cn.com/problems/detonate-the-maximum-bombs/
 
 第 67 场双周赛 T3。

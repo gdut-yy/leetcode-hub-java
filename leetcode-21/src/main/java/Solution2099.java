@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution5934 {
+public class Solution2099 {
     public int[] maxSubsequence(int[] nums, int k) {
         // 记录数值对应下标
         Map<Integer, List<Integer>> idxMap = new HashMap<>();
@@ -40,7 +40,7 @@ public class Solution5934 {
     }
 }
 /*
-5934. 找到和最大的长度为 K 的子序列
+2099. 找到和最大的长度为 K 的子序列
 https://leetcode-cn.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
 
 第 67 场双周赛 T1。

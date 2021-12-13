@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution5937 {
+public class Solution2102 {
     static class SORTracker {
         private static class Scenic {
             String name;
@@ -44,7 +44,7 @@ public class Solution5937 {
     }
 }
 /*
-5937. 序列顺序查询
+2102. 序列顺序查询
 https://leetcode-cn.com/problems/sequentially-ordinal-rank-tracker/
 
 第 67 场双周赛 T4。

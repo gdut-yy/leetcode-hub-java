@@ -5,8 +5,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Solution5935Tests {
-    private final Solution5935 solution5935 = new Solution5935();
+public class Solution2100Tests {
+    private final Solution2100 solution2100 = new Solution2100();
 
     @Test
     public void example1() {
@@ -14,7 +14,7 @@ public class Solution5935Tests {
         int time = 2;
         // 返回的日子可以 任意 顺序排列。
         List<Integer> expected = Arrays.asList(2, 3);
-        List<Integer> actual = solution5935.goodDaysToRobBank(security, time);
+        List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
         Collections.sort(actual);
         Assertions.assertEquals(expected, actual);
     }
@@ -24,7 +24,7 @@ public class Solution5935Tests {
         int[] security = {1, 1, 1, 1, 1};
         int time = 0;
         List<Integer> expected = Arrays.asList(0, 1, 2, 3, 4);
-        List<Integer> actual = solution5935.goodDaysToRobBank(security, time);
+        List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
         Collections.sort(actual);
         Assertions.assertEquals(expected, actual);
     }
@@ -34,7 +34,7 @@ public class Solution5935Tests {
         int[] security = {1, 2, 3, 4, 5, 6};
         int time = 2;
         List<Integer> expected = Arrays.asList();
-        List<Integer> actual = solution5935.goodDaysToRobBank(security, time);
+        List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
         Collections.sort(actual);
         Assertions.assertEquals(expected, actual);
     }

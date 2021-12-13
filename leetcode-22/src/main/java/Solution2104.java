@@ -1,4 +1,4 @@
-public class Solution5953 {
+public class Solution2104 {
     public long subArrayRanges(int[] nums) {
         int len = nums.length;
         long sum = 0;
@@ -19,7 +19,7 @@ public class Solution5953 {
     }
 }
 /*
-5953. 子数组范围和
+2104. 子数组范围和
 https://leetcode-cn.com/problems/sum-of-subarray-ranges/
 
 第 271 场周赛 T2。

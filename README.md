@@ -60,6 +60,7 @@ java 项目中常见的测试框架：
 
 mock 框架：
 
+- [easymock](https://github.com/easymock/easymock)
 - [mockito](https://github.com/mockito/mockito)
 - [powermock](https://github.com/powermock/powermock)
 

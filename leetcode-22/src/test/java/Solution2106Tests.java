@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5955Tests {
-    private final Solution5955 solution5955 = new Solution5955();
+public class Solution2106Tests {
+    private final Solution2106 solution2106 = new Solution2106();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution5955Tests {
         int startPos = 5;
         int k = 4;
         int expected = 9;
-        Assertions.assertEquals(expected, solution5955.maxTotalFruits(fruits, startPos, k));
+        Assertions.assertEquals(expected, solution2106.maxTotalFruits(fruits, startPos, k));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution5955Tests {
         int startPos = 5;
         int k = 4;
         int expected = 14;
-        Assertions.assertEquals(expected, solution5955.maxTotalFruits(fruits, startPos, k));
+        Assertions.assertEquals(expected, solution2106.maxTotalFruits(fruits, startPos, k));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Solution5955Tests {
         int startPos = 3;
         int k = 2;
         int expected = 0;
-        Assertions.assertEquals(expected, solution5955.maxTotalFruits(fruits, startPos, k));
+        Assertions.assertEquals(expected, solution2106.maxTotalFruits(fruits, startPos, k));
     }
 
     // 补充用例
@@ -38,6 +38,6 @@ public class Solution5955Tests {
         int startPos = 21;
         int k = 30;
         int expected = 71;
-        Assertions.assertEquals(expected, solution5955.maxTotalFruits(fruits, startPos, k));
+        Assertions.assertEquals(expected, solution2106.maxTotalFruits(fruits, startPos, k));
     }
 }
