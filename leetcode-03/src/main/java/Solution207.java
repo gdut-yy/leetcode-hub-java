@@ -14,19 +14,19 @@ public class Solution207 {
         Map<Integer, Set<Integer>> inGraph = new HashMap<>();
         // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
         for (int[] prerequisite : prerequisites) {
-            int pre = prerequisite[1];
-            int cur = prerequisite[0];
+            int from = prerequisite[1];
+            int to = prerequisite[0];
 
-            Set<Integer> outSet = outGraph.getOrDefault(pre, new HashSet<>());
-            outSet.add(cur);
-            outGraph.put(pre, outSet);
+            Set<Integer> outSet = outGraph.getOrDefault(from, new HashSet<>());
+            outSet.add(to);
+            outGraph.put(from, outSet);
 
-            Set<Integer> inSet = inGraph.getOrDefault(cur, new HashSet<>());
-            inSet.add(pre);
-            inGraph.put(cur, inSet);
+            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
+            inSet.add(from);
+            inGraph.put(to, inSet);
         }
 
-        // 入度为 0 进队列 记为 0 到 numCourses - 1
+        // 入度为 0 进队列。记为 0 到 numCourses - 1
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
             if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
