@@ -5,66 +5,53 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution51 {
+    // 在 O(1) 的时间内判断该位置所在的列和两条斜线上是否已经有皇后
+    // 列
+    private final Set<Integer> columnSet = new HashSet<>();
+    // 主对角线
+    private final Set<Integer> mainDiagonalSet = new HashSet<>();
+    // 副对角线
+    private final Set<Integer> antiDiagonalSet = new HashSet<>();
+
     public List<List<String>> solveNQueens(int n) {
-        List<List<String>> res = new ArrayList<>();
+        List<List<String>> resList = new ArrayList<>();
         int[] queens = new int[n];
         // 初始化
         Arrays.fill(queens, -1);
-
-        // 列、主对角线、副对角线
-        // 在 O(1) 的时间内判断该位置所在的列和两条斜线上是否已经有皇后
-        List<Set<Integer>> colMainAntiDiagonals = List.of(new HashSet<>(), new HashSet<>(), new HashSet<>());
-
         // 迭代
-        dfs(res, queens, n, 0, colMainAntiDiagonals);
-        return res;
+        dfs(n, resList, queens, 0);
+        return resList;
     }
 
-    /**
-     * 回溯算法
-     *
-     * @param res                  结果集
-     * @param queens               每行放置的皇后的列下标
-     * @param n                    入参 n
-     * @param row                  行
-     * @param colMainAntiDiagonals 列、主对角线、副对角线
-     */
-    private void dfs(List<List<String>> res, int[] queens, int n, int row, List<Set<Integer>> colMainAntiDiagonals) {
-        // 列
-        Set<Integer> columns = colMainAntiDiagonals.get(0);
-        // 主对角线
-        Set<Integer> mainDiagonals = colMainAntiDiagonals.get(1);
-        // 副对角线
-        Set<Integer> antiDiagonals = colMainAntiDiagonals.get(2);
-
+    private void dfs(int n, List<List<String>> res, int[] queens, int row) {
         if (row == n) {
             List<String> board = generateBoard(queens, n);
             res.add(board);
         } else {
             for (int i = 0; i < n; i++) {
-                if (columns.contains(i)) {
+                if (columnSet.contains(i)) {
                     continue;
                 }
                 int mainDiagonal = row - i;
-                if (mainDiagonals.contains(mainDiagonal)) {
+                if (mainDiagonalSet.contains(mainDiagonal)) {
                     continue;
                 }
                 int antiDiagonal = row + i;
-                if (antiDiagonals.contains(antiDiagonal)) {
+                if (antiDiagonalSet.contains(antiDiagonal)) {
                     continue;
                 }
                 // 操作
                 queens[row] = i;
-                columns.add(i);
-                mainDiagonals.add(mainDiagonal);
-                antiDiagonals.add(antiDiagonal);
+                columnSet.add(i);
+                mainDiagonalSet.add(mainDiagonal);
+                antiDiagonalSet.add(antiDiagonal);
                 // 下一迭代
-                dfs(res, queens, n, row + 1, colMainAntiDiagonals);
+                dfs(n, res, queens, row + 1);
                 // 回退操作
                 queens[row] = -1;
-                columns.remove(i);
-                mainDiagonals.remove(mainDiagonal);
-                antiDiagonals.remove(antiDiagonal);
+                columnSet.remove(i);
+                mainDiagonalSet.remove(mainDiagonal);
+                antiDiagonalSet.remove(antiDiagonal);
             }
         }
     }
@@ -83,6 +70,10 @@ public class Solution51 {
 /*
 51. N 皇后
 https://leetcode-cn.com/problems/n-queens/
+
+n 皇后问题 研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
+给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。
+每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 'Q' 和 '.' 分别代表了皇后和空位。
 
 回溯算法。
 经典八皇后问题，数学家高斯穷其一生也没有计算出正确答案。而我们借助计算机可秒出答案。

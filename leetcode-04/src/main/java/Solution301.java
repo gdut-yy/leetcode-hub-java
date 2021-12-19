@@ -97,4 +97,8 @@ https://leetcode-cn.com/problems/remove-invalid-parentheses/
 
 给你一个由若干括号和字母组成的字符串 s ，删除最小数量的无效括号，使得输入的字符串有效。
 返回所有可能的结果。答案可以按 任意顺序 返回。
+提示：
+1 <= s.length <= 25
+s 由小写英文字母以及括号 '(' 和 ')' 组成
+s 中至多含 20 个括号
  */
