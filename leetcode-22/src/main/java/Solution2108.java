@@ -1,4 +1,4 @@
-public class Solution5956 {
+public class Solution2108 {
     public String firstPalindrome(String[] words) {
         for (String word : words) {
             if (isPal(word)) {
@@ -23,7 +23,7 @@ public class Solution5956 {
 
 }
 /*
-5956. 找出数组中的第一个回文字符串
+2108. 找出数组中的第一个回文字符串
 https://leetcode-cn.com/problems/find-first-palindromic-string-in-the-array/
 
 第 272 场周赛 T1。

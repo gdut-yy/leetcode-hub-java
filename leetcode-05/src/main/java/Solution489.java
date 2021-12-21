@@ -63,6 +63,20 @@ https://leetcode-cn.com/problems/robot-room-cleaner/
 3.扫地机器人的初始方向向上。
 4.所有可抵达的格子都是相连的，亦即所有标记为1的格子机器人都可以抵达。
 5.可以假定格栅的四周都被墙包围。
+示例:
+输入:
+room = [
+  [1,1,1,1,1,0,1,1],
+  [1,1,1,1,1,0,1,1],
+  [1,0,1,1,1,1,1,1],
+  [0,0,0,1,0,0,0,0],
+  [1,1,1,1,1,1,1,1]
+],
+row = 1,
+col = 3
+解析:
+房间格栅用0或1填充。0表示障碍物，1表示可以通过。
+机器人从row=1，col=3的初始位置出发。在左上角的一行以下，三列以右。
 
 官方题解: https://leetcode-cn.com/problems/robot-room-cleaner/solution/sao-di-ji-qi-ren-by-leetcode/
  */

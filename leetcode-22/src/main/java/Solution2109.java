@@ -1,4 +1,4 @@
-public class Solution5957 {
+public class Solution2109 {
     public String addSpaces(String s, int[] spaces) {
         int first = spaces[0];
         int last = spaces[spaces.length - 1];
@@ -16,7 +16,7 @@ public class Solution5957 {
     }
 }
 /*
-5957. 向字符串添加空格
+2109. 向字符串添加空格
 https://leetcode-cn.com/problems/adding-spaces-to-a-string/
 
 第 272 场周赛 T2。

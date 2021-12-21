@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5959 {
+public class Solution2111 {
     public int kIncreasing(int[] arr, int k) {
         int len = arr.length;
         int cnt = 0;
@@ -44,7 +44,7 @@ public class Solution5959 {
     }
 }
 /*
-5959. 使数组 K 递增的最少操作次数
+2111. 使数组 K 递增的最少操作次数
 https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-k-increasing/
 
 第 272 场周赛 T4。
