@@ -1,4 +1,4 @@
-package p1593;
+package p1582;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,11 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
-public class MainD1 {
+public class CF1582B {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
@@ -32,45 +29,48 @@ public class MainD1 {
             nums[i] = Integer.parseInt(line2s[i]);
         }
 
-        List<Integer> list = Arrays.stream(nums).boxed().distinct().collect(Collectors.toList());
-        if (list.size() == 1) {
-            return "-1";
+        int cnt0 = 0;
+        int cnt1 = 0;
+        for (int num : nums) {
+            if (num == 0) {
+                cnt0++;
+            } else if (num == 1) {
+                cnt1++;
+            }
         }
-        int res = list.get(1) - list.get(0);
-        for (int i = 2; i < list.size(); i++) {
-            res = getGCD(res, list.get(i) - list.get(i - 1));
+        if (cnt1 == 0) {
+            return "0";
         }
-        return String.valueOf(Math.abs(res));
-    }
-
-    private static int getGCD(int num1, int num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+        return String.valueOf((long) (Math.pow(2, cnt0) * cnt1));
     }
 }
 /*
-D1. All are Same
-https://codeforces.com/contest/1593/problem/D1
+B. Luntik and Subsequences
+https://codeforces.com/contest/1582/problem/B
 
 题目大意：
-给出整数数组，假设存在一个 k，对数组任一元素减去 k，重复若干次后，数组所有数相等，求 k 的任意值。
+给出一个整数数组。数组元素和为 s，求和为 s-1 子序列的个数。
 
-即求出最大公约数。
+数学，显然只与数组中 0 和 1 的个数有关，如果不存在 1，则个数为 0，假设有 a 个 0，b 个 1，则结果为 b*2^a
 ======
 
 input
-3
-6
-1 5 3 1 1 5
-8
--1 0 1 -1 0 1 -1 0
-4
-100 -1000 -1000 -1000
+5
+5
+1 2 3 4 5
+2
+1000 1000
+2
+1 0
+5
+3 0 2 1 1
+5
+2 1 0 3 0
 
 output
-2
 1
-1100
+0
+2
+4
+4
  */
