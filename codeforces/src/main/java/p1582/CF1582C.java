@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 
 public class CF1582C {
     public static void main(String[] args) throws IOException {
@@ -16,48 +14,42 @@ public class CF1582C {
         int t = Integer.parseInt(reader.readLine());
         for (int i = 0; i < t; i++) {
             reader.readLine();
-            String lineT1 = reader.readLine();
-            int res = solution(lineT1);
-            writer.write(String.valueOf(res));
-            writer.write(System.lineSeparator());
+            String line = reader.readLine();
+            writer.write(solution(line).concat(System.lineSeparator()));
         }
         writer.close();
         reader.close();
     }
 
-    private static int solution(String str) {
-        Map<Character, Integer> cntMap = new HashMap<>();
-        for (char ch : str.toCharArray()) {
-            cntMap.put(ch, cntMap.getOrDefault(ch, 0) + 1);
-        }
-        int max = 0;
-        for (Map.Entry<Character, Integer> entry : cntMap.entrySet()) {
-            max = Math.max(max, entry.getValue());
-        }
-        int palindromeLen = longestPalindromeSubseq(str);
-        if (str.length() - palindromeLen > max) {
-            return -1;
-        } else {
-            return str.length() - palindromeLen;
-        }
-    }
-
-    private static int longestPalindromeSubseq(String s) {
-        int n = s.length();
-        int[][] dp = new int[n][n];
-        for (int i = n - 1; i >= 0; i--) {
-            dp[i][i] = 1;
-            char c1 = s.charAt(i);
-            for (int j = i + 1; j < n; j++) {
-                char c2 = s.charAt(j);
-                if (c1 == c2) {
-                    dp[i][j] = dp[i + 1][j - 1] + 2;
+    private static String solution(String line) {
+        int len = line.length();
+        int min = Integer.MAX_VALUE;
+        for (char ch = 'a'; ch <= 'z'; ch++) {
+            int left = 0;
+            int right = len - 1;
+            int erased = 0;
+            while (left < right) {
+                if (line.charAt(left) == line.charAt(right)) {
+                    left++;
+                    right--;
                 } else {
-                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                    if (line.charAt(left) == ch) {
+                        erased++;
+                        left++;
+                    } else if (line.charAt(right) == ch) {
+                        erased++;
+                        right--;
+                    } else {
+                        break;
+                    }
                 }
             }
+            // 能处理成回文
+            if (left >= right) {
+                min = Math.min(min, erased);
+            }
         }
-        return dp[0][n - 1];
+        return min == Integer.MAX_VALUE ? "-1" : String.valueOf(min);
     }
 }
 /*
@@ -67,7 +59,9 @@ https://codeforces.com/contest/1582/problem/C
 题目大意：
 给出字符串 s。选一个字母，在 s 中删除一些这种字母，使其变为回文串，求可删除的最小数。
 
-TODO
+枚举 + 双指针
+只能删一种字母，即只能删除 'a' ~ 'z' 中的一个。假设当前能删除的字符为 ch，当首位字符相等时，两个都选取；
+当首尾字符不等时，如果字符为 ch，可以擦除，否则不能构成回文。统计 26 种情况的最小值即可。
 ======
 
 input

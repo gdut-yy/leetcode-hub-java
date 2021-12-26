@@ -66,6 +66,15 @@ public class CF1619B {
 B. Squares and Cubes
 https://codeforces.com/contest/1619/problem/B
 
+题目大意：
+给出数字 n，问 1 到 n 有多少个平方数和开方数。
+
+打表后二分即可。
+31622 * 31622 = 999,950,884 < 10^9
+1000 * 1000 * 1000 = 10^9
+======
+
+input
 6
 10
 1
@@ -74,11 +83,11 @@ https://codeforces.com/contest/1619/problem/B
 999999999
 500000000
 
+output
 4
 1
 6
 32591
 32590
 23125
-
  */

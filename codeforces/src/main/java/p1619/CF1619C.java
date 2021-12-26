@@ -60,6 +60,13 @@ public class CF1619C {
 C. Wrong Addition
 https://codeforces.com/contest/1619/problem/C
 
+题目大意：
+给出两个正整数 a 和 s。求 b，题目给出一种自定义的 a + b = s 算法。
+
+模拟即可。
+======
+
+input
 6
 17236 1106911
 1 5
@@ -68,11 +75,11 @@ https://codeforces.com/contest/1619/problem/C
 1 11
 1 20
 
+output
 3465
 4
 -1
 90007
 10
 -1
-
  */

@@ -83,6 +83,15 @@ public class CF1619D {
 D. New Year's Problem
 https://codeforces.com/contest/1619/problem/D
 
+题目大意：
+给出 n 和 m，以及 n*m 的矩阵。定义最多选择其中 n-1 行，使得 min(p[i][j]) 的值最大。
+
+非常巧妙的二分以及容斥思路。
+由于 最多选择其中 n-1 行，因此必然有两个 j 在同一行中。
+同时结果存在单调性，二分去找到最大值即可。
+======
+
+input
 5
 
 2 2
@@ -109,10 +118,10 @@ https://codeforces.com/contest/1619/problem/D
 6 5 2 1
 7 9 7 2
 
+output
 3
 2
 4
 8
 2
-
  */

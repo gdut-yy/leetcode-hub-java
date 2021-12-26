@@ -37,6 +37,13 @@ Codeforces Round #762 (Div. 3)
 A. Square String?
 https://codeforces.com/contest/1619/problem/A
 
+题目大意：
+给出字符串 s，判断 s 是否为 Square 字符串，Square 字符串为一个字符串在一行中被写了两次。
+
+判断能否截断成两个相等的字符串即可。
+======
+
+input
 10
 a
 aa
@@ -49,6 +56,7 @@ xxyy
 xyyx
 xyxy
 
+output
 NO
 YES
 NO
@@ -59,5 +67,4 @@ NO
 NO
 NO
 YES
-
  */
