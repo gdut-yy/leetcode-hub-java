@@ -41,7 +41,7 @@ for dirpath, dirnames, filenames in os.walk(cwd):
         # 统计 CF*Tests.java
         if('\src\\test\java' in dirpath):
             for filename in filenames:
-                if('Tests' in filename):
+                if('CF' in filename and 'Tests' in filename):
                     cnt_cf_tests+=1
 print('codeforces:')
 print(cnt_cf_mains)
