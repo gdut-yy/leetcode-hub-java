@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class CF1612BTests extends AbstractOjTests {
     public CF1612BTests() {
-        super("p1612/B/");
+        super("/p1612/B/");
     }
 
     /**

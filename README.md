@@ -16,19 +16,19 @@
 
 ```sh
 $ java -version
-openjdk version "17" 2021-09-14
-OpenJDK Runtime Environment (build 17+35-2724)
-OpenJDK 64-Bit Server VM (build 17+35-2724, mixed mode, sharing)
+openjdk version "17.0.1" 2021-10-19
+OpenJDK Runtime Environment (build 17.0.1+12-39)
+OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
 
 $ mvn -v
-Apache Maven 3.8.2 (ea98e05a04480131370aa0c110b8c54cf726c06f)
-Maven home: C:\Program Files\apache-maven-3.8.2
-Java version: 17, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-17
+Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
+Maven home: D:\programs\apache-maven-3.8.4
+Java version: 17.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-17.0.1
 Default locale: zh_CN, platform encoding: GBK
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
-IntelliJ IDEA 2021.2.2 (Ultimate Edition)
-Build #IU-212.5284.40, built on September 14, 2021
+IntelliJ IDEA 2021.3 (Ultimate Edition)
+Build #IU-213.5744.223, built on November 27, 2021
 ```
 
 ## 构建命令
@@ -36,16 +36,6 @@ Build #IU-212.5284.40, built on September 14, 2021
 ```sh
 # jdk17:
 mvn clean test jacoco:report -s settings.xml
-
-# 如果系统 PATH 中使用的是 jdk8，需要指定 jdk17:
-"C:\Program Files\Java\jdk-17\bin\java.exe" \
--Dmaven.multiModuleProjectDirectory=C:\Users\DEVYY\Documents\GitHub\LTS\leetcode-hub-java \
-"-Dmaven.home=C:\Program Files\apache-maven-3.8.2" \
-"-Dclassworlds.conf=C:\Program Files\apache-maven-3.8.2\bin\m2.conf" \
--Dfile.encoding=UTF-8 \
--classpath "C:\Program Files\apache-maven-3.8.2\boot\plexus-classworlds-2.6.0.jar" \
-org.codehaus.classworlds.Launcher \
-clean test jacoco:report -s settings.xml
 ```
 
 ## UT、TDD
@@ -784,6 +774,7 @@ Hierholzer 算法
 - [杭电 OJ](https://www.acm.hdu.edu.cn/)
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
+- [excalidraw](https://excalidraw.com/)
 - [excalidraw](https://excalidraw.com/)
 
 ## 《剑指 Offer（专项突破版）》

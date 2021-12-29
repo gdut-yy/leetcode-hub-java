@@ -13,18 +13,17 @@ import java.nio.charset.StandardCharsets;
 public class AbstractOjTests {
     private static final String DEFAULT_INPUT = "input.txt";
     private static final String DEFAULT_OUTPUT = "output.txt";
-    private static final String DEFAULT_ACTUAL = "actual.txt";
-    protected static final String INPUT2 = "input2.txt";
-    protected static final String OUTPUT2 = "output2.txt";
 
     private final String path;
     private final File actualFile;
 
     public AbstractOjTests(String path) {
-        URL url = getClass().getResource("/");
+        URL url = getClass().getResource(path);
+        URL actualUrl = getClass().getResource("/actual.txt");
         Assertions.assertNotNull(url);
-        this.path = url.getPath() + path;
-        this.actualFile = new File(url.getPath() + DEFAULT_ACTUAL);
+        Assertions.assertNotNull(actualUrl);
+        this.path = url.getPath();
+        this.actualFile = new File(actualUrl.getPath());
     }
 
     protected void doSetSystemInOut() throws IOException {
