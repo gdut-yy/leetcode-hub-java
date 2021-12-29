@@ -109,6 +109,15 @@ public class UtUtils {
     }
 
     /**
+     * resources 文件加载 long[]
+     */
+    public static long[] loadingLongs(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
+        List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
+        return list.stream().mapToLong(l -> l).toArray();
+    }
+
+    /**
      * resources 文件加载 String
      */
     public static String loadingString(String fileName, int line) {
