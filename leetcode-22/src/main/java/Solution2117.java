@@ -1,13 +1,28 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintStream;
 import java.math.BigInteger;
+import java.net.URL;
 
 public class Solution2117 {
+    private static BigInteger[] pre;
+
     public String abbreviateProduct(int left, int right) {
-        // BigInteger 乘积
-        BigInteger product = new BigInteger("1");
-        for (int i = left; i <= right; i++) {
-            BigInteger cur = new BigInteger(i + "");
-            product = product.multiply(cur);
+        int max = 10000;
+        if (pre == null) {
+            pre = new BigInteger[max + 2];
+            pre[1] = new BigInteger("1");
+            for (int i = 1; i <= max; i++) {
+                pre[i + 1] = pre[i].multiply(new BigInteger(i + ""));
+            }
         }
+        // BigInteger 乘积
+//            BigInteger product = new BigInteger("1");
+//            for (int i = left; i <= right; i++) {
+//                BigInteger cur = new BigInteger(i + "");
+//                product = product.multiply(cur);
+//            }
+        BigInteger product = pre[right + 1].divide(pre[left]);
         String productStr = product.toString();
         int len = productStr.length();
         int C = 0;
@@ -24,6 +39,23 @@ public class Solution2117 {
             return pre + "..." + suf + "e" + C;
         }
         return productStr.substring(0, len - C) + "e" + C;
+    }
+
+    public static void main(String[] args) throws FileNotFoundException {
+        URL actualUrl = Solution2117.class.getResource("2117.txt");
+        File actualFile = new File(actualUrl.getPath());
+        PrintStream printStream = new PrintStream(actualFile);
+        System.setOut(printStream);
+
+        Solution2117 solution2117 = new Solution2117();
+        int min = 1;
+        int max = 10000;
+        for (int left = min; left <= max; left++) {
+            for (int right = left; right <= max; right++) {
+                String res = solution2117.abbreviateProduct(left, right);
+                System.out.println(left + " " + right + " " + res);
+            }
+        }
     }
 }
 /*
