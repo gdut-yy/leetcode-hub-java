@@ -31,4 +31,6 @@ https://leetcode-cn.com/problems/day-of-the-year/
 Java 8 Date/Time API
 相似题目: 1118. 一月有多少天
 https://leetcode-cn.com/problems/number-of-days-in-a-month/
+1185. 一周中的第几天
+https://leetcode-cn.com/problems/day-of-the-week/
  */

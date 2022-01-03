@@ -1,8 +1,4 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.math.BigInteger;
-import java.net.URL;
 
 public class Solution2117 {
     private static BigInteger[] pre;
@@ -40,23 +36,6 @@ public class Solution2117 {
         }
         return productStr.substring(0, len - C) + "e" + C;
     }
-
-    public static void main(String[] args) throws FileNotFoundException {
-        URL actualUrl = Solution2117.class.getResource("2117.txt");
-        File actualFile = new File(actualUrl.getPath());
-        PrintStream printStream = new PrintStream(actualFile);
-        System.setOut(printStream);
-
-        Solution2117 solution2117 = new Solution2117();
-        int min = 1;
-        int max = 10000;
-        for (int left = min; left <= max; left++) {
-            for (int right = left; right <= max; right++) {
-                String res = solution2117.abbreviateProduct(left, right);
-                System.out.println(left + " " + right + " " + res);
-            }
-        }
-    }
 }
 /*
 2117. 一个区间内所有数乘积的缩写
@@ -75,8 +54,10 @@ https://leetcode-cn.com/problems/abbreviating-the-product-of-a-range/
 3.比方说，12345678987600000 被表示为 "12345...89876e5" 。
 请你返回一个字符串，表示 闭区间 [left, right] 中所有整数 乘积 的 缩写 。
 提示：
-1 <= left <= right <= 10^6
+1 <= left <= right <= 10^4
 
 高赞题解: 一个数据团灭绝大部分代码(包括标程)：误差分析的一些知识，以及polylog n的做法
 https://leetcode-cn.com/problems/abbreviating-the-product-of-a-range/solution/yi-ge-shu-ju-tuan-mie-jue-da-bu-fen-dai-234yd/
+
+比赛题目范围为 10^6，后续发现起码 128bit 浮点的精度才能用对数正确求解，赛后调整到 10^4.直接硬乘+前缀和思想也能过了。。
  */

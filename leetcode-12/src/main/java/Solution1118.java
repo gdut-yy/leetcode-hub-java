@@ -22,4 +22,8 @@ https://leetcode-cn.com/problems/number-of-days-in-a-month/
 指定年份 Y 和月份 M，请你帮忙计算出该月一共有多少天。
 
 Java 8 Date/Time API
+相似题目: 1154. 一年中的第几天
+https://leetcode-cn.com/problems/day-of-the-year/
+1185. 一周中的第几天
+https://leetcode-cn.com/problems/day-of-the-week/
  */
