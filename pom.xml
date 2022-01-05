@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <module>jacoco-aggregate-report</module>
         <module>codeforces</module>
         <module>leetcode-01</module>
         <module>leetcode-02</module>
@@ -42,7 +43,7 @@
     <properties>
         <org.junit.jupiter.junit-jupiter.version>5.8.2</org.junit.jupiter.junit-jupiter.version>
         <commons-io.commons-io.version>2.11.0</commons-io.commons-io.version>
-        <com.alibaba.fastjson.version>1.2.78</com.alibaba.fastjson.version>
+        <com.alibaba.fastjson.version>1.2.79</com.alibaba.fastjson.version>
         <maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
         <maven-failsafe-plugin.version>2.22.2</maven-failsafe-plugin.version>
         <jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
@@ -104,13 +105,6 @@
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>report</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>report</goal>
                         </goals>
                     </execution>
                 </executions>

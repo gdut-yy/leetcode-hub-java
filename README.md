@@ -35,7 +35,7 @@ Build #IU-213.5744.223, built on November 27, 2021
 
 ```sh
 # jdk17:
-mvn clean test jacoco:report -s settings.xml
+mvn clean verify -s settings.xml
 ```
 
 ## UT、TDD
