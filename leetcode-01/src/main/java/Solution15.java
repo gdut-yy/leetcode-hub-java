@@ -45,11 +45,15 @@ public class Solution15 {
 15. 三数之和
 https://leetcode-cn.com/problems/3sum/
 
-两数之和 升级版。相关题目：
-第 1 题 https://leetcode-cn.com/problems/two-sum/
-第 167 题 https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+注意：答案中不可以包含重复的三元组。
 
-先选出一个数，余下两个数用双指针方法解决
+两数之和 升级版。先选出一个数，余下两个数用双指针方法解决
 时间复杂度 O(n^2)
 其中排序时间复杂度 O(nlogn)
+
+相似题目: 1. 两数之和
+https://leetcode-cn.com/problems/two-sum/
+167. 两数之和 II - 输入有序数组
+https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
  */

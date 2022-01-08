@@ -10,6 +10,7 @@ public class Solution49 {
         for (String str : strs) {
             char[] chars = str.toCharArray();
             Arrays.sort(chars);
+
             String orderStr = new String(chars);
             List<String> list = groupMap.getOrDefault(orderStr, new ArrayList<>());
             list.add(str);

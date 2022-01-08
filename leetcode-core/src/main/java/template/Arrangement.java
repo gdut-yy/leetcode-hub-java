@@ -1,5 +1,7 @@
 package template;
 
+import java.math.BigInteger;
+
 /**
  * 排列组合
  * <p>
@@ -11,20 +13,19 @@ package template;
  */
 public class Arrangement {
     private long arrangement(int n, int m) {
-        return factorial(n) / factorial(n - m);
+        return factorial(n).divide(factorial(n - m)).longValue();
     }
 
     private long combination(int n, int m) {
         m = Math.min(n - m, m);
-        return factorial(n) / factorial(m) / factorial(n - m);
+        return factorial(n).divide(factorial(m)).divide(factorial(n - m)).longValue();
     }
 
-    // res = n!
-    private long factorial(int n) {
-        long res = 1;
-        while (n > 1) {
-            res *= n;
-            n--;
+    // factorial(n) = n!
+    private BigInteger factorial(int n) {
+        BigInteger res = BigInteger.ONE;
+        for (int i = n; i >= 1; i--) {
+            res = res.multiply(new BigInteger(String.valueOf(i)));
         }
         return res;
     }
@@ -33,7 +34,7 @@ public class Arrangement {
         Arrangement arrangement = new Arrangement();
         System.out.println(arrangement.arrangement(10, 10));
         System.out.println(arrangement.arrangement(8, 8));
-        System.out.println(arrangement.combination(10, 8));
-        System.out.println(arrangement.combination(8, 8));
+        System.out.println(arrangement.combination(13, 4));
+        System.out.println(arrangement.combination(9, 4));
     }
 }
