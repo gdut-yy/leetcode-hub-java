@@ -113,10 +113,10 @@ public class Solution679 {
     private static final int CARD_MIN = 1;
     private static final int CARD_MAX = 9;
 
-//    public static void main(String[] args) {
-//        step1();
-//        step4();
-//    }
+    public static void main(String[] args) {
+        step1();
+        step4();
+    }
 
     /**
      * step1: 组合括号

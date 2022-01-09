@@ -37,29 +37,7 @@ public class Solution2081 {
         double maxMemory = Runtime.getRuntime().maxMemory();
         System.out.println("totalMemory: " + totalMemory / (double) 1024 / 2024 + "MB");
         System.out.println("maxMemory: " + maxMemory / (double) 1024 / 2024 + "MB");
-//        timeLimitExceededTable();
         acceptedTable();
-    }
-
-    private static void timeLimitExceededTable() {
-        for (int k = 2; k <= 9; k++) {
-            int cnt = 0;
-            System.out.println(k + " 进制");
-            for (long i = 1; i < Long.MAX_VALUE; i++) {
-                String decString = String.valueOf(i);
-                if (check(decString)) {
-                    String kString = Long.toString(i, k);
-                    if (check(kString)) {
-                        cnt++;
-                        System.out.println(cnt + ":" + decString + ":" + kString);
-                        if (cnt >= 40) {
-                            break;
-                        }
-                    }
-                }
-            }
-            System.out.println();
-        }
     }
 
     private static void acceptedTable() {
@@ -79,7 +57,8 @@ public class Solution2081 {
         dpList.add(len1List);
 
         // 长度 2 到 len
-        for (int len = 2; len <= 16; len++) {
+//        for (int len = 2; len <= 16; len++) {
+        for (int len = 2; len <= 11; len++) {
             // 长度-2 的 List
             List<String> preList = dpList.get(len - 2);
             List<String> curList = new ArrayList<>();
@@ -108,7 +87,8 @@ public class Solution2081 {
                     if (check(kString)) {
                         cnt++;
                         System.out.println(cnt + ":" + decString + ":" + kString);
-                        if (cnt >= 50) {
+//                        if (cnt >= 50) {
+                        if (cnt >= 30) {
                             return;
                         }
                     }

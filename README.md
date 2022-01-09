@@ -2,9 +2,11 @@
 
 基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
-~~（拼搏百天，我要完成 300 道 leetcode 题！（Day86 已完成 300 题，Day154 已完成 700 题）~~
+~~（拼搏百天，我要完成 300 道 leetcode 题！（始于 2021.07.05，Day87(2021.09.29) 已完成 300 题，Day154(2021.12.05) 已完成 700 题）~~
 
 （拼搏 300 天，完成 1000 道 leetcode 题！
+
+![](./leetcode-hub-analysis-2021.png)
 
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 - `leetcode-core` 存放 leetcode 自定义对象。
@@ -31,12 +33,17 @@ IntelliJ IDEA 2021.3 (Ultimate Edition)
 Build #IU-213.5744.223, built on November 27, 2021
 ```
 
-## 构建命令
+## Command 命令行
 
 ```sh
-# jdk17:
+# 运行 UT、统计覆盖率（jdk17）：
 mvn clean verify -s settings.xml
+
+# 统计做题进度（python3）：
+python countSolutions.py
 ```
+
+![](./ut-coverage-report.png)
 
 ## UT、TDD
 
@@ -91,91 +98,34 @@ junit5 常用断言：
 - [1969. 数组元素的最小非零乘积](https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/)
 - [2048. 下一个更大的数值平衡数](https://leetcode-cn.com/problems/next-greater-numerically-balanced-number/)
 
-### 前缀和
+### 前缀和/差分数组
 
-```
-nums   3 5 2 -2
-preSum 0 3 8 10 8
+[模板代码](./leetcode-core/src/main/java/template/PrefixSum.java)
 
-使用场景：求 nums[i..j] 的累加和
-```
+- `前缀和`：O(n) 预处理；O(1) 得到 nums [i,j] 的累加和。
+- `差分数组`：O(1) nums [i,j] 增加 inc；O(n) 求出原数组。
 
-```java
-class PrefixSum {
-    private final int[] preSum;
-
-    public PrefixSum(int[] nums) {
-        int len = nums.length;
-        preSum = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
-        }
-    }
-
-    /**
-     * 求 nums[i] 到 nums[j] 的累加和
-     */
-    public int rangeSum(int i, int j) {
-        return preSum[j + 1] - preSum[i];
-    }
-}
-```
+前缀和
 
 - [303. 区域和检索 - 数组不可变](https://leetcode-cn.com/problems/range-sum-query-immutable/)
 
-### 前缀和（二维）
-
-```java
-class PrefixSum2d {
-    private final int[][] preSum2d;
-
-    public PrefixSum2d(int[][] matrix) {
-        preSum2d = new int[matrix.length + 1][matrix[0].length + 1];
-        for (int i = 1; i < matrix.length + 1; i++) {
-            for (int j = 1; j < matrix[0].length + 1; j++) {
-                preSum2d[i][j] = preSum2d[i - 1][j] + preSum2d[i][j - 1] - preSum2d[i - 1][j - 1] + matrix[i - 1][j - 1];
-            }
-        }
-    }
-
-    /**
-     * 求 [row1,col1] 到 [row2,col2] 的累加和
-     */
-    public int sumRegion(int row1, int col1, int row2, int col2) {
-        return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
-    }
-}
-```
-
-- [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/) （二维前缀和）
-
-### 差分数组
-
-```
-nums 8  2 6  3 1
-diff 8 -6 4 -3 2
-
-diff[i] = nums[i] - nums[i - 1]
-使用场景：对 nums[i..j] 区间同时增加或减少某个数值。
-```
-
-```java
-// nums[i..j] 的元素全部加 3
-diff[i] += 3;
-diff[j + 1] -= 3;
-
-// 根据差分数组构造结果数组
-int[] res = new int[diff.length];
-res[0] = diff[0];
-for (int i = 1; i < diff.length; i++) {
-    res[i] = res[i - 1] + diff[i];
-}
-```
+差分数组
 
 - [845. 数组中的最长山脉](https://leetcode-cn.com/problems/longest-mountain-in-array/) “反向差分”
 - [1094. 拼车](https://leetcode-cn.com/problems/car-pooling/) 区间加减
 - [1109. 航班预订统计](https://leetcode-cn.com/problems/corporate-flight-bookings/) 区间加减
 - [1854. 人口最多的年份](https://leetcode-cn.com/problems/maximum-population-year/) 区间加减
+
+### 二维前缀和/二维差分
+
+[模板代码](./leetcode-core/src/main/java/template/PrefixSum2d.java)
+
+- `二维前缀和`：O(n) 预处理；O(1) 得到 matrix [row1,col1] 到 [row2,col2] 的累加和。
+- `二维差分`：O(1) matrix [row1,col1] 到 [row2,col2] 全部增加 inc；O(n) 求出原数组。
+
+二维前缀和
+
+- [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 
 ### 快速幂
 
@@ -774,7 +724,6 @@ Hierholzer 算法
 - [杭电 OJ](https://www.acm.hdu.edu.cn/)
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
-- [excalidraw](https://excalidraw.com/)
 - [excalidraw](https://excalidraw.com/)
 
 ## 《剑指 Offer（专项突破版）》
