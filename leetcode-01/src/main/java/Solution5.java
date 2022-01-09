@@ -4,9 +4,7 @@ import java.util.List;
 public class Solution5 {
     /**
      * 动态规划
-     *
-     * @param s 输入字符串
-     * @return 最长回文子串
+     * 时间复杂度 O(n^2)
      */
     public String longestPalindrome(String s) {
         // 长度 0 和 1
@@ -57,25 +55,23 @@ public class Solution5 {
 
     /**
      * Manacher 算法
-     *
-     * @param s 输入字符串
-     * @return 最长回文子串
+     * 时间复杂度 O(n)
      */
     public String longestPalindrome2(String s) {
-        int start = 0;
-        int end = -1;
-        // 填充字符 # (统一 长度为奇数、长度为奇数 两种场景)
+        // 填充字符 '#' (统一处理长度为奇数)
         // aaba => #a#a#b#a#
+        // aba => #a#b#a#
         StringBuilder stringBuilder = new StringBuilder("#");
         for (int i = 0; i < s.length(); i++) {
             stringBuilder.append(s.charAt(i));
             stringBuilder.append('#');
         }
-        stringBuilder.append('#');
         s = stringBuilder.toString();
 
         // 臂长
         List<Integer> armLen = new ArrayList<>();
+        int start = 0;
+        int end = -1;
         int right = -1;
         int j = -1;
         for (int i = 0; i < s.length(); ++i) {
@@ -120,8 +116,9 @@ public class Solution5 {
 5. 最长回文子串
 https://leetcode-cn.com/problems/longest-palindromic-substring/
 
-动态规划法。时间复杂度 O(n^2)
-Manacher 马拉车算法。专门用于找最长回文子串，时间复杂度 O(n)
+给你一个字符串 s，找到 s 中最长的回文子串。
 
-官方题解 https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
+动态规划/Manacher 马拉车算法
+
+官方题解: https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
  */
