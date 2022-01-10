@@ -1,4 +1,4 @@
-public class Solution5931 {
+public class Solution2132 {
     public boolean possibleToStamp(int[][] grid, int stampHeight, int stampWidth) {
         int M = grid.length;
         int N = grid[0].length;
@@ -93,7 +93,7 @@ public class Solution5931 {
     }
 }
 /*
-5931. 用邮票贴满网格图
+2132. 用邮票贴满网格图
 https://leetcode-cn.com/problems/stamping-the-grid/
 
 第 69 场双周赛 T4。

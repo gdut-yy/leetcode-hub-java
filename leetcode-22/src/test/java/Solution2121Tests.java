@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class Solution2121Tests {
@@ -29,6 +30,7 @@ public class Solution2121Tests {
     }
 
     @Test
+    @Disabled
     public void example3_2() {
         int[] arr = UtUtils.loadingInts("solution2121-example3-input.txt", 0);
         long[] expected = UtUtils.loadingLongs("solution2121-example3-output.txt", 0);

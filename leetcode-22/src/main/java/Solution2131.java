@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution5962 {
+public class Solution2131 {
     public int longestPalindrome(String[] words) {
         Map<String, Integer> cntMap = new HashMap<>();
         for (String word : words) {
@@ -34,7 +34,7 @@ public class Solution5962 {
     }
 }
 /*
-5962. 连接两字母单词得到的最长回文串
+2131. 连接两字母单词得到的最长回文串
 https://leetcode-cn.com/problems/longest-palindrome-by-concatenating-two-letter-words/
 
 第 69 场双周赛 T3。

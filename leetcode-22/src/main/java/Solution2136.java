@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution5979 {
+public class Solution2136 {
     public int earliestFullBloom(int[] plantTime, int[] growTime) {
         // 贪心。生长时间久的 早种
         int n = plantTime.length;
@@ -21,7 +21,7 @@ public class Solution5979 {
     }
 }
 /*
-5979. 全部开花的最早一天
+2136. 全部开花的最早一天
 https://leetcode-cn.com/problems/earliest-possible-day-of-full-bloom/
 
 第 275 场周赛 T4。

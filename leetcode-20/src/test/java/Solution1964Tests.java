@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -53,6 +54,7 @@ public class Solution1964Tests {
     }
 
     @Test
+    @Disabled
     public void example5_2() {
         int[] obstacles = UtUtils.loadingInts("solution1964-example5-input.txt", 0);
         int[] expected = UtUtils.loadingInts("solution1964-example5-output.txt", 0);

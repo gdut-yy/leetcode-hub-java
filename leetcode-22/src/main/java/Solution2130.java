@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5961 {
+public class Solution2130 {
     public int pairSum(ListNode head) {
         int[] nums = toArray(head);
         int max = 0;
@@ -26,7 +26,7 @@ public class Solution5961 {
     }
 }
 /*
-5961. 链表最大孪生和
+2130. 链表最大孪生和
 https://leetcode-cn.com/problems/maximum-twin-sum-of-a-linked-list/
 
 第 69 场双周赛 T2。

@@ -1,6 +1,6 @@
 import java.util.BitSet;
 
-public class Solution5976 {
+public class Solution2133 {
     public boolean checkValid(int[][] matrix) {
         // n == matrix.length == matrix[i].length
         int n = matrix.length;
@@ -19,7 +19,7 @@ public class Solution5976 {
     }
 }
 /*
-5976. 检查是否每一行每一列都包含全部整数
+2133. 检查是否每一行每一列都包含全部整数
 https://leetcode-cn.com/problems/check-if-every-row-and-column-contains-all-numbers/
 
 第 275 场周赛 T1。

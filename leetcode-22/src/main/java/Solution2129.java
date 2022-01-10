@@ -1,6 +1,6 @@
 import java.util.Locale;
 
-public class Solution5960 {
+public class Solution2129 {
     public String capitalizeTitle(String title) {
         String[] words = title.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
@@ -15,7 +15,7 @@ public class Solution5960 {
     }
 }
 /*
-5960. 将标题首字母大写
+2129. 将标题首字母大写
 https://leetcode-cn.com/problems/capitalize-the-title/
 
 第 69 场双周赛 T1。

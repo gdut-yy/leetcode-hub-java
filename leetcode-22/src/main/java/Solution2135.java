@@ -3,7 +3,7 @@ import java.util.BitSet;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution5978 {
+public class Solution2135 {
     public int wordCount(String[] startWords, String[] targetWords) {
         // 预处理 startWords
         Set<String> memo = new HashSet<>();
@@ -38,7 +38,7 @@ public class Solution5978 {
     }
 }
 /*
-5978. 统计追加字母可以获得的单词数
+2135. 统计追加字母可以获得的单词数
 https://leetcode-cn.com/problems/count-words-obtained-after-adding-a-letter/
 
 第 275 场周赛 T3。
