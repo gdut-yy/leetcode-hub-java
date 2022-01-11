@@ -6,8 +6,6 @@
 
 （拼搏 300 天，完成 1000 道 leetcode 题！
 
-![](./leetcode-hub-analysis-2021.png)
-
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 - `leetcode-core` 存放 leetcode 自定义对象。
 - `leetcode-extends` 存放 LCCUP/OJ 题目

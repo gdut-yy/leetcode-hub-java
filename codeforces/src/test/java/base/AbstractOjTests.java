@@ -13,6 +13,8 @@ import java.nio.charset.StandardCharsets;
 public class AbstractOjTests {
     private static final String DEFAULT_INPUT = "input.txt";
     private static final String DEFAULT_OUTPUT = "output.txt";
+    protected static final String INPUT2 = "input2.txt";
+    protected static final String OUTPUT2 = "output2.txt";
 
     private final String path;
     private final File actualFile;
