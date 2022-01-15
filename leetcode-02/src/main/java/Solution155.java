@@ -4,8 +4,8 @@ import java.util.Objects;
 
 public class Solution155 {
     static class MinStack {
-        Deque<Integer> stack1;
-        Deque<Integer> stack2;
+        private final Deque<Integer> stack1;
+        private final Deque<Integer> stack2;
 
         /**
          * initialize your data structure here.
@@ -30,11 +30,17 @@ public class Solution155 {
         }
 
         public int top() {
-            return stack1.peek();
+            if (!stack1.isEmpty()) {
+                return stack1.peek();
+            }
+            return -1;
         }
 
         public int getMin() {
-            return stack2.peek();
+            if (!stack2.isEmpty()) {
+                return stack2.peek();
+            }
+            return -1;
         }
     }
 }
@@ -43,10 +49,12 @@ public class Solution155 {
 https://leetcode-cn.com/problems/min-stack/
 
 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
-push(x) —— 将元素 x 推入栈中。
-pop() —— 删除栈顶的元素。
-top() —— 获取栈顶元素。
-getMin() —— 检索栈中的最小元素。
+- push(x) —— 将元素 x 推入栈中。
+- pop() —— 删除栈顶的元素。
+- top() —— 获取栈顶元素。
+- getMin() —— 检索栈中的最小元素。
+提示：
+pop、top 和 getMin 操作总是在 非空栈 上调用。
 
 双栈实现最小栈。
 相似题目: 剑指 Offer 30. 包含min函数的栈

@@ -7,15 +7,14 @@ public class Solution105 {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
         int n = preorder.length;
         // 构造哈希映射，帮助我们快速定位根节点
-        indexMap = new HashMap<Integer, Integer>();
+        indexMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
             indexMap.put(inorder[i], i);
         }
-        return myBuildTree(preorder, 0, n - 1, 0);
+        return helper(preorder, 0, n - 1, 0);
     }
 
-
-    private TreeNode myBuildTree(int[] preorder, int preLeft, int preRight, int inLeft) {
+    private TreeNode helper(int[] preorder, int preLeft, int preRight, int inLeft) {
         if (preLeft > preRight) {
             return null;
         }
@@ -27,19 +26,21 @@ public class Solution105 {
         // 先把根节点建立出来
         TreeNode root = new TreeNode(preorder[preLeft]);
         // 得到左子树中的节点数目
-        int size_left_subtree = inRoot - inLeft;
+        int sizeLeftSubtree = inRoot - inLeft;
         // 递归地构造左子树，并连接到根节点
         // 先序遍历中「从 左边界+1 开始的 size_left_subtree」个元素就对应了中序遍历中「从 左边界 开始到 根节点定位-1」的元素
-        root.left = myBuildTree(preorder, preLeft + 1, preLeft + size_left_subtree, inLeft);
+        root.left = helper(preorder, preLeft + 1, preLeft + sizeLeftSubtree, inLeft);
         // 递归地构造右子树，并连接到根节点
         // 先序遍历中「从 左边界+1+左子树节点数目 开始到 右边界」的元素就对应了中序遍历中「从 根节点定位+1 到 右边界」的元素
-        root.right = myBuildTree(preorder, preLeft + size_left_subtree + 1, preRight, inRoot + 1);
+        root.right = helper(preorder, preLeft + sizeLeftSubtree + 1, preRight, inRoot + 1);
         return root;
     }
 }
 /*
 105. 从前序与中序遍历序列构造二叉树
 https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+
+给定一棵树的前序遍历 preorder 与中序遍历  inorder。请构造二叉树并返回其根节点。
 
 对于任意一颗树而言，前序遍历的形式总是
 [ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
