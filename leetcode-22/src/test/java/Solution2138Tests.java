@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5980Tests {
-    private final Solution5980 solution5980 = new Solution5980();
+public class Solution2138Tests {
+    private final Solution2138 solution2138 = new Solution2138();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution5980Tests {
         int k = 3;
         char fill = 'x';
         String[] expected = {"abc", "def", "ghi"};
-        Assertions.assertArrayEquals(expected, solution5980.divideString(s, k, fill));
+        Assertions.assertArrayEquals(expected, solution2138.divideString(s, k, fill));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution5980Tests {
         int k = 3;
         char fill = 'x';
         String[] expected = {"abc", "def", "ghi", "jxx"};
-        Assertions.assertArrayEquals(expected, solution5980.divideString(s, k, fill));
+        Assertions.assertArrayEquals(expected, solution2138.divideString(s, k, fill));
     }
 }

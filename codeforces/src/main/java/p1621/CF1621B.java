@@ -6,8 +6,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
 
 public class CF1621B {
     public static void main(String[] args) throws IOException {
@@ -23,7 +21,7 @@ public class CF1621B {
                 nums[j][1] = Integer.parseInt(lines[1]);
                 nums[j][2] = Integer.parseInt(lines[2]);
             }
-            int[] res = solution2(n, nums);
+            int[] res = solution(n, nums);
             for (int re : res) {
                 writer.write(String.valueOf(re).concat(System.lineSeparator()));
             }
@@ -32,101 +30,58 @@ public class CF1621B {
         reader.close();
     }
 
-    private static int[] solution2(int n, int[][] nums) {
-        int[] left = nums[0];
-        int[] right = nums[0];
+    private static int[] solution(int n, int[][] nums) {
+        // 三个指针，left 指向最小花费的最小 l 所在的 idx，right 指向最小花费的最大 r 所在的 idx，longest 指向最小花费的最长 r-l 所在的 idx
+        int left = 0;
+        int right = 0;
+        int longest = 0;
 
         int[] res = new int[n];
         res[0] = nums[0][2];
         for (int i = 1; i < n; i++) {
             int[] cur = nums[i];
+            int minL = nums[left][0];
+            int maxR = nums[right][1];
+            int longestLen = nums[longest][1] - nums[longest][0];
 
-            // 更新最小值
-            if (cur[0] < left[0]) {
-                left = cur;
-            } else if (cur[0] == left[0]) {
-                if (cur[2] < left[2]) {
-                    left = cur;
-                } else if (cur[2] == left[2]) {
-                    if (cur[1] > left[1]) {
-                        left = cur;
-                    }
-                }
+            // 更新 left
+            if ((cur[0] < minL) || (cur[0] == minL && cur[2] < nums[left][2])) {
+                left = i;
             }
 
-            // 更新最大值
-            if (cur[1] > right[1]) {
-                right = cur;
-            } else if (cur[1] == right[1]) {
-                if (cur[2] < right[2]) {
-                    right = cur;
-                } else if (cur[2] == right[2]) {
-                    if (cur[0] < right[0]) {
-                        right = cur;
-                    }
-                }
+            // 更新 right
+            if ((cur[1] > maxR) || (cur[1] == maxR && cur[2] < nums[right][2])) {
+                right = i;
             }
 
-            // 统计
-            if (left[0] == right[0] && left[1] == right[1]) {
-                res[i] = Math.min(left[2], right[2]);
-            } else if (left[0] == right[0]) {
-                res[i] = right[2];
-            } else if (left[1] == right[1]) {
-                res[i] = left[2];
+            // 更新 longest
+            if ((cur[1] - cur[0] > longestLen) || (cur[1] - cur[0] == longestLen && cur[2] < nums[longest][2])) {
+                longest = i;
+            }
+
+            // 更新 res[i]
+            // 是否考虑 longest 行
+            boolean bool = nums[right][1] - nums[left][0] == nums[longest][1] - nums[longest][0];
+            if (left == right) {
+                res[i] = bool ? Math.min(nums[longest][2], nums[left][2]) : nums[left][2];
             } else {
-                res[i] = left[2] + right[2];
+                res[i] = bool ? Math.min(nums[longest][2], nums[left][2] + nums[right][2]) : nums[left][2] + nums[right][2];
             }
-        }
-        return res;
-    }
-
-    private static int[] solution(int n, int[][] nums) {
-        List<Integer> minIdxList = new ArrayList<>();
-        List<Integer> maxIdxList = new ArrayList<>();
-        minIdxList.add(0);
-        maxIdxList.add(0);
-        int min = nums[0][0];
-        int max = nums[0][1];
-
-        int[] res = new int[n];
-        res[0] = nums[0][2];
-        for (int i = 1; i < n; i++) {
-            // 更新最小值
-            if (nums[i][0] < min) {
-                min = nums[i][0];
-                minIdxList.clear();
-                minIdxList.add(i);
-            } else if (nums[i][0] == min) {
-                minIdxList.add(i);
-            }
-
-            // 更新最大值
-            if (nums[i][1] > max) {
-                max = nums[i][1];
-                maxIdxList.clear();
-                maxIdxList.add(i);
-            } else if (nums[i][1] == max) {
-                maxIdxList.add(i);
-            }
-
-            int cost = Integer.MAX_VALUE;
-            for (int minIdx : minIdxList) {
-                for (int maxIdx : maxIdxList) {
-                    if (minIdx == maxIdx) {
-                        cost = Math.min(cost, nums[minIdx][2]);
-                    } else {
-                        cost = Math.min(cost, nums[minIdx][2] + nums[maxIdx][2]);
-                    }
-                }
-            }
-            res[i] = cost;
-
         }
         return res;
     }
 }
 /*
+B. Integers Shop
+https://codeforces.com/contest/1621/problem/B
+
+题目大意：
+给出整数 n 和 n 行，第 ni 行给出整数 li,ri,ci，表示 [li,ri] 耗费 ci。求从 1 到 n 行，最大区间最小花费
+
+贪心。顺序遍历，记录当前 最小的 l，最大的  r，以及最长段 r-l 及对应的最小花费。结果可能由 1~2 段组成。
+======
+
+input
 3
 2
 2 4 20
@@ -142,6 +97,7 @@ public class CF1621B {
 1 11 271
 1 10 1
 
+output
 20
 42
 42
@@ -152,16 +108,4 @@ public class CF1621B {
 256
 271
 271
-
-
-
-1
-6
-1 4 4
-5 8 9
-7 8 7
-2 10 252
-1 11 271
-1 10 1
-
  */

@@ -1,4 +1,4 @@
-public class Solution5982 {
+public class Solution2140 {
     public long mostPoints(int[][] questions) {
         int len = questions.length;
         // 从后往前 dp
@@ -16,7 +16,7 @@ public class Solution5982 {
     }
 }
 /*
-5982. 解决智力问题
+2140. 解决智力问题
 https://leetcode-cn.com/problems/solving-questions-with-brainpower/
 
 第 276 场周赛 T3。

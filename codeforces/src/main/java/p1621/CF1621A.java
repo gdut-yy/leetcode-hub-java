@@ -51,10 +51,11 @@ Hello 2022
 A. Stable Arrangement of Rooks
 https://codeforces.com/contest/1621/problem/A
 
+题目大意：
 给出整数 n，求在 n*n 矩阵中放置多少个 rook。rook 可以移动到相邻的单元格，且可以打败同行或同列的 rook。
 
 贪心，从左上到右下 沿矩阵的副对角线放置。间隔一行一列即可。
-===
+======
 
 input
 5

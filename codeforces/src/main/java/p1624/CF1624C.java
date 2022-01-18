@@ -65,7 +65,7 @@ https://codeforces.com/contest/1624/problem/C
 给出整数 n 和长度为 n 的数组 a，规定一次操作可用 ⌊ai/2⌋ 替换掉 ai，可以操作若干次，问能否使数组 a 包含 1 到 n.
 
 贪心。先排序，小的数机会小，优先处理。
-===
+======
 
 input
 6

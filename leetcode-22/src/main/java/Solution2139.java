@@ -1,4 +1,4 @@
-public class Solution5194 {
+public class Solution2139 {
     public int minMoves(int target, int maxDoubles) {
         int cnt = 0;
         while (target > 1) {
@@ -20,7 +20,7 @@ public class Solution5194 {
     }
 }
 /*
-5194. 得到目标值的最少行动次数
+2139. 得到目标值的最少行动次数
 https://leetcode-cn.com/problems/minimum-moves-to-reach-target-score/
 
 第 276 场周赛 T2。

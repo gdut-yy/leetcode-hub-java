@@ -1,4 +1,4 @@
-public class Solution5980 {
+public class Solution2138 {
     public String[] divideString(String s, int k, char fill) {
         int len = s.length();
         s = s + String.valueOf(fill).repeat(k);
@@ -12,7 +12,7 @@ public class Solution5980 {
     }
 }
 /*
-5980. 将字符串拆分为若干长度为 k 的组
+2138. 将字符串拆分为若干长度为 k 的组
 https://leetcode-cn.com/problems/divide-a-string-into-groups-of-size-k/
 
 第 276 场周赛 T1。
