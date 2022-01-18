@@ -723,6 +723,7 @@ Hierholzer 算法
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
+- [leetcode-rating-predictor](https://lcpredictor.herokuapp.com/)
 
 ## 《剑指 Offer（专项突破版）》
 
