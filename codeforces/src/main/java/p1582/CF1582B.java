@@ -49,7 +49,7 @@ B. Luntik and Subsequences
 https://codeforces.com/contest/1582/problem/B
 
 题目大意：
-给出一个整数数组。数组元素和为 s，求和为 s-1 子序列的个数。
+给出整数 n 和长度为 n 的数组 a。设数组元素和为 s，求和为 s-1 子序列的个数。
 
 数学，显然只与数组中 0 和 1 的个数有关，如果不存在 1，则个数为 0，假设有 a 个 0，b 个 1，则结果为 b*2^a
 ======

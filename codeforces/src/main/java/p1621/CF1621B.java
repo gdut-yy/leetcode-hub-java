@@ -76,7 +76,7 @@ B. Integers Shop
 https://codeforces.com/contest/1621/problem/B
 
 题目大意：
-给出整数 n 和 n 行，第 ni 行给出整数 li,ri,ci，表示 [li,ri] 耗费 ci。求从 1 到 n 行，最大区间最小花费
+给出整数 n 和 n 行，第 ni 行给出整数 li,ri,ci，表示 [li,ri] 耗费 ci。求从 1 到 n 行，组成最大区间的最小花费
 
 贪心。顺序遍历，记录当前 最小的 l，最大的  r，以及最长段 r-l 及对应的最小花费。结果可能由 1~2 段组成。
 ======

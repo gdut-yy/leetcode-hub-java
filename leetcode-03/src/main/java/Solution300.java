@@ -3,19 +3,16 @@ public class Solution300 {
      * 动态规划法
      * 时间复杂度 O(n^2)
      * 空间复杂度 O(n)
-     *
-     * @param nums 输入数组
-     * @return 最长严格递增子序列的长度
      */
     public int lengthOfLIS(int[] nums) {
         // 1 <= nums.length <= 2500
-        int numsLen = nums.length;
+        int len = nums.length;
 
         // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
-        int[] dp = new int[numsLen];
+        int[] dp = new int[len];
         dp[0] = 1;
-        int maxLen = 1;
-        for (int i = 1; i < numsLen; i++) {
+        int max = 1;
+        for (int i = 1; i < len; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 // 严格递增
@@ -23,18 +20,15 @@ public class Solution300 {
                     dp[i] = Math.max(dp[i], dp[j] + 1);
                 }
             }
-            maxLen = Math.max(maxLen, dp[i]);
+            max = Math.max(max, dp[i]);
         }
-        return maxLen;
+        return max;
     }
 
     /**
      * 贪心 + 二分查找
      * 时间复杂度 O(nlogn)
      * 空间复杂度 O(n)
-     *
-     * @param nums 输入数组
-     * @return 最长严格递增子序列的长度
      */
     public int lengthOfLIS2(int[] nums) {
         // 1 <= nums.length <= 2500
@@ -45,6 +39,7 @@ public class Solution300 {
         int idx = 1;
         ascend[idx] = nums[0];
         for (int i = 1; i < len; i++) {
+            // 严格递增
             if (nums[i] > ascend[idx]) {
                 idx++;
                 ascend[idx] = nums[i];
@@ -69,12 +64,16 @@ public class Solution300 {
     }
 
     private boolean checkMid(int nums, int[] ascend, int mid) {
+        // 严格递增
         return ascend[mid] >= nums;
     }
 }
 /*
 300. 最长递增子序列
 https://leetcode-cn.com/problems/longest-increasing-subsequence/
+
+给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
+子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
 
 LIS 模板题。二分优化后：
 时间复杂度 O(nlogn)

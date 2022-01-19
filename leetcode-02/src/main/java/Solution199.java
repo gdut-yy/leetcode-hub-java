@@ -33,6 +33,8 @@ public class Solution199 {
 199. 二叉树的右视图
 https://leetcode-cn.com/problems/binary-tree-right-side-view/
 
+给定一个二叉树的 根节点 root，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+
 二叉树“按层”。两个队列实现二叉树广搜
 参考第 513、515 题
  */

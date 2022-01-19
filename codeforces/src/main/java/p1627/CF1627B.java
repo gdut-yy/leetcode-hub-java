@@ -44,6 +44,8 @@ public class CF1627B {
                 list.add(nums[i][j]);
             }
         }
+
+        // List<Integer> => String
         Collections.sort(list);
         StringBuilder stringBuilder = new StringBuilder();
         for (int num : list) {
