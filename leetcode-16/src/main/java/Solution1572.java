@@ -19,6 +19,8 @@ public class Solution1572 {
 1572. 矩阵对角线元素的和
 https://leetcode-cn.com/problems/matrix-diagonal-sum/
 
+第 34 场双周赛 T1。
+
 给你一个正方形矩阵 mat，请你返回矩阵对角线元素的和。
 请你返回在矩阵主对角线上的元素和副对角线上且不在主对角线上元素的和。
 

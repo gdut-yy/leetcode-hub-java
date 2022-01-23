@@ -21,6 +21,8 @@ public class Solution1614 {
 1614. 括号的最大嵌套深度
 https://leetcode-cn.com/problems/maximum-nesting-depth-of-the-parentheses/
 
+第 210 场周赛 T1。
+
 如果字符串满足以下条件之一，则可以称之为 有效括号字符串（valid parentheses string，可以简写为 VPS）：
 - 字符串是一个空字符串 ""，或者是一个不为 "(" 或 ")" 的单字符。
 - 字符串可以写为 AB（A 与 B 字符串连接），其中 A 和 B 都是 有效括号字符串 。

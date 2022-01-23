@@ -21,5 +21,9 @@ public class Solution1979 {
 https://leetcode-cn.com/problems/find-greatest-common-divisor-of-array/
 
 第 255 场周赛 T1。
+
+给你一个整数数组 nums ，返回数组中最大数和最小数的 最大公约数 。
+两个数的 最大公约数 是能够被两个数整除的最大正整数。
+
 分别找出数组中最大最小的数，求 GCD 即可。
  */

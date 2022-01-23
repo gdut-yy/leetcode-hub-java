@@ -21,6 +21,8 @@ public class Solution1576 {
 1576. 替换所有的问号
 https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
 
+第 205 场周赛 T1。
+
 给你一个仅包含小写英文字母和 '?' 字符的字符串 s，请你将所有的 '?' 转换为若干小写字母，使最终的字符串不包含任何 连续重复 的字符。
 注意：你 不能 修改非 '?' 字符。
 题目测试用例保证 除 '?' 字符 之外，不存在连续重复的字符。

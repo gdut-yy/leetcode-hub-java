@@ -20,5 +20,9 @@ public class Solution1925 {
 https://leetcode-cn.com/problems/count-square-sum-triples/
 
 第 56 场双周赛 T1。
+
+一个 平方和三元组 (a,b,c) 指的是满足 a2 + b2 = c2 的 整数 三元组 a，b 和 c 。
+给你一个整数 n ，请你返回满足 1 <= a, b, c <= n 的 平方和三元组 的数目。
+
 n <= 250，直接枚举即可。
  */

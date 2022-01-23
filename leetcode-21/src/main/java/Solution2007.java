@@ -49,6 +49,10 @@ public class Solution2007 {
 https://leetcode-cn.com/problems/find-original-array-from-doubled-array/
 
 第 61 场双周赛 T2。
+
+一个整数数组 original 可以转变成一个 双倍 数组 changed ，转变方式为将 original 中每个元素 值乘以 2 加入数组中，然后将所有元素 随机打乱 。
+给你一个数组 changed ，如果 change 是 双倍 数组，那么请你返回 original数组，否则请返回空数组。original 的元素可以以 任意 顺序返回。
+
 changed.length 为奇数时无解。
 如果能从双倍数组中还原原数组，则可以排序后，按降序找还原数组，HashMap 判断当前所需数值是否仍可用。
 

@@ -22,6 +22,8 @@ public class Solution1400 {
 1400. 构造 K 个回文字符串
 https://leetcode-cn.com/problems/construct-k-palindrome-strings/
 
+第 23 场双周赛 T2。
+
 给你一个字符串 s 和一个整数 k 。请你用 s 字符串中 所有字符 构造 k 个非空 回文串 。
 如果你可以用 s 中所有字符构造 k 个回文字符串，那么请你返回 True ，否则返回 False 。
 

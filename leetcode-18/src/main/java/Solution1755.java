@@ -58,6 +58,8 @@ public class Solution1755 {
 1755. 最接近目标值的子序列和
 https://leetcode-cn.com/problems/closest-subsequence-sum/
 
+第 227 场周赛 T4。
+
 给你一个整数数组 nums 和一个目标值 goal 。
 你需要从 nums 中选出一个子序列，使子序列元素总和最接近 goal 。也就是说，如果子序列元素和为 sum ，你需要 最小化绝对差 abs(sum - goal) 。
 返回 abs(sum - goal) 可能的 最小值 。

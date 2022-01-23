@@ -28,7 +28,7 @@ https://leetcode-cn.com/problems/kth-distinct-string-in-an-array/
 注意，按照字符串在原数组中的 顺序 找到第 k 个独一无二字符串。
 
 第 64 场双周赛 T1。
-类似题目: 136. 只出现一次的数字
+相似题目: 136. 只出现一次的数字
 https://leetcode-cn.com/problems/single-number/
 HashMap 统计频次即可。
  */

@@ -22,5 +22,10 @@ public class Solution1985 {
 https://leetcode-cn.com/problems/find-the-kth-largest-integer-in-the-array/
 
 第 256 场周赛 T2。
+
+给你一个字符串数组 nums 和一个整数 k 。nums 中的每个字符串都表示一个不含前导零的整数。
+返回 nums 中表示第 k 大整数的字符串。
+注意：重复的数字在统计时会视为不同元素考虑。例如，如果 nums 是 ["1","2","2"]，那么 "2" 是最大的整数，"2" 是第二大的整数，"1" 是第三大的整数。
+
 优先队列一眼题。
  */

@@ -128,6 +128,6 @@ https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/
 (a * b) % p = ((a % p) * (b % p)) % p
 (a^b) % p = ((a % p)^b) % p
 
-类似题目: 1922. 统计好数字的数目
+相似题目: 1922. 统计好数字的数目
 https://leetcode-cn.com/problems/count-good-numbers/
  */

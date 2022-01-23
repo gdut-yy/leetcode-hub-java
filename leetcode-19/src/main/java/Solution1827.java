@@ -17,6 +17,8 @@ public class Solution1827 {
 1827. 最少操作使数组递增
 https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-increasing/
 
+第 50 场双周赛 T1。
+
 给你一个整数数组 nums （下标从 0 开始）。每一次操作中，你可以选择数组中一个元素，并将它增加 1 。
 比方说，如果 nums = [1,2,3] ，你可以选择增加 nums[1] 得到 nums = [1,3,3] 。
 请你返回使 nums 严格递增 的 最少 操作次数。

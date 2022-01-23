@@ -30,5 +30,10 @@ public class Solution1338 {
 1338. 数组大小减半
 https://leetcode-cn.com/problems/reduce-array-size-to-the-half/
 
+第 174 场周赛 T2。
+
+给你一个整数数组 arr。你可以从中选出一个整数集合，并删除这些整数在数组中的每次出现。
+返回 至少 能删除数组中的一半整数的整数集合的最小大小。
+
 统计各数值频次，贪心法，从最大频次开始统计至半数即可。
  */

@@ -28,6 +28,8 @@ public class Solution1673 {
 1673. 找出最具竞争力的子序列
 https://leetcode-cn.com/problems/find-the-most-competitive-subsequence/
 
+第 217 场周赛 T2。
+
 给你一个整数数组 nums 和一个正整数 k ，返回长度为 k 且最具 竞争力 的 nums 子序列。
 数组的子序列是从数组中删除一些元素（可能不删除元素）得到的序列。
 

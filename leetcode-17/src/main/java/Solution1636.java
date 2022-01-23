@@ -36,6 +36,8 @@ public class Solution1636 {
 1636. 按照频率将数组升序排序
 https://leetcode-cn.com/problems/sort-array-by-increasing-frequency/
 
+第 38 场双周赛 T1。
+
 给你一个整数数组 nums ，请你将数组按照每个值的频率 升序 排序。如果有多个值的频率相同，请你按照数值本身将它们 降序 排序。
 请你返回排序后的数组。
 

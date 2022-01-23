@@ -141,6 +141,13 @@ public class Solution1960 {
 https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
 
 第 58 场双周赛 T4。
+
+给你一个下标从 0 开始的字符串 s ，你需要找到两个 不重叠的回文 子字符串，它们的长度都必须为 奇数 ，使得它们长度的乘积最大。
+更正式地，你想要选择四个整数 i ，j ，k ，l ，使得 0 <= i <= j < k <= l < s.length ，且子字符串 s[i...j] 和 s[k...l] 都是回文串且长度为奇数。
+s[i...j] 表示下标从 i 到 j 且 包含 两端下标的子字符串。
+请你返回两个不重叠回文子字符串长度的 最大 乘积。
+回文字符串 指的是一个从前往后读和从后往前读一模一样的字符串。子字符串 指的是一个字符串中一段连续字符。
+
 Manacher 算法 + 扫描线
 leetcode 题解 https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/solution/liang-ge-hui-wen-zi-zi-fu-chuan-chang-du-soyb/
 第 5 题 https://leetcode-cn.com/problems/longest-palindromic-substring/

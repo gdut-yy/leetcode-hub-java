@@ -35,11 +35,13 @@ public class Solution2024 {
 2024. 考试的最大困扰度
 https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/
 
+第 62 场双周赛 T3。
+
 给你一个字符串 answerKey ，其中 answerKey[i] 是第 i 个问题的正确结果。除此以外，还给你一个整数 k ，表示你能进行以下操作的最多次数：
 每次操作中，将问题的正确答案改为 'T' 或者 'F' （也就是将 answerKey[i] 改为 'T' 或者 'F' ）。
 请你返回在不超过 k 次操作的情况下，最大 连续 'T' 或者 'F' 的数目。
 
-第 62 场双周赛 T3。
-
 相似题目: 1004. 最大连续1的个数 III
+https://leetcode-cn.com/problems/max-consecutive-ones-iii/
+
  */

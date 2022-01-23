@@ -20,8 +20,16 @@ public class Solution2023 {
 2023. 连接后等于目标字符串的字符串对
 https://leetcode-cn.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/
 
+第 62 场双周赛 T2。
+
 给你一个 数字 字符串数组 nums 和一个 数字 字符串 target ，
 请你返回 nums[i] + nums[j] （两个字符串连接）结果等于 target 的下标 (i, j) （需满足 i != j）的数目。
+提示：
+2 <= nums.length <= 100
+1 <= nums[i].length <= 100
+2 <= target.length <= 100
+nums[i] 和 target 只包含数字。
+nums[i] 和 target 不含有任何前导 0 。
 
-第 62 场双周赛 T2。
+数据范围较小，双循环暴力。
  */

@@ -22,6 +22,8 @@ public class Solution1446 {
 1446. 连续字符
 https://leetcode-cn.com/problems/consecutive-characters/
 
+第 26 场双周赛 T1。
+
 给你一个字符串 s ，字符串的「能量」定义为：只包含一种字符的最长非空子字符串的长度。
 请你返回字符串的能量。
 

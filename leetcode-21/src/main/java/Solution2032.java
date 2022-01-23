@@ -28,8 +28,10 @@ public class Solution2032 {
 2032. 至少在两个数组中出现的值
 https://leetcode-cn.com/problems/two-out-of-three/
 
+第 262 场周赛 T1。
+
 给你三个整数数组 nums1、nums2 和 nums3 ，请你构造并返回一个 不同 数组，且由 至少 在 两个 数组中出现的所有值组成。
 数组中的元素可以按 任意 顺序排列。
 
-第 262 场周赛 T1。
+模拟。
  */

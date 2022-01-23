@@ -26,6 +26,16 @@ public class Solution1534 {
 https://leetcode-cn.com/problems/count-good-triplets/
 
 第 200 场周赛 T1。
+
+给你一个整数数组 arr ，以及 a、b 、c 三个整数。请你统计其中好三元组的数量。
+如果三元组 (arr[i], arr[j], arr[k]) 满足下列全部条件，则认为它是一个 好三元组 。
+- 0 <= i < j < k < arr.length
+- |arr[i] - arr[j]| <= a
+- |arr[j] - arr[k]| <= b
+- |arr[i] - arr[k]| <= c
+其中 |x| 表示 x 的绝对值。
+返回 好三元组的数量 。
+
 暴力枚举即可。时间复杂度 O(n^3)
 可以进行剪枝，时间复杂度 O(n^2)
 抽取方法避免嵌套过深。

@@ -54,6 +54,12 @@ public class Solution1975 {
 https://leetcode-cn.com/problems/maximum-matrix-sum/
 
 第 59 场双周赛 T2。
+
+给你一个 n x n 的整数方阵 matrix 。你可以执行以下操作 任意次 ：
+- 选择 matrix 中 相邻 两个元素，并将它们都 乘以 -1 。
+如果两个元素有 公共边 ，那么它们就是 相邻 的。
+你的目的是 最大化 方阵元素的和。请你在执行以上操作之后，返回方阵的 最大 和。
+
 你可以执行以下操作 任意次：
 选择 matrix 中 相邻 两个元素，并将它们都 乘以 -1
 

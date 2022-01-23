@@ -30,5 +30,9 @@ public class Solution1980 {
 https://leetcode-cn.com/problems/find-unique-binary-string/
 
 第 255 场周赛 T2。
+
+给你一个字符串数组 nums ，该数组由 n 个 互不相同 的二进制字符串组成，且每个字符串长度都是 n 。
+请你找出并返回一个长度为 n 且 没有出现 在 nums 中的二进制字符串。如果存在多种答案，只需返回 任意一个 即可。
+
 将所有可能枚举出来，使用 HashSet 判断是否包含，返回其中一个不包含的值即可。
  */
