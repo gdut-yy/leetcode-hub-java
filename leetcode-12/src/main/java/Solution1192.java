@@ -56,6 +56,8 @@ public class Solution1192 {
 1192. 查找集群内的「关键连接」
 https://leetcode-cn.com/problems/critical-connections-in-a-network/
 
+第 154 场周赛 T4。
+
 力扣数据中心有 n 台服务器，分别按从 0 到 n-1 的方式进行了编号。
 它们之间以「服务器到服务器」点对点的形式相互连接组成了一个内部集群，其中连接 connections 是无向的。
 从形式上讲，connections[i] = [a, b] 表示服务器 a 和 b 之间形成连接。任何服务器都可以直接或者间接地通过网络到达任何其他服务器。

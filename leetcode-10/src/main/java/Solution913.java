@@ -65,6 +65,8 @@ public class Solution913 {
 913. 猫和老鼠
 https://leetcode-cn.com/problems/cat-and-mouse/
 
+第 104 场周赛 T4。
+
 两位玩家分别扮演猫和老鼠，在一张 无向 图上进行游戏，两人轮流行动。
 图的形式是：graph[a] 是一个列表，由满足 ab 是图中的一条边的所有节点 b 组成。
 老鼠从节点 1 开始，第一个出发；猫从节点 2 开始，第二个出发。在节点 0 处有一个洞。

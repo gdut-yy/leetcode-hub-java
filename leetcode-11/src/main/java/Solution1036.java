@@ -63,6 +63,8 @@ public class Solution1036 {
 1036. 逃离大迷宫
 https://leetcode-cn.com/problems/escape-a-large-maze/
 
+第 134 场周赛 T4。
+
 在一个 106 x 106 的网格中，每个网格上方格的坐标为 (x, y) 。
 现在从源方格 source = [sx, sy] 开始出发，意图赶往目标方格 target = [tx, ty] 。数组 blocked 是封锁的方格列表，
 其中每个 blocked[i] = [xi, yi] 表示坐标为 (xi, yi) 的方格是禁止通行的。

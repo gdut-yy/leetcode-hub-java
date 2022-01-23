@@ -17,5 +17,9 @@ public class Solution876 {
 https://leetcode-cn.com/problems/middle-of-the-linked-list/
 
 第 95 场周赛 T1。
+
+给定一个头结点为 head 的非空单链表，返回链表的中间结点。
+如果有两个中间结点，则返回第二个中间结点。
+
 双指针-快慢指针。当快指针以两倍步长走完时，慢指针刚好到达中点。
  */

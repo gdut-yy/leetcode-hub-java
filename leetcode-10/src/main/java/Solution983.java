@@ -24,6 +24,8 @@ public class Solution983 {
 983. 最低票价
 https://leetcode-cn.com/problems/minimum-cost-for-tickets/
 
+第 121 场周赛 T3。
+
 在一个火车旅行很受欢迎的国度，你提前一年计划了一些火车旅行。在接下来的一年里，你要旅行的日子将以一个名为 days 的数组给出。每一项是一个从 1 到 365 的整数。
 火车票有三种不同的销售方式：
 - 一张为期一天的通行证售价为 costs[0] 美元；

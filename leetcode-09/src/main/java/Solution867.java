@@ -18,6 +18,9 @@ https://leetcode-cn.com/problems/transpose-matrix/
 
 第 92 场周赛 T1。
 
+给你一个二维整数数组 matrix， 返回 matrix 的 转置矩阵 。
+矩阵的 转置 是指将矩阵的主对角线翻转，交换矩阵的行索引与列索引。
+
 1 2 3      1 4
 4 5 6  =>  2 5
            3 6

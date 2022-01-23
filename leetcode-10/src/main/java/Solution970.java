@@ -42,5 +42,10 @@ public class Solution970 {
 https://leetcode-cn.com/problems/powerful-integers/
 
 第 118 场周赛 T1。
+
+给定两个正整数 x 和 y，如果某一整数等于 x^i + y^j，其中整数 i >= 0 且 j >= 0，那么我们认为该整数是一个强整数。
+返回值小于或等于 bound 的所有强整数组成的列表。
+你可以按任何顺序返回答案。在你的回答中，每个值最多出现一次。
+
 根据题意枚举即可。
  */

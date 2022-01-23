@@ -38,6 +38,8 @@ public class Solution1091 {
 1091. 二进制矩阵中的最短路径
 https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/
 
+第 141 场周赛 T3。
+
 给你一个 n x n 的二进制矩阵 grid 中，返回矩阵中最短 畅通路径 的长度。如果不存在这样的路径，返回 -1 。
 
 广度优先搜索。

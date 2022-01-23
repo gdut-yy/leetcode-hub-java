@@ -29,6 +29,9 @@ public class Solution974 {
 https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/
 
 第 119 场周赛 T3。
+
+给定一个整数数组 A，返回其中元素之和可被 K 整除的（连续、非空）子数组的数目。
+
 与第 560 题如出一辙: https://leetcode-cn.com/problems/subarray-sum-equals-k/
 很自然想到 前缀和 + 枚举连续子数组的方法，但其时间复杂度 O(n^2) 方法本题会超时
 可根据数论同余定理，只需 preSum[j + 1] % k == preSum[i] % k 即可，时间复杂度降低为 O(n)

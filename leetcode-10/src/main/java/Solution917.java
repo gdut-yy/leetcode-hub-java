@@ -27,5 +27,8 @@ public class Solution917 {
 https://leetcode-cn.com/problems/reverse-only-letters/
 
 第 105 场周赛 T1。
+
+给定一个字符串 S，返回 “反转后的” 字符串，其中不是字母的字符都保留在原地，而所有字母的位置发生反转。
+
 双指针翻转即可。
  */

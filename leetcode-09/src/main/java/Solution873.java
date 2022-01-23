@@ -26,6 +26,8 @@ public class Solution873 {
 873. 最长的斐波那契子序列的长度
 https://leetcode-cn.com/problems/length-of-longest-fibonacci-subsequence/
 
+第 94 场周赛 T4。
+
 如果序列 X_1, X_2, ..., X_n 满足下列条件，就说它是斐波那契式的：
 - n >= 3
 - 对于所有 i + 2 <= n，都有 X_i + X_{i+1} = X_{i+2}

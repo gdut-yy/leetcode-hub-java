@@ -872,6 +872,8 @@ public class Solution866 {
 866. 回文素数
 https://leetcode-cn.com/problems/prime-palindrome/
 
+第 92 场周赛 T3。
+
 求出大于或等于 N 的最小回文素数。
 回顾一下，如果一个数大于 1，且其因数只有 1 和它自身，那么这个数是素数。
 例如，2，3，5，7，11 以及 13 是素数。

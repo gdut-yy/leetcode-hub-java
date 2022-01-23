@@ -48,6 +48,8 @@ public class Solution1034 {
 1034. 边界着色
 https://leetcode-cn.com/problems/coloring-a-border/
 
+第 134 场周赛 T2。
+
 给你一个大小为 m x n 的整数矩阵 grid ，表示一个网格。另给你三个整数  row、col 和 color 。网格中的每个值表示该位置处的网格块的颜色。
 两个网格块属于同一 连通分量 需满足下述全部条件：
 两个网格块颜色相同

@@ -30,6 +30,13 @@ public class Solution915 {
 https://leetcode-cn.com/problems/partition-array-into-disjoint-intervals/
 
 第 104 场周赛 T2。
+
+给定一个数组 A，将其划分为两个连续子数组 left 和 right， 使得：
+- left 中的每个元素都小于或等于 right 中的每个元素。
+- left 和 right 都是非空的。
+- left 的长度要尽可能小。
+在完成这样的分组后返回 left 的长度。可以保证存在这样的划分方法。
+
 无须滑动窗口，极值比较即可。
 时间复杂度 O(n)
  */

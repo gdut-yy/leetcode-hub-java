@@ -20,5 +20,9 @@ public class Solution944 {
 https://leetcode-cn.com/problems/delete-columns-to-make-sorted/
 
 第 111 场周赛 T2。
+
+给你由 n 个小写字母字符串组成的数组 strs，其中每个字符串长度相等。
+这些字符串可以每个一行，排成一个网格。例如，strs = ["abc", "bce", "cae"] 可以排列为：
+
 根据题意模拟即可。
  */

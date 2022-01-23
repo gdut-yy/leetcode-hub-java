@@ -38,5 +38,9 @@ public class Solution976 {
 https://leetcode-cn.com/problems/largest-perimeter-triangle/
 
 第 119 场周赛 T2。
+
+给定由一些正数（代表长度）组成的数组 A，返回由其中三个长度组成的、面积不为零的三角形的最大周长。
+如果不能形成任何面积不为零的三角形，返回 0。
+
 贪心法。固定大小的滑动窗口。降序排列数组后，第一个符合要求的就是最大周长的三角形。
  */

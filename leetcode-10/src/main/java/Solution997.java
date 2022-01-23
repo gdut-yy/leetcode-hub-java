@@ -21,6 +21,8 @@ public class Solution997 {
 997. 找到小镇的法官
 https://leetcode-cn.com/problems/find-the-town-judge/
 
+第 125 场周赛 T1。
+
 在一个小镇里，按从 1 到 n 为 n 个人进行编号。传言称，这些人中有一个是小镇上的秘密法官。
 如果小镇的法官真的存在，那么：
 1.小镇的法官不相信任何人。

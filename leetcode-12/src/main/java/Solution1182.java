@@ -38,6 +38,8 @@ public class Solution1182 {
 $1182. 与目标颜色间的最短距离
 https://leetcode-cn.com/problems/shortest-distance-to-target-color/
 
+第 8 场双周赛 T3。
+
 给你一个数组 colors，里面有  1、2、 3 三种颜色。
 我们需要在 colors 上进行一些查询操作 queries，其中每个待查项都由两个整数 i 和 c 组成。
 现在请你帮忙设计一个算法，查找从索引 i 到具有目标颜色 c 的元素之间的最短距离。

@@ -48,6 +48,8 @@ public class Solution1005 {
 1005. K 次取反后最大化的数组和
 https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/
 
+第 127 场周赛 T1。
+
 给你一个整数数组 nums 和一个整数 k ，按以下方法修改该数组：
 选择某个下标 i 并将 nums[i] 替换为 -nums[i] 。
 重复这个过程恰好 k 次。可以多次选择同一个下标 i 。

@@ -57,6 +57,8 @@ public class Solution1136 {
 1136. 平行课程
 https://leetcode-cn.com/problems/parallel-courses/
 
+第 5 场双周赛 T4。
+
 已知有 N 门课程，它们以 1 到 N 进行编号。
 给你一份课程关系表 relations[i] = [X, Y]，用以表示课程 X 和课程 Y 之间的先修关系：课程 X 必须在课程 Y 之前修完。
 假设在一个学期里，你可以学习任何数量的课程，但前提是你已经学习了将要学习的这些课程的所有先修课程。
