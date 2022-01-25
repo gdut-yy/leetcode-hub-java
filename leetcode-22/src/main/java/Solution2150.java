@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution5990 {
+public class Solution2150 {
     public List<Integer> findLonely(int[] nums) {
         Map<Integer, Integer> cntMap = new HashMap<>();
         for (int num : nums) {
@@ -23,7 +23,7 @@ public class Solution5990 {
     }
 }
 /*
-5990. 找出数组中的所有孤独数字
+2150. 找出数组中的所有孤独数字
 https://leetcode-cn.com/problems/find-all-lonely-numbers-in-the-array/
 
 第 277 场周赛 T3。

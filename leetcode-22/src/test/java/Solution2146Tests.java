@@ -3,8 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Solution5973Tests {
-    private final Solution5973 solution5973 = new Solution5973();
+public class Solution2146Tests {
+    private final Solution2146 solution2146 = new Solution2146();
 
     @Test
     public void example1() {
@@ -13,7 +13,7 @@ public class Solution5973Tests {
         int[] start = {0, 0};
         int k = 3;
         List<List<Integer>> expected = List.of(List.of(0, 1), List.of(1, 1), List.of(2, 1));
-        Assertions.assertEquals(expected, solution5973.highestRankedKItems(grid, pricing, start, k));
+        Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 
     @Test
@@ -23,7 +23,7 @@ public class Solution5973Tests {
         int[] start = {2, 3};
         int k = 2;
         List<List<Integer>> expected = List.of(List.of(2, 1), List.of(1, 2));
-        Assertions.assertEquals(expected, solution5973.highestRankedKItems(grid, pricing, start, k));
+        Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 
     @Test
@@ -33,6 +33,6 @@ public class Solution5973Tests {
         int[] start = {0, 0};
         int k = 3;
         List<List<Integer>> expected = List.of(List.of(2, 1), List.of(2, 0));
-        Assertions.assertEquals(expected, solution5973.highestRankedKItems(grid, pricing, start, k));
+        Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 }

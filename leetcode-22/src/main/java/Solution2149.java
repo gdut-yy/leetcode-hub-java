@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5991 {
+public class Solution2149 {
     public int[] rearrangeArray(int[] nums) {
         List<Integer> gt0List = new ArrayList<>();
         List<Integer> lt0List = new ArrayList<>();
@@ -23,7 +23,7 @@ public class Solution5991 {
     }
 }
 /*
-5991. 按符号重排数组
+2149. 按符号重排数组
 https://leetcode-cn.com/problems/rearrange-array-elements-by-sign/
 
 第 277 场周赛 T2。

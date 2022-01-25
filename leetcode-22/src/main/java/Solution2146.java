@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Solution5973 {
+public class Solution2146 {
     public List<List<Integer>> highestRankedKItems(int[][] grid, int[] pricing, int[] start, int k) {
         int M = grid.length;
         int N = grid[0].length;
@@ -75,7 +75,7 @@ public class Solution5973 {
     }
 }
 /*
-5973. 价格范围内最高排名的 K 样物品
+2146. 价格范围内最高排名的 K 样物品
 https://leetcode-cn.com/problems/k-highest-ranked-items-within-a-price-range/
 
 第 70 场双周赛 T3。

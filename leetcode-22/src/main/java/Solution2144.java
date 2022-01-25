@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution5971 {
+public class Solution2144 {
     public int minimumCost(int[] cost) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
         for (int cos : cost) {
@@ -21,7 +21,7 @@ public class Solution5971 {
     }
 }
 /*
-5971. 打折购买糖果的最小开销
+2144. 打折购买糖果的最小开销
 https://leetcode-cn.com/problems/minimum-cost-of-buying-candies-with-discount/
 
 第 70 场双周赛 T1。

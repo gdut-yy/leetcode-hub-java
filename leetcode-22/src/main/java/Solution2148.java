@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution5989 {
+public class Solution2148 {
     public int countElements(int[] nums) {
         Arrays.sort(nums);
         int len = nums.length;
@@ -16,7 +16,7 @@ public class Solution5989 {
     }
 }
 /*
-5989. 元素计数
+2148. 元素计数
 https://leetcode-cn.com/problems/count-elements-with-strictly-smaller-and-greater-elements/
 
 第 277 场周赛 T1。

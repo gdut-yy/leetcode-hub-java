@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution5992 {
+public class Solution2151 {
     public int maximumGood(int[][] statements) {
         int n = statements.length;
 
@@ -43,7 +43,7 @@ public class Solution5992 {
     }
 }
 /*
-5992. 基于陈述统计最多好人数
+2151. 基于陈述统计最多好人数
 https://leetcode-cn.com/problems/maximum-good-people-based-on-statements/
 
 第 277 场周赛 T4。

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5974 {
+public class Solution2147 {
     public int numberOfWays(String corridor) {
         int n = corridor.length();
         List<Integer> idxList = new ArrayList<>();
@@ -27,7 +27,7 @@ public class Solution5974 {
     }
 }
 /*
-5974. 分隔长廊的方案数
+2147. 分隔长廊的方案数
 https://leetcode-cn.com/problems/number-of-ways-to-divide-a-long-corridor/
 
 第 70 场双周赛 T4。
