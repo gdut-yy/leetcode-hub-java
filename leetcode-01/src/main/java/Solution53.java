@@ -45,6 +45,9 @@ https://leetcode-cn.com/problems/maximum-subarray/
 
 也可以使用线段树，参考官方题解:
 https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
+
 相似题目: 152. 乘积最大子数组
 https://leetcode-cn.com/problems/maximum-product-subarray/
+$1746. 经过一次操作后的最大子数组和
+https://leetcode-cn.com/problems/maximum-subarray-sum-after-one-operation/
  */
