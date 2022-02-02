@@ -34,9 +34,9 @@ public class Solution2145Tests {
     // 补充用例
     @Test
     public void example4() {
-        int[] differences = UtUtils.loadingInts("solution5972-example4-input.txt", 0);
-        int lower = UtUtils.loadingInt("solution5972-example4-input.txt", 1);
-        int upper = UtUtils.loadingInt("solution5972-example4-input.txt", 2);
+        int[] differences = UtUtils.loadingInts("solution2145-example4-input.txt", 0);
+        int lower = UtUtils.loadingInt("solution2145-example4-input.txt", 1);
+        int upper = UtUtils.loadingInt("solution2145-example4-input.txt", 2);
         int expected = 0;
         Assertions.assertEquals(expected, solution2145.numberOfArrays(differences, lower, upper));
     }
