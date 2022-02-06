@@ -26,6 +26,6 @@ https://leetcode-cn.com/problems/keep-multiplying-found-values-by-two/
 3.只要能在数组中找到新 original ，就对新 original 继续 重复 这一过程。
 返回 original 的 最终 值。
 
-2022 虎年前最后一场周赛，工作日，开赛后 T1 WA 了一发后开会。。
+2022 牛年最后一场周赛，工作日。开赛后 3min T1 WA 了一发后被叫去开会。直接掉出 knight（1903 => 1841）。。
 模拟题。
  */

@@ -12,11 +12,13 @@ public class Solution2155 {
 
         List<Integer> resList = new ArrayList<>();
         int max = 0;
+        // 枚举分割点
         for (int i = 0; i <= len; i++) {
             // numsleft 中 0 的个数
             int left = i - (preSum[i] - preSum[0]);
             // numsright 中 1 的个数
             int right = preSum[len] - preSum[i];
+
             if (left + right > max) {
                 max = left + right;
                 resList.clear();
