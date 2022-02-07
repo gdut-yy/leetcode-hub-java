@@ -21,4 +21,6 @@ https://leetcode-cn.com/problems/coin-change-2/
 题目数据保证结果符合 32 位带符号整数。
 
 动态规划。
+相似题目: 322. 零钱兑换
+https://leetcode-cn.com/problems/coin-change/
  */

@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution5986Tests {
-    private final Solution5986 solution5986 = new Solution5986();
+public class Solution2162Tests {
+    private final Solution2162 solution2162 = new Solution2162();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution5986Tests {
         int pushCost = 1;
         int targetSeconds = 600;
         int expected = 6;
-        Assertions.assertEquals(expected, solution5986.minCostSetTime(startAt, moveCost, pushCost, targetSeconds));
+        Assertions.assertEquals(expected, solution2162.minCostSetTime(startAt, moveCost, pushCost, targetSeconds));
     }
 
     @Test
@@ -21,6 +21,6 @@ public class Solution5986Tests {
         int pushCost = 2;
         int targetSeconds = 76;
         int expected = 6;
-        Assertions.assertEquals(expected, solution5986.minCostSetTime(startAt, moveCost, pushCost, targetSeconds));
+        Assertions.assertEquals(expected, solution2162.minCostSetTime(startAt, moveCost, pushCost, targetSeconds));
     }
 }

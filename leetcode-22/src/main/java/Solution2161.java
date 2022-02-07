@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5985 {
+public class Solution2161 {
     public int[] pivotArray(int[] nums, int pivot) {
         List<Integer> leftList = new ArrayList<>();
         List<Integer> midList = new ArrayList<>();
@@ -21,7 +21,7 @@ public class Solution5985 {
     }
 }
 /*
-5985. 根据给定数字划分数组
+2161. 根据给定数字划分数组
 https://leetcode-cn.com/problems/partition-array-according-to-given-pivot/
 
 第 71 场双周赛 T2。

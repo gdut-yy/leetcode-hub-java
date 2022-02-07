@@ -1,4 +1,4 @@
-public class Solution6002 {
+public class Solution2166 {
     static class Bitset {
         private final java.util.BitSet bitSet;
         private final int size;
@@ -47,7 +47,7 @@ public class Solution6002 {
     }
 }
 /*
-6002. 设计位集
+2166. 设计位集
 https://leetcode-cn.com/problems/design-bitset/
 
 第 279 场周赛 T3。

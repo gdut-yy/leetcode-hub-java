@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6002Tests {
+public class Solution2166Tests {
     @Test
     public void example1() {
         // bitset = "00000".
-        Solution6002.Bitset bs = new Solution6002.Bitset(5);
+        Solution2166.Bitset bs = new Solution2166.Bitset(5);
         // 将 idx = 3 处的值更新为 1 ，此时 bitset = "00010" 。
         bs.fix(3);
         // 将 idx = 1 处的值更新为 1 ，此时 bitset = "01010" 。

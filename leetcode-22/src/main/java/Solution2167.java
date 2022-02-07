@@ -1,4 +1,4 @@
-public class Solution6003 {
+public class Solution2167 {
     public int minimumTime(String s) {
         int len = s.length();
 
@@ -49,7 +49,7 @@ public class Solution6003 {
     }
 }
 /*
-6003. 移除所有载有违禁货物车厢所需的最少时间
+2167. 移除所有载有违禁货物车厢所需的最少时间
 https://leetcode-cn.com/problems/minimum-time-to-remove-all-cars-containing-illegal-goods/
 
 第 279 场周赛 T4。

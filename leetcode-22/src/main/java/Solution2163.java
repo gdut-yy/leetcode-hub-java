@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution5987 {
+public class Solution2163 {
     public long minimumDifference(int[] nums) {
         int n = nums.length / 3;
         // 0 到 n 共 n+1 个
@@ -45,7 +45,7 @@ public class Solution5987 {
     }
 }
 /*
-5987. 删除元素后和的最小差值
+2163. 删除元素后和的最小差值
 https://leetcode-cn.com/problems/minimum-difference-in-sums-after-removal-of-elements/
 
 第 71 场双周赛 T4。

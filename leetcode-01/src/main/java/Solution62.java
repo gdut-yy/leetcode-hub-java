@@ -3,7 +3,6 @@ import java.util.Arrays;
 public class Solution62 {
     /**
      * 组合数学
-     * <p>
      * 时间复杂度 O(m)
      * 空间复杂度 O(1)
      */
@@ -17,7 +16,6 @@ public class Solution62 {
 
     /**
      * 动态规划
-     * <p>
      * 时间复杂度 O(mn)
      * 空间复杂度 O(mn)
      */
@@ -56,17 +54,17 @@ C
 动态规划:
 输入：m = 3, n = 7
 输出：28
-
 定义 dp[i][j] 来表示从坐标 (0,0) 到坐标 (i,j) 的路径总数
 初始状态:
 1 1 1 1 1 1 1
 1 0 0 0 0 0 0
 1 0 0 0 0 0 0
-
 转移方程:
 dp[i][j] = dp[i][j - 1] + dp[i - 1][j]
 1  1  1  1  1  1  1
 1  2  3  4  5  6  7
 1  3  6 10 15 21 28
 结果 dp[m][n] = 28
+相似题目: 63. 不同路径 II
+https://leetcode-cn.com/problems/unique-paths-ii/
  */

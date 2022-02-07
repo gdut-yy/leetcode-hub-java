@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6000 {
+public class Solution2164 {
     public int[] sortEvenOdd(int[] nums) {
         int len = nums.length;
         List<Integer> oddList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class Solution6000 {
     }
 }
 /*
-6000. 对奇偶下标分别排序
+2164. 对奇偶下标分别排序
 https://leetcode-cn.com/problems/sort-even-and-odd-indices-independently/
 
 第 279 场周赛 T1。

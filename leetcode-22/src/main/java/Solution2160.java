@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution5984 {
+public class Solution2160 {
     public int minimumSum(int num) {
         int num1 = num / 1000 % 10;
         int num2 = num / 100 % 10;
@@ -18,7 +18,7 @@ public class Solution5984 {
     }
 }
 /*
-5984. 拆分数位后四位数字的最小和
+2160. 拆分数位后四位数字的最小和
 https://leetcode-cn.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
 
 第 71 场双周赛 T1。

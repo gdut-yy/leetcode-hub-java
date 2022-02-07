@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5986 {
+public class Solution2162 {
     public int minCostSetTime(int startAt, int moveCost, int pushCost, int targetSeconds) {
         int min = Integer.MAX_VALUE;
 
@@ -54,7 +54,7 @@ public class Solution5986 {
     }
 }
 /*
-5986. 设置时间的最少代价
+2162. 设置时间的最少代价
 https://leetcode-cn.com/problems/minimum-cost-to-set-cooking-time/
 
 第 71 场双周赛 T3。

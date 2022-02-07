@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6001 {
+public class Solution2165 {
     public long smallestNumber(long num) {
         String str = String.valueOf(num);
         int len = str.length();
@@ -48,7 +48,7 @@ public class Solution6001 {
     }
 }
 /*
-6001. 重排数字的最小值
+2165. 重排数字的最小值
 https://leetcode-cn.com/problems/smallest-value-of-the-rearranged-number/
 
 第 279 场周赛 T2。

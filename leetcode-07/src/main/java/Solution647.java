@@ -3,9 +3,6 @@ public class Solution647 {
      * 中心拓展法
      * 时间复杂度 O(n^2)
      * 空间复杂度 O(1)
-     *
-     * @param s 给定字符串
-     * @return 这个字符串中有多少个回文子串
      */
     public int countSubstrings2(String s) {
         if (s == null || s.length() == 0) {
@@ -36,9 +33,6 @@ public class Solution647 {
      * Manacher 算法
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
-     *
-     * @param s 给定字符串
-     * @return 这个字符串中有多少个回文子串
      */
     public int countSubstrings(String s) {
         char[] A = new char[2 * s.length() + 3];
@@ -77,6 +71,11 @@ public class Solution647 {
 647. 回文子串
 https://leetcode-cn.com/problems/palindromic-substrings/
 
-给定一个字符串，你的任务是计算这个字符串中有多少个回文子串。
+给你一个字符串 s ，请你统计并返回这个字符串中 回文子串 的数目。
+回文字符串 是正着读和倒过来读一样的字符串。
+子字符串 是字符串中的由连续字符组成的一个序列。
 具有不同开始位置或结束位置的子串，即使是由相同的字符组成，也会被视作不同的子串。
+提示：
+1 <= s.length <= 1000
+s 由小写英文字母组成
  */
