@@ -19,4 +19,13 @@ public class Solution494Tests {
         int expected = 1;
         Assertions.assertEquals(expected, solution494.findTargetSumWays(nums, target));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        int[] nums = {100};
+        int target = -200;
+        int expected = 0;
+        Assertions.assertEquals(expected, solution494.findTargetSumWays(nums, target));
+    }
 }

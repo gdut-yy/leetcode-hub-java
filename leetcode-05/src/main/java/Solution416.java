@@ -37,12 +37,13 @@ https://leetcode-cn.com/problems/partition-equal-subset-sum/
 动态规划。01背包。
 f(i,j) 表示能否从前 i 个物品中选择若干物品放满容量为 j 的背包。
 如果总共有 n 个物品，背包的容量为 t，那么 f(n,t) 就是问题的解。
-
-状态转移 对于每件物品有两种选择，即选择与不选择
+状态转移：
+对于每件物品有两种选择，即选择与不选择
 如果能从前 i-1 个物品 中选择若干物品放满容量为 j-nums[i-1] 的背包。若 f(i-1,j-nums[i-1]) == true 则 f(i,j) = true
 如果能从前 i-1 个物品 中选择若干物品放满容量为 j 的背包。若 f(i-1,j) == true 则 f(i,j) = true
-
-初始状态
+初始状态：
 当 j 等于 0 时，即背包容量为 0，则 f(i,0) 恒为 true
 当 i 等于 0 时，即物品数为 0，则 f(0,j) 恒为 false
+相似题目: 494. 目标和
+https://leetcode-cn.com/problems/target-sum/
  */
