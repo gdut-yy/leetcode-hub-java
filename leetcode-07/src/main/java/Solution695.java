@@ -3,38 +3,43 @@ import java.util.Queue;
 
 public class Solution695 {
     public int maxAreaOfIsland(int[][] grid) {
-        int gridM = grid.length;
-        int gridN = grid[0].length;
-        boolean[][] visited = new boolean[gridM][gridN];
-        int maxArea = 0;
-        for (int i = 0; i < gridM; i++) {
-            for (int j = 0; j < gridN; j++) {
-                if (grid[i][j] == 1 && !visited[i][j]) {
+        int M = grid.length;
+        int N = grid[0].length;
+
+        boolean[][] visited = new boolean[M][N];
+        int max = 0;
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                if (grid[i][j] == 1) {
                     int area = getArea(grid, visited, i, j);
-                    maxArea = Math.max(maxArea, area);
+                    max = Math.max(max, area);
                 }
             }
         }
-        return maxArea;
+        return max;
     }
 
     private int getArea(int[][] grid, boolean[][] visited, int i, int j) {
+        // BFS
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{i, j});
         visited[i][j] = true;
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         int area = 0;
         while (!queue.isEmpty()) {
-            int[] cur = queue.remove();
-            area++;
+            int size = queue.size();
+            for (int k = 0; k < size; k++) {
+                int[] cur = queue.remove();
+                area++;
 
-            for (int[] dir : direction) {
-                int nextM = cur[0] + dir[0];
-                int nextN = cur[1] + dir[1];
-                if (nextM >= 0 && nextM < grid.length && nextN >= 0 && nextN < grid[0].length
-                        && grid[nextM][nextN] == 1 && !visited[nextM][nextN]) {
-                    queue.add(new int[]{nextM, nextN});
-                    visited[nextM][nextN] = true;
+                for (int[] dir : directions) {
+                    int nextM = cur[0] + dir[0];
+                    int nextN = cur[1] + dir[1];
+                    if (nextM >= 0 && nextM < grid.length && nextN >= 0 && nextN < grid[0].length
+                            && grid[nextM][nextN] == 1 && !visited[nextM][nextN]) {
+                        visited[nextM][nextN] = true;
+                        queue.add(new int[]{nextM, nextN});
+                    }
                 }
             }
         }
@@ -45,5 +50,10 @@ public class Solution695 {
 695. 岛屿的最大面积
 https://leetcode-cn.com/problems/max-area-of-island/
 
-广度优先搜索。
+给你一个大小为 m x n 的二进制矩阵 grid 。
+岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。
+岛屿的面积是岛上值为 1 的单元格的数目。
+计算并返回 grid 中最大的岛屿面积。如果没有岛屿，则返回面积为 0 。
+
+BFS。
  */
