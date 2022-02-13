@@ -97,10 +97,7 @@ public class Solution1947 {
     }
 
     private static class KmAlgo {
-        private static final int INF = Integer.MAX_VALUE;
         private final int n;
-        private final int[][] graph;
-        private final Queue<Integer> queue;
         // 左集合对应的匹配点
         private final int[] matchX;
         // 右集合对应的匹配点
@@ -114,7 +111,10 @@ public class Solution1947 {
         // 可行顶标 给每个节点 i 分配一个权值 l(i)，对于所有边 (u,v) 满足 w(u,v) <= l(u) + l(v)。
         private final int[] lx;
         private final int[] ly;
+        private final int[][] graph;
         private final int[] slack;
+        private static final int INF = Integer.MAX_VALUE;
+        private final Queue<Integer> queue;
 
         public KmAlgo(int n, int[][] graph) {
             this.n = n;

@@ -1,27 +1,26 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
-public class Solution1066 {
-    public int assignBikes(int[][] workers, int[][] bikes) {
-        // n 位工人（worker）和 m 辆自行车（bike），n <= m
-        int n = workers.length;
-        int m = bikes.length;
-        // new int[m][m] 将两个集合中点数比较少的补点，使得两边点数相同
-        int[][] graph = new int[m][m];
+public class Solution6007 {
+    public int maximumANDSum(int[] nums, int numSlots) {
+        List<Integer> slots = new ArrayList<>();
+        for (int i = 1; i <= numSlots; i++) {
+            slots.add(i);
+            slots.add(i);
+        }
+        int n = nums.length;
+        int s = numSlots * 2;
+        int[][] scope = new int[s][s];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                // 求最小匹配，取反
-                graph[i][j] = -manhattan(workers[i], bikes[j]);
+            for (int j = 0; j < s; j++) {
+                scope[i][j] = nums[i] & slots.get(j);
             }
         }
-        KmAlgo kmAlgo = new KmAlgo(m, graph);
-        // 求最小匹配，取反
-        return -kmAlgo.getMaximumWeight();
-    }
-
-    private int manhattan(int[] p1, int[] p2) {
-        return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
+        KmAlgo kmAlgo = new KmAlgo(s, scope);
+        return kmAlgo.getMaximumWeight();
     }
 
     private static class KmAlgo {
@@ -155,24 +154,20 @@ public class Solution1066 {
     }
 }
 /*
-1066. 校园自行车分配 II
+6007. 数组的最大与和
+https://leetcode-cn.com/problems/maximum-and-sum-of-array/
+
+第 280 场周赛 T4。
+
+给你一个长度为 n 的整数数组 nums 和一个整数 numSlots ，满足2 * numSlots >= n 。总共有 numSlots 个篮子，编号为 1 到 numSlots 。
+你需要把所有 n 个整数分到这些篮子中，且每个篮子 至多 有 2 个整数。一种分配方案的 与和 定义为每个数与它所在篮子编号的 按位与运算 结果之和。
+- 比方说，将数字 [1, 3] 放入篮子 1 中，[4, 6] 放入篮子 2 中，这个方案的与和为 (1 AND 1) + (3 AND 1) + (4 AND 2) + (6 AND 2) = 1 + 1 + 0 + 2 = 4 。
+请你返回将 nums 中所有数放入 numSlots 个篮子中的最大与和。
+
+KM 算法或状态压缩 DP。
+时间复杂度：O(n^3)。其中 k = numSlots * 2，本题理论上界为 18^3 = 5832.
+相似题目: 1066. 校园自行车分配 II
 https://leetcode-cn.com/problems/campus-bikes-ii/
-
-第 1 场双周赛 T3。
-
-在由 2D 网格表示的校园里有 n 位工人（worker）和 m 辆自行车（bike），n <= m。所有工人和自行车的位置都用网格上的 2D 坐标表示。
-我们为每一位工人分配一辆专属自行车，使每个工人与其分配到的自行车之间的曼哈顿距离最小化。
-p1 和 p2 之间的曼哈顿距离为 Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y - p2.y|。
-返回每个工人与分配到的自行车之间的曼哈顿距离的最小可能总和。
-提示：
-0 <= workers[i][0], workers[i][1], bikes[i][0], bikes[i][1] < 1000
-所有工人和自行车的位置都不相同。
-1 <= workers.length <= bikes.length <= 10
-
-10 的全排列 10! = 3,628,800
-匈牙利算法（KM 算法）
-时间复杂度 O(n^3)
-
-相似题目: 1947. 最大兼容性评分和
+1947. 最大兼容性评分和
 https://leetcode-cn.com/problems/maximum-compatibility-score-sum/
  */
