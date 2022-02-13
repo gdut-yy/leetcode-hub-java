@@ -50,13 +50,14 @@ public class Solution417 {
     }
 
     private void bfs(int[][] heights, Queue<int[]> queue, boolean[][] visited) {
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int[] cur = queue.remove();
                 int height = heights[cur[0]][cur[1]];
-                for (int[] dir : direction) {
+
+                for (int[] dir : directions) {
                     int nextM = cur[0] + dir[0];
                     int nextN = cur[1] + dir[1];
                     if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !visited[nextM][nextN]

@@ -41,4 +41,6 @@ https://leetcode-cn.com/problems/paint-house/
 动态规划。
 时间复杂度 O(n)
 空间复杂度 O(1)
+相似题目: $265. 粉刷房子 II
+https://leetcode-cn.com/problems/paint-house-ii/
  */

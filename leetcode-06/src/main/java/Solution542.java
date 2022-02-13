@@ -3,36 +3,39 @@ import java.util.Queue;
 
 public class Solution542 {
     public int[][] updateMatrix(int[][] mat) {
-        int matM = mat.length;
-        int matN = mat[0].length;
-        int[][] dists = new int[matM][matN];
+        int M = mat.length;
+        int N = mat[0].length;
+        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
+        // BFS
         Queue<int[]> queue = new LinkedList<>();
-        for (int i = 0; i < matM; i++) {
-            for (int j = 0; j < matN; j++) {
+        int[][] distances = new int[M][N];
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
                 if (mat[i][j] == 0) {
                     queue.add(new int[]{i, j});
-                    dists[i][j] = 0;
+                    distances[i][j] = 0;
                 } else {
-                    dists[i][j] = Integer.MAX_VALUE;
+                    distances[i][j] = Integer.MAX_VALUE;
                 }
             }
         }
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         while (!queue.isEmpty()) {
             int[] cur = queue.remove();
-            int dist = dists[cur[0]][cur[1]];
-            for (int[] dir : direction) {
+            int dist = distances[cur[0]][cur[1]];
+
+            for (int[] dir : directions) {
                 int nextM = cur[0] + dir[0];
                 int nextN = cur[1] + dir[1];
-                if (nextM >= 0 && nextM < matM && nextN >= 0 && nextN < matN) {
-                    if (dists[nextM][nextN] > dist + 1) {
-                        dists[nextM][nextN] = dist + 1;
+                if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
+                    if (distances[nextM][nextN] > dist + 1) {
+                        distances[nextM][nextN] = dist + 1;
                         queue.add(new int[]{nextM, nextN});
                     }
                 }
             }
         }
-        return dists;
+        return distances;
     }
 }
 /*

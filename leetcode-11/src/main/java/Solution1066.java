@@ -155,7 +155,7 @@ public class Solution1066 {
     }
 }
 /*
-1066. 校园自行车分配 II
+$1066. 校园自行车分配 II
 https://leetcode-cn.com/problems/campus-bikes-ii/
 
 第 1 场双周赛 T3。

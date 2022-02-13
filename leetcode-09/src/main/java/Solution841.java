@@ -16,6 +16,7 @@ public class Solution841 {
             for (int i = 0; i < size; i++) {
                 int cur = queue.remove();
                 List<Integer> keys = rooms.get(cur);
+
                 for (int key : keys) {
                     if (!bitSet.get(key)) {
                         bitSet.set(key, true);

@@ -1,10 +1,10 @@
 public class Solution547 {
     public int findCircleNum(int[][] isConnected) {
-        int isConnectedM = isConnected.length;
-        int isConnectedN = isConnected[0].length;
-        UnionFind unionFind = new UnionFind(isConnectedM);
-        for (int i = 0; i < isConnectedM; i++) {
-            for (int j = 0; j < isConnectedN; j++) {
+        int M = isConnected.length;
+        int N = isConnected[0].length;
+        UnionFind unionFind = new UnionFind(M);
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
                 if(isConnected[i][j] == 1){
                     unionFind.union(i,j);
                 }
@@ -31,9 +31,7 @@ public class Solution547 {
             count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
+        // 返回节点 x 的根节点
         private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
@@ -44,9 +42,7 @@ public class Solution547 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
