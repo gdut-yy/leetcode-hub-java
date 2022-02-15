@@ -1,4 +1,4 @@
-public class Solution6004 {
+public class Solution2169 {
     public int countOperations(int num1, int num2) {
         int cnt = 0;
         while (num1 != 0 && num2 != 0) {
@@ -13,7 +13,7 @@ public class Solution6004 {
     }
 }
 /*
-6004. 得到 0 的操作数
+2169. 得到 0 的操作数
 https://leetcode-cn.com/problems/count-operations-to-obtain-zero/
 
 第 280 场周赛 T1。

@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution6007 {
+public class Solution2172 {
     public int maximumANDSum(int[] nums, int numSlots) {
         List<Integer> slots = new ArrayList<>();
         for (int i = 1; i <= numSlots; i++) {
@@ -154,7 +154,7 @@ public class Solution6007 {
     }
 }
 /*
-6007. 数组的最大与和
+2172. 数组的最大与和
 https://leetcode-cn.com/problems/maximum-and-sum-of-array/
 
 第 280 场周赛 T4。

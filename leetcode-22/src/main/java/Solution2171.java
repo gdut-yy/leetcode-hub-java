@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6006 {
+public class Solution2171 {
     public long minimumRemoval(int[] beans) {
         int len = beans.length;
 
@@ -24,7 +24,7 @@ public class Solution6006 {
     }
 }
 /*
-6006. 拿出最少数目的魔法豆
+2171. 拿出最少数目的魔法豆
 https://leetcode-cn.com/problems/removing-minimum-number-of-magic-beans/
 
 第 280 场周赛 T3。

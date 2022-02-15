@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class Solution6005 {
+public class Solution2170 {
     public int minimumOperations(int[] nums) {
         int len = nums.length;
         if (len == 1) {
@@ -60,7 +60,7 @@ public class Solution6005 {
     }
 }
 /*
-6005. 使数组变成交替数组的最少操作数
+2170. 使数组变成交替数组的最少操作数
 https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-alternating/
 
 第 280 场周赛 T2。
