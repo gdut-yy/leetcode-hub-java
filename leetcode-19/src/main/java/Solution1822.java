@@ -1,6 +1,5 @@
 public class Solution1822 {
     public int arraySign(int[] nums) {
-        int len = nums.length;
         // 统计 < 0 的个数
         int cnt = 0;
         for (int num : nums) {
