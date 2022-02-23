@@ -1,17 +1,19 @@
 public class Solution917 {
     public String reverseOnlyLetters(String s) {
         int len = s.length();
+
         char[] chars = s.toCharArray();
         // 双指针
         int left = 0;
         int right = len - 1;
         while (left < right) {
-            while (!Character.isLetter(chars[left]) && left < right) {
+            while (left < right && !Character.isLetter(chars[left])) {
                 left++;
             }
-            while (!Character.isLetter(chars[right]) && left < right) {
+            while (left < right && !Character.isLetter(chars[right])) {
                 right--;
             }
+            // swap
             char ch = chars[left];
             chars[left] = chars[right];
             chars[right] = ch;
@@ -28,7 +30,10 @@ https://leetcode-cn.com/problems/reverse-only-letters/
 
 第 105 场周赛 T1。
 
-给定一个字符串 S，返回 “反转后的” 字符串，其中不是字母的字符都保留在原地，而所有字母的位置发生反转。
+给你一个字符串 s ，根据下述规则反转字符串：
+- 所有非英文字母保留在原有位置。
+- 所有英文字母（小写或大写）位置反转。
+返回反转后的 s
 
 双指针翻转即可。
  */
