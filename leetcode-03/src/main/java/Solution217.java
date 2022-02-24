@@ -19,6 +19,10 @@ public class Solution217 {
 217. 存在重复元素
 https://leetcode-cn.com/problems/contains-duplicate/
 
-给定一个整数数组，判断是否存在重复元素。
+给你一个整数数组 nums 。如果任一值在数组中出现 至少两次 ，返回 true ；如果数组中每个元素互不相同，返回 false 。
+提示：
+1 <= nums.length <= 10^5
+-10^9 <= nums[i] <= 10^9
+
 使用 Set 判断是否存在重复元素。
  */

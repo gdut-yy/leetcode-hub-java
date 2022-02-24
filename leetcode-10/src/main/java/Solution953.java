@@ -1,7 +1,9 @@
 public class Solution953 {
     public boolean isAlienSorted(String[] words, String order) {
-        int[] orderArr = new int[order.length()];
-        for (int i = 0; i < order.length(); i++) {
+        int len = order.length();
+
+        int[] orderArr = new int[len];
+        for (int i = 0; i < len; i++) {
             orderArr[order.charAt(i) - 'a'] = i;
         }
         for (int i = 1; i < words.length; i++) {

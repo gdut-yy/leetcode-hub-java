@@ -1,15 +1,16 @@
 public class Solution566 {
     public int[][] matrixReshape(int[][] mat, int r, int c) {
-        int curM = mat.length;
-        int curN = mat[0].length;
-        if (curM * curN != r * c) {
+        int M = mat.length;
+        int N = mat[0].length;
+
+        if (M * N != r * c) {
             return mat;
         }
         int[][] res = new int[r][c];
         for (int i = 0; i < r; i++) {
             for (int j = 0; j < c; j++) {
                 int total = i * c + j;
-                res[i][j] = mat[total / curN][total % curN];
+                res[i][j] = mat[total / N][total % N];
             }
         }
         return res;
