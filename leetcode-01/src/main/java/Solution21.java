@@ -31,6 +31,12 @@ public class Solution21 {
 21. 合并两个有序链表
 https://leetcode-cn.com/problems/merge-two-sorted-lists/
 
+将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+提示：
+两个链表的节点数目范围是 [0, 50]
+-100 <= Node.val <= 100
+l1 和 l2 均按 非递减顺序 排列
+
 经典题。链表合并。
 数组合并可参考第 4 题 https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  */

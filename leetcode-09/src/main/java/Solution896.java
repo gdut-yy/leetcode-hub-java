@@ -4,13 +4,13 @@ public class Solution896 {
         if (len < 2) {
             return true;
         }
-        return isIncrArr(nums) || isDecrArr(nums);
+        return isAsc(nums) || isDesc(nums);
     }
 
     /**
      * 单调递增
      */
-    private boolean isIncrArr(int[] nums) {
+    private boolean isAsc(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] < nums[i - 1]) {
                 return false;
@@ -22,7 +22,7 @@ public class Solution896 {
     /**
      * 单调递减
      */
-    private boolean isDecrArr(int[] nums) {
+    private boolean isDesc(int[] nums) {
         for (int i = 1; i < nums.length; i++) {
             if (nums[i] > nums[i - 1]) {
                 return false;
