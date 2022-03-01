@@ -1,4 +1,4 @@
-public class Solution6008 {
+public class Solution2185 {
     public int prefixCount(String[] words, String pref) {
         int cnt = 0;
         for (String word : words) {
@@ -10,7 +10,7 @@ public class Solution6008 {
     }
 }
 /*
-6008. 统计包含给定前缀的字符串
+2185. 统计包含给定前缀的字符串
 https://leetcode-cn.com/problems/counting-words-with-a-given-prefix/
 
 第 282 场周赛 T1。

@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6008Tests {
-    private final Solution6008 solution6008 = new Solution6008();
+public class Solution2185Tests {
+    private final Solution2185 solution2185 = new Solution2185();
 
     @Test
     public void example1() {
         String[] words = {"pay", "attention", "practice", "attend"};
         String pref = "at";
         int expected = 2;
-        Assertions.assertEquals(expected, solution6008.prefixCount(words, pref));
+        Assertions.assertEquals(expected, solution2185.prefixCount(words, pref));
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Solution6008Tests {
         String[] words = {"leetcode", "win", "loops", "success"};
         String pref = "code";
         int expected = 0;
-        Assertions.assertEquals(expected, solution6008.prefixCount(words, pref));
+        Assertions.assertEquals(expected, solution2185.prefixCount(words, pref));
     }
 }

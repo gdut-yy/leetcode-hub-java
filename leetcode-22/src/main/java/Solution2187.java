@@ -1,4 +1,4 @@
-public class Solution6010 {
+public class Solution2187 {
     public long minimumTime(int[] time, int totalTrips) {
         // 二分
         long left = 1L;
@@ -29,7 +29,7 @@ public class Solution6010 {
     }
 }
 /*
-6010. 完成旅途的最少时间
+2187. 完成旅途的最少时间
 https://leetcode-cn.com/problems/minimum-time-to-complete-trips/
 
 第 282 场周赛 T3。
