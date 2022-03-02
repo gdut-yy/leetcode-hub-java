@@ -8,8 +8,8 @@ package template;
  * 并同时支持在 O(logn) 时间内支持动态单点值的修改。空间复杂度 O(n)。
  */
 public class BinaryIndexedTree {
-    int n;
-    int[] tree;
+    private final int n;
+    private final int[] tree;
 
     public BinaryIndexedTree(int n) {
         this.n = n;
@@ -27,13 +27,6 @@ public class BinaryIndexedTree {
         }
     }
 
-    public void update(int x, int inc) {
-        while (x <= n) {
-            tree[x] += inc;
-            x += lowbit(x);
-        }
-    }
-
     public int query(int x) {
         int ans = 0;
         while (x > 0) {
@@ -44,23 +37,19 @@ public class BinaryIndexedTree {
     }
 
     /**
+     * nums[x] add inc
+     */
+    public void update(int x, int inc) {
+        while (x <= n) {
+            tree[x] += inc;
+            x += lowbit(x);
+        }
+    }
+
+    /**
      * 求 nums[i,j] 的累加和
      */
     public int query(int i, int j) {
         return query(j + 1) - query(i);
-    }
-
-    public static void main(String[] args) {
-        int[] nums = {-2, 0, 3, -5, 2, -1};
-        BinaryIndexedTree bit = new BinaryIndexedTree(nums.length);
-        for (int i = 0; i < nums.length; i++) {
-            bit.update(i + 1, nums[i]);
-        }
-        // 1
-        System.out.println(bit.query(0, 2));
-        // -1
-        System.out.println(bit.query(2, 5));
-        // -3
-        System.out.println(bit.query(0, 5));
     }
 }

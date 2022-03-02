@@ -3,86 +3,108 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution2179 {
-    // O(n)
+    /**
+     * 树状数组
+     * 时间复杂度 O(nlogn)
+     * 空间复杂度 O(n)
+     */
     public long goodTriplets(int[] nums1, int[] nums2) {
         int n = nums1.length;
 
-        // 左到右
-        Map<Integer, BitSet> bitSetMap1 = new HashMap<>();
-        Map<Integer, BitSet> bitSetMap2 = new HashMap<>();
-        Map<Integer, Integer> leftMap = new HashMap<>();
-        Map<Integer, Integer> rightMap = new HashMap<>();
+        Map<Integer, Integer> nums2IdxMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            nums2IdxMap.put(nums2[i], i);
+        }
 
+        long cnt = 0;
+        BinaryIndexedTree bit = new BinaryIndexedTree(n);
+        // nums1 中枚举 pos1y
+        for (int pos1y = 1; pos1y < n - 1; pos1y++) {
+            int y = nums1[pos1y];
+            int x = nums1[pos1y - 1];
+            bit.update(nums2IdxMap.get(x) + 1);
+            int pos2y = nums2IdxMap.get(y);
+            int t = bit.query(pos2y);
+            cnt += (long) t * (n - pos1y - pos2y + t - 1);
+        }
+        return cnt;
+    }
+
+    private static class BinaryIndexedTree {
+        int n;
+        int[] tree;
+
+        public BinaryIndexedTree(int n) {
+            this.n = n;
+            this.tree = new int[n + 1];
+        }
+
+        public static int lowbit(int x) {
+            return x & (-x);
+        }
+
+        public void update(int x) {
+            while (x <= n) {
+                ++tree[x];
+                x += lowbit(x);
+            }
+        }
+
+        public int query(int x) {
+            int ans = 0;
+            while (x > 0) {
+                ans += tree[x];
+                x -= lowbit(x);
+            }
+            return ans;
+        }
+    }
+
+    /**
+     * BitSet - MLE
+     */
+    public long goodTriplets2(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+
+        // 左到右
+        Map<Integer, BitSet> leftBitSetMap1 = new HashMap<>();
+        Map<Integer, BitSet> leftBitSetMap2 = new HashMap<>();
         BitSet leftBitSet1 = new BitSet(n);
         BitSet leftBitSet2 = new BitSet(n);
         for (int i = 0; i < n; i++) {
-            leftBitSet1.set(nums1[i]);
-            bitSetMap1.put(nums1[i], (BitSet) leftBitSet1.clone());
-            if (bitSetMap2.containsKey(nums1[i])) {
-                BitSet bitSet1 = bitSetMap1.get(nums1[i]);
-                BitSet bitSet2 = bitSetMap2.get(nums1[i]);
-                bitSet1.and(bitSet2);
-                leftMap.put(nums1[i], bitSet1.cardinality() - 1);
+            leftBitSet1.set(nums1[i], true);
+            leftBitSetMap1.put(nums1[i], (BitSet) leftBitSet1.clone());
 
-                bitSetMap1.remove(nums1[i]);
-                bitSetMap2.remove(nums1[i]);
-            }
-
-            leftBitSet2.set(nums2[i]);
-            bitSetMap2.put(nums2[i], (BitSet) leftBitSet2.clone());
-            if (bitSetMap1.containsKey(nums2[i])) {
-                BitSet bitSet1 = bitSetMap1.get(nums2[i]);
-                BitSet bitSet2 = bitSetMap2.get(nums2[i]);
-                bitSet1.and(bitSet2);
-                leftMap.put(nums2[i], bitSet1.cardinality() - 1);
-
-                bitSetMap1.remove(nums2[i]);
-                bitSetMap2.remove(nums2[i]);
-            }
+            leftBitSet2.set(nums2[i], true);
+            leftBitSetMap2.put(nums2[i], (BitSet) leftBitSet2.clone());
         }
-//        for (int i = 1; i <= n - 2; i++) {
-//            BitSet bitSet1 = bitSetMap1.get(nums1[i]);
-//            BitSet bitSet2 = bitSetMap2.get(nums1[i]);
-//            bitSet1.and(bitSet2);
-//            leftMap.put(nums1[i], bitSet1.cardinality() - 1);
-//        }
-        bitSetMap1.clear();
-        bitSetMap2.clear();
+        Map<Integer, Integer> leftMap = new HashMap<>();
+        for (int i = 1; i <= n - 2; i++) {
+            BitSet bitSet1 = leftBitSetMap1.get(nums1[i]);
+            BitSet bitSet2 = leftBitSetMap2.get(nums1[i]);
+            bitSet1.and(bitSet2);
+            leftMap.put(nums1[i], bitSet1.cardinality() - 1);
+        }
 
         // 右到左
+        Map<Integer, BitSet> rightBitSetMap1 = new HashMap<>();
+        Map<Integer, BitSet> rightBitSetMap2 = new HashMap<>();
         BitSet rightBitSet1 = new BitSet(n);
         BitSet rightBitSet2 = new BitSet(n);
         for (int i = n - 1; i >= 0; i--) {
             rightBitSet1.set(nums1[i], true);
-            bitSetMap1.put(nums1[i], (BitSet) rightBitSet1.clone());
-            if (bitSetMap2.containsKey(nums1[i])) {
-                BitSet bitSet1 = bitSetMap1.get(nums1[i]);
-                BitSet bitSet2 = bitSetMap2.get(nums1[i]);
-                bitSet1.and(bitSet2);
-                rightMap.put(nums1[i], bitSet1.cardinality() - 1);
-
-                bitSetMap1.remove(nums1[i]);
-                bitSetMap2.remove(nums1[i]);
-            }
+            rightBitSetMap1.put(nums1[i], (BitSet) rightBitSet1.clone());
 
             rightBitSet2.set(nums2[i], true);
-            bitSetMap2.put(nums2[i], (BitSet) rightBitSet2.clone());
-            if (bitSetMap1.containsKey(nums2[i])) {
-                BitSet bitSet1 = bitSetMap1.get(nums2[i]);
-                BitSet bitSet2 = bitSetMap2.get(nums2[i]);
-                bitSet1.and(bitSet2);
-                rightMap.put(nums2[i], bitSet1.cardinality() - 1);
-
-                bitSetMap1.remove(nums2[i]);
-                bitSetMap2.remove(nums2[i]);
-            }
+            rightBitSetMap2.put(nums2[i], (BitSet) rightBitSet2.clone());
         }
-//        for (int i = 1; i <= n - 2; i++) {
-//            BitSet bitSet1 = bitSetMap1.get(nums1[i]);
-//            BitSet bitSet2 = bitSetMap2.get(nums1[i]);
-//            bitSet1.and(bitSet2);
-//            rightMap.put(nums1[i], bitSet1.cardinality() - 1);
-//        }
+        Map<Integer, Integer> rightMap = new HashMap<>();
+        for (int i = 1; i <= n - 2; i++) {
+            BitSet bitSet1 = rightBitSetMap1.get(nums1[i]);
+            BitSet bitSet2 = rightBitSetMap2.get(nums1[i]);
+            bitSet1.and(bitSet2);
+            rightMap.put(nums1[i], bitSet1.cardinality() - 1);
+        }
 
         // sum
         long sum = 0L;
@@ -93,22 +115,27 @@ public class Solution2179 {
         return sum;
     }
 
-    // O(n^3)
-    public long goodTriplets2(int[] nums1, int[] nums2) {
-        int len = nums2.length;
-        Map<Integer, Integer> idxMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            idxMap.put(nums2[i], i);
+    /**
+     * 暴力解法 - TLE
+     * 时间复杂度 O(n^3)
+     */
+    public long goodTriplets3(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+
+        Map<Integer, Integer> nums2IdxMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            nums2IdxMap.put(nums2[i], i);
         }
-        long cnt = 0L;
-        for (int i = 0; i < len; i++) {
+
+        long cnt = 0;
+        for (int i = 0; i < n; i++) {
             int num1 = nums1[i];
-            for (int j = i + 1; j < len; j++) {
+            for (int j = i + 1; j < n; j++) {
                 int num2 = nums1[j];
-                if (idxMap.get(num2) > idxMap.get(num1)) {
-                    for (int k = j + 1; k < len; k++) {
+                if (nums2IdxMap.get(num2) > nums2IdxMap.get(num1)) {
+                    for (int k = j + 1; k < n; k++) {
                         int num3 = nums1[k];
-                        if (idxMap.get(num3) > idxMap.get(num2)) {
+                        if (nums2IdxMap.get(num3) > nums2IdxMap.get(num2)) {
                             cnt++;
                         }
                     }
@@ -137,4 +164,8 @@ nums1 和 nums2 是 [0, 1, ..., n - 1] 的排列。
 
 本题数据量到 10^5，O(n^3) 的暴力解法妥妥 TLE。
 容易想到枚举中心点，比赛时写出 MLE 的解法。
+相似题目: 315. 计算右侧小于当前元素的个数
+https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+剑指 Offer 51. 数组中的逆序对
+https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
  */

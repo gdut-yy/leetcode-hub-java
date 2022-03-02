@@ -10,6 +10,8 @@ public class Solution2179Tests {
         int[] nums2 = {0, 1, 2, 3};
         long expected = 1;
         Assertions.assertEquals(expected, solution2179.goodTriplets(nums1, nums2));
+        Assertions.assertEquals(expected, solution2179.goodTriplets2(nums1, nums2));
+        Assertions.assertEquals(expected, solution2179.goodTriplets3(nums1, nums2));
     }
 
     @Test
@@ -18,6 +20,8 @@ public class Solution2179Tests {
         int[] nums2 = {4, 1, 0, 2, 3};
         long expected = 4;
         Assertions.assertEquals(expected, solution2179.goodTriplets(nums1, nums2));
+        Assertions.assertEquals(expected, solution2179.goodTriplets2(nums1, nums2));
+        Assertions.assertEquals(expected, solution2179.goodTriplets3(nums1, nums2));
     }
 
     // 补充用例

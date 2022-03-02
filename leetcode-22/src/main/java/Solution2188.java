@@ -9,10 +9,10 @@ public class Solution2188 {
 
         int maxLap = 0;
         for (int[] tire : tires) {
-            long lap = tire[0];
-            long preSum = tire[0];
+            int lap = tire[0];
+            int preSum = tire[0];
             for (int x = 1; lap < changeTime + tire[0]; x++) {
-                best[x] = (int) Math.min(best[x], preSum);
+                best[x] = Math.min(best[x], preSum);
                 lap *= tire[1];
                 preSum += lap;
                 maxLap = Math.max(maxLap, x);
