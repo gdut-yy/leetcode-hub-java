@@ -36,8 +36,13 @@ https://leetcode-cn.com/problems/determine-whether-matrix-can-be-obtained-by-rot
 
 第 244 场周赛 T1。
 
-给你两个大小为 n x n 的二进制矩阵 mat 和 target 。现 以 90 度顺时针轮转 矩阵 mat 中的元素 若干次 ，
-如果能够使 mat 与 target 一致，返回 true ；否则，返回 false 。
+给你两个大小为 n x n 的二进制矩阵 mat 和 target 。
+现 以 90 度顺时针轮转 矩阵 mat 中的元素 若干次 ，如果能够使 mat 与 target 一致，返回 true ；否则，返回 false 。
+提示：
+n == mat.length == target.length
+n == mat[i].length == target[i].length
+1 <= n <= 10
+mat[i][j] 和 target[i][j] 不是 0 就是 1
 
 矩阵旋转 90 度。
 相似题目: 48. 旋转图像

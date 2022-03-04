@@ -69,8 +69,14 @@ https://leetcode-cn.com/problems/add-to-array-form-of-integer/
 
 第 123 场周赛 T1。
 
-对于非负整数 X 而言，X 的数组形式是每位数字按从左到右的顺序形成的数组。例如，如果 X = 1231，那么其数组形式为 [1,2,3,1]。
-给定非负整数 X 的数组形式 A，返回整数 X+K 的数组形式。
+整数的 数组形式  num 是按照从左到右的顺序表示其数字的数组。
+- 例如，对于 num = 1321 ，数组形式是 [1,3,2,1] 。
+给定 num ，整数的 数组形式 ，和整数 k ，返回 整数 num + k 的 数组形式 。
+提示：
+1 <= num.length <= 10^4
+0 <= num[i] <= 9
+num 不包含任何前导零，除了零本身
+1 <= k <= 10^4
 
 相似题目: 2. 两数相加
 https://leetcode-cn.com/problems/add-two-numbers/
