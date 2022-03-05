@@ -1,7 +1,10 @@
 public class Solution1020 {
+    private int M;
+    private int N;
+
     public int numEnclaves(int[][] grid) {
-        int M = grid.length;
-        int N = grid[0].length;
+        this.M = grid.length;
+        this.N = grid[0].length;
 
         // “水淹” 所有边缘的 陆地
         for (int i = 0; i < M; i++) {
@@ -24,7 +27,7 @@ public class Solution1020 {
     }
 
     private void dfs(int[][] grid, int i, int j) {
-        if (i >= 0 && i < grid.length && j >= 0 && j < grid[0].length && grid[i][j] == 1) {
+        if (i >= 0 && i < M && j >= 0 && j < N && grid[i][j] == 1) {
             grid[i][j] = 0;
             dfs(grid, i + 1, j);
             dfs(grid, i, j + 1);

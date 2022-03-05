@@ -59,6 +59,6 @@ n == grid[i].length
 1 <= n <= 100
 grid[i][j] 不是 0 就是 1
 
-多源 BFS
+多源 BFS。
 时间复杂度 O(n^2)
  */

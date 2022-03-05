@@ -2,9 +2,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution1254 {
+    private int M;
+    private int N;
+
     public int closedIsland(int[][] grid) {
-        int M = grid.length;
-        int N = grid[0].length;
+        this.M = grid.length;
+        this.N = grid[0].length;
 
         // “水淹” 所有边缘的 土地
         for (int i = 0; i < M; i++) {
@@ -46,15 +49,17 @@ public class Solution1254 {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{i, j});
         int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int k = 0; k < size; k++) {
                 int[] cur = queue.remove();
                 grid[cur[0]][cur[1]] = 1;
+
                 for (int[] dir : directions) {
                     int nextM = cur[0] + dir[0];
                     int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < grid.length && nextN >= 0 && nextN < grid[0].length
+                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N
                             && grid[nextM][nextN] == 0) {
                         queue.add(new int[]{nextM, nextN});
                     }
@@ -129,7 +134,7 @@ https://leetcode-cn.com/problems/number-of-closed-islands/
 0 <= grid[i][j] <=1
 
 并查集 + BFS
-先将与矩阵边缘联通的 0 全部转成 1，其余同 岛屿数量
+先将与矩阵边缘联通的 0 全部转成 1，其余同 岛屿数量。
 相似题目: 200. 岛屿数量
 https://leetcode-cn.com/problems/number-of-islands/
 1020. 飞地的数量
