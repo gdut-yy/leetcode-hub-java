@@ -74,6 +74,14 @@ https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/
 网络中的任何一台计算机都可以通过网络直接或者间接访问同一个网络中其他任意一台计算机。
 给你这个计算机网络的初始布线 connections，你可以拔开任意两台直连计算机之间的线缆，并用它连接一对未直连的计算机。
 请你计算并返回使所有计算机都连通所需的最少操作次数。如果不可能，则返回 -1 。
+提示：
+1 <= n <= 10^5
+1 <= connections.length <= min(n*(n-1)/2, 10^5)
+connections[i].length == 2
+0 <= connections[i][0], connections[i][1] < n
+connections[i][0] != connections[i][1]
+没有重复的连接。
+两台计算机不会通过多条线缆连接。
 
 并查集。
 连接 n 台计算机 至少需要 n-1 根线
