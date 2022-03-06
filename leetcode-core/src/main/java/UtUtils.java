@@ -126,10 +126,23 @@ public class UtUtils {
     }
 
     /**
-     * resources 文件加载 String
+     * resources 文件加载 List<Integer>
      */
     public static List<Integer> loadingIntegerList(String fileName, int line) {
         int[] ints = loadingInts(fileName, line);
         return Arrays.stream(ints).boxed().collect(Collectors.toList());
+    }
+
+    /**
+     * resources 文件加载 List<List<Integer>>
+     */
+    public static List<List<Integer>> loadingIntegerList2(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
+        List<String> strList = JSON.parseArray(lines.get(line), String.class);
+        List<List<Integer>> resList = new ArrayList<>();
+        for (String str : strList) {
+            resList.add(JSON.parseArray(str, Integer.class));
+        }
+        return resList;
     }
 }

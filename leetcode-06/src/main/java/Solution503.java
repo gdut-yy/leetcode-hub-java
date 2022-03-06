@@ -25,6 +25,12 @@ public class Solution503 {
 503. 下一个更大元素 II
 https://leetcode-cn.com/problems/next-greater-element-ii/
 
+给定一个循环数组 nums （ nums[nums.length - 1] 的下一个元素是 nums[0] ），返回 nums 中每个元素的 下一个更大元素 。
+数字 x 的 下一个更大的元素 是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1 。
+提示:
+1 <= nums.length <= 10^4
+-10^9 <= nums[i] <= 10^9
+
 单调栈。
 第 496 题升级版。循环数组可用 i % len 下标进行处理
  */
