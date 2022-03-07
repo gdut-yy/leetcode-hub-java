@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6016 {
+public class Solution2194 {
     public List<String> cellsInRange(String s) {
         char ch0 = s.charAt(0);
         char ch1 = s.charAt(1);
@@ -16,14 +16,9 @@ public class Solution6016 {
         }
         return resList;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution6016().cellsInRange("K1:L2"));
-        System.out.println(new Solution6016().cellsInRange("A1:F1"));
-    }
 }
 /*
-6016. Excel 表中某个范围内的单元格
+2194. Excel 表中某个范围内的单元格
 https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/
 
 第 283 场周赛 T1。

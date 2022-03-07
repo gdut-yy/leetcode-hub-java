@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6017 {
+public class Solution2195 {
     public long minimalKSum(int[] nums, int k) {
         nums = Arrays.stream(nums).distinct().sorted().toArray();
 //        Arrays.sort(nums);
@@ -19,7 +19,7 @@ public class Solution6017 {
     }
 }
 /*
-6017. 向数组中追加 K 个整数
+2195. 向数组中追加 K 个整数
 https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum/
 
 第 283 场周赛 T2。

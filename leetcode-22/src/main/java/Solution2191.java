@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5217 {
+public class Solution2191 {
     public int[] sortJumbled(int[] mapping, int[] nums) {
         int len = nums.length;
 
@@ -54,7 +54,7 @@ public class Solution5217 {
     }
 }
 /*
-5217. 将杂乱无章的数字排序
+2191. 将杂乱无章的数字排序
 https://leetcode-cn.com/problems/sort-the-jumbled-numbers/
 
 第 73 场双周赛 T2。

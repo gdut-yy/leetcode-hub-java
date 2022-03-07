@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution5300 {
+public class Solution2192 {
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
         // 预处理
         Map<Integer, Set<Integer>> outGraph = new HashMap<>();
@@ -67,7 +67,7 @@ public class Solution5300 {
     }
 }
 /*
-5300. 有向无环图中一个节点的所有祖先
+2192. 有向无环图中一个节点的所有祖先
 https://leetcode-cn.com/problems/all-ancestors-of-a-node-in-a-directed-acyclic-graph/
 
 第 73 场双周赛 T3。

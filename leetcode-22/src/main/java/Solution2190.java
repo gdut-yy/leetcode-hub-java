@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6024 {
+public class Solution2190 {
     public int mostFrequent(int[] nums, int key) {
         int n = nums.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -24,7 +24,7 @@ public class Solution6024 {
     }
 }
 /*
-6024. 数组中紧跟 key 之后出现最频繁的数字
+2190. 数组中紧跟 key 之后出现最频繁的数字
 https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/
 
 第 73 场双周赛 T1。

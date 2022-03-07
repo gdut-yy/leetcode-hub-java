@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution6018 {
+public class Solution2196 {
     public TreeNode createBinaryTree(int[][] descriptions) {
         Set<Integer> nodeSet = new HashSet<>();
         Set<Integer> childSet = new HashSet<>();
@@ -35,14 +35,12 @@ public class Solution6018 {
         List<Integer> rootList = new ArrayList<>(nodeSet);
         return map.get(rootList.get(0));
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution6018().createBinaryTree(new int[][]{{20, 15, 1}, {20, 17, 0}, {50, 20, 1}, {50, 80, 0}, {80, 19, 1}}));
-    }
 }
 /*
-6018. 根据描述创建二叉树
+2196. 根据描述创建二叉树
 https://leetcode-cn.com/problems/create-binary-tree-from-descriptions/
+
+第 283 场周赛 T3。
 
 给你一个二维整数数组 descriptions ，其中 descriptions[i] = [parenti, childi, isLefti] 表示 parenti 是 childi 在 二叉树 中的 父节点，二叉树中各节点的值 互不相同 。此外：
 - 如果 isLefti == 1 ，那么 childi 就是 parenti 的左子节点。

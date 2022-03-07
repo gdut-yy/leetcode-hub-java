@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution5237 {
+public class Solution2193 {
     public int minMovesToMakePalindrome(String s) {
         char[] chars = s.toCharArray();
         int len = s.length();
@@ -51,7 +51,7 @@ public class Solution5237 {
     }
 }
 /*
-5237. 得到回文串的最少操作次数
+2193. 得到回文串的最少操作次数
 https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/
 
 第 73 场双周赛 T4。
