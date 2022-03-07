@@ -53,7 +53,14 @@ public class Solution438 {
 438. 找到字符串中所有字母异位词
 https://leetcode-cn.com/problems/find-all-anagrams-in-a-string/
 
+给定两个字符串 s 和 p，找到 s 中所有 p 的 异位词 的子串，返回这些子串的起始索引。不考虑答案输出的顺序。
+异位词 指由相同字母重排列形成的字符串（包括相同的字符串）。
+提示:
+1 <= s.length, p.length <= 3 * 10^4
+s 和 p 仅包含小写字母
+
 字母异位词指字母相同，但排列不同的字符串。
 滑动窗口-固定窗口。由于是固定窗口，所以可以不用双指针，只用一个指针就 ok
-本题与第 567 题几乎一致。
+相似题目: 567. 字符串的排列
+https://leetcode-cn.com/problems/permutation-in-string/
  */
