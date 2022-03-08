@@ -1,5 +1,4 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class Solution2193Tests {
@@ -21,10 +20,16 @@ public class Solution2193Tests {
 
     // 补充用例
     @Test
-    @Disabled
     public void example3() {
         String s = "eqvvhtcsaaqtqesvvqch";
-        int expected = 2;
+        int expected = 17;
+        Assertions.assertEquals(expected, solution2193.minMovesToMakePalindrome(s));
+    }
+
+    @Test
+    public void example4() {
+        String s = "skwhhaaunskegmdtutlgtteunmuuludii";
+        int expected = 163;
         Assertions.assertEquals(expected, solution2193.minMovesToMakePalindrome(s));
     }
 }

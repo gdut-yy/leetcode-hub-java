@@ -1,53 +1,114 @@
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Solution2193 {
     public int minMovesToMakePalindrome(String s) {
-        char[] chars = s.toCharArray();
         int len = s.length();
 
-        Queue<char[]> queue = new LinkedList<>();
-        Set<String> visitedSet = new HashSet<>();
-        queue.add(chars);
-        visitedSet.add(s);
+        char[] chars = s.toCharArray();
+        int ans = 0;
 
-        int step = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int sz = 0; sz < size; sz++) {
-                char[] curChars = queue.remove();
-                if (isPalindrome(curChars)) {
-                    return step;
-                }
-
-                for (int i = 0; i + 1 < len; i++) {
-                    if (curChars[i] != curChars[i + 1]) {
-                        char[] chars1 = curChars.clone();
-                        chars1[i] = curChars[i + 1];
-                        chars1[i + 1] = curChars[i];
-                        String str = new String(chars1);
-                        if (!visitedSet.contains(str)) {
-                            visitedSet.add(str);
-                            queue.add(chars1);
-                        }
+        // 双指针
+        int left = 0;
+        int right = len - 1;
+        while (left < right) {
+            boolean eq = false;
+            for (int p = right; p > left; p--) {
+                // 最接近右侧的跟左侧相同的字符
+                if (chars[p] == chars[left]) {
+                    eq = true;
+                    while (p < right) {
+                        // 模拟交换
+                        swap(chars, p, p + 1);
+                        p++;
+                        ans++;
                     }
+                    right--;
+                    break;
                 }
             }
-            step++;
+            if (!eq) {
+                ans += len / 2 - left;
+            }
+            left++;
         }
-        return step;
+        return ans;
     }
 
-    private boolean isPalindrome(char[] chars) {
-        int len = chars.length;
-        for (int i = 0; i < len / 2; i++) {
-            if (chars[i] != chars[len - 1 - i]) {
-                return false;
+    private void swap(char[] chars, int i, int j) {
+        char tmp = chars[i];
+        chars[i] = chars[j];
+        chars[j] = tmp;
+    }
+
+    public int minMovesToMakePalindrome2(String s) {
+        int len = s.length();
+
+        // 统计频次
+        int[] cntArr = new int[26];
+        for (char ch : s.toCharArray()) {
+            cntArr[ch - 'a']++;
+        }
+
+        // 组间交换
+        Map<Character, List<Integer>> leftMap = new HashMap<>();
+        Map<Character, List<Integer>> rightMap = new HashMap<>();
+        int lCnt = 0;
+        int rCnt = 0;
+        int ans = 0;
+        for (int i = 0; i < len; i++) {
+            char ch = s.charAt(i);
+            List<Integer> leftList = leftMap.getOrDefault(ch, new ArrayList<>());
+            if (leftList.size() + 1 <= cntArr[ch - 'a'] / 2) {
+                lCnt++;
+                leftList.add(lCnt);
+                leftMap.put(ch, leftList);
+                ans += (i - lCnt + 1);
+            } else {
+                rCnt++;
+                List<Integer> rightList = rightMap.getOrDefault(ch, new ArrayList<>());
+                rightList.add(rCnt);
+                rightMap.put(ch, rightList);
             }
         }
-        return true;
+        // 长度为奇数
+        if (len % 2 == 1) {
+            for (int i = 0; i < 26; i++) {
+                char ch = (char) (i + 'a');
+                if (cntArr[i] % 2 == 1) {
+                    lCnt++;
+                    List<Integer> leftList = leftMap.getOrDefault(ch, new ArrayList<>());
+                    leftList.add(lCnt);
+                    leftMap.put(ch, leftList);
+                }
+            }
+        }
+
+        // 得到排列
+        int[] perm = new int[(len + 1) / 2];
+        for (Map.Entry<Character, List<Integer>> entry : rightMap.entrySet()) {
+            char ch = entry.getKey();
+            List<Integer> rightList = entry.getValue();
+            List<Integer> leftList = leftMap.getOrDefault(ch, new ArrayList<>());
+            for (int i = 0; i < rightList.size(); i++) {
+                perm[rightList.get(rightList.size() - i - 1) - 1] = leftList.get(i);
+            }
+        }
+
+        // 组内交换（暴力法求逆序对数）
+        int n = perm.length;
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (perm[i] < perm[j]) {
+                    cnt++;
+                }
+            }
+        }
+
+        return ans + cnt;
     }
 }
 /*
