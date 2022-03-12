@@ -74,11 +74,15 @@ https://leetcode-cn.com/problems/longest-increasing-subsequence/
 
 给你一个整数数组 nums ，找到其中最长严格递增子序列的长度。
 子序列是由数组派生而来的序列，删除（或不删除）数组中的元素而不改变其余元素的顺序。例如，[3,6,2,7] 是数组 [0,3,1,6,2,2,7] 的子序列。
+提示：
+1 <= nums.length <= 2500
+-10^4 <= nums[i] <= 10^4
+进阶：
+你能将算法的时间复杂度降低到 O(n log(n)) 吗?
 
 LIS 模板题。二分优化后：
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
-
 相似题目: 1964. 找出到每个位置为止最长的有效障碍赛跑路线
 https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position/
  */

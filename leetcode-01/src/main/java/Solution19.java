@@ -24,5 +24,12 @@ public class Solution19 {
 19. 删除链表的倒数第 N 个结点
 https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
 
+给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+提示：
+链表中结点的数目为 sz
+1 <= sz <= 30
+0 <= Node.val <= 100
+1 <= n <= sz
+
 双指针-快慢指针。让快指针先走 n 步，然后同速前进
  */

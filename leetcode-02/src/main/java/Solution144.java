@@ -23,4 +23,10 @@ public class Solution144 {
 https://leetcode-cn.com/problems/binary-tree-preorder-traversal/
 
 给你二叉树的根节点 root ，返回它节点值的 前序 遍历。
+提示：
+树中节点数目在范围 [0, 100] 内
+-100 <= Node.val <= 100
+进阶：递归算法很简单，你可以通过迭代算法完成吗？
+
+递归。
  */

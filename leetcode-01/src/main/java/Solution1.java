@@ -25,7 +25,11 @@ public class Solution1 {
 1. 两数之和
 https://leetcode-cn.com/problems/two-sum/
 
-leetcode 的第一题。签到题。
+给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
+你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+你可以按任意顺序返回答案。
+
+有人相爱，有人夜里开车看海，有人leetcode第一题都做不出来。
 由于只会存在一个有效答案。因此找到一个满足条件的即可返回。
 HashMap O(1) 取值
  */

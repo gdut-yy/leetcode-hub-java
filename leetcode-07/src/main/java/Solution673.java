@@ -41,10 +41,12 @@ public class Solution673 {
 https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/
 
 给定一个未排序的整数数组，找到最长递增子序列的个数。
-
 输入: [1,3,5,4,7]
 输出: 2
 解释: 有两个最长递增子序列，分别是 [1, 3, 4, 7] 和[1, 3, 5, 7]。
+提示:
+1 <= nums.length <= 2000
+-10^6 <= nums[i] <= 10^6
 
 LIS 进阶版。LIS 有两种解法，动态规划 O(n^2) 和 贪心+二分 O(nlogn)
 相似题目: 300. 最长递增子序列

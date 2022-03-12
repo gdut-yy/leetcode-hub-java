@@ -29,5 +29,9 @@ public class Solution3 {
 https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
 
 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
+提示：
+0 <= s.length <= 5 * 10^4
+s 由英文字母、数字、符号和空格组成
+
 双指针 滑动窗口
  */

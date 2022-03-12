@@ -63,6 +63,11 @@ https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sort
 如果数组中不存在目标值 target，返回 [-1, -1]。
 进阶：
 你可以设计并实现时间复杂度为 O(log n) 的算法解决此问题吗？
+提示：
+0 <= nums.length <= 10^5
+-10^9 <= nums[i] <= 10^9
+nums 是一个非递减数组
+-10^9 <= target <= 10^9
 
 二分搜索找左/右边界
 相似题目: 剑指 Offer 53 - I. 在排序数组中查找数字 I

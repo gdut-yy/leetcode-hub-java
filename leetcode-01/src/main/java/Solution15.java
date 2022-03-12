@@ -47,11 +47,13 @@ https://leetcode-cn.com/problems/3sum/
 
 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
 注意：答案中不可以包含重复的三元组。
+提示：
+0 <= nums.length <= 3000
+-10^5 <= nums[i] <= 10^5
 
 两数之和 升级版。先选出一个数，余下两个数用双指针方法解决
 时间复杂度 O(n^2)
 其中排序时间复杂度 O(nlogn)
-
 相似题目: 1. 两数之和
 https://leetcode-cn.com/problems/two-sum/
 167. 两数之和 II - 输入有序数组

@@ -1,12 +1,13 @@
 public class Solution191 {
     public int hammingWeight(int n) {
-        int ret = 0;
-        for (int i = 0; i < 32; i++) {
-            if ((n & (1 << i)) != 0) {
-                ret++;
+        int cnt = 0;
+        // 第 k 位为 1
+        for (int k = 0; k < 32; k++) {
+            if ((n & (1 << k)) != 0) {
+                cnt++;
             }
         }
-        return ret;
+        return cnt;
     }
 
     public int hammingWeight2(int n) {
