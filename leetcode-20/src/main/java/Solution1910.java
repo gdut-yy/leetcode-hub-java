@@ -17,6 +17,10 @@ https://leetcode-cn.com/problems/remove-all-occurrences-of-a-substring/
 - 找到 s 中 最左边 的子字符串 part ，并将它从 s 中删除。
 请你返回从 s 中删除所有 part 子字符串以后得到的剩余字符串。
 一个 子字符串 是一个字符串中连续的字符序列。
+提示：
+1 <= s.length <= 1000
+1 <= part.length <= 1000
+s 和 part 只包小写英文字母。
 
 删除完的字符串作为新的入参，递归迭代到不在出现为止。注意 String#replace、String#replaceAll、String#replaceFirst 的区别。
  */

@@ -44,6 +44,13 @@ https://leetcode-cn.com/problems/shortest-distance-to-target-color/
 我们需要在 colors 上进行一些查询操作 queries，其中每个待查项都由两个整数 i 和 c 组成。
 现在请你帮忙设计一个算法，查找从索引 i 到具有目标颜色 c 的元素之间的最短距离。
 如果不存在解决方案，请返回 -1。
+提示：
+1 <= colors.length <= 5*10^4
+1 <= colors[i] <= 3
+1 <= queries.length <= 5*10^4
+queries[i].length == 2
+0 <= queries[i][0] < colors.length
+1 <= queries[i][1] <= 3
 
 二分查找
  */

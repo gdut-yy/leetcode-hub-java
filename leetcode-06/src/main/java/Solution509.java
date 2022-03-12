@@ -82,6 +82,7 @@ https://leetcode-cn.com/problems/fibonacci-number/
 F(0) = 0，F(1) = 1
 F(n) = F(n - 1) + F(n - 2)，其中 n > 1
 给你 n ，请计算 F(n) 。
+提示：
 0 <= n <= 30
 
 相似题目: 70. 爬楼梯

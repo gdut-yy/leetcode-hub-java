@@ -26,6 +26,10 @@ public class Solution42 {
 https://leetcode-cn.com/problems/trapping-rain-water/
 
 给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。
+提示：
+n == height.length
+1 <= n <= 2 * 10^4
+0 <= height[i] <= 10^5
 
 双指针
 时间复杂度 O(n)

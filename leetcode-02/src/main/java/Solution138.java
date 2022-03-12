@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution138 {
-    Map<Node, Node> hashMap = new HashMap<>();
+    private final Map<Node, Node> hashMap = new HashMap<>();
 
     public Node copyRandomList(Node head) {
         if (head == null) {
@@ -48,6 +48,10 @@ https://leetcode-cn.com/problems/copy-list-with-random-pointer/
 
 给你一个长度为 n 的链表，每个节点包含一个额外增加的随机指针 random ，该指针可以指向链表中的任何节点或空节点。
 构造这个链表的 深拷贝。
+提示：
+0 <= n <= 1000
+-10^4 <= Node.val <= 10^4
+Node.random 为 null 或指向链表中的节点。
 
 回溯 + HashMap 模拟。
 时间复杂度 O(n)

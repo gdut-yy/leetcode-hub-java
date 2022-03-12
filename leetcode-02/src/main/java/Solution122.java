@@ -12,9 +12,12 @@ public class Solution122 {
 122. 买卖股票的最佳时机 II
 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
 
-给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。
-设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易（多次买卖一支股票）。
-注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+给定一个数组 prices ，其中 prices[i] 表示股票第 i 天的价格。
+在每一天，你可能会决定购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+提示：
+1 <= prices.length <= 3 * 10^4
+0 <= prices[i] <= 10^4
 
 贪心。只要明天比今天涨的都进行交易。
 系列题解 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/

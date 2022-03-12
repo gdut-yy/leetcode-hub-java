@@ -36,11 +36,13 @@ $340. 至多包含 K 个不同字符的最长子串
 https://leetcode-cn.com/problems/longest-substring-with-at-most-k-distinct-characters/
 
 给定一个字符串 s ，找出 至多 包含 k 个不同字符的最长子串 T。
+提示：
+1 <= s.length <= 5 * 10^4
+0 <= k <= 50
 
 滑动窗口 + HashMap
 时间复杂度 O(n)
 空间复杂度 O(1)
-
 相似題目: $159. 至多包含两个不同字符的最长子串
 https://leetcode-cn.com/problems/longest-substring-with-at-most-two-distinct-characters/
  */

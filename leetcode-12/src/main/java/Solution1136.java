@@ -64,6 +64,11 @@ https://leetcode-cn.com/problems/parallel-courses/
 假设在一个学期里，你可以学习任何数量的课程，但前提是你已经学习了将要学习的这些课程的所有先修课程。
 请你返回学完全部课程所需的最少学期数。
 如果没有办法做到学完全部这些课程的话，就返回 -1。
+提示：
+1 <= N <= 5000
+1 <= relations.length <= 5000
+relations[i][0] != relations[i][1]
+输入中没有重复的关系
 
 拓扑排序。
  */

@@ -64,9 +64,7 @@ L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
 相似题目:
 Step1: 找链表的中间结点。876. 链表的中间结点
 https://leetcode-cn.com/problems/middle-of-the-linked-list/
-
 Step2: 反转链表。206. 反转链表
 https://leetcode-cn.com/problems/reverse-linked-list/
-
 Step3: 连接链表。
  */

@@ -3,9 +3,9 @@ import java.util.List;
 
 public class Solution89 {
     public List<Integer> grayCode(int n) {
-        List<Integer> resList = new ArrayList<Integer>();
-        for (int i = 0; i < (1 << n); i++) {
-            resList.add((i >> 1) ^ i);
+        List<Integer> resList = new ArrayList<>();
+        for (int state = 0; state < (1 << n); state++) {
+            resList.add((state >> 1) ^ state);
         }
         return resList;
     }
@@ -23,4 +23,6 @@ n 位格雷码序列 是一个由 2n 个整数组成的序列，其中：
 给你一个整数 n ，返回任一有效的 n 位格雷码序列 。
 提示：
 1 <= n <= 16
+
+位运算
  */
