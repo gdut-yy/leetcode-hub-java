@@ -682,7 +682,7 @@ public class UnionFind {
 ### 最短路 (Shortest Path)
 
 - Floyd 求任意两个结点之间的最短路。 时间复杂度 O(n^3)
-- Dijkstra 求解 非负权图 上单源最短路径的算法。时间复杂度 O(n^2)
+- Dijkstra 求解 非负权图 上单源最短路径的算法。时间复杂度 O(n^2) / O(mlogn)
 - Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
 
 - [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/)

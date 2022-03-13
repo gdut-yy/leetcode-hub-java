@@ -5,6 +5,7 @@ public class Solution215 {
     /**
      * 数组排序后，返回对应下标
      * 时间复杂度 O(nlogn)
+     * 空间复杂度 O(logn) 即递归使用栈空间的空间代价。
      */
     public int findKthLargest(int[] nums, int k) {
         Arrays.sort(nums);
@@ -14,7 +15,7 @@ public class Solution215 {
     /**
      * 快排 partition 函数
      * 时间复杂度 O(n)
-     * 空间复杂度 O(1)
+     * 空间复杂度 O(logn) 即递归使用栈空间的空间代价。
      */
     public int findKthLargest2(int[] nums, int k) {
         int target = nums.length - k;
@@ -62,7 +63,9 @@ https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
 
 给定整数数组 nums 和整数 k，请返回数组中第 k 个最大的元素。
 请注意，你需要找的是数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
+提示：
+1 <= k <= nums.length <= 10^4
+-10^4 <= nums[i] <= 10^4
 
-数组排序后的第 k 个最大的元素，而不是第 k 个不同的元素。
-数组排序后，返回对应下标即可。
+直接排序/基于快速排序的选择方法
  */

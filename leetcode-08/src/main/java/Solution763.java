@@ -36,10 +36,6 @@ public class Solution763 {
         resList.add(len - pre[0]);
         return resList;
     }
-
-    public static void main(String[] args) {
-        System.out.println(new Solution763().partitionLabels("ababcbacadefegdehijhklij"));
-    }
 }
 /*
 763. 划分字母区间

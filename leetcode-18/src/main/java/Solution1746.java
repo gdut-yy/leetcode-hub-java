@@ -26,9 +26,11 @@ https://leetcode-cn.com/problems/maximum-subarray-sum-after-one-operation/
 
 你有一个整数数组 nums。你只能将一个元素 nums[i] 替换为 nums[i] * nums[i]。
 返回替换后的最大子数组和。
+提示：
+1 <= nums.length <= 10^5
+-10^4 <= nums[i] <= 10^4
 
 动态规划。
-
 相似题目: 53. 最大子序和
 https://leetcode-cn.com/problems/maximum-subarray/
  */

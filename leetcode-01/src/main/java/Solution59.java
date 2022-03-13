@@ -42,7 +42,9 @@ public class Solution59 {
 59. 螺旋矩阵 II
 https://leetcode-cn.com/problems/spiral-matrix-ii/
 
-给你一个正整数 n ，生成一个包含 1 到 n2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+给你一个正整数 n ，生成一个包含 1 到 n^2 所有元素，且元素按顺时针顺序螺旋排列的 n x n 正方形矩阵 matrix 。
+提示：
+1 <= n <= 20
 
 相似题目: 54. 螺旋矩阵
 https://leetcode-cn.com/problems/spiral-matrix/

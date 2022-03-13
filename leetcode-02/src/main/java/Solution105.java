@@ -40,14 +40,18 @@ public class Solution105 {
 105. 从前序与中序遍历序列构造二叉树
 https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
 
-给定一棵树的前序遍历 preorder 与中序遍历  inorder。请构造二叉树并返回其根节点。
+给定两个整数数组 preorder 和 inorder ，其中 preorder 是二叉树的先序遍历， inorder 是同一棵树的中序遍历，请构造二叉树并返回其根节点。
+提示:
+1 <= preorder.length <= 3000
+inorder.length == preorder.length
+-3000 <= preorder[i], inorder[i] <= 3000
+preorder 和 inorder 均 无重复 元素
+inorder 均出现在 preorder
+preorder 保证 为二叉树的前序遍历序列
+inorder 保证 为二叉树的中序遍历序列
 
-对于任意一颗树而言，前序遍历的形式总是
-[ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
-
-即根节点总是前序遍历中的第一个节点。而中序遍历的形式总是
-[ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]
-
+对于任意一颗树而言，前序遍历的形式总是: [ 根节点, [左子树的前序遍历结果], [右子树的前序遍历结果] ]
+即根节点总是前序遍历中的第一个节点。而中序遍历的形式总是: [ [左子树的中序遍历结果], 根节点, [右子树的中序遍历结果] ]
 时间复杂度 O(n)
 空间复杂度 O(n)
  */
