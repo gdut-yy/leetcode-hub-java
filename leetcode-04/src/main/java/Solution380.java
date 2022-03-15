@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Solution380 {
     static class RandomizedSet {
-        Map<Integer, Integer> hashMap;
-        List<Integer> list;
+        private final Map<Integer, Integer> hashMap;
+        private final List<Integer> list;
 
         /**
          * Initialize your data structure here.

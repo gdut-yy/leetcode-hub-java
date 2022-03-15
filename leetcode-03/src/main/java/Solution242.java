@@ -30,6 +30,9 @@ https://leetcode-cn.com/problems/valid-anagram/
 
 给定两个字符串 s 和 t ，编写一个函数来判断 t 是否是 s 的字母异位词。
 注意：若 s 和 t 中每个字符出现的次数都相同，则称 s 和 t 互为字母异位词。
+提示:
+1 <= s.length, t.length <= 5 * 10^4
+s 和 t 仅包含小写字母
 进阶: 如果输入字符串包含 unicode 字符怎么办？你能否调整你的解法来应对这种情况？
 
 使用 HashMap 统计频次
