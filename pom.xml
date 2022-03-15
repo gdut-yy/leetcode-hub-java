@@ -33,6 +33,7 @@
         <module>leetcode-20</module>
         <module>leetcode-21</module>
         <module>leetcode-22</module>
+        <module>leetcode-23</module>
         <module>leetcode-core</module>
         <module>leetcode-extends</module>
         <module>leetcode-interview</module>

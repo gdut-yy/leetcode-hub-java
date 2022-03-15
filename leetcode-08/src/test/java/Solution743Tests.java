@@ -11,6 +11,7 @@ public class Solution743Tests {
         int k = 2;
         int expected = 2;
         Assertions.assertEquals(expected, solution743.networkDelayTime(times, n, k));
+        Assertions.assertEquals(expected, solution743.networkDelayTime2(times, n, k));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution743Tests {
         int k = 1;
         int expected = 1;
         Assertions.assertEquals(expected, solution743.networkDelayTime(times, n, k));
+        Assertions.assertEquals(expected, solution743.networkDelayTime2(times, n, k));
     }
 
     @Test
@@ -29,5 +31,6 @@ public class Solution743Tests {
         int k = 2;
         int expected = -1;
         Assertions.assertEquals(expected, solution743.networkDelayTime(times, n, k));
+        Assertions.assertEquals(expected, solution743.networkDelayTime2(times, n, k));
     }
 }
