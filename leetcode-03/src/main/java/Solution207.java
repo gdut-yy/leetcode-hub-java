@@ -57,6 +57,12 @@ https://leetcode-cn.com/problems/course-schedule/
 表示如果要学习课程 ai 则 必须 先学习课程  bi 。
 例如，先修课程对 [0, 1] 表示：想要学习课程 0 ，你需要先完成课程 1 。
 请你判断是否可能完成所有课程的学习？如果可以，返回 true ；否则，返回 false 。
+提示：
+1 <= numCourses <= 10^5
+0 <= prerequisites.length <= 5000
+prerequisites[i].length == 2
+0 <= ai, bi < numCourses
+prerequisites[i] 中的所有课程对 互不相同
 
 拓扑排序。
 相似题目: 210. 课程表 II
