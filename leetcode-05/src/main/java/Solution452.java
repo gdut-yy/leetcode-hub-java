@@ -10,6 +10,7 @@ public class Solution452 {
             // 注意溢出 不能直接 o1[1] - o2[1]
             return Integer.compare(o1[1], o2[1]);
         });
+
         int right = points[0][1];
         int cnt = 1;
         for (int[] point : points) {
