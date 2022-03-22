@@ -5,8 +5,9 @@ import java.util.Set;
 
 public class Solution653 {
     public boolean findTarget(TreeNode root, int k) {
-        Set<Integer> set = new HashSet<>();
+        Set<Integer> hashSet = new HashSet<>();
         Deque<TreeNode> stack = new ArrayDeque<>();
+
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             while (cur != null) {
@@ -14,10 +15,10 @@ public class Solution653 {
                 cur = cur.left;
             }
             cur = stack.pop();
-            if (set.contains(k - cur.val)) {
+            if (hashSet.contains(k - cur.val)) {
                 return true;
             }
-            set.add(cur.val);
+            hashSet.add(cur.val);
             cur = cur.right;
         }
         return false;

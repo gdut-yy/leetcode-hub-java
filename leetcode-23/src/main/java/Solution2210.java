@@ -1,6 +1,6 @@
 import java.util.LinkedList;
 
-public class Solution6027 {
+public class Solution2210 {
     public int countHillValley(int[] nums) {
         // 去重
         LinkedList<Integer> list = new LinkedList<>();
@@ -25,7 +25,7 @@ public class Solution6027 {
     }
 }
 /*
-6027. 统计数组中峰和谷的数量
+2210. 统计数组中峰和谷的数量
 https://leetcode-cn.com/problems/count-hills-and-valleys-in-an-array/
 
 第 285 场周赛 T1。

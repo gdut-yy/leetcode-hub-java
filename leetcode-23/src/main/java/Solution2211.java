@@ -1,4 +1,4 @@
-public class Solution6028 {
+public class Solution2211 {
     public int countCollisions(String directions) {
         int len = directions.length();
         char[] chars = directions.toCharArray();
@@ -30,7 +30,7 @@ public class Solution6028 {
     }
 }
 /*
-6028. 统计道路上的碰撞次数
+2211. 统计道路上的碰撞次数
 https://leetcode-cn.com/problems/count-collisions-on-a-road/
 
 第 285 场周赛 T2。

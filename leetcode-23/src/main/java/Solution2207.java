@@ -1,4 +1,4 @@
-public class Solution6021 {
+public class Solution2207 {
     public long maximumSubsequenceCount(String text, String pattern) {
         int len = text.length();
 
@@ -32,7 +32,7 @@ public class Solution6021 {
     }
 }
 /*
-6021. 字符串中最多数目的子字符串
+2207. 字符串中最多数目的子字符串
 https://leetcode-cn.com/problems/maximize-number-of-subsequences-in-a-string/
 
 第 74 场双周赛 T2。

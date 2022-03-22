@@ -1,4 +1,4 @@
-public class Solution6029 {
+public class Solution2212 {
     public int[] maximumBobPoints(int numArrows, int[] aliceArrows) {
         int maxScore = 0;
         int[] res = new int[12];
@@ -35,7 +35,7 @@ public class Solution6029 {
     }
 }
 /*
-6029. 射箭比赛中的最大得分
+2212. 射箭比赛中的最大得分
 https://leetcode-cn.com/problems/maximum-points-in-an-archery-competition/
 
 第 285 场周赛 T3。

@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6023Tests {
-    private final Solution6023 solution6023 = new Solution6023();
+public class Solution2209Tests {
+    private final Solution2209 solution2209 = new Solution2209();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6023Tests {
         int numCarpets = 2;
         int carpetLen = 2;
         int expected = 2;
-        Assertions.assertEquals(expected, solution6023.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6023Tests {
         int numCarpets = 2;
         int carpetLen = 3;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6023.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
     }
 
     // 补充用例
@@ -30,7 +30,7 @@ public class Solution6023Tests {
         int numCarpets = 43;
         int carpetLen = 5;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6023.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
     }
 
     @Test
@@ -40,6 +40,6 @@ public class Solution6023Tests {
         int numCarpets = 2;
         int carpetLen = 3;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6023.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
     }
 }

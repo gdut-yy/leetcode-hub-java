@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6020 {
+public class Solution2206 {
     public boolean divideArray(int[] nums) {
         // 统计频次
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -19,7 +19,7 @@ public class Solution6020 {
     }
 }
 /*
-6020. 将数组划分成相等数对
+2206. 将数组划分成相等数对
 https://leetcode-cn.com/problems/divide-array-into-equal-pairs/
 
 第 74 场双周赛 T1。

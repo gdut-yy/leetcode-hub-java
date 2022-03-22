@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6022 {
+public class Solution2208 {
     public int halveArray(int[] nums) {
         PriorityQueue<Double> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
 
@@ -27,7 +27,7 @@ public class Solution6022 {
     }
 }
 /*
-6022. 将数组和减半的最少操作次数
+2208. 将数组和减半的最少操作次数
 https://leetcode-cn.com/problems/minimum-operations-to-halve-array-sum/
 
 第 74 场双周赛 T3。

@@ -1,4 +1,4 @@
-public class Solution6023 {
+public class Solution2209 {
     public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
         int len = floor.length();
         char[] chars = floor.toCharArray();
@@ -76,7 +76,7 @@ public class Solution6023 {
     }
 }
 /*
-6023. 用地毯覆盖后的最少白色砖块
+2209. 用地毯覆盖后的最少白色砖块
 https://leetcode-cn.com/problems/minimum-white-tiles-after-covering-with-carpets/
 
 第 74 场双周赛 T4。

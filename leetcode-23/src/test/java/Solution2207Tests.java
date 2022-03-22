@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6021Tests {
-    private final Solution6021 solution6021 = new Solution6021();
+public class Solution2207Tests {
+    private final Solution2207 solution2207 = new Solution2207();
 
     @Test
     public void example1() {
         String text = "abdcdbc";
         String pattern = "ac";
         int expected = 4;
-        Assertions.assertEquals(expected, solution6021.maximumSubsequenceCount(text, pattern));
+        Assertions.assertEquals(expected, solution2207.maximumSubsequenceCount(text, pattern));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6021Tests {
         String text = "aabb";
         String pattern = "ab";
         int expected = 6;
-        Assertions.assertEquals(expected, solution6021.maximumSubsequenceCount(text, pattern));
+        Assertions.assertEquals(expected, solution2207.maximumSubsequenceCount(text, pattern));
     }
 
     // 补充用例
@@ -26,6 +26,6 @@ public class Solution6021Tests {
         String text = "vnedkpkkyxelxqptfwuzcjhqmwagvrglkeivowvbjdoyydnjrqrqejoyptzoklaxcjxbrrfmpdxckfjzahparhpanwqfjrpbslsyiwbldnpjqishlsuagevjmiyktgofvnyncizswldwnngnkifmaxbmospdeslxirofgqouaapfgltgqxdhurxljcepdpndqqgfwkfiqrwuwxfamciyweehktaegynfumwnhrgrhcluenpnoieqdivznrjljcotysnlylyswvdlkgsvrotavnkifwmnvgagjykxgwaimavqsxuitknmbxppgzfwtjdvegapcplreokicxcsbdrsyfpustpxxssnouifkypwqrywprjlyddrggkcglbgcrbihgpxxosmejchmzkydhquevpschkpyulqxgduqkqgwnsowxrmgqbmltrltzqmmpjilpfxocflpkwithsjlljxdygfvstvwqsyxlkknmgpppupgjvfgmxnwmvrfuwcrsadomyddazlonjyjdeswwznkaeaasyvurpgyvjsiltiykwquesfjmuswjlrphsdthmuqkrhynmqnfqdlwnwesdmiiqvcpingbcgcsvqmsmskesrajqwmgtdoktreqssutpudfykriqhblntfabspbeddpdkownehqszbmddizdgtqmobirwbopmoqzwydnpqnvkwadajbecmajilzkfwjnpfyamudpppuxhlcngkign";
         String pattern = "rr";
         int expected = 496;
-        Assertions.assertEquals(expected, solution6021.maximumSubsequenceCount(text, pattern));
+        Assertions.assertEquals(expected, solution2207.maximumSubsequenceCount(text, pattern));
     }
 }
