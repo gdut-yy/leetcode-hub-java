@@ -18,4 +18,6 @@ https://leetcode-cn.com/problems/factorial-trailing-zeroes/
 提示：
 0 <= n <= 10^4
 进阶：你可以设计并实现对数时间复杂度的算法来解决此问题吗？
+
+统计因子 5 的数量即可
  */
