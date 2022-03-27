@@ -1,9 +1,10 @@
 public class Solution839 {
     public int numSimilarGroups(String[] strs) {
-        int strsM = strs.length;
-        UnionFind unionFind = new UnionFind(strsM);
-        for (int i = 0; i < strsM; i++) {
-            for (int j = i + 1; j < strsM; j++) {
+        int len = strs.length;
+
+        UnionFind unionFind = new UnionFind(len);
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
                 if (similar(strs[i], strs[j])) {
                     unionFind.union(i, j);
                 }
@@ -33,6 +34,7 @@ public class Solution839 {
         // (可选) 连通分量
         int count;
 
+        // 0 ~ n-1
         public UnionFind(int n) {
             parent = new int[n];
             rank = new int[n];
@@ -43,9 +45,7 @@ public class Solution839 {
             count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
+        // 返回节点 x 的根节点
         private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
@@ -56,9 +56,7 @@ public class Solution839 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
@@ -88,6 +86,11 @@ https://leetcode-cn.com/problems/similar-string-groups/
 总之，它们通过相似性形成了两个关联组：{"tars", "rats", "arts"} 和 {"star"}。注意，"tars" 和 "arts" 是在同一组中，即使它们并不相似。
 形式上，对每个组而言，要确定一个单词在组中，只需要这个词和该组中至少一个单词相似。
 给你一个字符串列表 strs。列表中的每个字符串都是 strs 中其它所有字符串的一个字母异位词。请问 strs 中有多少个相似字符串组？
+提示：
+1 <= strs.length <= 300
+1 <= strs[i].length <= 300
+strs[i] 只包含小写字母。
+strs 中的所有单词都具有相同的长度，且是彼此的字母异位词。
 
 并查集。
  */

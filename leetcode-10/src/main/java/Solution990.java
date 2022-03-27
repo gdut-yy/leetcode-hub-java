@@ -3,7 +3,9 @@ import java.util.List;
 
 public class Solution990 {
     public boolean equationsPossible(String[] equations) {
-        UnionFind unionFind = new UnionFind();
+        // 小写字母
+        UnionFind unionFind = new UnionFind(26);
+
         List<String> askList = new ArrayList<>();
         for (String equation : equations) {
             int ch1 = equation.charAt(0) - 'a';
@@ -17,7 +19,7 @@ public class Solution990 {
         for (String ask : askList) {
             int ch1 = ask.charAt(0) - 'a';
             int ch2 = ask.charAt(3) - 'a';
-            if (unionFind.find(ch1) == unionFind.find(ch2)) {
+            if (unionFind.connected(ch1, ch2)) {
                 return false;
             }
         }
@@ -29,22 +31,22 @@ public class Solution990 {
         int[] parent;
         // 记录每棵树的重量
         int[] rank;
+        // (可选) 连通分量
+        int count;
 
-        public UnionFind() {
-            // 小写字母
-            int len = 26;
-            parent = new int[len];
-            rank = new int[len];
-            for (int i = 0; i < len; i++) {
+        // 0 ~ n-1
+        public UnionFind(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            for (int i = 0; i < n; i++) {
                 parent[i] = i;
                 rank[i] = i;
             }
+            count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
-        public int find(int x) {
+        // 返回节点 x 的根节点
+        private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
                 // 路径压缩
@@ -54,9 +56,7 @@ public class Solution990 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
@@ -70,7 +70,15 @@ public class Solution990 {
                     // 重量平衡
                     rank[rootP] += 1;
                 }
+                count--;
             }
+        }
+
+        // p 和 q 是否连通
+        public boolean connected(int p, int q) {
+            int rootP = find(p);
+            int rootQ = find(q);
+            return rootP == rootQ;
         }
     }
 }

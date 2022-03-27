@@ -13,6 +13,7 @@ public class Solution350 {
         for (int num : nums2) {
             cntMap2.put(num, cntMap2.getOrDefault(num, 0) + 1);
         }
+
         List<Integer> resList = new ArrayList<>();
         for (Map.Entry<Integer, Integer> entry : cntMap1.entrySet()) {
             int key = entry.getKey();

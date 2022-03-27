@@ -48,9 +48,19 @@ https://leetcode-cn.com/problems/the-maze/
 给你一个大小为 m x n 的迷宫 maze ，以及球的初始位置 start 和目的地 destination ，
 其中 start = [startrow, startcol] 且 destination = [destinationrow, destinationcol] 。请你判断球能否在目的地停下：如果可以，返回 true ；否则，返回 false 。
 你可以 假定迷宫的边缘都是墙壁（参考示例）。
+提示：
+m == maze.length
+n == maze[i].length
+1 <= m, n <= 100
+maze[i][j] is 0 or 1.
+start.length == 2
+destination.length == 2
+0 <= startrow, destinationrow <= m
+0 <= startcol, destinationcol <= n
+球和目的地都在空地上，且初始时它们不在同一位置
+迷宫 至少包括 2 块空地
 
 跟普通 BFS 的区别是不是每次走一步，而是每次 “走到底”。
-
 相似题目:
 $505. 迷宫 II
 https://leetcode-cn.com/problems/the-maze-ii/

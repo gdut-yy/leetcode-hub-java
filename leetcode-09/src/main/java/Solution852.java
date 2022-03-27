@@ -1,4 +1,8 @@
 public class Solution852 {
+    /**
+     * 差分 + 遍历
+     * 时间复杂度 O(n)
+     */
     public int peakIndexInMountainArray(int[] arr) {
         int len = arr.length;
         // 差分数组
@@ -7,6 +11,8 @@ public class Solution852 {
         for (int i = 1; i < len; i++) {
             diff[i] = arr[i] - arr[i - 1];
         }
+
+        // 枚举 "峰顶"
         for (int top = 1; top <= len - 1; top++) {
             boolean isTop = diff[top] > 0 && diff[top + 1] < 0;
             if (isTop) {
@@ -49,11 +55,13 @@ https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/
   - arr[0] < arr[1] < ... arr[i-1] < arr[i]
   - arr[i] > arr[i+1] > ... > arr[arr.length - 1]
 给你由整数组成的山脉数组 arr ，返回任何满足 arr[0] < arr[1] < ... arr[i - 1] < arr[i] > arr[i + 1] > ... > arr[arr.length - 1] 的下标 i 。
+提示：
+3 <= arr.length <= 10^4
+0 <= arr[i] <= 10^6
+题目数据保证 arr 是一个山脉数组
+进阶：很容易想到时间复杂度 O(n) 的解决方案，你可以设计一个 O(log(n)) 的解决方案吗？
 
-题目数据保证 arr 是一个山脉数组。
-差分数组时间复杂度 O(n)
-二分查找，时间复杂度 O(logn)
-
+二分查找。
 相似题目: 845. 数组中的最长山脉
 https://leetcode-cn.com/problems/longest-mountain-in-array/
  */

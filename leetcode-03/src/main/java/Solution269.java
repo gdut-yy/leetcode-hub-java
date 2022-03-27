@@ -7,8 +7,6 @@ import java.util.Set;
 
 public class Solution269 {
     public String alienOrder(String[] words) {
-        // 1 <= words.length <= 100
-        // 1 <= words[i].length <= 100
         // 拓扑排序
         Map<Character, Set<Character>> outGraph = new HashMap<>();
         Map<Character, Set<Character>> inGraph = new HashMap<>();

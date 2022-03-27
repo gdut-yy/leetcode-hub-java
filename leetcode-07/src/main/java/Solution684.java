@@ -1,9 +1,10 @@
 public class Solution684 {
     public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length;
+
         UnionFind unionFind = new UnionFind(n + 1);
         for (int[] edge : edges) {
-            if (unionFind.find(edge[0]) == unionFind.find(edge[1])) {
+            if (unionFind.connected(edge[0], edge[1])) {
                 return edge;
             } else {
                 unionFind.union(edge[0], edge[1]);
@@ -20,6 +21,7 @@ public class Solution684 {
         // (可选) 连通分量
         int count;
 
+        // 0 ~ n-1
         public UnionFind(int n) {
             parent = new int[n];
             rank = new int[n];
@@ -30,9 +32,7 @@ public class Solution684 {
             count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
+        // 返回节点 x 的根节点
         private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
@@ -43,9 +43,7 @@ public class Solution684 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
@@ -61,6 +59,13 @@ public class Solution684 {
                 }
                 count--;
             }
+        }
+
+        // p 和 q 是否连通
+        public boolean connected(int p, int q) {
+            int rootP = find(p);
+            int rootQ = find(q);
+            return rootP == rootQ;
         }
     }
 }
@@ -82,4 +87,7 @@ edges 中无重复元素
 给定的图是连通的 
 
 并查集。
+如果有多个答案，则返回数组 edges 中最后出现的边。即遇到同一个联通分量的边返回即可。
+相似题目: 685. 冗余连接 II
+https://leetcode-cn.com/problems/redundant-connection-ii/
  */

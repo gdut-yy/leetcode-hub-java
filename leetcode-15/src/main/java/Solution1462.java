@@ -10,6 +10,7 @@ public class Solution1462 {
             int to = prerequisite[1];
             adj[from][to] = true;
         }
+
         // floyd
         for (int p = 0; p < numCourses; p++) {
             for (int i = 0; i < numCourses; i++) {
@@ -36,7 +37,7 @@ https://leetcode-cn.com/problems/course-schedule-iv/
 第 27 场双周赛 T3。
 
 你总共需要上 n 门课，课程编号依次为 0 到 n-1 。
-有的课会有直接的先修课程，比如如果想上课程 0 ，你必须先上课程 1 ，那么会以 [1,0] 数对的形式给出先修课程数对。
+- 有的课会有直接的先修课程，比如如果想上课程 0 ，你必须先上课程 1 ，那么会以 [1,0] 数对的形式给出先修课程数对。
 给你课程总数 n 和一个直接先修课程数对列表 prerequisite 和一个查询对列表 queries 。
 对于每个查询对 queries[i] ，请判断 queries[i][0] 是否是 queries[i][1] 的先修课程。
 请返回一个布尔值列表，列表中每个元素依次分别对应 queries 每个查询对的判断结果。
@@ -54,4 +55,6 @@ queries[i][0] != queries[i][1]
 这道题的数据范围尤其重要。
 如果参考 2101 题，直接建图，逐个查询 bfs，时间复杂度为 O(k^2)（k 为查询次数）10^8 将会超时。
 参考 743 题，floyd 三层循环，时间复杂度为 O(n^3) 10^6 可以接受的范围。
+相似题目: 743. 网络延迟时间
+https://leetcode-cn.com/problems/network-delay-time/
  */

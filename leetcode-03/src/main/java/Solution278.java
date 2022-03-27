@@ -22,7 +22,7 @@ public class Solution278 {
         }
     }
 
-    static class VersionControl {
+    private static class VersionControl {
         int bad;
 
         public VersionControl(int bad) {

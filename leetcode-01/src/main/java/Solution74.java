@@ -1,15 +1,16 @@
 public class Solution74 {
     public boolean searchMatrix(int[][] matrix, int target) {
-        int matrixM = matrix.length;
-        int matrixN = matrix[0].length;
+        int M = matrix.length;
+        int N = matrix[0].length;
+
         int left = 0;
-        int right = matrixM * matrixN;
+        int right = M * N;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            int curM = mid / matrixN;
-            int curN = mid % matrixN;
+            int curM = mid / N;
+            int curN = mid % N;
             // 防止越界
-            if (curM >= matrixM || curN >= matrixN) {
+            if (curM >= M || curN >= N) {
                 break;
             }
             if (matrix[curM][curN] == target) {

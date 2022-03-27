@@ -1,7 +1,7 @@
 package template;
 
 /**
- * 并查集
+ * 并查集 Disjoint Set Union
  * <p>
  * 借这个问题科普一下并查集各种情况下的时间复杂度
  * https://leetcode-cn.com/problems/number-of-provinces/solution/jie-zhe-ge-wen-ti-ke-pu-yi-xia-bing-cha-0unne/
