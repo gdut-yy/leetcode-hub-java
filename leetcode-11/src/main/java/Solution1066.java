@@ -172,7 +172,6 @@ p1 和 p2 之间的曼哈顿距离为 Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y 
 10 的全排列 10! = 3,628,800
 匈牙利算法（KM 算法）
 时间复杂度 O(n^3)
-
 相似题目: 1947. 最大兼容性评分和
 https://leetcode-cn.com/problems/maximum-compatibility-score-sum/
  */

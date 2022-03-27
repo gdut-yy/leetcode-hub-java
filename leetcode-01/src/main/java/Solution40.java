@@ -38,6 +38,10 @@ https://leetcode-cn.com/problems/combination-sum-ii/
 给定一个数组 candidates 和一个目标数 target，找出 candidates 中所有可以使数字和为 target 的组合。
 candidates 中的每个数字在每个组合中只能使用一次。
 注意：解集不能包含重复的组合。
+提示:
+1 <= candidates.length <= 100
+1 <= candidates[i] <= 50
+1 <= target <= 30
 
 第 39 题升级版。可包含重复数字。
 回溯法。

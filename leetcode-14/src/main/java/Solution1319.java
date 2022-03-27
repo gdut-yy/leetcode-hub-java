@@ -1,8 +1,9 @@
 public class Solution1319 {
     public int makeConnected(int n, int[][] connections) {
-        int connectionsM = connections.length;
+        int len = connections.length;
+
         // 连接 n 台计算机 至少需要 n-1 根线
-        if (n - 1 > connectionsM) {
+        if (len < n - 1) {
             return -1;
         }
         UnionFind unionFind = new UnionFind(n);
@@ -17,9 +18,10 @@ public class Solution1319 {
         int[] parent;
         // 记录每棵树的重量
         int[] rank;
-        // 联通分量
+        // (可选) 连通分量
         int count;
 
+        // 0 ~ n-1
         public UnionFind(int n) {
             parent = new int[n];
             rank = new int[n];
@@ -30,10 +32,8 @@ public class Solution1319 {
             count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
-        public int find(int x) {
+        // 返回节点 x 的根节点
+        private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
                 // 路径压缩
@@ -43,9 +43,7 @@ public class Solution1319 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);

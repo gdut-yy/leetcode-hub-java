@@ -27,8 +27,8 @@ Java version: 17.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java
 Default locale: zh_CN, platform encoding: GBK
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
-IntelliJ IDEA 2021.3 (Ultimate Edition)
-Build #IU-213.5744.223, built on November 27, 2021
+IntelliJ IDEA 2021.3.2 (Community Edition)
+Build #IC-213.6777.52, built on January 28, 2022
 ```
 
 ## Command 命令行
@@ -614,59 +614,7 @@ public int[] singleNumber2(int[] nums) {
 
 ### 并查集 (UnionFind)
 
-```java
-public class UnionFind {
-    // 记录每个节点的父节点
-    int[] parent;
-    // 记录每棵树的重量
-    int[] rank;
-    // (可选) 连通分量
-    int count;
-
-    public UnionFind(int n) {
-        parent = new int[n];
-        rank = new int[n];
-        for (int i = 0; i < n; i++) {
-            parent[i] = i;
-            rank[i] = i;
-        }
-        count = n;
-    }
-
-    /**
-     * 返回节点 x 的根节点
-     */
-    private int find(int x) {
-        int ret = x;
-        while (ret != parent[ret]) {
-            // 路径压缩
-            parent[ret] = parent[parent[ret]];
-            ret = parent[ret];
-        }
-        return ret;
-    }
-
-    /**
-     * 将 p 和 q 连通
-     */
-    public void union(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP != rootQ) {
-            if (rank[rootP] > rank[rootQ]) {
-                parent[rootQ] = rootP;
-            } else if (rank[rootP] < rank[rootQ]) {
-                parent[rootP] = rootQ;
-            } else {
-                parent[rootQ] = rootP;
-                // 重量平衡
-                rank[rootP] += 1;
-            }
-            count--;
-        }
-    }
-}
-```
+[模板代码](./leetcode-core/src/main/java/template/UnionFind.java)
 
 - [200. 岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
 - [$323. 无向图中连通分量的数目](https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/)
@@ -723,6 +671,7 @@ Hierholzer 算法
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
-- [leetcode-rating-predictor](https://lcpredictor.herokuapp.com/)
+- [leetcode-rating-predictor](https://leetcode-rating-predictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
+- [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
 
 （全文完）

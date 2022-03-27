@@ -71,11 +71,15 @@ public class Solution1858 {
 }
 /*
 1858. 包含所有前缀的最长单词
-https://leetcode-cn.com/problems/longest-word-with-all-prefixes
+https://leetcode-cn.com/problems/longest-word-with-all-prefixes/
 
 给定一个字符串数组 words，找出 words 中所有的前缀都在 words 中的最长字符串。
-例如，令 words = ["a", "app", "ap"]。字符串 "app" 含前缀 "ap" 和 "a" ，都在 words 中。
+- 例如，令 words = ["a", "app", "ap"]。字符串 "app" 含前缀 "ap" 和 "a" ，都在 words 中。
 返回符合上述要求的字符串。如果存在多个（符合条件的）相同长度的字符串，返回字典序中最小的字符串，如果这样的字符串不存在，返回 ""。
+提示：
+1 <= words.length <= 10^5
+1 <= words[i].length <= 10^5
+1 <= sum(words[i].length) <= 10^5
 
 同: 720. 词典中最长的单词
 https://leetcode-cn.com/problems/longest-word-in-dictionary/

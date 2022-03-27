@@ -3,16 +3,17 @@ import java.util.Arrays;
 public class Solution2028 {
     public int[] missingRolls(int[] rolls, int mean, int n) {
         int m = rolls.length;
-        int sumRolls = Arrays.stream(rolls).sum();
-        int mAndN = m + n;
-        int total = mean * mAndN;
-        int sumNs = total - sumRolls;
+        int mSum = Arrays.stream(rolls).sum();
+
+        int sum = mean * (m + n);
+        int nSum = sum - mSum;
         // 注意边界
-        if (sumNs >= n && sumNs <= n * 6) {
-            int average = sumNs / n;
+        if (nSum >= n && nSum <= n * 6) {
+            int average = nSum / n;
             int[] res = new int[n];
             Arrays.fill(res, average);
-            int diff = sumNs - average * n;
+            int diff = nSum - average * n;
+            // 补余
             for (int i = 0; i < diff; i++) {
                 res[i]++;
             }
@@ -34,6 +35,10 @@ https://leetcode-cn.com/problems/find-missing-observations/
 只需要返回其中任意一组即可。如果不存在答案，返回一个空数组。
 k 个数字的 平均值 为这些数字求和后再除以 k 。
 注意 mean 是一个整数，所以 n + m 次投掷的总和需要被 n + m 整除。
+提示：
+m == rolls.length
+1 <= n, m <= 10^5
+1 <= rolls[i], mean <= 6
 
 模拟题。
  */

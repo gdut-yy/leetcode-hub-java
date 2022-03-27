@@ -70,12 +70,9 @@ https://leetcode-cn.com/problems/last-stone-weight-ii/
 1 <= stones[i] <= 100
 
 本题总和很小，30*1000 不超过 3000。适合 01 背包（时间复杂度 O(n*sum) <= 30 * 3000）
-
 也可以用折半搜索解决。时间复杂度 O(n*2^(n/2)) <= 30 * 32768
-
 相似题目: 1755. 最接近目标值的子序列和
 https://leetcode-cn.com/problems/closest-subsequence-sum/
-
 2035. 将数组分成两个数组并最小化数组和的差
 https://leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
  */
