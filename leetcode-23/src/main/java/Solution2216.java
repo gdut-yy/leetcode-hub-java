@@ -1,4 +1,4 @@
-public class Solution5236 {
+public class Solution2216 {
     public int minDeletion(int[] nums) {
         int len = nums.length;
 
@@ -19,7 +19,7 @@ public class Solution5236 {
     }
 }
 /*
-5236. 美化数组的最少删除数
+2216. 美化数组的最少删除数
 https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful/
 
 第 286 场周赛 T2。

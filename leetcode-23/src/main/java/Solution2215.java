@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution5268 {
+public class Solution2215 {
     public List<List<Integer>> findDifference(int[] nums1, int[] nums2) {
         // 预处理
         Set<Integer> hashSet1 = new HashSet<>();
@@ -34,7 +34,7 @@ public class Solution5268 {
     }
 }
 /*
-5268. 找出两数组的不同
+2215. 找出两数组的不同
 https://leetcode-cn.com/problems/find-the-difference-of-two-arrays/
 
 第 286 场周赛 T1。

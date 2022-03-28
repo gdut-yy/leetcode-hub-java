@@ -17,4 +17,13 @@ public class Solution913Tests {
         int expected = 1;
         Assertions.assertEquals(expected, solution913.catMouseGame(graph));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // 52 / 56 个通过测试用例
+        int[][] graph = {{5, 7, 9}, {3, 4, 5, 6}, {3, 4, 5, 8}, {1, 2, 6, 7}, {1, 2, 5, 7, 9}, {0, 1, 2, 4, 8}, {1, 3, 7, 8}, {0, 3, 4, 6, 8}, {2, 5, 6, 7, 9}, {0, 4, 8}};
+        int expected = 1;
+        Assertions.assertEquals(expected, solution913.catMouseGame(graph));
+    }
 }

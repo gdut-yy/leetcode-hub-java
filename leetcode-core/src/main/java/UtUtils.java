@@ -1,9 +1,14 @@
 import com.alibaba.fastjson.JSON;
 import org.apache.commons.io.FileUtils;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -134,6 +139,14 @@ public class UtUtils {
     }
 
     /**
+     * resources 文件加载 List<Boolean>
+     */
+    public static List<Boolean> loadingBooleanList(String fileName, int line) {
+        List<String> lines = loadingStringList(fileName);
+        return JSON.parseArray(lines.get(line), Boolean.class);
+    }
+
+    /**
      * resources 文件加载 List<List<Integer>>
      */
     public static List<List<Integer>> loadingIntegerList2(String fileName, int line) {
@@ -144,5 +157,28 @@ public class UtUtils {
             resList.add(JSON.parseArray(str, Integer.class));
         }
         return resList;
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
+        int t = Integer.parseInt(reader.readLine());
+        for (int i = 0; i < t; i++) {
+            String line = reader.readLine();
+            writer.write(solution(line).concat(System.lineSeparator()));
+        }
+        writer.close();
+        reader.close();
+    }
+
+    private static final String PATTERN = ": https://github.com/gdut-yy/leetcode-hub-java/blob/master/leetcode-{0}/src/main/java/Solution{1}.java";
+
+    private static String solution(String line) {
+        String numStr = line.replace("[gh", "").replace("]", "");
+        int num = Integer.parseInt(numStr);
+        int partition = num % 100 == 0 ? num / 100 : num / 100 + 1;
+        String param0 = partition < 10 ? "0" + partition : "" + partition;
+        String param1 = String.valueOf(num);
+        return line + MessageFormat.format(PATTERN, param0, param1);
     }
 }

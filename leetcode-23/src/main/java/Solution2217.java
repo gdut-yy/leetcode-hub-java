@@ -1,6 +1,4 @@
-import java.util.Arrays;
-
-public class Solution5253 {
+public class Solution2217 {
     public long[] kthPalindrome(int[] queries, int intLength) {
         // “回文根” 长度
         int rootLen = (intLength + 1) / 2;
@@ -27,14 +25,9 @@ public class Solution5253 {
         }
         return res;
     }
-
-    public static void main(String[] args) {
-        System.out.println(Arrays.toString(new Solution5253().kthPalindrome(new int[]{1, 2, 3, 4, 5, 90}, 3)));
-        System.out.println(Arrays.toString(new Solution5253().kthPalindrome(new int[]{2, 4, 6}, 4)));
-    }
 }
 /*
-5253. 找到指定长度的回文数
+2217. 找到指定长度的回文数
 https://leetcode-cn.com/problems/find-palindrome-with-fixed-length/
 
 第 286 场周赛 T3。

@@ -13,7 +13,7 @@ public class Solution913 {
         this.graph = graph;
         this.n = graph.length;
         // {cat, mouse, turns}
-        this.dp = new int[n][n][n * 2];
+        this.dp = new int[n][n][n * 2 * (n - 1)];
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 Arrays.fill(dp[i][j], -1);
@@ -24,7 +24,7 @@ public class Solution913 {
     }
 
     private int dfs(int cat, int mouse, int turns) {
-        if (turns == n * 2) {
+        if (turns == n * 2 * (n - 1)) {
             return DRAW;
         } else {
             if (dp[cat][mouse][turns] == -1) {
@@ -89,5 +89,8 @@ graph[i] 互不相同
 猫和老鼠在游戏中总是移动
 
 动态规划。
-时间复杂度 O(n^4)
+时间复杂度 O(n^5)
+由于老鼠可能的位置有 n 个，猫可能的位置有 n - 1 个，游戏轮数最大为 2n(n - 1)，因此动态规划的状态数是 O(n^4)，
+对于每个状态需要 O(n) 的时间计算状态值，因此总时间复杂度是 O(n^5)，该时间复杂度会超出时间限制，因此自顶向下的动态规划不适用于这道题。
+以下代码为自顶向下的动态规划的实现，仅供读者参考。
  */
