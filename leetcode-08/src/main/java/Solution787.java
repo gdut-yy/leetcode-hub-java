@@ -1,24 +1,26 @@
 import java.util.Arrays;
 
 public class Solution787 {
-    private static final int INF = 10000 * 101 + 1;
+    private static final int INF = 100 * 10000 + 1;
 
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int k) {
         // bellman ford 算法
+        // 最多只能中转 k 次，即最多搭乘 k+1 次航班
         // dp[t][i] 表示通过恰好 t 次航班，从出发城市 src 到达城市 i 需要的最小花费。
         int[][] dp = new int[k + 2][n];
-        for (int i = 0; i < k + 2; i++) {
-            Arrays.fill(dp[i], INF);
+        for (int[] ints : dp) {
+            Arrays.fill(ints, INF);
         }
         dp[0][src] = 0;
         for (int t = 1; t <= k + 1; t++) {
             for (int[] flight : flights) {
-                int j = flight[0];
-                int i = flight[1];
-                int cost = flight[2];
-                dp[t][i] = Math.min(dp[t][i], dp[t - 1][j] + cost);
+                int from = flight[0];
+                int to = flight[1];
+                int price = flight[2];
+                dp[t][to] = Math.min(dp[t][to], dp[t - 1][from] + price);
             }
         }
+
         // 取 dp[1][dst], dp[2][dst], ... dp[k+1][dst] 最小值
         int min = INF;
         for (int t = 1; t <= k + 1; t++) {
@@ -46,6 +48,7 @@ fromi != toi
 0 <= src, dst, k < n
 src != dst
 
-【宫水三叶】运用 Bellman Ford 求解有限制的最短路问题
-https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/solution/gong-shui-san-xie-xiang-jie-bellman-ford-dc94/
+bellman ford 算法
+相似题目: 1928. 规定时间内到达终点的最小花费
+https://leetcode-cn.com/problems/minimum-cost-to-reach-destination-in-time/
  */
