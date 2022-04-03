@@ -1,4 +1,5 @@
 import com.alibaba.fastjson.JSON;
+
 import org.apache.commons.io.FileUtils;
 
 import java.io.BufferedReader;
@@ -19,7 +20,7 @@ import java.util.stream.Collectors;
 
 public class UtUtils {
     /**
-     * List<List<Integer>> expected 类型比较
+     * List<List<Integer>> 自定义 Comparator
      */
     public static final Comparator<List<Integer>> INTEGER_LIST_COMPARATOR = (o1, o2) -> {
         // o1.size() != o2.size();
@@ -33,7 +34,7 @@ public class UtUtils {
     };
 
     /**
-     * List<List<String>> expected 类型比较
+     * List<List<String>> 自定义 Comparator
      */
     public static final Comparator<List<String>> STRING_LIST_COMPARATOR = (o1, o2) -> {
         Collections.sort(o1);
@@ -76,11 +77,24 @@ public class UtUtils {
     }
 
     /**
+     * resources 文件加载 String
+     */
+    public static String loadingString(String fileName, int line) {
+        return loadingStringList(fileName).get(line);
+    }
+
+    /**
+     * resources 文件加载 int
+     */
+    public static int loadingInt(String fileName, int line) {
+        return Integer.parseInt(loadingString(fileName, line));
+    }
+
+    /**
      * resources 文件加载 int[]
      */
     public static int[] loadingInts(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
+        List<Integer> list = JSON.parseArray(loadingString(fileName, line), Integer.class);
         return list.stream().mapToInt(i -> i).toArray();
     }
 
@@ -88,8 +102,7 @@ public class UtUtils {
      * resources 文件加载 int[][]
      */
     public static int[][] loadingInts2(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        List<int[]> list = JSON.parseArray(lines.get(line), int[].class);
+        List<int[]> list = JSON.parseArray(loadingString(fileName, line), int[].class);
         int[][] res = new int[list.size()][];
         for (int i = 0; i < list.size(); i++) {
             res[i] = list.get(i);
@@ -98,36 +111,18 @@ public class UtUtils {
     }
 
     /**
-     * resources 文件加载 int
-     */
-    public static int loadingInt(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        return Integer.parseInt(lines.get(line));
-    }
-
-    /**
      * resources 文件加载 long
      */
     public static long loadingLong(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        return Long.parseLong(lines.get(line));
+        return Long.parseLong(loadingString(fileName, line));
     }
 
     /**
      * resources 文件加载 long[]
      */
     public static long[] loadingLongs(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        List<Integer> list = JSON.parseArray(lines.get(line), Integer.class);
+        List<Integer> list = JSON.parseArray(loadingString(fileName, line), Integer.class);
         return list.stream().mapToLong(l -> l).toArray();
-    }
-
-    /**
-     * resources 文件加载 String
-     */
-    public static String loadingString(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        return lines.get(line);
     }
 
     /**
@@ -139,24 +134,22 @@ public class UtUtils {
     }
 
     /**
-     * resources 文件加载 List<Boolean>
-     */
-    public static List<Boolean> loadingBooleanList(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        return JSON.parseArray(lines.get(line), Boolean.class);
-    }
-
-    /**
      * resources 文件加载 List<List<Integer>>
      */
     public static List<List<Integer>> loadingIntegerList2(String fileName, int line) {
-        List<String> lines = loadingStringList(fileName);
-        List<String> strList = JSON.parseArray(lines.get(line), String.class);
+        List<String> strList = JSON.parseArray(loadingString(fileName, line), String.class);
         List<List<Integer>> resList = new ArrayList<>();
-        for (String str : strList) {
-            resList.add(JSON.parseArray(str, Integer.class));
+        for (String s : strList) {
+            resList.add(JSON.parseArray(s, Integer.class));
         }
         return resList;
+    }
+
+    /**
+     * resources 文件加载 List<Boolean>
+     */
+    public static List<Boolean> loadingBooleanList(String fileName, int line) {
+        return JSON.parseArray(loadingString(fileName, line), Boolean.class);
     }
 
     public static void main(String[] args) throws IOException {
