@@ -6,16 +6,16 @@ public class SolutionLCP39Tests {
 
     @Test
     public void example1() {
-        int[][] source = {{1, 3}, {5, 4}};
-        int[][] target = {{3, 1}, {6, 5}};
+        int[][] source = UtUtils.stringToInts2("[[1,3],[5,4]]");
+        int[][] target = UtUtils.stringToInts2("[[3,1],[6,5]]");
         int expected = 1;
         Assertions.assertEquals(expected, solutionLCP39.minimumSwitchingTimes(source, target));
     }
 
     @Test
     public void example2() {
-        int[][] source = {{1, 2, 3}, {3, 4, 5}};
-        int[][] target = {{1, 3, 5}, {2, 3, 4}};
+        int[][] source = UtUtils.stringToInts2("[[1,2,3],[3,4,5]]");
+        int[][] target = UtUtils.stringToInts2("[[1,3,5],[2,3,4]]");
         int expected = 0;
         Assertions.assertEquals(expected, solutionLCP39.minimumSwitchingTimes(source, target));
     }

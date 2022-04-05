@@ -6,21 +6,21 @@ public class Solution1091Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{0, 1}, {1, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[0,1],[1,0]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1091.shortestPathBinaryMatrix(grid));
     }
 
     @Test
     public void example2() {
-        int[][] grid = {{0, 0, 0}, {1, 1, 0}, {1, 1, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[0,0,0],[1,1,0],[1,1,0]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution1091.shortestPathBinaryMatrix(grid));
     }
 
     @Test
     public void example3() {
-        int[][] grid = {{1, 0, 0}, {1, 1, 0}, {1, 1, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0,0],[1,1,0],[1,1,0]]");
         int expected = -1;
         Assertions.assertEquals(expected, solution1091.shortestPathBinaryMatrix(grid));
     }
@@ -28,7 +28,9 @@ public class Solution1091Tests {
     // 补充用例
     @Test
     public void example4() {
-        int[][] grid = {{0}};
+        // https://leetcode-cn.com/submissions/detail/227590936/
+        // 87 / 88 个通过测试用例
+        int[][] grid = UtUtils.stringToInts2("[[0]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution1091.shortestPathBinaryMatrix(grid));
     }

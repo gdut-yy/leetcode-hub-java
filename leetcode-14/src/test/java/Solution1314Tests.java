@@ -6,17 +6,17 @@ public class Solution1314Tests {
 
     @Test
     public void example1() {
-        int[][] mat = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] mat = UtUtils.stringToInts2("[[1,2,3],[4,5,6],[7,8,9]]");
         int k = 1;
-        int[][] expected = {{12, 21, 16}, {27, 45, 33}, {24, 39, 28}};
+        int[][] expected = UtUtils.stringToInts2("[[12,21,16],[27,45,33],[24,39,28]]");
         Assertions.assertArrayEquals(expected, solution1314.matrixBlockSum(mat, k));
     }
 
     @Test
     public void example2() {
-        int[][] mat = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] mat = UtUtils.stringToInts2("[[1,2,3],[4,5,6],[7,8,9]]");
         int k = 2;
-        int[][] expected = {{45, 45, 45}, {45, 45, 45}, {45, 45, 45}};
+        int[][] expected = UtUtils.stringToInts2("[[45,45,45],[45,45,45],[45,45,45]]");
         Assertions.assertArrayEquals(expected, solution1314.matrixBlockSum(mat, k));
     }
 }

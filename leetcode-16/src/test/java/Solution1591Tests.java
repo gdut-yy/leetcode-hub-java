@@ -6,25 +6,25 @@ public class Solution1591Tests {
 
     @Test
     public void example1() {
-        int[][] targetGrid = {{1, 1, 1, 1}, {1, 2, 2, 1}, {1, 2, 2, 1}, {1, 1, 1, 1}};
+        int[][] targetGrid = UtUtils.stringToInts2("[[1,1,1,1],[1,2,2,1],[1,2,2,1],[1,1,1,1]]");
         Assertions.assertTrue(solution1591.isPrintable(targetGrid));
     }
 
     @Test
     public void example2() {
-        int[][] targetGrid = {{1, 1, 1, 1}, {1, 1, 3, 3}, {1, 1, 3, 4}, {5, 5, 1, 4}};
+        int[][] targetGrid = UtUtils.stringToInts2("[[1,1,1,1],[1,1,3,3],[1,1,3,4],[5,5,1,4]]");
         Assertions.assertTrue(solution1591.isPrintable(targetGrid));
     }
 
     @Test
     public void example3() {
-        int[][] targetGrid = {{1, 2, 1}, {2, 1, 2}, {1, 2, 1}};
+        int[][] targetGrid = UtUtils.stringToInts2("[[1,2,1],[2,1,2],[1,2,1]]");
         Assertions.assertFalse(solution1591.isPrintable(targetGrid));
     }
 
     @Test
     public void example4() {
-        int[][] targetGrid = {{1, 1, 1}, {3, 1, 3}};
+        int[][] targetGrid = UtUtils.stringToInts2("[[1,1,1],[3,1,3]]");
         Assertions.assertFalse(solution1591.isPrintable(targetGrid));
     }
 }

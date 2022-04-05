@@ -42,6 +42,10 @@ public class SolutionI0401 {
 https://leetcode-cn.com/problems/route-between-nodes-lcci/
 
 节点间通路。给定有向图，设计一个算法，找出两个节点之间是否存在一条路径。
+提示：
+节点数量n在[0, 1e5]范围内。
+节点编号大于等于 0 小于 n。
+图中可能存在自环和平行边。
 
 BFS。
  */

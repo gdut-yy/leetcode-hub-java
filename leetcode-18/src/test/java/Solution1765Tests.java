@@ -6,15 +6,15 @@ public class Solution1765Tests {
 
     @Test
     public void example1() {
-        int[][] isWater = {{0, 1}, {0, 0}};
-        int[][] expected = {{1, 0}, {2, 1}};
+        int[][] isWater = UtUtils.stringToInts2("[[0,1],[0,0]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,0],[2,1]]");
         Assertions.assertArrayEquals(expected, solution1765.highestPeak(isWater));
     }
 
     @Test
     public void example2() {
-        int[][] isWater = {{0, 0, 1}, {1, 0, 0}, {0, 0, 0}};
-        int[][] expected = {{1, 1, 0}, {0, 1, 1}, {1, 2, 2}};
+        int[][] isWater = UtUtils.stringToInts2("[[0,0,1],[1,0,0],[0,0,0]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,1,0],[0,1,1],[1,2,2]]");
         Assertions.assertArrayEquals(expected, solution1765.highestPeak(isWater));
     }
 }

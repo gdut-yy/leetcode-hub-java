@@ -37,6 +37,12 @@ https://leetcode-cn.com/problems/lucky-numbers-in-a-matrix/
 幸运数是指矩阵中满足同时下列两个条件的元素：
 - 在同一行的所有元素中最小
 - 在同一列的所有元素中最大
+提示：
+m == mat.length
+n == mat[i].length
+1 <= n, m <= 50
+1 <= matrix[i][j] <= 10^5
+矩阵中的所有元素都是不同的
 
 模拟。
  */

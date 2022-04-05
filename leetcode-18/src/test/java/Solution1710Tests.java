@@ -6,7 +6,7 @@ public class Solution1710Tests {
 
     @Test
     public void example1() {
-        int[][] boxTypes = {{1, 3}, {2, 2}, {3, 1}};
+        int[][] boxTypes = UtUtils.stringToInts2("[[1,3],[2,2],[3,1]]");
         int truckSize = 4;
         int expected = 8;
         Assertions.assertEquals(expected, solution1710.maximumUnits(boxTypes, truckSize));
@@ -14,7 +14,7 @@ public class Solution1710Tests {
 
     @Test
     public void example2() {
-        int[][] boxTypes = {{5, 10}, {2, 5}, {4, 7}, {3, 9}};
+        int[][] boxTypes = UtUtils.stringToInts2("[[5,10],[2,5],[4,7],[3,9]]");
         int truckSize = 10;
         int expected = 91;
         Assertions.assertEquals(expected, solution1710.maximumUnits(boxTypes, truckSize));

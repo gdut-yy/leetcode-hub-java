@@ -8,7 +8,7 @@ public class Jianxin004Tests {
     public void example1() {
         int row = 5;
         int col = 6;
-        int[][] position = {{1, 3}, {3, 2}, {4, 1}};
+        int[][] position = UtUtils.stringToInts2("[[1,3],[3,2],[4,1]]");
         int expected = 0;
         Assertions.assertEquals(expected, jianxin004.electricityExperiment(row, col, position));
     }
@@ -17,7 +17,7 @@ public class Jianxin004Tests {
     public void example2() {
         int row = 3;
         int col = 4;
-        int[][] position = {{0, 3}, {2, 0}};
+        int[][] position = UtUtils.stringToInts2("[[0,3],[2,0]]");
         int expected = 3;
         Assertions.assertEquals(expected, jianxin004.electricityExperiment(row, col, position));
     }
@@ -26,7 +26,7 @@ public class Jianxin004Tests {
     public void example3() {
         int row = 5;
         int col = 6;
-        int[][] position = {{1, 3}, {3, 5}, {2, 0}};
+        int[][] position = UtUtils.stringToInts2("[[1,3],[3,5],[2,0]]");
         int expected = 6;
         Assertions.assertEquals(expected, jianxin004.electricityExperiment(row, col, position));
     }

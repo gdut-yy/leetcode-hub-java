@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 public class SolutionLCP46Tests {
     private final SolutionLCP46 solutionLCP46 = new SolutionLCP46();
 
@@ -10,8 +8,8 @@ public class SolutionLCP46Tests {
     public void example1() {
         int[] finalCnt = {1, 16};
         long totalNum = 21;
-        int[][] edges = {{0, 1}, {1, 2}};
-        int[][] plans = {{2, 1}, {1, 0}, {3, 0}};
+        int[][] edges = UtUtils.stringToInts2("[[0,1],[1,2]]");
+        int[][] plans = UtUtils.stringToInts2("[[2,1],[1,0],[3,0]]");
         int[] expected = {5, 7, 9};
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));
@@ -21,8 +19,8 @@ public class SolutionLCP46Tests {
     public void example2() {
         int[] finalCnt = {4, 13, 4, 3, 8};
         long totalNum = 54;
-        int[][] edges = {{0, 3}, {1, 3}, {4, 3}, {2, 3}, {2, 5}};
-        int[][] plans = {{1, 1}, {3, 3}, {2, 5}, {1, 0}};
+        int[][] edges = UtUtils.stringToInts2("[[0,3],[1,3],[4,3],[2,3],[2,5]]");
+        int[][] plans = UtUtils.stringToInts2("[[1,1],[3,3],[2,5],[1,0]]");
         int[] expected = {10, 16, 9, 4, 7, 8};
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment(finalCnt, totalNum, edges, plans));
         Assertions.assertArrayEquals(expected, solutionLCP46.volunteerDeployment2(finalCnt, totalNum, edges, plans));

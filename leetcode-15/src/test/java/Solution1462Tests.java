@@ -9,8 +9,8 @@ public class Solution1462Tests {
     @Test
     public void example1() {
         int numCourses = 2;
-        int[][] prerequisites = {{1, 0}};
-        int[][] queries = {{0, 1}, {1, 0}};
+        int[][] prerequisites = UtUtils.stringToInts2("[[1,0]]");
+        int[][] queries = UtUtils.stringToInts2("[[0,1],[1,0]]");
         List<Boolean> expected = List.of(false, true);
         Assertions.assertEquals(expected, solution1462.checkIfPrerequisite(numCourses, prerequisites, queries));
     }
@@ -18,8 +18,8 @@ public class Solution1462Tests {
     @Test
     public void example2() {
         int numCourses = 2;
-        int[][] prerequisites = {};
-        int[][] queries = {{1, 0}, {0, 1}};
+        int[][] prerequisites = UtUtils.stringToInts2("[]");
+        int[][] queries = UtUtils.stringToInts2("[[1,0],[0,1]]");
         List<Boolean> expected = List.of(false, false);
         Assertions.assertEquals(expected, solution1462.checkIfPrerequisite(numCourses, prerequisites, queries));
     }
@@ -27,8 +27,8 @@ public class Solution1462Tests {
     @Test
     public void example3() {
         int numCourses = 3;
-        int[][] prerequisites = {{1, 2}, {1, 0}, {2, 0}};
-        int[][] queries = {{1, 0}, {1, 2}};
+        int[][] prerequisites = UtUtils.stringToInts2("[[1,2],[1,0],[2,0]]");
+        int[][] queries = UtUtils.stringToInts2("[[1,0],[1,2]]");
         List<Boolean> expected = List.of(true, true);
         Assertions.assertEquals(expected, solution1462.checkIfPrerequisite(numCourses, prerequisites, queries));
     }

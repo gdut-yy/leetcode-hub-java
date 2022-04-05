@@ -7,7 +7,7 @@ public class Solution2055Tests {
     @Test
     public void example1() {
         String s = "**|**|***|";
-        int[][] queries = {{2, 5}, {5, 9}};
+        int[][] queries = UtUtils.stringToInts2("[[2,5],[5,9]]");
         int[] expected = {2, 3};
         Assertions.assertArrayEquals(expected, solution2055.platesBetweenCandles(s, queries));
     }
@@ -15,7 +15,7 @@ public class Solution2055Tests {
     @Test
     public void example2() {
         String s = "***|**|*****|**||**|*";
-        int[][] queries = {{1, 17}, {4, 5}, {14, 17}, {5, 11}, {15, 16}};
+        int[][] queries = UtUtils.stringToInts2("[[1,17],[4,5],[14,17],[5,11],[15,16]]");
         int[] expected = {9, 0, 0, 0, 0};
         Assertions.assertArrayEquals(expected, solution2055.platesBetweenCandles(s, queries));
     }

@@ -9,7 +9,7 @@ public class Solution2192Tests {
     @Test
     public void example1() {
         int n = 8;
-        int[][] edges = {{0, 3}, {0, 4}, {1, 3}, {2, 4}, {2, 7}, {3, 5}, {3, 6}, {3, 7}, {4, 6}};
+        int[][] edges = UtUtils.stringToInts2("[[0,3],[0,4],[1,3],[2,4],[2,7],[3,5],[3,6],[3,7],[4,6]]");
         List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[],[],[0,1],[0,2],[0,1,3],[0,1,2,3,4],[0,1,2,3]]");
         Assertions.assertEquals(expected, solution2192.getAncestors(n, edges));
     }
@@ -17,7 +17,7 @@ public class Solution2192Tests {
     @Test
     public void example2() {
         int n = 5;
-        int[][] edges = {{0, 1}, {0, 2}, {0, 3}, {0, 4}, {1, 2}, {1, 3}, {1, 4}, {2, 3}, {2, 4}, {3, 4}};
+        int[][] edges = UtUtils.stringToInts2("[[0,1],[0,2],[0,3],[0,4],[1,2],[1,3],[1,4],[2,3],[2,4],[3,4]]");
         List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[0],[0,1],[0,1,2],[0,1,2,3]]");
         Assertions.assertEquals(expected, solution2192.getAncestors(n, edges));
     }

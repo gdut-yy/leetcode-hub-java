@@ -6,16 +6,16 @@ public class Solution1905Tests {
 
     @Test
     public void example1() {
-        int[][] grid1 = {{1, 1, 1, 0, 0}, {0, 1, 1, 1, 1}, {0, 0, 0, 0, 0}, {1, 0, 0, 0, 0}, {1, 1, 0, 1, 1}};
-        int[][] grid2 = {{1, 1, 1, 0, 0}, {0, 0, 1, 1, 1}, {0, 1, 0, 0, 0}, {1, 0, 1, 1, 0}, {0, 1, 0, 1, 0}};
+        int[][] grid1 = UtUtils.stringToInts2("[[1,1,1,0,0],[0,1,1,1,1],[0,0,0,0,0],[1,0,0,0,0],[1,1,0,1,1]]");
+        int[][] grid2 = UtUtils.stringToInts2("[[1,1,1,0,0],[0,0,1,1,1],[0,1,0,0,0],[1,0,1,1,0],[0,1,0,1,0]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution1905.countSubIslands(grid1, grid2));
     }
 
     @Test
     public void example2() {
-        int[][] grid1 = {{1, 0, 1, 0, 1}, {1, 1, 1, 1, 1}, {0, 0, 0, 0, 0}, {1, 1, 1, 1, 1}, {1, 0, 1, 0, 1}};
-        int[][] grid2 = {{0, 0, 0, 0, 0}, {1, 1, 1, 1, 1}, {0, 1, 0, 1, 0}, {0, 1, 0, 1, 0}, {1, 0, 0, 0, 1}};
+        int[][] grid1 = UtUtils.stringToInts2("[[1,0,1,0,1],[1,1,1,1,1],[0,0,0,0,0],[1,1,1,1,1],[1,0,1,0,1]]");
+        int[][] grid2 = UtUtils.stringToInts2("[[0,0,0,0,0],[1,1,1,1,1],[0,1,0,1,0],[0,1,0,1,0],[1,0,0,0,1]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1905.countSubIslands(grid1, grid2));
     }

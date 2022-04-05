@@ -6,21 +6,21 @@ public class Solution1631Tests {
 
     @Test
     public void example1() {
-        int[][] heights = {{1, 2, 2}, {3, 8, 2}, {5, 3, 5}};
+        int[][] heights = UtUtils.stringToInts2("[[1,2,2],[3,8,2],[5,3,5]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1631.minimumEffortPath(heights));
     }
 
     @Test
     public void example2() {
-        int[][] heights = {{1, 2, 3}, {3, 8, 4}, {5, 3, 5}};
+        int[][] heights = UtUtils.stringToInts2("[[1,2,3],[3,8,4],[5,3,5]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution1631.minimumEffortPath(heights));
     }
 
     @Test
     public void example3() {
-        int[][] heights = {{1, 2, 1, 1, 1}, {1, 2, 1, 2, 1}, {1, 2, 1, 2, 1}, {1, 2, 1, 2, 1}, {1, 1, 1, 2, 1}};
+        int[][] heights = UtUtils.stringToInts2("[[1,2,1,1,1],[1,2,1,2,1],[1,2,1,2,1],[1,2,1,2,1],[1,1,1,2,1]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution1631.minimumEffortPath(heights));
     }

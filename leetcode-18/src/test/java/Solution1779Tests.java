@@ -8,7 +8,7 @@ public class Solution1779Tests {
     public void example1() {
         int x = 3;
         int y = 4;
-        int[][] points = {{1, 2}, {3, 1}, {2, 4}, {2, 3}, {4, 4}};
+        int[][] points = UtUtils.stringToInts2("[[1,2],[3,1],[2,4],[2,3],[4,4]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1779.nearestValidPoint(x, y, points));
     }
@@ -17,7 +17,7 @@ public class Solution1779Tests {
     public void example2() {
         int x = 3;
         int y = 4;
-        int[][] points = {{3, 4}};
+        int[][] points = UtUtils.stringToInts2("[[3,4]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution1779.nearestValidPoint(x, y, points));
     }
@@ -26,7 +26,7 @@ public class Solution1779Tests {
     public void example3() {
         int x = 3;
         int y = 4;
-        int[][] points = {{2, 3}};
+        int[][] points = UtUtils.stringToInts2("[[2,3]]");
         int expected = -1;
         Assertions.assertEquals(expected, solution1779.nearestValidPoint(x, y, points));
     }

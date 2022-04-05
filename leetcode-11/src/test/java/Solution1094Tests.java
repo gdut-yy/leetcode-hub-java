@@ -6,14 +6,14 @@ public class Solution1094Tests {
 
     @Test
     public void example1() {
-        int[][] trips = {{2, 1, 5}, {3, 3, 7}};
+        int[][] trips = UtUtils.stringToInts2("[[2,1,5],[3,3,7]]");
         int capacity = 4;
         Assertions.assertFalse(solution1094.carPooling(trips, capacity));
     }
 
     @Test
     public void example2() {
-        int[][] trips = {{2, 1, 5}, {3, 3, 7}};
+        int[][] trips = UtUtils.stringToInts2("[[2,1,5],[3,3,7]]");
         int capacity = 5;
         Assertions.assertTrue(solution1094.carPooling(trips, capacity));
     }

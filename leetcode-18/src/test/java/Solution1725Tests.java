@@ -6,14 +6,14 @@ public class Solution1725Tests {
 
     @Test
     public void example1() {
-        int[][] rectangles = {{5, 8}, {3, 9}, {5, 12}, {16, 5}};
+        int[][] rectangles = UtUtils.stringToInts2("[[5,8],[3,9],[5,12],[16,5]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution1725.countGoodRectangles(rectangles));
     }
 
     @Test
     public void example2() {
-        int[][] rectangles = {{2, 3}, {3, 7}, {4, 3}, {3, 7}};
+        int[][] rectangles = UtUtils.stringToInts2("[[2,3],[3,7],[4,3],[3,7]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution1725.countGoodRectangles(rectangles));
     }

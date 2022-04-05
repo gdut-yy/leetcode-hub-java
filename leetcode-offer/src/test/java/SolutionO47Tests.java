@@ -6,7 +6,7 @@ public class SolutionO47Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,3,1],[1,5,1],[4,2,1]]");
         int expected = 12;
         Assertions.assertEquals(expected, solutionO47.maxValue(grid));
     }

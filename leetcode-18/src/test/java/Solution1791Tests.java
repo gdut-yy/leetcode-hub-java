@@ -6,14 +6,14 @@ public class Solution1791Tests {
 
     @Test
     public void example1() {
-        int[][] edges = {{1, 2}, {2, 3}, {4, 2}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2],[2,3],[4,2]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1791.findCenter(edges));
     }
 
     @Test
     public void example2() {
-        int[][] edges = {{1, 2}, {5, 1}, {1, 3}, {1, 4}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2],[5,1],[1,3],[1,4]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution1791.findCenter(edges));
     }

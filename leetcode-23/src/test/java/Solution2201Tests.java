@@ -7,8 +7,8 @@ public class Solution2201Tests {
     @Test
     public void example1() {
         int n = 2;
-        int[][] artifacts = {{0, 0, 0, 0}, {0, 1, 1, 1}};
-        int[][] dig = {{0, 0}, {0, 1}};
+        int[][] artifacts = UtUtils.stringToInts2("[[0,0,0,0],[0,1,1,1]]");
+        int[][] dig = UtUtils.stringToInts2("[[0,0],[0,1]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution2201.digArtifacts(n, artifacts, dig));
     }
@@ -16,8 +16,8 @@ public class Solution2201Tests {
     @Test
     public void example2() {
         int n = 2;
-        int[][] artifacts = {{0, 0, 0, 0}, {0, 1, 1, 1}};
-        int[][] dig = {{0, 0}, {0, 1}, {1, 1}};
+        int[][] artifacts = UtUtils.stringToInts2("[[0,0,0,0],[0,1,1,1]]");
+        int[][] dig = UtUtils.stringToInts2("[[0,0],[0,1],[1,1]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution2201.digArtifacts(n, artifacts, dig));
     }

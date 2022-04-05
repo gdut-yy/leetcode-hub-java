@@ -7,14 +7,14 @@ public class SolutionO57_2Tests {
     @Test
     public void example1() {
         int target = 9;
-        int[][] expected = {{2, 3, 4}, {4, 5}};
+        int[][] expected = UtUtils.stringToInts2("[[2,3,4],[4,5]]");
         Assertions.assertArrayEquals(expected, solutionO57_2.findContinuousSequence(target));
     }
 
     @Test
     public void example2() {
         int target = 15;
-        int[][] expected = {{1, 2, 3, 4, 5}, {4, 5, 6}, {7, 8}};
+        int[][] expected = UtUtils.stringToInts2("[[1,2,3,4,5],[4,5,6],[7,8]]");
         Assertions.assertArrayEquals(expected, solutionO57_2.findContinuousSequence(target));
     }
 }

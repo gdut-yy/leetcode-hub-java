@@ -6,14 +6,14 @@ public class Yinlian004Tests {
 
     @Test
     public void example1() {
-        int[][] skills = {{1, 2, 3}, {3}, {2, 4}};
+        int[][] skills = UtUtils.stringToInts2("[[1,2,3],[3],[2,4]]");
         int expected = 2;
         Assertions.assertEquals(expected, yinlian004.coopDevelop(skills));
     }
 
     @Test
     public void example2() {
-        int[][] skills = {{3}, {6}};
+        int[][] skills = UtUtils.stringToInts2("[[3],[6]]");
         int expected = 1;
         Assertions.assertEquals(expected, yinlian004.coopDevelop(skills));
     }

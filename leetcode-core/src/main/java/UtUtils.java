@@ -101,6 +101,16 @@ public class UtUtils {
         return resList;
     }
 
+    // String => List<List<Long>>
+    public static List<List<Long>> stringToLongList2(String input) {
+        List<String> list = JSON.parseArray(input, String.class);
+        List<List<Long>> resList = new ArrayList<>();
+        for (String str : list) {
+            resList.add(JSON.parseArray(str, Long.class));
+        }
+        return resList;
+    }
+
     // String => List<List<String>>
     public static List<List<String>> stringToStringList2(String input) {
         List<String> list = JSON.parseArray(input, String.class);

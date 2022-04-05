@@ -8,7 +8,7 @@ public class Solution1168Tests {
     public void example1() {
         int n = 3;
         int[] wells = {1, 2, 2};
-        int[][] pipes = {{1, 2, 1}, {2, 3, 1}};
+        int[][] pipes = UtUtils.stringToInts2("[[1,2,1],[2,3,1]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution1168.minCostToSupplyWater(n, wells, pipes));
     }
@@ -17,7 +17,7 @@ public class Solution1168Tests {
     public void example2() {
         int n = 2;
         int[] wells = {1, 1};
-        int[][] pipes = {{1, 2, 1}};
+        int[][] pipes = UtUtils.stringToInts2("[[1,2,1]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1168.minCostToSupplyWater(n, wells, pipes));
     }

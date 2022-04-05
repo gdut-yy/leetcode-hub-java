@@ -6,7 +6,7 @@ public class Solution2070Tests {
 
     @Test
     public void example1() {
-        int[][] items = {{1, 2}, {3, 2}, {2, 4}, {5, 6}, {3, 5}};
+        int[][] items = UtUtils.stringToInts2("[[1,2],[3,2],[2,4],[5,6],[3,5]]");
         int[] queries = {1, 2, 3, 4, 5, 6};
         int[] expected = {2, 4, 5, 5, 6, 6};
         Assertions.assertArrayEquals(expected, solution2070.maximumBeauty(items, queries));
@@ -14,7 +14,7 @@ public class Solution2070Tests {
 
     @Test
     public void example2() {
-        int[][] items = {{1, 2}, {1, 2}, {1, 3}, {1, 4}};
+        int[][] items = UtUtils.stringToInts2("[[1,2],[1,2],[1,3],[1,4]]");
         int[] queries = {1};
         int[] expected = {4};
         Assertions.assertArrayEquals(expected, solution2070.maximumBeauty(items, queries));
@@ -22,7 +22,7 @@ public class Solution2070Tests {
 
     @Test
     public void example3() {
-        int[][] items = {{10, 1000}};
+        int[][] items = UtUtils.stringToInts2("[[10,1000]]");
         int[] queries = {5};
         int[] expected = {0};
         Assertions.assertArrayEquals(expected, solution2070.maximumBeauty(items, queries));

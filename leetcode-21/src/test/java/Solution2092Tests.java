@@ -9,7 +9,7 @@ public class Solution2092Tests {
     @Test
     public void example1() {
         int n = 6;
-        int[][] meetings = {{1, 2, 5}, {2, 3, 8}, {1, 5, 10}};
+        int[][] meetings = UtUtils.stringToInts2("[[1,2,5],[2,3,8],[1,5,10]]");
         int firstPerson = 1;
         List<Integer> expected = List.of(0, 1, 2, 3, 5);
         Assertions.assertEquals(expected, solution2092.findAllPeople(n, meetings, firstPerson));
@@ -18,7 +18,7 @@ public class Solution2092Tests {
     @Test
     public void example2() {
         int n = 4;
-        int[][] meetings = {{3, 1, 3}, {1, 2, 2}, {0, 3, 3}};
+        int[][] meetings = UtUtils.stringToInts2("[[3,1,3],[1,2,2],[0,3,3]]");
         int firstPerson = 3;
         List<Integer> expected = List.of(0, 1, 3);
         Assertions.assertEquals(expected, solution2092.findAllPeople(n, meetings, firstPerson));
@@ -27,7 +27,7 @@ public class Solution2092Tests {
     @Test
     public void example3() {
         int n = 5;
-        int[][] meetings = {{3, 4, 2}, {1, 2, 1}, {2, 3, 1}};
+        int[][] meetings = UtUtils.stringToInts2("[[3,4,2],[1,2,1],[2,3,1]]");
         int firstPerson = 1;
         List<Integer> expected = List.of(0, 1, 2, 3, 4);
         Assertions.assertEquals(expected, solution2092.findAllPeople(n, meetings, firstPerson));
@@ -45,6 +45,7 @@ public class Solution2092Tests {
     // 补充用例
     @Test
     public void example5() {
+        // https://leetcode-cn.com/submissions/detail/243033801/
         // 36 / 42 个通过测试用例
         String fileName = "solution2092-example5-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);
@@ -56,6 +57,7 @@ public class Solution2092Tests {
 
     @Test
     public void example6() {
+        // https://leetcode-cn.com/submissions/detail/243018808/
         // 38 / 42 个通过测试用例
         String fileName = "solution2092-example6-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);
@@ -67,6 +69,7 @@ public class Solution2092Tests {
 
     @Test
     public void example7() {
+        // https://leetcode-cn.com/submissions/detail/243032958/
         // 39.40 / 42 个通过测试用例
         String fileName = "solution2092-example7-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);

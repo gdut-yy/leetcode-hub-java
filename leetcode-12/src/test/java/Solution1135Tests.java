@@ -7,7 +7,7 @@ public class Solution1135Tests {
     @Test
     public void example1() {
         int n = 3;
-        int[][] connections = {{1, 2, 5}, {1, 3, 6}, {2, 3, 1}};
+        int[][] connections = UtUtils.stringToInts2("[[1,2,5],[1,3,6],[2,3,1]]");
         int expected = 6;
         Assertions.assertEquals(expected, solution1135.minimumCost(n, connections));
     }
@@ -15,7 +15,7 @@ public class Solution1135Tests {
     @Test
     public void example2() {
         int n = 4;
-        int[][] connections = {{1, 2, 3}, {3, 4, 4}};
+        int[][] connections = UtUtils.stringToInts2("[[1,2,3],[3,4,4]]");
         int expected = -1;
         Assertions.assertEquals(expected, solution1135.minimumCost(n, connections));
     }

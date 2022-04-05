@@ -56,6 +56,12 @@ https://leetcode-cn.com/problems/map-of-highest-peak/
 - 任意相邻的格子高度差 至多 为 1 。当两个格子在正东、南、西、北方向上相互紧挨着，就称它们为相邻的格子。（也就是说它们有一条公共边）
 找到一种安排高度的方案，使得矩阵中的最高高度值 最大 。
 请你返回一个大小为 m x n 的整数矩阵 height ，其中 height[i][j] 是格子 (i, j) 的高度。如果有多种解法，请返回 任意一个 。
+提示：
+m == isWater.length
+n == isWater[i].length
+1 <= m, n <= 1000
+isWater[i][j] 要么是 0 ，要么是 1 。
+至少有 1 个水域格子。
 
 标准 BFS
  */

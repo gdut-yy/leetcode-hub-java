@@ -6,13 +6,13 @@ public class Solution1232Tests {
 
     @Test
     public void example1() {
-        int[][] coordinates = {{1, 2}, {2, 3}, {3, 4}, {4, 5}, {5, 6}, {6, 7}};
+        int[][] coordinates = UtUtils.stringToInts2("[[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]");
         Assertions.assertTrue(solution1232.checkStraightLine(coordinates));
     }
 
     @Test
     public void example2() {
-        int[][] coordinates = {{1, 1}, {2, 2}, {3, 4}, {4, 5}, {5, 6}, {7, 7}};
+        int[][] coordinates = UtUtils.stringToInts2("[[1,1],[2,2],[3,4],[4,5],[5,6],[7,7]]");
         Assertions.assertFalse(solution1232.checkStraightLine(coordinates));
     }
 }

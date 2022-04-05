@@ -6,7 +6,7 @@ public class Solution1942Tests {
 
     @Test
     public void example1() {
-        int[][] times = {{1, 4}, {2, 3}, {4, 6}};
+        int[][] times = UtUtils.stringToInts2("[[1,4],[2,3],[4,6]]");
         int targetFriend = 1;
         int expected = 1;
         Assertions.assertEquals(expected, solution1942.smallestChair(times, targetFriend));
@@ -14,7 +14,7 @@ public class Solution1942Tests {
 
     @Test
     public void example2() {
-        int[][] times = {{3, 10}, {1, 5}, {2, 6}};
+        int[][] times = UtUtils.stringToInts2("[[3,10],[1,5],[2,6]]");
         int targetFriend = 0;
         int expected = 2;
         Assertions.assertEquals(expected, solution1942.smallestChair(times, targetFriend));

@@ -8,7 +8,7 @@ public class Solution1065Tests {
     public void example1() {
         String text = "thestoryofleetcodeandme";
         String[] words = {"story", "fleet", "leetcode"};
-        int[][] expected = {{3, 7}, {9, 13}, {10, 17}};
+        int[][] expected = UtUtils.stringToInts2("[[3,7],[9,13],[10,17]]");
         Assertions.assertArrayEquals(expected, solution1065.indexPairs(text, words));
     }
 
@@ -16,7 +16,7 @@ public class Solution1065Tests {
     public void example2() {
         String text = "ababa";
         String[] words = {"aba", "ab"};
-        int[][] expected = {{0, 1}, {0, 2}, {2, 3}, {2, 4}};
+        int[][] expected = UtUtils.stringToInts2("[[0,1],[0,2],[2,3],[2,4]]");
         Assertions.assertArrayEquals(expected, solution1065.indexPairs(text, words));
     }
 }

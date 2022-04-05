@@ -6,7 +6,7 @@ public class Solution2188Tests {
 
     @Test
     public void example1() {
-        int[][] tires = {{2, 3}, {3, 4}};
+        int[][] tires = UtUtils.stringToInts2("[[2,3],[3,4]]");
         int changeTime = 5;
         int numLaps = 4;
         int expected = 21;
@@ -15,7 +15,7 @@ public class Solution2188Tests {
 
     @Test
     public void example2() {
-        int[][] tires = {{1, 10}, {2, 2}, {3, 4}};
+        int[][] tires = UtUtils.stringToInts2("[[1,10],[2,2],[3,4]]");
         int changeTime = 6;
         int numLaps = 5;
         int expected = 25;

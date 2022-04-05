@@ -6,7 +6,7 @@ public class Solution1036Tests {
 
     @Test
     public void example1() {
-        int[][] blocked = {{0, 1}, {1, 0}};
+        int[][] blocked = UtUtils.stringToInts2("[[0,1],[1,0]]");
         int[] source = {0, 0};
         int[] target = {0, 2};
         Assertions.assertFalse(solution1036.isEscapePossible(blocked, source, target));
@@ -14,7 +14,7 @@ public class Solution1036Tests {
 
     @Test
     public void example2() {
-        int[][] blocked = {};
+        int[][] blocked = UtUtils.stringToInts2("[]");
         int[] source = {0, 0};
         int[] target = {999999, 999999};
         Assertions.assertTrue(solution1036.isEscapePossible(blocked, source, target));
@@ -23,7 +23,8 @@ public class Solution1036Tests {
     // 补充用例
     @Test
     public void example3() {
-        int[][] blocked = {{10, 9}, {9, 10}, {10, 11}, {11, 10}};
+        // https://leetcode-cn.com/submissions/detail/246094265/
+        int[][] blocked = UtUtils.stringToInts2("[[10,9],[9,10],[10,11],[11,10]]");
         int[] source = {0, 0};
         int[] target = {10, 10};
         Assertions.assertFalse(solution1036.isEscapePossible(blocked, source, target));

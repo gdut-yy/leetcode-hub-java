@@ -43,6 +43,13 @@ https://leetcode-cn.com/problems/the-number-of-the-smallest-unoccupied-chair/
 给你一个下标从 0 开始的二维整数数组 times ，其中 times[i] = [arrivali, leavingi] 表示第 i 个朋友到达和离开的时刻，
 同时给你一个整数 targetFriend 。所有到达时间 互不相同 。
 请你返回编号为 targetFriend 的朋友占据的 椅子编号 。
+提示：
+n == times.length
+2 <= n <= 10^4
+times[i].length == 2
+1 <= arrivali < leavingi <= 10^5
+0 <= targetFriend <= n - 1
+每个 arrivali 时刻 互不相同 。
 
 1 <= arrivali < leavingi <= 10^5
 暴力时间复杂度达 O(n^2) 使用 BitSet 进行模拟可以 AC

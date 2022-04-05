@@ -8,7 +8,7 @@ public class Jianxin003Tests {
 
     @Test
     public void example1() {
-        int[][] lines = {{1, 2, 3, 4, 5}, {2, 10, 14, 15, 16}, {10, 8, 12, 13}, {7, 8, 4, 9, 11}};
+        int[][] lines = UtUtils.stringToInts2("[[1,2,3,4,5],[2,10,14,15,16],[10,8,12,13],[7,8,4,9,11]]");
         int start = 1;
         int end = 7;
         int[] expected = {1, 2, 3, 4, 8, 7};
@@ -18,7 +18,7 @@ public class Jianxin003Tests {
 
     @Test
     public void example2() {
-        int[][] lines = {{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11}, {12, 13, 2, 14, 8, 15}, {16, 1, 17, 10, 18}};
+        int[][] lines = UtUtils.stringToInts2("[[1,2,3,4,5,6,7,8,9,10,11],[12,13,2,14,8,15],[16,1,17,10,18]]");
         int start = 9;
         int end = 1;
         int[] expected = {9, 8, 7, 6, 5, 4, 3, 2, 1};

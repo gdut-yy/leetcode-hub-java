@@ -7,8 +7,8 @@ public class Solution2076Tests {
     @Test
     public void example1() {
         int n = 3;
-        int[][] restrictions = {{0, 1}};
-        int[][] requests = {{0, 2}, {2, 1}};
+        int[][] restrictions = UtUtils.stringToInts2("[[0,1]]");
+        int[][] requests = UtUtils.stringToInts2("[[0,2],[2,1]]");
         boolean[] expected = {true, false};
         Assertions.assertArrayEquals(expected, solution2076.friendRequests(n, restrictions, requests));
     }
@@ -16,8 +16,8 @@ public class Solution2076Tests {
     @Test
     public void example2() {
         int n = 3;
-        int[][] restrictions = {{0, 1}};
-        int[][] requests = {{1, 2}, {0, 2}};
+        int[][] restrictions = UtUtils.stringToInts2("[[0,1]]");
+        int[][] requests = UtUtils.stringToInts2("[[1,2],[0,2]]");
         boolean[] expected = {true, false};
         Assertions.assertArrayEquals(expected, solution2076.friendRequests(n, restrictions, requests));
     }
@@ -25,8 +25,8 @@ public class Solution2076Tests {
     @Test
     public void example3() {
         int n = 5;
-        int[][] restrictions = {{0, 1}, {1, 2}, {2, 3}};
-        int[][] requests = {{0, 4}, {1, 2}, {3, 1}, {3, 4}};
+        int[][] restrictions = UtUtils.stringToInts2("[[0,1],[1,2],[2,3]]");
+        int[][] requests = UtUtils.stringToInts2("[[0,4],[1,2],[3,1],[3,4]]");
         boolean[] expected = {true, false, true, false};
         Assertions.assertArrayEquals(expected, solution2076.friendRequests(n, restrictions, requests));
     }

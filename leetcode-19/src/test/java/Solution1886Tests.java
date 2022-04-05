@@ -6,22 +6,22 @@ public class Solution1886Tests {
 
     @Test
     public void example1() {
-        int[][] mat = {{0, 1}, {1, 0}};
-        int[][] target = {{1, 0}, {0, 1}};
+        int[][] mat = UtUtils.stringToInts2("[[0,1],[1,0]]");
+        int[][] target = UtUtils.stringToInts2("[[1,0],[0,1]]");
         Assertions.assertTrue(solution1886.findRotation(mat, target));
     }
 
     @Test
     public void example2() {
-        int[][] mat = {{0, 1}, {1, 1}};
-        int[][] target = {{1, 0}, {0, 1}};
+        int[][] mat = UtUtils.stringToInts2("[[0,1],[1,1]]");
+        int[][] target = UtUtils.stringToInts2("[[1,0],[0,1]]");
         Assertions.assertFalse(solution1886.findRotation(mat, target));
     }
 
     @Test
     public void example3() {
-        int[][] mat = {{0, 0, 0}, {0, 1, 0}, {1, 1, 1}};
-        int[][] target = {{1, 1, 1}, {0, 1, 0}, {0, 0, 0}};
+        int[][] mat = UtUtils.stringToInts2("[[0,0,0],[0,1,0],[1,1,1]]");
+        int[][] target = UtUtils.stringToInts2("[[1,1,1],[0,1,0],[0,0,0]]");
         Assertions.assertTrue(solution1886.findRotation(mat, target));
     }
 }

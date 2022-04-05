@@ -6,7 +6,7 @@ public class Solution2132Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{1, 0, 0, 0}, {1, 0, 0, 0}, {1, 0, 0, 0}, {1, 0, 0, 0}, {1, 0, 0, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0],[1,0,0,0]]");
         int stampHeight = 4;
         int stampWidth = 3;
         Assertions.assertTrue(solution2132.possibleToStamp(grid, stampHeight, stampWidth));
@@ -14,7 +14,7 @@ public class Solution2132Tests {
 
     @Test
     public void example2() {
-        int[][] grid = {{1, 0, 0, 0}, {0, 1, 0, 0}, {0, 0, 1, 0}, {0, 0, 0, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0,0,0],[0,1,0,0],[0,0,1,0],[0,0,0,1]]");
         int stampHeight = 2;
         int stampWidth = 2;
         Assertions.assertFalse(solution2132.possibleToStamp(grid, stampHeight, stampWidth));

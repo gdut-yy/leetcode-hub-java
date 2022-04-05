@@ -6,22 +6,22 @@ public class Solution2097Tests {
 
     @Test
     public void example1() {
-        int[][] pairs = {{5, 1}, {4, 5}, {11, 9}, {9, 4}};
-        int[][] expected = {{11, 9}, {9, 4}, {4, 5}, {5, 1}};
+        int[][] pairs = UtUtils.stringToInts2("[[5,1],[4,5],[11,9],[9,4]]");
+        int[][] expected = UtUtils.stringToInts2("[[11,9],[9,4],[4,5],[5,1]]");
         Assertions.assertArrayEquals(expected, solution2097.validArrangement(pairs));
     }
 
     @Test
     public void example2() {
-        int[][] pairs = {{1, 3}, {3, 2}, {2, 1}};
-        int[][] expected = {{1, 3}, {3, 2}, {2, 1}};
+        int[][] pairs = UtUtils.stringToInts2("[[1,3],[3,2],[2,1]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,3],[3,2],[2,1]]");
         Assertions.assertArrayEquals(expected, solution2097.validArrangement(pairs));
     }
 
     @Test
     public void example3() {
-        int[][] pairs = {{1, 2}, {1, 3}, {2, 1}};
-        int[][] expected = {{1, 2}, {2, 1}, {1, 3}};
+        int[][] pairs = UtUtils.stringToInts2("[[1,2],[1,3],[2,1]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,2],[2,1],[1,3]]");
         Assertions.assertArrayEquals(expected, solution2097.validArrangement(pairs));
     }
 }

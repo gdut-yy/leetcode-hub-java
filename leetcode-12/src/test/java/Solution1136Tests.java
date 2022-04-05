@@ -7,7 +7,7 @@ public class Solution1136Tests {
     @Test
     public void example1() {
         int n = 3;
-        int[][] relations = {{1, 3}, {2, 3}};
+        int[][] relations = UtUtils.stringToInts2("[[1,3],[2,3]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1136.minimumSemesters(n, relations));
     }
@@ -15,7 +15,7 @@ public class Solution1136Tests {
     @Test
     public void example2() {
         int n = 3;
-        int[][] relations = {{1, 2}, {2, 3}, {3, 1}};
+        int[][] relations = UtUtils.stringToInts2("[[1,2],[2,3],[3,1]]");
         int expected = -1;
         Assertions.assertEquals(expected, solution1136.minimumSemesters(n, relations));
     }

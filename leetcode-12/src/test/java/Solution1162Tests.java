@@ -6,14 +6,14 @@ public class Solution1162Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{1, 0, 1}, {0, 0, 0}, {1, 0, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0,1],[0,0,0],[1,0,1]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution1162.maxDistance(grid));
     }
 
     @Test
     public void example2() {
-        int[][] grid = {{1, 0, 0}, {0, 0, 0}, {0, 0, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0,0],[0,0,0],[0,0,0]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution1162.maxDistance(grid));
     }

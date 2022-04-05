@@ -9,21 +9,21 @@ public class Solution1380Tests {
 
     @Test
     public void example1() {
-        int[][] matrix = {{3, 7, 8}, {9, 11, 13}, {15, 16, 17}};
+        int[][] matrix = UtUtils.stringToInts2("[[3,7,8],[9,11,13],[15,16,17]]");
         List<Integer> expected = Arrays.asList(15);
         Assertions.assertEquals(expected, solution1380.luckyNumbers(matrix));
     }
 
     @Test
     public void example2() {
-        int[][] matrix = {{1, 10, 4, 2}, {9, 3, 8, 7}, {15, 16, 17, 12}};
+        int[][] matrix = UtUtils.stringToInts2("[[1,10,4,2],[9,3,8,7],[15,16,17,12]]");
         List<Integer> expected = Arrays.asList(12);
         Assertions.assertEquals(expected, solution1380.luckyNumbers(matrix));
     }
 
     @Test
     public void example3() {
-        int[][] matrix = {{7, 8}, {1, 2}};
+        int[][] matrix = UtUtils.stringToInts2("[[7,8],[1,2]]");
         List<Integer> expected = Arrays.asList(7);
         Assertions.assertEquals(expected, solution1380.luckyNumbers(matrix));
     }

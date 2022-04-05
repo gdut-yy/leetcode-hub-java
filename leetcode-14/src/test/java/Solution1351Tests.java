@@ -6,14 +6,14 @@ public class Solution1351Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{4, 3, 2, -1}, {3, 2, 1, -1}, {1, 1, -1, -2}, {-1, -1, -2, -3}};
+        int[][] grid = UtUtils.stringToInts2("[[4,3,2,-1],[3,2,1,-1],[1,1,-1,-2],[-1,-1,-2,-3]]");
         int expected = 8;
         Assertions.assertEquals(expected, solution1351.countNegatives(grid));
     }
 
     @Test
     public void example2() {
-        int[][] grid = {{3, 2}, {1, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[3,2],[1,0]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution1351.countNegatives(grid));
     }

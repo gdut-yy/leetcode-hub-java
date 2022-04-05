@@ -56,6 +56,12 @@ https://leetcode-cn.com/problems/describe-the-painting/
   - [4,7) 由颜色 {7} 组成，来自第二个线段。
 请你返回二维数组 painting ，它表示最终绘画的结果（没有 被涂色的部分不出现在结果中）。你可以按 任意顺序 返回最终数组的结果。
 半开区间 [a, b) 是数轴上点 a 和点 b 之间的部分，包含 点 a 且 不包含 点 b 。
+提示：
+1 <= segments.length <= 2 * 10^4
+segments[i].length == 3
+1 <= starti < endi <= 10^5
+1 <= colori <= 10^9
+每种颜色 colori 互不相同。
 
 注意 每种颜色 colori 互不相同。避免了诸如 5+7 和 7+5 合并的尴尬局面。
 官方题解。差分 + 前缀和

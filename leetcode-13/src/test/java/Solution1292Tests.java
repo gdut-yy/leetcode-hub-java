@@ -6,7 +6,7 @@ public class Solution1292Tests {
 
     @Test
     public void example1() {
-        int[][] mat = {{1, 1, 3, 2, 4, 3, 2}, {1, 1, 3, 2, 4, 3, 2}, {1, 1, 3, 2, 4, 3, 2}};
+        int[][] mat = UtUtils.stringToInts2("[[1,1,3,2,4,3,2],[1,1,3,2,4,3,2],[1,1,3,2,4,3,2]]");
         int threshold = 4;
         int expected = 2;
         Assertions.assertEquals(expected, solution1292.maxSideLength(mat, threshold));
@@ -14,7 +14,7 @@ public class Solution1292Tests {
 
     @Test
     public void example2() {
-        int[][] mat = {{2, 2, 2, 2, 2}, {2, 2, 2, 2, 2}, {2, 2, 2, 2, 2}, {2, 2, 2, 2, 2}, {2, 2, 2, 2, 2}};
+        int[][] mat = UtUtils.stringToInts2("[[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2],[2,2,2,2,2]]");
         int threshold = 1;
         int expected = 0;
         Assertions.assertEquals(expected, solution1292.maxSideLength(mat, threshold));

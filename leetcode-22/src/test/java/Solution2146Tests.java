@@ -8,7 +8,7 @@ public class Solution2146Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{1, 2, 0, 1}, {1, 3, 0, 1}, {0, 2, 5, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,2,0,1],[1,3,0,1],[0,2,5,1]]");
         int[] pricing = {2, 5};
         int[] start = {0, 0};
         int k = 3;
@@ -18,7 +18,7 @@ public class Solution2146Tests {
 
     @Test
     public void example2() {
-        int[][] grid = {{1, 2, 0, 1}, {1, 3, 3, 1}, {0, 2, 5, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,2,0,1],[1,3,3,1],[0,2,5,1]]");
         int[] pricing = {2, 3};
         int[] start = {2, 3};
         int k = 2;
@@ -28,7 +28,7 @@ public class Solution2146Tests {
 
     @Test
     public void example3() {
-        int[][] grid = {{1, 1, 1}, {0, 0, 1}, {2, 3, 4}};
+        int[][] grid = UtUtils.stringToInts2("[[1,1,1],[0,0,1],[2,3,4]]");
         int[] pricing = {2, 3};
         int[] start = {0, 0};
         int k = 3;

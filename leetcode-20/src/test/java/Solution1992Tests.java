@@ -6,22 +6,22 @@ public class Solution1992Tests {
 
     @Test
     public void example1() {
-        int[][] land = {{1, 0, 0}, {0, 1, 1}, {0, 1, 1}};
-        int[][] expected = {{0, 0, 0, 0}, {1, 1, 2, 2}};
+        int[][] land = UtUtils.stringToInts2("[[1,0,0],[0,1,1],[0,1,1]]");
+        int[][] expected = UtUtils.stringToInts2("[[0,0,0,0],[1,1,2,2]]");
         Assertions.assertArrayEquals(expected, solution1992.findFarmland(land));
     }
 
     @Test
     public void example2() {
-        int[][] land = {{1, 1}, {1, 1}};
-        int[][] expected = {{0, 0, 1, 1}};
+        int[][] land = UtUtils.stringToInts2("[[1,1],[1,1]]");
+        int[][] expected = UtUtils.stringToInts2("[[0,0,1,1]]");
         Assertions.assertArrayEquals(expected, solution1992.findFarmland(land));
     }
 
     @Test
     public void example3() {
-        int[][] land = {{0}};
-        int[][] expected = {};
+        int[][] land = UtUtils.stringToInts2("[[0]]");
+        int[][] expected = UtUtils.stringToInts2("[]");
         Assertions.assertArrayEquals(expected, solution1992.findFarmland(land));
     }
 }

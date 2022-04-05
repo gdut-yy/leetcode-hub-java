@@ -6,11 +6,11 @@ public class SolutionI0810Tests {
 
     @Test
     public void example1() {
-        int[][] image = {{1, 1, 1}, {1, 1, 0}, {1, 0, 1}};
+        int[][] image = UtUtils.stringToInts2("[[1,1,1],[1,1,0],[1,0,1]]");
         int sr = 1;
         int sc = 1;
         int newColor = 2;
-        int[][] expected = {{2, 2, 2}, {2, 2, 0}, {2, 0, 1}};
+        int[][] expected = UtUtils.stringToInts2("[[2,2,2],[2,2,0],[2,0,1]]");
         Assertions.assertArrayEquals(expected, solutionI0810.floodFill(image, sr, sc, newColor));
     }
 }

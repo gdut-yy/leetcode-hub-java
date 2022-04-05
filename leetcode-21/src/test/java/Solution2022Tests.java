@@ -8,7 +8,7 @@ public class Solution2022Tests {
     public void example1() {
         int[] original = {1, 2, 3, 4};
         int m = 2, n = 2;
-        int[][] expected = {{1, 2}, {3, 4}};
+        int[][] expected = UtUtils.stringToInts2("[[1,2],[3,4]]");
         Assertions.assertArrayEquals(expected, solution2022.construct2DArray(original, m, n));
     }
 
@@ -16,7 +16,7 @@ public class Solution2022Tests {
     public void example2() {
         int[] original = {1, 2, 3};
         int m = 1, n = 3;
-        int[][] expected = {{1, 2, 3}};
+        int[][] expected = UtUtils.stringToInts2("[[1,2,3]]");
         Assertions.assertArrayEquals(expected, solution2022.construct2DArray(original, m, n));
     }
 
@@ -24,7 +24,7 @@ public class Solution2022Tests {
     public void example3() {
         int[] original = {1, 2};
         int m = 1, n = 1;
-        int[][] expected = {};
+        int[][] expected = UtUtils.stringToInts2("[]");
         Assertions.assertArrayEquals(expected, solution2022.construct2DArray(original, m, n));
     }
 
@@ -32,7 +32,7 @@ public class Solution2022Tests {
     public void example4() {
         int[] original = {3};
         int m = 1, n = 2;
-        int[][] expected = {};
+        int[][] expected = UtUtils.stringToInts2("[]");
         Assertions.assertArrayEquals(expected, solution2022.construct2DArray(original, m, n));
     }
 }
