@@ -6,7 +6,7 @@ public class Solution743Tests {
 
     @Test
     public void example1() {
-        int[][] times = {{2, 1, 1}, {2, 3, 1}, {3, 4, 1}};
+        int[][] times = UtUtils.stringToInts2("[[2,1,1],[2,3,1],[3,4,1]]");
         int n = 4;
         int k = 2;
         int expected = 2;
@@ -16,7 +16,7 @@ public class Solution743Tests {
 
     @Test
     public void example2() {
-        int[][] times = {{1, 2, 1}};
+        int[][] times = UtUtils.stringToInts2("[[1,2,1]]");
         int n = 2;
         int k = 1;
         int expected = 1;
@@ -26,7 +26,7 @@ public class Solution743Tests {
 
     @Test
     public void example3() {
-        int[][] times = {{1, 2, 1}};
+        int[][] times = UtUtils.stringToInts2("[[1,2,1]]");
         int n = 2;
         int k = 2;
         int expected = -1;

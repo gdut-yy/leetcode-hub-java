@@ -13,11 +13,9 @@ public class Solution49Tests {
     @Test
     public void example1() {
         String[] strs = {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("bat"),
-                Arrays.asList("nat", "tan"),
-                Arrays.asList("ate", "eat", "tea")
-        );
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [["bat"],["nat","tan"],["ate","eat","tea"]]
+                """);
         List<List<String>> actual = solution49.groupAnagrams(strs);
         expected.sort(UtUtils.STRING_LIST_COMPARATOR);
         actual.sort(UtUtils.STRING_LIST_COMPARATOR);
@@ -27,9 +25,9 @@ public class Solution49Tests {
     @Test
     public void example2() {
         String[] strs = {""};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("")
-        );
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [[""]]
+                """);
         List<List<String>> actual = solution49.groupAnagrams(strs);
         expected.sort(UtUtils.STRING_LIST_COMPARATOR);
         actual.sort(UtUtils.STRING_LIST_COMPARATOR);
@@ -39,9 +37,9 @@ public class Solution49Tests {
     @Test
     public void example3() {
         String[] strs = {"a"};
-        List<List<String>> expected = Arrays.asList(
-                Arrays.asList("a")
-        );
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [["a"]]
+                """);
         List<List<String>> actual = solution49.groupAnagrams(strs);
         expected.sort(UtUtils.STRING_LIST_COMPARATOR);
         actual.sort(UtUtils.STRING_LIST_COMPARATOR);

@@ -8,8 +8,26 @@ public class Solution598Tests {
     public void example1() {
         int m = 3;
         int n = 3;
-        int[][] ops = {{2, 2}, {3, 3}};
+        int[][] ops = UtUtils.stringToInts2("[[2,2],[3,3]]");
         int expected = 4;
+        Assertions.assertEquals(expected, solution598.maxCount(m, n, ops));
+    }
+
+    @Test
+    public void example2() {
+        int m = 3;
+        int n = 3;
+        int[][] ops = UtUtils.stringToInts2("[[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3],[2,2],[3,3],[3,3],[3,3]]");
+        int expected = 4;
+        Assertions.assertEquals(expected, solution598.maxCount(m, n, ops));
+    }
+
+    @Test
+    public void example3() {
+        int m = 3;
+        int n = 3;
+        int[][] ops = UtUtils.stringToInts2("[]");
+        int expected = 9;
         Assertions.assertEquals(expected, solution598.maxCount(m, n, ops));
     }
 }

@@ -6,14 +6,18 @@ public class Solution419Tests {
 
     @Test
     public void example1() {
-        char[][] board = {{'X', '.', '.', 'X'}, {'.', '.', '.', 'X'}, {'.', '.', '.', 'X'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["X",".",".","X"],[".",".",".","X"],[".",".",".","X"]]
+                """);
         int expected = 2;
         Assertions.assertEquals(expected, solution419.countBattleships(board));
     }
 
     @Test
     public void example2() {
-        char[][] board = {{'.'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["."]]
+                """);
         int expected = 0;
         Assertions.assertEquals(expected, solution419.countBattleships(board));
     }

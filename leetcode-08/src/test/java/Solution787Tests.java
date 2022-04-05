@@ -7,7 +7,7 @@ public class Solution787Tests {
     @Test
     public void example1() {
         int n = 3;
-        int[][] flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
+        int[][] flights = UtUtils.stringToInts2("[[0,1,100],[1,2,100],[0,2,500]]");
         int src = 0;
         int dst = 2;
         int k = 1;
@@ -18,7 +18,7 @@ public class Solution787Tests {
     @Test
     public void example2() {
         int n = 3;
-        int[][] flights = {{0, 1, 100}, {1, 2, 100}, {0, 2, 500}};
+        int[][] flights = UtUtils.stringToInts2("[[0,1,100],[1,2,100],[0,2,500]]");
         int src = 0;
         int dst = 2;
         int k = 0;

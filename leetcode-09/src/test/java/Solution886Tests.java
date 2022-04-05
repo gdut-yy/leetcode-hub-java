@@ -7,21 +7,21 @@ public class Solution886Tests {
     @Test
     public void example1() {
         int n = 4;
-        int[][] dislikes = {{1, 2}, {1, 3}, {2, 4}};
+        int[][] dislikes = UtUtils.stringToInts2("[[1,2],[1,3],[2,4]]");
         Assertions.assertTrue(solution886.possibleBipartition(n, dislikes));
     }
 
     @Test
     public void example2() {
         int n = 3;
-        int[][] dislikes = {{1, 2}, {1, 3}, {2, 3}};
+        int[][] dislikes = UtUtils.stringToInts2("[[1,2],[1,3],[2,3]]");
         Assertions.assertFalse(solution886.possibleBipartition(n, dislikes));
     }
 
     @Test
     public void example3() {
         int n = 5;
-        int[][] dislikes = {{1, 2}, {2, 3}, {3, 4}, {4, 5}, {1, 5}};
+        int[][] dislikes = UtUtils.stringToInts2("[[1,2],[2,3],[3,4],[4,5],[1,5]]");
         Assertions.assertFalse(solution886.possibleBipartition(n, dislikes));
     }
 }

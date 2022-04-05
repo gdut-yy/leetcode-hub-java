@@ -9,14 +9,14 @@ public class Solution797Tests {
     @Test
     public void example1() {
         int[][] graph = {{1, 2}, {3}, {3}, {}};
-        List<List<Integer>> expected = List.of(List.of(0, 1, 3), List.of(0, 2, 3));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[0,1,3],[0,2,3]]");
         Assertions.assertEquals(expected, solution797.allPathsSourceTarget(graph));
     }
 
     @Test
     public void example2() {
         int[][] graph = {{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}};
-        List<List<Integer>> expected = List.of(List.of(0, 4), List.of(0, 3, 4), List.of(0, 1, 3, 4), List.of(0, 1, 2, 3, 4), List.of(0, 1, 4));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[0,4],[0,3,4],[0,1,3,4],[0,1,2,3,4],[0,1,4]]");
         Assertions.assertEquals(expected, solution797.allPathsSourceTarget(graph));
     }
 

@@ -10,8 +10,9 @@ public class Solution737Tests {
     public void example1() {
         String[] sentence1 = {"great", "acting", "skills"};
         String[] sentence2 = {"fine", "drama", "talent"};
-        List<List<String>> similarPairs = List.of(List.of("great", "good"), List.of("fine", "good"),
-                List.of("drama", "acting"), List.of("skills", "talent"));
+        List<List<String>> similarPairs = UtUtils.stringToStringList2("""
+                [["great","good"],["fine","good"],["drama","acting"],["skills","talent"]]
+                """);
         Assertions.assertTrue(solution737.areSentencesSimilarTwo(sentence1, sentence2, similarPairs));
     }
 
@@ -19,8 +20,9 @@ public class Solution737Tests {
     public void example2() {
         String[] sentence1 = {"I", "love", "leetcode"};
         String[] sentence2 = {"I", "love", "onepiece"};
-        List<List<String>> similarPairs = List.of(List.of("manga", "onepiece"), List.of("platform", "anime"),
-                List.of("leetcode", "platform"), List.of("anime", "manga"));
+        List<List<String>> similarPairs = UtUtils.stringToStringList2("""
+                [["manga","onepiece"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+                """);
         Assertions.assertTrue(solution737.areSentencesSimilarTwo(sentence1, sentence2, similarPairs));
     }
 
@@ -28,8 +30,9 @@ public class Solution737Tests {
     public void example3() {
         String[] sentence1 = {"I", "love", "leetcode"};
         String[] sentence2 = {"I", "love", "onepiece"};
-        List<List<String>> similarPairs = List.of(List.of("manga", "hunterXhunter"), List.of("platform", "anime"),
-                List.of("leetcode", "platform"), List.of("anime", "manga"));
+        List<List<String>> similarPairs = UtUtils.stringToStringList2("""
+                [["manga","hunterXhunter"],["platform","anime"],["leetcode","platform"],["anime","manga"]]
+                """);
         Assertions.assertFalse(solution737.areSentencesSimilarTwo(sentence1, sentence2, similarPairs));
     }
 }

@@ -6,7 +6,7 @@ public class Solution861Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{0, 0, 1, 1}, {1, 0, 1, 0}, {1, 1, 0, 0}};
+        int[][] grid = UtUtils.stringToInts2("[[0,0,1,1],[1,0,1,0],[1,1,0,0]]");
         int expected = 39;
         Assertions.assertEquals(expected, solution861.matrixScore(grid));
     }

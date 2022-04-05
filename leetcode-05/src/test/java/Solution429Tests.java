@@ -16,7 +16,7 @@ public class Solution429Tests {
         Solution429.Node node6 = new Solution429.Node(6);
         node1.children = List.of(node3, node2, node4);
         node3.children = List.of(node5, node6);
-        List<List<Integer>> expected = List.of(List.of(1), List.of(3, 2, 4), List.of(5, 6));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1],[3,2,4],[5,6]]");
         Assertions.assertEquals(expected, solution429.levelOrder(node1));
     }
 
@@ -44,7 +44,7 @@ public class Solution429Tests {
         node8.children = List.of(node12);
         node9.children = List.of(node13);
         node11.children = List.of(node14);
-        List<List<Integer>> expected = List.of(List.of(1), List.of(2, 3, 4, 5), List.of(6, 7, 8, 9, 10), List.of(11, 12, 13), List.of(14));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1],[2,3,4,5],[6,7,8,9,10],[11,12,13],[14]]");
         Assertions.assertEquals(expected, solution429.levelOrder(node1));
     }
 }

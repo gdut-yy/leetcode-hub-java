@@ -11,8 +11,16 @@ public class Solution77Tests {
     public void example1() {
         int n = 4;
         int k = 2;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(2, 4), List.of(3, 4), List.of(2, 3),
-                List.of(1, 2), List.of(1, 3), List.of(1, 4)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("""
+                [
+                  [2,4],
+                  [3,4],
+                  [2,3],
+                  [1,2],
+                  [1,3],
+                  [1,4],
+                ]
+                """);
         List<List<Integer>> actual = solution77.combine(n, k);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -23,7 +31,9 @@ public class Solution77Tests {
     public void example2() {
         int n = 1;
         int k = 1;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(1)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("""
+                [[1]]
+                """);
         List<List<Integer>> actual = solution77.combine(n, k);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);

@@ -6,14 +6,14 @@ public class Solution684Tests {
 
     @Test
     public void example1() {
-        int[][] edges = {{1, 2}, {1, 3}, {2, 3}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2], [1,3], [2,3]]");
         int[] expected = {2, 3};
         Assertions.assertArrayEquals(expected, solution684.findRedundantConnection(edges));
     }
 
     @Test
     public void example2() {
-        int[][] edges = {{1, 2}, {2, 3}, {3, 4}, {1, 4}, {1, 5}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2], [2,3], [3,4], [1,4], [1,5]]");
         int[] expected = {1, 4};
         Assertions.assertArrayEquals(expected, solution684.findRedundantConnection(edges));
     }

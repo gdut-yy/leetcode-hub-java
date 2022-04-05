@@ -9,7 +9,13 @@ public class SolutionO32_3Tests {
     @Test
     public void example1() {
         TreeNode root = TreeNode.buildTreeNode("[3,9,20,null,null,15,7]");
-        List<List<Integer>> expected = List.of(List.of(3), List.of(20, 9), List.of(15, 7));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("""
+                [
+                  [3],
+                  [20,9],
+                  [15,7]
+                ]
+                """);
         Assertions.assertEquals(expected, solutionO32_3.levelOrder(root));
     }
 }

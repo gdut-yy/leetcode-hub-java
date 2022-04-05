@@ -6,40 +6,51 @@ public class Solution85Tests {
 
     @Test
     public void example1() {
-        char[][] matrix = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+                """);
         int expected = 6;
         Assertions.assertEquals(expected, solution85.maximalRectangle(matrix));
     }
 
     @Test
     public void example2() {
-        char[][] matrix = {};
+        char[][] matrix = UtUtils.stringToChars2("""
+                []
+                """);
         int expected = 0;
         Assertions.assertEquals(expected, solution85.maximalRectangle(matrix));
     }
 
     @Test
     public void example3() {
-        char[][] matrix = {{'0'}};
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["0"]]
+                """);
         int expected = 0;
         Assertions.assertEquals(expected, solution85.maximalRectangle(matrix));
     }
 
     @Test
     public void example4() {
-        char[][] matrix = {{'1'}};
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["1"]]
+                """);
         int expected = 1;
         Assertions.assertEquals(expected, solution85.maximalRectangle(matrix));
     }
 
     @Test
     public void example5() {
-        char[][] matrix = {{'0', '0'}};
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["0","0"]]
+                """);
         int expected = 0;
         Assertions.assertEquals(expected, solution85.maximalRectangle(matrix));
     }
 
     // 剑指 Offer II 040. 矩阵中最大的矩形
+    // https://leetcode-cn.com/problems/PLYXKQ/
     @Test
     public void example1_2() {
         String[] matrix = {"10100", "10111", "11111", "10010"};

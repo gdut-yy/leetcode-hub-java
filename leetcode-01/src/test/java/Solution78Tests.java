@@ -10,8 +10,7 @@ public class Solution78Tests {
     @Test
     public void example1() {
         int[] nums = {1, 2, 3};
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(), List.of(1), List.of(2),
-                List.of(1, 2), List.of(3), List.of(1, 3), List.of(2, 3), List.of(1, 2, 3)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]");
         List<List<Integer>> actual = solution78.subsets(nums);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -21,8 +20,7 @@ public class Solution78Tests {
     @Test
     public void example1_2() {
         int[] nums = {1, 2, 3};
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(), List.of(1), List.of(2),
-                List.of(1, 2), List.of(3), List.of(1, 3), List.of(2, 3), List.of(1, 2, 3)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]");
         List<List<Integer>> actual = solution78.subsets2(nums);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -32,7 +30,7 @@ public class Solution78Tests {
     @Test
     public void example2() {
         int[] nums = {0};
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(), List.of(0)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[0]]");
         List<List<Integer>> actual = solution78.subsets(nums);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -42,7 +40,7 @@ public class Solution78Tests {
     @Test
     public void example2_2() {
         int[] nums = {0};
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(), List.of(0)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[],[0]]");
         List<List<Integer>> actual = solution78.subsets2(nums);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);

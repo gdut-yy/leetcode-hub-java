@@ -6,14 +6,14 @@ public class Solution64Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{1, 3, 1}, {1, 5, 1}, {4, 2, 1}};
+        int[][] grid = UtUtils.stringToInts2("[[1,3,1],[1,5,1],[4,2,1]]");
         int expected = 7;
         Assertions.assertEquals(expected, solution64.minPathSum(grid));
     }
 
     @Test
     public void example2() {
-        int[][] grid = {{1, 2, 3}, {4, 5, 6}};
+        int[][] grid = UtUtils.stringToInts2("[[1,2,3],[4,5,6]]");
         int expected = 12;
         Assertions.assertEquals(expected, solution64.minPathSum(grid));
     }

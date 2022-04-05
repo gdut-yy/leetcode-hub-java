@@ -6,14 +6,14 @@ public class Solution562Tests {
 
     @Test
     public void example1() {
-        int[][] mat = {{0, 1, 1, 0}, {0, 1, 1, 0}, {0, 0, 0, 1}};
+        int[][] mat = UtUtils.stringToInts2("[[0,1,1,0],[0,1,1,0],[0,0,0,1]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution562.longestLine(mat));
     }
 
     @Test
     public void example2() {
-        int[][] mat = {{1, 1, 1, 1}, {0, 1, 1, 0}, {0, 0, 0, 1}};
+        int[][] mat = UtUtils.stringToInts2("[[1,1,1,1],[0,1,1,0],[0,0,0,1]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution562.longestLine(mat));
     }

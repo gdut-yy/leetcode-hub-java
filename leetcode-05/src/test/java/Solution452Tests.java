@@ -6,21 +6,21 @@ public class Solution452Tests {
 
     @Test
     public void example1() {
-        int[][] points = {{10, 16}, {2, 8}, {1, 6}, {7, 12}};
+        int[][] points = UtUtils.stringToInts2("[[10,16],[2,8],[1,6],[7,12]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution452.findMinArrowShots(points));
     }
 
     @Test
     public void example2() {
-        int[][] points = {{1, 2}, {3, 4}, {5, 6}, {7, 8}};
+        int[][] points = UtUtils.stringToInts2("[[1,2],[3,4],[5,6],[7,8]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution452.findMinArrowShots(points));
     }
 
     @Test
     public void example3() {
-        int[][] points = {{1, 2}, {2, 3}, {3, 4}, {4, 5}};
+        int[][] points = UtUtils.stringToInts2("[[1,2],[2,3],[3,4],[4,5]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution452.findMinArrowShots(points));
     }
@@ -42,7 +42,8 @@ public class Solution452Tests {
     // 补充用例
     @Test
     public void example6() {
-        int[][] points = {{-2147483646, -2147483645}, {2147483646, 2147483647}};
+        // https://leetcode-cn.com/submissions/detail/243982002/
+        int[][] points = UtUtils.stringToInts2("[[-2147483646,-2147483645],[2147483646,2147483647]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution452.findMinArrowShots(points));
     }

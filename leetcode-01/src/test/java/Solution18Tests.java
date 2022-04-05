@@ -11,7 +11,7 @@ public class Solution18Tests {
     public void example1() {
         int[] nums = {1, 0, -1, 0, -2, 2};
         int target = 0;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(-2, -1, 1, 2), List.of(-2, 0, 0, 2), List.of(-1, 0, 0, 1)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]");
         List<List<Integer>> actual = solution18.fourSum(nums, target);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -22,7 +22,7 @@ public class Solution18Tests {
     public void example2() {
         int[] nums = {2, 2, 2, 2, 2};
         int target = 8;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(2, 2, 2, 2)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[2,2,2,2]]");
         List<List<Integer>> actual = solution18.fourSum(nums, target);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -34,7 +34,7 @@ public class Solution18Tests {
     public void example3() {
         int[] nums = {0, 0, 0, 1000000000, 1000000000, 1000000000, 1000000000};
         int target = 1000000000;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(0, 0, 0, 1000000000)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[0,0,0,1000000000]]");
         List<List<Integer>> actual = solution18.fourSum(nums, target);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);

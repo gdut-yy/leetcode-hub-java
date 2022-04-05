@@ -10,7 +10,7 @@ public class Solution305Tests {
     public void example1() {
         int m = 3;
         int n = 3;
-        int[][] positions = {{0, 0}, {0, 1}, {1, 2}, {2, 1}};
+        int[][] positions = UtUtils.stringToInts2("[[0,0],[0,1],[1,2],[2,1]]");
         List<Integer> expected = List.of(1, 1, 2, 3);
         Assertions.assertEquals(expected, solution305.numIslands2(m, n, positions));
     }
@@ -19,7 +19,7 @@ public class Solution305Tests {
     public void example2() {
         int m = 1;
         int n = 1;
-        int[][] positions = {{0, 0}};
+        int[][] positions = UtUtils.stringToInts2("[[0,0]]");
         List<Integer> expected = List.of(1);
         Assertions.assertEquals(expected, solution305.numIslands2(m, n, positions));
     }

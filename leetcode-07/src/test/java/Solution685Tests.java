@@ -6,14 +6,14 @@ public class Solution685Tests {
 
     @Test
     public void example1() {
-        int[][] edges = {{1, 2}, {1, 3}, {2, 3}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2],[1,3],[2,3]]");
         int[] expected = {2, 3};
         Assertions.assertArrayEquals(expected, solution685.findRedundantDirectedConnection(edges));
     }
 
     @Test
     public void example2() {
-        int[][] edges = {{1, 2}, {2, 3}, {3, 4}, {4, 1}, {1, 5}};
+        int[][] edges = UtUtils.stringToInts2("[[1,2],[2,3],[3,4],[4,1],[1,5]]");
         int[] expected = {4, 1};
         Assertions.assertArrayEquals(expected, solution685.findRedundantDirectedConnection(edges));
     }
@@ -21,7 +21,8 @@ public class Solution685Tests {
     // 补充用例
     @Test
     public void example3() {
-        int[][] edges = {{2, 1}, {3, 1}, {4, 2}, {1, 4}};
+        // https://leetcode-cn.com/submissions/detail/289590342/
+        int[][] edges = UtUtils.stringToInts2("[[2,1],[3,1],[4,2],[1,4]]");
         int[] expected = {2, 1};
         Assertions.assertArrayEquals(expected, solution685.findRedundantDirectedConnection(edges));
     }

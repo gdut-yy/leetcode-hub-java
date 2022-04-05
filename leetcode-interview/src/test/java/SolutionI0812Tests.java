@@ -12,9 +12,9 @@ public class SolutionI0812Tests {
     public void example1() {
         int n = 4;
         List<List<String>> actual = solutionI0812.solveNQueens(n);
-        List<List<String>> expected = new ArrayList<>(Arrays.asList(
-                Arrays.asList(".Q..", "...Q", "Q...", "..Q."), Arrays.asList("..Q.", "Q...", "...Q", ".Q..")
-        ));
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [[".Q..","...Q","Q...","..Q."],["..Q.","Q...","...Q",".Q.."]]
+                """);
         actual.sort(UtUtils.STRING_LIST_COMPARATOR);
         expected.sort(UtUtils.STRING_LIST_COMPARATOR);
         Assertions.assertEquals(expected, actual);

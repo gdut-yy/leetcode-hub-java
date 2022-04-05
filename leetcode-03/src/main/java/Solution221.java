@@ -28,6 +28,11 @@ public class Solution221 {
 https://leetcode-cn.com/problems/maximal-square/
 
 在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
+提示：
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 300
+matrix[i][j] 为 '0' 或 '1'
 
 动态规划。
 dp[i][j] 表示以 [i,j] 为右下角，只包含 1 的正方形的边长的最大值

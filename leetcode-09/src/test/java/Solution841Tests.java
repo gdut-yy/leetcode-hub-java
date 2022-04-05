@@ -8,13 +8,13 @@ public class Solution841Tests {
 
     @Test
     public void example1() {
-        List<List<Integer>> rooms = List.of(List.of(1), List.of(2), List.of(3), List.of());
+        List<List<Integer>> rooms = UtUtils.stringToIntegerList2("[[1],[2],[3],[]]");
         Assertions.assertTrue(solution841.canVisitAllRooms(rooms));
     }
 
     @Test
     public void example2() {
-        List<List<Integer>> rooms = List.of(List.of(1, 3), List.of(3, 0, 1), List.of(2), List.of(0));
+        List<List<Integer>> rooms = UtUtils.stringToIntegerList2("[[1,3],[3,0,1],[2],[0]]");
         Assertions.assertFalse(solution841.canVisitAllRooms(rooms));
     }
 }

@@ -56,6 +56,9 @@ https://leetcode-cn.com/problems/binary-tree-zigzag-level-order-traversal/
   [20,9],
   [15,7]
 ]
+提示：
+树中节点数目在范围 [0, 2000] 内
+-100 <= Node.val <= 100
 
 二叉树层序遍历。
  */

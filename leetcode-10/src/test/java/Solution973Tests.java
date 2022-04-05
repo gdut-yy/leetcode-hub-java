@@ -6,17 +6,17 @@ public class Solution973Tests {
 
     @Test
     public void example1() {
-        int[][] points = {{1, 3}, {-2, 2}};
+        int[][] points = UtUtils.stringToInts2("[[1,3],[-2,2]]");
         int k = 1;
-        int[][] expected = {{-2, 2}};
+        int[][] expected = UtUtils.stringToInts2("[[-2,2]]");
         Assertions.assertArrayEquals(expected, solution973.kClosest(points, k));
     }
 
     @Test
     public void example2() {
-        int[][] points = {{3, 3}, {5, -1}, {-2, 4}};
+        int[][] points = UtUtils.stringToInts2("[[3,3],[5,-1],[-2,4]]");
         int k = 2;
-        int[][] expected = {{3, 3}, {-2, 4}};
+        int[][] expected = UtUtils.stringToInts2("[[3,3],[-2,4]]");
         Assertions.assertArrayEquals(expected, solution973.kClosest(points, k));
     }
 }

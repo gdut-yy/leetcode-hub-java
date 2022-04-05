@@ -6,33 +6,33 @@ public class Solution986Tests {
 
     @Test
     public void example1() {
-        int[][] firstList = {{0, 2}, {5, 10}, {13, 23}, {24, 25}};
-        int[][] secondList = {{1, 5}, {8, 12}, {15, 24}, {25, 26}};
-        int[][] expected = {{1, 2}, {5, 5}, {8, 10}, {15, 23}, {24, 24}, {25, 25}};
+        int[][] firstList = UtUtils.stringToInts2("[[0,2],[5,10],[13,23],[24,25]]");
+        int[][] secondList = UtUtils.stringToInts2("[[1,5],[8,12],[15,24],[25,26]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]]");
         Assertions.assertArrayEquals(expected, solution986.intervalIntersection(firstList, secondList));
     }
 
     @Test
     public void example2() {
-        int[][] firstList = {{1, 3}, {5, 9}};
-        int[][] secondList = {};
-        int[][] expected = {};
+        int[][] firstList = UtUtils.stringToInts2("[[1,3],[5,9]]");
+        int[][] secondList = UtUtils.stringToInts2("[]");
+        int[][] expected = UtUtils.stringToInts2("[]");
         Assertions.assertArrayEquals(expected, solution986.intervalIntersection(firstList, secondList));
     }
 
     @Test
     public void example3() {
-        int[][] firstList = {};
-        int[][] secondList = {{4, 8}, {10, 12}};
-        int[][] expected = {};
+        int[][] firstList = UtUtils.stringToInts2("[]");
+        int[][] secondList = UtUtils.stringToInts2("[[4,8],[10,12]]");
+        int[][] expected = UtUtils.stringToInts2("[]");
         Assertions.assertArrayEquals(expected, solution986.intervalIntersection(firstList, secondList));
     }
 
     @Test
     public void example4() {
-        int[][] firstList = {{1, 7}};
-        int[][] secondList = {{3, 10}};
-        int[][] expected = {{3, 7}};
+        int[][] firstList = UtUtils.stringToInts2("[[1,7]]");
+        int[][] secondList = UtUtils.stringToInts2("[[3,10]]");
+        int[][] expected = UtUtils.stringToInts2("[[3,7]]");
         Assertions.assertArrayEquals(expected, solution986.intervalIntersection(firstList, secondList));
     }
 }

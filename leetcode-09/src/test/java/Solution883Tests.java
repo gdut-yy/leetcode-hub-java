@@ -6,21 +6,21 @@ public class Solution883Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{2}};
-        int expected = 5;
-        Assertions.assertEquals(expected, solution883.projectionArea(grid));
-    }
-
-    @Test
-    public void example2() {
-        int[][] grid = {{1, 2}, {3, 4}};
+        int[][] grid = UtUtils.stringToInts2("[[1,2],[3,4]]");
         int expected = 17;
         Assertions.assertEquals(expected, solution883.projectionArea(grid));
     }
 
     @Test
+    public void example2() {
+        int[][] grid = UtUtils.stringToInts2("[[2]]");
+        int expected = 5;
+        Assertions.assertEquals(expected, solution883.projectionArea(grid));
+    }
+
+    @Test
     public void example3() {
-        int[][] grid = {{1, 0}, {0, 2}};
+        int[][] grid = UtUtils.stringToInts2("[[1,0],[0,2]]");
         int expected = 8;
         Assertions.assertEquals(expected, solution883.projectionArea(grid));
     }

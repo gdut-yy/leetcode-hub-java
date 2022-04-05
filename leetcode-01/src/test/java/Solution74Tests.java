@@ -6,14 +6,14 @@ public class Solution74Tests {
 
     @Test
     public void example1() {
-        int[][] matrix = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+        int[][] matrix = UtUtils.stringToInts2("[[1,3,5,7],[10,11,16,20],[23,30,34,60]]");
         int target = 3;
         Assertions.assertTrue(solution74.searchMatrix(matrix, target));
     }
 
     @Test
     public void example2() {
-        int[][] matrix = {{1, 3, 5, 7}, {10, 11, 16, 20}, {23, 30, 34, 60}};
+        int[][] matrix = UtUtils.stringToInts2("[[1,3,5,7],[10,11,16,20],[23,30,34,60]]");
         int target = 13;
         Assertions.assertFalse(solution74.searchMatrix(matrix, target));
     }
@@ -21,7 +21,8 @@ public class Solution74Tests {
     // 补充用例
     @Test
     public void example3() {
-        int[][] matrix = {{1}};
+        // https://leetcode-cn.com/submissions/detail/224992426/
+        int[][] matrix = UtUtils.stringToInts2("[[1]]");
         int target = 2;
         Assertions.assertFalse(solution74.searchMatrix(matrix, target));
     }

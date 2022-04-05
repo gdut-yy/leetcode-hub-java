@@ -9,7 +9,21 @@ public class Solution102Tests {
     @Test
     public void example1() {
         TreeNode root = TreeNode.buildTreeNode("[3,9,20,null,null,15,7]");
-        List<List<Integer>> expected = List.of(List.of(3), List.of(9, 20), List.of(15, 7));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[3],[9,20],[15,7]]");
+        Assertions.assertEquals(expected, solution102.levelOrder(root));
+    }
+
+    @Test
+    public void example2() {
+        TreeNode root = TreeNode.buildTreeNode("[1]");
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1]]");
+        Assertions.assertEquals(expected, solution102.levelOrder(root));
+    }
+
+    @Test
+    public void example3() {
+        TreeNode root = TreeNode.buildTreeNode("[]");
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[]");
         Assertions.assertEquals(expected, solution102.levelOrder(root));
     }
 }

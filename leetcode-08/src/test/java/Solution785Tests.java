@@ -6,13 +6,13 @@ public class Solution785Tests {
 
     @Test
     public void example1() {
-        int[][] graph = {{1, 2, 3}, {0, 2}, {0, 1, 3}, {0, 2}};
+        int[][] graph = UtUtils.stringToInts2("[[1,2,3],[0,2],[0,1,3],[0,2]]");
         Assertions.assertFalse(solution785.isBipartite(graph));
     }
 
     @Test
     public void example2() {
-        int[][] graph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
+        int[][] graph = UtUtils.stringToInts2("[[1,3],[0,2],[1,3],[0,2]]");
         Assertions.assertTrue(solution785.isBipartite(graph));
     }
 }

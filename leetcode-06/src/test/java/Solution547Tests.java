@@ -6,14 +6,14 @@ public class Solution547Tests {
 
     @Test
     public void example1() {
-        int[][] isConnected = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
+        int[][] isConnected = UtUtils.stringToInts2("[[1,1,0],[1,1,0],[0,0,1]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution547.findCircleNum(isConnected));
     }
 
     @Test
     public void example2() {
-        int[][] isConnected = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
+        int[][] isConnected = UtUtils.stringToInts2("[[1,0,0],[0,1,0],[0,0,1]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution547.findCircleNum(isConnected));
     }

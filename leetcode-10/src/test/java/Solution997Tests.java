@@ -7,7 +7,7 @@ public class Solution997Tests {
     @Test
     public void example1() {
         int n = 2;
-        int[][] trust = {{1, 2}};
+        int[][] trust = UtUtils.stringToInts2("[[1,2]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution997.findJudge(n, trust));
     }
@@ -15,7 +15,7 @@ public class Solution997Tests {
     @Test
     public void example2() {
         int n = 3;
-        int[][] trust = {{1, 3}, {2, 3}};
+        int[][] trust = UtUtils.stringToInts2("[[1,3],[2,3]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution997.findJudge(n, trust));
     }
@@ -23,7 +23,7 @@ public class Solution997Tests {
     @Test
     public void example3() {
         int n = 3;
-        int[][] trust = {{1, 3}, {2, 3}, {3, 1}};
+        int[][] trust = UtUtils.stringToInts2("[[1,3],[2,3],[3,1]]");
         int expected = -1;
         Assertions.assertEquals(expected, solution997.findJudge(n, trust));
     }

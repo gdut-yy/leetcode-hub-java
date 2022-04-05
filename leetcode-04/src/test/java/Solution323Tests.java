@@ -7,7 +7,7 @@ public class Solution323Tests {
     @Test
     public void example1() {
         int n = 5;
-        int[][] edges = {{0, 1}, {1, 2}, {3, 4}};
+        int[][] edges = UtUtils.stringToInts2("[[0, 1], [1, 2], [3, 4]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution323.countComponents(n, edges));
     }
@@ -15,7 +15,7 @@ public class Solution323Tests {
     @Test
     public void example2() {
         int n = 5;
-        int[][] edges = {{0, 1}, {1, 2}, {2, 3}, {3, 4}};
+        int[][] edges = UtUtils.stringToInts2("[[0,1], [1,2], [2,3], [3,4]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution323.countComponents(n, edges));
     }

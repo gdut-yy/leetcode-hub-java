@@ -11,12 +11,10 @@ import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.text.MessageFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
 public class UtUtils {
     /**
@@ -65,6 +63,57 @@ public class UtUtils {
         return expectedJson.equals(actualJson);
     }
 
+    // String => int
+    public static int stringToInt(String input) {
+        return Integer.parseInt(input);
+    }
+
+    // String => int[]
+    public static int[] stringToInts(String input) {
+        return JSON.parseArray(input, Integer.class).stream().mapToInt(i -> i).toArray();
+    }
+
+    // String => int[][]
+    public static int[][] stringToInts2(String input) {
+        List<int[]> list = JSON.parseArray(input, int[].class);
+        return list.toArray(new int[list.size()][]);
+    }
+
+    // String => char[][]
+    public static char[][] stringToChars2(String input) {
+        List<char[]> list = JSON.parseArray(input, char[].class);
+        return list.toArray(new char[list.size()][]);
+    }
+
+    // String => String[][]
+    public static String[][] stringToStrings2(String input) {
+        List<String[]> list = JSON.parseArray(input, String[].class);
+        return list.toArray(new String[list.size()][]);
+    }
+
+    // String => List<List<Integer>>
+    public static List<List<Integer>> stringToIntegerList2(String input) {
+        List<String> list = JSON.parseArray(input, String.class);
+        List<List<Integer>> resList = new ArrayList<>();
+        for (String str : list) {
+            resList.add(JSON.parseArray(str, Integer.class));
+        }
+        return resList;
+    }
+
+    // String => List<List<String>>
+    public static List<List<String>> stringToStringList2(String input) {
+        List<String> list = JSON.parseArray(input, String.class);
+        List<List<String>> resList = new ArrayList<>();
+        for (String str : list) {
+            resList.add(JSON.parseArray(str, String.class));
+        }
+        return resList;
+    }
+
+    /**
+     * resources 文件加载 List<String>
+     */
     private static List<String> loadingStringList(String fileName) {
         List<String> resList = new ArrayList<>();
         File file = new File(Objects.requireNonNull(UtUtils.class.getResource(fileName)).getPath());
@@ -87,27 +136,21 @@ public class UtUtils {
      * resources 文件加载 int
      */
     public static int loadingInt(String fileName, int line) {
-        return Integer.parseInt(loadingString(fileName, line));
+        return stringToInt(loadingString(fileName, line));
     }
 
     /**
      * resources 文件加载 int[]
      */
     public static int[] loadingInts(String fileName, int line) {
-        List<Integer> list = JSON.parseArray(loadingString(fileName, line), Integer.class);
-        return list.stream().mapToInt(i -> i).toArray();
+        return stringToInts(loadingString(fileName, line));
     }
 
     /**
      * resources 文件加载 int[][]
      */
     public static int[][] loadingInts2(String fileName, int line) {
-        List<int[]> list = JSON.parseArray(loadingString(fileName, line), int[].class);
-        int[][] res = new int[list.size()][];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-        return res;
+        return stringToInts2(loadingString(fileName, line));
     }
 
     /**
@@ -129,20 +172,14 @@ public class UtUtils {
      * resources 文件加载 List<Integer>
      */
     public static List<Integer> loadingIntegerList(String fileName, int line) {
-        int[] ints = loadingInts(fileName, line);
-        return Arrays.stream(ints).boxed().collect(Collectors.toList());
+        return JSON.parseArray(loadingString(fileName, line), Integer.class);
     }
 
     /**
      * resources 文件加载 List<List<Integer>>
      */
     public static List<List<Integer>> loadingIntegerList2(String fileName, int line) {
-        List<String> strList = JSON.parseArray(loadingString(fileName, line), String.class);
-        List<List<Integer>> resList = new ArrayList<>();
-        for (String s : strList) {
-            resList.add(JSON.parseArray(s, Integer.class));
-        }
-        return resList;
+        return stringToIntegerList2(loadingString(fileName, line));
     }
 
     /**

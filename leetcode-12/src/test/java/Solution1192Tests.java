@@ -10,8 +10,20 @@ public class Solution1192Tests {
     @Test
     public void example1() {
         int n = 4;
-        List<List<Integer>> connections = List.of(List.of(0, 1), List.of(1, 2), List.of(2, 0), List.of(1, 3));
-        List<List<Integer>> expected = Arrays.asList(Arrays.asList(1, 3));
+        List<List<Integer>> connections = UtUtils.stringToIntegerList2("[[0,1],[1,2],[2,0],[1,3]]");
+        // 解释：[[3,1]] 也是正确的。
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1,3]]");
+        List<List<Integer>> actual = solution1192.criticalConnections(n, connections);
+        expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
+        actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example2() {
+        int n = 2;
+        List<List<Integer>> connections = UtUtils.stringToIntegerList2("[[0,1]]");
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[0,1]]");
         List<List<Integer>> actual = solution1192.criticalConnections(n, connections);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);

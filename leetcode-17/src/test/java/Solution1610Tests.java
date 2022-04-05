@@ -8,7 +8,7 @@ public class Solution1610Tests {
 
     @Test
     public void example1() {
-        List<List<Integer>> points = List.of(List.of(2, 1), List.of(2, 2), List.of(3, 3));
+        List<List<Integer>> points = UtUtils.stringToIntegerList2("[[2,1],[2,2],[3,3]]");
         int angle = 90;
         List<Integer> location = List.of(1, 1);
         int expected = 3;
@@ -17,7 +17,7 @@ public class Solution1610Tests {
 
     @Test
     public void example2() {
-        List<List<Integer>> points = List.of(List.of(2, 1), List.of(2, 2), List.of(3, 4), List.of(1, 1));
+        List<List<Integer>> points = UtUtils.stringToIntegerList2("[[2,1],[2,2],[3,4],[1,1]]");
         int angle = 90;
         List<Integer> location = List.of(1, 1);
         int expected = 4;
@@ -26,7 +26,7 @@ public class Solution1610Tests {
 
     @Test
     public void example3() {
-        List<List<Integer>> points = List.of(List.of(1, 0), List.of(2, 1));
+        List<List<Integer>> points = UtUtils.stringToIntegerList2("[[1,0],[2,1]]");
         int angle = 13;
         List<Integer> location = List.of(1, 1);
         int expected = 1;

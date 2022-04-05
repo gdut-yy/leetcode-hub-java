@@ -9,7 +9,7 @@ public class Solution1202Tests {
     @Test
     public void example1() {
         String s = "dcab";
-        List<List<Integer>> pairs = List.of(List.of(0, 3), List.of(1, 2));
+        List<List<Integer>> pairs = UtUtils.stringToIntegerList2("[[0,3],[1,2]]");
         String expected = "bacd";
         Assertions.assertEquals(expected, solution1202.smallestStringWithSwaps(s, pairs));
     }
@@ -17,7 +17,7 @@ public class Solution1202Tests {
     @Test
     public void example2() {
         String s = "dcab";
-        List<List<Integer>> pairs = List.of(List.of(0, 3), List.of(1, 2), List.of(0, 2));
+        List<List<Integer>> pairs = UtUtils.stringToIntegerList2("[[0,3],[1,2],[0,2]]");
         String expected = "abcd";
         Assertions.assertEquals(expected, solution1202.smallestStringWithSwaps(s, pairs));
     }
@@ -25,7 +25,7 @@ public class Solution1202Tests {
     @Test
     public void example3() {
         String s = "cba";
-        List<List<Integer>> pairs = List.of(List.of(0, 1), List.of(1, 2));
+        List<List<Integer>> pairs = UtUtils.stringToIntegerList2("[[0,1],[1,2]]");
         String expected = "abc";
         Assertions.assertEquals(expected, solution1202.smallestStringWithSwaps(s, pairs));
     }

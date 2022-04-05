@@ -6,14 +6,14 @@ public class Solution149Tests {
 
     @Test
     public void example1() {
-        int[][] points = {{1, 1}, {2, 2}, {3, 3}};
+        int[][] points = UtUtils.stringToInts2("[[1,1],[2,2],[3,3]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution149.maxPoints(points));
     }
 
     @Test
     public void example2() {
-        int[][] points = {{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}};
+        int[][] points = UtUtils.stringToInts2("[[1,1],[3,2],[5,3],[4,1],[2,3],[1,4]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution149.maxPoints(points));
     }

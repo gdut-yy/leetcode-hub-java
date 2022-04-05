@@ -6,14 +6,18 @@ public class SolutionO12Tests {
 
     @Test
     public void example1() {
-        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+                """);
         String word = "ABCCED";
         Assertions.assertTrue(solutionO12.exist(board, word));
     }
 
     @Test
     public void example2() {
-        char[][] board = {{'a', 'b'}, {'c', 'd'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["a","b"],["c","d"]]
+                """);
         String word = "abcd";
         Assertions.assertFalse(solutionO12.exist(board, word));
     }

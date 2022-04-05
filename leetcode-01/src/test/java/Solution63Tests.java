@@ -6,14 +6,14 @@ public class Solution63Tests {
 
     @Test
     public void example1() {
-        int[][] obstacleGrid = {{0, 0, 0}, {0, 1, 0}, {0, 0, 0}};
+        int[][] obstacleGrid = UtUtils.stringToInts2("[[0,0,0],[0,1,0],[0,0,0]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution63.uniquePathsWithObstacles(obstacleGrid));
     }
 
     @Test
     public void example2() {
-        int[][] obstacleGrid = {{0, 1}, {0, 0}};
+        int[][] obstacleGrid = UtUtils.stringToInts2("[[0,1],[0,0]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution63.uniquePathsWithObstacles(obstacleGrid));
     }
@@ -21,14 +21,16 @@ public class Solution63Tests {
     // 补充用例
     @Test
     public void example3() {
-        int[][] obstacleGrid = {{1, 0}};
+        // https://leetcode-cn.com/submissions/detail/236468959/
+        int[][] obstacleGrid = UtUtils.stringToInts2("[[1,0]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution63.uniquePathsWithObstacles(obstacleGrid));
     }
 
     @Test
     public void example4() {
-        int[][] obstacleGrid = {{0, 0}, {1, 1}, {0, 0}};
+        // https://leetcode-cn.com/submissions/detail/236469271/
+        int[][] obstacleGrid = UtUtils.stringToInts2("[[0,0],[1,1],[0,0]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution63.uniquePathsWithObstacles(obstacleGrid));
     }

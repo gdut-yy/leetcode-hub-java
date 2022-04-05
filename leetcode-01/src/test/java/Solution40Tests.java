@@ -11,8 +11,14 @@ public class Solution40Tests {
     public void example1() {
         int[] candidates = {10, 1, 2, 7, 6, 1, 5};
         int target = 8;
-        List<List<Integer>> expected
-                = new ArrayList<>(List.of(List.of(1, 1, 6), List.of(1, 2, 5), List.of(1, 7), List.of(2, 6)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("""
+                [
+                [1,1,6],
+                [1,2,5],
+                [1,7],
+                [2,6]
+                ]
+                """);
         List<List<Integer>> actual = solution40.combinationSum2(candidates, target);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
@@ -23,7 +29,12 @@ public class Solution40Tests {
     public void example2() {
         int[] candidates = {2, 5, 2, 1, 2};
         int target = 5;
-        List<List<Integer>> expected = new ArrayList<>(List.of(List.of(1, 2, 2), List.of(5)));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("""
+                [
+                [1,2,2],
+                [5]
+                ]
+                """);
         List<List<Integer>> actual = solution40.combinationSum2(candidates, target);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);

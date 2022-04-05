@@ -6,24 +6,28 @@ public class Solution200Tests {
 
     @Test
     public void example1() {
-        char[][] grid = {
-                {'1', '1', '1', '1', '0'},
-                {'1', '1', '0', '1', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '0', '0', '0'}
-        };
+        char[][] grid = UtUtils.stringToChars2("""
+                [
+                  ["1","1","1","1","0"],
+                  ["1","1","0","1","0"],
+                  ["1","1","0","0","0"],
+                  ["0","0","0","0","0"]
+                ]
+                """);
         int expected = 1;
         Assertions.assertEquals(expected, solution200.numIslands(grid));
     }
 
     @Test
     public void example2() {
-        char[][] grid = {
-                {'1', '1', '0', '0', '0'},
-                {'1', '1', '0', '0', '0'},
-                {'0', '0', '1', '0', '0'},
-                {'0', '0', '0', '1', '1'}
-        };
+        char[][] grid = UtUtils.stringToChars2("""
+                [
+                  ["1","1","0","0","0"],
+                  ["1","1","0","0","0"],
+                  ["0","0","1","0","0"],
+                  ["0","0","0","1","1"]
+                ]
+                """);
         int expected = 3;
         Assertions.assertEquals(expected, solution200.numIslands(grid));
     }

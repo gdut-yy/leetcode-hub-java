@@ -50,6 +50,9 @@ https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
   [9,20],
   [3]
 ]
+提示：
+树中节点数目在范围 [0, 2000] 内
+-1000 <= Node.val <= 1000
 
 二叉树层序遍历。
 相似题目: 102. 二叉树的层序遍历

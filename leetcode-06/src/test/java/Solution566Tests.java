@@ -6,19 +6,19 @@ public class Solution566Tests {
 
     @Test
     public void example1() {
-        int[][] mat = {{1, 2}, {3, 4}};
+        int[][] mat = UtUtils.stringToInts2("[[1,2],[3,4]]");
         int r = 1;
         int c = 4;
-        int[][] expected = {{1, 2, 3, 4}};
+        int[][] expected = UtUtils.stringToInts2("[[1,2,3,4]]");
         Assertions.assertArrayEquals(expected, solution566.matrixReshape(mat, r, c));
     }
 
     @Test
     public void example2() {
-        int[][] mat = {{1, 2}, {3, 4}};
+        int[][] mat = UtUtils.stringToInts2("[[1,2],[3,4]]");
         int r = 2;
         int c = 4;
-        int[][] expected = {{1, 2}, {3, 4}};
+        int[][] expected = UtUtils.stringToInts2("[[1,2],[3,4]]");
         Assertions.assertArrayEquals(expected, solution566.matrixReshape(mat, r, c));
     }
 }

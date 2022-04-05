@@ -9,14 +9,14 @@ public class Solution118Tests {
     @Test
     public void example1() {
         int numRows = 5;
-        List<List<Integer>> expected = List.of(List.of(1), List.of(1, 1), List.of(1, 2, 1), List.of(1, 3, 3, 1), List.of(1, 4, 6, 4, 1));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1],[1,1],[1,2,1],[1,3,3,1],[1,4,6,4,1]]");
         Assertions.assertEquals(expected, solution118.generate(numRows));
     }
 
     @Test
     public void example2() {
         int numRows = 1;
-        List<List<Integer>> expected = List.of(List.of(1));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1]]");
         Assertions.assertEquals(expected, solution118.generate(numRows));
     }
 }

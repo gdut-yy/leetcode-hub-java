@@ -6,31 +6,27 @@ public class Solution221Tests {
 
     @Test
     public void example1() {
-        char[][] matrix = {
-                {'1', '0', '1', '0', '0'},
-                {'1', '0', '1', '1', '1'},
-                {'1', '1', '1', '1', '1'},
-                {'1', '0', '0', '1', '0'}
-        };
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["1","0","1","0","0"],["1","0","1","1","1"],["1","1","1","1","1"],["1","0","0","1","0"]]
+                """);
         int expected = 4;
         Assertions.assertEquals(expected, solution221.maximalSquare(matrix));
     }
 
     @Test
     public void example2() {
-        char[][] matrix = {
-                {'0', '1'},
-                {'1', '0'}
-        };
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["0","1"],["1","0"]]
+                """);
         int expected = 1;
         Assertions.assertEquals(expected, solution221.maximalSquare(matrix));
     }
 
     @Test
     public void example3() {
-        char[][] matrix = {
-                {'0'}
-        };
+        char[][] matrix = UtUtils.stringToChars2("""
+                [["0"]]
+                """);
         int expected = 0;
         Assertions.assertEquals(expected, solution221.maximalSquare(matrix));
     }

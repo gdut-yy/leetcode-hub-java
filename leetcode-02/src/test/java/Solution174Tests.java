@@ -6,7 +6,7 @@ public class Solution174Tests {
 
     @Test
     public void example1() {
-        int[][] dungeon = {{-2, -3, 3}, {-5, -10, 1}, {10, 30, -5}};
+        int[][] dungeon = UtUtils.stringToInts2("[[-2,-3,3],[-5,-10,1],[10,30,-5]]");
         int expected = 7;
         Assertions.assertEquals(expected, solution174.calculateMinimumHP(dungeon));
     }

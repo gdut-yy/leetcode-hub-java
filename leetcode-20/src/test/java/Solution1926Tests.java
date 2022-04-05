@@ -6,11 +6,9 @@ public class Solution1926Tests {
 
     @Test
     public void example1() {
-        char[][] maze = {
-                {'+', '+', '.', '+'},
-                {'.', '.', '.', '+'},
-                {'+', '+', '+', '.'}
-        };
+        char[][] maze = UtUtils.stringToChars2("""
+                [["+","+",".","+"],[".",".",".","+"],["+","+","+","."]]
+                """);
         int[] entrance = {1, 2};
         int expected = 1;
         Assertions.assertEquals(expected, solution1926.nearestExit(maze, entrance));
@@ -18,11 +16,9 @@ public class Solution1926Tests {
 
     @Test
     public void example2() {
-        char[][] maze = {
-                {'+', '+', '+'},
-                {'.', '.', '.'},
-                {'+', '+', '+'}
-        };
+        char[][] maze = UtUtils.stringToChars2("""
+                [["+","+","+"],[".",".","."],["+","+","+"]]
+                """);
         int[] entrance = {1, 0};
         int expected = 2;
         Assertions.assertEquals(expected, solution1926.nearestExit(maze, entrance));
@@ -30,7 +26,9 @@ public class Solution1926Tests {
 
     @Test
     public void example3() {
-        char[][] maze = {{'.', '+'}};
+        char[][] maze = UtUtils.stringToChars2("""
+                [[".","+"]]
+                """);
         int[] entrance = {0, 0};
         int expected = -1;
         Assertions.assertEquals(expected, solution1926.nearestExit(maze, entrance));

@@ -6,15 +6,15 @@ public class Solution832Tests {
 
     @Test
     public void example1() {
-        int[][] image = {{1, 1, 0}, {1, 0, 1}, {0, 0, 0}};
-        int[][] expected = {{1, 0, 0}, {0, 1, 0}, {1, 1, 1}};
+        int[][] image = UtUtils.stringToInts2("[[1,1,0],[1,0,1],[0,0,0]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,0,0],[0,1,0],[1,1,1]]");
         Assertions.assertArrayEquals(expected, solution832.flipAndInvertImage(image));
     }
 
     @Test
     public void example2() {
-        int[][] image = {{1, 1, 0, 0}, {1, 0, 0, 1}, {0, 1, 1, 1}, {1, 0, 1, 0}};
-        int[][] expected = {{1, 1, 0, 0}, {0, 1, 1, 0}, {0, 0, 0, 1}, {1, 0, 1, 0}};
+        int[][] image = UtUtils.stringToInts2("[[1,1,0,0],[1,0,0,1],[0,1,1,1],[1,0,1,0]]");
+        int[][] expected = UtUtils.stringToInts2("[[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]");
         Assertions.assertArrayEquals(expected, solution832.flipAndInvertImage(image));
     }
 }

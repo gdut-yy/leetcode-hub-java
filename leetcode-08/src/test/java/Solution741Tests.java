@@ -6,7 +6,11 @@ public class Solution741Tests {
 
     @Test
     public void example1() {
-        int[][] grid = {{0, 1, -1}, {1, 0, -1}, {1, 1, 1}};
+        int[][] grid = UtUtils.stringToInts2("""
+                [[0, 1, -1],
+                 [1, 0, -1],
+                 [1, 1,  1]]
+                """);
         int expected = 5;
         Assertions.assertEquals(expected, solution741.cherryPickup(grid));
     }

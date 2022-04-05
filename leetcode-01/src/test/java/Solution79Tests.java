@@ -6,21 +6,27 @@ public class Solution79Tests {
 
     @Test
     public void example1() {
-        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+                """);
         String word = "ABCCED";
         Assertions.assertTrue(solution79.exist(board, word));
     }
 
     @Test
     public void example2() {
-        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+                """);
         String word = "SEE";
         Assertions.assertTrue(solution79.exist(board, word));
     }
 
     @Test
     public void example3() {
-        char[][] board = {{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}};
+        char[][] board = UtUtils.stringToChars2("""
+                [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]
+                """);
         String word = "ABCB";
         Assertions.assertFalse(solution79.exist(board, word));
     }

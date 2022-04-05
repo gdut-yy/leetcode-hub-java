@@ -93,6 +93,19 @@ https://leetcode-cn.com/problems/k-highest-ranked-items-within-a-price-range/
 3.行坐标：较小 行坐标的有更高优先级。
 4.列坐标：较小 列坐标的有更高优先级。
 请你返回给定价格内排名最高的 k 件物品的坐标，将它们按照排名排序后返回。如果给定价格内少于 k 件物品，那么请将它们的坐标 全部 返回。
+提示：
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 10^5
+1 <= m * n <= 10^5
+0 <= grid[i][j] <= 10^5
+pricing.length == 2
+2 <= low <= high <= 10^5
+start.length == 2
+0 <= row <= m - 1
+0 <= col <= n - 1
+grid[row][col] > 0
+1 <= k <= m * n
 
 BFS 将符合条件的全扔优先队列，再从 优先队列中取 top k
  */

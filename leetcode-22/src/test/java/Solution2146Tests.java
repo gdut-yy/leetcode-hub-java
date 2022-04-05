@@ -12,7 +12,7 @@ public class Solution2146Tests {
         int[] pricing = {2, 5};
         int[] start = {0, 0};
         int k = 3;
-        List<List<Integer>> expected = List.of(List.of(0, 1), List.of(1, 1), List.of(2, 1));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[0,1],[1,1],[2,1]]");
         Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 
@@ -22,7 +22,7 @@ public class Solution2146Tests {
         int[] pricing = {2, 3};
         int[] start = {2, 3};
         int k = 2;
-        List<List<Integer>> expected = List.of(List.of(2, 1), List.of(1, 2));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[2,1],[1,2]]");
         Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 
@@ -32,7 +32,7 @@ public class Solution2146Tests {
         int[] pricing = {2, 3};
         int[] start = {0, 0};
         int k = 3;
-        List<List<Integer>> expected = List.of(List.of(2, 1), List.of(2, 0));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[2,1],[2,0]]");
         Assertions.assertEquals(expected, solution2146.highestRankedKItems(grid, pricing, start, k));
     }
 }

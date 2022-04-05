@@ -8,11 +8,9 @@ public class Solution1773Tests {
 
     @Test
     public void example1() {
-        List<List<String>> items = List.of(
-                List.of("phone", "blue", "pixel"),
-                List.of("computer", "silver", "lenovo"),
-                List.of("phone", "gold", "iphone")
-        );
+        List<List<String>> items = UtUtils.stringToStringList2("""
+                [["phone","blue","pixel"],["computer","silver","lenovo"],["phone","gold","iphone"]]
+                """);
         String ruleKey = "color";
         String ruleValue = "silver";
         int expected = 1;
@@ -21,11 +19,9 @@ public class Solution1773Tests {
 
     @Test
     public void example2() {
-        List<List<String>> items = List.of(
-                List.of("phone", "blue", "pixel"),
-                List.of("computer", "silver", "lenovo"),
-                List.of("phone", "gold", "iphone")
-        );
+        List<List<String>> items = UtUtils.stringToStringList2("""
+                [["phone","blue","pixel"],["computer","silver","phone"],["phone","gold","iphone"]]
+                """);
         String ruleKey = "type";
         String ruleValue = "phone";
         int expected = 2;

@@ -10,28 +10,28 @@ public class Solution830Tests {
     @Test
     public void example1() {
         String s = "abbxxxxzzy";
-        List<List<Integer>> expected = List.of(List.of(3, 6));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[3,6]]");
         Assertions.assertEquals(expected, solution830.largeGroupPositions(s));
     }
 
     @Test
     public void example2() {
         String s = "abc";
-        List<List<Integer>> expected = new ArrayList<>();
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[]");
         Assertions.assertEquals(expected, solution830.largeGroupPositions(s));
     }
 
     @Test
     public void example3() {
         String s = "abcdddeeeeaabbbcd";
-        List<List<Integer>> expected = List.of(List.of(3, 5), List.of(6, 9), List.of(12, 14));
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[3,5],[6,9],[12,14]]");
         Assertions.assertEquals(expected, solution830.largeGroupPositions(s));
     }
 
     @Test
     public void example4() {
         String s = "aba";
-        List<List<Integer>> expected = new ArrayList<>();
+        List<List<Integer>> expected = UtUtils.stringToIntegerList2("[]");
         Assertions.assertEquals(expected, solution830.largeGroupPositions(s));
     }
 }

@@ -7,7 +7,7 @@ public class Solution210Tests {
     @Test
     public void example1() {
         int numCourses = 2;
-        int[][] prerequisites = {{1, 0}};
+        int[][] prerequisites = UtUtils.stringToInts2("[[1,0]]");
         int[] expected = {0, 1};
         Assertions.assertArrayEquals(expected, solution210.findOrder(numCourses, prerequisites));
     }
@@ -15,7 +15,7 @@ public class Solution210Tests {
     @Test
     public void example2() {
         int numCourses = 4;
-        int[][] prerequisites = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
+        int[][] prerequisites = UtUtils.stringToInts2("[[1,0],[2,0],[3,1],[3,2]]");
         // 一个正确的课程顺序是 [0,1,2,3] 。另一个正确的排序是 [0,2,1,3] 。
 //        int[] expected = {0, 2, 1, 3};
         int[] expected = {0, 1, 2, 3};
@@ -25,7 +25,7 @@ public class Solution210Tests {
     @Test
     public void example3() {
         int numCourses = 1;
-        int[][] prerequisites = {};
+        int[][] prerequisites = UtUtils.stringToInts2("[]");
         int[] expected = {0};
         Assertions.assertArrayEquals(expected, solution210.findOrder(numCourses, prerequisites));
     }

@@ -8,7 +8,9 @@ public class Solution1258Tests {
 
     @Test
     public void example1() {
-        List<List<String>> synonyms = List.of(List.of("happy", "joy"), List.of("sad", "sorrow"), List.of("joy", "cheerful"));
+        List<List<String>> synonyms = UtUtils.stringToStringList2("""
+                [["happy","joy"],["sad","sorrow"],["joy","cheerful"]]
+                """);
         String text = "I am happy today but was sad yesterday";
         List<String> expected = List.of(
                 "I am cheerful today but was sad yesterday",

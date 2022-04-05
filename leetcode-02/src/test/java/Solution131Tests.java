@@ -9,36 +9,47 @@ public class Solution131Tests {
     @Test
     public void example1() {
         String s = "aab";
-        List<List<String>> expected = List.of(List.of("a", "a", "b"), List.of("aa", "b"));
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [["a","a","b"],["aa","b"]]
+                """);
         Assertions.assertEquals(expected, solution131.partition131(s));
     }
 
     @Test
     public void example2() {
         String s = "a";
-        List<List<String>> expected = List.of(List.of("a"));
+        List<List<String>> expected = UtUtils.stringToStringList2("""
+                [["a"]]
+                """);
         Assertions.assertEquals(expected, solution131.partition131(s));
     }
 
     // 剑指 Offer II 086. 分割回文子字符串
+    // https://leetcode-cn.com/problems/M99OJA/
     @Test
     public void example1_2() {
         String s = "google";
-        String[][] expected = {{"g", "o", "o", "g", "l", "e"}, {"g", "oo", "g", "l", "e"}, {"goog", "l", "e"}};
+        String[][] expected = UtUtils.stringToStrings2("""
+                [["g","o","o","g","l","e"],["g","oo","g","l","e"],["goog","l","e"]]
+                """);
         Assertions.assertArrayEquals(expected, solution131.partition(s));
     }
 
     @Test
     public void example2_2() {
         String s = "aab";
-        String[][] expected = {{"a", "a", "b"}, {"aa", "b"}};
+        String[][] expected = UtUtils.stringToStrings2("""
+                [["a","a","b"],["aa","b"]]
+                """);
         Assertions.assertArrayEquals(expected, solution131.partition(s));
     }
 
     @Test
     public void example3_2() {
         String s = "a";
-        String[][] expected = {{"a"}};
+        String[][] expected = UtUtils.stringToStrings2("""
+                [["a"]]
+                """);
         Assertions.assertArrayEquals(expected, solution131.partition(s));
     }
 }
