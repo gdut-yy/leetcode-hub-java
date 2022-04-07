@@ -9,14 +9,14 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution5302Tests {
+public class Solution2227Tests {
     @Test
     public void example1() {
         char[] keys = {'a', 'b', 'c', 'd'};
         String[] values = {"ei", "zf", "ei", "am"};
         String[] dictionary = {"abcd", "acbd", "adbc", "badc", "dacb", "cadb", "cbda", "abad"};
 
-        Solution5302.Encrypter encrypter = new Solution5302.Encrypter(keys, values, dictionary);
+        Solution2227.Encrypter encrypter = new Solution2227.Encrypter(keys, values, dictionary);
 
         // 返回 "eizfeiam"。
         // 'a' 映射为 "ei"，'b' 映射为 "zf"，'c' 映射为 "ei"，'d' 映射为 "am"。
@@ -31,18 +31,18 @@ public class Solution5302Tests {
 
     @Test
     public void example1_2() throws Exception {
-        reflection("solution5302-example1-input.txt", "solution5302-example1-output.txt");
+        reflection("solution2227-example1-input.txt", "solution2227-example1-output.txt");
     }
 
     @Test
     public void example2() throws Exception {
         // 201 / 203 个通过测试用例
-        reflection("solution5302-example2-input.txt", "solution5302-example2-output.txt");
+        reflection("solution2227-example2-input.txt", "solution2227-example2-output.txt");
     }
 
     private void reflection(String inputFile, String outputFile) throws Exception {
         // 类、构造器、类方法
-        Class<?> clazz = Solution5302.Encrypter.class;
+        Class<?> clazz = Solution2227.Encrypter.class;
         Constructor<?> constructor = clazz.getConstructor(char[].class, String[].class, String[].class);
         Method encrypt = clazz.getMethod("encrypt", String.class);
         Method decrypt = clazz.getMethod("decrypt", String.class);

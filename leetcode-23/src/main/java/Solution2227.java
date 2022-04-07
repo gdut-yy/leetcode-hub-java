@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution5302 {
+public class Solution2227 {
     static class Encrypter {
         private final Map<Character, String> char2StringMap;
         private final Map<String, Integer> encryptDictionaryMap;
@@ -33,7 +33,7 @@ public class Solution5302 {
     }
 }
 /*
-5302. 加密解密字符串
+2227. 加密解密字符串
 https://leetcode-cn.com/problems/encrypt-and-decrypt-strings/
 
 第 287 场周赛 T4。

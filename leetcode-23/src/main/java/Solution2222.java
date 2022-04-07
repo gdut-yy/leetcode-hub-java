@@ -1,4 +1,4 @@
-public class Solution6035 {
+public class Solution2222 {
     public long numberOfWays(String s) {
         int len = s.length();
 
@@ -40,7 +40,7 @@ public class Solution6035 {
     }
 }
 /*
-6035. 选择建筑的方案数
+2222. 选择建筑的方案数
 https://leetcode-cn.com/problems/number-of-ways-to-select-buildings/
 
 给你一个下标从 0 开始的二进制字符串 s ，它表示一条街沿途的建筑类型，其中：

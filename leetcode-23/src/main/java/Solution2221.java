@@ -1,4 +1,4 @@
-public class Solution6034 {
+public class Solution2221 {
     public int triangularSum(int[] nums) {
         int n = nums.length;
 
@@ -14,7 +14,7 @@ public class Solution6034 {
     }
 }
 /*
-6034. 数组的三角和
+2221. 数组的三角和
 https://leetcode-cn.com/problems/find-triangular-sum-of-an-array/
 
 第 75 场双周赛 T2。

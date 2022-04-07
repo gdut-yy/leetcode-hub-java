@@ -1,4 +1,4 @@
-public class Solution6055 {
+public class Solution2224 {
     public int convertTime(String current, String correct) {
         int currentTime = Integer.parseInt(current.substring(0, 2)) * 60 + Integer.parseInt(current.substring(3, 5));
         int correctTime = Integer.parseInt(correct.substring(0, 2)) * 60 + Integer.parseInt(correct.substring(3, 5));
@@ -24,7 +24,7 @@ public class Solution6055 {
     }
 }
 /*
-6055. 转化时间需要的最少操作数
+2224. 转化时间需要的最少操作数
 https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time/
 
 第 287 场周赛 T1。

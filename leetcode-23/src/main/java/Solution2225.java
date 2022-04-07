@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution5235 {
+public class Solution2225 {
     public List<List<Integer>> findWinners(int[][] matches) {
         Set<Integer> players = new HashSet<>();
         // 建图
@@ -40,7 +40,7 @@ public class Solution5235 {
     }
 }
 /*
-5235. 找出输掉零场或一场比赛的玩家
+2225. 找出输掉零场或一场比赛的玩家
 https://leetcode-cn.com/problems/find-players-with-zero-or-one-losses/
 
 第 287 场周赛 T2。

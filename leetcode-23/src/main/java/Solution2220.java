@@ -1,4 +1,4 @@
-public class Solution6033 {
+public class Solution2220 {
     public int minBitFlips(int start, int goal) {
         String startStr = Integer.toBinaryString(start);
         String goalStr = Integer.toBinaryString(goal);
@@ -30,7 +30,7 @@ public class Solution6033 {
     }
 }
 /*
-6033. 转换数字的最少位翻转次数
+2220. 转换数字的最少位翻转次数
 https://leetcode-cn.com/problems/minimum-bit-flips-to-convert-number/
 
 第 75 场双周赛 T1。

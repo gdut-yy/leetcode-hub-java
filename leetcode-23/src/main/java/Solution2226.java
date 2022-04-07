@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution5219 {
+public class Solution2226 {
     public int maximumCandies(int[] candies, long k) {
         long sum = 0;
         for (int candy : candies) {
@@ -40,7 +40,7 @@ public class Solution5219 {
     }
 }
 /*
-5219. 每个小孩最多能分到多少糖果
+2226. 每个小孩最多能分到多少糖果
 https://leetcode-cn.com/problems/maximum-candies-allocated-to-k-children/
 
 第 287 场周赛 T3。
