@@ -62,7 +62,7 @@ https://leetcode-cn.com/problems/check-if-a-parentheses-string-can-be-valid/
 如果你可以将 s 变为有效括号字符串，请你返回 true ，否则返回 false 。
 提示：
 n == s.length == locked.length
-1 <= n <= 105
+1 <= n <= 10^5
 s[i] 要么是 '(' 要么是 ')' 。
 locked[i] 要么是 '0' 要么是 '1' 。
 

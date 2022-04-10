@@ -11,7 +11,7 @@ public class Solution1150 {
     }
 }
 /*
-1150. 检查一个数是否在数组中占绝大多数
+$1150. 检查一个数是否在数组中占绝大多数
 https://leetcode-cn.com/problems/check-if-a-number-is-majority-element-in-a-sorted-array/
 
 第 6 场双周赛 T1。
