@@ -1,34 +1,28 @@
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution1136 {
     public int minimumSemesters(int n, int[][] relations) {
         // 拓扑排序
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
+        Map<Integer, List<Integer>> outGraph = new HashMap<>();
+        int[] inDegrees = new int[n + 1];
         // 课程关系表 relations[i] = [X, Y]，用以表示课程 X 和课程 Y 之间的先修关系：课程 X 必须在课程 Y 之前修完。
         for (int[] relation : relations) {
-            int pre = relation[0];
-            int cur = relation[1];
-
-            Set<Integer> outSet = outGraph.getOrDefault(pre, new HashSet<>());
-            outSet.add(cur);
-            outGraph.put(pre, outSet);
-
-            Set<Integer> inSet = inGraph.getOrDefault(cur, new HashSet<>());
-            inSet.add(pre);
-            inGraph.put(cur, inSet);
+            int from = relation[0];
+            int to = relation[1];
+            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+            inDegrees[to]++;
         }
 
         // 入度为 0 进队列
         Queue<Integer> queue = new LinkedList<>();
         // 它们以 1 到 N 进行编号。
         for (int i = 1; i <= n; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
@@ -42,9 +36,10 @@ public class Solution1136 {
             for (int i = 0; i < size; i++) {
                 cnt++;
                 int cur = queue.remove();
-                for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                    inGraph.get(next).remove(cur);
-                    if (inGraph.get(next).size() == 0) {
+
+                for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
+                    inDegrees[next]--;
+                    if (inDegrees[next] == 0) {
                         queue.add(next);
                     }
                 }

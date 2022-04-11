@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6037 {
+public class Solution2231 {
     public int largestInteger(int num) {
         String numStr = String.valueOf(num);
         int len = numStr.length();
@@ -32,7 +32,7 @@ public class Solution6037 {
     }
 }
 /*
-6037. 按奇偶性交换后的最大数字
+2231. 按奇偶性交换后的最大数字
 https://leetcode-cn.com/problems/largest-number-after-digit-swaps-by-parity/
 
 第 288 场周赛 T1。

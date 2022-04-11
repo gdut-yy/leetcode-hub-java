@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Jianxin003Tests {
-    private final Jianxin003 jianxin003 = new Jianxin003();
+public class Ccbft211029T3Tests {
+    private final Ccbft211029T3 ccbft211029T3 = new Ccbft211029T3();
 
-    private final Jianxin003_2 jianxin003_2 = new Jianxin003_2();
+    private final Ccbft211029T3_2 ccbft211029T3_2 = new Ccbft211029T3_2();
 
     @Test
     public void example1() {
@@ -12,8 +12,8 @@ public class Jianxin003Tests {
         int start = 1;
         int end = 7;
         int[] expected = {1, 2, 3, 4, 8, 7};
-        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
-        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -22,8 +22,8 @@ public class Jianxin003Tests {
         int start = 9;
         int end = 1;
         int[] expected = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
-        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3_2.metroRouteDesignI(lines, start, end));
     }
 
     // 补充用例
@@ -33,8 +33,8 @@ public class Jianxin003Tests {
         int start = 7415;
         int end = 2871;
         int[] expected = {7415, 699, 4880, 473, 7721, 2871};
-        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
-        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -43,8 +43,8 @@ public class Jianxin003Tests {
         int start = 9906;
         int end = 853;
         int[] expected = {9906, 2269, 4614, 970, 9027, 853};
-        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
-        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3_2.metroRouteDesignI(lines, start, end));
     }
 
     @Test
@@ -53,7 +53,7 @@ public class Jianxin003Tests {
         int start = 4165;
         int end = 3219;
         int[] expected = {4165, 8075, 3219};
-        Assertions.assertArrayEquals(expected, jianxin003.metroRouteDesignI(lines, start, end));
-        Assertions.assertArrayEquals(expected, jianxin003_2.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3.metroRouteDesignI(lines, start, end));
+        Assertions.assertArrayEquals(expected, ccbft211029T3_2.metroRouteDesignI(lines, start, end));
     }
 }

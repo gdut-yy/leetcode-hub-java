@@ -1,34 +1,29 @@
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution1857 {
     public int largestPathValue(String colors, int[][] edges) {
         int n = colors.length();
 
         // 拓扑排序
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
+        Map<Integer, List<Integer>> outGraph = new HashMap<>();
+        int[] inDegrees = new int[n];
         for (int[] edge : edges) {
             int from = edge[0];
             int to = edge[1];
-
-            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            inGraph.put(to, inSet);
-
-            Set<Integer> outSet = outGraph.getOrDefault(from, new HashSet<>());
-            outSet.add(to);
-            outGraph.put(from, outSet);
+            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+            inDegrees[to]++;
         }
 
         // 入度为 0 进队列
         Queue<Integer> queue = new LinkedList<>();
+        // 节点编号从 0 到 n - 1 。
         for (int i = 0; i < n; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
@@ -38,14 +33,14 @@ public class Solution1857 {
         while (!queue.isEmpty()) {
             cnt++;
             int cur = queue.remove();
-
             dp[cur][colors.charAt(cur) - 'a'] += 1;
-            for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                inGraph.get(next).remove(cur);
+
+            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
                 for (int ch = 0; ch < 26; ch++) {
                     dp[next][ch] = Math.max(dp[next][ch], dp[cur][ch]);
                 }
-                if (inGraph.getOrDefault(next, new HashSet<>()).size() == 0) {
+                inDegrees[next]--;
+                if (inDegrees[next] == 0) {
                     queue.add(next);
                 }
             }

@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Yinlian002Tests {
+public class Cnunionpay220313T2Tests {
     @Test
     public void example1() {
         // 初始化系统
-        Yinlian002.DiscountSystem obj = new Yinlian002.DiscountSystem();
+        Cnunionpay220313T2.DiscountSystem obj = new Cnunionpay220313T2.DiscountSystem();
 
         // 创建编号 1 的优惠活动，单笔消费原价不小于 15 时，可享受 5 的减免，优惠活动共有 7 个名额，每个用户最多参与该活动 2 次
         obj.addActivity(1, 15, 5, 7, 2);
@@ -23,7 +23,7 @@ public class Yinlian002Tests {
     @Test
     public void example2() {
         // 初始化系统
-        Yinlian002.DiscountSystem obj = new Yinlian002.DiscountSystem();
+        Cnunionpay220313T2.DiscountSystem obj = new Cnunionpay220313T2.DiscountSystem();
 
         // 创建编号 1 的优惠活动，单笔消费原价不小于 10 时，可享受 6 的减免，优惠活动共有 3 个名额，每个用户最多参与该活动 2 次
         obj.addActivity(1, 10, 6, 3, 2);

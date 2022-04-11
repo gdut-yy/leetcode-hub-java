@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
 
-public class Yinlian002 {
+public class Cnunionpay220313T2 {
     static class DiscountSystem {
         private final Map<Integer, Activity> hashMap;
 

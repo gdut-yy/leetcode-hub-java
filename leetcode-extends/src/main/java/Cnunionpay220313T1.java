@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Yinlian001 {
+public class Cnunionpay220313T1 {
     public boolean isPalindrome(ListNode head) {
         int[] nums = toArray(head);
 

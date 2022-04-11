@@ -25,13 +25,8 @@ public class Solution269 {
                     char preCh = preWord.charAt(j);
                     char curCh = curWord.charAt(j);
 
-                    Set<Character> outSet = outGraph.getOrDefault(preCh, new HashSet<>());
-                    outSet.add(curCh);
-                    outGraph.put(preCh, outSet);
-
-                    Set<Character> inSet = inGraph.getOrDefault(curCh, new HashSet<>());
-                    inSet.add(preCh);
-                    inGraph.put(curCh, inSet);
+                    outGraph.computeIfAbsent(preCh, key -> new HashSet<>()).add(curCh);
+                    inGraph.computeIfAbsent(curCh, key -> new HashSet<>()).add(preCh);
                     break;
                 }
             }
@@ -53,15 +48,13 @@ public class Solution269 {
         }
         StringBuilder stringBuilder = new StringBuilder();
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                char cur = queue.remove();
-                stringBuilder.append(cur);
-                for (char nextCh : outGraph.getOrDefault(cur, new HashSet<>())) {
-                    inGraph.get(nextCh).remove(cur);
-                    if (inGraph.get(nextCh).size() == 0) {
-                        queue.add(nextCh);
-                    }
+            char cur = queue.remove();
+            stringBuilder.append(cur);
+
+            for (char nextCh : outGraph.getOrDefault(cur, new HashSet<>())) {
+                inGraph.get(nextCh).remove(cur);
+                if (inGraph.get(nextCh).size() == 0) {
+                    queue.add(nextCh);
                 }
             }
         }

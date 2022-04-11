@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Jianxin002 {
+public class Ccbft211029T2 {
     public int[] analysisHistogram(int[] heights, int cnt) {
         int len = heights.length;
         Arrays.sort(heights);

@@ -1,35 +1,28 @@
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution207 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         // 拓扑排序
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
+        Map<Integer, List<Integer>> outGraph = new HashMap<>();
+        int[] inDegrees = new int[numCourses];
+
         // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
         for (int[] prerequisite : prerequisites) {
             int from = prerequisite[1];
             int to = prerequisite[0];
-
-            Set<Integer> outSet = outGraph.getOrDefault(from, new HashSet<>());
-            outSet.add(to);
-            outGraph.put(from, outSet);
-
-            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            inGraph.put(to, inSet);
+            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+            inDegrees[to]++;
         }
 
         // 入度为 0 进队列。记为 0 到 numCourses - 1
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 0; i < numCourses; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
@@ -37,9 +30,10 @@ public class Solution207 {
         while (!queue.isEmpty()) {
             int cur = queue.remove();
             resList.add(cur);
-            for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                inGraph.get(next).remove(cur);
-                if (inGraph.get(next).size() == 0) {
+
+            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
+                inDegrees[next]--;
+                if (inDegrees[next] == 0) {
                     queue.add(next);
                 }
             }

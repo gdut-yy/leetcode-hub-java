@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class Jianxin004 {
+public class Ccbft211029T4 {
     // 朴素矩阵快速幂 O(row^3 log(1e9) position.length)
     private static final long MOD = 1000000007;
     private static List<long[][][]> TRANS_CACHE_LIST;

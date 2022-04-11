@@ -1,10 +1,10 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution1591 {
     public boolean isPrintable(int[][] targetGrid) {
@@ -34,8 +34,8 @@ public class Solution1591 {
 
         // 建图。adj[i][j] 表示 i => j 存在有向边
         boolean[][] adj = new boolean[61][61];
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
+        Map<Integer, List<Integer>> outGraph = new HashMap<>();
+        int[] inDegrees = new int[61];
 
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
@@ -46,13 +46,8 @@ public class Solution1591 {
                         if (from != to && !adj[from][to]) {
                             adj[from][to] = true;
 
-                            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
-                            inSet.add(from);
-                            inGraph.put(to, inSet);
-
-                            Set<Integer> outSet = outGraph.getOrDefault(from, new HashSet<>());
-                            outSet.add(to);
-                            outGraph.put(from, outSet);
+                            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+                            inDegrees[to]++;
                         }
                     }
                 }
@@ -62,7 +57,7 @@ public class Solution1591 {
         // 入度为 0 进队列
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i <= 60; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
@@ -71,9 +66,9 @@ public class Solution1591 {
             cnt++;
             int cur = queue.remove();
 
-            for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                inGraph.get(next).remove(cur);
-                if (inGraph.getOrDefault(next, new HashSet<>()).size() == 0) {
+            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
+                inDegrees[next]--;
+                if (inDegrees[next] == 0) {
                     queue.add(next);
                 }
             }

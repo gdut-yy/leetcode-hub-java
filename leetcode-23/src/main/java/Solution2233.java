@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution6039 {
+public class Solution2233 {
     public int maximumProduct(int[] nums, int k) {
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
         for (int num : nums) {
@@ -21,7 +21,7 @@ public class Solution6039 {
     }
 }
 /*
-6039. K 次增加后的最大乘积
+2233. K 次增加后的最大乘积
 https://leetcode-cn.com/problems/maximum-product-after-k-increments/
 
 第 288 场周赛 T3。

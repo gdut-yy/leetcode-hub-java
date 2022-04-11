@@ -1,4 +1,4 @@
-public class Jianxin001 {
+public class Ccbft211029T1 {
     public ListNode deleteListNode(ListNode head) {
         ListNode dummy = new ListNode();
         dummy.next = head;

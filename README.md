@@ -78,6 +78,40 @@ junit5 常用断言：
    - `List<List<String>>` 可参考 `UtUtils#STRING_LIST_COMPARATOR`，如第 49、51 题等；
 4. 部分题目是非精确判等（随机问题），如第 384、528 题等；
 
+## 一些 Trick
+
+```java
+  // 数组 使用 Map<Integer, Integer> 统计每个数值出现的频次
+  int[] nums = {4, 1, 2, 1, 2};
+  Map<Integer, Integer> cntMap = new HashMap<>();
+  for (int num : nums) {
+      // Verbose
+      if (!cntMap.containsKey(num)) {
+          cntMap.put(num, 0);
+      }
+      cntMap.put(num, cntMap.get(num) + 1);
+      // Obvious
+      cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
+  }
+```
+
+```java
+  // 有向图 使用 Map<Integer, List<Integer>> 建图
+  int[][] edges = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
+  Map<Integer, List<Integer>> adj = new HashMap<>();
+  for (int[] edge : edges) {
+      int u = edge[0];
+      int v = edge[1];
+      // Verbose
+      if (!adj.containsKey(u)) {
+          adj.put(u, new ArrayList<>());
+      }
+      adj.get(u).add(v);
+      // Obvious
+      adj.computeIfAbsent(u, key -> new ArrayList<>()).add(v);
+  }
+```
+
 ## 常用算法模板
 
 ### 打表

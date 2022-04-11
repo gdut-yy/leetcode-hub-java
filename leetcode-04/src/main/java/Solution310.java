@@ -15,16 +15,10 @@ public class Solution310 {
         // 无向图
         Map<Integer, Set<Integer>> graph = new HashMap<>();
         for (int[] edge : edges) {
-            int pre = edge[0];
-            int cur = edge[1];
-
-            Set<Integer> outSet = graph.getOrDefault(pre, new HashSet<>());
-            outSet.add(cur);
-            graph.put(pre, outSet);
-
-            Set<Integer> inSet = graph.getOrDefault(cur, new HashSet<>());
-            inSet.add(pre);
-            graph.put(cur, inSet);
+            int from = edge[0];
+            int to = edge[1];
+            graph.computeIfAbsent(from, key -> new HashSet<>()).add(to);
+            graph.computeIfAbsent(to, key -> new HashSet<>()).add(from);
         }
 
         // 度为 1 进队列
@@ -44,6 +38,7 @@ public class Solution310 {
             for (int i = 0; i < size; i++) {
                 int cur = queue.remove();
                 resList.add(cur);
+
                 for (int next : graph.getOrDefault(cur, new HashSet<>())) {
                     graph.get(next).remove(cur);
                     if (!visited[next] && graph.get(next).size() == 1) {

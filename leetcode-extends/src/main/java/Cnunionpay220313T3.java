@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Yinlian003 {
+public class Cnunionpay220313T3 {
     public int maxInvestment(int[] product, int limit) {
         Arrays.sort(product);
 
