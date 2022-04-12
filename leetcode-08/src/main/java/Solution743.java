@@ -49,8 +49,7 @@ public class Solution743 {
     public int networkDelayTime2(int[][] times, int n, int k) {
         int m = times.length;
 
-        Adjacency adjacency = new Adjacency(n, m);
-        // 存图
+        LinkedForwardStar adjacency = new LinkedForwardStar(n, m);
         for (int[] edge : times) {
             int u = edge[0];
             int v = edge[1];
@@ -58,7 +57,7 @@ public class Solution743 {
             adjacency.add(u, v, w);
         }
 
-        // 堆优化 Dijkstra（邻接表）
+        // dijkstra
         int[] dist = adjacency.dijkstra(k);
 
         // 遍历答案
@@ -66,12 +65,15 @@ public class Solution743 {
         for (int i = 1; i <= n; i++) {
             max = Math.max(max, dist[i]);
         }
-        return max == INF ? -1 : max;
+        return max == Integer.MAX_VALUE ? -1 : max;
     }
 
-    private static class Adjacency {
+    private static class LinkedForwardStar {
+        // n 个点
         private final int N;
+        // m 条边
         private final int M;
+        // 链式前向星
         private final int[] headArr;
         private final int[] edgeArr;
         private final int[] nextArr;
@@ -79,7 +81,7 @@ public class Solution743 {
         private int idx;
 
         // 链式前向星
-        public Adjacency(int n, int m) {
+        public LinkedForwardStar(int n, int m) {
             this.N = n + 1;
             this.M = m + 1;
             this.headArr = new int[N];
@@ -92,38 +94,31 @@ public class Solution743 {
         }
 
         public void add(int u, int v, int w) {
-            edgeArr[idx] = v;
-            nextArr[idx] = headArr[u];
-            headArr[u] = idx;
-            weightArr[idx] = w;
-            idx++;
+            this.edgeArr[idx] = v;
+            this.nextArr[idx] = headArr[u];
+            this.headArr[u] = idx;
+            this.weightArr[idx] = w;
+            this.idx++;
         }
 
-        public int[] dijkstra(int k) {
-            // 起始先将所有的点标记为「未更新」和「距离为正无穷」
+        // 从 src 点出发跑 dijkstra 返回 dist[] 数组
+        public int[] dijkstra(int src) {
             boolean[] visited = new boolean[N];
-            // dist[x] = y 代表从「源点/起点」到 x 的最短距离为 y
             int[] dist = new int[N];
-            Arrays.fill(dist, INF);
+            Arrays.fill(dist, Integer.MAX_VALUE);
 
-            // 只有起点最短距离为 0
-            dist[k] = 0;
-            // 使用「优先队列」存储所有可用于更新的点
-            // 以 (点编号, 到起点的距离) 进行存储，优先弹出「最短距离」较小的点
-            PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
-            priorityQueue.add(new int[]{k, 0});
+            // 优先队列优化
+            PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
+            priorityQueue.add(new int[]{src, 0});
+            dist[src] = 0;
 
             while (!priorityQueue.isEmpty()) {
-                // 每次从「优先队列」中弹出
                 int[] poll = priorityQueue.poll();
                 int id = poll[0];
-//                int step = poll[1];
 
-                // 如果弹出的点被标记「已更新」，则跳过
                 if (visited[id]) {
                     continue;
                 }
-                // 标记该点「已更新」，并使用该点更新其他点的「最短距离」
                 visited[id] = true;
                 for (int i = headArr[id]; i != -1; i = nextArr[i]) {
                     int j = edgeArr[i];

@@ -668,6 +668,8 @@ public int[] singleNumber2(int[] nums) {
 - Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
 
 - [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/)
+- [1368. 使网格图至少有一条有效路径的最小代价](https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/)
+- [1514. 概率最大的路径](https://leetcode-cn.com/problems/path-with-maximum-probability/)
 
 ### 欧拉回路 (Eulerian Circuit)
 
@@ -688,6 +690,13 @@ Hierholzer 算法
 
 - Prim（普里姆）算法
 - Kruskal（克鲁斯卡尔）算法 边优先 O(mlogm) m 条边
+
+---
+
+- [$1135. 最低成本联通所有城市](https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/)
+- [$1168. 水资源分配优化](https://leetcode-cn.com/problems/optimize-water-distribution-in-a-village/)
+- [1489. 找到最小生成树里的关键边和伪关键边](https://leetcode-cn.com/problems/find-critical-and-pseudo-critical-edges-in-minimum-spanning-tree/)
+- [1584. 连接所有点的最小费用](https://leetcode-cn.com/problems/min-cost-to-connect-all-points/)
 
 ### 网络流问题 (Network Flow Problems)
 

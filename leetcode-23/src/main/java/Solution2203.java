@@ -7,22 +7,23 @@ public class Solution2203 {
 
     public long minimumWeight(int n, int[][] edges, int src1, int src2, int dest) {
         int m = edges.length;
-        Adjacency adj = new Adjacency(n, m);
-        // 反向图
-        Adjacency revert = new Adjacency(n, m);
 
-        // 存图
+        // 正向图
+        LinkedForwardStar adj = new LinkedForwardStar(n, m);
+        // 反向图
+        LinkedForwardStar reAdj = new LinkedForwardStar(n, m);
+
         for (int[] edge : edges) {
             int u = edge[0];
             int v = edge[1];
             int w = edge[2];
             adj.add(u, v, w);
-            revert.add(v, u, w);
+            reAdj.add(v, u, w);
         }
 
         long[] src1Dist = adj.dijkstra(src1);
         long[] src2Dist = adj.dijkstra(src2);
-        long[] destDist = revert.dijkstra(dest);
+        long[] destDist = reAdj.dijkstra(dest);
 
         // 枚举中间点
         long min = INF;
@@ -32,9 +33,12 @@ public class Solution2203 {
         return min == INF ? -1 : min;
     }
 
-    private static class Adjacency {
+    private static class LinkedForwardStar {
+        // n 个点
         private final int N;
+        // m 条边
         private final int M;
+        // 链式前向星
         private final int[] headArr;
         private final int[] edgeArr;
         private final int[] nextArr;
@@ -42,7 +46,7 @@ public class Solution2203 {
         private int idx;
 
         // 链式前向星
-        public Adjacency(int n, int m) {
+        public LinkedForwardStar(int n, int m) {
             this.N = n + 1;
             this.M = m + 1;
             this.headArr = new int[N];
@@ -55,38 +59,31 @@ public class Solution2203 {
         }
 
         public void add(int u, int v, int w) {
-            edgeArr[idx] = v;
-            nextArr[idx] = headArr[u];
-            headArr[u] = idx;
-            weightArr[idx] = w;
-            idx++;
+            this.edgeArr[idx] = v;
+            this.nextArr[idx] = headArr[u];
+            this.headArr[u] = idx;
+            this.weightArr[idx] = w;
+            this.idx++;
         }
 
-        public long[] dijkstra(int k) {
-            // 起始先将所有的点标记为「未更新」和「距离为正无穷」
+        // 从 src 点出发跑 dijkstra 返回 dist[] 数组
+        public long[] dijkstra(int src) {
             boolean[] visited = new boolean[N];
-            // dist[x] = y 代表从「源点/起点」到 x 的最短距离为 y
             long[] dist = new long[N];
             Arrays.fill(dist, INF);
 
-            // 只有起点最短距离为 0
-            dist[k] = 0;
-            // 使用「优先队列」存储所有可用于更新的点
-            // 以 (点编号, 到起点的距离) 进行存储，优先弹出「最短距离」较小的点
-            PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(a -> a[1]));
-            priorityQueue.add(new long[]{k, 0});
+            // 优先队列优化
+            PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(o -> o[1]));
+            priorityQueue.add(new long[]{src, 0});
+            dist[src] = 0;
 
             while (!priorityQueue.isEmpty()) {
-                // 每次从「优先队列」中弹出
                 long[] poll = priorityQueue.poll();
                 int id = (int) poll[0];
-//                int step = poll[1];
 
-                // 如果弹出的点被标记「已更新」，则跳过
                 if (visited[id]) {
                     continue;
                 }
-                // 标记该点「已更新」，并使用该点更新其他点的「最短距离」
                 visited[id] = true;
                 for (int i = headArr[id]; i != -1; i = nextArr[i]) {
                     int j = edgeArr[i];
