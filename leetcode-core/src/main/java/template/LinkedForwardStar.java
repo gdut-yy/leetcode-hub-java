@@ -11,6 +11,7 @@ import java.util.PriorityQueue;
  * 优先队列优化的 dijkstra
  * 时间复杂度 O(mlogm)
  * Solution743 | Solution1368 | Solution1514 | Solution2203
+ * Solution1334 | Solution1786
  */
 public class LinkedForwardStar {
     // n 个点
@@ -57,18 +58,18 @@ public class LinkedForwardStar {
         dist[src] = 0;
 
         while (!priorityQueue.isEmpty()) {
-            int[] poll = priorityQueue.poll();
-            int id = poll[0];
+            int[] top = priorityQueue.remove();
+            int cur = top[0];
 
-            if (visited[id]) {
+            if (visited[cur]) {
                 continue;
             }
-            visited[id] = true;
-            for (int i = headArr[id]; i != -1; i = nextArr[i]) {
-                int j = edgeArr[i];
-                if (dist[j] > dist[id] + weightArr[i]) {
-                    dist[j] = dist[id] + weightArr[i];
-                    priorityQueue.add(new int[]{j, dist[j]});
+            visited[cur] = true;
+            for (int i = headArr[cur]; i != -1; i = nextArr[i]) {
+                int next = edgeArr[i];
+                if (dist[next] > dist[cur] + weightArr[i]) {
+                    dist[next] = dist[cur] + weightArr[i];
+                    priorityQueue.add(new int[]{next, dist[next]});
                 }
             }
         }
