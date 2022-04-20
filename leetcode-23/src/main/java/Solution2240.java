@@ -1,4 +1,4 @@
-public class Solution6061 {
+public class Solution2240 {
     public long waysToBuyPensPencils(int total, int cost1, int cost2) {
         // 最多买 n 支钢笔
         int n = total / cost1;
@@ -13,7 +13,7 @@ public class Solution6061 {
     }
 }
 /*
-6061. 买钢笔和铅笔的方案数
+2240. 买钢笔和铅笔的方案数
 https://leetcode-cn.com/problems/number-of-ways-to-buy-pens-and-pencils/
 
 第 76 场双周赛 T2。

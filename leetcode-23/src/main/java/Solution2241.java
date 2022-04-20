@@ -1,4 +1,4 @@
-public class Solution6062 {
+public class Solution2241 {
     static class ATM {
         private static final int[] DENOMINATION = {20, 50, 100, 200, 500};
         private final long[] bank;
@@ -34,7 +34,7 @@ public class Solution6062 {
 
 }
 /*
-6062. 设计一个 ATM 机器
+2241. 设计一个 ATM 机器
 https://leetcode-cn.com/problems/design-an-atm-machine/
 
 第 76 场双周赛 T3。

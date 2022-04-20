@@ -1,4 +1,4 @@
-public class Solution6070 {
+public class Solution2243 {
     public String digitSum(String s, int k) {
         while (s.length() > k) {
             StringBuilder s1 = new StringBuilder();
@@ -17,7 +17,7 @@ public class Solution6070 {
     }
 }
 /*
-6070. 计算字符串的数字和
+2243. 计算字符串的数字和
 https://leetcode-cn.com/problems/calculate-digit-sum-of-a-string/
 
 第 289 场周赛 T1。

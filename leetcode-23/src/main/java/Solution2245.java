@@ -1,4 +1,4 @@
-public class Solution6072 {
+public class Solution2245 {
     public int maxTrailingZeros(int[][] grid) {
         int M = grid.length;
         int N = grid[0].length;
@@ -76,10 +76,10 @@ public class Solution6072 {
     }
 }
 /*
-6072. 转角路径的乘积中最多能有几个尾随零
+2245. 转角路径的乘积中最多能有几个尾随零
 https://leetcode-cn.com/problems/maximum-trailing-zeros-in-a-cornered-path/
 
-第 289 场周赛 T2。
+第 289 场周赛 T3。
 
 给你一个二维整数数组 grid ，大小为 m x n，其中每个单元格都含一个正整数。
 转角路径 定义为：包含至多一个弯的一组相邻单元。具体而言，路径应该完全 向水平方向 或者 向竖直方向 移动过弯（如果存在弯），

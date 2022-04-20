@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6060 {
+public class Solution2239 {
     public int findClosestNumber(int[] nums) {
         int min = Math.abs(nums[0]);
         List<Integer> minList = new ArrayList<>();
@@ -25,7 +25,7 @@ public class Solution6060 {
     }
 }
 /*
-6060. 找到最接近 0 的数字
+2239. 找到最接近 0 的数字
 https://leetcode-cn.com/problems/find-closest-number-to-zero/
 
 第 76 场双周赛 T1。
