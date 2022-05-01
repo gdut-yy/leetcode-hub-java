@@ -9,7 +9,7 @@ public class Solution821Tests {
         String s = "loveleetcode";
         char c = 'e';
         int[] expected = {3, 2, 1, 0, 1, 0, 0, 1, 2, 2, 1, 0};
-        Assertions.assertEquals(expected, solution821.shortestToChar(s, c));
+        Assertions.assertArrayEquals(expected, solution821.shortestToChar(s, c));
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Solution821Tests {
         String s = "aaab";
         char c = 'b';
         int[] expected = {3, 2, 1, 0};
-        Assertions.assertEquals(expected, solution821.shortestToChar(s, c));
+        Assertions.assertArrayEquals(expected, solution821.shortestToChar(s, c));
     }
 }
