@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6048 {
+public class Solution2260 {
     public int minimumCardPickup(int[] cards) {
         int len = cards.length;
 
@@ -26,7 +26,7 @@ public class Solution6048 {
     }
 }
 /*
-6048. 必须拿起的最小连续卡牌数
+2260. 必须拿起的最小连续卡牌数
 https://leetcode-cn.com/contest/weekly-contest-291/problems/minimum-consecutive-cards-to-pick-up/
 
 第 291 场周赛 T2。

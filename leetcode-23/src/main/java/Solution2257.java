@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6053 {
+public class Solution2257 {
     public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
         char[][] grid = new char[m][n];
         // 初始状态 置为未被保卫
@@ -60,7 +60,7 @@ public class Solution6053 {
     }
 }
 /*
-6053. 统计网格图中没有被保卫的格子数
+2257. 统计网格图中没有被保卫的格子数
 https://leetcode-cn.com/problems/count-unguarded-cells-in-the-grid/
 
 第 77 场双周赛 T3。

@@ -1,4 +1,4 @@
-public class Solution6047 {
+public class Solution2259 {
     public String removeDigit(String number, char digit) {
         int len = number.length();
 
@@ -16,7 +16,7 @@ public class Solution6047 {
     }
 }
 /*
-6047. 移除指定数字得到的最大结果
+2259. 移除指定数字得到的最大结果
 https://leetcode-cn.com/contest/weekly-contest-291/problems/remove-digit-from-number-to-maximize-result/
 
 第 291 场周赛 T1。

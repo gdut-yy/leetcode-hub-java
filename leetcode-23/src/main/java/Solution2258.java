@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution6054 {
+public class Solution2258 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     private int M;
     private int N;
@@ -116,7 +116,7 @@ public class Solution6054 {
     }
 }
 /*
-6054. 逃离火灾
+2258. 逃离火灾
 https://leetcode-cn.com/problems/escape-the-spreading-fire/
 
 第 77 场双周赛 T4。

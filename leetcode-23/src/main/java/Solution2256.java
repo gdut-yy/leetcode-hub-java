@@ -1,4 +1,4 @@
-public class Solution6052 {
+public class Solution2256 {
     public int minimumAverageDifference(int[] nums) {
         int n = nums.length;
 
@@ -28,7 +28,7 @@ public class Solution6052 {
     }
 }
 /*
-6052. 最小平均差
+2256. 最小平均差
 https://leetcode-cn.com/problems/minimum-average-difference/
 
 第 77 场双周赛 T2。

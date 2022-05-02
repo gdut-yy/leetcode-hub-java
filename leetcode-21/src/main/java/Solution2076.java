@@ -3,14 +3,15 @@ import java.util.Arrays;
 public class Solution2076 {
     public boolean[] friendRequests(int n, int[][] restrictions, int[][] requests) {
         UnionFind unionFind = new UnionFind(n);
-        int resLen = requests.length;
-        boolean[] res = new boolean[resLen];
+        int len = requests.length;
+        boolean[] res = new boolean[len];
         Arrays.fill(res, true);
-        for (int i = 0; i < resLen; i++) {
+
+        for (int i = 0; i < len; i++) {
             // 先并
             unionFind.union(requests[i][0], requests[i][1]);
             for (int[] restriction : restrictions) {
-                if (unionFind.find(restriction[0]) == unionFind.find(restriction[1])) {
+                if (unionFind.connected(restriction[0], restriction[1])) {
                     res[i] = false;
                     // 不行就复原
                     unionFind.reset();
@@ -41,9 +42,7 @@ public class Solution2076 {
             count = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
+        // 返回节点 x 的根节点
         private int find(int x) {
             int ret = x;
             while (ret != parent[ret]) {
@@ -54,9 +53,7 @@ public class Solution2076 {
             return ret;
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
+        // 将 p 和 q 连通
         public void union(int p, int q) {
             preParent = parent.clone();
             int rootP = find(p);
@@ -73,6 +70,13 @@ public class Solution2076 {
                 }
                 count--;
             }
+        }
+
+        // p 和 q 是否连通
+        public boolean connected(int p, int q) {
+            int rootP = find(p);
+            int rootQ = find(q);
+            return rootP == rootQ;
         }
 
         public void reset() {
@@ -95,6 +99,16 @@ https://leetcode-cn.com/problems/process-restricted-friend-requests/
 一旦请求成功，那么对所有未来的好友请求而言， uj 和 vj 将会 成为直接朋友 。
 返回一个 布尔数组 result ，其中元素遵循此规则：如果第 j 个好友请求 成功 ，那么 result[j] 就是 true ；否则，为 false 。
 注意：如果 uj 和 vj 已经是直接朋友，那么他们之间的请求将仍然 成功 。
+提示：
+2 <= n <= 1000
+0 <= restrictions.length <= 1000
+restrictions[i].length == 2
+0 <= xi, yi <= n - 1
+xi != yi
+1 <= requests.length <= 1000
+requests[j].length == 2
+0 <= uj, vj <= n - 1
+uj != vj
 
 回退并查集。
  */

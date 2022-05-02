@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6050 {
+public class Solution2262 {
     public long appealSum(String s) {
         int len = s.length();
         char[] chars = s.toCharArray();
@@ -23,7 +23,7 @@ public class Solution6050 {
     }
 }
 /*
-6050. 字符串的总引力
+2262. 字符串的总引力
 https://leetcode-cn.com/contest/weekly-contest-291/problems/total-appeal-of-a-string/
 
 第 291 场周赛 T4。

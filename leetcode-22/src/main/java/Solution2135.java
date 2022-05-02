@@ -60,4 +60,5 @@ startWords 和 targetWords 中的每个字符串都仅由小写英文字母组�
 
 先预处理 startWords 所有可以组合的可能，再逐个判断 targetWords 的字符串是否满足条件（字符串中的字母升序排序后 HashSet 判断）。
 数据范围 5 * 10^4 * 26 近似 10^6，因此是可行的方案。
+时间复杂度 O(S*26log26 + T*26log26)，其中 S = startWords.length，T = targetWords.length
  */

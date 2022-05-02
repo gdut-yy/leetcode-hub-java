@@ -1,7 +1,6 @@
 public class Solution2134 {
     public int minSwaps(int[] nums) {
         int len = nums.length;
-        int len2 = len * 2;
         // 两倍长度数组
         int[] nums2 = new int[len * 2];
         for (int i = 0; i < len; i++) {
@@ -10,8 +9,8 @@ public class Solution2134 {
         }
 
         // 前缀和
-        int[] preSum = new int[len2 + 1];
-        for (int i = 0; i < len2; i++) {
+        int[] preSum = new int[len * 2 + 1];
+        for (int i = 0; i < len * 2; i++) {
             preSum[i + 1] = preSum[i] + nums2[i];
         }
 
@@ -20,7 +19,7 @@ public class Solution2134 {
         int k = preSum[len];
         // [left, left+sum]
         int max = 0;
-        for (int i = 0; i + k <= len2; i++) {
+        for (int i = 0; i + k <= len * 2; i++) {
             max = Math.max(max, preSum[i + k] - preSum[i]);
         }
         return k - max;

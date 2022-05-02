@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6049 {
+public class Solution2261 {
     public int countDistinct(int[] nums, int k, int p) {
         int len = nums.length;
 
@@ -26,7 +26,7 @@ public class Solution6049 {
     }
 }
 /*
-6049. 含最多 K 个可整除元素的子数组
+2261. 含最多 K 个可整除元素的子数组
 https://leetcode-cn.com/contest/weekly-contest-291/problems/k-divisible-elements-subarrays/
 
 第 291 场周赛 T3。

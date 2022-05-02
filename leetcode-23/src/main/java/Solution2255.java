@@ -1,4 +1,4 @@
-public class Solution6051 {
+public class Solution2255 {
     public int countPrefixes(String[] words, String s) {
         int cnt = 0;
         for (String word : words) {
@@ -10,7 +10,7 @@ public class Solution6051 {
     }
 }
 /*
-6051. 统计是给定字符串前缀的字符串数目
+2255. 统计是给定字符串前缀的字符串数目
 https://leetcode-cn.com/problems/count-prefixes-of-a-given-string/
 
 第 77 场双周赛 T1。
