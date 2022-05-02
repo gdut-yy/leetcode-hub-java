@@ -20,7 +20,7 @@ public class Solution2075 {
             }
         }
         // 移除 尾随空格
-        return stringBuilder.toString().replaceAll("\\s+$", "");
+        return stringBuilder.toString().stripTrailing();
     }
 }
 /*
