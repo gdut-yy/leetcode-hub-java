@@ -32,7 +32,7 @@ public class Solution2245Tests {
     public void example4() {
         // https://leetcode-cn.com/submissions/detail/301241795/
         // BigInteger TLE
-        int[][] grid = UtUtils.loadingInts2("solution6072-example4-input.txt", 0);
+        int[][] grid = UtUtils.loadingInts2("solution2245-example4-input.txt", 0);
         int expected = 203;
         Assertions.assertEquals(expected, solution2245.maxTrailingZeros(grid));
     }

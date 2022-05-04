@@ -100,6 +100,12 @@ https://leetcode-cn.com/problems/minimize-the-difference-between-target-and-chos
 从矩阵的 每一行 中选择一个整数，你的目标是 最小化 所有选中元素之 和 与目标值 target 的 绝对差 。
 返回 最小的绝对差 。
 a 和 b 两数字的 绝对差 是 a - b 的绝对值。
+提示：
+m == mat.length
+n == mat[i].length
+1 <= m, n <= 70
+1 <= mat[i][j] <= 70
+1 <= target <= 800
 
 笛卡尔积 + 剪枝。
 容易想到 时间复杂度 O(n^m) 的笛卡尔积解法。暴力解决想都不用想会超时，需要对其进行剪枝，以下两种情况可进行剪枝：

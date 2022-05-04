@@ -62,7 +62,7 @@ https://leetcode-cn.com/problems/maximum-matrix-sum/
 提示：
 n == matrix.length == matrix[i].length
 2 <= n <= 250
--105 <= matrix[i][j] <= 10^5
+-10^5 <= matrix[i][j] <= 10^5
 
 这意味着我们可以改变偶数对负数的取值，同时存在两种边界场景：
 case1: 符号对 0 没有影响，-0 == 0，因此可以将 0 与负数归为一类。

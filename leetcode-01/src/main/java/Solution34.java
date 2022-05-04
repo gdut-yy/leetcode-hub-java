@@ -2,57 +2,38 @@ import java.util.Arrays;
 import java.util.TreeMap;
 
 public class Solution34 {
-    /**
-     * 二分查找
-     * 时间复杂度 O(logn)
-     */
     public int[] searchRange(int[] nums, int target) {
         if (Arrays.binarySearch(nums, target) < 0) {
             return new int[]{-1, -1};
         }
-        int leftBound = binarySearchLeftBound(nums, target);
-        int rightBound = binarySearchRightBound(nums, target);
-        return new int[]{leftBound, rightBound};
-    }
 
-    private int binarySearchLeftBound(int[] nums, int target) {
+        // 二分
+        // 左边界
         int left = 0;
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
-            if (checkMid1(nums, target, mid)) {
+            if (nums[mid] >= target) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
-        return left;
-    }
+        int leftIdx = left;
 
-    private boolean checkMid1(int[] nums, int target, int mid) {
-        return nums[mid] >= target;
-    }
-
-    private int binarySearchRightBound(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length;
+        // 右边界
+        left = 0;
+        right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
-            if (!checkMid2(nums, target, mid)) {
+            if (nums[mid] > target) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 右边界二分
-        return left - 1;
-    }
-
-    private boolean checkMid2(int[] nums, int target, int mid) {
-        return nums[mid] <= target;
+        int rightIdx = left - 1;
+        return new int[]{leftIdx, rightIdx};
     }
 }
 /*

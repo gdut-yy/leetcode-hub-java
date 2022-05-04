@@ -7,23 +7,30 @@ public class Cnunionpay220313T3 {
         long sum = 0;
         long mod = 1000000007;
         int len = product.length;
+        // 贪心 数目多到少
         for (int i = len - 1; i >= 0; i--) {
+            // 宽度（每次+1）
             long width = len - i;
+            // 高度差
             long height = (i - 1 >= 0) ? (product[i] - product[i - 1]) : product[i];
             if (product[i] > 0) {
+                // 可消耗掉的高度
                 long costHeight = Math.min(height, limit / width);
                 if (costHeight > 0) {
-                    long total = (product[i] + product[i] - costHeight + 1) * costHeight / 2 * width % mod;
+                    // 等差数列求和 (首项+末项)*项数/2
+                    long total = ((product[i] + (product[i] - costHeight + 1)) * costHeight / 2) * width % mod;
                     sum = (sum + total) % mod;
+                    // 消耗掉的总数
                     limit -= costHeight * width;
                     product[i] -= costHeight;
                 }
+                // 处理余数
                 if (limit / width < 1) {
                     sum = (sum + (long) product[i] * limit % mod) % mod;
-                    return (int) sum;
+                    break;
                 }
             } else {
-                return (int) sum;
+                break;
             }
         }
         return (int) sum;
@@ -46,4 +53,6 @@ https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/I4mOGz/
 1 <= limit <= 10^9
 
 直接模拟显然会 TLE。可排序后 贪心 解决。
+相似题目: 1648. 销售价值减少的颜色球
+https://leetcode-cn.com/problems/sell-diminishing-valued-colored-balls/
  */

@@ -25,4 +25,11 @@ public class Cnunionpay220313T4Tests {
         int expected = 41381342;
         Assertions.assertEquals(expected, cnunionpay220313T4.coopDevelop(skills));
     }
+
+    @Test
+    public void example4() {
+        int[][] skills = UtUtils.loadingInts2("cnunionpay/220313T4-example4-input.txt", 0);
+        int expected = 338910417;
+        Assertions.assertEquals(expected, cnunionpay220313T4.coopDevelop(skills));
+    }
 }
