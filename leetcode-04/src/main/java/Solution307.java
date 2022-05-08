@@ -1,61 +1,159 @@
 public class Solution307 {
+    // 树状数组
     static class NumArray {
-        private int[] tree;
-        private int n;
+        private final BIT bit;
 
         public NumArray(int[] nums) {
-            if (nums.length > 0) {
-                n = nums.length;
-                tree = new int[n * 2];
-                buildTree(nums);
-            }
-        }
-
-        private void buildTree(int[] nums) {
-            for (int i = n, j = 0; i < 2 * n; i++, j++) {
-                tree[i] = nums[j];
-            }
-            for (int i = n - 1; i > 0; i--) {
-                tree[i] = tree[i * 2] + tree[i * 2 + 1];
-            }
+            bit = new BIT(nums);
         }
 
         public void update(int index, int val) {
-            index += n;
-
-            tree[index] = val;
-            while (index > 0) {
-                int left = index;
-                int right = index;
-                if (index % 2 == 0) {
-                    right = index + 1;
-                } else {
-                    left = index - 1;
-                }
-                // parent is updated after child is updated
-                tree[index / 2] = tree[left] + tree[right];
-                index /= 2;
-            }
+            int add = val - bit.getsum(index, index);
+            bit.add(index + 1, add);
         }
 
         public int sumRange(int left, int right) {
-            left += n;
-            right += n;
+            return bit.getsum(left, right);
+        }
 
-            int sum = 0;
-            while (left <= right) {
-                if ((left % 2) == 1) {
-                    sum += tree[left];
-                    left++;
+        private static class BIT {
+            private final int N;
+            private final int[] tree;
+
+            // O(n) 建树
+            public BIT(int[] nums) {
+                this.N = nums.length;
+                this.tree = new int[N + 1];
+
+                for (int i = 1; i <= N; i++) {
+                    tree[i] += nums[i - 1];
+                    int j = i + lowbit(i);
+                    if (j <= N) {
+                        tree[j] += tree[i];
+                    }
                 }
-                if ((right % 2) == 0) {
-                    sum += tree[right];
-                    right--;
-                }
-                left /= 2;
-                right /= 2;
             }
-            return sum;
+
+            public int lowbit(int x) {
+                return x & (-x);
+            }
+
+            // nums[x] add k
+            public void add(int x, int k) {
+                while (x <= N) {
+                    tree[x] += k;
+                    x += lowbit(x);
+                }
+            }
+
+            // nums [1,x] 的和
+            public int getsum(int x) {
+                int ans = 0;
+                while (x >= 1) {
+                    ans += tree[x];
+                    x -= lowbit(x);
+                }
+                return ans;
+            }
+
+            // nums [l,r] 的和
+            public int getsum(int l, int r) {
+                return getsum(r + 1) - getsum(l);
+            }
+        }
+    }
+
+    // 线段树
+    static class NumArray2 {
+        private final int N;
+        private final SegmentTree segmentTree;
+
+        public NumArray2(int[] nums) {
+            N = nums.length;
+            segmentTree = new SegmentTree(nums);
+        }
+
+        public void update(int index, int val) {
+            segmentTree.update(index + 1, index + 1, val, 1, N, 1);
+        }
+
+        public int sumRange(int left, int right) {
+            return segmentTree.getsum(left + 1, right + 1, 1, N, 1);
+        }
+
+        private static class SegmentTree {
+            private final int[] nums;
+            private final int[] tree;
+            private final int[] lazy;
+
+            public SegmentTree(int[] nums) {
+                int N = nums.length;
+                this.nums = nums;
+                tree = new int[N * 4];
+                lazy = new int[N * 4];
+
+                build(1, N, 1);
+            }
+
+            private void build(int s, int t, int p) {
+                // 对 [s,t] 区间建立线段树,当前根的编号为 p
+                if (s == t) {
+                    tree[p] = nums[s - 1];
+                    return;
+                }
+                int m = s + ((t - s) >> 1);
+                // 移位运算符的优先级小于加减法，所以加上括号
+                // 如果写成 (s + t) >> 1 可能会超出 int 范围
+                build(s, m, p * 2);
+                build(m + 1, t, p * 2 + 1);
+                // 递归对左右区间建树
+                tree[p] = tree[p * 2] + tree[(p * 2) + 1];
+            }
+
+            // [l,r] 范围置为 c
+            private void update(int l, int r, int c, int s, int t, int p) {
+                if (l <= s && t <= r) {
+                    tree[p] = (t - s + 1) * c;
+                    lazy[p] = c;
+                    return;
+                }
+                int m = s + ((t - s) >> 1);
+                if (lazy[p] > 0) {
+                    tree[p * 2] = lazy[p] * (m - s + 1);
+                    tree[p * 2 + 1] = lazy[p] * (t - m);
+                    lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                    lazy[p] = 0;
+                }
+                if (l <= m) {
+                    update(l, r, c, s, m, p * 2);
+                }
+                if (r > m) {
+                    update(l, r, c, m + 1, t, p * 2 + 1);
+                }
+                tree[p] = tree[p * 2] + tree[p * 2 + 1];
+            }
+
+            // [l,r] 范围求和
+            private int getsum(int l, int r, int s, int t, int p) {
+                if (l <= s && t <= r) {
+                    return tree[p];
+                }
+                int m = s + ((t - s) >> 1);
+                if (lazy[p] > 0) {
+                    tree[p * 2] = lazy[p] * (m - s + 1);
+                    tree[p * 2 + 1] = lazy[p] * (t - m);
+                    lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                    lazy[p] = 0;
+                }
+                int sum = 0;
+                if (l <= m) {
+                    sum = getsum(l, r, s, m, p * 2);
+                }
+                if (r > m) {
+                    sum += getsum(l, r, m + 1, t, p * 2 + 1);
+                }
+                return sum;
+            }
         }
     }
 }
@@ -79,5 +177,5 @@ https://leetcode-cn.com/problems/range-sum-query-mutable/
 0 <= left <= right < nums.length
 调用 pdate 和 sumRange 方法次数不大于 3 * 10^4
 
-线段树。
+树状数组/线段树
  */
