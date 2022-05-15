@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution6059 {
+public class Solution2267 {
     public boolean hasValidPath(char[][] grid) {
         int M = grid.length;
         int N = grid[0].length;
@@ -69,7 +69,7 @@ public class Solution6059 {
     }
 }
 /*
-6059. 检查是否有合法括号字符串路径
+2267. 检查是否有合法括号字符串路径
 https://leetcode-cn.com/problems/check-if-there-is-a-valid-parentheses-string-path/
 
 第 292 场周赛 T4。

@@ -1,4 +1,4 @@
-public class Solution6058 {
+public class Solution2266 {
     private static final long MOD = 1000000007;
     private static final int MAX_LEN = 100000;
     private long[] f;

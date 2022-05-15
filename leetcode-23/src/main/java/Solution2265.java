@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution6057 {
+public class Solution2265 {
     private int ans = 0;
 
     public int averageOfSubtree(TreeNode root) {

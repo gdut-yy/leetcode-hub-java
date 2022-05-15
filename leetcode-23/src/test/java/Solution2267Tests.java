@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6059Tests {
-    private final Solution6059 solution6059 = new Solution6059();
+public class Solution2267Tests {
+    private final Solution2267 solution2267 = new Solution2267();
 
     @Test
     public void example1() {
         char[][] grid = UtUtils.stringToChars2("""
                 [["(","(","("],[")","(",")"],["(","(",")"],["(","(",")"]]
                 """);
-        Assertions.assertTrue(solution6059.hasValidPath(grid));
+        Assertions.assertTrue(solution2267.hasValidPath(grid));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6059Tests {
         char[][] grid = UtUtils.stringToChars2("""
                 [[")",")"],["(","("]]
                 """);
-        Assertions.assertFalse(solution6059.hasValidPath(grid));
+        Assertions.assertFalse(solution2267.hasValidPath(grid));
     }
 
     // 补充用例
@@ -26,7 +26,7 @@ public class Solution6059Tests {
         char[][] grid = UtUtils.stringToChars2("""
                 [["(",")"],["(",")"]]
                 """);
-        Assertions.assertFalse(solution6059.hasValidPath(grid));
+        Assertions.assertFalse(solution2267.hasValidPath(grid));
     }
 
     @Test
@@ -34,6 +34,6 @@ public class Solution6059Tests {
         char[][] grid = UtUtils.stringToChars2("""
                 [["(","(","(","(","(",")",")","(",")",")","(",")",")","(",")","(","(",")",")","(",")","(",")",")","(",")",")",")",")","(",")","(","("],["(",")",")","(","(",")",")",")",")","(",")","(",")","(",")","(","(",")",")","(","(","(","(",")",")",")",")",")","(","(",")","(","("],[")",")","(","(",")",")",")",")","(",")","(",")",")",")","(","(",")","(",")","(","(","(",")",")",")",")",")",")",")",")",")","(","("],["(","(","(",")","(",")",")",")","(",")","(","(","(",")","(",")","(",")","(",")","(",")","(",")",")",")","(","(",")","(",")",")",")"],[")","(",")","(",")",")",")",")","(","(","(","(",")","(",")","(","(","(","(","(",")","(","(",")",")","(","(","(",")","(",")",")","("],[")",")",")","(",")",")",")","(","(",")",")","(","(","(","(",")","(","(",")",")","(",")",")",")","(",")",")","(",")",")","(","(","("],[")","(",")","(","(",")",")","(",")",")",")","(","(","(",")","(","(","(",")","(",")","(",")",")",")",")",")","(",")",")","(","(",")"],["(","(",")",")","(",")",")","(","(","(","(",")","(",")","(","(","(","(","(","(",")","(",")","(",")",")","(","(","(",")","(","(",")"],[")",")","(","(",")",")","(","(","(","(","(","(","(",")",")","(","(","(",")",")","(",")","(","(",")",")","(",")",")","(",")","(","("],[")",")",")",")","(",")",")","(","(","(","(",")",")",")","(",")",")",")",")",")",")","(","(","(","(",")",")",")",")","(","(","(",")"]]
                  """);
-        Assertions.assertTrue(solution6059.hasValidPath(grid));
+        Assertions.assertTrue(solution2267.hasValidPath(grid));
     }
 }

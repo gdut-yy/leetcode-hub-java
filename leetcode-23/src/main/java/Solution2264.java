@@ -1,4 +1,4 @@
-public class Solution6056 {
+public class Solution2264 {
     private static final String[] STRINGS = {"999", "888", "777", "666", "555", "444", "333", "222", "111", "000"};
 
     public String largestGoodInteger(String num) {
