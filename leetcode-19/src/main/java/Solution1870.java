@@ -4,10 +4,7 @@ public class Solution1870 {
         if (hour <= dist.length - 1) {
             return -1;
         }
-        // n == dist.length
-        // 1 <= n <= 10^5
-        // 1 <= dist[i] <= 10^5
-        // 1 <= hour <= 10^9
+
         int left = 0;
         int right = Integer.MAX_VALUE;
         while (left < right) {
@@ -44,6 +41,12 @@ https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time/
 例如，第 1 趟列车需要 1.5 小时，那你必须再等待 0.5 小时，搭乘在第 2 小时发车的第 2 趟列车。
 返回能满足你准时到达办公室所要求全部列车的 最小正整数 时速（单位：千米每小时），如果无法准时到达，则返回 -1 。
 生成的测试用例保证答案不超过 10^7 ，且 hour 的 小数点后最多存在两位数字 。
+提示：
+n == dist.length
+1 <= n <= 10^5
+1 <= dist[i] <= 10^5
+1 <= hour <= 10^9
+hours 中，小数点后最多存在两位数字
 
 左边界二分
  */

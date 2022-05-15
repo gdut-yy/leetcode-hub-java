@@ -20,4 +20,9 @@ https://leetcode-cn.com/problems/find-k-closest-elements/
 
 从数组中找到最靠近 x（两数之差最小）的 k 个数。返回的结果必须要是按升序排好的。
 一个 lambda 搞定。-x 后按绝对值升序排序，取前 k 个，再升序排序
+提示：
+1 <= k <= arr.length
+1 <= arr.length <= 10^4
+arr 按 升序 排列
+-10^4 <= arr[i], x <= 10^4
  */

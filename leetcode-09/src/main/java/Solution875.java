@@ -1,7 +1,5 @@
 public class Solution875 {
     public int minEatingSpeed(int[] piles, int h) {
-        // 1 <= piles.length <= 10^4
-        // piles.length <= H <= 10^9
         int left = 1;
         int right = Integer.MAX_VALUE;
         while (left < right) {
@@ -36,6 +34,10 @@ https://leetcode-cn.com/problems/koko-eating-bananas/
 她将吃掉这堆的所有香蕉，然后这一小时内不会再吃更多的香蕉。
 珂珂喜欢慢慢吃，但仍然想在警卫回来前吃掉所有的香蕉。
 返回她可以在 H 小时内吃掉所有香蕉的最小速度 K（K 为整数）。
+提示：
+1 <= piles.length <= 10^4
+piles.length <= h <= 10^9
+1 <= piles[i] <= 10^9
 
 左边界二分
  */
