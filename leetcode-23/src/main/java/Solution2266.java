@@ -40,7 +40,7 @@ public class Solution6058 {
     }
 }
 /*
-6058. 统计打字方案数
+2266. 统计打字方案数
 https://leetcode-cn.com/problems/count-number-of-texts/
 
 第 292 场周赛 T3。
