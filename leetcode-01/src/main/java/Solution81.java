@@ -1,7 +1,7 @@
 public class Solution81 {
     public boolean search(int[] nums, int target) {
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] == target) {
+        for (int num : nums) {
+            if (num == target) {
                 return true;
             }
         }
@@ -27,6 +27,7 @@ https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
 这是 搜索旋转排序数组 的延伸题目，本题中的 nums  可能包含重复元素。
 这会影响到程序的时间复杂度吗？会有怎样的影响，为什么？
 
+可能包含重复元素，直接线性遍历，时间复杂度 O(n)
 相似题目: 33. 搜索旋转排序数组
 https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
  */

@@ -7,11 +7,11 @@ public class Solution658 {
         return Arrays.stream(arr)
                 .boxed()
                 .sorted((o1, o2) -> o1.equals(o2) ? 0 : Math.abs(o1 - x) - Math.abs(o2 - x))
-                .collect(Collectors.toList())
+                .toList()
                 .subList(0, k)
                 .stream()
                 .sorted()
-                .collect(Collectors.toList());
+                .toList();
     }
 }
 /*

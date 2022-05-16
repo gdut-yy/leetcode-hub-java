@@ -10,17 +10,20 @@ public class Solution611 {
             for (int j = i + 1; j < n; j++) {
                 // 因为 a <= b <= c
                 // 必定 a+c>b, b+c>a, 只需再满足 a+b>c
+
                 int left = j + 1;
                 int right = n;
                 while (left < right) {
                     int mid = left + (right - left) / 2;
+                    // 边界二分 F, F,..., F, [T, T,..., T]
+                    // ----------------------^
                     if (nums[mid] >= nums[i] + nums[j]) {
                         right = mid;
                     } else {
                         left = mid + 1;
                     }
                 }
-                cnt += left -1- j;
+                cnt += (left - 1) - j;
             }
         }
         return cnt;

@@ -2,13 +2,12 @@ import java.util.Arrays;
 
 public class Solution1300 {
     public int findBestValue(int[] arr, int target) {
-        int max = Arrays.stream(arr).max().getAsInt();
-
         int left = 0;
-        int right = max;
+        int right = Arrays.stream(arr).max().getAsInt();
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(arr, target, mid)) {
                 right = mid;
             } else {
@@ -16,6 +15,7 @@ public class Solution1300 {
             }
         }
 
+        // left-1 < res <= left
         int sum1 = 0;
         int sum2 = 0;
         for (int i : arr) {
@@ -25,6 +25,7 @@ public class Solution1300 {
         return (target - sum2 <= sum1 - target) ? (left - 1) : left;
     }
 
+    // 将数组中所有大于 mid 的值变成 mid 后，数组的和 大于等于 target，FFFTTT
     private boolean checkMid(int[] arr, int target, int mid) {
         int sum = 0;
         for (int i : arr) {

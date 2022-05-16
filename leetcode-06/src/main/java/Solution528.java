@@ -16,10 +16,13 @@ public class Solution528 {
         public int pickIndex() {
             Random random = new Random();
             int p = random.nextInt(total);
+
             int left = 0;
             int right = preSum.length;
             while (left < right) {
                 int mid = left + (right - left) / 2;
+                // 边界二分 F, F,..., F, [T, T,..., T]
+                // ----------------------^
                 if (preSum[mid] > p) {
                     if (mid == 0 || preSum[mid - 1] <= p) {
                         return mid;
@@ -29,7 +32,7 @@ public class Solution528 {
                     left = mid + 1;
                 }
             }
-            return -1;
+            return left;
         }
     }
 }

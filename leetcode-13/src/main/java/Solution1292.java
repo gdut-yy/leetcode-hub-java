@@ -1,18 +1,19 @@
 public class Solution1292 {
     public int maxSideLength(int[][] mat, int threshold) {
         PrefixSum2d prefixSum2d = new PrefixSum2d(mat);
+
         int left = 0;
         int right = Math.min(mat.length, mat[0].length) + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (!checkMid(mat, threshold, prefixSum2d, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 

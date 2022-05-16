@@ -4,21 +4,23 @@ public class Solution875 {
         int right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(piles, h, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
+    // 吃香蕉速度为 mid 时，能否在 h 小时内吃完 FFFTTT
     private boolean checkMid(int[] piles, int h, int mid) {
         int cnt = 0;
         for (int pile : piles) {
-            cnt += Math.ceil(pile / (double) mid);
+            // 数论向上取整法
+            cnt += (pile + mid - 1) / mid;
         }
         return cnt <= h;
     }
@@ -39,5 +41,5 @@ https://leetcode-cn.com/problems/koko-eating-bananas/
 piles.length <= h <= 10^9
 1 <= piles[i] <= 10^9
 
-左边界二分
+二分
  */
