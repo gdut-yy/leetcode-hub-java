@@ -1,4 +1,4 @@
-public class Solution5299 {
+public class Solution2269 {
     public int divisorSubstrings(int num, int k) {
         String s = String.valueOf(num);
         int len = s.length();
@@ -17,7 +17,7 @@ public class Solution5299 {
     }
 }
 /*
-5299. 找到一个数字的 K 美丽值
+2269. 找到一个数字的 K 美丽值
 https://leetcode.cn/problems/find-the-k-beauty-of-a-number/
 
 第 78 场双周赛 T1。

@@ -1,4 +1,4 @@
-public class Solution6067 {
+public class Solution2270 {
     public int waysToSplitArray(int[] nums) {
         int n = nums.length;
 
@@ -20,7 +20,7 @@ public class Solution6067 {
     }
 }
 /*
-6067. 分割数组的方案数
+2270. 分割数组的方案数
 https://leetcode.cn/problems/number-of-ways-to-split-array/
 
 第 78 场双周赛 T2。

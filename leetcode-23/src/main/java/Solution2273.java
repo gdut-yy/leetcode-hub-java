@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Deque;
 import java.util.List;
 
-public class Solution5234 {
+public class Solution2273 {
     public List<String> removeAnagrams(String[] words) {
         Deque<String> stack = new ArrayDeque<>();
         for (String word : words) {
@@ -34,7 +34,7 @@ public class Solution5234 {
     }
 }
 /*
-5234. 移除字母异位词后的结果数组
+2273. 移除字母异位词后的结果数组
 https://leetcode.cn/problems/find-resultant-array-after-removing-anagrams/
 
 第 293 场周赛 T1。

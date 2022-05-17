@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Solution6064 {
+public class Solution2274 {
     public int maxConsecutive(int bottom, int top, int[] special) {
         List<Integer> list = new ArrayList<>();
         list.add(bottom - 1);
@@ -23,7 +23,7 @@ public class Solution6064 {
     }
 }
 /*
-6064. 不含特殊楼层的最大连续楼层数
+2274. 不含特殊楼层的最大连续楼层数
 https://leetcode.cn/problems/maximum-consecutive-floors-without-special-floors/
 
 第 293 场周赛 T2。

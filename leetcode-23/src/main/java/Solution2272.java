@@ -1,4 +1,4 @@
-public class Solution6069 {
+public class Solution2272 {
     public int largestVariance(String s) {
         int maxDiff = 0;
         // 出现次数 最多 的字符
@@ -29,7 +29,7 @@ public class Solution6069 {
     }
 }
 /*
-6069. 最大波动的子字符串
+2272. 最大波动的子字符串
 https://leetcode.cn/problems/substring-with-largest-variance/
 
 第 78 场双周赛 T4。

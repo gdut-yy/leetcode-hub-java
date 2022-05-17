@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6068 {
+public class Solution2271 {
     public int maximumWhiteTiles(int[][] tiles, int carpetLen) {
         Arrays.sort(tiles, Comparator.comparingInt(o -> o[0]));
 
@@ -112,7 +112,7 @@ public class Solution6068 {
     }
 }
 /*
-6068. 毯子覆盖的最多白色砖块数
+2271. 毯子覆盖的最多白色砖块数
 https://leetcode.cn/problems/maximum-white-tiles-covered-by-a-carpet/
 
 第 78 场双周赛 T3。

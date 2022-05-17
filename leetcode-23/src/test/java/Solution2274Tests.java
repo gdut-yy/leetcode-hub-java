@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6064Tests {
-    private final Solution6064 solution6064 = new Solution6064();
+public class Solution2274Tests {
+    private final Solution2274 solution2274 = new Solution2274();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6064Tests {
         int top = 9;
         int[] special = {4, 6};
         int expected = 3;
-        Assertions.assertEquals(expected, solution6064.maxConsecutive(bottom, top, special));
+        Assertions.assertEquals(expected, solution2274.maxConsecutive(bottom, top, special));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6064Tests {
         int top = 8;
         int[] special = {7, 6, 8};
         int expected = 0;
-        Assertions.assertEquals(expected, solution6064.maxConsecutive(bottom, top, special));
+        Assertions.assertEquals(expected, solution2274.maxConsecutive(bottom, top, special));
     }
 }

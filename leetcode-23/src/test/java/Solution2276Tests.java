@@ -9,11 +9,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6066Tests {
+public class Solution2276Tests {
     @Test
     public void example1() {
         // 用一个区间空集初始化对象
-        Solution6066.CountIntervals countIntervals = new Solution6066.CountIntervals();
+        Solution2276.CountIntervals countIntervals = new Solution2276.CountIntervals();
         // 将 [2, 3] 添加到区间集合中
         countIntervals.add(2, 3);
         // 将 [7, 10] 添加到区间集合中
@@ -37,18 +37,18 @@ public class Solution6066Tests {
 
     @Test
     public void example1_2() throws Exception {
-        reflection("solution6066-example1-input.txt", "solution6066-example1-output.txt");
+        reflection("solution2276-example1-input.txt", "solution2276-example1-output.txt");
     }
 
     @Test
     public void example2() throws Exception {
-        reflection("solution6066-example2-input.txt", "solution6066-example2-output.txt");
+        reflection("solution2276-example2-input.txt", "solution2276-example2-output.txt");
     }
 
     private void reflection(String inputFile, String outputFile) throws Exception {
         // 类、构造器、类方法
         // CountIntervals2 9sec148ms
-        Class<?> clazz = Solution6066.CountIntervals.class;
+        Class<?> clazz = Solution2276.CountIntervals.class;
         Constructor<?> constructor = clazz.getConstructor();
         Method add = clazz.getMethod("add", int.class, int.class);
         Method count = clazz.getMethod("count");

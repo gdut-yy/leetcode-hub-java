@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6066 {
+public class Solution2276 {
     static class CountIntervals {
         private final TreeMap<Integer, Integer> intervalMap;
         private int cnt;
@@ -83,7 +83,7 @@ public class Solution6066 {
     }
 }
 /*
-6066. 统计区间中的整数数目
+2276. 统计区间中的整数数目
 https://leetcode.cn/problems/count-integers-in-intervals/
 
 第 293 场周赛 T4。

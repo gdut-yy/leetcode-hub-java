@@ -1,4 +1,4 @@
-public class Solution6065 {
+public class Solution2275 {
     public int largestCombination(int[] candidates) {
         int max = 0;
         for (int i = 0; i < 30; i++) {
@@ -14,7 +14,7 @@ public class Solution6065 {
     }
 }
 /*
-6065. 按位与结果大于零的最长组合
+2275. 按位与结果大于零的最长组合
 https://leetcode.cn/problems/largest-combination-with-bitwise-and-greater-than-zero/
 
 第 293 场周赛 T3。
