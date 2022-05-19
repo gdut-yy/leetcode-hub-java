@@ -3,11 +3,11 @@ import java.util.Map;
 
 public class Solution911 {
     static class TopVotedCandidate {
-        int[] times;
+        private final int[] times;
         // 领先者
-        int[] leading;
+        private final int[] leading;
         // 统计票数
-        Map<Integer, Integer> cntMap;
+        private final Map<Integer, Integer> cntMap;
 
         public TopVotedCandidate(int[] persons, int[] times) {
             this.times = times;
@@ -31,25 +31,20 @@ public class Solution911 {
         }
 
         public int q(int t) {
-            // 右边界二分
-            int idx = binarySearchRightBound(times, t);
-            return leading[idx];
-        }
-
-        private int binarySearchRightBound(int[] nums, int target) {
-            int left = 0;
-            int right = nums.length;
+            int left = 1;
+            int right = times.length;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                if (nums[mid] == target) {
-                    left = mid + 1;
-                } else if (nums[mid] < target) {
-                    left = mid + 1;
-                } else if (nums[mid] > target) {
+                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // ----------------------^
+                // TTTFFF
+                if (times[mid] > t) {
                     right = mid;
+                } else {
+                    left = mid + 1;
                 }
             }
-            return left - 1;
+            return leading[left - 1];
         }
     }
 }
@@ -65,6 +60,14 @@ https://leetcode-cn.com/problems/online-election/
 实现 TopVotedCandidate 类：
 - TopVotedCandidate(int[] persons, int[] times) 使用 persons 和 times 数组初始化对象。
 - int q(int t) 根据前面描述的规则，返回在时刻 t 在选举中领先的候选人的编号。
+提示：
+1 <= persons.length <= 5000
+times.length == persons.length
+0 <= persons[i] < persons.length
+0 <= times[i] <= 10^9
+times 是一个严格递增的有序数组
+times[0] <= t <= 10^9
+每个测试用例最多调用 10^4 次 q
 
 预处理结果，由于 times 并非线性，所以通过二分查找来获得时刻 t 结果。
  */

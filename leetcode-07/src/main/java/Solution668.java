@@ -5,16 +5,17 @@ public class Solution668 {
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
-            if (!checkMid(m, n, k, mid)) {
-                left = mid + 1;
-            } else {
+            // ----------------------^
+            if (checkMid(m, n, k, mid)) {
                 right = mid;
+            } else {
+                left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
+    // FFFTTT
     private boolean checkMid(int m, int n, int k, int mid) {
         int cnt = 0;
         for (int i = 1; i <= m; i++) {
@@ -33,7 +34,7 @@ https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/
 m 和 n 的范围在 [1, 30000] 之间。
 k 的范围在 [1, m * n] 之间。
 
-左边界二分。
+二分
 相似题目: 378. 有序矩阵中第 K 小的元素
 https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/
  */
