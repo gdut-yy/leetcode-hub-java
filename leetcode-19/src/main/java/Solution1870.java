@@ -23,20 +23,14 @@ public class Solution1870 {
     // 时速为 mid 时，能否准时到达办公室 FFFTTT
     private boolean checkMid(int[] dist, double hour, int mid) {
         int n = dist.length;
-        double cnt = dist[n - 1] / (double) mid;
+        double cnt = 0;
         for (int i = 0; i < n - 1; i++) {
             // 数论向上取整法
 //            cnt += (dist[i] + mid - 1) / mid;
             cnt += Math.ceil(dist[i] / (double) mid);
         }
+        cnt += dist[n - 1] / (double) mid;
         return cnt <= hour;
-    }
-
-    public static void main(String[] args) {
-        int[] dist = {4, 2, 3};
-        double hour = 2.03;
-        int mid = 100;
-        System.out.println(new Solution1870().checkMid(dist, hour, mid));
     }
 }
 /*
