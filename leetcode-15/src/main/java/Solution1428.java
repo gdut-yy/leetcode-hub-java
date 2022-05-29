@@ -12,7 +12,7 @@ public class Solution1428 {
             int right = N;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // 边界二分 F, F,..., F, [T, T,..., T]
                 // ----------------------^
                 // FFFTTT
                 if (binaryMatrix.get(i, mid) == 1) {

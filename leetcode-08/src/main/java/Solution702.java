@@ -4,7 +4,7 @@ public class Solution702 {
         int right = 10000;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             // FFFTTT
             if (reader.get(mid) >= target) {

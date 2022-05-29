@@ -4,7 +4,7 @@ public class Solution668 {
         int right = m * n;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (checkMid(m, n, k, mid)) {
                 right = mid;

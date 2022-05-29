@@ -4,21 +4,22 @@ public class Solution1891 {
         int right = 100001;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(ribbons, k, mid)) {
                 left = mid + 1;
             } else {
                 right = mid;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 
-    private boolean checkMid(int[] ribbons, int k, int len) {
+    // 能否得到 k 根长度为 mid 的绳子 TTTFFF
+    private boolean checkMid(int[] ribbons, int k, int mid) {
         int cnt = 0;
         for (int ribbon : ribbons) {
-            cnt += ribbon / len;
+            cnt += ribbon / mid;
         }
         return cnt >= k;
     }
@@ -42,5 +43,5 @@ https://leetcode-cn.com/problems/cutting-ribbons/
 1 <= ribbons[i] <= 10^5
 1 <= k <= 10^9
 
-二分。
+二分
  */

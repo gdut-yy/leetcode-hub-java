@@ -1,33 +1,32 @@
 public class Solution1011 {
     public int shipWithinDays(int[] weights, int days) {
-        // 1 <= D <= weights.length <= 5 * 10^4
-        // 1 <= weights[i] <= 500
         int left = 1;
         int right = Integer.MAX_VALUE;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(weights, days, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
-    private boolean checkMid(int[] weights, int days, int maxWeight) {
+    // 运载重量为 mid 时，能否在 days 天内将所有包裹送达 FFFTTT
+    private boolean checkMid(int[] weights, int days, int mid) {
         int cnt = 1;
         int curWeight = 0;
         int idx = 0;
         while (idx < weights.length) {
             // 我们装载的重量不会超过船的最大运载重量。
-            if (weights[idx] > maxWeight) {
+            if (weights[idx] > mid) {
                 return false;
             }
             curWeight += weights[idx];
-            if (curWeight > maxWeight) {
+            if (curWeight > mid) {
                 curWeight = 0;
                 cnt++;
             } else {
@@ -50,5 +49,5 @@ https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/
 1 <= days <= weights.length <= 5 * 10^4
 1 <= weights[i] <= 500
 
-左边界二分
+二分
  */

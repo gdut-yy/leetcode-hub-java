@@ -9,7 +9,7 @@ public class Solution1318Tests {
         int a = 2;
         int b = 6;
         int c = 5;
-        int expected = 1;
+        int expected = 3;
         Assertions.assertEquals(expected, solution1318.minFlips(a, b, c));
     }
 
