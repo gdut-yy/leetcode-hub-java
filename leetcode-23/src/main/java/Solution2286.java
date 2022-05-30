@@ -1,4 +1,4 @@
-public class Solution10011 {
+public class Solution2286 {
     static class BookMyShow {
         private final int m;
         private final BIT bit;
@@ -90,7 +90,7 @@ public class Solution10011 {
     }
 }
 /*
-10011. 以组为单位订音乐会的门票
+2286. 以组为单位订音乐会的门票
 https://leetcode.cn/problems/booking-concert-tickets-in-groups/
 
 第 79 场双周赛 T4。

@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Solution6080 {
+public class Solution2289 {
     public int totalSteps(int[] nums) {
         int ans = 0;
         Deque<int[]> stack = new ArrayDeque<>();
@@ -21,7 +21,7 @@ public class Solution6080 {
     }
 }
 /*
-6080. 使数组按非递减顺序排列
+2289. 使数组按非递减顺序排列
 https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
 
 第 295 场周赛 T3。
@@ -31,4 +31,7 @@ https://leetcode.cn/problems/steps-to-make-array-non-decreasing/
 提示：
 1 <= nums.length <= 10^5
 1 <= nums[i] <= 10^9
+
+单调栈
+时间复杂度 O(n)
  */

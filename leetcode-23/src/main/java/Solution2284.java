@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6084 {
+public class Solution2284 {
     public String largestWordCount(String[] messages, String[] senders) {
         int n = messages.length;
 
@@ -33,7 +33,7 @@ public class Solution6084 {
     }
 }
 /*
-6084. 最多单词数的发件人
+2284. 最多单词数的发件人
 https://leetcode.cn/problems/sender-with-largest-word-count/
 
 第 79 场双周赛 T2。

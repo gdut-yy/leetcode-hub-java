@@ -1,9 +1,58 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.PriorityQueue;
 
-public class Solution6081 {
+public class Solution2290 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
+    // 0-1 BFS
     public int minimumObstacles(int[][] grid) {
+        int M = grid.length;
+        int N = grid[0].length;
+
+        Deque<int[]> deque = new ArrayDeque<>();
+        int[][] dist = new int[M][N];
+        for (int[] ints : dist) {
+            Arrays.fill(ints, Integer.MAX_VALUE);
+        }
+        deque.addFirst(new int[]{0, 0});
+        dist[0][0] = 0;
+
+        while (!deque.isEmpty()) {
+            int size = deque.size();
+            for (int i = 0; i < size; i++) {
+                int[] cur = deque.removeFirst();
+                int curDist = dist[cur[0]][cur[1]];
+                if (cur[0] == M - 1 && cur[1] == N - 1) {
+                    return curDist;
+                }
+
+                for (int[] dir : DIRECTIONS) {
+                    int nextM = cur[0] + dir[0];
+                    int nextN = cur[1] + dir[1];
+
+                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
+                        // 步长 0-1
+                        int step = (grid[nextM][nextN] == 0) ? 0 : 1;
+
+                        if (curDist + step < dist[nextM][nextN]) {
+                            dist[nextM][nextN] = curDist + step;
+                            if (step == 0) {
+                                deque.addFirst(new int[]{nextM, nextN});
+                            } else {
+                                deque.addLast(new int[]{nextM, nextN});
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int minimumObstacles2(int[][] grid) {
         int M = grid.length;
         int N = grid[0].length;
 
@@ -105,7 +154,7 @@ public class Solution6081 {
     }
 }
 /*
-6081. 到达角落需要移除障碍物的最小数目
+2290. 到达角落需要移除障碍物的最小数目
 https://leetcode.cn/problems/minimum-obstacle-removal-to-reach-corner/
 
 第 295 场周赛 T4。

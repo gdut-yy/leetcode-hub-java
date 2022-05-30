@@ -1,4 +1,4 @@
-public class Solution6083 {
+public class Solution2283 {
     public boolean digitCount(String num) {
         int[] cntArr = new int[10];
         for (char ch : num.toCharArray()) {
@@ -15,7 +15,7 @@ public class Solution6083 {
     }
 }
 /*
-6083. 判断一个数的数字计数是否等于数位的值
+2283. 判断一个数的数字计数是否等于数位的值
 https://leetcode.cn/problems/check-if-number-has-equal-digit-count-and-digit-value/
 
 第 79 场双周赛 T1。

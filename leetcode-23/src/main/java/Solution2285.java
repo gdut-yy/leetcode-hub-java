@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6085 {
+public class Solution2285 {
     public long maximumImportance(int n, int[][] roads) {
         int[] degrees = new int[n];
         for (int[] road : roads) {
@@ -17,7 +17,7 @@ public class Solution6085 {
     }
 }
 /*
-6085. 道路的最大总重要性
+2285. 道路的最大总重要性
 https://leetcode.cn/problems/maximum-total-importance-of-roads/
 
 第 79 场双周赛 T3。

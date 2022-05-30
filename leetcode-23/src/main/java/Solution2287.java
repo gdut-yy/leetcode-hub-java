@@ -1,4 +1,4 @@
-public class Solution6078 {
+public class Solution2287 {
     public int rearrangeCharacters(String s, String target) {
         int[] sCntArr = new int[26];
         int[] tCntArr = new int[26];
@@ -19,7 +19,7 @@ public class Solution6078 {
     }
 }
 /*
-6078. 重排字符形成目标字符串
+2287. 重排字符形成目标字符串
 https://leetcode.cn/problems/rearrange-characters-to-make-target-string/
 
 第 295 场周赛 T1。

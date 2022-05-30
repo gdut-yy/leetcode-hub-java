@@ -8,10 +8,10 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution10011Tests {
+public class Solution2286Tests {
     @Test
     public void example1() throws Exception {
-        reflection("solution10011-example1-input.txt", "solution10011-example1-output.txt");
+        reflection("solution2286-example1-input.txt", "solution2286-example1-output.txt");
     }
 
     // 补充用例
@@ -19,20 +19,20 @@ public class Solution10011Tests {
     public void example2() throws Exception {
         // https://leetcode.cn/submissions/detail/319206175/
         // 爆 int
-        reflection("solution10011-example2-input.txt", "solution10011-example2-output.txt");
+        reflection("solution2286-example2-input.txt", "solution2286-example2-output.txt");
     }
 
     @Test
     public void example3() throws Exception {
         // https://leetcode.cn/submissions/detail/319218596/
         // 92 / 94 个通过测试用例 TLE
-        reflection("solution10011-example3-input.txt", "solution10011-example3-output.txt");
+        reflection("solution2286-example3-input.txt", "solution2286-example3-output.txt");
     }
 
     private void reflection(String inputFile, String outputFile) throws Exception {
         // 类、构造器、类方法
         // CountIntervals2 9sec148ms
-        Class<?> clazz = Solution10011.BookMyShow.class;
+        Class<?> clazz = Solution2286.BookMyShow.class;
         Constructor<?> constructor = clazz.getConstructor(int.class, int.class);
         Method gather = clazz.getMethod("gather", int.class, int.class);
         Method scatter = clazz.getMethod("scatter", int.class, int.class);

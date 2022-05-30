@@ -22,6 +22,7 @@ public class Solution1802Tests {
         Assertions.assertEquals(expected, solution1802.maxValue(n, index, maxSum));
     }
 
+    // 补充用例
     @Test
     public void example3() {
         int n = 3;

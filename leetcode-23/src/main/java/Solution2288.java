@@ -1,4 +1,4 @@
-public class Solution6079 {
+public class Solution2288 {
     public String discountPrices(String sentence, int discount) {
         String[] words = sentence.split(" ");
 
@@ -17,7 +17,7 @@ public class Solution6079 {
     }
 }
 /*
-6079. 价格减免
+2288. 价格减免
 https://leetcode.cn/problems/apply-discount-to-prices/
 
 第 295 场周赛 T2。

@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6078Tests {
-    private final Solution6078 solution6078 = new Solution6078();
+public class Solution2287Tests {
+    private final Solution2287 solution2287 = new Solution2287();
 
     @Test
     public void example1() {
         String s = "ilovecodingonleetcode";
         String target = "code";
         int expected = 2;
-        Assertions.assertEquals(expected, solution6078.rearrangeCharacters(s, target));
+        Assertions.assertEquals(expected, solution2287.rearrangeCharacters(s, target));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6078Tests {
         String s = "abcba";
         String target = "abc";
         int expected = 1;
-        Assertions.assertEquals(expected, solution6078.rearrangeCharacters(s, target));
+        Assertions.assertEquals(expected, solution2287.rearrangeCharacters(s, target));
     }
 
     @Test
@@ -25,6 +25,6 @@ public class Solution6078Tests {
         String s = "abbaccaddaeea";
         String target = "aaaaa";
         int expected = 1;
-        Assertions.assertEquals(expected, solution6078.rearrangeCharacters(s, target));
+        Assertions.assertEquals(expected, solution2287.rearrangeCharacters(s, target));
     }
 }

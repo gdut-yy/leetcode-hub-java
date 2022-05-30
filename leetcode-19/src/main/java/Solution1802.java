@@ -17,16 +17,25 @@ public class Solution1802 {
 
     // nums[index] 高度为 mid 时，sum 是否 <= maxSum TTTFFF
     private boolean checkMid(int n, int index, int maxSum, int mid) {
+        // nums[i] 是 正整数
+        mid -= 1;
         long sum = (long) mid * mid;
+        sum += n;
 
-        // 减去 left 越界部分
-        if (mid > index+1) {
-            sum -= (mid - index - 1L) * (mid - index) / 2;
+        // 减去 left 越界部分 h = index+1
+        if (index + 1 < mid) {
+            // 宽: mid - index - 1
+            // 首项: 1
+            // 末项: 宽
+            sum -= (mid - index) * (mid - index - 1L) / 2;
         }
 
-        // 减去 right 越界部分
-        if (mid > (n - index)) {
-            sum -= (mid - (n - index - 1) - 1L) * (mid - (n - index - 1)) / 2;
+        // 减去 right 越界部分 h = n-index
+        if (n - index < mid) {
+            // 宽: mid - n + index
+            // 首项: 1
+            // 末项: 宽
+            sum -= (mid - n + index + 1L) * (mid - n + index) / 2;
         }
 
         return sum <= maxSum;
