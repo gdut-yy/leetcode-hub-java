@@ -1,12 +1,116 @@
 public class Solution2286 {
+    // 线段树
     static class BookMyShow {
+        private final int n;
+        private final int m;
+        private final long[] tree;
+        private final int[] min;
+
+        public BookMyShow(int n, int m) {
+            this.n = n;
+            this.m = m;
+            tree = new long[4 * n];
+            min = new int[4 * n];
+        }
+
+        // 单点修改，给 idx 加上 inc
+        // 函数入口: add(idx, inc, 1, n, 1)
+        private void add(int idx, int inc, int s, int t, int p) {
+            if (s == t) {
+                tree[p] += inc;
+                // 区间最值
+                min[p] += inc;
+                return;
+            }
+            int mid = s + (t - s) / 2;
+            if (idx <= mid) {
+                add(idx, inc, s, mid, p * 2);
+            }
+            if (idx > mid) {
+                add(idx, inc, mid + 1, t, p * 2 + 1);
+            }
+            // 区间最值
+            min[p] = Math.min(min[p * 2], min[p * 2 + 1]);
+            tree[p] = tree[p * 2] + tree[p * 2 + 1];
+        }
+
+        // 区间查询，返回 [l,r] 区间内元素和
+        // 函数入口: getSum(l, r, 1, n, 1)
+        private long getSum(int l, int r, int s, int t, int p) {
+            if (l <= s && t <= r) {
+                return tree[p];
+            }
+            int mid = s + (t - s) / 2;
+            long sum = 0L;
+            if (l <= mid) {
+                sum += getSum(l, r, s, mid, p * 2);
+            }
+            if (r > mid) {
+                sum += getSum(l, r, mid + 1, t, p * 2 + 1);
+            }
+            return sum;
+        }
+
+        // 返回区间 [1,R] 中 <= val 的最靠左的位置，不存在时返回 0
+        // 函数入口: index(R, val, 1, n, 1)
+        private int index(int R, int val, int s, int t, int p) {
+            if (min[p] > val) {
+                // 说明整个区间的元素都大于 val
+                return 0;
+            }
+            if (s == t) {
+                return s;
+            }
+            int mid = s + (t - s) / 2;
+            if (min[p * 2] <= val) {
+                return index(R, val, s, mid, p * 2);
+            }
+            if (mid < R) {
+                return index(R, val, mid + 1, t, p * 2 + 1);
+            }
+            return 0;
+        }
+
+        // 时间复杂度 O(log n)
+        public int[] gather(int k, int maxRow) {
+            int minRow = index(maxRow + 1, m - k, 1, n, 1);
+            if (minRow == 0) {
+                return new int[0];
+            }
+            int sum = (int) getSum(minRow, minRow, 1, n, 1);
+            add(minRow, k, 1, n, 1);
+            return new int[]{minRow - 1, sum};
+        }
+
+        // 整体时间复杂度 O((n+q) log n)
+        public boolean scatter(int k, int maxRow) {
+            if ((maxRow + 1L) * m - getSum(1, maxRow + 1, 1, n, 1) >= k) {
+                int minRow = index(maxRow + 1, m - 1, 1, n, 1);
+                while (minRow <= maxRow + 1) {
+                    // 剩余座位
+                    int remain = (int) (m - getSum(minRow, minRow, 1, n, 1));
+                    if (k <= remain) {
+                        add(minRow, k, 1, n, 1);
+                        return true;
+                    }
+                    k -= remain;
+                    add(minRow, remain, 1, n, 1);
+                    minRow++;
+                }
+            }
+            return false;
+        }
+    }
+
+    // 树状数组
+    static class BookMyShow2 {
         private final int m;
         private final BIT bit;
         private int minRow;
 
-        public BookMyShow(int n, int m) {
+        public BookMyShow2(int n, int m) {
             this.m = m;
-            this.bit = new BIT(new int[n + 1]);
+            this.bit = new BIT(n);
             this.minRow = 1;
         }
 
@@ -45,18 +149,9 @@ public class Solution2286 {
             private final int N;
             private final long[] tree;
 
-            // O(n) 建树
-            public BIT(int[] nums) {
-                this.N = nums.length;
+            public BIT(int n) {
+                this.N = n;
                 this.tree = new long[N + 1];
-
-                for (int i = 1; i <= N; i++) {
-                    tree[i] += nums[i - 1];
-                    int j = i + lowbit(i);
-                    if (j <= N) {
-                        tree[j] += tree[i];
-                    }
-                }
             }
 
             public int lowbit(int x) {
@@ -112,4 +207,8 @@ https://leetcode.cn/problems/booking-concert-tickets-in-groups/
 1 <= m, k <= 10^9
 0 <= maxRow <= n - 1
 gather 和 scatter 总 调用次数不超过 5 * 10^4 次。
+
+线段树二分。
+本题需要用到 单点修改 和 区间查询，乍一看好像树状数组也可以，实际上还需要用到 二分 找最小满足的行，因此需要用到线段树。
+本题数据会爆int
  */

@@ -1,5 +1,6 @@
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,8 @@ import java.util.List;
 public class Solution2286Tests {
     @Test
     public void example1() throws Exception {
-        reflection("solution2286-example1-input.txt", "solution2286-example1-output.txt");
+        reflection(Solution2286.BookMyShow.class, "solution2286-example1-input.txt", "solution2286-example1-output.txt");
+        reflection(Solution2286.BookMyShow2.class, "solution2286-example1-input.txt", "solution2286-example1-output.txt");
     }
 
     // 补充用例
@@ -19,20 +21,19 @@ public class Solution2286Tests {
     public void example2() throws Exception {
         // https://leetcode.cn/submissions/detail/319206175/
         // 爆 int
-        reflection("solution2286-example2-input.txt", "solution2286-example2-output.txt");
+        reflection(Solution2286.BookMyShow.class, "solution2286-example2-input.txt", "solution2286-example2-output.txt");
+        reflection(Solution2286.BookMyShow2.class, "solution2286-example2-input.txt", "solution2286-example2-output.txt");
     }
 
     @Test
     public void example3() throws Exception {
         // https://leetcode.cn/submissions/detail/319218596/
         // 92 / 94 个通过测试用例 TLE
-        reflection("solution2286-example3-input.txt", "solution2286-example3-output.txt");
+        reflection(Solution2286.BookMyShow.class, "solution2286-example3-input.txt", "solution2286-example3-output.txt");
     }
 
-    private void reflection(String inputFile, String outputFile) throws Exception {
+    private void reflection(Class<?> clazz, String inputFile, String outputFile) throws Exception {
         // 类、构造器、类方法
-        // CountIntervals2 9sec148ms
-        Class<?> clazz = Solution2286.BookMyShow.class;
         Constructor<?> constructor = clazz.getConstructor(int.class, int.class);
         Method gather = clazz.getMethod("gather", int.class, int.class);
         Method scatter = clazz.getMethod("scatter", int.class, int.class);
