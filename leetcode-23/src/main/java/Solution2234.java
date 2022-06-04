@@ -5,66 +5,57 @@ public class Solution2234 {
         int n = flowers.length;
         Arrays.sort(flowers);
 
-        // 全为 完善 花园
-        if (flowers[0] >= target) {
-            return (long) n * full;
-        }
-
-        // flowers[] 前缀和
+        // 前缀和
         long[] preSum = new long[n + 1];
         for (int i = 0; i < n; i++) {
             preSum[i + 1] = preSum[i] + flowers[i];
         }
 
-        long max = 0;
-        // 枚举 完善 花园数目 (0 ~ n)
-        for (int fullNum = 0; fullNum <= n; fullNum++) {
-            int i = n - fullNum;
+        // 完善 花园数目
+        int fullNum = 0;
+        for (int i = n - 1; i >= 0; i--) {
+            if (flowers[i] >= target) {
+                fullNum++;
+            } else {
+                break;
+            }
+        }
 
-            // 完善 花园 用掉一部分花
-            if (i < n && flowers[i] <= target) {
-                newFlowers -= (target - flowers[i]);
-                if (newFlowers < 0) {
-                    return max;
-                }
+        // 全为 完善 花园
+        if (fullNum == n) {
+            return (long) fullNum * full;
+        }
+
+        long max = 0L;
+        // 剩余 不完善 花园里，花的 最少数目
+        int T = target - 1;
+        // 枚举 fullNum (? ~ n), 双指针 j < i
+        for (int i = n - fullNum, j = i - 1; i >= 0; i--, fullNum++) {
+            if (i < n) {
+                newFlowers -= Math.max(0, target - flowers[i]);
+            }
+            // 剩余 newFlowers
+            if (newFlowers < 0) {
+                break;
             }
 
-            // 剩余 newFlowers 朵花
-            if (fullNum == n) {
-                max = Math.max(max, (long) n * full);
-            } else {
-                // 剩余 newFlowers
-                int left = flowers[0];
-                int right = target;
-                while (left < right) {
-                    int mid = left + (right - left) / 2;
-                    // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
-                    // ----------------------^
-                    if (!checkMid(flowers, preSum, i, newFlowers, mid)) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
+            // 存在不完善花园
+            if (i > 0) {
+                while (j >= i) {
+                    j--;
+                }
+                while (T * (j + 1L) - preSum[j + 1] > newFlowers) {
+                    T--;
+                    while (flowers[j] > T) {
+                        j--;
                     }
                 }
-                left -= 1;
-//                System.out.println("i=" + i + " left=" + left);
-                max = Math.max(max, (long) fullNum * full + (long) left * partial);
+                max = Math.max(max, (long) fullNum * full + (long) T * partial);
+            } else {
+                max = Math.max(max, (long) fullNum * full);
             }
         }
         return max;
-    }
-
-    // O(n^2logn)
-    private boolean checkMid(int[] flowers, long[] preSum, int i, long newFlowers, int mid) {
-        long sum = 0;
-        for (int j = 0; j < i; j++) {
-            if (flowers[j] <= mid) {
-                sum += (mid - flowers[j]);
-            } else {
-                return sum <= newFlowers;
-            }
-        }
-        return sum <= newFlowers;
     }
 }
 /*
@@ -85,4 +76,7 @@ Alice 是 n 个花园的园丁，她想通过种花，最大化她所有花园�
 1 <= flowers[i], target <= 10^5
 1 <= newFlowers <= 10^10
 1 <= full, partial <= 10^5
+
+双指针 枚举
+时间复杂度 O(nlogn) 为排序的时间复杂度。
  */

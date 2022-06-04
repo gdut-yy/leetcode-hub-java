@@ -30,6 +30,7 @@ public class Solution2234Tests {
     // 补充用例
     @Test
     public void example3() {
+        // https://leetcode.cn/submissions/detail/297683919/
         int[] flowers = {18, 16, 10, 10, 5};
         long newFlowers = 10;
         int target = 3;
@@ -41,6 +42,7 @@ public class Solution2234Tests {
 
     @Test
     public void example4() {
+        // https://leetcode.cn/submissions/detail/297688199/
         int[] flowers = {5, 5, 15, 1, 9};
         long newFlowers = 36;
         int target = 12;
@@ -51,8 +53,9 @@ public class Solution2234Tests {
     }
 
     @Test
-    @Disabled
     public void example5() {
+        // https://leetcode.cn/submissions/detail/297810635/
+        // 69 / 77 个通过测试用例 TLE
         String fileName = "solution2234-example5-input.txt";
         int[] flowers = UtUtils.loadingInts(fileName, 0);
         long newFlowers = UtUtils.loadingLong(fileName, 1);
@@ -62,28 +65,18 @@ public class Solution2234Tests {
         long expected = 4527585163L;
         Assertions.assertEquals(expected, solution2234.maximumBeauty(flowers, newFlowers, target, full, partial));
     }
-}
-/*
-输入：
-[18,16,10,10,5]
-10
-3
-15
-4
-输出：
-0
-预期：
-75
 
-输入：
-[5,5,15,1,9]
-36
-12
-9
-2
-输出：
-50
-预期：
-58
- */
+    @Test
+    public void example6() {
+        // https://leetcode.cn/submissions/detail/321504855/
+        // 63 / 77 个通过测试用例
+        int[] flowers = new int[]{89287, 5538, 37141, 72522, 84502, 44451, 24432, 2324, 72779, 57060, 99178, 6, 29440, 53664, 76197, 46742, 17384, 22072, 33067, 66274, 19323, 72943, 12914, 91475, 96826, 84847, 28100, 89590, 34977, 74052, 4813, 24563, 97491, 71687, 8533, 49262, 2265, 10553, 63902, 19647, 27006, 64548, 89892, 64046, 72766, 34623, 17297, 21417, 70630, 93469, 83379, 19483, 93842, 65968, 28401, 1889, 24441, 99401, 37907, 13794, 3640, 95432, 36875, 10200, 95360, 10829, 96763, 15900, 8490, 68972, 52537, 72458, 95269};
+        long newFlowers = 42;
+        int target = 4534;
+        int full = 32415;
+        int partial = 11040;
+        long expected = 2734140;
+        Assertions.assertEquals(expected, solution2234.maximumBeauty(flowers, newFlowers, target, full, partial));
+    }
+}
 

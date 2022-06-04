@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
 public class Solution2040Tests {
     private final Solution2040 solution2040 = new Solution2040();
 
@@ -13,6 +11,7 @@ public class Solution2040Tests {
         long k = 2;
         long expected = 8;
         Assertions.assertEquals(expected, solution2040.kthSmallestProduct(nums1, nums2, k));
+        Assertions.assertEquals(expected, solution2040.kthSmallestProduct2(nums1, nums2, k));
     }
 
     @Test
@@ -22,6 +21,7 @@ public class Solution2040Tests {
         long k = 6;
         long expected = 0;
         Assertions.assertEquals(expected, solution2040.kthSmallestProduct(nums1, nums2, k));
+        Assertions.assertEquals(expected, solution2040.kthSmallestProduct2(nums1, nums2, k));
     }
 
     @Test
@@ -31,6 +31,7 @@ public class Solution2040Tests {
         long k = 3;
         long expected = -6;
         Assertions.assertEquals(expected, solution2040.kthSmallestProduct(nums1, nums2, k));
+        Assertions.assertEquals(expected, solution2040.kthSmallestProduct2(nums1, nums2, k));
     }
 
     // 补充用例
