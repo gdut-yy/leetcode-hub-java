@@ -26,10 +26,10 @@ public class Solution1870 {
         double cnt = 0;
         for (int i = 0; i < n - 1; i++) {
             // 数论向上取整法
-//            cnt += (dist[i] + mid - 1) / mid;
             cnt += Math.ceil(dist[i] / (double) mid);
         }
         cnt += dist[n - 1] / (double) mid;
+        // 浮点数不能用 "==" 比较
         return cnt <= hour;
     }
 }

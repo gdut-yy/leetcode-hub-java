@@ -5,14 +5,13 @@ public class Solution278 {
             int right = n;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // 边界二分 F, F,..., F, [T, T,..., T]
                 if (isBadVersion(mid)) {
                     right = mid;
                 } else {
                     left = mid + 1;
                 }
             }
-            // 左边界二分
             return left;
         }
 
@@ -46,5 +45,5 @@ https://leetcode-cn.com/problems/first-bad-version/
 提示：
 1 <= bad <= n <= 2^31 - 1
 
-左边界二分。
+二分
  */

@@ -4,17 +4,17 @@ public class Solution35 {
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             if (checkMid(nums, target, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
+    // 插入位置之后的数都 >= target，FFFTTT
     private boolean checkMid(int[] nums, int target, int mid) {
         return nums[mid] >= target;
     }
@@ -31,5 +31,5 @@ https://leetcode-cn.com/problems/search-insert-position/
 nums 为无重复元素的升序排列数组
 -10^4 <= target <= 10^4
 
-左边界二分
+二分
  */

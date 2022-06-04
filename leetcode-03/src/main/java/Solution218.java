@@ -10,7 +10,7 @@ public class Solution218 {
     public List<List<Integer>> getSkyline(int[][] buildings) {
         Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
 
-        // 离散化（左闭右开）
+        // 离散化
         TreeSet<Integer> treeSet = new TreeSet<>();
         for (int[] building : buildings) {
             treeSet.add(building[0]);
@@ -67,10 +67,9 @@ public class Solution218 {
                 lazy[p] = val;
                 return;
             }
+            int mid = s + (t - s) / 2;
             // pushDown
             pushDown(p);
-
-            int mid = s + (t - s) / 2;
             if (l <= mid) {
                 update(l, r, val, s, mid, p * 2);
             }
@@ -81,17 +80,15 @@ public class Solution218 {
             pushUp(p);
         }
 
-
         // 区间查询，求 [l,r] 范围最大值
         // 函数入口: getMax(l, r, 1, n, 1)
         public int getMax(int l, int r, int s, int t, int p) {
             if (l <= s && t <= r) {
                 return max[p];
             }
+            int mid = s + (t - s) / 2;
             // pushDown
             pushDown(p);
-
-            int mid = s + (t - s) / 2;
             int maxn = 0;
             if (l <= mid) {
                 maxn = Math.max(maxn, getMax(l, r, s, mid, p * 2));

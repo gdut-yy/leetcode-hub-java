@@ -2,15 +2,17 @@
 
 基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
-~~（拼搏百天，我要完成 300 道 leetcode 题！（始于 2021.07.05，Day87(2021.09.29) 已完成 300 题，Day154(2021.12.05) 已完成 700 题）~~
+~~（拼搏百天，我要完成 300 道 leetcode 题！（始于 2021.07.05，Day87(2021.09.29) 已完成 300 题，Day154(2021.12.05) 已完成 700 题~~
 
-（拼搏 300 天，完成 1000 道 leetcode 题！
+~~（拼搏 300 天，完成 1000 道 leetcode 题！（Day300(2022.04.25) 已完成 1047 题）~~
 
+- `codeforces` 存放 codeforces 题目。
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 - `leetcode-core` 存放 leetcode 自定义对象。
 - `leetcode-extends` 存放 LCCUP/OJ 题目
 - `leetcode-interview` 存放 《程序员面试金典》 题目。
 - `leetcode-offer` 存放 《剑指 Offer》 题目。
+- `数据库`题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
 
 ## 环境信息
 
@@ -21,14 +23,14 @@ OpenJDK Runtime Environment (build 17.0.1+12-39)
 OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
 
 $ mvn -v
-Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
-Maven home: D:\programs\apache-maven-3.8.4
+Apache Maven 3.8.5 (3599d3414f046de2324203b78ddcf9b5e4388aa0)
+Maven home: D:\programs\apache-maven-3.8.5
 Java version: 17.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-17.0.1
 Default locale: zh_CN, platform encoding: GBK
 OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
 
-IntelliJ IDEA 2021.3.2 (Community Edition)
-Build #IC-213.6777.52, built on January 28, 2022
+IntelliJ IDEA 2022.1.2 (Community Edition)
+Build #IC-221.5787.30, built on June 1, 2022
 ```
 
 ## Command 命令行
@@ -159,6 +161,12 @@ junit5 常用断言：
 
 - [304. 二维区域和检索 - 矩阵不可变](https://leetcode-cn.com/problems/range-sum-query-2d-immutable/)
 
+### 线段树
+
+- [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem/) 离散化，区间修改，区间最值
+- [699. 掉落的方块](https://leetcode.cn/problems/falling-squares/) 离散化，区间修改，区间最值
+- [2286. 以组为单位订音乐会的门票](https://leetcode.cn/problems/booking-concert-tickets-in-groups/) 单点修改、区间求和、二分最小满足下标
+
 ### 快速幂
 
 ```java
@@ -250,82 +258,29 @@ junit5 常用断言：
 ### 二分查找
 
 ```java
-// int mid = (left + right) / 2;
-// 可能会在相加步骤溢出，优化为:
-// int mid = left + (right - left) / 2;
+    // int mid = (left + right) / 2;
+    // 可能会在相加步骤溢出，优化为:
+    // int mid = left + (right - left) / 2;
 
-private int binarySearchLeftBound(int[] nums, int target) {
     int left = 0;
     int right = nums.length;
     while (left < right) {
         int mid = left + (right - left) / 2;
-        // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
-        if (checkMid(mid)) {
+        // 边界二分 F, F,..., F, [T, T,..., T]
+        // ----------------------^
+        if (checkMid(nums, mid)) {
             right = mid;
         } else {
             left = mid + 1;
         }
     }
-    // 左边界二分
     return left;
-    // 右边界二分
-    return left - 1;
-}
-
-private int binarySearchLeftBound(int[] nums, int target) {
-    int left = 0;
-    int right = nums.length;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == target) {
-            right = mid;
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else if (nums[mid] > target) {
-            right = mid;
-        }
-    }
-    return left;
-}
-
-private static int binarySearchRightBound(int[] nums, int target) {
-    int left = 0;
-    int right = nums.length;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        if (nums[mid] == target) {
-            left = mid + 1;
-        } else if (nums[mid] < target) {
-            left = mid + 1;
-        } else if (nums[mid] > target) {
-            right = mid;
-        }
-    }
-    return left - 1;
-}
 ```
 
-朴素二分
+二分/边界二分
 
 - [704. 二分查找](https://leetcode-cn.com/problems/binary-search/)
-
-左边界二分
-
-- [35. 搜索插入位置](https://leetcode-cn.com/problems/search-insert-position/)
-- [278. 第一个错误的版本](https://leetcode-cn.com/problems/first-bad-version/)
-- [378. 有序矩阵中第 K 小的元素](https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/)
-- [540. 有序数组中的单一元素](https://leetcode-cn.com/problems/single-element-in-a-sorted-array/)
-- [668. 乘法表中第 k 小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/)
-- [875. 爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
-- [1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
-- [1870. 准时到达的列车最小时速](https://leetcode-cn.com/problems/minimum-speed-to-arrive-on-time/)
-- [2064. 分配给商店的最多商品的最小值](https://leetcode-cn.com/problems/minimized-maximum-of-products-distributed-to-any-store/)
-
-右边界二分
-
 - [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
-- [1292. 元素和小于等于阈值的正方形的最大边长](https://leetcode-cn.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/)
-- [$1891. 割绳子](https://leetcode-cn.com/problems/cutting-ribbons/)
 
 ### 双指针
 
@@ -416,6 +371,11 @@ public int bfs(char[][] maze, int[] entrance) {
 
 - [46. 全排列](https://leetcode-cn.com/problems/permutations/)
 - [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
+
+### 0-1 BFS
+
+- [1368. 使网格图至少有一条有效路径的最小代价](https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/)
+- [2290. 到达角落需要移除障碍物的最小数目](https://leetcode.cn/problems/minimum-obstacle-removal-to-reach-corner/)
 
 ### KMP 算法
 
@@ -714,7 +674,8 @@ Hierholzer 算法
 - [哈工大 OJ](http://acm.hit.edu.cn/)
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
-- [leetcode-rating-predictor](https://leetcode-rating-predictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
+- [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
 - [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
+- [visualgo](https://visualgo.net/zh)
 
 （全文完）

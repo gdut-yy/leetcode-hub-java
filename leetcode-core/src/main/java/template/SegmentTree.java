@@ -9,13 +9,13 @@ package template;
  */
 public class SegmentTree {
     private final int[] nums;
-    private final int[] tree;
+    private final int[] sum;
     private final int[] lazy;
 
     public SegmentTree(int[] nums) {
         int N = nums.length;
         this.nums = nums;
-        tree = new int[N * 4];
+        sum = new int[N * 4];
         lazy = new int[N * 4];
 
         build(1, N, 1);
@@ -24,59 +24,90 @@ public class SegmentTree {
     private void build(int s, int t, int p) {
         // 对 [s,t] 区间建立线段树,当前根的编号为 p
         if (s == t) {
-            tree[p] = nums[s - 1];
+            sum[p] = nums[s - 1];
             return;
         }
-        int m = s + ((t - s) >> 1);
+        int mid = s + (t - s) / 2;
         // 移位运算符的优先级小于加减法，所以加上括号
         // 如果写成 (s + t) >> 1 可能会超出 int 范围
-        build(s, m, p * 2);
-        build(m + 1, t, p * 2 + 1);
+        build(s, mid, p * 2);
+        build(mid + 1, t, p * 2 + 1);
         // 递归对左右区间建树
-        tree[p] = tree[p * 2] + tree[(p * 2) + 1];
+        sum[p] = sum[p * 2] + sum[(p * 2) + 1];
     }
 
-    // [l,r] 范围置为 c
-    public void update(int l, int r, int c, int s, int t, int p) {
+    // 区间修改，将 [l,r] 置为 val
+    // 函数入口: update(l, r, val, 1, n, 1)
+    public void update(int l, int r, int val, int s, int t, int p) {
         if (l <= s && t <= r) {
-            tree[p] = (t - s + 1) * c;
-            lazy[p] = c;
+            sum[p] = (t - s + 1) * val;
+            lazy[p] = val;
             return;
         }
-        int m = s + ((t - s) >> 1);
+        int mid = s + (t - s) / 2;
+        // pushDown
         if (lazy[p] > 0) {
-            tree[p * 2] = lazy[p] * (m - s + 1);
-            tree[p * 2 + 1] = lazy[p] * (t - m);
+            sum[p * 2] = lazy[p] * (mid - s + 1);
+            sum[p * 2 + 1] = lazy[p] * (t - mid);
             lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
             lazy[p] = 0;
         }
-        if (l <= m) {
-            update(l, r, c, s, m, p * 2);
+        if (l <= mid) {
+            update(l, r, val, s, mid, p * 2);
         }
-        if (r > m) {
-            update(l, r, c, m + 1, t, p * 2 + 1);
+        if (r > mid) {
+            update(l, r, val, mid + 1, t, p * 2 + 1);
         }
-        tree[p] = tree[p * 2] + tree[p * 2 + 1];
+        sum[p] = sum[p * 2] + sum[p * 2 + 1];
     }
 
-    // [l,r] 范围求和
-    public int getsum(int l, int r, int s, int t, int p) {
+    // 区间修改，[l,r] 增加 inc
+    // 函数入口: add(l, r, inc, 1, n, 1)
+    public void add(int l, int r, int inc, int s, int t, int p) {
         if (l <= s && t <= r) {
-            return tree[p];
+            sum[p] += (t - s + 1) * inc;
+            lazy[p] += inc;
+            return;
         }
-        int m = s + ((t - s) >> 1);
+        int mid = s + (t - s) / 2;
+        // pushDown
         if (lazy[p] > 0) {
-            tree[p * 2] = lazy[p] * (m - s + 1);
-            tree[p * 2 + 1] = lazy[p] * (t - m);
-            lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+            sum[p * 2] += lazy[p] * (mid - s + 1);
+            sum[p * 2 + 1] += lazy[p] * (t - mid);
+            lazy[p * 2] += lazy[p];
+            lazy[p * 2 + 1] += lazy[p];
             lazy[p] = 0;
         }
-        int sum = 0;
-        if (l <= m) {
-            sum = getsum(l, r, s, m, p * 2);
+        if (l <= mid) {
+            add(l, r, inc, s, mid, p * 2);
         }
-        if (r > m) {
-            sum += getsum(l, r, m + 1, t, p * 2 + 1);
+        if (r > mid) {
+            add(l, r, inc, mid + 1, t, p * 2 + 1);
+        }
+        sum[p] = sum[p * 2] + sum[p * 2 + 1];
+    }
+
+    // 区间查询，求 [l,r] 范围最大值
+    // 函数入口: getSum(l, r, 1, n, 1)
+    public int getSum(int l, int r, int s, int t, int p) {
+        if (l <= s && t <= r) {
+            return sum[p];
+        }
+        int mid = s + (t - s) / 2;
+        // pushDown
+//        if (lazy[p] > 0) {
+//            sum[p * 2] += lazy[p] * (mid - s + 1);
+//            sum[p * 2 + 1] += lazy[p] * (t - mid);
+//            lazy[p * 2] += lazy[p];
+//            lazy[p * 2 + 1] += lazy[p];
+//            lazy[p] = 0;
+//        }
+        int sum = 0;
+        if (l <= mid) {
+            sum = getSum(l, r, s, mid, p * 2);
+        }
+        if (r > mid) {
+            sum += getSum(l, r, mid + 1, t, p * 2 + 1);
         }
         return sum;
     }

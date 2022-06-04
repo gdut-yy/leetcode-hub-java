@@ -5,17 +5,17 @@ public class Solution378 {
         int right = matrix[n - 1][n - 1];
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             if (checkMid(matrix, k, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
+    // 假设第 k 小的元素为 mid，大于等于 mid 的元素至少有 k 个，FFFTTT
     private boolean checkMid(int[][] matrix, int k, int mid) {
         // 左下角开始
         int curM = matrix.length - 1;
@@ -51,7 +51,7 @@ n == matrix[i].length
 你能否用一个恒定的内存(即 O(1) 内存复杂度)来解决这个问题?
 你能在 O(n) 的时间复杂度下解决这个问题吗?这个方法对于面试来说可能太超前了，但是你会发现阅读这篇文章（ this paper ）很有趣。
 
-左边界二分。
+二分
 时间复杂度 O(nlog(r-l))
 时间复杂度 O(1)
 相似题目: 668. 乘法表中第k小的数

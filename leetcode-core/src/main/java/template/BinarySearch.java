@@ -4,46 +4,16 @@ package template;
  * 二分查找
  * <p>
  * 时间复杂度 O(logn)
+ * <p>
+ * Solution34
  */
 public class BinarySearch {
-    private int binarySearchLeftBound(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                right = mid;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid;
-            }
-        }
-        return left;
-    }
-
-    private static int binarySearchRightBound(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
-                left = mid + 1;
-            } else if (nums[mid] < target) {
-                left = mid + 1;
-            } else if (nums[mid] > target) {
-                right = mid;
-            }
-        }
-        return left - 1;
-    }
-
     private int binarySearchLeftBound(boolean[] nums) {
         int left = 0;
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (checkMid(nums, mid)) {
                 right = mid;
@@ -51,7 +21,6 @@ public class BinarySearch {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 
@@ -60,7 +29,7 @@ public class BinarySearch {
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ------------------^
             if (checkMid(nums, mid)) {
                 right = mid;
@@ -68,7 +37,6 @@ public class BinarySearch {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 

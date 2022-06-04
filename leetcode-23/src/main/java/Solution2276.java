@@ -101,6 +101,7 @@ https://leetcode.cn/problems/count-integers-in-intervals/
 最多调用  add 和 count 方法 总计 10^5 次
 调用 count 方法至少一次
 
+TreeMap模拟/动态开点线段树
 相似题目: 57. 插入区间
 https://leetcode.cn/problems/insert-interval/
 352. 将数据流变为多个不相交区间

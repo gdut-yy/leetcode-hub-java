@@ -6,7 +6,7 @@ import java.util.TreeSet;
 
 public class Solution699 {
     public List<Integer> fallingSquares(int[][] positions) {
-        // 离散化（左闭右开）
+        // 离散化
         TreeSet<Integer> treeSet = new TreeSet<>();
         for (int[] position : positions) {
             treeSet.add(position[0]);
@@ -28,6 +28,7 @@ public class Solution699 {
         SegmentTree segmentTree = new SegmentTree(N);
         for (int[] position : positions) {
             int left = idxMap.get(position[0]);
+            // 左闭右开
             int right = idxMap.get(position[0] + position[1]) - 1;
             int height = segmentTree.getMax(left, right, 1, N, 1);
 
@@ -56,10 +57,9 @@ public class Solution699 {
                 lazy[p] = val;
                 return;
             }
+            int mid = s + (t - s) / 2;
             // pushDown
             pushDown(p);
-
-            int mid = s + (t - s) / 2;
             if (l <= mid) {
                 update(l, r, val, s, mid, p * 2);
             }
@@ -77,10 +77,9 @@ public class Solution699 {
             if (l <= s && t <= r) {
                 return max[p];
             }
+            int mid = s + (t - s) / 2;
             // pushDown
             pushDown(p);
-
-            int mid = s + (t - s) / 2;
             int maxn = 0;
             if (l <= mid) {
                 maxn = Math.max(maxn, getMax(l, r, s, mid, p * 2));
