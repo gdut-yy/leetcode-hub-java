@@ -1,4 +1,4 @@
-public class Solution6090 {
+public class Solution2293 {
     public int minMaxGame(int[] nums) {
         int n = nums.length;
         if (n == 1) {
@@ -17,7 +17,7 @@ public class Solution6090 {
     }
 }
 /*
-6090. 极大极小游戏
+2293. 极大极小游戏
 https://leetcode.cn/problems/min-max-game/
 
 第 296 场周赛 T1。

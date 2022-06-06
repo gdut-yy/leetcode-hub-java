@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6091 {
+public class Solution2294 {
     public int partitionArray(int[] nums, int k) {
         int len = nums.length;
         Arrays.sort(nums);
@@ -21,7 +21,7 @@ public class Solution6091 {
     }
 }
 /*
-6091. 划分数组使最大差为 K
+2294. 划分数组使最大差为 K
 https://leetcode.cn/problems/partition-array-such-that-maximum-difference-is-k/
 
 第 296 场周赛 T2。

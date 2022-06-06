@@ -1,4 +1,4 @@
-public class Solution6093 {
+public class Solution2296 {
     static class TextEditor {
         private final StringBuilder stringBuilder;
         // 光标
@@ -42,7 +42,7 @@ public class Solution6093 {
     }
 }
 /*
-6093. 设计一个文本编辑器
+2296. 设计一个文本编辑器
 https://leetcode.cn/problems/design-a-text-editor/
 
 第 296 场周赛 T4。

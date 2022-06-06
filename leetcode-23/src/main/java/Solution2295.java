@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6092 {
+public class Solution2295 {
     public int[] arrayChange(int[] nums, int[][] operations) {
         int n = nums.length;
 
@@ -35,7 +35,7 @@ public class Solution6092 {
     }
 }
 /*
-6092. 替换数组中的元素
+2295. 替换数组中的元素
 https://leetcode.cn/problems/replace-elements-in-an-array/
 
 第 296 场周赛 T3。

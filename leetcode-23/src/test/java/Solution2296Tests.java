@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6093Tests {
+public class Solution2296Tests {
     @Test
     public void example1() {
         // 当前 text 为 "|" 。（'|' 字符表示光标）
-        Solution6093.TextEditor textEditor = new Solution6093.TextEditor();
+        Solution2296.TextEditor textEditor = new Solution2296.TextEditor();
 
         // 当前文本为 "leetcode|" 。
         textEditor.addText("leetcode");
