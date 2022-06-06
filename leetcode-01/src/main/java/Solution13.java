@@ -15,12 +15,12 @@ public class Solution13 {
     }
 
     public int romanToInt(String s) {
-        int n = s.length();
+        int len = s.length();
 
         int ans = 0;
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < len; i++) {
             int value = MAPPING.get(s.charAt(i));
-            if (i < n - 1 && value < MAPPING.get(s.charAt(i + 1))) {
+            if (i < len - 1 && value < MAPPING.get(s.charAt(i + 1))) {
                 ans -= value;
             } else {
                 ans += value;
@@ -57,4 +57,6 @@ IL 和 IM 这样的例子并不符合题目要求，49 应该写作 XLIX，999 �
 关于罗马数字的详尽书写规则，可以参考 罗马数字 - Mathematics 。
 
 模拟。
+相似题目: 12. 整数转罗马数字
+https://leetcode.cn/problems/integer-to-roman/
  */
