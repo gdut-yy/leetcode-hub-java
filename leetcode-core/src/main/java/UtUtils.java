@@ -186,6 +186,13 @@ public class UtUtils {
     }
 
     /**
+     * resources 文件加载 List<String>
+     */
+    public static List<String> loadingStringList(String fileName, int line) {
+        return JSON.parseArray(loadingString(fileName, line), String.class);
+    }
+
+    /**
      * resources 文件加载 List<List<Integer>>
      */
     public static List<List<Integer>> loadingIntegerList2(String fileName, int line) {

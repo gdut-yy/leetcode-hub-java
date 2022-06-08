@@ -1,56 +1,95 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
 public class Solution127 {
     public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        Queue<String> queue1 = new LinkedList<>();
-        Queue<String> queue2 = new LinkedList<>();
+        if (!wordList.contains(endWord)) {
+            return 0;
+        }
 
-        Set<String> notVisited = new HashSet<>(wordList);
-        int length = 1;
-        queue1.add(beginWord);
+        if (!wordList.contains(beginWord)) {
+            wordList.add(beginWord);
+        }
 
-        while (!queue1.isEmpty()) {
-            String word = queue1.remove();
-            if (word.equals(endWord)) {
-                return length;
-            }
+        // 建图1 5000*5000*10 420ms
+//        int len = wordList.size();
+//        Map<String, List<String>> graph = new HashMap<>();
+//        for (int i = 0; i < len; i++) {
+//            for (int j = i + 1; j < len; j++) {
+//                String word1 = wordList.get(i);
+//                String word2 = wordList.get(j);
+//                if (isAdjacent(word1, word2)) {
+//                    graph.computeIfAbsent(word1, key -> new ArrayList<>()).add(word2);
+//                    graph.computeIfAbsent(word2, key -> new ArrayList<>()).add(word1);
+//                }
+//            }
+//        }
 
-            List<String> neighbors = getNeighbors(word);
-            for (String neighbor : neighbors) {
-                if (notVisited.contains(neighbor)) {
-                    queue2.add(neighbor);
-                    notVisited.remove(neighbor);
+        // 建图2 5000*25*10 90ms
+        Set<String> wordSet = new HashSet<>(wordList);
+        Map<String, List<String>> graph = new HashMap<>();
+        for (String word1 : wordList) {
+            char[] chars = word1.toCharArray();
+            for (int i = 0; i < chars.length; i++) {
+                char old = chars[i];
+                for (char ch = 'a'; ch <= 'z'; ch++) {
+                    if (old != ch) {
+                        chars[i] = ch;
+                        String word2 = new String(chars);
+                        if (wordSet.contains(word2)) {
+                            graph.computeIfAbsent(word1, key -> new ArrayList<>()).add(word2);
+                            graph.computeIfAbsent(word2, key -> new ArrayList<>()).add(word1);
+                            wordSet.remove(word1);
+                        }
+                    }
                 }
+                chars[i] = old;
             }
+        }
 
-            if (queue1.isEmpty()) {
-                length++;
-                queue1 = queue2;
-                queue2 = new LinkedList<>();
+        // BFS
+        Queue<String> queue = new LinkedList<>();
+        queue.add(beginWord);
+        Set<String> visited = new HashSet<>();
+        visited.add(beginWord);
+        int step = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            step++;
+            for (int i = 0; i < size; i++) {
+                String cur = queue.remove();
+                if (cur.equals(endWord)) {
+                    return step;
+                }
+
+                for (String next : graph.getOrDefault(cur, new ArrayList<>())) {
+                    if (!visited.contains(next)) {
+                        visited.add(next);
+                        queue.add(next);
+                    }
+                }
             }
         }
         return 0;
     }
 
-    private List<String> getNeighbors(String word) {
-        List<String> neighbors = new ArrayList<>();
-        char[] chars = word.toCharArray();
-        for (int i = 0; i < chars.length; i++) {
-            char old = chars[i];
-            for (char ch = 'a'; ch <= 'z'; ch++) {
-                if (old != ch) {
-                    chars[i] = ch;
-                    neighbors.add(new String(chars));
+    private boolean isAdjacent(String word1, String word2) {
+        int cnt = 0;
+        for (int i = 0; i < word1.length(); i++) {
+            if (word1.charAt(i) != word2.charAt(i)) {
+                cnt++;
+                if (cnt > 1) {
+                    return false;
                 }
             }
-            chars[i] = old;
         }
-        return neighbors;
+        return cnt == 1;
     }
 }
 /*
@@ -71,5 +110,7 @@ beginWord、endWord 和 wordList[i] 由小写英文字母组成
 beginWord != endWord
 wordList 中的所有字符串 互不相同
 
-两个队列实现广度优先搜索。
+建图 + BFS 最短路
+相似题目: 126. 单词接龙 II
+https://leetcode.cn/problems/word-ladder-ii/
  */

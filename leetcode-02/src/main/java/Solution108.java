@@ -27,4 +27,6 @@ nums 按 严格递增 顺序排列
 
 同: 面试题 04.02. 最小高度树
 https://leetcode-cn.com/problems/minimum-height-tree-lcci/
+相似题目: 109. 有序链表转换二叉搜索树
+https://leetcode.cn/problems/convert-sorted-list-to-binary-search-tree/
  */
