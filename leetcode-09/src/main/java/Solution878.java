@@ -8,7 +8,7 @@ public class Solution878 {
         long right = Long.MAX_VALUE;
         while (left < right) {
             long mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (mid / a + mid / b - mid / lcm >= n) {
                 right = mid;

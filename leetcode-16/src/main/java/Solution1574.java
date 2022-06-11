@@ -27,7 +27,7 @@ public class Solution1574 {
             int right = len;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // 边界二分 F, F,..., F, [T, T,..., T]
                 // ----------------------^
                 int pre = (i == -1) ? 0 : arr[i];
                 if (checkMid(arr, asc, pre, mid)) {

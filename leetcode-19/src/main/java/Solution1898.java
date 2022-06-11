@@ -7,7 +7,7 @@ public class Solution1898 {
         int right = removable.length + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(s, p, removable, mid)) {
                 right = mid;

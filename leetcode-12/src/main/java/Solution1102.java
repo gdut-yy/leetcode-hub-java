@@ -37,14 +37,14 @@ public class Solution1102 {
         int right = chooseList.size();
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (!checkMid(grid, chooseList.get(mid))) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return chooseList.get(left - 1);
     }
 

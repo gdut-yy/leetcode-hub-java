@@ -9,7 +9,7 @@ public class Solution2141 {
         long right = sum / n + 1;
         while (left < right) {
             long mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(n, batteries, mid)) {
                 right = mid;
@@ -17,7 +17,6 @@ public class Solution2141 {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 

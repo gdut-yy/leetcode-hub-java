@@ -51,14 +51,14 @@ public class Solution2070 {
         int right = nums.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 T, T,..., T, [F, F,..., F] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (!checkMid(nums, target, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 

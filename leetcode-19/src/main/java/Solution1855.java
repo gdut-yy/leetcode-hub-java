@@ -4,14 +4,14 @@ public class Solution1855 {
         int right = nums2.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (!checkMid(nums1, nums2, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return left - 1;
     }
 

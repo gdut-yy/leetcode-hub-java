@@ -5,6 +5,7 @@ public class Solution2064 {
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(n, quantities, mid)) {
                 right = mid;
             } else {

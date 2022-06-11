@@ -6,6 +6,7 @@ public class Solution278 {
             while (left < right) {
                 int mid = left + (right - left) / 2;
                 // 边界二分 F, F,..., F, [T, T,..., T]
+                // ----------------------^
                 if (isBadVersion(mid)) {
                     right = mid;
                 } else {

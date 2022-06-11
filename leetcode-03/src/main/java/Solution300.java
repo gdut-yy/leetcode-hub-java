@@ -49,14 +49,14 @@ public class Solution300 {
                 // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
                 while (left < right) {
                     int mid = left + (right - left) / 2;
-                    // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                    // 边界二分 F, F,..., F, [T, T,..., T]
+                    // ----------------------^
                     if (checkMid(nums[i], ascend, mid)) {
                         right = mid;
                     } else {
                         left = mid + 1;
                     }
                 }
-                // 左边界二分
                 ascend[left] = nums[i];
             }
         }

@@ -12,14 +12,14 @@ public class Solution778 {
         int right = N * N;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (checkMid(grid, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 

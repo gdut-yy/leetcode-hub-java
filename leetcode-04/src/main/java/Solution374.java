@@ -5,7 +5,8 @@ public class Solution374 {
             int right = n;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // 边界二分 F, F,..., F, [T, T,..., T]
+                // ----------------------^
                 if (guess(mid) > 0) {
                     left = mid + 1;
                 } else {

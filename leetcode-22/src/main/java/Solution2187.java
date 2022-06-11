@@ -5,7 +5,7 @@ public class Solution2187 {
         long right = Long.MAX_VALUE;
         while (left < right) {
             long mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (checkMid(time, totalTrips, mid)) {
                 right = mid;
@@ -13,7 +13,6 @@ public class Solution2187 {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left;
     }
 

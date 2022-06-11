@@ -58,7 +58,8 @@ public class CF1676E {
             int right = n;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+                // 边界二分 F, F,..., F, [T, T,..., T]
+                // ----------------------^
                 if (preSum[mid] >= query) {
                     right = mid;
                 } else {

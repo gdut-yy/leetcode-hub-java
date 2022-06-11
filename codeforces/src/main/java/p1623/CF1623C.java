@@ -34,7 +34,7 @@ public class CF1623C {
         int right = 1000000000;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(n, nums, mid)) {
                 right = mid;
@@ -42,7 +42,6 @@ public class CF1623C {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return String.valueOf(left - 1);
     }
 

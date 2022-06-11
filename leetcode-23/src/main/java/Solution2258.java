@@ -20,7 +20,7 @@ public class Solution2258 {
                     System.arraycopy(grid[i], 0, gridClone[i], 0, N);
                 }
             }
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(gridClone, mid)) {
                 right = mid;
@@ -28,7 +28,6 @@ public class Solution2258 {
                 left = mid + 1;
             }
         }
-        // 左边界二分
         return left == 20000 ? 1000000000 : left - 1;
     }
 

@@ -47,7 +47,7 @@ public class CF1619D {
         int right = max + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(m, n, nums, mid)) {
                 right = mid;
@@ -55,7 +55,6 @@ public class CF1619D {
                 left = mid + 1;
             }
         }
-        // 右边界二分
         return String.valueOf(left - 1);
     }
 

@@ -4,7 +4,7 @@ public class Solution1802 {
         int right = maxSum + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             if (!checkMid(n, index, maxSum, mid)) {
                 right = mid;

@@ -9,7 +9,7 @@ public class Solution1201 {
         long right = Long.MAX_VALUE;
         while (left < right) {
             long mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
             // FFFTTT
             if (mid / a + mid / b + mid / c - mid / lcmAb - mid / lcmAc - mid / lcmBc + mid / lcmAbc >= n) {

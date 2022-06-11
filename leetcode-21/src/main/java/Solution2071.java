@@ -19,7 +19,8 @@ public class Solution2071 {
         int right = tasks.length;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T] checkMid(mid) == T
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
             if (!checkMid(tasks, new TreeMap<>(treeMap), pills, strength, mid)) {
                 right = mid;
             } else {
