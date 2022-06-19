@@ -10,6 +10,7 @@ public class Solution53Tests {
         int expected = 6;
         Assertions.assertEquals(expected, solution53.maxSubArray(nums));
         Assertions.assertEquals(expected, solution53.maxSubArray2(nums));
+        Assertions.assertEquals(expected, solution53.maxSubArray3(nums));
     }
 
     @Test
@@ -18,29 +19,15 @@ public class Solution53Tests {
         int expected = 1;
         Assertions.assertEquals(expected, solution53.maxSubArray(nums));
         Assertions.assertEquals(expected, solution53.maxSubArray2(nums));
+        Assertions.assertEquals(expected, solution53.maxSubArray3(nums));
     }
 
     @Test
     public void example3() {
-        int[] nums = {0};
-        int expected = 0;
+        int[] nums = {5, 4, -1, 7, 8};
+        int expected = 23;
         Assertions.assertEquals(expected, solution53.maxSubArray(nums));
         Assertions.assertEquals(expected, solution53.maxSubArray2(nums));
-    }
-
-    @Test
-    public void example4() {
-        int[] nums = {-1};
-        int expected = -1;
-        Assertions.assertEquals(expected, solution53.maxSubArray(nums));
-        Assertions.assertEquals(expected, solution53.maxSubArray2(nums));
-    }
-
-    @Test
-    public void example5() {
-        int[] nums = {-100000};
-        int expected = -100000;
-        Assertions.assertEquals(expected, solution53.maxSubArray(nums));
-        Assertions.assertEquals(expected, solution53.maxSubArray2(nums));
+        Assertions.assertEquals(expected, solution53.maxSubArray3(nums));
     }
 }

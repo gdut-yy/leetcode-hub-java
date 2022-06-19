@@ -32,6 +32,56 @@ public class Solution53 {
         }
         return maxAns;
     }
+
+    // 线段树 时间复杂度 O(n)
+    public int maxSubArray3(int[] nums) {
+        SegmentTree segmentTree = new SegmentTree(nums);
+        return (int) segmentTree.query(0, nums.length - 1).maxSum;
+    }
+
+    private static class SegmentTree {
+        private static class Node {
+            // lSum 表示 [l,r] 内以 l 为左端点的最大子段和
+            long lSum;
+            // rSum 表示 [l,r] 内以 r 为右端点的最大子段和
+            long rSum;
+            // maxSum 表示 [l,r] 内的最大子段和
+            long maxSum;
+            // itSum 表示 [l,r] 的区间和
+            long itSum;
+
+            public Node(long lSum, long rSum, long maxSum, long itSum) {
+                this.lSum = lSum;
+                this.rSum = rSum;
+                this.maxSum = maxSum;
+                this.itSum = itSum;
+            }
+        }
+
+        private final int[] a;
+
+        public SegmentTree(int[] nums) {
+            a = nums;
+        }
+
+        private Node pushUp(Node a, Node b) {
+            long lSum = Math.max(a.lSum, a.itSum + b.lSum);
+            long rSum = Math.max(b.rSum, b.itSum + a.rSum);
+            long maxSum = Math.max(Math.max(a.maxSum, b.maxSum), a.rSum + b.lSum);
+            long itSum = a.itSum + b.itSum;
+            return new Node(lSum, rSum, maxSum, itSum);
+        }
+
+        private Node query(int s, int t) {
+            if (s == t) {
+                return new Node(a[s], a[s], a[s], a[s]);
+            }
+            int mid = s + (t - s) / 2;
+            Node lSub = query(s, mid);
+            Node rSub = query(mid + 1, t);
+            return pushUp(lSub, rSub);
+        }
+    }
 }
 /*
 53. 最大子序和
