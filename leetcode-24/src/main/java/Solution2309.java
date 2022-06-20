@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution5242 {
+public class Solution2309 {
     public String greatestLetter(String s) {
         Set<Character> hashSet = new HashSet<>();
         for (char ch : s.toCharArray()) {
@@ -17,7 +17,7 @@ public class Solution5242 {
     }
 }
 /*
-5242. 兼具大小写的最好英文字母
+2309. 兼具大小写的最好英文字母
 https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case/
 
 第 298 场周赛 T1。

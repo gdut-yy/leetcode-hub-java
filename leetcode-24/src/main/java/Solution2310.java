@@ -1,4 +1,4 @@
-public class Solution5218 {
+public class Solution2310 {
     public int minimumNumbers(int num, int k) {
         if (num == 0) {
             return 0;
@@ -16,7 +16,7 @@ public class Solution5218 {
     }
 }
 /*
-5218. 个位数字为 K 的整数之和
+2310. 个位数字为 K 的整数之和
 https://leetcode.cn/problems/sum-of-numbers-with-units-digit-k/
 
 第 298 场周赛 T2。

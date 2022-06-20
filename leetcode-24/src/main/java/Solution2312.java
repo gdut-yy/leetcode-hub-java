@@ -1,4 +1,4 @@
-public class Solution5254 {
+public class Solution2312 {
     public long sellingWood(int m, int n, int[][] prices) {
         // dp[i][j] 表示高 i 宽 j 矩形木块 能得到的 最多 钱数
         long[][] dp = new long[m + 1][n + 1];
@@ -22,7 +22,7 @@ public class Solution5254 {
     }
 }
 /*
-5254. 卖木头块
+2312. 卖木头块
 https://leetcode.cn/problems/selling-pieces-of-wood/
 
 第 298 场周赛 T4。

@@ -27,13 +27,6 @@ public class Solution2121Tests {
         int[] arr = UtUtils.loadingInts("solution2121-example3-input.txt", 0);
         long[] expected = UtUtils.loadingLongs("solution2121-example3-output.txt", 0);
         Assertions.assertArrayEquals(expected, solution2121.getDistances(arr));
-    }
-
-    @Test
-    @Disabled
-    public void example3_2() {
-        int[] arr = UtUtils.loadingInts("solution2121-example3-input.txt", 0);
-        long[] expected = UtUtils.loadingLongs("solution2121-example3-output.txt", 0);
-        Assertions.assertArrayEquals(expected, solution2121.getDistances2(arr));
+//        Assertions.assertArrayEquals(expected, solution2121.getDistances2(arr));
     }
 }

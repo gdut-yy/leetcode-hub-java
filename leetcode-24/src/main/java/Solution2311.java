@@ -1,4 +1,4 @@
-public class Solution6099 {
+public class Solution2311 {
     public int longestSubsequence(String s, int k) {
         int len = s.length();
 
@@ -20,7 +20,7 @@ public class Solution6099 {
     }
 }
 /*
-6099. 小于等于 K 的最长二进制子序列
+2311. 小于等于 K 的最长二进制子序列
 https://leetcode.cn/problems/longest-binary-subsequence-less-than-or-equal-to-k/
 
 第 298 场周赛 T3。
