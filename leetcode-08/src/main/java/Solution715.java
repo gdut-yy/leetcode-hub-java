@@ -1,27 +1,28 @@
 public class Solution715 {
     static class RangeModule {
-        private final SegmentTree segmentTree;
+        private final DynamicSegTree dynamicSegTree;
 
         public RangeModule() {
-            segmentTree = new SegmentTree();
+            dynamicSegTree = new DynamicSegTree();
         }
 
         public void addRange(int left, int right) {
-            segmentTree.update(left, right - 1, 1);
+            // 半开区间 [left, right)
+            dynamicSegTree.update(left, right - 1, 1);
         }
 
         public boolean queryRange(int left, int right) {
-            return segmentTree.getSum(left, right - 1) == right - left;
+            // 半开区间 [left, right)
+            return dynamicSegTree.getSum(left, right - 1) == (right - left);
         }
 
         public void removeRange(int left, int right) {
-            segmentTree.update(left, right - 1, -1);
+            // 半开区间 [left, right)
+            dynamicSegTree.update(left, right - 1, -1);
         }
 
         // 动态开点线段树
-        private static class SegmentTree {
-            private static final int N = (int) (1e9 + 10);
-
+        private static class DynamicSegTree {
             private static class Node {
                 // 左子树
                 Node ls;
@@ -30,9 +31,10 @@ public class Solution715 {
                 // 区间和
                 int sum;
                 // 懒标记
-                int add;
+                int lazy;
             }
 
+            private static final int N = (int) 1e9;
             private final Node root = new Node();
 
             // 区间更新 [l,r] 置为 val
@@ -40,7 +42,7 @@ public class Solution715 {
                 this.update(l, r, val, 1, N, root);
             }
 
-            // 区间查询 [l,r]
+            // 区间查询 [l,r] 的和
             int getSum(int l, int r) {
                 return this.getSum(l, r, 1, N, root);
             }
@@ -49,7 +51,7 @@ public class Solution715 {
                 int len = t - s + 1;
                 if (l <= s && t <= r) {
                     node.sum = (val == 1) ? len : 0;
-                    node.add = val;
+                    node.lazy = val;
                     return;
                 }
                 pushDown(node, len);
@@ -86,11 +88,11 @@ public class Solution715 {
                 if (node.rs == null) {
                     node.rs = new Node();
                 }
-                if (node.add == 0) {
+                if (node.lazy == 0) {
                     return;
                 }
                 // 当 add = -1 代表 removeRange 懒标记，当 add = 1 则代表 addRange 懒标记。
-                int add = node.add;
+                int add = node.lazy;
                 if (add == -1) {
                     node.ls.sum = 0;
                     node.rs.sum = 0;
@@ -98,9 +100,9 @@ public class Solution715 {
                     node.ls.sum = len - len / 2;
                     node.rs.sum = len / 2;
                 }
-                node.ls.add = add;
-                node.rs.add = add;
-                node.add = 0;
+                node.ls.lazy = add;
+                node.rs.lazy = add;
+                node.lazy = 0;
             }
 
             private void pushUp(Node node) {
@@ -120,6 +122,11 @@ Range模块是跟踪数字范围的模块。设计一个数据结构来跟踪表
 - void addRange(int left, int right) 添加 半开区间 [left, right)，跟踪该区间中的每个实数。添加与当前跟踪的数字部分重叠的区间时，应当添加在区间 [left, right) 中尚未跟踪的任何数字到该区间中。
 - boolean queryRange(int left, int right) 只有在当前正在跟踪区间 [left, right) 中的每一个实数时，才返回 true ，否则返回 false 。
 - void removeRange(int left, int right) 停止跟踪 半开区间 [left, right) 中当前正在跟踪的每个实数。
+提示：
+1 <= left < right <= 10^9
+在单个测试用例中，对 addRange 、  queryRange 和 removeRange 的调用总数不超过 10^4 次
 
 动态开点线段树（动态指针）
+相似题目: 2276. 统计区间中的整数数目
+https://leetcode.cn/problems/count-integers-in-intervals/
  */

@@ -13,7 +13,7 @@ public class Solution2276Tests {
     @Test
     public void example1() {
         // 用一个区间空集初始化对象
-        Solution2276.CountIntervals countIntervals = new Solution2276.CountIntervals();
+        Solution2276.CountIntervals2 countIntervals = new Solution2276.CountIntervals2();
         // 将 [2, 3] 添加到区间集合中
         countIntervals.add(2, 3);
         // 将 [7, 10] 添加到区间集合中
@@ -48,7 +48,7 @@ public class Solution2276Tests {
     private void reflection(String inputFile, String outputFile) throws Exception {
         // 类、构造器、类方法
         // CountIntervals2 9sec148ms
-        Class<?> clazz = Solution2276.CountIntervals.class;
+        Class<?> clazz = Solution2276.CountIntervals2.class;
         Constructor<?> constructor = clazz.getConstructor();
         Method add = clazz.getMethod("add", int.class, int.class);
         Method count = clazz.getMethod("count");

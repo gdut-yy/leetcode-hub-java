@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -35,50 +33,107 @@ public class Solution2276 {
     }
 
     static class CountIntervals2 {
-        private List<int[]> intervals;
-        int cnt;
+        private final DynamicSegTree dynamicSegTree;
 
         public CountIntervals2() {
-            intervals = new ArrayList<>();
-            cnt = 0;
+            dynamicSegTree = new DynamicSegTree();
         }
 
         public void add(int left, int right) {
-            int toAdd = right - left + 1;
-            int originLeft = left;
-            int originRight = right;
-
-            List<int[]> resList = new ArrayList<>();
-            boolean placed = false;
-            for (int[] interval : intervals) {
-                if (right < interval[0]) {
-                    // 置于所有区间的左侧
-                    if (!placed) {
-                        placed = true;
-                        resList.add(new int[]{left, right});
-                    }
-                    resList.add(interval);
-                } else if (interval[1] < left) {
-                    // 置于所有区间的右侧
-                    resList.add(interval);
-                } else {
-                    // 存在交集，取并集
-                    left = Math.min(left, interval[0]);
-                    right = Math.max(right, interval[1]);
-
-                    toAdd -= Math.min(originRight, interval[1]) - Math.max(originLeft, interval[0]) + 1;
-                }
-            }
-            if (!placed) {
-                resList.add(new int[]{left, right});
-            }
-            intervals = resList;
-
-            cnt += toAdd;
+            dynamicSegTree.update(left, right, 1);
         }
 
         public int count() {
-            return cnt;
+            return dynamicSegTree.getSum();
+        }
+
+        // 动态开点线段树
+        private static class DynamicSegTree {
+            private static class Node {
+                // 左子树
+                Node ls;
+                // 右子树
+                Node rs;
+                // 区间和
+                int sum;
+                // 懒标记
+                int lazy;
+            }
+
+            private static final int N = (int) 1e9;
+            private final Node root = new Node();
+
+            // 区间更新 [l,r] 置为 val
+            void update(int l, int r, int val) {
+                this.update(l, r, val, 1, N, root);
+            }
+
+            // 区间查询 [l,r] 的和
+            int getSum() {
+                return this.getSum(1, N, 1, N, root);
+            }
+
+            private void update(int l, int r, int val, int s, int t, Node node) {
+                int len = t - s + 1;
+                if (l <= s && t <= r) {
+                    node.sum = (val == 1) ? len : 0;
+                    node.lazy = val;
+                    return;
+                }
+                pushDown(node, len);
+                int mid = s + (t - s) / 2;
+                if (l <= mid) {
+                    update(l, r, val, s, mid, node.ls);
+                }
+                if (r > mid) {
+                    update(l, r, val, mid + 1, t, node.rs);
+                }
+                pushUp(node);
+            }
+
+            private int getSum(int l, int r, int s, int t, Node node) {
+                if (l <= s && t <= r) {
+                    return node.sum;
+                }
+                pushDown(node, t - s + 1);
+                int mid = s + (t - s) / 2;
+                int sum = 0;
+                if (l <= mid) {
+                    sum = getSum(l, r, s, mid, node.ls);
+                }
+                if (r > mid) {
+                    sum += getSum(l, r, mid + 1, t, node.rs);
+                }
+                return sum;
+            }
+
+            private void pushDown(Node node, int len) {
+                if (node.ls == null) {
+                    node.ls = new Node();
+                }
+                if (node.rs == null) {
+                    node.rs = new Node();
+                }
+                if (node.lazy == 0) {
+                    return;
+                }
+                // 当 add = -1 代表 removeRange 懒标记，当 add = 1 则代表 addRange 懒标记。
+                int add = node.lazy;
+                if (add == -1) {
+                    node.ls.sum = 0;
+                    node.rs.sum = 0;
+                } else {
+                    node.ls.sum = len - len / 2;
+                    node.rs.sum = len / 2;
+                }
+                node.ls.lazy = add;
+                node.rs.lazy = add;
+                node.lazy = 0;
+            }
+
+            private void pushUp(Node node) {
+                node.sum = node.ls.sum + node.rs.sum;
+            }
         }
     }
 }
@@ -106,4 +161,6 @@ TreeMap模拟/动态开点线段树
 https://leetcode.cn/problems/insert-interval/
 352. 将数据流变为多个不相交区间
 https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/
+715. Range 模块
+https://leetcode.cn/problems/range-module/
  */

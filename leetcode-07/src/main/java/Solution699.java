@@ -103,6 +103,106 @@ public class Solution699 {
             max[p] = Math.max(max[p * 2], max[p * 2 + 1]);
         }
     }
+
+    public List<Integer> fallingSquares2(int[][] positions) {
+        // 目前所有已经落稳的 方块堆叠的最高高度 。
+        int highest = 0;
+        List<Integer> resList = new ArrayList<>();
+        // 线段树
+        DynamicSegTree dynamicSegTree = new DynamicSegTree();
+        for (int[] position : positions) {
+            // 左闭右开
+            int left = position[0];
+            int right = position[0] + position[1] - 1;
+
+            int newHeight = dynamicSegTree.getMax(left, right) + position[1];
+            highest = Math.max(highest, newHeight);
+            dynamicSegTree.update(left, right, newHeight);
+            resList.add(highest);
+        }
+        return resList;
+    }
+
+    // 动态开点线段树
+    private static class DynamicSegTree {
+        private static class Node {
+            // 左子树
+            Node ls;
+            // 右子树
+            Node rs;
+            // 区间最大值
+            int max;
+            // 懒标记
+            int lazy;
+        }
+
+        // 0 <= lefti < righti <= 2^31 - 1
+        private static final int N = (int) 1e9;
+        private final Node root = new Node();
+
+        // 区间更新 [l,r] 置为 val
+        void update(int l, int r, int val) {
+            this.update(l, r, val, 1, N, root);
+        }
+
+        // 区间查询 [l,r] 最大值
+        int getMax(int l, int r) {
+            return this.getMax(l, r, 1, N, root);
+        }
+
+        private void update(int l, int r, int val, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                node.max = val;
+                node.lazy = val;
+                return;
+            }
+            pushDown(node);
+            int mid = s + (t - s) / 2;
+            if (l <= mid) {
+                update(l, r, val, s, mid, node.ls);
+            }
+            if (r > mid) {
+                update(l, r, val, mid + 1, t, node.rs);
+            }
+            pushUp(node);
+        }
+
+        private int getMax(int l, int r, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                return node.max;
+            }
+            pushDown(node);
+            int mid = s + (t - s) / 2;
+            int max = 0;
+            if (l <= mid) {
+                max = Math.max(max, getMax(l, r, s, mid, node.ls));
+            }
+            if (r > mid) {
+                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
+            }
+            return max;
+        }
+
+        private void pushDown(Node node) {
+            if (node.ls == null) {
+                node.ls = new Node();
+            }
+            if (node.rs == null) {
+                node.rs = new Node();
+            }
+            if (node.lazy > 0) {
+                node.ls.max = node.lazy;
+                node.rs.max = node.lazy;
+                node.ls.lazy = node.rs.lazy = node.lazy;
+                node.lazy = 0;
+            }
+        }
+
+        private void pushUp(Node node) {
+            node.max = Math.max(node.ls.max, node.rs.max);
+        }
+    }
+
 }
 /*
 699. 掉落的方块

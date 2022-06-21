@@ -167,6 +167,14 @@ junit5 常用断言：
 - [699. 掉落的方块](https://leetcode.cn/problems/falling-squares/) 离散化，区间修改，区间最值
 - [2286. 以组为单位订音乐会的门票](https://leetcode.cn/problems/booking-concert-tickets-in-groups/) 单点修改、区间求和、二分最小满足下标
 
+### 动态开点线段树
+
+- [218. 天际线问题](https://leetcode-cn.com/problems/the-skyline-problem/) 区间修改，区间最值
+- [699. 掉落的方块](https://leetcode.cn/problems/falling-squares/) 区间修改，区间最值
+- [715. Range 模块](https://leetcode.cn/problems/range-module/) 区间修改，区间求和
+- [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) 区间修改，区间最值
+- [2276. 统计区间中的整数数目](https://leetcode.cn/problems/count-integers-in-intervals/) 区间修改，区间求和
+
 ### 快速幂
 
 ```java
@@ -626,6 +634,8 @@ public int[] singleNumber2(int[] nums) {
 - Floyd 求任意两个结点之间的最短路。 时间复杂度 O(n^3)
 - Dijkstra 求解 非负权图 上单源最短路径的算法。时间复杂度 O(n^2) / O(mlogn)
 - Bellman ford 可以求出有负权的图的最短路 时间复杂度 O(mn)
+
+---
 
 - [743. 网络延迟时间](https://leetcode-cn.com/problems/network-delay-time/)
 - [1368. 使网格图至少有一条有效路径的最小代价](https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/)
