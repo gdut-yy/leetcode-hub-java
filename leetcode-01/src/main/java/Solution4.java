@@ -9,9 +9,7 @@ public class Solution4 {
         }
     }
 
-    /**
-     * 合并两个有序数组
-     */
+    // 合并两个有序数组
     private int[] mergeSortedArrays(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
         int len2 = nums2.length;

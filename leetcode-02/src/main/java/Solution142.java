@@ -30,11 +30,15 @@ https://leetcode-cn.com/problems/linked-list-cycle-ii/
 比 141 题难度升级。要返回入环的第一个节点
 双指针-快慢指针。慢指针每次走一步，快指针每次走两步。快慢指针相遇时，让慢指针指向头节点，
 然后快慢指针以相同速度前进，再次相遇时所在的节点位置就是环开始的位置
+提示：
+链表中节点的数目范围在范围 [0, 10^4] 内
+-10^5 <= Node.val <= 10^5
+pos 的值为 -1 或者链表中的一个有效索引
+进阶：你是否可以使用 O(1) 空间解决此题？
 
 fast = lenA + lenB + lenC
 slow = lenA + lenB
 显然 lenC = lenA + lenB
-
 慢指针指向头节点，再相遇
 fast = lenA + lenA + lenB = lenA + lenC
 slow = lenA

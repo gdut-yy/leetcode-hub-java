@@ -38,5 +38,6 @@ https://leetcode-cn.com/problems/merge-two-sorted-lists/
 l1 和 l2 均按 非递减顺序 排列
 
 经典题。链表合并。
-数组合并可参考第 4 题 https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+相似题目: 4. 寻找两个正序数组的中位数（合并两个有序数组）
+https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
  */
