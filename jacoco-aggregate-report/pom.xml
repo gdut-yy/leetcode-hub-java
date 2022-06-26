@@ -139,6 +139,11 @@
         </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
+            <artifactId>leetcode-24</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
             <artifactId>leetcode-extends</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
