@@ -11,7 +11,7 @@ public class Solution1332 {
 }
 /*
 1332. 删除回文子序列
-https://leetcode-cn.com/problems/remove-palindromic-subsequences/
+https://leetcode.cn/problems/remove-palindromic-subsequences/
 
 第 173 场周赛 T1。
 

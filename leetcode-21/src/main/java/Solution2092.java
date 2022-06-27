@@ -102,7 +102,7 @@ public class Solution2092 {
 }
 /*
 2092. 找出知晓秘密的所有专家
-https://leetcode-cn.com/problems/find-all-people-with-secret/
+https://leetcode.cn/problems/find-all-people-with-secret/
 
 第 269 场周赛 T4。
 

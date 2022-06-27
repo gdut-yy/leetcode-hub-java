@@ -18,7 +18,7 @@ public class Solution2243 {
 }
 /*
 2243. 计算字符串的数字和
-https://leetcode-cn.com/problems/calculate-digit-sum-of-a-string/
+https://leetcode.cn/problems/calculate-digit-sum-of-a-string/
 
 第 289 场周赛 T1。
 

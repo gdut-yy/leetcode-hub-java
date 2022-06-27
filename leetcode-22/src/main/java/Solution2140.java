@@ -17,7 +17,7 @@ public class Solution2140 {
 }
 /*
 2140. 解决智力问题
-https://leetcode-cn.com/problems/solving-questions-with-brainpower/
+https://leetcode.cn/problems/solving-questions-with-brainpower/
 
 第 276 场周赛 T3。
 

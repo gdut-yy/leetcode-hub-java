@@ -133,7 +133,7 @@ public class Solution2025 {
 }
 /*
 2025. 分割数组的最多方案数
-https://leetcode-cn.com/problems/maximum-number-of-ways-to-partition-an-array/
+https://leetcode.cn/problems/maximum-number-of-ways-to-partition-an-array/
 
 第 62 场双周赛 T4。
 

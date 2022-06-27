@@ -31,7 +31,7 @@ public class SolutionI0810 {
 }
 /*
 面试题 08.10. 颜色填充
-https://leetcode-cn.com/problems/color-fill-lcci/
+https://leetcode.cn/problems/color-fill-lcci/
 
 编写函数，实现许多图片编辑软件都支持的「颜色填充」功能。
 待填充的图像用二维数组 image 表示，元素为初始颜色值。初始坐标点的行坐标为 sr 列坐标为 sc。需要填充的新颜色为 newColor 。
@@ -39,5 +39,5 @@ https://leetcode-cn.com/problems/color-fill-lcci/
 请用新颜色填充初始坐标点的周围区域，并返回填充后的图像。
 
 同: 733. 图像渲染
-https://leetcode-cn.com/problems/flood-fill/
+https://leetcode.cn/problems/flood-fill/
  */

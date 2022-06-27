@@ -41,7 +41,7 @@ public class Solution2222 {
 }
 /*
 2222. 选择建筑的方案数
-https://leetcode-cn.com/problems/number-of-ways-to-select-buildings/
+https://leetcode.cn/problems/number-of-ways-to-select-buildings/
 
 给你一个下标从 0 开始的二进制字符串 s ，它表示一条街沿途的建筑类型，其中：
 - s[i] = '0' 表示第 i 栋建筑是一栋办公楼，
@@ -58,5 +58,5 @@ s[i] 要么是 '0' ，要么是 '1' 。
 分别统计每个 0 左侧 1 的数量和右侧 1 的数量，乘积即为以该 0 为中心的方案数。
 时间复杂度 O(n)
 相似题目: 2063. 所有子字符串中的元音
-https://leetcode-cn.com/problems/vowels-of-all-substrings/
+https://leetcode.cn/problems/vowels-of-all-substrings/
  */

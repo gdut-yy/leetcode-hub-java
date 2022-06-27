@@ -17,7 +17,7 @@ public class Solution856 {
 }
 /*
 856. 括号的分数
-https://leetcode-cn.com/problems/score-of-parentheses/
+https://leetcode.cn/problems/score-of-parentheses/
 
 第 90 场周赛 T2。
 

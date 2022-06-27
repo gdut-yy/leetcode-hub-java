@@ -33,7 +33,7 @@ public class Solution284 {
 }
 /*
 284. 窥探迭代器
-https://leetcode-cn.com/problems/peeking-iterator/
+https://leetcode.cn/problems/peeking-iterator/
 
 请你设计一个迭代器，除了支持 hasNext 和 next 操作外，还支持 peek 操作。
 实现 PeekingIterator 类：

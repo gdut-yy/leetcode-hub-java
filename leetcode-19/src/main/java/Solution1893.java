@@ -21,7 +21,7 @@ public class Solution1893 {
 }
 /*
 1893. 检查是否区域内所有整数都被覆盖
-https://leetcode-cn.com/problems/check-if-all-the-integers-in-a-range-are-covered/
+https://leetcode.cn/problems/check-if-all-the-integers-in-a-range-are-covered/
 
 第 54 场双周赛 T1。
 

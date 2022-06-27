@@ -35,7 +35,7 @@ public class Solution2215 {
 }
 /*
 2215. 找出两数组的不同
-https://leetcode-cn.com/problems/find-the-difference-of-two-arrays/
+https://leetcode.cn/problems/find-the-difference-of-two-arrays/
 
 第 286 场周赛 T1。
 

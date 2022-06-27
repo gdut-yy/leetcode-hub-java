@@ -73,7 +73,7 @@ public class Solution1334 {
 }
 /*
 1334. 阈值距离内邻居最少的城市
-https://leetcode-cn.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
+https://leetcode.cn/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/
 
 有 n 个城市，按从 0 到 n-1 编号。给你一个边数组 edges，
 其中 edges[i] = [fromi, toi, weighti] 代表 fromi 和 toi 两个城市之间的双向加权边，距离阈值是一个整数 distanceThreshold。

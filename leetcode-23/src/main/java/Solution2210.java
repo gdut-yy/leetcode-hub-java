@@ -26,7 +26,7 @@ public class Solution2210 {
 }
 /*
 2210. 统计数组中峰和谷的数量
-https://leetcode-cn.com/problems/count-hills-and-valleys-in-an-array/
+https://leetcode.cn/problems/count-hills-and-valleys-in-an-array/
 
 第 285 场周赛 T1。
 

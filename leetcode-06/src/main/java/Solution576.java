@@ -30,7 +30,7 @@ public class Solution576 {
 }
 /*
 576. 出界的路径数
-https://leetcode-cn.com/problems/out-of-boundary-paths/
+https://leetcode.cn/problems/out-of-boundary-paths/
 
 给你一个大小为 m x n 的网格和一个球。球的起始坐标为 [startRow, startColumn] 。
 你可以将球移到在四个方向上相邻的单元格内（可以穿过网格边界到达网格之外）。你 最多 可以移动 maxMove 次球。
@@ -45,5 +45,5 @@ https://leetcode-cn.com/problems/out-of-boundary-paths/
 时间复杂度 (maxMove*m*n)
 空间复杂度 (m*n)
 相似题目: 688. 骑士在棋盘上的概率
-https://leetcode-cn.com/problems/knight-probability-in-chessboard/
+https://leetcode.cn/problems/knight-probability-in-chessboard/
  */

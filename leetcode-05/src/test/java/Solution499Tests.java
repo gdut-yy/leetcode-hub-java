@@ -34,7 +34,7 @@ public class Solution499Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/263570677/
+        // https://leetcode.cn/submissions/detail/263570677/
         int[][] maze = UtUtils.stringToInts2("[[0,1,0,0,1,0,0,1,0,0],[0,0,1,0,0,1,0,0,1,0],[0,0,0,0,0,0,1,0,0,1],[0,0,0,0,0,0,1,0,0,1],[0,1,0,0,1,0,0,1,0,0],[0,0,1,0,0,1,0,0,0,0],[0,0,0,0,0,0,1,0,0,0],[1,0,0,1,0,0,0,0,0,1],[0,1,0,0,1,0,0,1,0,0],[0,0,0,0,0,1,0,0,1,0]]");
         int[] ball = {2, 4};
         int[] hole = {7, 6};

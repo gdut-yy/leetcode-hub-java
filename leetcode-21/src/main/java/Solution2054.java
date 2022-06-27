@@ -22,7 +22,7 @@ public class Solution2054 {
 }
 /*
 2054. 两个最好的不重叠活动
-https://leetcode-cn.com/problems/two-best-non-overlapping-events/
+https://leetcode.cn/problems/two-best-non-overlapping-events/
 
 第 64 场双周赛 T2。
 
@@ -32,5 +32,5 @@ https://leetcode-cn.com/problems/two-best-non-overlapping-events/
 
 扫描线。
 相似题目: $253. 会议室 II
-https://leetcode-cn.com/problems/meeting-rooms-ii/
+https://leetcode.cn/problems/meeting-rooms-ii/
  */

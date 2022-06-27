@@ -20,10 +20,10 @@ public class SolutionI1002 {
 }
 /*
 面试题 10.02. 变位词组
-https://leetcode-cn.com/problems/group-anagrams-lcci/
+https://leetcode.cn/problems/group-anagrams-lcci/
 
 编写一种方法，对字符串数组进行排序，将所有变位词组合在一起。变位词是指字母相同，但排列不同的字符串。
 
 同: 49. 字母异位词分组
-https://leetcode-cn.com/problems/group-anagrams/
+https://leetcode.cn/problems/group-anagrams/
  */

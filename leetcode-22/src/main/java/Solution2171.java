@@ -25,7 +25,7 @@ public class Solution2171 {
 }
 /*
 2171. 拿出最少数目的魔法豆
-https://leetcode-cn.com/problems/removing-minimum-number-of-magic-beans/
+https://leetcode.cn/problems/removing-minimum-number-of-magic-beans/
 
 第 280 场周赛 T3。
 

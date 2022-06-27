@@ -20,7 +20,7 @@ public class Solution2068 {
 }
 /*
 2068. 检查两个字符串是否几乎相等
-https://leetcode-cn.com/problems/check-whether-two-strings-are-almost-equivalent/
+https://leetcode.cn/problems/check-whether-two-strings-are-almost-equivalent/
 
 第 65 场双周赛 T1。
 

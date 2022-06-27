@@ -31,7 +31,7 @@ public class Solution830 {
 }
 /*
 830. 较大分组的位置
-https://leetcode-cn.com/problems/positions-of-large-groups/
+https://leetcode.cn/problems/positions-of-large-groups/
 
 第 83 场周赛 T1。
 

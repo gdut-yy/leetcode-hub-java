@@ -20,9 +20,9 @@ public class Solution92 {
 }
 /*
 92. 反转链表 II
-https://leetcode-cn.com/problems/reverse-linked-list-ii/
+https://leetcode.cn/problems/reverse-linked-list-ii/
 
-第 206 题反转链表 https://leetcode-cn.com/problems/reverse-linked-list/ 升级版
+第 206 题反转链表 https://leetcode.cn/problems/reverse-linked-list/ 升级版
 
 一次遍历「穿针引线」反转链表（头插法）
 

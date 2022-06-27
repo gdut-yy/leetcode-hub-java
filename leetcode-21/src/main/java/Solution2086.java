@@ -28,7 +28,7 @@ public class Solution2086 {
 }
 /*
 2086. 从房屋收集雨水需要的最少水桶数
-https://leetcode-cn.com/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses/
+https://leetcode.cn/problems/minimum-number-of-buckets-required-to-collect-rainwater-from-houses/
 
 第 66 场双周赛 T2。
 

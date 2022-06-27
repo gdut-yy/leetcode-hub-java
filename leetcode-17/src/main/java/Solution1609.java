@@ -72,7 +72,7 @@ public class Solution1609 {
 }
 /*
 1609. 奇偶树
-https://leetcode-cn.com/problems/even-odd-tree/
+https://leetcode.cn/problems/even-odd-tree/
 
 第 209 场周赛 T2。
 
@@ -85,5 +85,5 @@ https://leetcode-cn.com/problems/even-odd-tree/
 二叉树层序遍历。
 
 相似题目: 102. 二叉树的层序遍历
-https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+https://leetcode.cn/problems/binary-tree-level-order-traversal/
  */

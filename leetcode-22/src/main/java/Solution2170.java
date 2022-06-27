@@ -61,7 +61,7 @@ public class Solution2170 {
 }
 /*
 2170. 使数组变成交替数组的最少操作数
-https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-alternating/
+https://leetcode.cn/problems/minimum-operations-to-make-the-array-alternating/
 
 第 280 场周赛 T2。
 

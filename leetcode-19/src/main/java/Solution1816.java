@@ -14,7 +14,7 @@ public class Solution1816 {
 }
 /*
 1816. 截断句子
-https://leetcode-cn.com/problems/truncate-sentence/
+https://leetcode.cn/problems/truncate-sentence/
 
 第 235 场周赛 T1。
 

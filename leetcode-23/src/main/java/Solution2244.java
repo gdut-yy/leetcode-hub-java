@@ -28,7 +28,7 @@ public class Solution2244 {
 }
 /*
 2244. 完成所有任务需要的最少轮数
-https://leetcode-cn.com/problems/minimum-rounds-to-complete-all-tasks/
+https://leetcode.cn/problems/minimum-rounds-to-complete-all-tasks/
 
 第 289 场周赛 T2。
 

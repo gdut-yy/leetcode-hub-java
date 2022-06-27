@@ -86,7 +86,7 @@ public class Solution1202 {
 }
 /*
 1202. 交换字符串中的元素
-https://leetcode-cn.com/problems/smallest-string-with-swaps/
+https://leetcode.cn/problems/smallest-string-with-swaps/
 
 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。
 你可以 任意多次交换 在 pairs 中任意一对索引处的字符。

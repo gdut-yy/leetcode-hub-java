@@ -32,7 +32,7 @@ public class Solution170 {
 }
 /*
 $170. 两数之和 III - 数据结构设计
-https://leetcode-cn.com/problems/two-sum-iii-data-structure-design/
+https://leetcode.cn/problems/two-sum-iii-data-structure-design/
 
 设计一个接收整数流的数据结构，该数据结构支持检查是否存在两数之和等于特定值。
 实现 TwoSum 类：

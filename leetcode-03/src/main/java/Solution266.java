@@ -18,7 +18,7 @@ public class Solution266 {
 }
 /*
 266. 回文排列
-https://leetcode-cn.com/problems/palindrome-permutation/
+https://leetcode.cn/problems/palindrome-permutation/
 
 给定一个字符串，判断该字符串中是否可以通过重新排列组合，形成一个回文字符串。
 输入: "code"

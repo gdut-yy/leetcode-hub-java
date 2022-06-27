@@ -36,13 +36,13 @@ public class SolutionI0808 {
 }
 /*
 面试题 08.08. 有重复字符串的排列组合
-https://leetcode-cn.com/problems/permutation-ii-lcci/
+https://leetcode.cn/problems/permutation-ii-lcci/
 
 有重复字符串的排列组合。编写一种方法，计算某字符串的所有排列组合。
 输入：S = "qqe"
 输出：["eqq","qeq","qqe"]
 
 相似题目: 47. 全排列 II
-https://leetcode-cn.com/problems/permutations-ii/
+https://leetcode.cn/problems/permutations-ii/
 注意 int[] 数组和 char[] 的区别
  */

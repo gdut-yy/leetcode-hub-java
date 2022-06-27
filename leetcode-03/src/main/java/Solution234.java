@@ -43,9 +43,9 @@ public class Solution234 {
 }
 /*
 234. 回文链表
-https://leetcode-cn.com/problems/palindrome-linked-list/
+https://leetcode.cn/problems/palindrome-linked-list/
 
-Step1: 找链表的中间结点。第 876 题 https://leetcode-cn.com/problems/middle-of-the-linked-list/
-Step2: 反转链表。第 206 题 https://leetcode-cn.com/problems/reverse-linked-list/
+Step1: 找链表的中间结点。第 876 题 https://leetcode.cn/problems/middle-of-the-linked-list/
+Step2: 反转链表。第 206 题 https://leetcode.cn/problems/reverse-linked-list/
 Step3: 链表判等。
  */

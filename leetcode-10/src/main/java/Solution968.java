@@ -30,7 +30,7 @@ public class Solution968 {
 }
 /*
 968. 监控二叉树
-https://leetcode-cn.com/problems/binary-tree-cameras/
+https://leetcode.cn/problems/binary-tree-cameras/
 
 第 117 场周赛 T4。
 

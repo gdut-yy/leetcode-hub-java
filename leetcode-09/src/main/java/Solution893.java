@@ -37,7 +37,7 @@ public class Solution893 {
 }
 /*
 893. 特殊等价字符串组
-https://leetcode-cn.com/problems/groups-of-special-equivalent-strings/
+https://leetcode.cn/problems/groups-of-special-equivalent-strings/
 
 第 99 场周赛 T2。
 

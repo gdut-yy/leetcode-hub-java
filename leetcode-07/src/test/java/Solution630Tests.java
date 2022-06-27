@@ -28,7 +28,7 @@ public class Solution630Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/248515665/
+        // https://leetcode.cn/submissions/detail/248515665/
         int[][] courses = UtUtils.stringToInts2("[[7,17],[3,12],[10,20],[9,10],[5,20],[10,19],[4,18]]");
         int expected = 4;
         Assertions.assertEquals(expected, solution630.scheduleCourse(courses));

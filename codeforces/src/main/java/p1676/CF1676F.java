@@ -73,7 +73,7 @@ https://codeforces.com/contest/1676/problem/F
 
 HashMap 统计频次，筛选出至少出现 k 次 的元素。
 然后类似 128. 最长连续序列
-https://leetcode-cn.com/problems/longest-consecutive-sequence/
+https://leetcode.cn/problems/longest-consecutive-sequence/
 O(n) 求最长连续序列，总体时间复杂度 O(n)。
 ======
 

@@ -80,7 +80,7 @@ public class Solution2045 {
 }
 /*
 2045. 到达目的地的第二短时间
-https://leetcode-cn.com/problems/second-minimum-time-to-reach-destination/
+https://leetcode.cn/problems/second-minimum-time-to-reach-destination/
 
 第 263 场周赛 T4。
 

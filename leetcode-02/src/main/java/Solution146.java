@@ -46,7 +46,7 @@ public class Solution146 {
 }
 /*
 146. LRU 缓存机制
-https://leetcode-cn.com/problems/lru-cache/
+https://leetcode.cn/problems/lru-cache/
 
 请你设计并实现一个满足 LRU (最近最少使用) 缓存 约束的数据结构。
 实现 LRUCache 类：
@@ -60,5 +60,5 @@ Google Guava 的 LocalCache 默认是一个 LRUCache, 它是基于队列实现�
 HashMap 插入和删除时间复杂度为 O(1). 但它无法找出最近最少使用的键，因此需要结合链表。
 可使用 jdk 的 LinkedHashMap 进行模拟。
 相似题目: 460. LFU 缓存
-https://leetcode-cn.com/problems/lfu-cache/
+https://leetcode.cn/problems/lfu-cache/
  */

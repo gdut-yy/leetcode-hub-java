@@ -39,7 +39,7 @@ public class Solution1249 {
 }
 /*
 1249. 移除无效的括号
-https://leetcode-cn.com/problems/minimum-remove-to-make-valid-parentheses/
+https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses/
 
 第 161 场周赛 T3。
 

@@ -34,7 +34,7 @@ public class Solution2106Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/247701618/
+        // https://leetcode.cn/submissions/detail/247701618/
         // 182 / 202 个通过测试用例
         int[][] fruits = UtUtils.stringToInts2("[[0,7],[7,4],[9,10],[12,6],[14,8],[16,5],[17,8],[19,4],[20,1],[21,3],[24,3],[25,3],[26,1],[28,10],[30,9],[31,6],[32,1],[37,5],[40,9]]");
         int startPos = 21;

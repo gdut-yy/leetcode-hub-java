@@ -22,7 +22,7 @@ public class Solution926 {
 }
 /*
 926. 将字符串翻转到单调递增
-https://leetcode-cn.com/problems/flip-string-to-monotone-increasing/
+https://leetcode.cn/problems/flip-string-to-monotone-increasing/
 
 第 107 场周赛 T2。
 

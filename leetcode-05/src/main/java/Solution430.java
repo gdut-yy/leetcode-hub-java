@@ -45,7 +45,7 @@ public class Solution430 {
 }
 /*
 430. 扁平化多级双向链表
-https://leetcode-cn.com/problems/flatten-a-multilevel-doubly-linked-list/
+https://leetcode.cn/problems/flatten-a-multilevel-doubly-linked-list/
 
 你会得到一个双链表，其中包含的节点有一个下一个指针、一个前一个指针和一个额外的 子指针 。这个子指针可能指向一个单独的双向链表，也包含这些特殊的节点。
 这些子列表可以有一个或多个自己的子列表，以此类推，以生成如下面的示例所示的 多层数据结构 。

@@ -30,7 +30,7 @@ public class Solution1974 {
 }
 /*
 1974. 使用特殊打字机键入单词的最少时间
-https://leetcode-cn.com/problems/minimum-time-to-type-word-using-special-typewriter/
+https://leetcode.cn/problems/minimum-time-to-type-word-using-special-typewriter/
 
 第 59 场双周赛 T1。
 

@@ -23,7 +23,7 @@ public class SolutionI0809 {
 }
 /*
 面试题 08.09. 括号
-https://leetcode-cn.com/problems/bracket-lcci/
+https://leetcode.cn/problems/bracket-lcci/
 
 括号。设计一种算法，打印n对括号的所有合法的（例如，开闭一一对应）组合。
 说明：解集不能包含重复的子集。
@@ -38,5 +38,5 @@ https://leetcode-cn.com/problems/bracket-lcci/
 ]
 
 同: 22. 括号生成
-https://leetcode-cn.com/problems/generate-parentheses/
+https://leetcode.cn/problems/generate-parentheses/
  */

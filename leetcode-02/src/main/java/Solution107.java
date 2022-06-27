@@ -34,7 +34,7 @@ public class Solution107 {
 }
 /*
 107. 二叉树的层序遍历 II
-https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
+https://leetcode.cn/problems/binary-tree-level-order-traversal-ii/
 
 给定一个二叉树，返回其节点值自底向上的层序遍历。 （即按从叶子节点所在层到根节点所在的层，逐层从左向右遍历）
 给定二叉树 [3,9,20,null,null,15,7],
@@ -56,6 +56,6 @@ https://leetcode-cn.com/problems/binary-tree-level-order-traversal-ii/
 
 二叉树层序遍历。
 相似题目: 102. 二叉树的层序遍历
-https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+https://leetcode.cn/problems/binary-tree-level-order-traversal/
 第 102 题基础上 Collections.reverse(resList);
  */

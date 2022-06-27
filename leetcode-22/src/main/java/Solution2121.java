@@ -62,7 +62,7 @@ public class Solution2121 {
 }
 /*
 2121. 相同元素的间隔之和
-https://leetcode-cn.com/problems/intervals-between-identical-elements/
+https://leetcode.cn/problems/intervals-between-identical-elements/
 
 第 273 场周赛 T3。
 
@@ -104,5 +104,5 @@ rightRes[i] = (idx[i+1] - idx[i]) * (len-1-i) + rightRes[i+1]
 res[idx[i]] = leftRes[i] + rightRes[i]
 
 相似题目: 2063. 所有子字符串中的元音
-https://leetcode-cn.com/problems/vowels-of-all-substrings/
+https://leetcode.cn/problems/vowels-of-all-substrings/
  */

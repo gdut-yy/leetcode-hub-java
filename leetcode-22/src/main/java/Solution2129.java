@@ -16,7 +16,7 @@ public class Solution2129 {
 }
 /*
 2129. 将标题首字母大写
-https://leetcode-cn.com/problems/capitalize-the-title/
+https://leetcode.cn/problems/capitalize-the-title/
 
 第 69 场双周赛 T1。
 

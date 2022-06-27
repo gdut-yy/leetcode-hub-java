@@ -11,7 +11,7 @@ public class Solution1929 {
 }
 /*
 1929. 数组串联
-https://leetcode-cn.com/problems/concatenation-of-array/
+https://leetcode.cn/problems/concatenation-of-array/
 
 第 249 场周赛 T1。
 

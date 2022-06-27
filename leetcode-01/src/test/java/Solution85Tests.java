@@ -50,7 +50,7 @@ public class Solution85Tests {
     }
 
     // 剑指 Offer II 040. 矩阵中最大的矩形
-    // https://leetcode-cn.com/problems/PLYXKQ/
+    // https://leetcode.cn/problems/PLYXKQ/
     @Test
     public void example1_2() {
         String[] matrix = {"10100", "10111", "11111", "10010"};

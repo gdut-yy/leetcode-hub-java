@@ -37,7 +37,7 @@ public class Solution2164 {
 }
 /*
 2164. 对奇偶下标分别排序
-https://leetcode-cn.com/problems/sort-even-and-odd-indices-independently/
+https://leetcode.cn/problems/sort-even-and-odd-indices-independently/
 
 第 279 场周赛 T1。
 

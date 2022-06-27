@@ -48,7 +48,7 @@ public class Solution2166 {
 }
 /*
 2166. 设计位集
-https://leetcode-cn.com/problems/design-bitset/
+https://leetcode.cn/problems/design-bitset/
 
 第 279 场周赛 T3。
 

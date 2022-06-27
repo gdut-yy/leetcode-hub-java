@@ -39,7 +39,7 @@ public class SolutionI0401 {
 }
 /*
 面试题 04.01. 节点间通路
-https://leetcode-cn.com/problems/route-between-nodes-lcci/
+https://leetcode.cn/problems/route-between-nodes-lcci/
 
 节点间通路。给定有向图，设计一个算法，找出两个节点之间是否存在一条路径。
 提示：

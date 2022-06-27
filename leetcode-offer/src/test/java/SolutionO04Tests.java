@@ -21,7 +21,7 @@ public class SolutionO04Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/230133678/
+        // https://leetcode.cn/submissions/detail/230133678/
         int[][] matrix = UtUtils.stringToInts2("[]");
         int target = 0;
         Assertions.assertFalse(solutionO04.findNumberIn2DArray(matrix, target));

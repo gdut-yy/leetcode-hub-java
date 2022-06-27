@@ -2,7 +2,7 @@ public class Ponyai003 {
 }
 /*
 Pony.ai-003. 路径规划
-https://leetcode-cn.com/problems/YZJQkT/
+https://leetcode.cn/problems/YZJQkT/
 
 路径规划对于自动驾驶来说是非常重要的一环，它决定了自动驾驶的车辆如何在道路上行驶。现在给出一个城市的地图，请规划出最快从起点到达终点的路线。
 地图中的路都平行于 X 轴或 Y 轴，所有的路是双向通行的。路与路的交叉点有交通灯限制通行，所有的交通灯都是统一周期控制的。

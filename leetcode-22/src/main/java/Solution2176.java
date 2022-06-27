@@ -14,7 +14,7 @@ public class Solution2176 {
 }
 /*
 2176. 统计数组中相等且可以被整除的数对
-https://leetcode-cn.com/problems/count-equal-and-divisible-pairs-in-an-array/
+https://leetcode.cn/problems/count-equal-and-divisible-pairs-in-an-array/
 
 第 72 场双周赛 T1。
 

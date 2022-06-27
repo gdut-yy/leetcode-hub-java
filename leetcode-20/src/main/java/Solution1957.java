@@ -19,7 +19,7 @@ public class Solution1957 {
 }
 /*
 1957. 删除字符使字符串变好
-https://leetcode-cn.com/problems/delete-characters-to-make-fancy-string/
+https://leetcode.cn/problems/delete-characters-to-make-fancy-string/
 
 第 58 场双周赛 T1。
 

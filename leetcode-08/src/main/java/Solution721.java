@@ -104,7 +104,7 @@ public class Solution721 {
 }
 /*
 721. 账户合并
-https://leetcode-cn.com/problems/accounts-merge/
+https://leetcode.cn/problems/accounts-merge/
 
 给定一个列表 accounts，每个元素 accounts[i] 是一个字符串列表，其中第一个元素 accounts[i][0] 是 名称 (name)，其余元素是 emails 表示该账户的邮箱地址。
 现在，我们想合并这些账户。如果两个账户都有一些共同的邮箱地址，则两个账户必定属于同一个人。

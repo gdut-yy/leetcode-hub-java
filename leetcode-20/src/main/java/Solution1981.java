@@ -92,7 +92,7 @@ public class Solution1981 {
 }
 /*
 1981. 最小化目标值与所选元素的差
-https://leetcode-cn.com/problems/minimize-the-difference-between-target-and-chosen-elements/
+https://leetcode.cn/problems/minimize-the-difference-between-target-and-chosen-elements/
 
 第 255 场周赛 T3。
 

@@ -25,7 +25,7 @@ public class Solution2110 {
 }
 /*
 2110. 股票平滑下跌阶段的数目
-https://leetcode-cn.com/problems/number-of-smooth-descent-periods-of-a-stock/
+https://leetcode.cn/problems/number-of-smooth-descent-periods-of-a-stock/
 
 第 272 场周赛 T3。
 

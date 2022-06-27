@@ -37,7 +37,7 @@ public class Solution847 {
 }
 /*
 847. 访问所有节点的最短路径
-https://leetcode-cn.com/problems/shortest-path-visiting-all-nodes/
+https://leetcode.cn/problems/shortest-path-visiting-all-nodes/
 
 存在一个由 n 个节点组成的无向连通图，图中的节点按从 0 到 n - 1 编号。
 给你一个数组 graph 表示这个图。其中，graph[i] 是一个列表，由所有与节点 i 直接相连的节点组成。

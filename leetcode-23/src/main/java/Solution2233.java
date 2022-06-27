@@ -22,7 +22,7 @@ public class Solution2233 {
 }
 /*
 2233. K 次增加后的最大乘积
-https://leetcode-cn.com/problems/maximum-product-after-k-increments/
+https://leetcode.cn/problems/maximum-product-after-k-increments/
 
 第 288 场周赛 T3。
 

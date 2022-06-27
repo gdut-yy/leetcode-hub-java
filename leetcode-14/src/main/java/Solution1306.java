@@ -34,7 +34,7 @@ public class Solution1306 {
 }
 /*
 1306. 跳跃游戏 III
-https://leetcode-cn.com/problems/jump-game-iii/
+https://leetcode.cn/problems/jump-game-iii/
 
 这里有一个非负整数数组 arr，你最开始位于该数组的起始下标 start 处。当你位于下标 i 处时，你可以跳到 i + arr[i] 或者 i - arr[i]。
 请你判断自己是否能够跳到对应元素值为 0 的 任一 下标处。

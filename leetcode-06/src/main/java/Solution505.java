@@ -55,7 +55,7 @@ public class Solution505 {
 }
 /*
 $505. 迷宫 II
-https://leetcode-cn.com/problems/the-maze-ii/
+https://leetcode.cn/problems/the-maze-ii/
 
 由空地和墙组成的迷宫中有一个球。球可以向上下左右四个方向滚动，但在遇到墙壁前不会停止滚动。当球停下时，可以选择下一个方向。
 给定球的起始位置，目的地和迷宫，找出让球停在目的地的最短距离。距离的定义是球从起始位置（不包括）到目的地（包括）经过的空地个数。如果球无法停在目的地，返回 -1。
@@ -68,7 +68,7 @@ https://leetcode-cn.com/problems/the-maze-ii/
 
 难度升级，求最小步数。去重/剪枝 的方式由 boolean 变成 Map<Node, Integer>
 相似题目: $490. 迷宫
-https://leetcode-cn.com/problems/the-maze/
+https://leetcode.cn/problems/the-maze/
 $499. 迷宫 III
-https://leetcode-cn.com/problems/the-maze-iii/
+https://leetcode.cn/problems/the-maze-iii/
  */

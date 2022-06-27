@@ -16,7 +16,7 @@ public class Solution945 {
 }
 /*
 945. 使数组唯一的最小增量
-https://leetcode-cn.com/problems/minimum-increment-to-make-array-unique/
+https://leetcode.cn/problems/minimum-increment-to-make-array-unique/
 
 第 112 场周赛 T1。
 

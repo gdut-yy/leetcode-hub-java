@@ -40,7 +40,7 @@ public class Solution47 {
 }
 /*
 47. 全排列 II
-https://leetcode-cn.com/problems/permutations-ii/
+https://leetcode.cn/problems/permutations-ii/
 
 给定一个可包含重复数字的序列 nums ，按任意顺序 返回所有不重复的全排列。
 提示：
@@ -50,5 +50,5 @@ https://leetcode-cn.com/problems/permutations-ii/
 第 46 题升级版。可包含重复数字。
 回溯法。
 相似题目: 46. 全排列
-https://leetcode-cn.com/problems/permutations/
+https://leetcode.cn/problems/permutations/
  */

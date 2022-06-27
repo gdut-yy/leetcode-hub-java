@@ -20,7 +20,7 @@ public class Solution412 {
 }
 /*
 412. Fizz Buzz
-https://leetcode-cn.com/problems/fizz-buzz/
+https://leetcode.cn/problems/fizz-buzz/
 
 if-else 判断即可
  */

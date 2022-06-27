@@ -47,7 +47,7 @@ public class Solution794 {
 }
 /*
 794. 有效的井字游戏
-https://leetcode-cn.com/problems/valid-tic-tac-toe-state/
+https://leetcode.cn/problems/valid-tic-tac-toe-state/
 
 给你一个字符串数组 board 表示井字游戏的棋盘。当且仅当在井字游戏过程中，棋盘有可能达到 board 所显示的状态时，才返回 true 。
 井字游戏的棋盘是一个 3 x 3 数组，由字符 ' '，'X' 和 'O' 组成。字符 ' ' 代表一个空位。

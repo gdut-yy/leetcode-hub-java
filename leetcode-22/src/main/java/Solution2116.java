@@ -48,7 +48,7 @@ public class Solution2116 {
 }
 /*
 2116. 判断一个括号字符串是否有效
-https://leetcode-cn.com/problems/check-if-a-parentheses-string-can-be-valid/
+https://leetcode.cn/problems/check-if-a-parentheses-string-can-be-valid/
 
 第 68 场双周赛 T3。
 

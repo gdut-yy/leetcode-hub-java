@@ -35,7 +35,7 @@ public class Solution2188 {
 }
 /*
 2188. 完成比赛的最少时间
-https://leetcode-cn.com/problems/minimum-time-to-finish-the-race/
+https://leetcode.cn/problems/minimum-time-to-finish-the-race/
 
 第 282 场周赛 T4。
 

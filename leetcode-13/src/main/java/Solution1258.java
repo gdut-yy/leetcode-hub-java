@@ -116,7 +116,7 @@ public class Solution1258 {
 }
 /*
 $1258. 近义词句子
-https://leetcode-cn.com/problems/synonymous-sentences/
+https://leetcode.cn/problems/synonymous-sentences/
 
 给你一个近义词表 synonyms 和一个句子 text ， synonyms 表中是一些近义词对 ，你可以将句子 text 中每个单词用它的近义词来替换。
 请你找出所有用近义词替换后的句子，按 字典序排序 后返回。
@@ -132,5 +132,5 @@ text 最多包含 10 个单词，且单词间用单个空格分隔开。
 时间复杂度 O(n*n!) 最坏情况下，text 每个单词都存在近义词。
 空间复杂度 O(n)
 相似题目: 46. 全排列
-https://leetcode-cn.com/problems/permutations/
+https://leetcode.cn/problems/permutations/
  */

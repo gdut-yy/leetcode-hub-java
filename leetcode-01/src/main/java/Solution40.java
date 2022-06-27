@@ -33,7 +33,7 @@ public class Solution40 {
 }
 /*
 40. 组合总和 II
-https://leetcode-cn.com/problems/combination-sum-ii/
+https://leetcode.cn/problems/combination-sum-ii/
 
 给定一个数组 candidates 和一个目标数 target，找出 candidates 中所有可以使数字和为 target 的组合。
 candidates 中的每个数字在每个组合中只能使用一次。

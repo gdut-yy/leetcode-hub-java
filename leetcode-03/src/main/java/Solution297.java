@@ -32,7 +32,7 @@ public class Solution297 {
 }
 /*
 297. 二叉树的序列化与反序列化
-https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
+https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/
 
 序列化是将一个数据结构或者对象转换为连续的比特位的操作，进而可以将转换后的数据存储在一个文件或者内存中，
 同时也可以通过网络传输到另一个计算机环境，采取相反方式重构得到原数据。
@@ -46,5 +46,5 @@ https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/
 
 前序遍历。
 相似题目: 449. 序列化和反序列化二叉搜索树
-https://leetcode-cn.com/problems/serialize-and-deserialize-bst/
+https://leetcode.cn/problems/serialize-and-deserialize-bst/
  */

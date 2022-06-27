@@ -30,7 +30,7 @@ public class Solution841 {
 }
 /*
 841. 钥匙和房间
-https://leetcode-cn.com/problems/keys-and-rooms/
+https://leetcode.cn/problems/keys-and-rooms/
 
 第 86 场周赛 T2。
 

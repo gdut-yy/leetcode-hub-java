@@ -23,7 +23,7 @@ public class Solution832 {
 }
 /*
 832. 翻转图像
-https://leetcode-cn.com/problems/flipping-an-image/
+https://leetcode.cn/problems/flipping-an-image/
 
 第 84 场周赛 T1。
 

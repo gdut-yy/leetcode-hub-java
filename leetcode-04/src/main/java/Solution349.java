@@ -17,7 +17,7 @@ public class Solution349 {
 }
 /*
 349. 两个数组的交集
-https://leetcode-cn.com/problems/intersection-of-two-arrays/
+https://leetcode.cn/problems/intersection-of-two-arrays/
 
 给定两个数组 nums1 和 nums2 ，返回 它们的交集 。输出结果中的每个元素一定是 唯一 的。我们可以 不考虑输出结果的顺序 。
 提示：
@@ -26,5 +26,5 @@ https://leetcode-cn.com/problems/intersection-of-two-arrays/
 
 Set<E>#retainAll(Collection<?> c) 求交集。
 相似题目: 350. 两个数组的交集 II
-https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+https://leetcode.cn/problems/intersection-of-two-arrays-ii/
  */

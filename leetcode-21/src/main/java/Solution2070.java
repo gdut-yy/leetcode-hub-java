@@ -68,7 +68,7 @@ public class Solution2070 {
 }
 /*
 2070. 每一个查询的最大美丽值
-https://leetcode-cn.com/problems/most-beautiful-item-for-each-query/
+https://leetcode.cn/problems/most-beautiful-item-for-each-query/
 
 第 65 场双周赛 T3。
 

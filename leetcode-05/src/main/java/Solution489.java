@@ -51,7 +51,7 @@ public class Solution489 {
 }
 /*
 $489. 扫地机器人
-https://leetcode-cn.com/problems/robot-room-cleaner/
+https://leetcode.cn/problems/robot-room-cleaner/
 
 房间（用格栅表示）中有一个扫地机器人。格栅中的每一个格子有空和障碍物两种可能。
 扫地机器人提供4个API，可以向前进，向左转或者向右转。每次转弯90度。
@@ -78,5 +78,5 @@ col = 3
 房间格栅用0或1填充。0表示障碍物，1表示可以通过。
 机器人从row=1，col=3的初始位置出发。在左上角的一行以下，三列以右。
 
-官方题解: https://leetcode-cn.com/problems/robot-room-cleaner/solution/sao-di-ji-qi-ren-by-leetcode/
+官方题解: https://leetcode.cn/problems/robot-room-cleaner/solution/sao-di-ji-qi-ren-by-leetcode/
  */

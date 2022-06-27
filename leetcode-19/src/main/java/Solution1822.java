@@ -19,7 +19,7 @@ public class Solution1822 {
 }
 /*
 1822. 数组元素积的符号
-https://leetcode-cn.com/problems/sign-of-the-product-of-an-array/
+https://leetcode.cn/problems/sign-of-the-product-of-an-array/
 
 第 236 场周赛 T1。
 

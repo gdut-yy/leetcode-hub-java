@@ -21,7 +21,7 @@ public class Solution1975Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/209742427/
+        // https://leetcode.cn/submissions/detail/209742427/
         // 69 / 98 个通过测试用例
         int[][] matrix = UtUtils.stringToInts2("[[-1,0,-1],[-2,1,3],[3,2,2]]");
         long expected = 15;
@@ -30,7 +30,7 @@ public class Solution1975Tests {
 
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/209743271/
+        // https://leetcode.cn/submissions/detail/209743271/
         // 77 / 98 个通过测试用例
         int[][] matrix = UtUtils.stringToInts2("[[2,9,3],[5,4,-4],[1,7,1]]");
         long expected = 34;
@@ -39,7 +39,7 @@ public class Solution1975Tests {
 
     @Test
     public void example5() {
-        // https://leetcode-cn.com/submissions/detail/209746559/
+        // https://leetcode.cn/submissions/detail/209746559/
         // 94 / 98 个通过测试用例
         int[][] matrix = UtUtils.loadingInts2("solution1975-example5-input.txt", 0);
         long expected = 6250000000L;

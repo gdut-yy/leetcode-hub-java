@@ -61,7 +61,7 @@ public class Solution2183 {
 }
 /*
 2183. 统计可以被 K 整除的下标对数目
-https://leetcode-cn.com/problems/count-array-pairs-divisible-by-k/
+https://leetcode.cn/problems/count-array-pairs-divisible-by-k/
 
 第 281 场周赛 T4。
 

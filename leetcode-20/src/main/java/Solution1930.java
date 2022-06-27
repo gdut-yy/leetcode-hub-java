@@ -33,7 +33,7 @@ public class Solution1930 {
 }
 /*
 1930. 长度为 3 的不同回文子序列
-https://leetcode-cn.com/problems/unique-length-3-palindromic-subsequences/
+https://leetcode.cn/problems/unique-length-3-palindromic-subsequences/
 
 第 249 场周赛 T2。
 

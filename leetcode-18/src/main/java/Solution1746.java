@@ -22,7 +22,7 @@ public class Solution1746 {
 }
 /*
 $1746. 经过一次操作后的最大子数组和
-https://leetcode-cn.com/problems/maximum-subarray-sum-after-one-operation/
+https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
 
 你有一个整数数组 nums。你只能将一个元素 nums[i] 替换为 nums[i] * nums[i]。
 返回替换后的最大子数组和。
@@ -32,5 +32,5 @@ https://leetcode-cn.com/problems/maximum-subarray-sum-after-one-operation/
 
 动态规划。
 相似题目: 53. 最大子序和
-https://leetcode-cn.com/problems/maximum-subarray/
+https://leetcode.cn/problems/maximum-subarray/
  */

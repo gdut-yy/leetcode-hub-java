@@ -73,7 +73,7 @@ public class Solution676 {
 }
 /*
 676. 实现一个魔法字典
-https://leetcode-cn.com/problems/implement-magic-dictionary/
+https://leetcode.cn/problems/implement-magic-dictionary/
 
 设计一个使用单词列表进行初始化的数据结构，单词列表中的单词 互不相同。
 如果给出一个单词，请判定能否只将这个单词中一个字母换成另一个字母，使得所形成的新单词存在于你构建的字典中。

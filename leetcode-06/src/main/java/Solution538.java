@@ -21,9 +21,9 @@ public class Solution538 {
 }
 /*
 538. 把二叉搜索树转换为累加树
-https://leetcode-cn.com/problems/convert-bst-to-greater-tree/
+https://leetcode.cn/problems/convert-bst-to-greater-tree/
 
 中序遍历变形。
 同: 1038. 把二叉搜索树转换为累加树
-https://leetcode-cn.com/problems/binary-search-tree-to-greater-sum-tree/
+https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/
  */

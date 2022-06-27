@@ -26,7 +26,7 @@ public class Solution422 {
 }
 /*
 $422. 有效的单词方块
-https://leetcode-cn.com/problems/valid-word-square/
+https://leetcode.cn/problems/valid-word-square/
 
 给你一个单词序列，判断其是否形成了一个有效的单词方块。
 有效的单词方块是指此由单词序列组成的文字方块的 第 k 行 和 第 k 列 (0 ≤ k < max(行数, 列数)) 所显示的字符串完全相同。

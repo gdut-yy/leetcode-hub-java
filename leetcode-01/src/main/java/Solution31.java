@@ -31,7 +31,7 @@ public class Solution31 {
 }
 /*
 31. 下一个排列
-https://leetcode-cn.com/problems/next-permutation/
+https://leetcode.cn/problems/next-permutation/
 
 整数数组的一个 排列  就是将其所有成员以序列或线性顺序排列。
 - 例如，arr = [1,2,3] ，以下这些都可以视作 arr 的排列：[1,2,3]、[1,3,2]、[3,1,2]、[2,3,1] 。
@@ -52,5 +52,5 @@ step2: 让这个「较小数」尽量靠右，而「较大数」尽可能小
 时间复杂度 O(n)
 空间复杂度 O(1) 常数空间存放变量
 相似题目: 556. 下一个更大元素 III
-https://leetcode-cn.com/problems/next-greater-element-iii/
+https://leetcode.cn/problems/next-greater-element-iii/
  */

@@ -53,7 +53,7 @@ public class Solution1537 {
 }
 /*
 1537. 最大得分
-https://leetcode-cn.com/problems/get-the-maximum-score/
+https://leetcode.cn/problems/get-the-maximum-score/
 
 第 200 场周赛 T4。
 

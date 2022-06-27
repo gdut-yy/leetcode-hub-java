@@ -46,7 +46,7 @@ public class Solution155 {
 }
 /*
 155. 最小栈
-https://leetcode-cn.com/problems/min-stack/
+https://leetcode.cn/problems/min-stack/
 
 设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。
 - push(x) —— 将元素 x 推入栈中。
@@ -58,7 +58,7 @@ pop、top 和 getMin 操作总是在 非空栈 上调用。
 
 双栈实现最小栈。
 相似题目: 剑指 Offer 30. 包含min函数的栈
-https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/
+https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
 面试题 03.02. 栈的最小值
-https://leetcode-cn.com/problems/min-stack-lcci/
+https://leetcode.cn/problems/min-stack-lcci/
  */

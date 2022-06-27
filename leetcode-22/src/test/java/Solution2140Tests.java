@@ -21,7 +21,7 @@ public class Solution2140Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/258952411/
+        // https://leetcode.cn/submissions/detail/258952411/
         // 28 / 54 个通过测试用例
         int[][] questions = UtUtils.stringToInts2("[[21,5],[92,3],[74,2],[39,4],[58,2],[5,5],[49,4],[65,3]]");
         long expected = 157;

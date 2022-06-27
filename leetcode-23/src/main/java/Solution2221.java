@@ -15,7 +15,7 @@ public class Solution2221 {
 }
 /*
 2221. 数组的三角和
-https://leetcode-cn.com/problems/find-triangular-sum-of-an-array/
+https://leetcode.cn/problems/find-triangular-sum-of-an-array/
 
 第 75 场双周赛 T2。
 

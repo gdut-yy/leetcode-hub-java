@@ -21,7 +21,7 @@ public class Solution261Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/282658329/
+        // https://leetcode.cn/submissions/detail/282658329/
         int n = 4;
         int[][] edges = UtUtils.stringToInts2("[[0,1],[2,3]]");
         Assertions.assertFalse(solution261.validTree(n, edges));

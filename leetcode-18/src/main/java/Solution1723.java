@@ -30,7 +30,7 @@ public class Solution1723 {
 }
 /*
 1723. 完成所有工作的最短时间
-https://leetcode-cn.com/problems/find-minimum-time-to-finish-all-jobs/
+https://leetcode.cn/problems/find-minimum-time-to-finish-all-jobs/
 
 给你一个整数数组 jobs ，其中 jobs[i] 是完成第 i 项工作要花费的时间。
 请你将这些工作分配给 k 位工人。所有工作都应该分配给工人，且每项工作只能分配给一位工人。工人的 工作时间 是完成分配给他们的所有工作花费时间的总和。

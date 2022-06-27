@@ -17,7 +17,7 @@ public class Solution1318 {
 }
 /*
 1318. 或运算的最小翻转次数
-https://leetcode-cn.com/problems/minimum-flips-to-make-a-or-b-equal-to-c/
+https://leetcode.cn/problems/minimum-flips-to-make-a-or-b-equal-to-c/
 
 给你三个正整数 a、b 和 c。
 你可以对 a 和 b 的二进制表示进行位翻转操作，返回能够使按位或运算   a OR b == c  成立的最小翻转次数。

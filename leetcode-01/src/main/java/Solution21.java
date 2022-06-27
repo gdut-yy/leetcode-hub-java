@@ -29,7 +29,7 @@ public class Solution21 {
 }
 /*
 21. 合并两个有序链表
-https://leetcode-cn.com/problems/merge-two-sorted-lists/
+https://leetcode.cn/problems/merge-two-sorted-lists/
 
 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
 提示：
@@ -39,5 +39,5 @@ l1 和 l2 均按 非递减顺序 排列
 
 经典题。链表合并。
 相似题目: 4. 寻找两个正序数组的中位数（合并两个有序数组）
-https://leetcode-cn.com/problems/median-of-two-sorted-arrays/
+https://leetcode.cn/problems/median-of-two-sorted-arrays/
  */

@@ -49,7 +49,7 @@ public class Solution2165 {
 }
 /*
 2165. 重排数字的最小值
-https://leetcode-cn.com/problems/smallest-value-of-the-rearranged-number/
+https://leetcode.cn/problems/smallest-value-of-the-rearranged-number/
 
 第 279 场周赛 T2。
 

@@ -51,7 +51,7 @@ public class Solution2089 {
 }
 /*
 2089. 找出数组排序后的目标下标
-https://leetcode-cn.com/problems/find-target-indices-after-sorting-array/
+https://leetcode.cn/problems/find-target-indices-after-sorting-array/
 
 第 269 场周赛 T1。
 
@@ -66,5 +66,5 @@ https://leetcode-cn.com/problems/find-target-indices-after-sorting-array/
 数据量较少，线性查找也 ok。
 
 相似题目: 34. 在排序数组中查找元素的第一个和最后一个位置
-https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
  */

@@ -10,7 +10,7 @@ public class Solution1528 {
 }
 /*
 1528. 重新排列字符串
-https://leetcode-cn.com/problems/shuffle-string/
+https://leetcode.cn/problems/shuffle-string/
 
 第 199 场周赛 T1。
 

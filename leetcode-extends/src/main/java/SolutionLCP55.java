@@ -12,7 +12,7 @@ public class SolutionLCP55 {
 }
 /*
 LCP 55. 采集果实
-https://leetcode-cn.com/problems/PTXy4P/
+https://leetcode.cn/problems/PTXy4P/
 
 LCCUP 力扣杯 2022 春季编程大赛战队赛 T1。
 

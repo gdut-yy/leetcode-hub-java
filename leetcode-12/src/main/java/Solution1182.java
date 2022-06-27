@@ -36,7 +36,7 @@ public class Solution1182 {
 }
 /*
 $1182. 与目标颜色间的最短距离
-https://leetcode-cn.com/problems/shortest-distance-to-target-color/
+https://leetcode.cn/problems/shortest-distance-to-target-color/
 
 第 8 场双周赛 T3。
 

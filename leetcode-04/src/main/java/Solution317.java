@@ -61,7 +61,7 @@ public class Solution317 {
 }
 /*
 $317. 离建筑物最近的距离
-https://leetcode-cn.com/problems/shortest-distance-from-all-buildings/
+https://leetcode.cn/problems/shortest-distance-from-all-buildings/
 
 给你一个 m × n 的网格，值为 0 、 1 或 2 ，其中:
 - 每一个 0 代表一块你可以自由通过的 空地

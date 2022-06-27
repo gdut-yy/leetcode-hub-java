@@ -11,7 +11,7 @@ public class Solution1967 {
 }
 /*
 1967. 作为子字符串出现在单词中的字符串数目
-https://leetcode-cn.com/problems/number-of-strings-that-appear-as-substrings-in-word/
+https://leetcode.cn/problems/number-of-strings-that-appear-as-substrings-in-word/
 
 第 254 场周赛 T1。
 

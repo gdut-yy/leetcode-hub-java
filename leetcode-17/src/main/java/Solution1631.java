@@ -54,7 +54,7 @@ public class Solution1631 {
 }
 /*
 1631. 最小体力消耗路径
-https://leetcode-cn.com/problems/path-with-minimum-effort/
+https://leetcode.cn/problems/path-with-minimum-effort/
 
 你准备参加一场远足活动。给你一个二维 rows x columns 的地图 heights ，其中 heights[row][col] 表示格子 (row, col) 的高度。
 一开始你在最左上角的格子 (0, 0) ，且你希望去最右下角的格子 (rows-1, columns-1) （注意下标从 0 开始编号）。
@@ -69,5 +69,5 @@ columns == heights[i].length
 
 二分 + BFS
 相似题目: 778. 水位上升的泳池中游泳
-https://leetcode-cn.com/problems/swim-in-rising-water/
+https://leetcode.cn/problems/swim-in-rising-water/
  */

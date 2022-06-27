@@ -29,7 +29,7 @@ public class Solution2203Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/282218886/
+        // https://leetcode.cn/submissions/detail/282218886/
         // 19 / 86 个通过测试用例
         int n = 8;
         int[][] edges = UtUtils.stringToInts2("[[4,7,24],[1,3,30],[4,0,31],[1,2,31],[1,5,18],[1,6,19],[4,6,25],[5,6,32],[0,6,50]]");
@@ -42,7 +42,7 @@ public class Solution2203Tests {
 
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/282381119/
+        // https://leetcode.cn/submissions/detail/282381119/
         // 77 / 78 个通过测试用例
         String fileName = "solution2203-example4-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);

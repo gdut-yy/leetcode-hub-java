@@ -111,7 +111,7 @@ public class Solution2035 {
 }
 /*
 2035. 将数组分成两个数组并最小化数组和的差
-https://leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
+https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
 
 第 262 场周赛 T4。
 
@@ -121,5 +121,5 @@ nums 中每个元素都需要放入两个数组之一。
 
 折半搜索。
 相似题目: 1755. 最接近目标值的子序列和
-https://leetcode-cn.com/problems/closest-subsequence-sum/
+https://leetcode.cn/problems/closest-subsequence-sum/
  */

@@ -13,7 +13,7 @@ public class Solution657 {
 }
 /*
 657. 机器人能否返回原点
-https://leetcode-cn.com/problems/robot-return-to-origin/
+https://leetcode.cn/problems/robot-return-to-origin/
 
 在二维平面上，有一个机器人从原点 (0, 0) 开始。给出它的移动顺序，判断这个机器人在完成移动后是否在 (0, 0) 处结束。
 移动顺序由字符串 moves 表示。字符 move[i] 表示其第 i 次移动。机器人的有效动作有 R（右），L（左），U（上）和 D（下）。

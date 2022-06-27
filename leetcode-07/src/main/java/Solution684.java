@@ -71,7 +71,7 @@ public class Solution684 {
 }
 /*
 684. 冗余连接
-https://leetcode-cn.com/problems/redundant-connection/
+https://leetcode.cn/problems/redundant-connection/
 
 树可以看成是一个连通且 无环 的 无向 图。
 给定往一棵 n 个节点 (节点值 1～n) 的树中添加一条边后的图。添加的边的两个顶点包含在 1 到 n 中间，且这条附加的边不属于树中已存在的边。
@@ -89,5 +89,5 @@ edges 中无重复元素
 并查集。
 如果有多个答案，则返回数组 edges 中最后出现的边。即遇到同一个联通分量的边返回即可。
 相似题目: 685. 冗余连接 II
-https://leetcode-cn.com/problems/redundant-connection-ii/
+https://leetcode.cn/problems/redundant-connection-ii/
  */

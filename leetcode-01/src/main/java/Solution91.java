@@ -20,7 +20,7 @@ public class Solution91 {
 }
 /*
 91. 解码方法
-https://leetcode-cn.com/problems/decode-ways/
+https://leetcode.cn/problems/decode-ways/
 
 要 解码 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，"11106" 可以映射为：
 "AAJF" ，将消息分组为 (1 1 10 6)

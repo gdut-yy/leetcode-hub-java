@@ -15,7 +15,7 @@ public class Solution1099 {
 }
 /*
 $1099. 小于 K 的两数之和
-https://leetcode-cn.com/problems/two-sum-less-than-k/
+https://leetcode.cn/problems/two-sum-less-than-k/
 
 第 3 场双周赛 T1。
 

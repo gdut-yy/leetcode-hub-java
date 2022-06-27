@@ -10,7 +10,7 @@ public class Solution190 {
 }
 /*
 190. 颠倒二进制位
-https://leetcode-cn.com/problems/reverse-bits/
+https://leetcode.cn/problems/reverse-bits/
 
 颠倒给定的 32 位无符号整数的二进制位。
 提示：

@@ -5,7 +5,7 @@ public class Solution877 {
 }
 /*
 877. 石子游戏
-https://leetcode-cn.com/problems/stone-game/
+https://leetcode.cn/problems/stone-game/
 
 第 95 场周赛 T2。
 

@@ -11,7 +11,7 @@ public class Solution520 {
 }
 /*
 520. 检测大写字母
-https://leetcode-cn.com/problems/detect-capital/
+https://leetcode.cn/problems/detect-capital/
 
 我们定义，在以下情况时，单词的大写用法是正确的：
 全部字母都是大写，比如 "USA" 。

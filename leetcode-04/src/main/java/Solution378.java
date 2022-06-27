@@ -36,7 +36,7 @@ public class Solution378 {
 }
 /*
 378. 有序矩阵中第 K 小的元素
-https://leetcode-cn.com/problems/kth-smallest-element-in-a-sorted-matrix/
+https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/
 
 给你一个 n x n 矩阵 matrix ，其中每行和每列元素均按升序排序，找到矩阵中第 k 小的元素。
 请注意，它是 排序后 的第 k 小元素，而不是第 k 个 不同 的元素。
@@ -56,5 +56,5 @@ n == matrix[i].length
 时间复杂度 O(nlog(r-l))
 时间复杂度 O(1)
 相似题目: 668. 乘法表中第k小的数
-https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/
+https://leetcode.cn/problems/kth-smallest-number-in-multiplication-table/
  */

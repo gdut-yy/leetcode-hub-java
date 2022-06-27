@@ -525,7 +525,7 @@ public class Solution679 {
 }
 /*
 679. 24 点游戏
-https://leetcode-cn.com/problems/24-game/
+https://leetcode.cn/problems/24-game/
 
 你有 4 张写有 1 到 9 数字的牌。你需要判断是否能通过 *，/，+，-，(，) 的运算得到 24。
 注意:

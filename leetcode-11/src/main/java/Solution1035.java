@@ -20,7 +20,7 @@ public class Solution1035 {
 }
 /*
 1035. 不相交的线
-https://leetcode-cn.com/problems/uncrossed-lines/
+https://leetcode.cn/problems/uncrossed-lines/
 
 第 134 场周赛 T3。
 
@@ -31,5 +31,5 @@ https://leetcode-cn.com/problems/uncrossed-lines/
 请注意，连线即使在端点也不能相交：每个数字只能属于一条连线。
 以这种方法绘制线条，并返回可以绘制的最大连线数。
 
-LCS 同 1143 最长公共子序列 https://leetcode-cn.com/problems/longest-common-subsequence/
+LCS 同 1143 最长公共子序列 https://leetcode.cn/problems/longest-common-subsequence/
  */

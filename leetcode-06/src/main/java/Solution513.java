@@ -28,7 +28,7 @@ public class Solution513 {
 }
 /*
 513. 找树左下角的值
-https://leetcode-cn.com/problems/find-bottom-left-tree-value/
+https://leetcode.cn/problems/find-bottom-left-tree-value/
 
 二叉树“按层”。两个队列实现二叉树广搜
 参考第 199、515 题

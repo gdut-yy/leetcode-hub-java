@@ -28,7 +28,7 @@ public class Solution2201 {
 }
 /*
 2201. 统计可以提取的工件
-https://leetcode-cn.com/problems/count-artifacts-that-can-be-extracted/
+https://leetcode.cn/problems/count-artifacts-that-can-be-extracted/
 
 第 284 场周赛 T2。
 

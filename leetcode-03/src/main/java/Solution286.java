@@ -35,7 +35,7 @@ public class Solution286 {
 }
 /*
 $286. 墙与门
-https://leetcode-cn.com/problems/walls-and-gates/
+https://leetcode.cn/problems/walls-and-gates/
 
 你被给定一个 m × n 的二维网格 rooms ，网格中有以下三种可能的初始化值：
 -1 表示墙或是障碍物

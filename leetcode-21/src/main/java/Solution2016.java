@@ -12,7 +12,7 @@ public class Solution2016 {
 }
 /*
 2016. 增量元素之间的最大差值
-https://leetcode-cn.com/problems/maximum-difference-between-increasing-elements/
+https://leetcode.cn/problems/maximum-difference-between-increasing-elements/
 
 第 260 场周赛 T1。工作日的周赛
 

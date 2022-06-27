@@ -64,7 +64,7 @@ public class Solution2071 {
 }
 /*
 2071. 你可以安排的最多任务数目
-https://leetcode-cn.com/problems/maximum-number-of-tasks-you-can-assign/
+https://leetcode.cn/problems/maximum-number-of-tasks-you-can-assign/
 
 第 65 场双周赛 T4。
 

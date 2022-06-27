@@ -83,5 +83,5 @@ n 皇后问题 研究的是如何将 n 个皇后放置在 n × n 的棋盘上，
 
 在 51 题基础上求方案数量即可。
 相似题目: 51. N 皇后
-https://leetcode-cn.com/problems/n-queens/
+https://leetcode.cn/problems/n-queens/
  */

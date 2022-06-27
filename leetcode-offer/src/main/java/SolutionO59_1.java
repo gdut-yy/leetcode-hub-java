@@ -32,7 +32,7 @@ public class SolutionO59_1 {
 }
 /*
 剑指 Offer 59 - I. 滑动窗口的最大值
-https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
+https://leetcode.cn/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
 
 给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。
 示例:
@@ -40,5 +40,5 @@ https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
 输出: [3,3,5,5,6,7]
 
 同: 239. 滑动窗口最大值
-https://leetcode-cn.com/problems/sliding-window-maximum/
+https://leetcode.cn/problems/sliding-window-maximum/
  */

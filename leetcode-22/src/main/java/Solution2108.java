@@ -24,7 +24,7 @@ public class Solution2108 {
 }
 /*
 2108. 找出数组中的第一个回文字符串
-https://leetcode-cn.com/problems/find-first-palindromic-string-in-the-array/
+https://leetcode.cn/problems/find-first-palindromic-string-in-the-array/
 
 第 272 场周赛 T1。
 

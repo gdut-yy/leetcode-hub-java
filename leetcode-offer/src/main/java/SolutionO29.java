@@ -44,11 +44,11 @@ public class SolutionO29 {
 }
 /*
 剑指 Offer 29. 顺时针打印矩阵
-https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
+https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
 
 输入一个矩阵，按照从外向里以顺时针的顺序依次打印出每一个数字。
 
 相似题目: 54. 螺旋矩阵
-https://leetcode-cn.com/problems/spiral-matrix/
+https://leetcode.cn/problems/spiral-matrix/
 注意返回类型差异。
  */

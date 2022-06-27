@@ -15,7 +15,7 @@ public class Solution2154 {
 }
 /*
 2154. 将找到的值乘以 2
-https://leetcode-cn.com/problems/keep-multiplying-found-values-by-two/
+https://leetcode.cn/problems/keep-multiplying-found-values-by-two/
 
 第 278 场周赛 T1。
 

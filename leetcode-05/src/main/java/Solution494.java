@@ -24,7 +24,7 @@ public class Solution494 {
 }
 /*
 494. 目标和
-https://leetcode-cn.com/problems/target-sum/
+https://leetcode.cn/problems/target-sum/
 
 给你一个整数数组 nums 和一个整数 target 。
 向数组中的每个整数前添加 '+' 或 '-' ，然后串联起所有整数，可以构造一个 表达式 ：
@@ -43,5 +43,5 @@ j==0 时             f(i,j) = 1
 i==0 && j>0 时      f(i,j) = 0
 i>0 && j>nums[i] 时 f(i,j) = f(i-1,j) + f(i-1,j-nums[i])
 相似题目: 416. 分割等和子集
-https://leetcode-cn.com/problems/partition-equal-subset-sum/
+https://leetcode.cn/problems/partition-equal-subset-sum/
  */

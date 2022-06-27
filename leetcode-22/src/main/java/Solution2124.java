@@ -10,7 +10,7 @@ public class Solution2124 {
 }
 /*
 2124. 检查是否所有 A 都在 B 之前
-https://leetcode-cn.com/problems/check-if-all-as-appears-before-all-bs/
+https://leetcode.cn/problems/check-if-all-as-appears-before-all-bs/
 
 第 274 场周赛 T1。
 

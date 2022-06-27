@@ -23,7 +23,7 @@ public class Solution1773 {
 }
 /*
 1773. 统计匹配检索规则的物品数量
-https://leetcode-cn.com/problems/count-items-matching-a-rule/
+https://leetcode.cn/problems/count-items-matching-a-rule/
 
 第 230 场周赛 T1。
 

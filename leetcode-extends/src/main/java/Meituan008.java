@@ -13,7 +13,7 @@ import java.util.Map;
 
 /**
  * meituan-008. 小团无路可逃
- * https://leetcode-cn.com/problems/vSYUMc/
+ * https://leetcode.cn/problems/vSYUMc/
  */
 public class Meituan008 {
     public static void main(String[] args) throws IOException {

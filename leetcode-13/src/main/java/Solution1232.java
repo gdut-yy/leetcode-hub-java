@@ -21,7 +21,7 @@ public class Solution1232 {
 }
 /*
 1232. 缀点成线
-https://leetcode-cn.com/problems/check-if-it-is-a-straight-line/
+https://leetcode.cn/problems/check-if-it-is-a-straight-line/
 
 给定一个数组 coordinates ，其中 coordinates[i] = [x, y] ， [x, y] 表示横坐标为 x、纵坐标为 y 的点。请你来判断，这些点是否在该坐标系中属于同一条直线上。
 提示：

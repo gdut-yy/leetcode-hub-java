@@ -38,7 +38,7 @@ public class Solution1011 {
 }
 /*
 1011. 在 D 天内送达包裹的能力
-https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/
+https://leetcode.cn/problems/capacity-to-ship-packages-within-d-days/
 
 第 128 场周赛 T3。
 

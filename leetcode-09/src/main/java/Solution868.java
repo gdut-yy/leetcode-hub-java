@@ -18,7 +18,7 @@ public class Solution868 {
 }
 /*
 868. 二进制间距
-https://leetcode-cn.com/problems/binary-gap/
+https://leetcode.cn/problems/binary-gap/
 
 第 93 场周赛 T1。
 

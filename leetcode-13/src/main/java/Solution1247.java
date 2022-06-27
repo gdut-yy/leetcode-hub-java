@@ -29,7 +29,7 @@ public class Solution1247 {
 }
 /*
 1247. 交换字符使得字符串相同
-https://leetcode-cn.com/problems/minimum-swaps-to-make-strings-equal/
+https://leetcode.cn/problems/minimum-swaps-to-make-strings-equal/
 
 第 161 场周赛 T1。
 

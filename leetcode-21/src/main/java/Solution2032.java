@@ -26,7 +26,7 @@ public class Solution2032 {
 }
 /*
 2032. 至少在两个数组中出现的值
-https://leetcode-cn.com/problems/two-out-of-three/
+https://leetcode.cn/problems/two-out-of-three/
 
 第 262 场周赛 T1。
 

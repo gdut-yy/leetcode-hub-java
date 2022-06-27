@@ -31,7 +31,7 @@ public class Solution787 {
 }
 /*
 787. K 站中转内最便宜的航班
-https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/
+https://leetcode.cn/problems/cheapest-flights-within-k-stops/
 
 有 n 个城市通过一些航班连接。给你一个数组 flights ，其中 flights[i] = [fromi, toi, pricei] ，
 表示该航班都从城市 fromi 开始，以价格 pricei 抵达 toi。
@@ -50,5 +50,5 @@ src != dst
 
 bellman ford 算法
 相似题目: 1928. 规定时间内到达终点的最小花费
-https://leetcode-cn.com/problems/minimum-cost-to-reach-destination-in-time/
+https://leetcode.cn/problems/minimum-cost-to-reach-destination-in-time/
  */

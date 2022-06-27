@@ -26,7 +26,7 @@ public class Solution1891 {
 }
 /*
 $1891. 割绳子
-https://leetcode-cn.com/problems/cutting-ribbons/
+https://leetcode.cn/problems/cutting-ribbons/
 
 给定一个整数数组 ribbons 和一个整数 k，数组每项 ribbons[i] 表示第 i 条绳子的长度。对于每条绳子，
 你可以将任意切割成一系列长度为正整数的部分，或者选择不进行切割。

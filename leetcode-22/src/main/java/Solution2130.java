@@ -27,7 +27,7 @@ public class Solution2130 {
 }
 /*
 2130. 链表最大孪生和
-https://leetcode-cn.com/problems/maximum-twin-sum-of-a-linked-list/
+https://leetcode.cn/problems/maximum-twin-sum-of-a-linked-list/
 
 第 69 场双周赛 T2。
 

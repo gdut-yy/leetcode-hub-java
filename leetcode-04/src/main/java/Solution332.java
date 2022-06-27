@@ -41,7 +41,7 @@ public class Solution332 {
 }
 /*
 332. 重新安排行程
-https://leetcode-cn.com/problems/reconstruct-itinerary/
+https://leetcode.cn/problems/reconstruct-itinerary/
 
 给你一份航线列表 tickets ，其中 tickets[i] = [fromi, toi] 表示飞机出发和降落的机场地点。请你对该行程进行重新规划排序。
 所有这些机票都属于一个从 JFK（肯尼迪国际机场）出发的先生，所以该行程必须从 JFK 开始。如果存在多种有效的行程，请你按字典排序返回最小的行程组合。

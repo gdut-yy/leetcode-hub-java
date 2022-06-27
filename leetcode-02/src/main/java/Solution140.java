@@ -63,5 +63,5 @@ wordDict 中所有字符串都 不同
 时间复杂度 O(n*2^n) 理论上界 20*2^20 = 20,971,520
 空间复杂度 O(n*2^n)
 相似题目: 139. 单词拆分
-https://leetcode-cn.com/problems/word-break/
+https://leetcode.cn/problems/word-break/
  */

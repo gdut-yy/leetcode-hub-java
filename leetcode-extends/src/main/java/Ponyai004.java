@@ -9,7 +9,7 @@ import java.util.Deque;
 
 /**
  * Pony.ai-004. 谁挡住了我的红绿灯
- * https://leetcode-cn.com/problems/vgKew1/
+ * https://leetcode.cn/problems/vgKew1/
  */
 public class Ponyai004 {
     public static void main(String[] args) throws IOException {

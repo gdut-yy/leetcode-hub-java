@@ -50,7 +50,7 @@ public class Cnunionpay220313T1 {
 }
 /*
 银联-01. 回文链表
-https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/D7rekZ/
+https://leetcode.cn/contest/cnunionpay-2022spring/problems/D7rekZ/
 
 给定一个链表的头结点 head，判断链表删除一个节点后是否可以成为「回文链表」。
 若可以，则返回 true；否则返回 false

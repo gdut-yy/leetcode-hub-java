@@ -44,7 +44,7 @@ public class Solution785 {
 }
 /*
 785. 判断二分图
-https://leetcode-cn.com/problems/is-graph-bipartite/
+https://leetcode.cn/problems/is-graph-bipartite/
 
 存在一个 无向图 ，图中有 n 个节点。其中每个节点都有一个介于 0 到 n - 1 之间的唯一编号。给你一个二维数组 graph ，
 其中 graph[u] 是一个节点数组，由节点 u 的邻接节点组成。形式上，对于 graph[u] 中的每个 v ，都存在一条位于节点 u 和节点 v 之间的无向边。该无向图同时具有以下属性：
@@ -59,5 +59,5 @@ BFS。
 二部图判定，常用方法是节点染色，即先选取图中任意一点，染成红色，再将其相邻节点染成蓝色，判定染色后是否会有相邻两个节点颜色相同，
 若存在相邻两个节点颜色相同，不是二部图，否则，是二部图。
 相似题目: 886. 可能的二分法
-https://leetcode-cn.com/problems/possible-bipartition/
+https://leetcode.cn/problems/possible-bipartition/
  */

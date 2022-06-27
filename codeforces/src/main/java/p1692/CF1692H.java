@@ -182,7 +182,7 @@ https://codeforces.com/contest/1692/problem/H
 
 动态最大子数组和。线段树。时间复杂度 O(nlogn)
 相似题目: 53. 最大子序和 （静态最大子数组和）
-https://leetcode-cn.com/problems/maximum-subarray/
+https://leetcode.cn/problems/maximum-subarray/
 ======
 
 input

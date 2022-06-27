@@ -21,7 +21,7 @@ public class Solution1946 {
 }
 /*
 1946. 子字符串突变后可能得到的最大整数
-https://leetcode-cn.com/problems/largest-number-after-mutating-substring/
+https://leetcode.cn/problems/largest-number-after-mutating-substring/
 
 第 251 场周赛 T2。
 

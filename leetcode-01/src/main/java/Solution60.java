@@ -68,5 +68,5 @@ https://leetcode.cn/problems/permutation-sequence/
 
 考虑使用 nextPermutation 求解，9! = 362880 < 1e6，可以过。
 相似题目: 31. 下一个排列
-https://leetcode-cn.com/problems/next-permutation/
+https://leetcode.cn/problems/next-permutation/
  */

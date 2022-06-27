@@ -31,7 +31,7 @@ public class Solution1203Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/298431373/
+        // https://leetcode.cn/submissions/detail/298431373/
         // 若使用 Map<Integer, Set<Integer>> graph 会 WA
         int n = 5;
         int m = 3;

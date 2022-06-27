@@ -154,7 +154,7 @@ public class Solution864 {
 }
 /*
 864. 获取所有钥匙的最短路径
-https://leetcode-cn.com/problems/shortest-path-to-get-all-keys/
+https://leetcode.cn/problems/shortest-path-to-get-all-keys/
 
 给定一个二维网格 grid ，其中：
 - '.' 代表一个空房间
@@ -178,5 +178,5 @@ grid[i][j] 只含有 '.', '#', '@', 'a'-'f' 以及 'A'-'F'
 
 方法一: 暴力+枚举 因为钥匙的数目范围不超过 6，可以枚举每种钥匙组合。时间复杂度 O(m*n*A*A!) 理论上界 3,888,000
 方法二: 关键点+dijkstra
-官方题解: https://leetcode-cn.com/problems/shortest-path-to-get-all-keys/solution/huo-qu-suo-you-yao-chi-de-zui-duan-lu-jing-by-leet/
+官方题解: https://leetcode.cn/problems/shortest-path-to-get-all-keys/solution/huo-qu-suo-you-yao-chi-de-zui-duan-lu-jing-by-leet/
  */

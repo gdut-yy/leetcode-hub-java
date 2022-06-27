@@ -53,7 +53,7 @@ public class Solution2250 {
 }
 /*
 6043. 统计包含每个点的矩形数目
-https://leetcode-cn.com/problems/count-number-of-rectangles-containing-each-point/
+https://leetcode.cn/problems/count-number-of-rectangles-containing-each-point/
 
 第 290 场周赛 T3。
 
@@ -72,5 +72,5 @@ rectangles[i].length == points[j].length == 2
 
 注意到 hi, yj 取值范围只有 100，可以直接枚举。对于每个 hi，二分找出边界后再求和即可。
 相似题目: 34. 在排序数组中查找元素的第一个和最后一个位置
-https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
  */

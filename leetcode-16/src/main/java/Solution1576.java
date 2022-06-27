@@ -19,7 +19,7 @@ public class Solution1576 {
 }
 /*
 1576. 替换所有的问号
-https://leetcode-cn.com/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
+https://leetcode.cn/problems/replace-all-s-to-avoid-consecutive-repeating-characters/
 
 第 205 场周赛 T1。
 

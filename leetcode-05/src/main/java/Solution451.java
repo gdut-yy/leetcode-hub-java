@@ -32,7 +32,7 @@ public class Solution451 {
 }
 /*
 451. 根据字符出现频率排序
-https://leetcode-cn.com/problems/sort-characters-by-frequency/
+https://leetcode.cn/problems/sort-characters-by-frequency/
 
 给定一个字符串，请将字符串里的字符按照出现的频率降序排列。
 注意'A'和'a'被认为是两种不同的字符。

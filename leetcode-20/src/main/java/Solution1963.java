@@ -21,7 +21,7 @@ public class Solution1963 {
 }
 /*
 1963. 使字符串平衡的最小交换次数
-https://leetcode-cn.com/problems/minimum-number-of-swaps-to-make-the-string-balanced/
+https://leetcode.cn/problems/minimum-number-of-swaps-to-make-the-string-balanced/
 
 第 253 场周赛 T3。
 

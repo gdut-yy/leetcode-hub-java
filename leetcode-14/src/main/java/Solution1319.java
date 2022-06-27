@@ -64,7 +64,7 @@ public class Solution1319 {
 }
 /*
 1319. 连通网络的操作次数
-https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/
+https://leetcode.cn/problems/number-of-operations-to-make-network-connected/
 
 第 171 场周赛 T3。
 

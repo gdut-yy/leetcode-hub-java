@@ -15,7 +15,7 @@ public class Solution1903 {
 }
 /*
 1903. 字符串中的最大奇数
-https://leetcode-cn.com/problems/largest-odd-number-in-string/
+https://leetcode.cn/problems/largest-odd-number-in-string/
 
 第 246 场周赛 T1。
 

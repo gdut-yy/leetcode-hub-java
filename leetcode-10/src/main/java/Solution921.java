@@ -20,7 +20,7 @@ public class Solution921 {
 }
 /*
 921. 使括号有效的最少添加
-https://leetcode-cn.com/problems/minimum-add-to-make-parentheses-valid/
+https://leetcode.cn/problems/minimum-add-to-make-parentheses-valid/
 
 第 106 场周赛 T2。
 

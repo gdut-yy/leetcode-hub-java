@@ -36,7 +36,7 @@ public class Solution2212 {
 }
 /*
 2212. 射箭比赛中的最大得分
-https://leetcode-cn.com/problems/maximum-points-in-an-archery-competition/
+https://leetcode.cn/problems/maximum-points-in-an-archery-competition/
 
 第 285 场周赛 T3。
 

@@ -60,7 +60,7 @@ public class Solution2234 {
 }
 /*
 2234. 花园的最大总美丽值
-https://leetcode-cn.com/problems/maximum-total-beauty-of-the-gardens/
+https://leetcode.cn/problems/maximum-total-beauty-of-the-gardens/
 
 第 288 场周赛 T4。
 

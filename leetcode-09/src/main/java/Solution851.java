@@ -58,7 +58,7 @@ public class Solution851 {
 }
 /*
 851. 喧闹和富有
-https://leetcode-cn.com/problems/loud-and-rich/
+https://leetcode.cn/problems/loud-and-rich/
 
 第 88 场周赛 T3。
 
@@ -71,5 +71,5 @@ person y 是最安静的人（也就是安静值 quiet[y] 最小的人）。
 
 拓扑排序 + 动态规划。
 相似题目: 2050. 并行课程 III
-https://leetcode-cn.com/problems/parallel-courses-iii/
+https://leetcode.cn/problems/parallel-courses-iii/
  */

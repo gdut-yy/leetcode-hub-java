@@ -45,7 +45,7 @@ public class Solution2102 {
 }
 /*
 2102. 序列顺序查询
-https://leetcode-cn.com/problems/sequentially-ordinal-rank-tracker/
+https://leetcode.cn/problems/sequentially-ordinal-rank-tracker/
 
 第 67 场双周赛 T4。
 
@@ -63,5 +63,5 @@ https://leetcode-cn.com/problems/sequentially-ordinal-rank-tracker/
 
 双优先队列倒腾。
 相似题目: 295. 数据流的中位数
-https://leetcode-cn.com/problems/find-median-from-data-stream/
+https://leetcode.cn/problems/find-median-from-data-stream/
  */

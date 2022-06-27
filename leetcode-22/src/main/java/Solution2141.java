@@ -30,7 +30,7 @@ public class Solution2141 {
 }
 /*
 2141. 同时运行 N 台电脑的最长时间
-https://leetcode-cn.com/problems/maximum-running-time-of-n-computers/
+https://leetcode.cn/problems/maximum-running-time-of-n-computers/
 
 第 276 场周赛 T4。
 

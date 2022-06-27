@@ -27,7 +27,7 @@ public class Solution2180 {
 }
 /*
 2180. 统计各位数字之和为偶数的整数个数
-https://leetcode-cn.com/problems/count-integers-with-even-digit-sum/
+https://leetcode.cn/problems/count-integers-with-even-digit-sum/
 
 第 281 场周赛 T1。
 

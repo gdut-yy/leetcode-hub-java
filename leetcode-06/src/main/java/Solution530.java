@@ -28,7 +28,7 @@ public class Solution530 {
 }
 /*
 530. 二叉搜索树的最小绝对差
-https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/
+https://leetcode.cn/problems/minimum-absolute-difference-in-bst/
 
 给你一个二叉搜索树的根节点 root ，返回 树中任意两不同节点值之间的最小差值 。
 差值是一个正数，其数值等于两值之差的绝对值。
@@ -38,5 +38,5 @@ https://leetcode-cn.com/problems/minimum-absolute-difference-in-bst/
 
 二叉搜索树中序遍历为递增序列。
 同: 783. 二叉搜索树节点最小距离
-https://leetcode-cn.com/problems/minimum-distance-between-bst-nodes/
+https://leetcode.cn/problems/minimum-distance-between-bst-nodes/
  */

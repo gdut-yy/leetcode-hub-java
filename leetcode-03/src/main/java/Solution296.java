@@ -92,5 +92,5 @@ grid 中 至少 有两个朋友
 乍一看是多源 BFS，实际上多源 BFS 时间复杂度为 O(m^2 * n^2) 会 TLE，
 需要转化为一维中位数问题解决，时间复杂度 O(mn)
 相似题目: $317. 离建筑物最近的距离
-https://leetcode-cn.com/problems/shortest-distance-from-all-buildings/
+https://leetcode.cn/problems/shortest-distance-from-all-buildings/
  */

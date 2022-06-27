@@ -43,7 +43,7 @@ public class Solution2088 {
 }
 /*
 2088. 统计农场中肥沃金字塔的数目
-https://leetcode-cn.com/problems/count-fertile-pyramids-in-a-land/
+https://leetcode.cn/problems/count-fertile-pyramids-in-a-land/
 
 第 66 场双周赛 T4。
 

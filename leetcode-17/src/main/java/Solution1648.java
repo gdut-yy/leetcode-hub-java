@@ -38,7 +38,7 @@ public class Solution1648 {
 }
 /*
 1648. 销售价值减少的颜色球
-https://leetcode-cn.com/problems/sell-diminishing-valued-colored-balls/
+https://leetcode.cn/problems/sell-diminishing-valued-colored-balls/
 
 你有一些球的库存 inventory ，里面包含着不同颜色的球。一个顾客想要 任意颜色 总数为 orders 的球。
 这位顾客有一种特殊的方式衡量球的价值：每个球的价值是目前剩下的 同色球 的数目。比方说还剩下 6 个黄球，那么顾客买第一个黄球的时候该黄球的价值为 6 。

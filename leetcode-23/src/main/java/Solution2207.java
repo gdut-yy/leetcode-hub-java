@@ -33,7 +33,7 @@ public class Solution2207 {
 }
 /*
 2207. 字符串中最多数目的子字符串
-https://leetcode-cn.com/problems/maximize-number-of-subsequences-in-a-string/
+https://leetcode.cn/problems/maximize-number-of-subsequences-in-a-string/
 
 第 74 场双周赛 T2。
 

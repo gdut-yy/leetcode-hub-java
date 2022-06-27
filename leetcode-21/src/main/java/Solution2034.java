@@ -46,7 +46,7 @@ public class Solution2034 {
 }
 /*
 2034. 股票价格波动
-https://leetcode-cn.com/problems/stock-price-fluctuation/
+https://leetcode.cn/problems/stock-price-fluctuation/
 
 第 262 场周赛 T3。
 

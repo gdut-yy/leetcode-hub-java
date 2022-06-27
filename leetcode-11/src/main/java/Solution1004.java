@@ -18,7 +18,7 @@ public class Solution1004 {
 }
 /*
 1004. 最大连续1的个数 III
-https://leetcode-cn.com/problems/max-consecutive-ones-iii/
+https://leetcode.cn/problems/max-consecutive-ones-iii/
 
 第 126 场周赛 T3。
 

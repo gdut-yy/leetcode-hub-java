@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * meituan-009. 小团的装饰物
- * https://leetcode-cn.com/problems/0VvYxa/
+ * https://leetcode.cn/problems/0VvYxa/
  */
 public class Meituan009 {
     private static final int MOD = 998244353;

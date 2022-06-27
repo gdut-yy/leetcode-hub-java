@@ -47,7 +47,7 @@ public class Solution2043 {
 }
 /*
 2043. 简易银行系统
-https://leetcode-cn.com/problems/simple-bank-system/
+https://leetcode.cn/problems/simple-bank-system/
 
 第 263 场周赛 T2。
 

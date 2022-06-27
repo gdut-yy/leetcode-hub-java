@@ -19,7 +19,7 @@ public class Solution2248 {
 }
 /*
 2248. 多个数组求交集
-https://leetcode-cn.com/problems/intersection-of-multiple-arrays/
+https://leetcode.cn/problems/intersection-of-multiple-arrays/
 
 第 290 场周赛 T1。
 

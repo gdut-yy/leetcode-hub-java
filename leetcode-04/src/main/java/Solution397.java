@@ -44,7 +44,7 @@ public class Solution397 {
 }
 /*
 397. 整数替换
-https://leetcode-cn.com/problems/integer-replacement/
+https://leetcode.cn/problems/integer-replacement/
 
 给定一个正整数 n ，你可以做如下操作：
 如果 n 是偶数，则用 n / 2替换 n 。

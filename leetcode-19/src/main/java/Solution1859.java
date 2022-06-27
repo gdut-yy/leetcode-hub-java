@@ -18,7 +18,7 @@ public class Solution1859 {
 }
 /*
 1859. 将句子排序
-https://leetcode-cn.com/problems/sorting-the-sentence/
+https://leetcode.cn/problems/sorting-the-sentence/
 
 第 52 场双周赛 T1。
 

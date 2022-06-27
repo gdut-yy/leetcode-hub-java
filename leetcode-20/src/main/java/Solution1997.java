@@ -21,7 +21,7 @@ public class Solution1997 {
 }
 /*
 1997. 访问完所有房间的第一天
-https://leetcode-cn.com/problems/first-day-where-you-have-been-in-all-the-rooms/
+https://leetcode.cn/problems/first-day-where-you-have-been-in-all-the-rooms/
 
 第 257 场周赛 T3。
 

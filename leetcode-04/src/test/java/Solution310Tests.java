@@ -25,7 +25,7 @@ public class Solution310Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/239597589/
+        // https://leetcode.cn/submissions/detail/239597589/
         int n = 1;
         int[][] edges = UtUtils.stringToInts2("[]");
         List<Integer> expected = List.of(0);

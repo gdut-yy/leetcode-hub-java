@@ -27,7 +27,7 @@ public class Solution1980 {
 }
 /*
 1980. 找出不同的二进制字符串
-https://leetcode-cn.com/problems/find-unique-binary-string/
+https://leetcode.cn/problems/find-unique-binary-string/
 
 第 255 场周赛 T2。
 

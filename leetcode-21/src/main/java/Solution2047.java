@@ -16,7 +16,7 @@ public class Solution2047 {
 }
 /*
 2047. 句子中的有效单词数
-https://leetcode-cn.com/problems/number-of-valid-words-in-a-sentence/
+https://leetcode.cn/problems/number-of-valid-words-in-a-sentence/
 
 第 264 场周赛 T1。
 

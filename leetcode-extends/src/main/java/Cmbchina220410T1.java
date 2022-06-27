@@ -20,7 +20,7 @@ public class Cmbchina220410T1 {
 }
 /*
 招商银行-01. 文本编辑程序设计
-https://leetcode-cn.com/contest/cmbchina-2022spring/problems/fWcPGC/
+https://leetcode.cn/contest/cmbchina-2022spring/problems/fWcPGC/
 
 请你设计一个文本编辑程序，需要编辑的稿件 article 为仅由大写字母、小写字母与空格组成的字符串（下标从 0 开始），
 光标所在字符串下标位置记作 index，程序运行后，若光标停留位置为空格，不作操作，返回原文本；否则光标所在位置对应的整个单词将被删除，并返回编辑后经过整理空格的文本。

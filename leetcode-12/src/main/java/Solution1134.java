@@ -11,7 +11,7 @@ public class Solution1134 {
 }
 /*
 1134. 阿姆斯特朗数
-https://leetcode-cn.com/problems/armstrong-number/
+https://leetcode.cn/problems/armstrong-number/
 
 第 5 场双周赛 T2。
 

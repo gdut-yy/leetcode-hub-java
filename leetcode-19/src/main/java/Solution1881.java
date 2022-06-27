@@ -36,7 +36,7 @@ public class Solution1881 {
 }
 /*
 1881. 插入后的最大值
-https://leetcode-cn.com/problems/maximum-value-after-insertion/
+https://leetcode.cn/problems/maximum-value-after-insertion/
 
 第 243 场周赛 T2。
 

@@ -92,7 +92,7 @@ public class Solution305 {
 }
 /*
 $305. 岛屿数量 II
-https://leetcode-cn.com/problems/number-of-islands-ii/
+https://leetcode.cn/problems/number-of-islands-ii/
 
 给你一个大小为 m x n 的二进制网格 grid 。网格表示一个地图，其中，0 表示水，1 表示陆地。最初，grid 中的所有单元格都是水单元格（即，所有单元格都是 0）。
 可以通过执行 addLand 操作，将某个位置的水转换成陆地。给你一个数组 positions ，其中 positions[i] = [ri, ci] 是要执行第 i 次操作的位置 (ri, ci) 。

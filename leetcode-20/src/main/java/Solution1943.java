@@ -40,7 +40,7 @@ public class Solution1943 {
 }
 /*
 1943. 描述绘画结果
-https://leetcode-cn.com/problems/describe-the-painting/
+https://leetcode.cn/problems/describe-the-painting/
 
 第 57 场双周赛 T3。
 

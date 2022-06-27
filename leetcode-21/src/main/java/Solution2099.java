@@ -41,7 +41,7 @@ public class Solution2099 {
 }
 /*
 2099. 找到和最大的长度为 K 的子序列
-https://leetcode-cn.com/problems/find-subsequence-of-length-k-with-the-largest-sum/
+https://leetcode.cn/problems/find-subsequence-of-length-k-with-the-largest-sum/
 
 第 67 场双周赛 T1。
 

@@ -16,7 +16,7 @@ public class Solution1605 {
 }
 /*
 1605. 给定行和列的和求可行矩阵
-https://leetcode-cn.com/problems/find-valid-matrix-given-row-and-column-sums/
+https://leetcode.cn/problems/find-valid-matrix-given-row-and-column-sums/
 
 第 36 场双周赛 T3。
 

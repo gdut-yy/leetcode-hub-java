@@ -45,7 +45,7 @@ public class SolutionLCP28 {
 }
 /*
 LCP 28. 采购方案
-https://leetcode-cn.com/problems/4xy4Wx/
+https://leetcode.cn/problems/4xy4Wx/
 
 类似 LCP17 排序 + 二分
 时间复杂度 O(nlogn)

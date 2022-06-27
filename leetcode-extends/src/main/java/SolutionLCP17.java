@@ -6,7 +6,7 @@ public class SolutionLCP17 {
 }
 /*
 LCP 17. 速算机器人
-https://leetcode-cn.com/problems/nGK0Fy/
+https://leetcode.cn/problems/nGK0Fy/
 
 数学问题
 A: x + y => (x = 2 * x + y) + y = 2 * (x + y)

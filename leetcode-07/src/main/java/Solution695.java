@@ -51,7 +51,7 @@ public class Solution695 {
 }
 /*
 695. 岛屿的最大面积
-https://leetcode-cn.com/problems/max-area-of-island/
+https://leetcode.cn/problems/max-area-of-island/
 
 给你一个大小为 m x n 的二进制矩阵 grid 。
 岛屿 是由一些相邻的 1 (代表土地) 构成的组合，这里的「相邻」要求两个 1 必须在 水平或者竖直的四个方向上 相邻。你可以假设 grid 的四个边缘都被 0（代表水）包围着。

@@ -24,12 +24,12 @@ public class SolutionO57 {
 }
 /*
 剑指 Offer 57. 和为s的两个数字
-https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
+https://leetcode.cn/problems/he-wei-sde-liang-ge-shu-zi-lcof/
 
 输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们的和正好是s。如果有多对数字的和等于s，则输出任意一对即可。
 
 相似题目: 167. 两数之和 II - 输入有序数组
-https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/
 
 注意返回对应元素还是对应元素下标。
  */

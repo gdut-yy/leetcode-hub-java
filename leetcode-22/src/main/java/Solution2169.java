@@ -14,7 +14,7 @@ public class Solution2169 {
 }
 /*
 2169. 得到 0 的操作数
-https://leetcode-cn.com/problems/count-operations-to-obtain-zero/
+https://leetcode.cn/problems/count-operations-to-obtain-zero/
 
 第 280 场周赛 T1。
 

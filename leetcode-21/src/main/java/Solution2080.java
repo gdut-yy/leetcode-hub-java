@@ -61,7 +61,7 @@ public class Solution2080 {
 }
 /*
 2080. 区间内查询数字的频率
-https://leetcode-cn.com/problems/range-frequency-queries/
+https://leetcode.cn/problems/range-frequency-queries/
 
 第 268 场周赛 T3。
 

@@ -31,7 +31,7 @@ public class Solution130Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/284362030/
+        // https://leetcode.cn/submissions/detail/284362030/
         char[][] board = UtUtils.stringToChars2("""
                 [["O","O"],["O","O"]]
                 """);

@@ -76,7 +76,7 @@ public class Cnunionpay220313T2 {
 }
 /*
 银联-02. 优惠活动系统
-https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/kDPV0f/
+https://leetcode.cn/contest/cnunionpay-2022spring/problems/kDPV0f/
 
 「云闪付」作为各方联手打造的全新移动端统一入口，致力成为消费者省钱省心的移动支付管家。
 请你设计一个「云闪付」优惠活动管理系统 DiscountSystem，具体功能如下：

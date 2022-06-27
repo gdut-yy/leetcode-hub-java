@@ -59,7 +59,7 @@ public class Solution2074 {
 }
 /*
 2074. 反转偶数长度组的节点
-https://leetcode-cn.com/problems/reverse-nodes-in-even-length-groups/
+https://leetcode.cn/problems/reverse-nodes-in-even-length-groups/
 
 第 267 场周赛 T2。
 

@@ -77,7 +77,7 @@ public class Solution839 {
 }
 /*
 839. 相似字符串组
-https://leetcode-cn.com/problems/similar-string-groups/
+https://leetcode.cn/problems/similar-string-groups/
 
 第 85 场周赛 T4。
 

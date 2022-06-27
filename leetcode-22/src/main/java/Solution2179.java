@@ -147,7 +147,7 @@ public class Solution2179 {
 }
 /*
 2179. 统计数组中好三元组数目
-https://leetcode-cn.com/problems/count-good-triplets-in-an-array/
+https://leetcode.cn/problems/count-good-triplets-in-an-array/
 
 第 72 场双周赛 T4。
 
@@ -165,7 +165,7 @@ nums1 和 nums2 是 [0, 1, ..., n - 1] 的排列。
 本题数据量到 10^5，O(n^3) 的暴力解法妥妥 TLE。
 容易想到枚举中心点，比赛时写出 MLE 的解法。
 相似题目: 315. 计算右侧小于当前元素的个数
-https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+https://leetcode.cn/problems/count-of-smaller-numbers-after-self/
 剑指 Offer 51. 数组中的逆序对
-https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
  */

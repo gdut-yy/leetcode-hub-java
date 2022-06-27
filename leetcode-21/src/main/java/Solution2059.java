@@ -43,7 +43,7 @@ public class Solution2059 {
 }
 /*
 2059. 转化数字的最小运算数
-https://leetcode-cn.com/problems/minimum-operations-to-convert-number/
+https://leetcode.cn/problems/minimum-operations-to-convert-number/
 
 第 265 场周赛 T3。
 

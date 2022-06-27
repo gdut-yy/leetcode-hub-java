@@ -55,7 +55,7 @@ public class Solution2162 {
 }
 /*
 2162. 设置时间的最少代价
-https://leetcode-cn.com/problems/minimum-cost-to-set-cooking-time/
+https://leetcode.cn/problems/minimum-cost-to-set-cooking-time/
 
 第 71 场双周赛 T3。
 

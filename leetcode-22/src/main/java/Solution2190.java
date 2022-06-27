@@ -25,7 +25,7 @@ public class Solution2190 {
 }
 /*
 2190. 数组中紧跟 key 之后出现最频繁的数字
-https://leetcode-cn.com/problems/most-frequent-number-following-key-in-an-array/
+https://leetcode.cn/problems/most-frequent-number-following-key-in-an-array/
 
 第 73 场双周赛 T1。
 

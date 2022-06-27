@@ -65,7 +65,7 @@ public class Solution765 {
 }
 /*
 765. 情侣牵手
-https://leetcode-cn.com/problems/couples-holding-hands/
+https://leetcode.cn/problems/couples-holding-hands/
 
 N 对情侣坐在连续排列的 2N 个座位上，想要牵到对方的手。 计算最少交换座位的次数，以便每对情侣可以并肩坐在一起。
 一次交换可选择任意两人，让他们站起来交换座位。

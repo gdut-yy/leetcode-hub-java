@@ -33,7 +33,7 @@ public class Solution825 {
 }
 /*
 825. 适龄的朋友
-https://leetcode-cn.com/problems/friends-of-appropriate-ages/
+https://leetcode.cn/problems/friends-of-appropriate-ages/
 
 在社交媒体网站上有 n 个用户。给你一个整数数组 ages ，其中 ages[i] 是第 i 个用户的年龄。
 如果下述任意一个条件为真，那么用户 x 将不会向用户 y（x != y）发送好友请求：

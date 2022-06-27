@@ -27,7 +27,7 @@ public class Solution915 {
 }
 /*
 915. 分割数组
-https://leetcode-cn.com/problems/partition-array-into-disjoint-intervals/
+https://leetcode.cn/problems/partition-array-into-disjoint-intervals/
 
 第 104 场周赛 T2。
 

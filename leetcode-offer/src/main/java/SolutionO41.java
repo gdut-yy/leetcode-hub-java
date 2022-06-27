@@ -37,8 +37,8 @@ public class SolutionO41 {
 }
 /*
 剑指 Offer 41. 数据流中的中位数
-https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+https://leetcode.cn/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
 
 同: 295. 数据流的中位数
-https://leetcode-cn.com/problems/find-median-from-data-stream/
+https://leetcode.cn/problems/find-median-from-data-stream/
  */

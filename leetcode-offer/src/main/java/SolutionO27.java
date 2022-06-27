@@ -15,7 +15,7 @@ public class SolutionO27 {
 }
 /*
 剑指 Offer 27. 二叉树的镜像
-https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
+https://leetcode.cn/problems/er-cha-shu-de-jing-xiang-lcof/
 
 请完成一个函数，输入一个二叉树，该函数输出它的镜像。
 例如输入：
@@ -33,5 +33,5 @@ https://leetcode-cn.com/problems/er-cha-shu-de-jing-xiang-lcof/
 9   6 3   1
 
 同: 226. 翻转二叉树
-https://leetcode-cn.com/problems/invert-binary-tree/
+https://leetcode.cn/problems/invert-binary-tree/
  */

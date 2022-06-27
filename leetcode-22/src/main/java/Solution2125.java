@@ -31,7 +31,7 @@ public class Solution2125 {
 }
 /*
 2125. 银行中的激光束数量
-https://leetcode-cn.com/problems/number-of-laser-beams-in-a-bank/
+https://leetcode.cn/problems/number-of-laser-beams-in-a-bank/
 
 第 274 场周赛 T2。
 

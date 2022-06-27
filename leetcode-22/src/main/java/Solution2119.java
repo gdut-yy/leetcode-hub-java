@@ -8,7 +8,7 @@ public class Solution2119 {
 }
 /*
 2119. 反转两次的数字
-https://leetcode-cn.com/problems/a-number-after-a-double-reversal/
+https://leetcode.cn/problems/a-number-after-a-double-reversal/
 
 第 273 场周赛 T1。
 

@@ -19,7 +19,7 @@ public class Solution1614 {
 }
 /*
 1614. 括号的最大嵌套深度
-https://leetcode-cn.com/problems/maximum-nesting-depth-of-the-parentheses/
+https://leetcode.cn/problems/maximum-nesting-depth-of-the-parentheses/
 
 第 210 场周赛 T1。
 

@@ -37,7 +37,7 @@ public class Solution1081 {
 }
 /*
 1081. 不同字符的最小子序列
-https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/
+https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/
 
 第 140 场周赛 T4。
 
@@ -45,5 +45,5 @@ https://leetcode-cn.com/problems/smallest-subsequence-of-distinct-characters/
 
 单调栈。
 同: 316. 去除重复字母
-https://leetcode-cn.com/problems/remove-duplicate-letters/
+https://leetcode.cn/problems/remove-duplicate-letters/
  */

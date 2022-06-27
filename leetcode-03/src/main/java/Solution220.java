@@ -31,7 +31,7 @@ public class Solution220 {
 }
 /*
 220. 存在重复元素 III
-https://leetcode-cn.com/problems/contains-duplicate-iii/
+https://leetcode.cn/problems/contains-duplicate-iii/
 
 难度增加，多了 t
 桶。时间复杂度 O(n)

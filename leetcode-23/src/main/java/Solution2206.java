@@ -20,7 +20,7 @@ public class Solution2206 {
 }
 /*
 2206. 将数组划分成相等数对
-https://leetcode-cn.com/problems/divide-array-into-equal-pairs/
+https://leetcode.cn/problems/divide-array-into-equal-pairs/
 
 第 74 场双周赛 T1。
 

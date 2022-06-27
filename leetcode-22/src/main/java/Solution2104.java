@@ -20,7 +20,7 @@ public class Solution2104 {
 }
 /*
 2104. 子数组范围和
-https://leetcode-cn.com/problems/sum-of-subarray-ranges/
+https://leetcode.cn/problems/sum-of-subarray-ranges/
 
 第 271 场周赛 T2。
 

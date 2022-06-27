@@ -19,7 +19,7 @@ public class Solution1985 {
 }
 /*
 1985. 找出数组中的第 K 大整数
-https://leetcode-cn.com/problems/find-the-kth-largest-integer-in-the-array/
+https://leetcode.cn/problems/find-the-kth-largest-integer-in-the-array/
 
 第 256 场周赛 T2。
 

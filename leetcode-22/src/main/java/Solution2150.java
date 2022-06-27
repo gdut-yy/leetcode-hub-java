@@ -21,7 +21,7 @@ public class Solution2150 {
 }
 /*
 2150. 找出数组中的所有孤独数字
-https://leetcode-cn.com/problems/find-all-lonely-numbers-in-the-array/
+https://leetcode.cn/problems/find-all-lonely-numbers-in-the-array/
 
 第 277 场周赛 T3。
 

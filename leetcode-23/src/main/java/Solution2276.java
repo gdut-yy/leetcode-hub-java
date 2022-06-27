@@ -160,7 +160,7 @@ TreeMap模拟/动态开点线段树
 相似题目: 57. 插入区间
 https://leetcode.cn/problems/insert-interval/
 352. 将数据流变为多个不相交区间
-https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/
+https://leetcode.cn/problems/data-stream-as-disjoint-intervals/
 715. Range 模块
 https://leetcode.cn/problems/range-module/
  */

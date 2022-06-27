@@ -45,7 +45,7 @@ public class Solution820 {
 }
 /*
 820. 单词的压缩编码
-https://leetcode-cn.com/problems/short-encoding-of-words/
+https://leetcode.cn/problems/short-encoding-of-words/
 
 单词数组 words 的 有效编码 由任意助记字符串 s 和下标数组 indices 组成，且满足：
 

@@ -22,7 +22,7 @@ public class Solution2090 {
 }
 /*
 2090. 半径为 k 的子数组平均值
-https://leetcode-cn.com/problems/k-radius-subarray-averages/
+https://leetcode.cn/problems/k-radius-subarray-averages/
 
 第 269 场周赛 T2。
 

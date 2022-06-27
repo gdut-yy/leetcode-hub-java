@@ -14,10 +14,10 @@ public class Solution377 {
 }
 /*
 377. 组合总和 Ⅳ
-https://leetcode-cn.com/problems/combination-sum-iv/
+https://leetcode.cn/problems/combination-sum-iv/
 
 动态规划。完全背包。
-参考第 322 题 https://leetcode-cn.com/problems/coin-change/
+参考第 322 题 https://leetcode.cn/problems/coin-change/
 f(i) 表示和为 i 的排列的数目
 当 nums[j] <= i 时，f(i) = ∑f(i-nums[j])
  */

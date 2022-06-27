@@ -24,7 +24,7 @@ public class Solution335 {
 }
 /*
 335. 路径交叉
-https://leetcode-cn.com/problems/self-crossing/
+https://leetcode.cn/problems/self-crossing/
 
 给你一个整数数组 distance 。
 从 X-Y 平面上的点 (0,0) 开始，先向北移动 distance[0] 米，然后向西移动 distance[1] 米，向南移动 distance[2] 米，
@@ -32,7 +32,7 @@ https://leetcode-cn.com/problems/self-crossing/
 判断你所经过的路径是否相交。如果相交，返回 true ；否则，返回 false 。
 
 分类讨论。
-官方题解: https://leetcode-cn.com/problems/self-crossing/solution/lu-jing-jiao-cha-by-leetcode-solution-dekx/
+官方题解: https://leetcode.cn/problems/self-crossing/solution/lu-jing-jiao-cha-by-leetcode-solution-dekx/
 时间复杂度 O(n)
 空间复杂度 O(1)
  */

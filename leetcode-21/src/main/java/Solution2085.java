@@ -22,7 +22,7 @@ public class Solution2085 {
 }
 /*
 2085. 统计出现过一次的公共字符串
-https://leetcode-cn.com/problems/count-common-words-with-one-occurrence/
+https://leetcode.cn/problems/count-common-words-with-one-occurrence/
 
 第 66 场双周赛 T1。
 

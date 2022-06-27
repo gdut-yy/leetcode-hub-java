@@ -33,7 +33,7 @@ public class Solution860 {
 }
 /*
 860. 柠檬水找零
-https://leetcode-cn.com/problems/lemonade-change/
+https://leetcode.cn/problems/lemonade-change/
 
 第 91 场周赛 T1。
 

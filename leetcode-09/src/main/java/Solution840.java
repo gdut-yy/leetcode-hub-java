@@ -60,7 +60,7 @@ public class Solution840 {
 }
 /*
 840. 矩阵中的幻方
-https://leetcode-cn.com/problems/magic-squares-in-grid/
+https://leetcode.cn/problems/magic-squares-in-grid/
 
 第 86 场周赛 T1。
 

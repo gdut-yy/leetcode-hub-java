@@ -94,7 +94,7 @@ public class Solution127 {
 }
 /*
 127. 单词接龙
-https://leetcode-cn.com/problems/word-ladder/
+https://leetcode.cn/problems/word-ladder/
 
 字典 wordList 中从单词 beginWord 和 endWord 的 转换序列 是一个按下述规格形成的序列 beginWord -> s1 -> s2 -> ... -> sk：
 - 每一对相邻的单词只差一个字母。

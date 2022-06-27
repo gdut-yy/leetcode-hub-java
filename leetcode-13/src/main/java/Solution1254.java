@@ -125,7 +125,7 @@ public class Solution1254 {
 }
 /*
 1254. 统计封闭岛屿的数目
-https://leetcode-cn.com/problems/number-of-closed-islands/
+https://leetcode.cn/problems/number-of-closed-islands/
 
 二维矩阵 grid 由 0 （土地）和 1 （水）组成。岛是由最大的4个方向连通的 0 组成的群，封闭岛是一个 完全 由1包围（左、上、右、下）的岛。
 请返回 封闭岛屿 的数目。
@@ -136,7 +136,7 @@ https://leetcode-cn.com/problems/number-of-closed-islands/
 并查集 + BFS
 先将与矩阵边缘联通的 0 全部转成 1，其余同 岛屿数量。
 相似题目: 200. 岛屿数量
-https://leetcode-cn.com/problems/number-of-islands/
+https://leetcode.cn/problems/number-of-islands/
 1020. 飞地的数量
-https://leetcode-cn.com/problems/number-of-enclaves/
+https://leetcode.cn/problems/number-of-enclaves/
  */

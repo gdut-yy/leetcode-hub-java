@@ -30,7 +30,7 @@ public class Solution325 {
 }
 /*
 $325. 和等于 k 的最长子数组长度
-https://leetcode-cn.com/problems/maximum-size-subarray-sum-equals-k/
+https://leetcode.cn/problems/maximum-size-subarray-sum-equals-k/
 
 给定一个数组 nums 和一个目标值 k，找到和等于 k 的最长连续子数组长度。如果不存在任意一个符合要求的子数组，则返回 0。
 提示：

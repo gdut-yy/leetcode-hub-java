@@ -30,7 +30,7 @@ public class Solution801 {
 }
 /*
 801. 使序列递增的最小交换次数
-https://leetcode-cn.com/problems/minimum-swaps-to-make-sequences-increasing/
+https://leetcode.cn/problems/minimum-swaps-to-make-sequences-increasing/
 
 我们有两个长度相等且不为空的整型数组 A 和 B 。
 我们可以交换 A[i] 和 B[i] 的元素。注意这两个元素在各自的序列中应该处于相同的位置。

@@ -21,7 +21,7 @@ public class Solution1941 {
 }
 /*
 1941. 检查是否所有字符出现次数相同
-https://leetcode-cn.com/problems/check-if-all-characters-have-equal-number-of-occurrences/
+https://leetcode.cn/problems/check-if-all-characters-have-equal-number-of-occurrences/
 
 第 57 场双周赛 T1。
 

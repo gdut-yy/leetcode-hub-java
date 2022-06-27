@@ -29,7 +29,7 @@ public class Solution918 {
 }
 /*
 918. 环形子数组的最大和
-https://leetcode-cn.com/problems/maximum-sum-circular-subarray/
+https://leetcode.cn/problems/maximum-sum-circular-subarray/
 
 第 105 场周赛 T2。
 
@@ -40,7 +40,7 @@ https://leetcode-cn.com/problems/maximum-sum-circular-subarray/
 （形式上，对于子数组 C[i], C[i+1], ..., C[j]，不存在 i <= k1, k2 <= j 其中 k1 % A.length = k2 % A.length）
 
 连续子数组最大和。Kanade 算法。
-https://leetcode-cn.com/problems/maximum-sum-circular-subarray/solution/huan-xing-zi-shu-zu-de-zui-da-he-by-leetcode/
+https://leetcode.cn/problems/maximum-sum-circular-subarray/solution/huan-xing-zi-shu-zu-de-zui-da-he-by-leetcode/
 时间复杂度 O(n)
 空间复杂度 O(1)
  */

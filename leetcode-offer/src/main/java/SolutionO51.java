@@ -67,7 +67,7 @@ public class SolutionO51 {
 }
 /*
 剑指 Offer 51. 数组中的逆序对
-https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+https://leetcode.cn/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
 
 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对。输入一个数组，求出这个数组中的逆序对的总数。
 输入: [7,5,6,4]
@@ -79,5 +79,5 @@ https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
 相似题目: 315. 计算右侧小于当前元素的个数
-https://leetcode-cn.com/problems/count-of-smaller-numbers-after-self/
+https://leetcode.cn/problems/count-of-smaller-numbers-after-self/
  */

@@ -37,7 +37,7 @@ public class Solution370 {
 }
 /*
 $370. 区间加法
-https://leetcode-cn.com/problems/range-addition/
+https://leetcode.cn/problems/range-addition/
 
 假设你有一个长度为 n 的数组，初始情况下所有的数字均为 0，你将会被给出 k 个更新的操作。
 其中，每个操作会被表示为一个三元组：[startIndex, endIndex, inc]，你需要将子数组 A[startIndex ... endIndex]

@@ -92,7 +92,7 @@ public class Solution1584 {
 }
 /*
 1584. 连接所有点的最小费用
-https://leetcode-cn.com/problems/min-cost-to-connect-all-points/
+https://leetcode.cn/problems/min-cost-to-connect-all-points/
 
 给你一个points 数组，表示 2D 平面上的一些点，其中 points[i] = [xi, yi] 。
 连接点 [xi, yi] 和点 [xj, yj] 的费用为它们之间的 曼哈顿距离 ：|xi - xj| + |yi - yj| ，其中 |val| 表示 val 的绝对值。
@@ -105,5 +105,5 @@ https://leetcode-cn.com/problems/min-cost-to-connect-all-points/
 最小生成树(MST)
 Kruskal 算法
 相似题目: 1135. 最低成本联通所有城市
-https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/
+https://leetcode.cn/problems/connecting-cities-with-minimum-cost/
  */

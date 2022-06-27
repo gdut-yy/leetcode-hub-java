@@ -56,7 +56,7 @@ public class Solution1755 {
 }
 /*
 1755. 最接近目标值的子序列和
-https://leetcode-cn.com/problems/closest-subsequence-sum/
+https://leetcode.cn/problems/closest-subsequence-sum/
 
 第 227 场周赛 T4。
 
@@ -71,5 +71,5 @@ https://leetcode-cn.com/problems/closest-subsequence-sum/
 
 折半搜索。
 相似题目: 2035. 将数组分成两个数组并最小化数组和的差
-https://leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
+https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
  */

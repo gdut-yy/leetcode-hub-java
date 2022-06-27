@@ -16,7 +16,7 @@ public class Solution406 {
 }
 /*
 406. 根据身高重建队列
-https://leetcode-cn.com/problems/queue-reconstruction-by-height/
+https://leetcode.cn/problems/queue-reconstruction-by-height/
 
 第一眼以为是单调栈，实际上并不是。
 将每个人按照身高从大到小进行排序，ki 升序排序

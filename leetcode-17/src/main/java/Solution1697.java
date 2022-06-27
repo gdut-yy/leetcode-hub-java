@@ -86,7 +86,7 @@ public class Solution1697 {
 }
 /*
 1697. 检查边长度限制的路径是否存在
-https://leetcode-cn.com/problems/checking-existence-of-edge-length-limited-paths/
+https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths/
 
 给你一个 n 个点组成的无向图边集 edgeList ，其中 edgeList[i] = [ui, vi, disi] 表示点 ui 和点 vi 之间有一条长度为 disi 的边。请注意，两个点之间可能有 超过一条边 。
 给你一个查询数组queries ，其中 queries[j] = [pj, qj, limitj] ，
@@ -105,5 +105,5 @@ pj != qj
 
 并查集 + 离线思维
 何为 "离线"？：询问是全部提前给出的，不必按照询问的顺序依次对它们进行处理
-参考零神的 https://leetcode-cn.com/problems/checking-existence-of-edge-length-limited-paths/solution/jian-cha-bian-chang-du-xian-zhi-de-lu-ji-c756/
+参考零神的 https://leetcode.cn/problems/checking-existence-of-edge-length-limited-paths/solution/jian-cha-bian-chang-du-xian-zhi-de-lu-ji-c756/
  */

@@ -26,7 +26,7 @@ public class Solution728 {
 }
 /*
 728. 自除数
-https://leetcode-cn.com/problems/self-dividing-numbers/
+https://leetcode.cn/problems/self-dividing-numbers/
 
 根据题意进行模拟即可。
  */

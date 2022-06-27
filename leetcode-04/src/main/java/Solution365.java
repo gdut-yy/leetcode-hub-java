@@ -18,7 +18,7 @@ public class Solution365 {
 }
 /*
 365. 水壶问题
-https://leetcode-cn.com/problems/water-and-jug-problem/
+https://leetcode.cn/problems/water-and-jug-problem/
 
 有两个水壶，容量分别为 jug1Capacity 和 jug2Capacity 升。水的供应是无限的。确定是否有可能使用这两个壶准确得到 targetCapacity 升。
 如果可以得到 targetCapacity 升水，最后请用以上水壶中的一或两个来盛放取得的 targetCapacity 升水。

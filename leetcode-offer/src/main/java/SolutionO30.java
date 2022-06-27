@@ -40,11 +40,11 @@ public class SolutionO30 {
 }
 /*
 剑指 Offer 30. 包含min函数的栈
-https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/
+https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
 
 定义栈的数据结构，请在该类型中实现一个能够得到栈的最小元素的 min 函数在该栈中，调用 min、push 及 pop 的时间复杂度都是 O(1)。
 
 同: 155. 最小栈
-https://leetcode-cn.com/problems/min-stack/
+https://leetcode.cn/problems/min-stack/
 注意函数名差异。
  */

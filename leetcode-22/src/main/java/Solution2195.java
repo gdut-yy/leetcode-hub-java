@@ -20,7 +20,7 @@ public class Solution2195 {
 }
 /*
 2195. 向数组中追加 K 个整数
-https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum/
+https://leetcode.cn/problems/append-k-integers-with-minimal-sum/
 
 第 283 场周赛 T2。
 

@@ -20,7 +20,7 @@ public class Solution1436 {
 }
 /*
 1436. 旅行终点站
-https://leetcode-cn.com/problems/destination-city/
+https://leetcode.cn/problems/destination-city/
 
 第 187 场周赛 T1。
 

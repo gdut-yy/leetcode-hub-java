@@ -17,7 +17,7 @@ public class Solution2109 {
 }
 /*
 2109. 向字符串添加空格
-https://leetcode-cn.com/problems/adding-spaces-to-a-string/
+https://leetcode.cn/problems/adding-spaces-to-a-string/
 
 第 272 场周赛 T2。
 

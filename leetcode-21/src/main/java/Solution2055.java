@@ -70,7 +70,7 @@ public class Solution2055 {
 }
 /*
 2055. 蜡烛之间的盘子
-https://leetcode-cn.com/problems/plates-between-candles/
+https://leetcode.cn/problems/plates-between-candles/
 
 第 64 场双周赛 T3。
 

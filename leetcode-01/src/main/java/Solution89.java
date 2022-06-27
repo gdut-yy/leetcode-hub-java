@@ -12,7 +12,7 @@ public class Solution89 {
 }
 /*
 89. 格雷编码
-https://leetcode-cn.com/problems/gray-code/
+https://leetcode.cn/problems/gray-code/
 
 n 位格雷码序列 是一个由 2n 个整数组成的序列，其中：
 - 每个整数都在范围 [0, 2n - 1] 内（含 0 和 2n - 1）

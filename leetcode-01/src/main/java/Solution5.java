@@ -114,7 +114,7 @@ public class Solution5 {
 }
 /*
 5. 最长回文子串
-https://leetcode-cn.com/problems/longest-palindromic-substring/
+https://leetcode.cn/problems/longest-palindromic-substring/
 
 给你一个字符串 s，找到 s 中最长的回文子串。
 提示：
@@ -122,5 +122,5 @@ https://leetcode-cn.com/problems/longest-palindromic-substring/
 s 仅由数字和英文字母组成
 
 动态规划/Manacher 马拉车算法
-官方题解: https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
+官方题解: https://leetcode.cn/problems/longest-palindromic-substring/solution/zui-chang-hui-wen-zi-chuan-by-leetcode-solution/
  */

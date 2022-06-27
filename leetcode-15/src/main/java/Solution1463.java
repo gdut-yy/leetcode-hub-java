@@ -52,7 +52,7 @@ public class Solution1463 {
 }
 /*
 1463. 摘樱桃 II
-https://leetcode-cn.com/problems/cherry-pickup-ii/
+https://leetcode.cn/problems/cherry-pickup-ii/
 
 给你一个 rows x cols 的矩阵 grid 来表示一块樱桃地。 grid 中每个格子的数字表示你能获得的樱桃数目。
 你有两个机器人帮你收集樱桃，机器人 1 从左上角格子 (0,0) 出发，机器人 2 从右上角格子 (0, cols-1) 出发。
@@ -72,5 +72,5 @@ cols == grid[i].length
 时间复杂度 O(m*n^2)
 空间复杂度 O(m*n^2) 可以压缩到 O(n^2)
 相似题目: 741. 摘樱桃
-https://leetcode-cn.com/problems/cherry-pickup/
+https://leetcode.cn/problems/cherry-pickup/
  */

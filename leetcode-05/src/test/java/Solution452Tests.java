@@ -42,7 +42,7 @@ public class Solution452Tests {
     // 补充用例
     @Test
     public void example6() {
-        // https://leetcode-cn.com/submissions/detail/243982002/
+        // https://leetcode.cn/submissions/detail/243982002/
         int[][] points = UtUtils.stringToInts2("[[-2147483646,-2147483645],[2147483646,2147483647]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution452.findMinArrowShots(points));

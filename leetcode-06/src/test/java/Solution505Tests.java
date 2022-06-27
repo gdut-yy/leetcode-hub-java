@@ -34,7 +34,7 @@ public class Solution505Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/263535657/
+        // https://leetcode.cn/submissions/detail/263535657/
         int[][] maze = UtUtils.loadingInts2("solution505-example3-input.txt", 0);
         int[] start = UtUtils.loadingInts("solution505-example3-input.txt", 1);
         int[] destination = UtUtils.loadingInts("solution505-example3-input.txt", 2);

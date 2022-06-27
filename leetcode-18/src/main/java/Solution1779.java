@@ -24,7 +24,7 @@ public class Solution1779 {
 }
 /*
 1779. 找到最近的有相同 X 或 Y 坐标的点
-https://leetcode-cn.com/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/
+https://leetcode.cn/problems/find-nearest-point-that-has-the-same-x-or-y-coordinate/
 
 给你两个整数 x 和 y ，表示你在一个笛卡尔坐标系下的 (x, y) 处。同时，在同一个坐标系下给你一个数组 points ，
 其中 points[i] = [ai, bi] 表示在 (ai, bi) 处有一个点。当一个点与你所在的位置有相同的 x 坐标或者相同的 y 坐标时，我们称这个点是 有效的 。

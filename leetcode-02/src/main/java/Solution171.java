@@ -14,7 +14,7 @@ public class Solution171 {
 }
 /*
 171. Excel 表列序号
-https://leetcode-cn.com/problems/excel-sheet-column-number/
+https://leetcode.cn/problems/excel-sheet-column-number/
 
 给你一个字符串  columnTitle ，表示 Excel 表格中的列名称。返回 该列名称对应的列序号  。
 例如：
@@ -33,5 +33,5 @@ columnTitle 在范围 ["A", "FXSHRXW"] 内
 
 模拟。
 相似题目: 168. Excel表列名称
-https://leetcode-cn.com/problems/excel-sheet-column-title/
+https://leetcode.cn/problems/excel-sheet-column-title/
  */

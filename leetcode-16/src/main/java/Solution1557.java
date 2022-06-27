@@ -21,7 +21,7 @@ public class Solution1557 {
 }
 /*
 1557. 可以到达所有点的最少点数目
-https://leetcode-cn.com/problems/minimum-number-of-vertices-to-reach-all-nodes/
+https://leetcode.cn/problems/minimum-number-of-vertices-to-reach-all-nodes/
 
 第 33 场双周赛 T2。
 

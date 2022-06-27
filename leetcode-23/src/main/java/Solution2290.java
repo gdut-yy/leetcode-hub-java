@@ -175,5 +175,5 @@ grid[0][0] == grid[m - 1][n - 1] == 0
 Dijkstra 时间复杂度 O(mnlog(mn))
 0-1 BFS
 相似题目: 1368. 使网格图至少有一条有效路径的最小代价
-https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
+https://leetcode.cn/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
  */

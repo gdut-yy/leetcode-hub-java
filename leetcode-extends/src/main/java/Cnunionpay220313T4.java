@@ -71,7 +71,7 @@ public class Cnunionpay220313T4 {
 }
 /*
 银联-04. 合作开发
-https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/lCh58I/
+https://leetcode.cn/contest/cnunionpay-2022spring/problems/lCh58I/
 
 为了不断提高用户使用的体验，开发团队正在对产品进行全方位的开发和优化。
 已知开发团队共有若干名成员，skills[i] 表示第 i 名开发人员掌握技能列表。如果两名成员各自拥有至少一门对方未拥有的技能，则这两名成员可以「合作开发」。
@@ -85,5 +85,5 @@ https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/lCh58I/
 skills[i] 中不包含重复元素
 
 总数 - 不满足合作开发的成员对数
-参考: 【灵茶山艾府】3/13 中国银联专场竞赛 题解 https://leetcode-cn.com/circle/discuss/YfxFdF/
+参考: 【灵茶山艾府】3/13 中国银联专场竞赛 题解 https://leetcode.cn/circle/discuss/YfxFdF/
  */

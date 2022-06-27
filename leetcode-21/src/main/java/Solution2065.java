@@ -53,7 +53,7 @@ public class Solution2065 {
 }
 /*
 2065. 最大化一张图中的路径价值
-https://leetcode-cn.com/problems/maximum-path-quality-of-a-graph/
+https://leetcode.cn/problems/maximum-path-quality-of-a-graph/
 
 第 266 场周赛 T4。
 

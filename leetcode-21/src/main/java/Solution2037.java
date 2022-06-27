@@ -13,7 +13,7 @@ public class Solution2037 {
 }
 /*
 2037. 使每位学生都有座位的最少移动次数
-https://leetcode-cn.com/problems/minimum-number-of-moves-to-seat-everyone/
+https://leetcode.cn/problems/minimum-number-of-moves-to-seat-everyone/
 
 第 63 场双周赛 T1。
 

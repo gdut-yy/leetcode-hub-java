@@ -22,7 +22,7 @@ public class Solution2136 {
 }
 /*
 2136. 全部开花的最早一天
-https://leetcode-cn.com/problems/earliest-possible-day-of-full-bloom/
+https://leetcode.cn/problems/earliest-possible-day-of-full-bloom/
 
 第 275 场周赛 T4。
 

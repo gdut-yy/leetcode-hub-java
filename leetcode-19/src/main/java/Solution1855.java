@@ -28,7 +28,7 @@ public class Solution1855 {
 }
 /*
 1855. 下标对中的最大距离
-https://leetcode-cn.com/problems/maximum-distance-between-a-pair-of-values/
+https://leetcode.cn/problems/maximum-distance-between-a-pair-of-values/
 
 给你两个 非递增 的整数数组 nums1 和 nums2 ，数组下标均 从 0 开始 计数。
 下标对 (i, j) 中 0 <= i < nums1.length 且 0 <= j < nums2.length 。如果该下标对同时满足 i <= j 且 nums1[i] <= nums2[j] ，

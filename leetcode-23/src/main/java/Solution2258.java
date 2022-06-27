@@ -116,7 +116,7 @@ public class Solution2258 {
 }
 /*
 2258. 逃离火灾
-https://leetcode-cn.com/problems/escape-the-spreading-fire/
+https://leetcode.cn/problems/escape-the-spreading-fire/
 
 第 77 场双周赛 T4。
 

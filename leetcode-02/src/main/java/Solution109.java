@@ -47,5 +47,5 @@ head 中的节点数在[0, 2 * 10^4] 范围内
 
 转数组后再调用 sortedArrayToBST()
 相似题目: 108. 将有序数组转换为二叉搜索树
-https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/
  */

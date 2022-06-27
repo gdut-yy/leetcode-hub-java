@@ -24,7 +24,7 @@ public class Solution1845 {
 }
 /*
 1845. 座位预约管理系统
-https://leetcode-cn.com/problems/seat-reservation-manager/
+https://leetcode.cn/problems/seat-reservation-manager/
 
 请你设计一个管理 n 个座位预约的系统，座位编号从 1 到 n 。
 请你实现 SeatManager 类：

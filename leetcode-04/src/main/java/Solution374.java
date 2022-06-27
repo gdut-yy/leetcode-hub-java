@@ -42,7 +42,7 @@ public class Solution374 {
 }
 /*
 374. 猜数字大小
-https://leetcode-cn.com/problems/guess-number-higher-or-lower/
+https://leetcode.cn/problems/guess-number-higher-or-lower/
 
 猜数字游戏的规则如下：
 - 每轮游戏，我都会从 1 到 n 随机选择一个数字。 请你猜选出的是哪个数字。

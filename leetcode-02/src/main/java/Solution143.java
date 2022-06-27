@@ -47,7 +47,7 @@ public class Solution143 {
 }
 /*
 143. 重排链表
-https://leetcode-cn.com/problems/reorder-list/
+https://leetcode.cn/problems/reorder-list/
 
 给定一个单链表 L 的头节点 head ，单链表 L 表示为：
 L0 → L1 → … → Ln - 1 → Ln
@@ -63,8 +63,8 @@ L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
 
 相似题目:
 Step1: 找链表的中间结点。876. 链表的中间结点
-https://leetcode-cn.com/problems/middle-of-the-linked-list/
+https://leetcode.cn/problems/middle-of-the-linked-list/
 Step2: 反转链表。206. 反转链表
-https://leetcode-cn.com/problems/reverse-linked-list/
+https://leetcode.cn/problems/reverse-linked-list/
 Step3: 连接链表。
  */

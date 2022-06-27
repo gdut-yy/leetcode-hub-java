@@ -99,7 +99,7 @@ public class Solution2203 {
 }
 /*
 2203. 得到要求路径的最小带权子图
-https://leetcode-cn.com/problems/minimum-weighted-subgraph-with-the-required-paths/
+https://leetcode.cn/problems/minimum-weighted-subgraph-with-the-required-paths/
 
 第 284 场周赛 T4。
 
@@ -120,5 +120,5 @@ src1 ，src2 和 dest 两两不同。
 dijkstra 单源最短路
 时间复杂度 O(nlogm)
 相似题目: 743. 网络延迟时间
-https://leetcode-cn.com/problems/network-delay-time/
+https://leetcode.cn/problems/network-delay-time/
  */

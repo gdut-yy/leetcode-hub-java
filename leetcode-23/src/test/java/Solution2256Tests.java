@@ -21,7 +21,7 @@ public class Solution2256Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/307520580/
+        // https://leetcode.cn/submissions/detail/307520580/
         // / zero
         int[] nums = {4, 2, 0};
         int expected = 2;

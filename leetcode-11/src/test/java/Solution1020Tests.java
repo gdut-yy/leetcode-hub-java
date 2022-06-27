@@ -21,7 +21,7 @@ public class Solution1020Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/266351793/
+        // https://leetcode.cn/submissions/detail/266351793/
         // 51 / 57 个通过测试用例
         int[][] grid = UtUtils.loadingInts2("solution1020-example3-input.txt", 0);
         int expected = 17041;

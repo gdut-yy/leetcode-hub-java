@@ -45,7 +45,7 @@ public class Solution1405 {
 }
 /*
 1405. 最长快乐字符串
-https://leetcode-cn.com/problems/longest-happy-string/
+https://leetcode.cn/problems/longest-happy-string/
 
 如果字符串中不含有任何 'aaa'，'bbb' 或 'ccc' 这样的字符串作为子串，那么该字符串就是一个「快乐字符串」。
 给你三个整数 a，b ，c，请你返回 任意一个 满足下列全部条件的字符串 s：

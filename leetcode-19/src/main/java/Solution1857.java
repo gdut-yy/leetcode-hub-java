@@ -63,7 +63,7 @@ public class Solution1857 {
 }
 /*
 1857. 有向图中最大颜色值
-https://leetcode-cn.com/problems/largest-color-value-in-a-directed-graph/
+https://leetcode.cn/problems/largest-color-value-in-a-directed-graph/
 
 给你一个 有向图 ，它含有 n 个节点和 m 条边。节点编号从 0 到 n - 1 。
 给你一个字符串 colors ，其中 colors[i] 是小写英文字母，表示图中第 i 个节点的 颜色 （下标从 0 开始）。

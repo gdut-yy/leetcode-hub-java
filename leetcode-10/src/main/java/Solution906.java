@@ -181,7 +181,7 @@ public class Solution906 {
 }
 /*
 906. 超级回文数
-https://leetcode-cn.com/problems/super-palindromes/
+https://leetcode.cn/problems/super-palindromes/
 
 第 102 场周赛 T4。
 

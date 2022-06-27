@@ -43,10 +43,10 @@ public class SolutionI0206 {
 }
 /*
 面试题 02.06. 回文链表
-https://leetcode-cn.com/problems/palindrome-linked-list-lcci/
+https://leetcode.cn/problems/palindrome-linked-list-lcci/
 
 编写一个函数，检查输入的链表是否是回文的。
 
 同: 234. 回文链表
-https://leetcode-cn.com/problems/palindrome-linked-list/
+https://leetcode.cn/problems/palindrome-linked-list/
  */

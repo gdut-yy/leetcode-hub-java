@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * meituan-002. 小美的仓库整理
- * https://leetcode-cn.com/problems/TJZLyC/
+ * https://leetcode.cn/problems/TJZLyC/
  */
 public class Meituan002 {
     public static void main(String[] args) throws IOException {

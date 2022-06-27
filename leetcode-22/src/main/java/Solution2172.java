@@ -155,7 +155,7 @@ public class Solution2172 {
 }
 /*
 2172. 数组的最大与和
-https://leetcode-cn.com/problems/maximum-and-sum-of-array/
+https://leetcode.cn/problems/maximum-and-sum-of-array/
 
 第 280 场周赛 T4。
 
@@ -167,7 +167,7 @@ https://leetcode-cn.com/problems/maximum-and-sum-of-array/
 KM 算法或状态压缩 DP。
 时间复杂度：O(n^3)。其中 k = numSlots * 2，本题理论上界为 18^3 = 5832.
 相似题目: 1066. 校园自行车分配 II
-https://leetcode-cn.com/problems/campus-bikes-ii/
+https://leetcode.cn/problems/campus-bikes-ii/
 1947. 最大兼容性评分和
-https://leetcode-cn.com/problems/maximum-compatibility-score-sum/
+https://leetcode.cn/problems/maximum-compatibility-score-sum/
  */

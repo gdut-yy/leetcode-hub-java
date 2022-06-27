@@ -15,7 +15,7 @@ public class Solution2027 {
 }
 /*
 2027. 转换字符串的最少操作次数
-https://leetcode-cn.com/problems/minimum-moves-to-convert-string/
+https://leetcode.cn/problems/minimum-moves-to-convert-string/
 
 第 261 场周赛 T1。
 

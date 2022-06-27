@@ -10,7 +10,7 @@ public class Solution1064 {
 }
 /*
 1064. 不动点
-https://leetcode-cn.com/problems/fixed-point/
+https://leetcode.cn/problems/fixed-point/
 
 第 1 场双周赛 T1。
 

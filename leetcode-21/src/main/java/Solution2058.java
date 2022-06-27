@@ -46,7 +46,7 @@ public class Solution2058 {
 }
 /*
 2058. 找出临界点之间的最小和最大距离
-https://leetcode-cn.com/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points/
+https://leetcode.cn/problems/find-the-minimum-and-maximum-number-of-nodes-between-critical-points/
 
 第 265 场周赛 T2。
 

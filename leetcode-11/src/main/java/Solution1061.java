@@ -61,7 +61,7 @@ public class Solution1061 {
 }
 /*
 $1061. 按字典序排列最小的等效字符串
-https://leetcode-cn.com/problems/lexicographically-smallest-equivalent-string/
+https://leetcode.cn/problems/lexicographically-smallest-equivalent-string/
 
 给出长度相同的两个字符串s1 和 s2 ，还有一个字符串 baseStr 。
 其中  s1[i] 和 s2[i]  是一组等价字符。

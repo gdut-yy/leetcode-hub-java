@@ -13,7 +13,7 @@ public class Solution1217 {
 }
 /*
 1217. 玩筹码
-https://leetcode-cn.com/problems/minimum-cost-to-move-chips-to-the-same-position/
+https://leetcode.cn/problems/minimum-cost-to-move-chips-to-the-same-position/
 
 第 157 场周赛 T1。
 

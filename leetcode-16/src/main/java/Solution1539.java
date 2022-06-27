@@ -20,7 +20,7 @@ public class Solution1539 {
 }
 /*
 1539. 第 k 个缺失的正整数
-https://leetcode-cn.com/problems/kth-missing-positive-number/
+https://leetcode.cn/problems/kth-missing-positive-number/
 
 给你一个 严格升序排列 的正整数数组 arr 和一个整数 k 。
 请你找到这个数组里第 k 个缺失的正整数。
@@ -33,5 +33,5 @@ https://leetcode-cn.com/problems/kth-missing-positive-number/
 线性遍历
 时间复杂度 O(n)
 相似题目: 2195. 向数组中追加 K 个整数
-https://leetcode-cn.com/problems/append-k-integers-with-minimal-sum/
+https://leetcode.cn/problems/append-k-integers-with-minimal-sum/
  */

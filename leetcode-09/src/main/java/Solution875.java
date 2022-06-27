@@ -27,7 +27,7 @@ public class Solution875 {
 }
 /*
 875. 爱吃香蕉的珂珂
-https://leetcode-cn.com/problems/koko-eating-bananas/
+https://leetcode.cn/problems/koko-eating-bananas/
 
 第 94 场周赛 T3。
 

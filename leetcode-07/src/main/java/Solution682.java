@@ -34,7 +34,7 @@ public class Solution682 {
 }
 /*
 682. 棒球比赛
-https://leetcode-cn.com/problems/baseball-game/
+https://leetcode.cn/problems/baseball-game/
 
 你现在是一场采用特殊赛制棒球比赛的记录员。这场比赛由若干回合组成，过去几回合的得分可能会影响以后几回合的得分。
 比赛开始时，记录是空白的。你会得到一个记录操作的字符串列表 ops，其中 ops[i] 是你需要记录的第 i 项操作，ops 遵循下述规则：

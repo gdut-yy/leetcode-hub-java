@@ -70,7 +70,7 @@ public class Solution934 {
 }
 /*
 934. 最短的桥
-https://leetcode-cn.com/problems/shortest-bridge/
+https://leetcode.cn/problems/shortest-bridge/
 
 在给定的二维二进制数组 A 中，存在两座岛。（岛是由四面相连的 1 形成的一个最大组。）
 现在，我们可以将 0 变为 1，以使两座岛连接起来，变成一座岛。

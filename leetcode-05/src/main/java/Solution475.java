@@ -31,7 +31,7 @@ public class Solution475 {
 }
 /*
 475. 供暖器
-https://leetcode-cn.com/problems/heaters/
+https://leetcode.cn/problems/heaters/
 
 冬季已经来临。 你的任务是设计一个有固定加热半径的供暖器向所有房屋供暖。
 在加热器的加热半径范围内的每个房屋都可以获得供暖。

@@ -23,13 +23,13 @@ public class SolutionI0408 {
 }
 /*
 面试题 04.08. 首个共同祖先
-https://leetcode-cn.com/problems/first-common-ancestor-lcci/
+https://leetcode.cn/problems/first-common-ancestor-lcci/
 
 设计并实现一个算法，找出二叉树中某两个节点的第一个共同祖先。不得将其他的节点存储在另外的数据结构中。注意：这不一定是二叉搜索树。
 例如，给定如下二叉树: root = [3,5,1,6,2,0,8,null,null,7,4]
 
 同: 235. 二叉搜索树的最近公共祖先
-https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/
 236. 二叉树的最近公共祖先
-https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/
+https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/
  */

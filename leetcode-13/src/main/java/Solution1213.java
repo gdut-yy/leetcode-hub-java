@@ -29,5 +29,5 @@ https://leetcode.cn/problems/intersection-of-three-sorted-arrays/
 
 Set 求交集。
 相似题目: 2248. 多个数组求交集
-https://leetcode-cn.com/problems/intersection-of-multiple-arrays/
+https://leetcode.cn/problems/intersection-of-multiple-arrays/
  */

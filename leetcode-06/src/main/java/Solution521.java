@@ -8,7 +8,7 @@ public class Solution521 {
 }
 /*
 521. 最长特殊序列 Ⅰ
-https://leetcode-cn.com/problems/longest-uncommon-subsequence-i/
+https://leetcode.cn/problems/longest-uncommon-subsequence-i/
 
 给你两个字符串 a 和 b，请返回 这两个字符串中 最长的特殊序列  。如果不存在，则返回 -1 。
 「最长特殊序列」 定义如下：该序列为 某字符串独有的最长子序列（即不能是其他字符串的子序列） 。

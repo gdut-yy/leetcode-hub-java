@@ -9,7 +9,7 @@ public class Solution2177 {
 }
 /*
 2177. 找到和为给定整数的三个连续整数
-https://leetcode-cn.com/problems/find-three-consecutive-integers-that-sum-to-a-given-number/
+https://leetcode.cn/problems/find-three-consecutive-integers-that-sum-to-a-given-number/
 
 第 72 场双周赛 T2。
 

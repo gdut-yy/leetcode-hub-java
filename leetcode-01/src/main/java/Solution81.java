@@ -10,7 +10,7 @@ public class Solution81 {
 }
 /*
 81. 搜索旋转排序数组 II
-https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
+https://leetcode.cn/problems/search-in-rotated-sorted-array-ii/
 
 已知存在一个按非降序排列的整数数组 nums ，数组中的值不必互不相同。
 在传递给函数之前，nums 在预先未知的某个下标 k（0 <= k < nums.length）上进行了 旋转 ，
@@ -29,5 +29,5 @@ https://leetcode-cn.com/problems/search-in-rotated-sorted-array-ii/
 
 可能包含重复元素，直接线性遍历，时间复杂度 O(n)
 相似题目: 33. 搜索旋转排序数组
-https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+https://leetcode.cn/problems/search-in-rotated-sorted-array/
  */

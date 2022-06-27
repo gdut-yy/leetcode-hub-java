@@ -15,7 +15,7 @@ public class Solution1502 {
 }
 /*
 1502. 判断能否形成等差数列
-https://leetcode-cn.com/problems/can-make-arithmetic-progression-from-sequence/
+https://leetcode.cn/problems/can-make-arithmetic-progression-from-sequence/
 
 第 196 场周赛 T1。
 

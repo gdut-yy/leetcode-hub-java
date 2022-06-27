@@ -25,7 +25,7 @@ public class Solution1697Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/290981216/
+        // https://leetcode.cn/submissions/detail/290981216/
         // 22 / 23 个通过测试用例
         // queries 存在两组 [2, 1, 1952]
         int n = 5;

@@ -24,7 +24,7 @@ public class Solution482 {
 }
 /*
 482. 密钥格式化
-https://leetcode-cn.com/problems/license-key-formatting/
+https://leetcode.cn/problems/license-key-formatting/
 
 模拟。
  */

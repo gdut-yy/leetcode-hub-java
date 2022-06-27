@@ -16,7 +16,7 @@ public class Solution1880 {
 }
 /*
 1880. 检查某单词是否等于两单词之和
-https://leetcode-cn.com/problems/check-if-word-equals-summation-of-two-words/
+https://leetcode.cn/problems/check-if-word-equals-summation-of-two-words/
 
 第 243 场周赛 T1。
 

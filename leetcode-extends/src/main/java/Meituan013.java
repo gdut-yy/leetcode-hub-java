@@ -5,7 +5,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * meituan-013. 偏爱字母
- * https://leetcode-cn.com/problems/pedXtA/
+ * https://leetcode.cn/problems/pedXtA/
  */
 public class Meituan013 {
     public static void main(String[] args) throws IOException {

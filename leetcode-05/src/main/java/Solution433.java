@@ -43,7 +43,7 @@ public class Solution433 {
 }
 /*
 433. 最小基因变化
-https://leetcode-cn.com/problems/minimum-genetic-mutation/
+https://leetcode.cn/problems/minimum-genetic-mutation/
 
 一条基因序列由一个带有8个字符的字符串表示，其中每个字符都属于 "A", "C", "G", "T"中的任意一个。
 假设我们要调查一个基因序列的变化。一次基因变化意味着这个基因序列中的一个字符发生了变化。

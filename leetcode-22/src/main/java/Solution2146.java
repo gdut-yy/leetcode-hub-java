@@ -76,7 +76,7 @@ public class Solution2146 {
 }
 /*
 2146. 价格范围内最高排名的 K 样物品
-https://leetcode-cn.com/problems/k-highest-ranked-items-within-a-price-range/
+https://leetcode.cn/problems/k-highest-ranked-items-within-a-price-range/
 
 第 70 场双周赛 T3。
 

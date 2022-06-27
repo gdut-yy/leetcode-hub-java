@@ -78,7 +78,7 @@ public class Solution1591 {
 }
 /*
 1591. 奇怪的打印机 II
-https://leetcode-cn.com/problems/strange-printer-ii/
+https://leetcode.cn/problems/strange-printer-ii/
 
 给你一个奇怪的打印机，它有如下两个特殊的打印规则：
 - 每一次操作时，打印机会用同一种颜色打印一个矩形的形状，每次打印会覆盖矩形对应格子里原本的颜色。
@@ -92,5 +92,5 @@ n == targetGrid[i].length
 1 <= targetGrid[row][col] <= 60
 
 本题难点在于将问题转化为 拓扑排序
-参考: https://leetcode-cn.com/problems/strange-printer-ii/solution/cyi-chong-qi-guai-de-si-lu-jian-tu-tuo-bu-pai-xu-b/
+参考: https://leetcode.cn/problems/strange-printer-ii/solution/cyi-chong-qi-guai-de-si-lu-jian-tu-tuo-bu-pai-xu-b/
  */

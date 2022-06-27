@@ -18,7 +18,7 @@ public class Solution1748 {
 }
 /*
 1748. 唯一元素的和
-https://leetcode-cn.com/problems/sum-of-unique-elements/
+https://leetcode.cn/problems/sum-of-unique-elements/
 
 给你一个整数数组 nums 。数组中唯一元素是那些只出现 恰好一次 的元素。
 请你返回 nums 中唯一元素的 和 。

@@ -20,7 +20,7 @@ public class Solution414 {
 }
 /*
 414. 第三大的数
-https://leetcode-cn.com/problems/third-maximum-number/
+https://leetcode.cn/problems/third-maximum-number/
 
 给你一个非空数组，返回此数组中 第三大的数 。如果不存在，则返回数组中最大的数。
  */

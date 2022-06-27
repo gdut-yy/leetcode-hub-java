@@ -24,7 +24,7 @@ public class Solution523 {
 }
 /*
 523. 连续的子数组和
-https://leetcode-cn.com/problems/continuous-subarray-sum/
+https://leetcode.cn/problems/continuous-subarray-sum/
 
 给你一个整数数组 nums 和一个整数  k ，编写一个函数来判断该数组是否含有同时满足下述条件的连续子数组：
 子数组大小 至少为 2 ，且
@@ -34,5 +34,5 @@ https://leetcode-cn.com/problems/continuous-subarray-sum/
 
 同余定理。
 相似题目: 974. 和可被 K 整除的子数组
-https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/
+https://leetcode.cn/problems/subarray-sums-divisible-by-k/
  */

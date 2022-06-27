@@ -35,7 +35,7 @@ public class Solution2131 {
 }
 /*
 2131. 连接两字母单词得到的最长回文串
-https://leetcode-cn.com/problems/longest-palindrome-by-concatenating-two-letter-words/
+https://leetcode.cn/problems/longest-palindrome-by-concatenating-two-letter-words/
 
 第 69 场双周赛 T3。
 

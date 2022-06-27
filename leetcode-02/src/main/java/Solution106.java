@@ -60,5 +60,5 @@ postorder 保证是树的后序遍历
 时间复杂度 O(n)
 空间复杂度 O(n)
 相似题目: 105. 从前序与中序遍历序列构造二叉树
-https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
+https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-inorder-traversal/
  */

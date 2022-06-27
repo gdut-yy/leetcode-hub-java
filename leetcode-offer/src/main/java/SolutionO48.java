@@ -26,10 +26,10 @@ public class SolutionO48 {
 }
 /*
 剑指 Offer 48. 最长不含重复字符的子字符串
-https://leetcode-cn.com/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/
+https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/
 
 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
 
 同: 3. 无重复字符的最长子串
-https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/
+https://leetcode.cn/problems/longest-substring-without-repeating-characters/
  */

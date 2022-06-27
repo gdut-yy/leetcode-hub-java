@@ -56,7 +56,7 @@ public class Solution1292 {
 }
 /*
 1292. 元素和小于等于阈值的正方形的最大边长
-https://leetcode-cn.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/
+https://leetcode.cn/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/
 
 第 167 场周赛 T3。
 

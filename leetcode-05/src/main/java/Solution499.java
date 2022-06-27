@@ -106,7 +106,7 @@ public class Solution499 {
 }
 /*
 $499. 迷宫 III
-https://leetcode-cn.com/problems/the-maze-iii/
+https://leetcode.cn/problems/the-maze-iii/
 
 由空地和墙组成的迷宫中有一个球。球可以向上（u）下（d）左（l）右（r）四个方向滚动，但在遇到墙壁前不会停止滚动。
 当球停下时，可以选择下一个方向。迷宫中还有一个洞，当球运动经过洞时，就会掉进洞里。
@@ -120,9 +120,9 @@ https://leetcode-cn.com/problems/the-maze-iii/
 迷宫至少包括2块空地，行数和列数均不超过30。
 
 难度升级，其中字典序最小可参考 建信03. 地铁路线规划
-https://leetcode-cn.com/contest/ccbft-2021fall/problems/zQTFs4/
+https://leetcode.cn/contest/ccbft-2021fall/problems/zQTFs4/
 相似题目: $490. 迷宫
-https://leetcode-cn.com/problems/the-maze/
+https://leetcode.cn/problems/the-maze/
 $505. 迷宫 II
-https://leetcode-cn.com/problems/the-maze-ii/
+https://leetcode.cn/problems/the-maze-ii/
  */

@@ -35,7 +35,7 @@ public class Solution252 {
 }
 /*
 $252. 会议室
-https://leetcode-cn.com/problems/meeting-rooms/
+https://leetcode.cn/problems/meeting-rooms/
 
 给定一个会议时间安排的数组 intervals ，每个会议时间都会包括开始和结束的时间 intervals[i] = [starti, endi] ，
 请你判断一个人是否能够参加这里面的全部会议。

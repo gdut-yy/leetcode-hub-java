@@ -21,7 +21,7 @@ public class Solution38 {
 }
 /*
 38. 外观数列
-https://leetcode-cn.com/problems/count-and-say/
+https://leetcode.cn/problems/count-and-say/
 
 给定一个正整数 n ，输出外观数列的第 n 项。
 「外观数列」是一个整数序列，从数字 1 开始，序列中的每一项都是对前一项的描述。

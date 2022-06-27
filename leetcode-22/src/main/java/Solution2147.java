@@ -28,7 +28,7 @@ public class Solution2147 {
 }
 /*
 2147. 分隔长廊的方案数
-https://leetcode-cn.com/problems/number-of-ways-to-divide-a-long-corridor/
+https://leetcode.cn/problems/number-of-ways-to-divide-a-long-corridor/
 
 第 70 场双周赛 T4。
 

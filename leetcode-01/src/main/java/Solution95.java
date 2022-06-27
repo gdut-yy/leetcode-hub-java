@@ -43,5 +43,5 @@ https://leetcode.cn/problems/unique-binary-search-trees-ii/
 回溯
 时间复杂度 O(nGn) Gn 为第 n 个卡特兰数
 相似题目: 96. 不同的二叉搜索树
-https://leetcode-cn.com/problems/unique-binary-search-trees/
+https://leetcode.cn/problems/unique-binary-search-trees/
  */

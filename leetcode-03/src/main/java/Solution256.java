@@ -1,7 +1,7 @@
 public class Solution256 {
     /**
      * 剑指 Offer II 091. 粉刷房子
-     * https://leetcode-cn.com/problems/JEj789/
+     * https://leetcode.cn/problems/JEj789/
      */
     public int minCost(int[][] costs) {
         int len = costs.length;
@@ -31,7 +31,7 @@ public class Solution256 {
 }
 /*
 $256. 粉刷房子
-https://leetcode-cn.com/problems/paint-house/
+https://leetcode.cn/problems/paint-house/
 
 假如有一排房子，共 n 个，每个房子可以被粉刷成红色、蓝色或者绿色这三种颜色中的一种，你需要粉刷所有的房子并且使其相邻的两个房子颜色不能相同。
 当然，因为市场上不同颜色油漆的价格不同，所以房子粉刷成不同颜色的花费成本也是不同的。每个房子粉刷成不同颜色的花费是以一个 n x 3 的正整数矩阵 costs 来表示的。
@@ -42,5 +42,5 @@ https://leetcode-cn.com/problems/paint-house/
 时间复杂度 O(n)
 空间复杂度 O(1)
 相似题目: $265. 粉刷房子 II
-https://leetcode-cn.com/problems/paint-house-ii/
+https://leetcode.cn/problems/paint-house-ii/
  */

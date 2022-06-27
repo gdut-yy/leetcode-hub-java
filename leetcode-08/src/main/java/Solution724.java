@@ -15,7 +15,7 @@ public class Solution724 {
 }
 /*
 724. 寻找数组的中心下标
-https://leetcode-cn.com/problems/find-pivot-index/
+https://leetcode.cn/problems/find-pivot-index/
 
 给你一个整数数组 nums, 请计算数组的 中心下标 。
 数组 中心下标 是数组的一个下标, 其左侧所有元素相加的和等于右侧所有元素相加的和。
@@ -24,7 +24,7 @@ https://leetcode-cn.com/problems/find-pivot-index/
 提示：
 1 <= nums.length <= 10^4
 -1000 <= nums[i] <= 1000
-注意：本题与主站 1991 题相同：https://leetcode-cn.com/problems/find-the-middle-index-in-array/
+注意：本题与主站 1991 题相同：https://leetcode.cn/problems/find-the-middle-index-in-array/
 
 枚举中心点即可。
 时间复杂度 O(n)

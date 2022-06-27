@@ -23,7 +23,7 @@ public class Solution1534 {
 }
 /*
 1534. 统计好三元组
-https://leetcode-cn.com/problems/count-good-triplets/
+https://leetcode.cn/problems/count-good-triplets/
 
 第 200 场周赛 T1。
 

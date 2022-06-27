@@ -22,7 +22,7 @@ public class Solution2161 {
 }
 /*
 2161. 根据给定数字划分数组
-https://leetcode-cn.com/problems/partition-array-according-to-given-pivot/
+https://leetcode.cn/problems/partition-array-according-to-given-pivot/
 
 第 71 场双周赛 T2。
 

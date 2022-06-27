@@ -54,7 +54,7 @@ public class Solution1192 {
 }
 /*
 1192. 查找集群内的「关键连接」
-https://leetcode-cn.com/problems/critical-connections-in-a-network/
+https://leetcode.cn/problems/critical-connections-in-a-network/
 
 第 154 场周赛 T4。
 

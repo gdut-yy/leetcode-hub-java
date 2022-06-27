@@ -29,7 +29,7 @@ public class Solution2256 {
 }
 /*
 2256. 最小平均差
-https://leetcode-cn.com/problems/minimum-average-difference/
+https://leetcode.cn/problems/minimum-average-difference/
 
 第 77 场双周赛 T2。
 

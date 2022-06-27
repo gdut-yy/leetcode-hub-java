@@ -52,7 +52,7 @@ public class Solution648 {
 }
 /*
 648. 单词替换
-https://leetcode-cn.com/problems/replace-words/
+https://leetcode.cn/problems/replace-words/
 
 给定一个由许多词根组成的词典和一个句子。你需要将句子中的所有继承词用词根替换掉。如果继承词有许多可以形成它的词根，则用最短的词根替换它。
 需要输出替换之后的句子。

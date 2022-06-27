@@ -28,7 +28,7 @@ public class Solution2033 {
 }
 /*
 2033. 获取单值网格的最小操作数
-https://leetcode-cn.com/problems/minimum-operations-to-make-a-uni-value-grid/
+https://leetcode.cn/problems/minimum-operations-to-make-a-uni-value-grid/
 
 第 262 场周赛 T2。
 

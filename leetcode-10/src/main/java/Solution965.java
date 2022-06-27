@@ -15,7 +15,7 @@ public class Solution965 {
 }
 /*
 965. 单值二叉树
-https://leetcode-cn.com/problems/univalued-binary-tree/
+https://leetcode.cn/problems/univalued-binary-tree/
 
 第 117 场周赛 T1。
 

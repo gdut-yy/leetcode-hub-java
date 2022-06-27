@@ -33,7 +33,7 @@ public class Solution2024 {
 }
 /*
 2024. 考试的最大困扰度
-https://leetcode-cn.com/problems/maximize-the-confusion-of-an-exam/
+https://leetcode.cn/problems/maximize-the-confusion-of-an-exam/
 
 第 62 场双周赛 T3。
 
@@ -52,5 +52,5 @@ answerKey[i] 要么是 'T' ，要么是 'F'
 时间复杂度 O(n)
 空间复杂度 O(1)
 相似题目: 1004. 最大连续1的个数 III
-https://leetcode-cn.com/problems/max-consecutive-ones-iii/
+https://leetcode.cn/problems/max-consecutive-ones-iii/
  */

@@ -22,7 +22,7 @@ public class Solution2144 {
 }
 /*
 2144. 打折购买糖果的最小开销
-https://leetcode-cn.com/problems/minimum-cost-of-buying-candies-with-discount/
+https://leetcode.cn/problems/minimum-cost-of-buying-candies-with-discount/
 
 第 70 场双周赛 T1。
 

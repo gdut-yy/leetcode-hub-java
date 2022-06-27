@@ -32,7 +32,7 @@ public class Solution246 {
 }
 /*
 $246. 中心对称数
-https://leetcode-cn.com/problems/strobogrammatic-number/
+https://leetcode.cn/problems/strobogrammatic-number/
 
 中心对称数是指一个数字在旋转了 180 度之后看起来依旧相同的数字（或者上下颠倒地看）。
 请写一个函数来判断该数字是否是中心对称数，其输入将会以一个字符串的形式来表达数字。

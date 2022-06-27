@@ -4,7 +4,7 @@
 
 动态规划三部曲：状态定义、转移方程、初始状态
 
-## 1. [509. 斐波那契数](https://leetcode-cn.com/problems/fibonacci-number/)
+## 1. [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
 
 ```
 斐波那契数，通常用 F(n) 表示，形成的序列称为 斐波那契数列 。该数列由 0 和 1 开始，后面的每一项数字都是前面两项数字的和。也就是：
@@ -22,7 +22,7 @@ dp[0] = 0
 dp[1] = 1
 ```
 
-## 2. [1137. 第 N 个泰波那契数](https://leetcode-cn.com/problems/n-th-tribonacci-number/)
+## 2. [1137. 第 N 个泰波那契数](https://leetcode.cn/problems/n-th-tribonacci-number/)
 
 ```
 泰波那契序列 Tn 定义如下：
@@ -39,7 +39,7 @@ dp[1] = 1
 dp[2] = 1
 ```
 
-## 3. [70. 爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
+## 3. [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 
 ```
 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
@@ -55,7 +55,7 @@ dp[0] = 1
 dp[1] = 1
 ```
 
-## 4. [746. 使用最小花费爬楼梯](https://leetcode-cn.com/problems/min-cost-climbing-stairs/)
+## 4. [746. 使用最小花费爬楼梯](https://leetcode.cn/problems/min-cost-climbing-stairs/)
 
 ```
 数组的每个下标作为一个阶梯，第 i 个阶梯对应着一个非负数的体力花费值 cost[i]（下标从 0 开始）。
@@ -71,7 +71,7 @@ dp[0] = 0
 dp[1] = 0
 ```
 
-## 5. [198. 打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+## 5. [198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
 
 ```
 你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，
@@ -87,7 +87,7 @@ dp[0] = nums[0]
 dp[1] = max(nums[0], nums[1])
 ```
 
-## 6. [213. 打家劫舍 II](https://leetcode-cn.com/problems/house-robber-ii/)
+## 6. [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/)
 
 ```
 你是一个专业的小偷，计划偷窃沿街的房屋，每间房内都藏有一定的现金。这个地方所有的房屋都 围成一圈 ，这意味着第一个房屋和最后一个房屋是紧挨着的。
@@ -97,7 +97,7 @@ dp[1] = max(nums[0], nums[1])
 同198题，因为房屋围成一圈，取 [0,n-1] 与 [1,n] 最大值即可。
 ```
 
-## 7. [740. 删除并获得点数](https://leetcode-cn.com/problems/delete-and-earn/)
+## 7. [740. 删除并获得点数](https://leetcode.cn/problems/delete-and-earn/)
 
 ```
 给你一个整数数组 nums ，你可以对它进行一些操作。
@@ -108,7 +108,7 @@ dp[1] = max(nums[0], nums[1])
 同198题，若选取了 sum[num]，sum[num-1] 和 sum[num+1] 都不可再选取，取 rob(int[] sum) 最大值即可。
 ```
 
-## 8. [55. 跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
+## 8. [55. 跳跃游戏](https://leetcode.cn/problems/jump-game/)
 
 ```
 给定一个非负整数数组 nums ，你最初位于数组的 第一个下标 。
@@ -123,7 +123,7 @@ dp[i] = max(dp[i-1]-1, nums[i]) (i>0)
 dp[0] = nums[0]
 ```
 
-## 9. [45. 跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/)
+## 9. [45. 跳跃游戏 II](https://leetcode.cn/problems/jump-game-ii/)
 
 ```
 给你一个非负整数数组 nums ，你最初位于数组的第一个位置。
@@ -134,7 +134,7 @@ dp[0] = nums[0]
 贪心
 ```
 
-## 10. [53. 最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+## 10. [53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/)
 
 ```
 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
@@ -147,7 +147,7 @@ dp[i] = max(dp[i-1]+nums[i], nums[i]) (i>0)
 dp[0] = nums[0]
 ```
 
-## 11. [918. 环形子数组的最大和](https://leetcode-cn.com/problems/maximum-sum-circular-subarray/)
+## 11. [918. 环形子数组的最大和](https://leetcode.cn/problems/maximum-sum-circular-subarray/)
 
 ```
 给定一个由整数数组 A 表示的环形数组 C，求 C 的非空子数组的最大可能和。
@@ -159,7 +159,7 @@ dp[0] = nums[0]
 
 ```
 
-## 12. [152. 乘积最大子数组](https://leetcode-cn.com/problems/maximum-product-subarray/)
+## 12. [152. 乘积最大子数组](https://leetcode.cn/problems/maximum-product-subarray/)
 
 ```
 给你一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积。
@@ -175,7 +175,7 @@ dpMax = nums
 dpMin = nums
 ```
 
-## 13. [1567. 乘积为正数的最长子数组长度](https://leetcode-cn.com/problems/maximum-length-of-subarray-with-positive-product/)
+## 13. [1567. 乘积为正数的最长子数组长度](https://leetcode.cn/problems/maximum-length-of-subarray-with-positive-product/)
 
 ```
 给你一个整数数组 nums，请你求出乘积为正数的最长子数组的长度。
@@ -183,7 +183,7 @@ dpMin = nums
 请你返回乘积为正数的最长子数组长度。
 ```
 
-## 14. [1014. 最佳观光组合](https://leetcode-cn.com/problems/best-sightseeing-pair/)
+## 14. [1014. 最佳观光组合](https://leetcode.cn/problems/best-sightseeing-pair/)
 
 ```
 给你一个正整数数组 values，其中 values[i] 表示第 i 个观光景点的评分，并且两个景点 i 和 j 之间的 距离 为 j - i。
@@ -191,7 +191,7 @@ dpMin = nums
 返回一对观光景点能取得的最高分。
 ```
 
-## 15. [121. 买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
+## 15. [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/)
 
 ```
 给定一个数组 prices ，它的第 i 个元素 prices[i] 表示一支给定股票第 i 天的价格。
@@ -199,7 +199,7 @@ dpMin = nums
 返回你可以从这笔交易中获取的最大利润。如果你不能获取任何利润，返回 0 。
 ```
 
-## 16. [122. 买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
+## 16. [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/)
 
 ```
 给定一个数组 prices ，其中 prices[i] 是一支给定股票第 i 天的价格。
@@ -211,7 +211,7 @@ dpMin = nums
 
 ## 18. []()
 
-## 19. [139. 单词拆分](https://leetcode-cn.com/problems/word-break/)
+## 19. [139. 单词拆分](https://leetcode.cn/problems/word-break/)
 
 ```
 给定一个非空字符串 s 和一个包含非空单词的列表 wordDict，判定 s 是否可以被空格拆分为一个或多个在字典中出现的单词。

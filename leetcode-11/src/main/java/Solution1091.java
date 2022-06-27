@@ -41,7 +41,7 @@ public class Solution1091 {
 }
 /*
 1091. 二进制矩阵中的最短路径
-https://leetcode-cn.com/problems/shortest-path-in-binary-matrix/
+https://leetcode.cn/problems/shortest-path-in-binary-matrix/
 
 第 141 场周赛 T3。
 

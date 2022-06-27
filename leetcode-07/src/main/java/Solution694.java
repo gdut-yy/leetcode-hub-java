@@ -37,7 +37,7 @@ public class Solution694 {
 }
 /*
 $694. 不同岛屿的数量
-https://leetcode-cn.com/problems/number-of-distinct-islands/
+https://leetcode.cn/problems/number-of-distinct-islands/
 
 给定一个非空 01 二维数组表示的网格，一个岛屿由四连通（上、下、左、右四个方向）的 1 组成，你可以认为网格的四周被海水包围。
 请你计算这个网格中共有多少个形状不同的岛屿。两个岛屿被认为是相同的，当且仅当一个岛屿可以通过平移变换（不可以旋转、翻转）和另一个岛屿重合。

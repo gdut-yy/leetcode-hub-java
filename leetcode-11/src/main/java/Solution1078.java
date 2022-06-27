@@ -16,7 +16,7 @@ public class Solution1078 {
 }
 /*
 1078. Bigram 分词
-https://leetcode-cn.com/problems/occurrences-after-bigram/
+https://leetcode.cn/problems/occurrences-after-bigram/
 
 第 140 场周赛 T1。
 

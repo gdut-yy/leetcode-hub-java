@@ -27,7 +27,7 @@ public class Solution897 {
 }
 /*
 897. 递增顺序搜索树
-https://leetcode-cn.com/problems/increasing-order-search-tree/
+https://leetcode.cn/problems/increasing-order-search-tree/
 
 第 100 场周赛 T2。
 

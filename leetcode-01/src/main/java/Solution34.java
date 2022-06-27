@@ -38,7 +38,7 @@ public class Solution34 {
 }
 /*
 34. 在排序数组中查找元素的第一个和最后一个位置
-https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/
+https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
 
 给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
 如果数组中不存在目标值 target，返回 [-1, -1]。
@@ -52,5 +52,5 @@ nums 是一个非递减数组
 
 二分搜索找左/右边界
 相似题目: 剑指 Offer 53 - I. 在排序数组中查找数字 I
-https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
+https://leetcode.cn/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
  */

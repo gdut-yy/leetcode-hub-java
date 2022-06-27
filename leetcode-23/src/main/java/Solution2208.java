@@ -28,7 +28,7 @@ public class Solution2208 {
 }
 /*
 2208. 将数组和减半的最少操作次数
-https://leetcode-cn.com/problems/minimum-operations-to-halve-array-sum/
+https://leetcode.cn/problems/minimum-operations-to-halve-array-sum/
 
 第 74 场双周赛 T3。
 

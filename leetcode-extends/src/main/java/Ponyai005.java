@@ -55,7 +55,7 @@ public class Ponyai005 {
 }
 /*
 Pony.ai-005. 新增的专线
-https://leetcode-cn.com/problems/wLynQ1/
+https://leetcode.cn/problems/wLynQ1/
 
 Pony.ai 有 N 个 office 分布在不同地方(编号从 0 开始），某些 office 之间有部署专线，office 之间可以通过专线间接连接（专线是双向的），
 例如 广州 和 背景 广州 和 深圳 之间有专线，那么 背景 可以通过 广州 与 深圳 间接地通讯，这条信路的总延时是两条专线的延时之和。

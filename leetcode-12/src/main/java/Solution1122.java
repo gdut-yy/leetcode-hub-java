@@ -26,7 +26,7 @@ public class Solution1122 {
 }
 /*
 1122. 数组的相对排序
-https://leetcode-cn.com/problems/relative-sort-array/
+https://leetcode.cn/problems/relative-sort-array/
 
 第 145 场周赛 T1。
 

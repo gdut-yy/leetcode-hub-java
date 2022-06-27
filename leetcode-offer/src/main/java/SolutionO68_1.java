@@ -23,8 +23,8 @@ public class SolutionO68_1 {
 }
 /*
 剑指 Offer 68 - I. 二叉搜索树的最近公共祖先
-https://leetcode-cn.com/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/
+https://leetcode.cn/problems/er-cha-sou-suo-shu-de-zui-jin-gong-gong-zu-xian-lcof/
 
 同: 235. 二叉搜索树的最近公共祖先
-https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
+https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-search-tree/
  */

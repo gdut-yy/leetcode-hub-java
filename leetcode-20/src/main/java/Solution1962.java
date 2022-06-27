@@ -23,7 +23,7 @@ public class Solution1962 {
 }
 /*
 1962. 移除石子使总数最小
-https://leetcode-cn.com/problems/remove-stones-to-minimize-the-total/
+https://leetcode.cn/problems/remove-stones-to-minimize-the-total/
 
 第 253 场周赛 T2。
 

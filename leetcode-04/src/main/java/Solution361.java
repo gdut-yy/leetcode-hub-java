@@ -80,7 +80,7 @@ public class Solution361 {
 }
 /*
 $361. 轰炸敌人
-https://leetcode-cn.com/problems/bomb-enemy/
+https://leetcode.cn/problems/bomb-enemy/
 
 给你一个大小为 m x n 的矩阵 grid ，其中每个单元格都放置有一个字符：
 - 'W' 表示一堵墙

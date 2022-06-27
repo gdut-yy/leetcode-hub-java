@@ -25,7 +25,7 @@ public class Solution2075 {
 }
 /*
 2075. 解码斜向换位密码
-https://leetcode-cn.com/problems/decode-the-slanted-ciphertext/
+https://leetcode.cn/problems/decode-the-slanted-ciphertext/
 
 第 267 场周赛 T3。
 

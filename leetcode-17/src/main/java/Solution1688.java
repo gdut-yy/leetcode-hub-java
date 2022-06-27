@@ -15,7 +15,7 @@ public class Solution1688 {
 }
 /*
 1688. 比赛中的配对次数
-https://leetcode-cn.com/problems/count-of-matches-in-tournament/
+https://leetcode.cn/problems/count-of-matches-in-tournament/
 
 给你一个整数 n ，表示比赛中的队伍数。比赛遵循一种独特的赛制：
 - 如果当前队伍数是 偶数 ，那么每支队伍都会与另一支队伍配对。总共进行 n / 2 场比赛，且产生 n / 2 支队伍进入下一轮。

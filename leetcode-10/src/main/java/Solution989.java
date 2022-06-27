@@ -65,7 +65,7 @@ public class Solution989 {
 }
 /*
 989. 数组形式的整数加法
-https://leetcode-cn.com/problems/add-to-array-form-of-integer/
+https://leetcode.cn/problems/add-to-array-form-of-integer/
 
 第 123 场周赛 T1。
 
@@ -79,5 +79,5 @@ num 不包含任何前导零，除了零本身
 1 <= k <= 10^4
 
 相似题目: 2. 两数相加
-https://leetcode-cn.com/problems/add-two-numbers/
+https://leetcode.cn/problems/add-two-numbers/
  */

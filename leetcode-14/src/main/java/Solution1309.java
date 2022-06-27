@@ -21,7 +21,7 @@ public class Solution1309 {
 }
 /*
 1309. 解码字母到整数映射
-https://leetcode-cn.com/problems/decrypt-string-from-alphabet-to-integer-mapping/
+https://leetcode.cn/problems/decrypt-string-from-alphabet-to-integer-mapping/
 
 给你一个字符串 s，它由数字（'0' - '9'）和 '#' 组成。我们希望按下述规则将 s 映射为一些小写英文字符：
 - 字符（'a' - 'i'）分别用（'1' - '9'）表示。

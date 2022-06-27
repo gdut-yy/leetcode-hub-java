@@ -22,7 +22,7 @@ public class Solution807 {
 }
 /*
 807. 保持城市天际线
-https://leetcode-cn.com/problems/max-increase-to-keep-city-skyline/
+https://leetcode.cn/problems/max-increase-to-keep-city-skyline/
 
 给你一座由 n x n 个街区组成的城市，每个街区都包含一座立方体建筑。给你一个下标从 0 开始的 n x n 整数矩阵 grid ，
 其中 grid[r][c] 表示坐落于 r 行 c 列的建筑物的 高度 。

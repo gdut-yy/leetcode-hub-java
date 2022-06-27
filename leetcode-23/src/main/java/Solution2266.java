@@ -41,7 +41,7 @@ public class Solution2266 {
 }
 /*
 2266. 统计打字方案数
-https://leetcode-cn.com/problems/count-number-of-texts/
+https://leetcode.cn/problems/count-number-of-texts/
 
 第 292 场周赛 T3。
 
@@ -64,5 +64,5 @@ pressedKeys 只包含数字 '2' 到 '9' 。
 22222 aaaaa aaab aaba abaa baaa aac aca caa abb bab bba bc cb (13)
 动态规划。
 相似题目: 70. 爬楼梯
-https://leetcode-cn.com/problems/climbing-stairs/
+https://leetcode.cn/problems/climbing-stairs/
  */

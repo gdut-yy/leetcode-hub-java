@@ -105,5 +105,5 @@ wordList 中的所有单词 互不相同
 
 建图 + BFS 最短路（带回溯）
 相似题目: 127. 单词接龙
-https://leetcode-cn.com/problems/word-ladder/
+https://leetcode.cn/problems/word-ladder/
  */

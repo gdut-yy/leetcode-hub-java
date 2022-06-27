@@ -28,7 +28,7 @@ public class Solution888 {
 }
 /*
 888. 公平的糖果棒交换
-https://leetcode-cn.com/problems/fair-candy-swap/
+https://leetcode.cn/problems/fair-candy-swap/
 
 第 98 场周赛 T1。
 

@@ -42,7 +42,7 @@ public class Solution2242 {
 }
 /*
 2242. 节点序列的最大得分
-https://leetcode-cn.com/problems/maximum-score-of-a-node-sequence/
+https://leetcode.cn/problems/maximum-score-of-a-node-sequence/
 
 第 76 场双周赛 T4。
 

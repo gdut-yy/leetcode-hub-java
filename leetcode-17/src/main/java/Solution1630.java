@@ -34,7 +34,7 @@ public class Solution1630 {
 }
 /*
 1630. 等差子数组
-https://leetcode-cn.com/problems/arithmetic-subarrays/
+https://leetcode.cn/problems/arithmetic-subarrays/
 
 如果一个数列由至少两个元素组成，且每两个连续元素之间的差值都相同，那么这个序列就是 等差数列 。
 更正式地，数列 s 是等差数列，只需要满足：对于每个有效的 i ， s[i+1] - s[i] == s[1] - s[0] 都成立。

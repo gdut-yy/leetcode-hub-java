@@ -20,13 +20,13 @@ public class SolutionO52 {
 }
 /*
 剑指 Offer 52. 两个链表的第一个公共节点
-https://leetcode-cn.com/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
+https://leetcode.cn/problems/liang-ge-lian-biao-de-di-yi-ge-gong-gong-jie-dian-lcof/
 
 输入两个链表，找出它们的第一个公共节点。
 
 同: 160. 相交链表
-https://leetcode-cn.com/problems/intersection-of-two-linked-lists/
+https://leetcode.cn/problems/intersection-of-two-linked-lists/
 
 面试题 02.07. 链表相交
-https://leetcode-cn.com/problems/intersection-of-two-linked-lists-lcci/
+https://leetcode.cn/problems/intersection-of-two-linked-lists-lcci/
  */

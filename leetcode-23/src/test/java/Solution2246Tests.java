@@ -23,7 +23,7 @@ public class Solution2246Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/301270943/
+        // https://leetcode.cn/submissions/detail/301270943/
         int[] parent = UtUtils.loadingInts("solution2246-example3-input.txt", 0);
         String s = UtUtils.loadingString("solution2246-example3-input.txt", 1);
         int expected = 33;

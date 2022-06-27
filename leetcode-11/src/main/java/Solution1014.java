@@ -13,7 +13,7 @@ public class Solution1014 {
 }
 /*
 1014. 最佳观光组合
-https://leetcode-cn.com/problems/best-sightseeing-pair/
+https://leetcode.cn/problems/best-sightseeing-pair/
 
 第 129 场周赛 T3。
 

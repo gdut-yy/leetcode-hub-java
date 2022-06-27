@@ -25,7 +25,7 @@ public class Solution1716 {
 }
 /*
 1716. 计算力扣银行的钱
-https://leetcode-cn.com/problems/calculate-money-in-leetcode-bank/
+https://leetcode.cn/problems/calculate-money-in-leetcode-bank/
 
 第 43 场双周赛 T1。
 

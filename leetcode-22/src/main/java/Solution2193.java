@@ -113,7 +113,7 @@ public class Solution2193 {
 }
 /*
 2193. 得到回文串的最少操作次数
-https://leetcode-cn.com/problems/minimum-number-of-moves-to-make-palindrome/
+https://leetcode.cn/problems/minimum-number-of-moves-to-make-palindrome/
 
 第 73 场双周赛 T4。
 

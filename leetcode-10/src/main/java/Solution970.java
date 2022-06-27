@@ -39,7 +39,7 @@ public class Solution970 {
 }
 /*
 970. 强整数
-https://leetcode-cn.com/problems/powerful-integers/
+https://leetcode.cn/problems/powerful-integers/
 
 第 118 场周赛 T1。
 

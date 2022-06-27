@@ -81,7 +81,7 @@ public class Solution2040 {
 }
 /*
 2040. 两个有序数组的第 K 小乘积
-https://leetcode-cn.com/problems/kth-smallest-product-of-two-sorted-arrays/
+https://leetcode.cn/problems/kth-smallest-product-of-two-sorted-arrays/
 
 第 63 场双周赛 T4。
 
@@ -97,5 +97,5 @@ nums1 和 nums2 都是从小到大排好序的。
 直接 PriorityQueue 会 TLE，题目提示整数数组 nums1 和 nums2 从小到大排好序，考虑二分。
 由于存在负数，需要分情况讨论，如果全为整数，则是单纯的 “杨氏矩阵” https://oi-wiki.org/math/young-tableau/
 相似题目: 240. 搜索二维矩阵 II
-https://leetcode-cn.com/problems/search-a-2d-matrix-ii/
+https://leetcode.cn/problems/search-a-2d-matrix-ii/
  */

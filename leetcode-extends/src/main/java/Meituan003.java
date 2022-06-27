@@ -11,7 +11,7 @@ import java.util.PriorityQueue;
 
 /**
  * meituan-003. 小美的跑腿代购
- * https://leetcode-cn.com/problems/GXV5dX/
+ * https://leetcode.cn/problems/GXV5dX/
  */
 public class Meituan003 {
     public static void main(String[] args) throws IOException {

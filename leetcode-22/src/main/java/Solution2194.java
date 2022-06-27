@@ -19,7 +19,7 @@ public class Solution2194 {
 }
 /*
 2194. Excel 表中某个范围内的单元格
-https://leetcode-cn.com/problems/cells-in-a-range-on-an-excel-sheet/
+https://leetcode.cn/problems/cells-in-a-range-on-an-excel-sheet/
 
 第 283 场周赛 T1。
 

@@ -58,7 +58,7 @@ public class Solution1904 {
 }
 /*
 1904. 你完成的完整对局数
-https://leetcode-cn.com/problems/the-number-of-full-rounds-you-have-played/
+https://leetcode.cn/problems/the-number-of-full-rounds-you-have-played/
 
 第 246 场周赛 T2。
 

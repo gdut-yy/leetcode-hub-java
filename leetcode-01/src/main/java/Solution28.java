@@ -45,7 +45,7 @@ public class Solution28 {
 }
 /*
 28. 实现 strStr()
-https://leetcode-cn.com/problems/implement-strstr/
+https://leetcode.cn/problems/implement-strstr/
 
 实现 strStr() 函数。
 给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回  -1 。
@@ -60,5 +60,5 @@ KMP 模板题。
 时间复杂度 O(n+m)
 空间复杂度 O(m)
 扩展: Boyer-Moore 算法、Sunday 算法
-官方题解 https://leetcode-cn.com/problems/implement-strstr/solution/
+官方题解 https://leetcode.cn/problems/implement-strstr/solution/
  */

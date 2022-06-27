@@ -18,7 +18,7 @@ public class Solution495 {
 }
 /*
 495. 提莫攻击
-https://leetcode-cn.com/problems/teemo-attacking/
+https://leetcode.cn/problems/teemo-attacking/
 
 在《英雄联盟》的世界中，有一个叫 “提莫” 的英雄。他的攻击可以让敌方英雄艾希（编者注：寒冰射手）进入中毒状态。
 当提莫攻击艾希，艾希的中毒状态正好持续 duration 秒。

@@ -21,7 +21,7 @@ public class Solution881 {
 }
 /*
 881. 救生艇
-https://leetcode-cn.com/problems/boats-to-save-people/
+https://leetcode.cn/problems/boats-to-save-people/
 
 第 96 场周赛 T2。
 

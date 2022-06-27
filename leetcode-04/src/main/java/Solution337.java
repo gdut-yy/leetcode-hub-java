@@ -28,7 +28,7 @@ public class Solution337 {
 }
 /*
 337. 打家劫舍 III
-https://leetcode-cn.com/problems/house-robber-iii/
+https://leetcode.cn/problems/house-robber-iii/
 
 小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为 root 。
 除了 root 之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。

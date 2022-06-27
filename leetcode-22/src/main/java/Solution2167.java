@@ -50,7 +50,7 @@ public class Solution2167 {
 }
 /*
 2167. 移除所有载有违禁货物车厢所需的最少时间
-https://leetcode-cn.com/problems/minimum-time-to-remove-all-cars-containing-illegal-goods/
+https://leetcode.cn/problems/minimum-time-to-remove-all-cars-containing-illegal-goods/
 
 第 279 场周赛 T4。
 

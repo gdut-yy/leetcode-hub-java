@@ -10,7 +10,7 @@ public class Solution122 {
 }
 /*
 122. 买卖股票的最佳时机 II
-https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
+https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/
 
 给定一个数组 prices ，其中 prices[i] 表示股票第 i 天的价格。
 在每一天，你可能会决定购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以购买它，然后在 同一天 出售。
@@ -20,5 +20,5 @@ https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/
 0 <= prices[i] <= 10^4
 
 贪心。只要明天比今天涨的都进行交易。
-系列题解 https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/
+系列题解 https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/solution/tan-xin-suan-fa-by-liweiwei1419-2/
  */

@@ -26,7 +26,7 @@ public class Solution917 {
 }
 /*
 917. 仅仅反转字母
-https://leetcode-cn.com/problems/reverse-only-letters/
+https://leetcode.cn/problems/reverse-only-letters/
 
 第 105 场周赛 T1。
 

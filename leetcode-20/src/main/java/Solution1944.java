@@ -24,7 +24,7 @@ public class Solution1944 {
 }
 /*
 1944. 队列中可以看到的人数
-https://leetcode-cn.com/problems/number-of-visible-people-in-a-queue/
+https://leetcode.cn/problems/number-of-visible-people-in-a-queue/
 
 第 57 场双周赛 T4。
 

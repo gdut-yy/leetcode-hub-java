@@ -17,7 +17,7 @@ public class Ccbft211029T2 {
 }
 /*
 建信02. 柱状图分析
-https://leetcode-cn.com/contest/ccbft-2021fall/problems/9Rs2aO/
+https://leetcode.cn/contest/ccbft-2021fall/problems/9Rs2aO/
 
 某柱状图上共有 N 个柱形，数组 heights 中按照排列顺序记录了每个柱形的高度。假定任选 cnt 个柱形可组成一个柱形组，
 请在所有可能的柱形组中，找出最大高度与最小高度的差值为最小的柱形组，按高度升序返回该柱形组。若存在多个柱形组满足条件，则返回第一个元素最小的柱形组。

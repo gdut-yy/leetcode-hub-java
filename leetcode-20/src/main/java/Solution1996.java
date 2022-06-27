@@ -22,7 +22,7 @@ public class Solution1996 {
 }
 /*
 1996. 游戏中弱角色的数量
-https://leetcode-cn.com/problems/the-number-of-weak-characters-in-the-game/
+https://leetcode.cn/problems/the-number-of-weak-characters-in-the-game/
 
 第 257 场周赛 T2。
 

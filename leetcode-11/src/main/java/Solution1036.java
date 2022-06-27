@@ -61,7 +61,7 @@ public class Solution1036 {
 }
 /*
 1036. 逃离大迷宫
-https://leetcode-cn.com/problems/escape-a-large-maze/
+https://leetcode.cn/problems/escape-a-large-maze/
 
 第 134 场周赛 T4。
 

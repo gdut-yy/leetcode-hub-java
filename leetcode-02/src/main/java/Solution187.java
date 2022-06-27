@@ -23,7 +23,7 @@ public class Solution187 {
 }
 /*
 187. 重复的DNA序列
-https://leetcode-cn.com/problems/repeated-dna-sequences/
+https://leetcode.cn/problems/repeated-dna-sequences/
 
 DNA序列 由一系列核苷酸组成，缩写为 'A', 'C', 'G' 和 'T'.。
 - 例如，"ACGAATTCCG" 是一个 DNA序列 。

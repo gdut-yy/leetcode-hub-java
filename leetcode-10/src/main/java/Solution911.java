@@ -50,7 +50,7 @@ public class Solution911 {
 }
 /*
 911. 在线选举
-https://leetcode-cn.com/problems/online-election/
+https://leetcode.cn/problems/online-election/
 
 第 103 场周赛 T4。
 

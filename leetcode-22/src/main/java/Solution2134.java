@@ -27,7 +27,7 @@ public class Solution2134 {
 }
 /*
 2134. 最少交换次数来组合所有的 1 II
-https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together-ii/
+https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together-ii/
 
 第 275 场周赛 T2。
 
@@ -39,5 +39,5 @@ https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together-ii/
 其余做法同 1151，前缀和统计固定大小滑动窗口内 1 的个数。
 
 相似题目: 1151. 最少交换次数来组合所有的 1
-https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together/
+https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together/
  */

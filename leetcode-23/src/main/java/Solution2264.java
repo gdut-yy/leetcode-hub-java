@@ -12,7 +12,7 @@ public class Solution2264 {
 }
 /*
 2264. 字符串中最大的 3 位相同数字
-https://leetcode-cn.com/problems/largest-3-same-digit-number-in-string/
+https://leetcode.cn/problems/largest-3-same-digit-number-in-string/
 
 第 292 场周赛 T1。
 

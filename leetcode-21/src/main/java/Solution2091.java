@@ -28,7 +28,7 @@ public class Solution2091 {
 }
 /*
 2091. 从数组中移除最大值和最小值
-https://leetcode-cn.com/problems/removing-minimum-and-maximum-from-array/
+https://leetcode.cn/problems/removing-minimum-and-maximum-from-array/
 
 第 269 场周赛 T3。
 

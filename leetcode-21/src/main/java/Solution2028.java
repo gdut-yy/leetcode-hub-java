@@ -24,7 +24,7 @@ public class Solution2028 {
 }
 /*
 2028. 找出缺失的观测数据
-https://leetcode-cn.com/problems/find-missing-observations/
+https://leetcode.cn/problems/find-missing-observations/
 
 第 261 场周赛 T2。
 

@@ -46,7 +46,7 @@ public class Solution210 {
 }
 /*
 210. 课程表 II
-https://leetcode-cn.com/problems/course-schedule-ii/
+https://leetcode.cn/problems/course-schedule-ii/
 
 现在你总共有 numCourses 门课需要选，记为 0 到 numCourses - 1。给你一个数组 prerequisites ，其中 prerequisites[i] = [ai, bi] ，
 表示在选修课程 ai 前 必须 先选修 bi 。
@@ -62,5 +62,5 @@ ai != bi
 
 拓扑排序。
 相似题目: 207. 课程表
-https://leetcode-cn.com/problems/course-schedule/
+https://leetcode.cn/problems/course-schedule/
  */

@@ -57,7 +57,7 @@ public class Solution1293 {
 }
 /*
 1293. 网格中的最短路径
-https://leetcode-cn.com/problems/shortest-path-in-a-grid-with-obstacles-elimination/
+https://leetcode.cn/problems/shortest-path-in-a-grid-with-obstacles-elimination/
 
 第 167 场周赛 T4。
 

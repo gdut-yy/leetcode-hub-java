@@ -54,7 +54,7 @@ public class Solution778 {
 }
 /*
 778. 水位上升的泳池中游泳
-https://leetcode-cn.com/problems/swim-in-rising-water/
+https://leetcode.cn/problems/swim-in-rising-water/
 
 在一个 n x n 的整数矩阵 grid 中，每一个方格的值 grid[i][j] 表示位置 (i, j) 的平台高度。
 当开始下雨时，在时间为 t 时，水池中的水位为 t 。你可以从一个平台游向四周相邻的任意一个平台，但是前提是此时水位必须同时淹没这两个平台。
@@ -69,5 +69,5 @@ grid[i][j] 中每个值 均无重复
 
 二分 + BFS
 相似题目: 1631. 最小体力消耗路径
-https://leetcode-cn.com/problems/path-with-minimum-effort/
+https://leetcode.cn/problems/path-with-minimum-effort/
  */

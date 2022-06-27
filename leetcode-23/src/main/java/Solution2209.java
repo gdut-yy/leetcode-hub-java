@@ -77,7 +77,7 @@ public class Solution2209 {
 }
 /*
 2209. 用地毯覆盖后的最少白色砖块
-https://leetcode-cn.com/problems/minimum-white-tiles-after-covering-with-carpets/
+https://leetcode.cn/problems/minimum-white-tiles-after-covering-with-carpets/
 
 第 74 场双周赛 T4。
 

@@ -21,7 +21,7 @@ public class Solution270 {
 }
 /*
 $270. 最接近的二叉搜索树值
-https://leetcode-cn.com/problems/closest-binary-search-tree-value/
+https://leetcode.cn/problems/closest-binary-search-tree-value/
 
 给定一个不为空的二叉搜索树和一个目标值 target，请在该二叉搜索树中找到最接近目标值 target 的数值。
 注意：

@@ -50,7 +50,7 @@ public class Solution161 {
 }
 /*
 $161. 相隔为 1 的编辑距离
-https://leetcode-cn.com/problems/one-edit-distance/
+https://leetcode.cn/problems/one-edit-distance/
 
 给定两个字符串 s 和 t，判断他们的编辑距离是否为 1。
 注意：

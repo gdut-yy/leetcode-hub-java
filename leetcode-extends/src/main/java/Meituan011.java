@@ -9,7 +9,7 @@ import java.util.Comparator;
 
 /**
  * meituan-011. 搭配出售
- * https://leetcode-cn.com/problems/0JzXQB/
+ * https://leetcode.cn/problems/0JzXQB/
  */
 public class Meituan011 {
     public static void main(String[] args) throws IOException {

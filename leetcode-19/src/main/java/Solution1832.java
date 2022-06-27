@@ -19,7 +19,7 @@ public class Solution1832 {
 }
 /*
 1832. 判断句子是否为全字母句
-https://leetcode-cn.com/problems/check-if-the-sentence-is-pangram/
+https://leetcode.cn/problems/check-if-the-sentence-is-pangram/
 
 第 237 场周赛 T1。
 

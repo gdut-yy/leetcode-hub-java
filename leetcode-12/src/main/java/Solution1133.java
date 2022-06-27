@@ -20,7 +20,7 @@ public class Solution1133 {
 }
 /*
 1133. 最大唯一数
-https://leetcode-cn.com/problems/largest-unique-number/
+https://leetcode.cn/problems/largest-unique-number/
 
 第 5 场双周赛 T1。
 

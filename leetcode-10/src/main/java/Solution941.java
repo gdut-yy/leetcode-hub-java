@@ -35,7 +35,7 @@ public class Solution941 {
 }
 /*
 941. 有效的山脉数组
-https://leetcode-cn.com/problems/valid-mountain-array/
+https://leetcode.cn/problems/valid-mountain-array/
 
 第 111 场周赛 T1。
 

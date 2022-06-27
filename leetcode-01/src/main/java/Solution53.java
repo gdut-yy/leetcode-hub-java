@@ -85,7 +85,7 @@ public class Solution53 {
 }
 /*
 53. 最大子数组和
-https://leetcode-cn.com/problems/maximum-subarray/
+https://leetcode.cn/problems/maximum-subarray/
 
 给你一个整数数组 nums ，请你找出一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。
 子数组 是数组中的一个连续部分。
@@ -98,9 +98,9 @@ https://leetcode-cn.com/problems/maximum-subarray/
 时间复杂度 O(n)
 空间复杂度 O(1)
 也可以使用线段树，参考官方题解:
-https://leetcode-cn.com/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
+https://leetcode.cn/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
 相似题目: 152. 乘积最大子数组
-https://leetcode-cn.com/problems/maximum-product-subarray/
+https://leetcode.cn/problems/maximum-product-subarray/
 $1746. 经过一次操作后的最大子数组和
-https://leetcode-cn.com/problems/maximum-subarray-sum-after-one-operation/
+https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
  */

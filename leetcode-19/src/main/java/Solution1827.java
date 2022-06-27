@@ -15,7 +15,7 @@ public class Solution1827 {
 }
 /*
 1827. 最少操作使数组递增
-https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-increasing/
+https://leetcode.cn/problems/minimum-operations-to-make-the-array-increasing/
 
 第 50 场双周赛 T1。
 

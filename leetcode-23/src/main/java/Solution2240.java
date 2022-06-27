@@ -14,7 +14,7 @@ public class Solution2240 {
 }
 /*
 2240. 买钢笔和铅笔的方案数
-https://leetcode-cn.com/problems/number-of-ways-to-buy-pens-and-pencils/
+https://leetcode.cn/problems/number-of-ways-to-buy-pens-and-pencils/
 
 第 76 场双周赛 T2。
 

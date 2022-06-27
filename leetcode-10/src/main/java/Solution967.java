@@ -50,7 +50,7 @@ public class Solution967 {
 }
 /*
 967. 连续差相同的数字
-https://leetcode-cn.com/problems/numbers-with-same-consecutive-differences/
+https://leetcode.cn/problems/numbers-with-same-consecutive-differences/
 
 第 117 场周赛 T2。
 

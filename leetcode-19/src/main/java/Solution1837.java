@@ -10,7 +10,7 @@ public class Solution1837 {
 }
 /*
 1837. K 进制表示下的各位数字总和
-https://leetcode-cn.com/problems/sum-of-digits-in-base-k/
+https://leetcode.cn/problems/sum-of-digits-in-base-k/
 
 第 238 场周赛 T1。
 

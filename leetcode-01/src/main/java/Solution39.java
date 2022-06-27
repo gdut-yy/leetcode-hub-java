@@ -29,7 +29,7 @@ public class Solution39 {
 }
 /*
 39. 组合总和
-https://leetcode-cn.com/problems/combination-sum/
+https://leetcode.cn/problems/combination-sum/
 
 给你一个 无重复元素 的整数数组 candidates 和一个目标整数 target ，
 找出 candidates 中可以使数字和为目标数 target 的 所有 不同组合 ，并以列表形式返回。你可以按 任意顺序 返回这些组合。
@@ -41,5 +41,5 @@ candidates 中的 同一个 数字可以 无限制重复被选取 。如果至�
 candidate 中的每个元素都 互不相同
 1 <= target <= 500
 
-官方题解 https://leetcode-cn.com/problems/combination-sum/solution/zu-he-zong-he-by-leetcode-solution/
+官方题解 https://leetcode.cn/problems/combination-sum/solution/zu-he-zong-he-by-leetcode-solution/
  */

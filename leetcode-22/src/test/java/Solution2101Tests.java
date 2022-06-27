@@ -28,7 +28,7 @@ public class Solution2101Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/247587990/
+        // https://leetcode.cn/submissions/detail/247587990/
         // 147 / 160 个通过测试用例
         int[][] bombs = UtUtils.stringToInts2("[[855,82,158],[17,719,430],[90,756,164],[376,17,340],[691,636,152],[565,776,5],[464,154,271],[53,361,162],[278,609,82],[202,927,219],[542,865,377],[330,402,270],[720,199,10],[986,697,443],[471,296,69],[393,81,404],[127,405,177]]");
         int expected = 9;

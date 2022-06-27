@@ -39,7 +39,7 @@ public class Solution2120 {
 }
 /*
 2120. 执行所有后缀指令
-https://leetcode-cn.com/problems/execution-of-all-suffix-instructions-staying-in-a-grid/
+https://leetcode.cn/problems/execution-of-all-suffix-instructions-staying-in-a-grid/
 
 第 273 场周赛 T2。
 

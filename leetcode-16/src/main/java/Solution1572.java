@@ -17,7 +17,7 @@ public class Solution1572 {
 }
 /*
 1572. 矩阵对角线元素的和
-https://leetcode-cn.com/problems/matrix-diagonal-sum/
+https://leetcode.cn/problems/matrix-diagonal-sum/
 
 第 34 场双周赛 T1。
 

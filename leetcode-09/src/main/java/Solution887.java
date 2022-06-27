@@ -24,7 +24,7 @@ public class Solution887 {
 }
 /*
 887. 鸡蛋掉落
-https://leetcode-cn.com/problems/super-egg-drop/
+https://leetcode.cn/problems/super-egg-drop/
 
 给你 k 枚相同的鸡蛋，并可以使用一栋从第 1 层到第 n 层共有 n 层楼的建筑。
 已知存在楼层 f ，满足 0 <= f <= n ，任何从 高于 f 的楼层落下的鸡蛋都会碎，从 f 楼层或比它低的楼层落下的鸡蛋都不会破。
@@ -39,5 +39,5 @@ https://leetcode-cn.com/problems/super-egg-drop/
 时间复杂度 O(kn)
 空间复杂度 O(kn)
 相似题目: 1884. 鸡蛋掉落-两枚鸡蛋
-https://leetcode-cn.com/problems/egg-drop-with-2-eggs-and-n-floors/
+https://leetcode.cn/problems/egg-drop-with-2-eggs-and-n-floors/
  */

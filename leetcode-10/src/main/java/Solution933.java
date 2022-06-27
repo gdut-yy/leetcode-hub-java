@@ -20,7 +20,7 @@ public class Solution933 {
 }
 /*
 933. 最近的请求次数
-https://leetcode-cn.com/problems/number-of-recent-calls/
+https://leetcode.cn/problems/number-of-recent-calls/
 
 第 109 场周赛 T1。
 

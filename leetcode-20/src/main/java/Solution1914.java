@@ -73,7 +73,7 @@ public class Solution1914 {
 }
 /*
 1914. 循环轮转矩阵
-https://leetcode-cn.com/problems/cyclically-rotating-a-grid/
+https://leetcode.cn/problems/cyclically-rotating-a-grid/
 
 第 247 场周赛 T2。
 

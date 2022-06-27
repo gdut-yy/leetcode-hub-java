@@ -94,7 +94,7 @@ public class Solution2132 {
 }
 /*
 2132. 用邮票贴满网格图
-https://leetcode-cn.com/problems/stamping-the-grid/
+https://leetcode.cn/problems/stamping-the-grid/
 
 第 69 场双周赛 T4。
 
@@ -123,5 +123,5 @@ grid[r][c] 要么是 0 ，要么是 1 。
 空间复杂度 O(mn)
 
 相似题目: 304. 二维区域和检索 - 矩阵不可变
-https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
+https://leetcode.cn/problems/range-sum-query-2d-immutable/
  */

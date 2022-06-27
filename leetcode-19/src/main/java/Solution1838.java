@@ -31,7 +31,7 @@ public class Solution1838 {
 }
 /*
 1838. 最高频元素的频数
-https://leetcode-cn.com/problems/frequency-of-the-most-frequent-element/
+https://leetcode.cn/problems/frequency-of-the-most-frequent-element/
 
 第 238 场周赛 T2。
 

@@ -14,7 +14,7 @@ public class Solution908 {
 }
 /*
 908. 最小差值 I
-https://leetcode-cn.com/problems/smallest-range-i/
+https://leetcode.cn/problems/smallest-range-i/
 
 第 103 场周赛 T1。
 

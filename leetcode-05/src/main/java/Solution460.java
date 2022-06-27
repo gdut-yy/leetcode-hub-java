@@ -90,7 +90,7 @@ public class Solution460 {
 }
 /*
 460. LFU 缓存
-https://leetcode-cn.com/problems/lfu-cache/
+https://leetcode.cn/problems/lfu-cache/
 
 请你为 最不经常使用（LFU）缓存算法设计并实现数据结构。
 实现 LFUCache 类：
@@ -105,7 +105,7 @@ https://leetcode-cn.com/problems/lfu-cache/
 Redis 到 4.0 版本才支持 LFU 淘汰策略，说明 LFU 实现较 LRU 复杂且使用场景不如 LRU 广。
 Redis 在使用 LFU 淘汰策略下，可以分析 热key。
 双哈希表。
-官方题解: https://leetcode-cn.com/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/
+官方题解: https://leetcode.cn/problems/lfu-cache/solution/lfuhuan-cun-by-leetcode-solution/
 相似题目: 146. LRU 缓存机制
-https://leetcode-cn.com/problems/lru-cache/
+https://leetcode.cn/problems/lru-cache/
  */

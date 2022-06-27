@@ -36,7 +36,7 @@ public class SolutionLCP18 {
 }
 /*
 LCP 18. 早餐组合
-https://leetcode-cn.com/problems/2vYnGI/
+https://leetcode.cn/problems/2vYnGI/
 
 排序 + 二分
 时间复杂度 O(nlogn)

@@ -2,7 +2,7 @@ public class Ponyai006 {
 }
 /*
 Pony.ai-006. 最大正整数
-https://leetcode-cn.com/problems/IpQVkE/
+https://leetcode.cn/problems/IpQVkE/
 
 数组中存储了一堆小于 10 的非负整数，整个数组从左到右代表一个正整数（如数组 [0, 1, 3, 2] 代表正整数 132）。现给出一个正整数 K，
 要求经过 K 次数组相邻位置元素交换（必须完成 K 次交换），使得这个数组代表的数字最大。

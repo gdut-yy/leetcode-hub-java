@@ -48,5 +48,5 @@ stockPrices[i].length == 2
 
 枚举斜率
 相似题目: 149. 直线上最多的点数
-https://leetcode-cn.com/problems/max-points-on-a-line/
+https://leetcode.cn/problems/max-points-on-a-line/
  */

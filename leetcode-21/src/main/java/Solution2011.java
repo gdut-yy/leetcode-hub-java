@@ -13,7 +13,7 @@ public class Solution2011 {
 }
 /*
 2011. 执行操作后的变量值
-https://leetcode-cn.com/problems/final-value-of-variable-after-performing-operations/
+https://leetcode.cn/problems/final-value-of-variable-after-performing-operations/
 
 第 259 场周赛 T1。
 

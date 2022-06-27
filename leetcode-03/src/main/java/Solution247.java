@@ -36,7 +36,7 @@ public class Solution247 {
 }
 /*
 $247. 中心对称数 II
-https://leetcode-cn.com/problems/strobogrammatic-number-ii/
+https://leetcode.cn/problems/strobogrammatic-number-ii/
 
 中心对称数是指一个数字在旋转了 180 度之后看起来依旧相同的数字（或者上下颠倒地看）。
 找到所有长度为 n 的中心对称数。

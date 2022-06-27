@@ -25,7 +25,7 @@ public class Solution221 {
 }
 /*
 221. 最大正方形
-https://leetcode-cn.com/problems/maximal-square/
+https://leetcode.cn/problems/maximal-square/
 
 在一个由 '0' 和 '1' 组成的二维矩阵内，找到只包含 '1' 的最大正方形，并返回其面积。
 提示：
@@ -39,5 +39,5 @@ dp[i][j] 表示以 [i,j] 为右下角，只包含 1 的正方形的边长的最�
 转移方程：
 dp(i,j) = min(dp(i−1,j), dp(i−1,j−1), dp(i,j−1)) + 1
 相似题目: 1277. 统计全为 1 的正方形子矩阵
-https://leetcode-cn.com/problems/count-square-submatrices-with-all-ones/
+https://leetcode.cn/problems/count-square-submatrices-with-all-ones/
  */

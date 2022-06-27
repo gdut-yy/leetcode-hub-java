@@ -24,7 +24,7 @@ public class Solution540 {
 }
 /*
 540. 有序数组中的单一元素
-https://leetcode-cn.com/problems/single-element-in-a-sorted-array/
+https://leetcode.cn/problems/single-element-in-a-sorted-array/
 
 给你一个仅由整数组成的有序数组，其中每个元素都会出现两次，唯有一个数只会出现一次。
 请你找出并返回只出现一次的那个数。

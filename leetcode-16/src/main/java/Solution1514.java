@@ -98,7 +98,7 @@ public class Solution1514 {
 }
 /*
 1514. 概率最大的路径
-https://leetcode-cn.com/problems/path-with-maximum-probability/
+https://leetcode.cn/problems/path-with-maximum-probability/
 
 给你一个由 n 个节点（下标从 0 开始）组成的无向加权图，该图由一个描述边的列表组成，
 其中 edges[i] = [a, b] 表示连接节点 a 和 b 的一条无向边，且该边遍历成功的概率为 succProb[i] 。

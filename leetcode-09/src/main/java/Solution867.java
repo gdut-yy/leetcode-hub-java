@@ -14,7 +14,7 @@ public class Solution867 {
 }
 /*
 867. 转置矩阵
-https://leetcode-cn.com/problems/transpose-matrix/
+https://leetcode.cn/problems/transpose-matrix/
 
 第 92 场周赛 T1。
 

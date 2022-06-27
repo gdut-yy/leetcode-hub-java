@@ -16,7 +16,7 @@ public class Solution537 {
 }
 /*
 537. 复数乘法
-https://leetcode-cn.com/problems/complex-number-multiplication/
+https://leetcode.cn/problems/complex-number-multiplication/
 
 复数 可以用字符串表示，遵循 "实部+虚部i" 的形式，并满足下述条件：
 - 实部 是一个整数，取值范围是 [-100, 100]

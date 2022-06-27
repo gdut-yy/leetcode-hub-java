@@ -70,7 +70,7 @@ public class Solution2267 {
 }
 /*
 2267. 检查是否有合法括号字符串路径
-https://leetcode-cn.com/problems/check-if-there-is-a-valid-parentheses-string-path/
+https://leetcode.cn/problems/check-if-there-is-a-valid-parentheses-string-path/
 
 第 292 场周赛 T4。
 

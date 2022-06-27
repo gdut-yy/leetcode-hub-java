@@ -158,7 +158,7 @@ public class Solution1368 {
 }
 /*
 1368. 使网格图至少有一条有效路径的最小代价
-https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
+https://leetcode.cn/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
 
 给你一个 m x n 的网格图 grid 。 grid 中每个格子都有一个数字，对应着从该格子出发下一步走的方向。 grid[i][j] 中的数字可能为以下几种情况：
 - 1 ，下一步往右走，也就是你会从 grid[i][j] 走到 grid[i][j + 1]
@@ -179,5 +179,5 @@ n == grid[i].length
 时间复杂度 O(mnlog(mn))
 另有 0-1 广度优先搜索 时间复杂度 O(mn) 参考: https://codeforces.com/blog/entry/22276
 相似题目: LCP 56. 信物传送
-https://leetcode-cn.com/problems/6UEx57/
+https://leetcode.cn/problems/6UEx57/
  */

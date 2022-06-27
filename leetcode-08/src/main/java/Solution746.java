@@ -10,7 +10,7 @@ public class Solution746 {
 }
 /*
 746. 使用最小花费爬楼梯
-https://leetcode-cn.com/problems/min-cost-climbing-stairs/
+https://leetcode.cn/problems/min-cost-climbing-stairs/
 
 数组的每个下标作为一个阶梯，第 i 个阶梯对应着一个非负数的体力花费值 cost[i]（下标从 0 开始）。
 每当你爬上一个阶梯你都要花费对应的体力值，一旦支付了相应的体力值，你就可以选择向上爬一个阶梯或者爬两个阶梯。

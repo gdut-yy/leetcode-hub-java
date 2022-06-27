@@ -108,5 +108,5 @@ https://leetcode.cn/problems/range-sum-of-sorted-subarray-sums/
 1856. 子数组最小乘积的最大值
 https://leetcode.cn/problems/maximum-subarray-min-product/
 2104. 子数组范围和
-https://leetcode-cn.com/problems/sum-of-subarray-ranges/
+https://leetcode.cn/problems/sum-of-subarray-ranges/
  */

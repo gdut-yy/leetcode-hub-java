@@ -41,7 +41,7 @@ public class Solution2226 {
 }
 /*
 2226. 每个小孩最多能分到多少糖果
-https://leetcode-cn.com/problems/maximum-candies-allocated-to-k-children/
+https://leetcode.cn/problems/maximum-candies-allocated-to-k-children/
 
 第 287 场周赛 T3。
 

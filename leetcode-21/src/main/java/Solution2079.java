@@ -20,7 +20,7 @@ public class Solution2079 {
 }
 /*
 2079. 给植物浇水
-https://leetcode-cn.com/problems/watering-plants/
+https://leetcode.cn/problems/watering-plants/
 
 第 268 场周赛 T2。
 

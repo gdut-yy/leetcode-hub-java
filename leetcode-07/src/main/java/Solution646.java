@@ -18,7 +18,7 @@ public class Solution646 {
 }
 /*
 646. 最长数对链
-https://leetcode-cn.com/problems/maximum-length-of-pair-chain/
+https://leetcode.cn/problems/maximum-length-of-pair-chain/
 
 给出 n 个数对。 在每一个数对中，第一个数字总是比第二个数字小。
 现在，我们定义一种跟随关系，当且仅当 b < c 时，数对(c, d) 才可以跟在 (a, b) 后面。我们用这种形式来构造一个数对链。

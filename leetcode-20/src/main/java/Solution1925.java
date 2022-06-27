@@ -17,7 +17,7 @@ public class Solution1925 {
 }
 /*
 1925. 统计平方和三元组的数目
-https://leetcode-cn.com/problems/count-square-sum-triples/
+https://leetcode.cn/problems/count-square-sum-triples/
 
 第 56 场双周赛 T1。
 

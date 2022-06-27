@@ -24,7 +24,7 @@ public class Solution706 {
 }
 /*
 706. 设计哈希映射
-https://leetcode-cn.com/problems/design-hashmap/
+https://leetcode.cn/problems/design-hashmap/
 
 不使用任何内建的哈希表库设计一个哈希映射（HashMap）。
 实现 MyHashMap 类：

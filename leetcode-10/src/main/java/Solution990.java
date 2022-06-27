@@ -84,7 +84,7 @@ public class Solution990 {
 }
 /*
 990. 等式方程的可满足性
-https://leetcode-cn.com/problems/satisfiability-of-equality-equations/
+https://leetcode.cn/problems/satisfiability-of-equality-equations/
 
 第 123 场周赛 T2。
 

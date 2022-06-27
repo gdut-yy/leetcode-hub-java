@@ -27,7 +27,7 @@ public class Solution2103 {
 }
 /*
 2103. 环和杆
-https://leetcode-cn.com/problems/rings-and-rods/
+https://leetcode.cn/problems/rings-and-rods/
 
 第 271 场周赛 T1。
 

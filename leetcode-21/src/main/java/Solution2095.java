@@ -47,7 +47,7 @@ public class Solution2095 {
 }
 /*
 2095. 删除链表的中间节点
-https://leetcode-cn.com/problems/delete-the-middle-node-of-a-linked-list/
+https://leetcode.cn/problems/delete-the-middle-node-of-a-linked-list/
 
 第 270 场周赛 T2。
 

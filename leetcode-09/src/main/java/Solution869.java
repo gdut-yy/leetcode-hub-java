@@ -24,7 +24,7 @@ public class Solution869 {
 }
 /*
 869. 重新排序得到 2 的幂
-https://leetcode-cn.com/problems/reordered-power-of-2/
+https://leetcode.cn/problems/reordered-power-of-2/
 
 第 93 场周赛 T2。
 

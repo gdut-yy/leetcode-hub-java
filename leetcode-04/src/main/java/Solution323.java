@@ -59,7 +59,7 @@ public class Solution323 {
 }
 /*
 $323. 无向图中连通分量的数目
-https://leetcode-cn.com/problems/number-of-connected-components-in-an-undirected-graph/
+https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph/
 
 你有一个包含 n 个节点的图。给定一个整数 n 和一个数组 edges ，其中 edges[i] = [ai, bi] 表示图中 ai 和 bi 之间有一条边。
 返回 图中已连接分量的数目 。

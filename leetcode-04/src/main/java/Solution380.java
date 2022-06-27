@@ -55,7 +55,7 @@ public class Solution380 {
 }
 /*
 380. O(1) 时间插入、删除和获取随机元素
-https://leetcode-cn.com/problems/insert-delete-getrandom-o1/
+https://leetcode.cn/problems/insert-delete-getrandom-o1/
 
 实现RandomizedSet 类：
 - RandomizedSet() 初始化 RandomizedSet 对象

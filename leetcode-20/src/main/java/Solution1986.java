@@ -37,7 +37,7 @@ public class Solution1986 {
 }
 /*
 1986. 完成任务的最少工作时间段
-https://leetcode-cn.com/problems/minimum-number-of-work-sessions-to-finish-the-tasks/
+https://leetcode.cn/problems/minimum-number-of-work-sessions-to-finish-the-tasks/
 
 第 256 场周赛 T3。
 

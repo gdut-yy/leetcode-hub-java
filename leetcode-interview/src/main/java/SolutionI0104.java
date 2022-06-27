@@ -18,7 +18,7 @@ public class SolutionI0104 {
 }
 /*
 面试题 01.04. 回文排列
-https://leetcode-cn.com/problems/palindrome-permutation-lcci/
+https://leetcode.cn/problems/palindrome-permutation-lcci/
 
 给定一个字符串，编写一个函数判定其是否为某个回文串的排列之一。
 回文串是指正反两个方向都一样的单词或短语。排列是指字母的重新排列。

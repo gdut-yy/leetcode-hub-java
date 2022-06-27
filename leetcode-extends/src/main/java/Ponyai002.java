@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Pony.ai-002. 车辆安排
- * https://leetcode-cn.com/problems/aLtKLZ/
+ * https://leetcode.cn/problems/aLtKLZ/
  */
 public class Ponyai002 {
     public static void main(String[] args) throws IOException {

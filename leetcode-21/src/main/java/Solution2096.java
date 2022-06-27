@@ -37,7 +37,7 @@ public class Solution2096 {
 }
 /*
 2096. 从二叉树一个节点到另一个节点每一步的方向
-https://leetcode-cn.com/problems/step-by-step-directions-from-a-binary-tree-node-to-another/
+https://leetcode.cn/problems/step-by-step-directions-from-a-binary-tree-node-to-another/
 
 第 270 场周赛 T3。
 

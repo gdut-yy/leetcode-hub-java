@@ -15,7 +15,7 @@ public class Solution717 {
 }
 /*
 717. 1 比特与 2 比特字符
-https://leetcode-cn.com/problems/1-bit-and-2-bit-characters/
+https://leetcode.cn/problems/1-bit-and-2-bit-characters/
 
 有两种特殊字符：
 - 第一种字符可以用一比特 0 表示

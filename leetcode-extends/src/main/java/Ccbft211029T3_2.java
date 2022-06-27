@@ -8,7 +8,7 @@ import java.util.Set;
 
 public class Ccbft211029T3_2 {
     // 吴自华: 第三题可以在排名页看Vigilant ShockleyAL9的代码，很清晰。以换乘次数作为第一权值，当前路径作为第二权值，直接套Dijkstra即可。
-    // https://leetcode-cn.com/contest/ccbft-2021fall/ranking/
+    // https://leetcode.cn/contest/ccbft-2021fall/ranking/
     public int[] metroRouteDesignI(int[][] lines, int start, int end) {
         // n2line = collections.defaultdict(list)
         Map<Integer, List<Integer>> n2line = new HashMap<>();

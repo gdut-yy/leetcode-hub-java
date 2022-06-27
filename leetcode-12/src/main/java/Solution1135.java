@@ -77,7 +77,7 @@ public class Solution1135 {
 }
 /*
 $1135. 最低成本联通所有城市
-https://leetcode-cn.com/problems/connecting-cities-with-minimum-cost/
+https://leetcode.cn/problems/connecting-cities-with-minimum-cost/
 
 想象一下你是个城市基建规划者，地图上有 n 座城市，它们按以 1 到 n 的次序编号。
 给你整数 n 和一个数组 conections，其中 connections[i] = [xi, yi, costi] 表示将城市 xi 和城市 yi 连接所要的costi（连接是双向的）。
@@ -96,5 +96,5 @@ Kruskal 算法
 时间复杂度 O(eloge + e*n)
 空间复杂度 O(n)
 相似题目: 1584. 连接所有点的最小费用
-https://leetcode-cn.com/problems/min-cost-to-connect-all-points/
+https://leetcode.cn/problems/min-cost-to-connect-all-points/
  */

@@ -52,7 +52,7 @@ public class Solution232 {
 }
 /*
 232. 用栈实现队列
-https://leetcode-cn.com/problems/implement-queue-using-stacks/
+https://leetcode.cn/problems/implement-queue-using-stacks/
 
 请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（push、pop、peek、empty）：
 实现 MyQueue 类：
@@ -72,5 +72,5 @@ pop 出栈
 peek 查看栈顶
 empty 判空
 相似题目: 225. 用队列实现栈
-https://leetcode-cn.com/problems/implement-stack-using-queues/
+https://leetcode.cn/problems/implement-stack-using-queues/
  */

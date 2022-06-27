@@ -4,7 +4,7 @@ package template;
  * 并查集 Disjoint Set Union
  * <p>
  * 借这个问题科普一下并查集各种情况下的时间复杂度
- * https://leetcode-cn.com/problems/number-of-provinces/solution/jie-zhe-ge-wen-ti-ke-pu-yi-xia-bing-cha-0unne/
+ * https://leetcode.cn/problems/number-of-provinces/solution/jie-zhe-ge-wen-ti-ke-pu-yi-xia-bing-cha-0unne/
  */
 public class UnionFind {
     // 记录每个节点的父节点

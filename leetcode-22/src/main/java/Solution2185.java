@@ -11,7 +11,7 @@ public class Solution2185 {
 }
 /*
 2185. 统计包含给定前缀的字符串
-https://leetcode-cn.com/problems/counting-words-with-a-given-prefix/
+https://leetcode.cn/problems/counting-words-with-a-given-prefix/
 
 第 282 场周赛 T1。
 

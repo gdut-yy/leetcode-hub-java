@@ -46,7 +46,7 @@ public class Solution408 {
 }
 /*
 $408. 有效单词缩写
-https://leetcode-cn.com/problems/valid-word-abbreviation/
+https://leetcode.cn/problems/valid-word-abbreviation/
 
 字符串可以用 缩写 进行表示，缩写 的方法是将任意数量的 不相邻 的子字符串替换为相应子串的长度。例如，字符串 "substitution" 可以缩写为（不止这几种方法）：
 - "s10n" ("s ubstitutio n")

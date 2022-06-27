@@ -51,7 +51,7 @@ public class Solution1975 {
 }
 /*
 1975. 最大方阵和
-https://leetcode-cn.com/problems/maximum-matrix-sum/
+https://leetcode.cn/problems/maximum-matrix-sum/
 
 第 59 场双周赛 T2。
 

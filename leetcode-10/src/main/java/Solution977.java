@@ -21,7 +21,7 @@ public class Solution977 {
 }
 /*
 977. 有序数组的平方
-https://leetcode-cn.com/problems/squares-of-a-sorted-array/
+https://leetcode.cn/problems/squares-of-a-sorted-array/
 
 第 120 场周赛 T1。
 

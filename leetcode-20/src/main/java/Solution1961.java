@@ -21,7 +21,7 @@ public class Solution1961 {
 }
 /*
 1961. 检查字符串是否为数组前缀
-https://leetcode-cn.com/problems/check-if-string-is-a-prefix-of-array/
+https://leetcode.cn/problems/check-if-string-is-a-prefix-of-array/
 
 第 253 场周赛 T1。
 

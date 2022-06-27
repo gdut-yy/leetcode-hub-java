@@ -12,7 +12,7 @@ public class Solution2063 {
 }
 /*
 2063. 所有子字符串中的元音
-https://leetcode-cn.com/problems/vowels-of-all-substrings/
+https://leetcode.cn/problems/vowels-of-all-substrings/
 
 第 266 场周赛 T2。
 

@@ -31,7 +31,7 @@ public class SolutionLCP52 {
 }
 /*
 LCP 52. 二叉搜索树染色
-https://leetcode-cn.com/problems/QO5KpG/
+https://leetcode.cn/problems/QO5KpG/
 
 LCCUP 力扣杯 2022 春季编程大赛个人赛 T3。
 

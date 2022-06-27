@@ -33,7 +33,7 @@ public class Solution562 {
 }
 /*
 $562. 矩阵中最长的连续1线段
-https://leetcode-cn.com/problems/longest-line-of-consecutive-one-in-matrix/
+https://leetcode.cn/problems/longest-line-of-consecutive-one-in-matrix/
 
 给定一个 m x n 的二进制矩阵 mat ，返回矩阵中最长的连续1线段。
 这条线段可以是水平的、垂直的、对角线的或者反对角线的。

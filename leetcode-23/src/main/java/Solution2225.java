@@ -41,7 +41,7 @@ public class Solution2225 {
 }
 /*
 2225. 找出输掉零场或一场比赛的玩家
-https://leetcode-cn.com/problems/find-players-with-zero-or-one-losses/
+https://leetcode.cn/problems/find-players-with-zero-or-one-losses/
 
 第 287 场周赛 T2。
 

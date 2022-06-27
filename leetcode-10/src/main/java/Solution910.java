@@ -16,7 +16,7 @@ public class Solution910 {
 }
 /*
 910. 最小差值 II
-https://leetcode-cn.com/problems/smallest-range-ii/
+https://leetcode.cn/problems/smallest-range-ii/
 
 给你一个整数数组 nums，和一个整数 k 。
 对于每个下标 i（0 <= i < nums.length），将 nums[i] 变成 nums[i] + k 或 nums[i] - k 。

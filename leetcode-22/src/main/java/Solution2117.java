@@ -39,7 +39,7 @@ public class Solution2117 {
 }
 /*
 2117. 一个区间内所有数乘积的缩写
-https://leetcode-cn.com/problems/abbreviating-the-product-of-a-range/
+https://leetcode.cn/problems/abbreviating-the-product-of-a-range/
 
 第 68 场双周赛 T4。
 
@@ -57,7 +57,7 @@ https://leetcode-cn.com/problems/abbreviating-the-product-of-a-range/
 1 <= left <= right <= 10^4
 
 高赞题解: 一个数据团灭绝大部分代码(包括标程)：误差分析的一些知识，以及polylog n的做法
-https://leetcode-cn.com/problems/abbreviating-the-product-of-a-range/solution/yi-ge-shu-ju-tuan-mie-jue-da-bu-fen-dai-234yd/
+https://leetcode.cn/problems/abbreviating-the-product-of-a-range/solution/yi-ge-shu-ju-tuan-mie-jue-da-bu-fen-dai-234yd/
 
 比赛题目范围为 10^6，后续发现起码 128bit 浮点的精度才能用对数正确求解，赛后调整到 10^4.直接硬乘+前缀和思想也能过了。。
  */

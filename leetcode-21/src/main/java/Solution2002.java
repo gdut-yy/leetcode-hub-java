@@ -43,7 +43,7 @@ public class Solution2002 {
 }
 /*
 2002. 两个回文子序列长度的最大乘积
-https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-subsequences/
+https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-subsequences/
 
 第 258 场周赛 T3。
 
@@ -51,10 +51,10 @@ https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromi
 请你返回两个回文子序列长度可以达到的最大乘积。
 
 第 1960 题 两个回文子字符串长度的最大乘积 仍历历在目
-https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
+https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
 发现马拉车并不适用（回文子串 和 回文子序列 还是有差距的）
 回文子序列参考 第 516 题 最长回文子序列
-https://leetcode-cn.com/problems/longest-palindromic-subsequence/
+https://leetcode.cn/problems/longest-palindromic-subsequence/
 
 2 <= s.length <= 12 直接暴力即可
 或者 状态压缩 + dp

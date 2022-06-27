@@ -78,7 +78,7 @@ public class Solution2094 {
 }
 /*
 2094. 找出 3 位偶数
-https://leetcode-cn.com/problems/finding-3-digit-even-numbers/
+https://leetcode.cn/problems/finding-3-digit-even-numbers/
 
 第 270 场周赛 T1。
 

@@ -41,7 +41,7 @@ public class Solution1314 {
 }
 /*
 1314. 矩阵区域和
-https://leetcode-cn.com/problems/matrix-block-sum/
+https://leetcode.cn/problems/matrix-block-sum/
 
 第 17 场双周赛 T2。
 

@@ -43,7 +43,7 @@ public class Solution1245 {
 }
 /*
 $1245. 树的直径
-https://leetcode-cn.com/problems/tree-diameter/
+https://leetcode.cn/problems/tree-diameter/
 
 给你这棵「无向树」，请你测算并返回它的「直径」：这棵树上最长简单路径的 边数。
 我们用一个由所有「边」组成的数组 edges 来表示一棵无向树，其中 edges[i] = [u, v] 表示节点 u 和 v 之间的双向边。
@@ -56,5 +56,5 @@ edges 会形成一棵无向树
 
 树形 dp。
 相似题目: 2246. 相邻字符不同的最长路径
-https://leetcode-cn.com/problems/longest-path-with-different-adjacent-characters/
+https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/
  */

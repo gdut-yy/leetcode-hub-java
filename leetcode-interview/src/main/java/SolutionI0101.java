@@ -16,7 +16,7 @@ public class SolutionI0101 {
 }
 /*
 面试题 01.01. 判定字符是否唯一
-https://leetcode-cn.com/problems/is-unique-lcci/
+https://leetcode.cn/problems/is-unique-lcci/
 
 实现一个算法，确定一个字符串 s 的所有字符是否全都不同。
 

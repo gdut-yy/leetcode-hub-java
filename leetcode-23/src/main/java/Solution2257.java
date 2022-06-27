@@ -61,7 +61,7 @@ public class Solution2257 {
 }
 /*
 2257. 统计网格图中没有被保卫的格子数
-https://leetcode-cn.com/problems/count-unguarded-cells-in-the-grid/
+https://leetcode.cn/problems/count-unguarded-cells-in-the-grid/
 
 第 77 场双周赛 T3。
 

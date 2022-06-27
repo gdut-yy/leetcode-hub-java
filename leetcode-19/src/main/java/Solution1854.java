@@ -32,7 +32,7 @@ public class Solution1854 {
 }
 /*
 1854. 人口最多的年份
-https://leetcode-cn.com/problems/maximum-population-year/
+https://leetcode.cn/problems/maximum-population-year/
 
 第 240 场周赛 T1。
 

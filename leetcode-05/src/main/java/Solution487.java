@@ -18,7 +18,7 @@ public class Solution487 {
 }
 /*
 $487. 最大连续1的个数 II
-https://leetcode-cn.com/problems/max-consecutive-ones-ii/
+https://leetcode.cn/problems/max-consecutive-ones-ii/
 
 给定一个二进制数组，你可以最多将 1 个 0 翻转为 1，找出其中最大连续 1 的个数。
 提示:

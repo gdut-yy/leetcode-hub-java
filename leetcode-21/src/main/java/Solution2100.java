@@ -68,7 +68,7 @@ public class Solution2100 {
 }
 /*
 2100. 适合打劫银行的日子
-https://leetcode-cn.com/problems/find-good-days-to-rob-the-bank/
+https://leetcode.cn/problems/find-good-days-to-rob-the-bank/
 
 第 67 场双周赛 T2。
 

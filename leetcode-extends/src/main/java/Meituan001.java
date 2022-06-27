@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 /**
  * meituan-001. 小美的用户名
- * https://leetcode-cn.com/problems/BaR9fy/
+ * https://leetcode.cn/problems/BaR9fy/
  */
 public class Meituan001 {
     public static void main(String[] args) throws IOException {

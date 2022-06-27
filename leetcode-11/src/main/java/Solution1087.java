@@ -62,7 +62,7 @@ public class Solution1087 {
 }
 /*
 1087. 花括号展开
-https://leetcode-cn.com/problems/brace-expansion/
+https://leetcode.cn/problems/brace-expansion/
 
 第 2 场双周赛 T3。
 

@@ -29,7 +29,7 @@ public class Solution883 {
 }
 /*
 883. 三维形体投影面积
-https://leetcode-cn.com/problems/projection-area-of-3d-shapes/
+https://leetcode.cn/problems/projection-area-of-3d-shapes/
 
 第 96 场周赛 T1。
 

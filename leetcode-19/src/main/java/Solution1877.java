@@ -13,7 +13,7 @@ public class Solution1877 {
 }
 /*
 1877. 数组中最大数对和的最小值
-https://leetcode-cn.com/problems/minimize-maximum-pair-sum-in-array/
+https://leetcode.cn/problems/minimize-maximum-pair-sum-in-array/
 
 第 53 双周赛 T2。
 

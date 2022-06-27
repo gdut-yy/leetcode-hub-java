@@ -44,7 +44,7 @@ public class Solution2151 {
 }
 /*
 2151. 基于陈述统计最多好人数
-https://leetcode-cn.com/problems/maximum-good-people-based-on-statements/
+https://leetcode.cn/problems/maximum-good-people-based-on-statements/
 
 第 277 场周赛 T4。
 
@@ -67,5 +67,5 @@ statements[i][i] == 2
 贪心取最大值。
 时间复杂度 O(2^n)
 相似题目: 2035. 将数组分成两个数组并最小化数组和的差
-https://leetcode-cn.com/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
+https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference/
  */

@@ -52,7 +52,7 @@ public class Solution2106 {
 }
 /*
 2106. 摘水果
-https://leetcode-cn.com/problems/maximum-fruits-harvested-after-at-most-k-steps/
+https://leetcode.cn/problems/maximum-fruits-harvested-after-at-most-k-steps/
 
 第 271 场周赛 T4。
 

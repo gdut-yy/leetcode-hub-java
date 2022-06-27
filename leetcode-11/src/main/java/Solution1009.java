@@ -14,7 +14,7 @@ public class Solution1009 {
 }
 /*
 1009. 十进制整数的反码
-https://leetcode-cn.com/problems/complement-of-base-10-integer/
+https://leetcode.cn/problems/complement-of-base-10-integer/
 
 第 128 场周赛 T1。
 
@@ -24,5 +24,5 @@ https://leetcode-cn.com/problems/complement-of-base-10-integer/
 给你一个十进制数 N，请你返回其二进制表示的反码所对应的十进制整数。
 
 同: 476. 数字的补数
-https://leetcode-cn.com/problems/number-complement/
+https://leetcode.cn/problems/number-complement/
  */

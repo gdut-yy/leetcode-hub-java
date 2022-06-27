@@ -27,7 +27,7 @@ public class Solution299 {
 }
 /*
 299. 猜数字游戏
-https://leetcode-cn.com/problems/bulls-and-cows/
+https://leetcode.cn/problems/bulls-and-cows/
 
 你在和朋友一起玩 猜数字（Bulls and Cows）游戏，该游戏规则如下：
 写出一个秘密数字，并请朋友猜这个数字是多少。朋友每猜测一次，你就会给他一个包含下述信息的提示：

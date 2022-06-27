@@ -15,7 +15,7 @@ public class Solution2029 {
 }
 /*
 2029. 石子游戏 IX
-https://leetcode-cn.com/problems/stone-game-ix/
+https://leetcode.cn/problems/stone-game-ix/
 
 第 261 场周赛 T3。
 
@@ -26,7 +26,7 @@ Alice 和 Bob 轮流进行自己的回合，Alice 先手。每一回合，玩家
 如果不满足上一条，且移除后没有任何剩余的石子，那么 Bob 将会直接获胜（即便是在 Alice 的回合）。
 假设两位玩家均采用 最佳 决策。如果 Alice 获胜，返回 true ；如果 Bob 获胜，返回 false 。
 
-官方题解：https://leetcode-cn.com/problems/stone-game-ix/solution/guan-jian-zai-yu-qiu-chu-hui-he-shu-by-e-mcgv/
+官方题解：https://leetcode.cn/problems/stone-game-ix/solution/guan-jian-zai-yu-qiu-chu-hui-he-shu-by-e-mcgv/
 对于回合数，我们只需考虑其奇偶性，因此可以去掉恒为偶数的 min(c[1], c[2])*2。然后我们按照 c[0] 的奇偶性分类讨论：
 
 若 c[0] 为偶数，要使回合数为奇数，c[1] > c[2] 必须不成立，我们可以选择 c[1] 和 c[2] 中的较小值当作第一回合移除的石子，

@@ -10,7 +10,7 @@ public class Solution1920 {
 }
 /*
 1920. 基于排列构建数组
-https://leetcode-cn.com/problems/build-array-from-permutation/
+https://leetcode.cn/problems/build-array-from-permutation/
 
 第 248 场周赛 T1。
 

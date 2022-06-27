@@ -20,7 +20,7 @@ public class Solution1897 {
 }
 /*
 1897. 重新分配字符使所有字符串都相等
-https://leetcode-cn.com/problems/redistribute-characters-to-make-all-strings-equal/
+https://leetcode.cn/problems/redistribute-characters-to-make-all-strings-equal/
 
 第 245 场周赛 T1。
 

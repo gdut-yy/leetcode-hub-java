@@ -160,7 +160,7 @@ public class Solution2048 {
 }
 /*
 2048. 下一个更大的数值平衡数
-https://leetcode-cn.com/problems/next-greater-numerically-balanced-number/
+https://leetcode.cn/problems/next-greater-numerically-balanced-number/
 
 第 264 场周赛 T2。
 

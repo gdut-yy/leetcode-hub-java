@@ -21,7 +21,7 @@ public class Solution685Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/289590342/
+        // https://leetcode.cn/submissions/detail/289590342/
         int[][] edges = UtUtils.stringToInts2("[[2,1],[3,1],[4,2],[1,4]]");
         int[] expected = {2, 1};
         Assertions.assertArrayEquals(expected, solution685.findRedundantDirectedConnection(edges));

@@ -15,7 +15,7 @@ public class Solution2148 {
 }
 /*
 2148. 元素计数
-https://leetcode-cn.com/problems/count-elements-with-strictly-smaller-and-greater-elements/
+https://leetcode.cn/problems/count-elements-with-strictly-smaller-and-greater-elements/
 
 第 277 场周赛 T1。
 

@@ -22,7 +22,7 @@ public class Solution836 {
 }
 /*
 836. 矩形重叠
-https://leetcode-cn.com/problems/rectangle-overlap/
+https://leetcode.cn/problems/rectangle-overlap/
 
 第 85 场周赛 T1。
 

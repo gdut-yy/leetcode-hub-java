@@ -14,7 +14,7 @@ public class Solution643 {
 }
 /*
 643. 子数组最大平均数 I
-https://leetcode-cn.com/problems/maximum-average-subarray-i/
+https://leetcode.cn/problems/maximum-average-subarray-i/
 
 可看作固定长度为 k 的滑动窗口
  */

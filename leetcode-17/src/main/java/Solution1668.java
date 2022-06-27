@@ -11,7 +11,7 @@ public class Solution1668 {
 }
 /*
 1668. 最大重复子字符串
-https://leetcode-cn.com/problems/maximum-repeating-substring/
+https://leetcode.cn/problems/maximum-repeating-substring/
 
 第 40 场双周赛 T1。
 

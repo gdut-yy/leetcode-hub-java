@@ -71,7 +71,7 @@ public class Solution2101 {
 }
 /*
 2101. 引爆最多的炸弹
-https://leetcode-cn.com/problems/detonate-the-maximum-bombs/
+https://leetcode.cn/problems/detonate-the-maximum-bombs/
 
 第 67 场双周赛 T3。
 

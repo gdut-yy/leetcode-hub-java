@@ -16,7 +16,7 @@ public class Solution7 {
 }
 /*
 7. 整数反转
-https://leetcode-cn.com/problems/reverse-integer/
+https://leetcode.cn/problems/reverse-integer/
 
 使用 StringBuilder#reverse() 轻松实现字符串翻转。
  */

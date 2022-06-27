@@ -38,7 +38,7 @@ public class Solution2062 {
 }
 /*
 2062. 统计字符串中的元音子字符串
-https://leetcode-cn.com/problems/count-vowel-substrings-of-a-string/
+https://leetcode.cn/problems/count-vowel-substrings-of-a-string/
 
 第 266 场周赛 T1。
 

@@ -11,7 +11,7 @@ public class Solution1119 {
 }
 /*
 1119. 删去字符串中的元音
-https://leetcode-cn.com/problems/remove-vowels-from-a-string/
+https://leetcode.cn/problems/remove-vowels-from-a-string/
 
 第 4 场双周赛 T2。
 

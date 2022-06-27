@@ -18,7 +18,7 @@ public class Solution1431 {
 }
 /*
 1431. 拥有最多糖果的孩子
-https://leetcode-cn.com/problems/kids-with-the-greatest-number-of-candies/
+https://leetcode.cn/problems/kids-with-the-greatest-number-of-candies/
 
 第 25 场双周赛 T1。
 

@@ -17,7 +17,7 @@ public class Solution45 {
 }
 /*
 45. 跳跃游戏 II
-https://leetcode-cn.com/problems/jump-game-ii/
+https://leetcode.cn/problems/jump-game-ii/
 
 给你一个非负整数数组 nums ，你最初位于数组的第一个位置。
 数组中的每个元素代表你在该位置可以跳跃的最大长度。

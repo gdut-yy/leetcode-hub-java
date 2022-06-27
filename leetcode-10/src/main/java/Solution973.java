@@ -9,7 +9,7 @@ public class Solution973 {
 }
 /*
 973. 最接近原点的 K 个点
-https://leetcode-cn.com/problems/k-closest-points-to-origin/
+https://leetcode.cn/problems/k-closest-points-to-origin/
 
 第 119 场周赛 T1。
 

@@ -29,7 +29,7 @@ public class Solution2187 {
 }
 /*
 2187. 完成旅途的最少时间
-https://leetcode-cn.com/problems/minimum-time-to-complete-trips/
+https://leetcode.cn/problems/minimum-time-to-complete-trips/
 
 第 282 场周赛 T3。
 

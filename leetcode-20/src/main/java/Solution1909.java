@@ -25,7 +25,7 @@ public class Solution1909 {
 }
 /*
 1909. 删除一个元素使数组严格递增
-https://leetcode-cn.com/problems/remove-one-element-to-make-the-array-strictly-increasing/
+https://leetcode.cn/problems/remove-one-element-to-make-the-array-strictly-increasing/
 
 第 55 场双周赛 T1。
 

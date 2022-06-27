@@ -27,7 +27,7 @@ public class Solution750 {
 }
 /*
 750. 角矩形的数量
-https://leetcode-cn.com/problems/number-of-corner-rectangles/
+https://leetcode.cn/problems/number-of-corner-rectangles/
 
 给定一个只包含 0 和 1 的 m x n 整数矩阵 grid ，返回 其中 「角矩形 」的数量 。
 一个「角矩形」是由四个不同的在矩阵上的 1 形成的轴对称的矩形。注意只有角的位置才需要为 1。

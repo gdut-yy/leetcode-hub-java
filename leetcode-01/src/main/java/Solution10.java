@@ -36,7 +36,7 @@ public class Solution10 {
 }
 /*
 10. 正则表达式匹配
-https://leetcode-cn.com/problems/regular-expression-matching/
+https://leetcode.cn/problems/regular-expression-matching/
 
 给你一个字符串 s 和一个字符规律 p，请你来实现一个支持 '.' 和 '*' 的正则表达式匹配。
 '.' 匹配任意单个字符
@@ -47,5 +47,5 @@ https://leetcode-cn.com/problems/regular-expression-matching/
 时间复杂度 O(mn)
 空间复杂度 O(mn)
 相似题目: 44. 通配符匹配
-https://leetcode-cn.com/problems/wildcard-matching/
+https://leetcode.cn/problems/wildcard-matching/
  */

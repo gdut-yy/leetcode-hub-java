@@ -27,7 +27,7 @@ public class Solution398 {
 }
 /*
 398. 随机数索引
-https://leetcode-cn.com/problems/random-pick-index/
+https://leetcode.cn/problems/random-pick-index/
 
 给定一个可能含有重复元素的整数数组，要求随机输出给定的数字的索引。 您可以假设给定的数字一定存在于数组中。
 注意：
@@ -36,5 +36,5 @@ https://leetcode-cn.com/problems/random-pick-index/
 水塘抽样。
 遍历 nums，当我们第 i 次遇到值为 target 的元素时，随机选择区间 [0,i) 内的一个整数，如果其等于 0，则将返回值置为该元素的下标，否则返回值不变。
 相似题目: 382. 链表随机节点
-https://leetcode-cn.com/problems/linked-list-random-node/
+https://leetcode.cn/problems/linked-list-random-node/
  */

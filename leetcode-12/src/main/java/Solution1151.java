@@ -19,7 +19,7 @@ public class Solution1151 {
 }
 /*
 $1151. 最少交换次数来组合所有的 1
-https://leetcode-cn.com/problems/minimum-swaps-to-group-all-1s-together/
+https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together/
 
 第 6 场双周赛 T2。
 

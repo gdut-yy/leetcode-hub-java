@@ -48,7 +48,7 @@ public class Solution1162 {
 }
 /*
 1162. 地图分析
-https://leetcode-cn.com/problems/as-far-from-land-as-possible/
+https://leetcode.cn/problems/as-far-from-land-as-possible/
 
 你现在手里有一份大小为 n x n 的 网格 grid，上面的每个 单元格 都用 0 和 1 标记好了。
 其中 0 代表海洋，1 代表陆地，请你找出一个海洋单元格，这个海洋单元格到离它最近的陆地单元格的距离是最大的。如果网格上只有陆地或者海洋，请返回 -1。

@@ -23,7 +23,7 @@ public class Solution1109 {
 }
 /*
 1109. 航班预订统计
-https://leetcode-cn.com/problems/corporate-flight-bookings/
+https://leetcode.cn/problems/corporate-flight-bookings/
 
 第 144 场周赛 T2。
 

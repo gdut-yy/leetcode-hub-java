@@ -51,7 +51,7 @@ public class Solution117 {
 }
 /*
 117. 填充每个节点的下一个右侧节点指针 II
-https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node-ii/
+https://leetcode.cn/problems/populating-next-right-pointers-in-each-node-ii/
 
 给定一个二叉树
 struct Node {
@@ -65,5 +65,5 @@ struct Node {
 
 层次遍历。
 同: 116. 填充每个节点的下一个右侧节点指针
-https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node/
+https://leetcode.cn/problems/populating-next-right-pointers-in-each-node/
  */

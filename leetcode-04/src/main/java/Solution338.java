@@ -9,7 +9,7 @@ public class Solution338 {
 }
 /*
 338. 比特位计数
-https://leetcode-cn.com/problems/counting-bits/
+https://leetcode.cn/problems/counting-bits/
 
 i & (i - 1) 计算 i 的二进制形式中 1 的个数
  */

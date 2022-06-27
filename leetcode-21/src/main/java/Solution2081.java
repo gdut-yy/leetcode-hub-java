@@ -104,7 +104,7 @@ public class Solution2081 {
 }
 /*
 2081. k 镜像数字的和
-https://leetcode-cn.com/problems/sum-of-k-mirror-numbers/
+https://leetcode.cn/problems/sum-of-k-mirror-numbers/
 
 第 268 场周赛 T4。
 

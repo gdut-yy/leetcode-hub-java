@@ -24,7 +24,7 @@ public class Solution456 {
 }
 /*
 456. 132 模式
-https://leetcode-cn.com/problems/132-pattern/
+https://leetcode.cn/problems/132-pattern/
 
 给你一个整数数组 nums ，数组中共有 n 个整数。132 模式的子序列 由三个整数 nums[i]、nums[j] 和 nums[k] 组成，
 并同时满足：i < j < k 和 nums[i] < nums[k] < nums[j] 。

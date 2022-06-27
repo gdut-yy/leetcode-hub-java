@@ -18,7 +18,7 @@ public class Solution1869 {
 }
 /*
 1869. 哪种连续子字符串更长
-https://leetcode-cn.com/problems/longer-contiguous-segments-of-ones-than-zeros/
+https://leetcode.cn/problems/longer-contiguous-segments-of-ones-than-zeros/
 
 第 242 场周赛 T1。
 

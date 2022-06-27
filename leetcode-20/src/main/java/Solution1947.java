@@ -228,7 +228,7 @@ public class Solution1947 {
 }
 /*
 1947. 最大兼容性评分和
-https://leetcode-cn.com/problems/maximum-compatibility-score-sum/
+https://leetcode.cn/problems/maximum-compatibility-score-sum/
 
 第 251 场周赛 T3。
 
@@ -253,5 +253,5 @@ mentors[j][k] 为 0 或 1
 也可以使用 匈牙利算法（KM 算法）
 
 相似题目: 1066. 校园自行车分配 II
-https://leetcode-cn.com/problems/campus-bikes-ii/
+https://leetcode.cn/problems/campus-bikes-ii/
  */

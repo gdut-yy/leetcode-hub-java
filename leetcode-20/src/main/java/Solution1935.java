@@ -28,7 +28,7 @@ public class Solution1935 {
 }
 /*
 1935. 可以输入的最大单词数
-https://leetcode-cn.com/problems/maximum-number-of-words-you-can-type/
+https://leetcode.cn/problems/maximum-number-of-words-you-can-type/
 
 第 250 场周赛 T1。
 

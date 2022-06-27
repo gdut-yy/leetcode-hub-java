@@ -30,7 +30,7 @@ public class Solution303 {
 }
 /*
 303. 区域和检索 - 数组不可变
-https://leetcode-cn.com/problems/range-sum-query-immutable/
+https://leetcode.cn/problems/range-sum-query-immutable/
 
 给定一个整数数组  nums，处理以下类型的多个查询:
 1. 计算索引 left 和 right （包含 left 和 right）之间的 nums 元素的 和 ，其中 left <= right

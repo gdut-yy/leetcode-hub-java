@@ -156,7 +156,7 @@ public class Solution1066 {
 }
 /*
 $1066. 校园自行车分配 II
-https://leetcode-cn.com/problems/campus-bikes-ii/
+https://leetcode.cn/problems/campus-bikes-ii/
 
 第 1 场双周赛 T3。
 
@@ -173,5 +173,5 @@ p1 和 p2 之间的曼哈顿距离为 Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y 
 匈牙利算法（KM 算法）
 时间复杂度 O(n^3)
 相似题目: 1947. 最大兼容性评分和
-https://leetcode-cn.com/problems/maximum-compatibility-score-sum/
+https://leetcode.cn/problems/maximum-compatibility-score-sum/
  */

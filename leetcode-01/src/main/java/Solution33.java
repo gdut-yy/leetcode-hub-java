@@ -32,7 +32,7 @@ public class Solution33 {
 }
 /*
 33. 搜索旋转排序数组
-https://leetcode-cn.com/problems/search-in-rotated-sorted-array/
+https://leetcode.cn/problems/search-in-rotated-sorted-array/
 
 整数数组 nums 按升序排列，数组中的值 互不相同 。
 在传递给函数之前，nums 在预先未知的某个下标 k（0 <= k < nums.length）上进行了 旋转，

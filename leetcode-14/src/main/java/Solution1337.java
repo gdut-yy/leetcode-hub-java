@@ -25,7 +25,7 @@ public class Solution1337 {
 }
 /*
 1337. 矩阵中战斗力最弱的 K 行
-https://leetcode-cn.com/problems/the-k-weakest-rows-in-a-matrix/
+https://leetcode.cn/problems/the-k-weakest-rows-in-a-matrix/
 
 给你一个大小为 m * n 的矩阵 mat，矩阵由若干军人和平民组成，分别用 1 和 0 表示。
 请你返回矩阵中战斗力最弱的 k 行的索引，按从最弱到最强排序。

@@ -53,7 +53,7 @@ public class Solution838 {
 }
 /*
 838. 推多米诺
-https://leetcode-cn.com/problems/push-dominoes/
+https://leetcode.cn/problems/push-dominoes/
 
 n 张多米诺骨牌排成一行，将每张多米诺骨牌垂直竖立。在开始时，同时把一些多米诺骨牌向左或向右推。
 每过一秒，倒向左边的多米诺骨牌会推动其左侧相邻的多米诺骨牌。同样地，倒向右边的多米诺骨牌也会推动竖立在其右侧的相邻多米诺骨牌。

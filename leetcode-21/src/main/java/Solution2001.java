@@ -22,7 +22,7 @@ public class Solution2001 {
 }
 /*
 2001. 可互换矩形的组数
-https://leetcode-cn.com/problems/number-of-pairs-of-interchangeable-rectangles/
+https://leetcode.cn/problems/number-of-pairs-of-interchangeable-rectangles/
 
 第 258 场周赛 T2。
 

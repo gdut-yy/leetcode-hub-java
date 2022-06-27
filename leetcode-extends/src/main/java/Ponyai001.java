@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * Pony.ai-001. 车队管理
- * https://leetcode-cn.com/problems/nDTGrx/
+ * https://leetcode.cn/problems/nDTGrx/
  */
 public class Ponyai001 {
     private static final int[][] DIRECTION = {{-1, -1}, {-1, 0}, {-1, 1}, {0, -1}, {0, 1}, {1, -1}, {1, 0}, {1, 1}};

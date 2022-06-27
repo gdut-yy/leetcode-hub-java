@@ -115,7 +115,7 @@ public class Ccbft211029T4 {
 }
 /*
 建信04. 电学实验课
-https://leetcode-cn.com/contest/ccbft-2021fall/problems/lSjqMF/
+https://leetcode.cn/contest/ccbft-2021fall/problems/lSjqMF/
 
 某电学实验使用了 row * col 个插孔的面包板，可视作二维矩阵，左上角记作 (0,0)。老师设置了若干「目标插孔」，
 它们位置对应的矩阵下标记于二维数组 position。实验目标要求同学们用导线连接所有「目标插孔」，

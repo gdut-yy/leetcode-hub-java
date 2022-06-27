@@ -33,7 +33,7 @@ public class Solution1942 {
 }
 /*
 1942. 最小未被占据椅子的编号
-https://leetcode-cn.com/problems/the-number-of-the-smallest-unoccupied-chair/
+https://leetcode.cn/problems/the-number-of-the-smallest-unoccupied-chair/
 
 第 57 场双周赛 T2。
 

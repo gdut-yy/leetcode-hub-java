@@ -43,7 +43,7 @@ public class Solution1610 {
 }
 /*
 1610. 可见点的最大数目
-https://leetcode-cn.com/problems/maximum-number-of-visible-points/
+https://leetcode.cn/problems/maximum-number-of-visible-points/
 
 第 209 场周赛 T3。
 
@@ -58,7 +58,7 @@ https://leetcode-cn.com/problems/maximum-number-of-visible-points/
 返回你能看到的点的最大数目。
 
 先求出每个点相对于 location 的方向角，再用滑动窗口求解。
-官方题解: https://leetcode-cn.com/problems/maximum-number-of-visible-points/solution/you-xiao-ke-jian-dian-de-zui-da-shu-mu-b-r1qz/
+官方题解: https://leetcode.cn/problems/maximum-number-of-visible-points/solution/you-xiao-ke-jian-dian-de-zui-da-shu-mu-b-r1qz/
 时间复杂度 O(nlogn)，其中 n 为坐标的个数，由于需要对所有的极角进行排序，利用移动指针区间查找的时间复杂度为 O(2n+2n)，因此总的时间复杂度应该为 O(nlogn+2n+2n)=O(nlogn)。
 空间复杂度 O(n)，其中 n 为坐标的个数，我们总共最多需要两倍坐标个数的空间来存储坐标的极角。
  */

@@ -107,7 +107,7 @@ public class Solution1579 {
 }
 /*
 1579. 保证图可完全遍历
-https://leetcode-cn.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/
+https://leetcode.cn/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/
 
 Alice 和 Bob 共有一个无向图，其中包含 n 个节点和 3  种类型的边：
 - 类型 1：只能由 Alice 遍历。

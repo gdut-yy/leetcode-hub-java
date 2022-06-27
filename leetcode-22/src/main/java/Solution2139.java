@@ -21,7 +21,7 @@ public class Solution2139 {
 }
 /*
 2139. 得到目标值的最少行动次数
-https://leetcode-cn.com/problems/minimum-moves-to-reach-target-score/
+https://leetcode.cn/problems/minimum-moves-to-reach-target-score/
 
 第 276 场周赛 T2。
 

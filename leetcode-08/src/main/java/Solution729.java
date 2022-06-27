@@ -25,7 +25,7 @@ public class Solution729 {
 }
 /*
 729. 我的日程安排表 I
-https://leetcode-cn.com/problems/my-calendar-i/
+https://leetcode.cn/problems/my-calendar-i/
 
 实现一个 MyCalendar 类来存放你的日程安排。如果要添加的日程安排不会造成 重复预订 ，则可以存储这个新的日程安排。
 当两个日程安排有一些时间上的交叉时（例如两个日程安排都在同一时间内），就会产生 重复预订 。

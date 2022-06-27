@@ -49,7 +49,7 @@ public class Solution2223 {
 }
 /*
 2223. 构造字符串的总得分和
-https://leetcode-cn.com/problems/sum-of-scores-of-built-strings/
+https://leetcode.cn/problems/sum-of-scores-of-built-strings/
 
 第 75 场双周赛 T4。
 

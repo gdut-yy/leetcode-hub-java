@@ -10,7 +10,7 @@ public class Solution2114 {
 }
 /*
 2114. 句子中的最多单词数
-https://leetcode-cn.com/problems/maximum-number-of-words-found-in-sentences/
+https://leetcode.cn/problems/maximum-number-of-words-found-in-sentences/
 
 第 68 场双周赛 T1。
 

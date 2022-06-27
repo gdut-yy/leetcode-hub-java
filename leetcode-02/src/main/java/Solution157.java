@@ -44,7 +44,7 @@ public class Solution157 {
 }
 /*
 $157. 用 Read4 读取 N 个字符
-https://leetcode-cn.com/problems/read-n-characters-given-read4/
+https://leetcode.cn/problems/read-n-characters-given-read4/
 
 给你一个文件，并且该文件只能通过给定的 read4 方法来读取，请实现一个方法使其能够读取 n 个字符。
 read4 方法：
@@ -75,5 +75,5 @@ read  函数只在每个测试用例调用一次。
 
 模拟。UT 写法比较复杂
 相似題目: $158. 用 Read4 读取 N 个字符 II
-https://leetcode-cn.com/problems/read-n-characters-given-read4-ii-call-multiple-times/
+https://leetcode.cn/problems/read-n-characters-given-read4-ii-call-multiple-times/
  */

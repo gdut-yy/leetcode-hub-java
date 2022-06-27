@@ -10,7 +10,7 @@ public class Solution2057 {
 }
 /*
 2057. 值相等的最小索引
-https://leetcode-cn.com/problems/smallest-index-with-equal-value/
+https://leetcode.cn/problems/smallest-index-with-equal-value/
 
 第 265 场周赛 T1。
 

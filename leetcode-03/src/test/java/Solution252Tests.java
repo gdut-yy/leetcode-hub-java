@@ -19,7 +19,7 @@ public class Solution252Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/225516763/
+        // https://leetcode.cn/submissions/detail/225516763/
         int[][] intervals = UtUtils.stringToInts2("[]");
         Assertions.assertTrue(solution252.canAttendMeetings(intervals));
     }

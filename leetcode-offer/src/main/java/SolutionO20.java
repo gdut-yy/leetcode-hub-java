@@ -163,10 +163,10 @@ public class SolutionO20 {
 }
 /*
 剑指 Offer 20. 表示数值的字符串
-https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/
+https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/
 
 确定有限状态自动机（DFA）
-官方题解: https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/solution/biao-shi-shu-zhi-de-zi-fu-chuan-by-leetcode-soluti/
+官方题解: https://leetcode.cn/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/solution/biao-shi-shu-zhi-de-zi-fu-chuan-by-leetcode-soluti/
 
 时间复杂度 O(n)
 空间复杂度 O(1)

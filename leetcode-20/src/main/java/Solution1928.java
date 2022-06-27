@@ -35,7 +35,7 @@ public class Solution1928 {
 }
 /*
 1928. 规定时间内到达终点的最小花费
-https://leetcode-cn.com/problems/minimum-cost-to-reach-destination-in-time/
+https://leetcode.cn/problems/minimum-cost-to-reach-destination-in-time/
 
 一个国家有 n 个城市，城市编号为 0 到 n - 1 ，题目保证 所有城市 都由双向道路 连接在一起 。道路由二维整数数组 edges 表示，
 其中 edges[i] = [xi, yi, timei] 表示城市 xi 和 yi 之间有一条双向道路，耗费时间为 timei 分钟。
@@ -56,5 +56,5 @@ n - 1 <= edges.length <= 1000
 
 bellman ford 算法
 相似题目: 787. K 站中转内最便宜的航班
-https://leetcode-cn.com/problems/cheapest-flights-within-k-stops/
+https://leetcode.cn/problems/cheapest-flights-within-k-stops/
  */

@@ -32,7 +32,7 @@ public class Solution1065 {
 }
 /*
 1065. 字符串的索引对
-https://leetcode-cn.com/problems/index-pairs-of-a-string/
+https://leetcode.cn/problems/index-pairs-of-a-string/
 
 第 1 场双周赛 T2。
 

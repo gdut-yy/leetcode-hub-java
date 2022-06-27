@@ -46,7 +46,7 @@ public class Solution2163 {
 }
 /*
 2163. 删除元素后和的最小差值
-https://leetcode-cn.com/problems/minimum-difference-in-sums-after-removal-of-elements/
+https://leetcode.cn/problems/minimum-difference-in-sums-after-removal-of-elements/
 
 第 71 场双周赛 T4。
 

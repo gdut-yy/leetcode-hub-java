@@ -43,5 +43,5 @@ C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
 
 模拟。
 相似题目: 13. 罗马数字转整数
-https://leetcode-cn.com/problems/roman-to-integer/
+https://leetcode.cn/problems/roman-to-integer/
  */

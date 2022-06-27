@@ -131,7 +131,7 @@ public class Solution928 {
 }
 /*
 928. 尽量减少恶意软件的传播 II
-https://leetcode-cn.com/problems/minimize-malware-spread-ii/
+https://leetcode.cn/problems/minimize-malware-spread-ii/
 
 给定一个由 n 个节点组成的网络，用 n x n 个邻接矩阵 graph 表示。在节点网络中，只有当 graph[i][j] = 1 时，节点 i 能够直接连接到另一个节点 j。
 一些节点 initial 最初被恶意软件感染。只要两个节点直接连接，且其中至少一个节点受到恶意软件的感染，那么两个节点都将被恶意软件感染。
@@ -159,5 +159,5 @@ case2: 如果 v 不只被一个 u 感染，那么即使移除了对应的 u 也�
 时间复杂度 O(n^2)
 空间复杂度 O(n)
 相似题目: 924. 尽量减少恶意软件的传播
-https://leetcode-cn.com/problems/minimize-malware-spread/
+https://leetcode.cn/problems/minimize-malware-spread/
  */

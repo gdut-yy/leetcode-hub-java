@@ -30,7 +30,7 @@ public class Solution931 {
 }
 /*
 931. 下降路径最小和
-https://leetcode-cn.com/problems/minimum-falling-path-sum/
+https://leetcode.cn/problems/minimum-falling-path-sum/
 
 第 108 场周赛 T3。
 

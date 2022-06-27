@@ -77,7 +77,7 @@ public class Solution2245 {
 }
 /*
 2245. 转角路径的乘积中最多能有几个尾随零
-https://leetcode-cn.com/problems/maximum-trailing-zeros-in-a-cornered-path/
+https://leetcode.cn/problems/maximum-trailing-zeros-in-a-cornered-path/
 
 第 289 场周赛 T3。
 
@@ -101,5 +101,5 @@ n == grid[i].length
 比赛时一开始看错了数据范围，发现会狠狠的爆 long，换 BigInteger 会 TLE。
 乘积末尾零问题可以转化为 求 质因子 22 的个数和质因子 55 的个数的较小值 问题
 相似题目: 172. 阶乘后的零
-https://leetcode-cn.com/problems/factorial-trailing-zeroes/
+https://leetcode.cn/problems/factorial-trailing-zeroes/
  */

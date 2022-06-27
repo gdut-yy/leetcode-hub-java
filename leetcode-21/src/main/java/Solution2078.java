@@ -14,7 +14,7 @@ public class Solution2078 {
 }
 /*
 2078. 两栋颜色不同且距离最远的房子
-https://leetcode-cn.com/problems/two-furthest-houses-with-different-colors/
+https://leetcode.cn/problems/two-furthest-houses-with-different-colors/
 
 第 268 场周赛 T1。
 

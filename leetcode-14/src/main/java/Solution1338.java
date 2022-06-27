@@ -28,7 +28,7 @@ public class Solution1338 {
 }
 /*
 1338. 数组大小减半
-https://leetcode-cn.com/problems/reduce-array-size-to-the-half/
+https://leetcode.cn/problems/reduce-array-size-to-the-half/
 
 第 174 场周赛 T2。
 

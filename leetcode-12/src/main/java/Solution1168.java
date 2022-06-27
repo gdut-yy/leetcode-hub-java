@@ -87,7 +87,7 @@ public class Solution1168 {
 }
 /*
 $1168. 水资源分配优化
-https://leetcode-cn.com/problems/optimize-water-distribution-in-a-village/
+https://leetcode.cn/problems/optimize-water-distribution-in-a-village/
 
 村里面一共有 n 栋房子。我们希望通过建造水井和铺设管道来为所有房子供水。
 对于每个房子 i，我们有两种可选的供水方案：一种是直接在房子内建造水井，成本为 wells[i - 1] （注意 -1 ，因为 索引从0开始 ）；

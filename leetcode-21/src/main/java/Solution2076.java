@@ -86,7 +86,7 @@ public class Solution2076 {
 }
 /*
 2076. 处理含限制条件的好友请求
-https://leetcode-cn.com/problems/process-restricted-friend-requests/
+https://leetcode.cn/problems/process-restricted-friend-requests/
 
 第 267 场周赛 T4。
 

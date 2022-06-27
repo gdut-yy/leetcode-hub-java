@@ -5,7 +5,7 @@ public class Solution1641 {
 }
 /*
 1641. 统计字典序元音字符串的数目
-https://leetcode-cn.com/problems/count-sorted-vowel-strings/
+https://leetcode.cn/problems/count-sorted-vowel-strings/
 
 第 213 场周赛 T2。
 

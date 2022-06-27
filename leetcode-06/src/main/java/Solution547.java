@@ -64,7 +64,7 @@ public class Solution547 {
 }
 /*
 547. 省份数量
-https://leetcode-cn.com/problems/number-of-provinces/
+https://leetcode.cn/problems/number-of-provinces/
 
 有 n 个城市，其中一些彼此相连，另一些没有相连。如果城市 a 与城市 b 直接相连，且城市 b 与城市 c 直接相连，那么城市 a 与城市 c 间接相连。
 省份 是一组直接或间接相连的城市，组内不含其他没有相连的城市。
@@ -80,5 +80,5 @@ isConnected[i][j] == isConnected[j][i]
 
 并查集。
 相似题目: 200. 岛屿数量
-https://leetcode-cn.com/problems/number-of-islands/
+https://leetcode.cn/problems/number-of-islands/
  */

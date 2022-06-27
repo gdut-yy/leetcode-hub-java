@@ -27,7 +27,7 @@ public class Solution901 {
 }
 /*
 901. 股票价格跨度
-https://leetcode-cn.com/problems/online-stock-span/
+https://leetcode.cn/problems/online-stock-span/
 
 第 101 场周赛 T2。
 

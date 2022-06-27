@@ -68,7 +68,7 @@ public class Solution2156 {
 }
 /*
 2156. 查找给定哈希值的子串
-https://leetcode-cn.com/problems/find-substring-with-given-hash-value/
+https://leetcode.cn/problems/find-substring-with-given-hash-value/
 
 第 278 场周赛 T3。
 

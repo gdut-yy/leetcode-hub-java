@@ -41,7 +41,7 @@ public class Solution1863 {
 }
 /*
 1863. 找出所有子集的异或总和再求和
-https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/
+https://leetcode.cn/problems/sum-of-all-subset-xor-totals/
 
 第 241 场周赛 T1。
 
@@ -51,6 +51,6 @@ https://leetcode-cn.com/problems/sum-of-all-subset-xor-totals/
 注意：在本题中，元素 相同 的不同子集应 多次 计数。
 数组 a 是数组 b 的一个 子集 的前提条件是：从 b 删除几个（也可能不删除）元素能够得到 a 。
 
-基于第 78 题 https://leetcode-cn.com/problems/subsets/
+基于第 78 题 https://leetcode.cn/problems/subsets/
 子集回溯法。时间复杂度 O(2^n)
  */

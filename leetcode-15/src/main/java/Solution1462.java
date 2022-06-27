@@ -32,7 +32,7 @@ public class Solution1462 {
 }
 /*
 1462. 课程表 IV
-https://leetcode-cn.com/problems/course-schedule-iv/
+https://leetcode.cn/problems/course-schedule-iv/
 
 第 27 场双周赛 T3。
 
@@ -56,5 +56,5 @@ queries[i][0] != queries[i][1]
 如果参考 2101 题，直接建图，逐个查询 bfs，时间复杂度为 O(k^2)（k 为查询次数）10^8 将会超时。
 参考 743 题，floyd 三层循环，时间复杂度为 O(n^3) 10^6 可以接受的范围。
 相似题目: 743. 网络延迟时间
-https://leetcode-cn.com/problems/network-delay-time/
+https://leetcode.cn/problems/network-delay-time/
  */

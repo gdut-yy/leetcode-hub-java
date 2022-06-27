@@ -57,7 +57,7 @@ public class Solution1705 {
 }
 /*
 1705. 吃苹果的最大数目
-https://leetcode-cn.com/problems/maximum-number-of-eaten-apples/
+https://leetcode.cn/problems/maximum-number-of-eaten-apples/
 
 第 221 场周赛 T2。
 

@@ -41,7 +41,7 @@ public class Solution273 {
 }
 /*
 273. 整数转换英文表示
-https://leetcode-cn.com/problems/integer-to-english-words/
+https://leetcode.cn/problems/integer-to-english-words/
 
 将非负整数 num 转换为其对应的英文表示。
 

@@ -27,7 +27,7 @@ public class Solution1640 {
 }
 /*
 1640. 能否连接形成数组
-https://leetcode-cn.com/problems/check-array-formation-through-concatenation/
+https://leetcode.cn/problems/check-array-formation-through-concatenation/
 
 第 213 场周赛 T1。
 

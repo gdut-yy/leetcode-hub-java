@@ -43,7 +43,7 @@ public class Solution2122 {
 }
 /*
 2122. 还原原数组
-https://leetcode-cn.com/problems/recover-the-original-array/
+https://leetcode.cn/problems/recover-the-original-array/
 
 第 273 场周赛 T4。
 

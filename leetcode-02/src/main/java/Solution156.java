@@ -19,7 +19,7 @@ public class Solution156 {
 }
 /*
 $156. 上下翻转二叉树
-https://leetcode-cn.com/problems/binary-tree-upside-down/
+https://leetcode.cn/problems/binary-tree-upside-down/
 
 给你一个二叉树的根节点 root ，请你将此二叉树上下翻转，并返回新的根节点。
 你可以按下面的步骤翻转一棵二叉树：

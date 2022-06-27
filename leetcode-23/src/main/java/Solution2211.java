@@ -31,7 +31,7 @@ public class Solution2211 {
 }
 /*
 2211. 统计道路上的碰撞次数
-https://leetcode-cn.com/problems/count-collisions-on-a-road/
+https://leetcode.cn/problems/count-collisions-on-a-road/
 
 第 285 场周赛 T2。
 

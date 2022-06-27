@@ -33,7 +33,7 @@ public class Solution515 {
 }
 /*
 515. 在每个树行中找最大值
-https://leetcode-cn.com/problems/find-largest-value-in-each-tree-row/
+https://leetcode.cn/problems/find-largest-value-in-each-tree-row/
 
 二叉树“按层”。两个队列实现二叉树广搜
 参考第 199、513 题

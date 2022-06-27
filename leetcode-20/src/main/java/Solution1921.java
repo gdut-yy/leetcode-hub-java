@@ -22,7 +22,7 @@ public class Solution1921 {
 }
 /*
 1921. 消灭怪物的最大数量
-https://leetcode-cn.com/problems/eliminate-maximum-number-of-monsters/
+https://leetcode.cn/problems/eliminate-maximum-number-of-monsters/
 
 第 248 场周赛 T2。
 

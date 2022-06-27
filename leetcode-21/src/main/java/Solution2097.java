@@ -57,7 +57,7 @@ public class Solution2097 {
 }
 /*
 2097. 合法重新排列数对
-https://leetcode-cn.com/problems/valid-arrangement-of-pairs/
+https://leetcode.cn/problems/valid-arrangement-of-pairs/
 
 第 270 场周赛 T4。
 
@@ -71,5 +71,5 @@ Hierholzer 算法。
 比赛时咋眼一看以为是 拓扑排序，然后发现示例 2 和示例 3 均有环路，人傻了。
 
 相似题目: 332. 重新安排行程
-https://leetcode-cn.com/problems/reconstruct-itinerary/
+https://leetcode.cn/problems/reconstruct-itinerary/
  */

@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * meituan-007. 小团的选调计划
- * https://leetcode-cn.com/problems/SDRaNt/
+ * https://leetcode.cn/problems/SDRaNt/
  */
 public class Meituan007 {
     public static void main(String[] args) throws IOException {

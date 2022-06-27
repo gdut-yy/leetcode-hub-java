@@ -46,7 +46,7 @@ public class Solution2007 {
 }
 /*
 2007. 从双倍数组中还原原数组
-https://leetcode-cn.com/problems/find-original-array-from-doubled-array/
+https://leetcode.cn/problems/find-original-array-from-doubled-array/
 
 第 61 场双周赛 T2。
 

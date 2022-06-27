@@ -69,7 +69,7 @@ public class Solution167 {
 }
 /*
 167. 两数之和 II - 输入有序数组
-https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/
+https://leetcode.cn/problems/two-sum-ii-input-array-is-sorted/
 
 给你一个下标从 1 开始的整数数组 numbers ，该数组已按 非递减顺序排列  ，请你从数组中找出满足相加之和等于目标数 target 的两个数。
 如果设这两个数分别是 numbers[index1] 和 numbers[index2] ，则 1 <= index1 < index2 <= numbers.length 。

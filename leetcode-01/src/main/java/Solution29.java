@@ -34,7 +34,7 @@ public class Solution29 {
 }
 /*
 29. 两数相除
-https://leetcode-cn.com/problems/divide-two-integers/
+https://leetcode.cn/problems/divide-two-integers/
 
 为什么 value >= 0xc0000000？
 1. divisor 是负数 => value 是负数

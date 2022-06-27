@@ -57,7 +57,7 @@ public class Solution2115 {
 }
 /*
 2115. 从给定原材料中找到所有可以做出的菜
-https://leetcode-cn.com/problems/find-all-possible-recipes-from-given-supplies/
+https://leetcode.cn/problems/find-all-possible-recipes-from-given-supplies/
 
 第 68 场双周赛 T2。
 

@@ -26,7 +26,7 @@ public class Solution688 {
 }
 /*
 688. 骑士在棋盘上的概率
-https://leetcode-cn.com/problems/knight-probability-in-chessboard/
+https://leetcode.cn/problems/knight-probability-in-chessboard/
 
 在一个 n x n 的国际象棋棋盘上，一个骑士从单元格 (row, column) 开始，并尝试进行 k 次移动。行和列是 从 0 开始 的，所以左上单元格是 (0,0) ，右下单元格是 (n - 1, n - 1) 。
 象棋骑士有8种可能的走法，如下图所示。每次移动在基本方向上是两个单元格，然后在正交方向上是一个单元格。
@@ -40,5 +40,5 @@ https://leetcode-cn.com/problems/knight-probability-in-chessboard/
 
 动态规划。
 相似题目: 576. 出界的路径数
-https://leetcode-cn.com/problems/out-of-boundary-paths/
+https://leetcode.cn/problems/out-of-boundary-paths/
  */

@@ -41,7 +41,7 @@ public class Solution859 {
 }
 /*
 859. 亲密字符串
-https://leetcode-cn.com/problems/buddy-strings/
+https://leetcode.cn/problems/buddy-strings/
 
 第 90 场周赛 T1。
 

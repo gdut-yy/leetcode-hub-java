@@ -17,7 +17,7 @@ public class Solution1637 {
 }
 /*
 1637. 两点之间不包含任何点的最宽垂直面积
-https://leetcode-cn.com/problems/widest-vertical-area-between-two-points-containing-no-points/
+https://leetcode.cn/problems/widest-vertical-area-between-two-points-containing-no-points/
 
 第 38 场双周赛 T2。
 

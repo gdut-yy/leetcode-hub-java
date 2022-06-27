@@ -30,7 +30,7 @@ public class Solution2232 {
 }
 /*
 2232. 向表达式添加括号后的最小结果
-https://leetcode-cn.com/problems/minimize-result-by-adding-parentheses-to-expression/
+https://leetcode.cn/problems/minimize-result-by-adding-parentheses-to-expression/
 
 第 288 场周赛 T2。
 

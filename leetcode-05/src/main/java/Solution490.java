@@ -42,7 +42,7 @@ public class Solution490 {
 }
 /*
 $490. 迷宫
-https://leetcode-cn.com/problems/the-maze/
+https://leetcode.cn/problems/the-maze/
 
 由空地（用 0 表示）和墙（用 1 表示）组成的迷宫 maze 中有一个球。球可以途经空地向 上、下、左、右 四个方向滚动，且在遇到墙壁前不会停止滚动。当球停下时，可以选择向下一个方向滚动。
 给你一个大小为 m x n 的迷宫 maze ，以及球的初始位置 start 和目的地 destination ，
@@ -63,7 +63,7 @@ destination.length == 2
 跟普通 BFS 的区别是不是每次走一步，而是每次 “走到底”。
 相似题目:
 $505. 迷宫 II
-https://leetcode-cn.com/problems/the-maze-ii/
+https://leetcode.cn/problems/the-maze-ii/
 $499. 迷宫 III
-https://leetcode-cn.com/problems/the-maze-iii/
+https://leetcode.cn/problems/the-maze-iii/
  */

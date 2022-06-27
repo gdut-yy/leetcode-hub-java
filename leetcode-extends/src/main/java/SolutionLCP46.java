@@ -152,7 +152,7 @@ public class SolutionLCP46 {
 }
 /*
 LCP 46. 志愿者调配
-https://leetcode-cn.com/problems/05ZEDJ/
+https://leetcode.cn/problems/05ZEDJ/
 
 LCCUP 力扣杯 2021 秋季编程大赛战队赛 T3。
 

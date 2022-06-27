@@ -5,7 +5,7 @@ public class Solution319 {
 }
 /*
 319. 灯泡开关
-https://leetcode-cn.com/problems/bulb-switcher/
+https://leetcode.cn/problems/bulb-switcher/
 
 初始时有 n 个灯泡处于关闭状态。
 对某个灯泡切换开关意味着：如果灯泡状态为关闭，那该灯泡就会被开启；而灯泡状态为开启，那该灯泡就会被关闭。

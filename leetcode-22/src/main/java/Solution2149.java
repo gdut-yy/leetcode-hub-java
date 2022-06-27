@@ -24,7 +24,7 @@ public class Solution2149 {
 }
 /*
 2149. 按符号重排数组
-https://leetcode-cn.com/problems/rearrange-array-elements-by-sign/
+https://leetcode.cn/problems/rearrange-array-elements-by-sign/
 
 第 277 场周赛 T2。
 

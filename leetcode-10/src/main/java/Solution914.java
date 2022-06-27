@@ -26,7 +26,7 @@ public class Solution914 {
 }
 /*
 914. 卡牌分组
-https://leetcode-cn.com/problems/x-of-a-kind-in-a-deck-of-cards/
+https://leetcode.cn/problems/x-of-a-kind-in-a-deck-of-cards/
 
 第 104 场周赛 T1。
 

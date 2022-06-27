@@ -26,7 +26,7 @@ public class Solution2017 {
 }
 /*
 2017. 网格游戏
-https://leetcode-cn.com/problems/grid-game/
+https://leetcode.cn/problems/grid-game/
 
 第 260 场周赛 T2。
 

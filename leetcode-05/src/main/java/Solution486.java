@@ -41,7 +41,7 @@ public class Solution486 {
 }
 /*
 486. 预测赢家
-https://leetcode-cn.com/problems/predict-the-winner/
+https://leetcode.cn/problems/predict-the-winner/
 
 给你一个整数数组 nums 。玩家 1 和玩家 2 基于这个数组设计了一个游戏。
 玩家 1 和玩家 2 轮流进行自己的回合，玩家 1 先手。开始时，两个玩家的初始分值都是 0 。每一回合，玩家从数组的任意一端取一个数字

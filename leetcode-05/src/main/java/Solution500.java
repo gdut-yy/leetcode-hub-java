@@ -30,7 +30,7 @@ public class Solution500 {
 }
 /*
 500. 键盘行
-https://leetcode-cn.com/problems/keyboard-row/
+https://leetcode.cn/problems/keyboard-row/
 
 给你一个字符串数组 words ，只返回可以使用在 美式键盘 同一行的字母打印出来的单词。键盘如下图所示。
 美式键盘 中：

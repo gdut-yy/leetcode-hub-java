@@ -35,7 +35,7 @@ public class Solution2241 {
 }
 /*
 2241. 设计一个 ATM 机器
-https://leetcode-cn.com/problems/design-an-atm-machine/
+https://leetcode.cn/problems/design-an-atm-machine/
 
 第 76 场双周赛 T3。
 

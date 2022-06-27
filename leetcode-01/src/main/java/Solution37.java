@@ -52,7 +52,7 @@ public class Solution37 {
 }
 /*
 37. 解数独
-https://leetcode-cn.com/problems/sudoku-solver/
+https://leetcode.cn/problems/sudoku-solver/
 
 编写一个程序，通过填充空格来解决数独问题。
 数独的解法需 遵循如下规则：

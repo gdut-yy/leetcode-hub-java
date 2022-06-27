@@ -62,7 +62,7 @@ public class Solution2127 {
 }
 /*
 2127. 参加会议的最多员工数
-https://leetcode-cn.com/problems/maximum-employees-to-be-invited-to-a-meeting/
+https://leetcode.cn/problems/maximum-employees-to-be-invited-to-a-meeting/
 
 第 274 场周赛 T4。
 
@@ -80,5 +80,5 @@ favorite[i] != i
 拓扑排序 + 动态规划
 时间复杂度 O(n)
 空间复杂度 O(n)
-官方题解: https://leetcode-cn.com/problems/maximum-employees-to-be-invited-to-a-meeting/solution/can-jia-hui-yi-de-zui-duo-yuan-gong-shu-u8e8u/
+官方题解: https://leetcode.cn/problems/maximum-employees-to-be-invited-to-a-meeting/solution/can-jia-hui-yi-de-zui-duo-yuan-gong-shu-u8e8u/
  */

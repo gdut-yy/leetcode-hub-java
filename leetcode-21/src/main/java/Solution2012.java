@@ -29,7 +29,7 @@ public class Solution2012 {
 }
 /*
 2012. 数组美丽值求和
-https://leetcode-cn.com/problems/sum-of-beauty-in-the-array/
+https://leetcode.cn/problems/sum-of-beauty-in-the-array/
 
 第 259 场周赛 T2。
 

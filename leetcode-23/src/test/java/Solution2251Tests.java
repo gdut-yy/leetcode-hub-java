@@ -23,7 +23,7 @@ public class Solution2251Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/309036934/
+        // https://leetcode.cn/submissions/detail/309036934/
         // 边界超出 person 看花时间
         int[][] flowers = UtUtils.stringToInts2("[[11,11],[24,46],[3,25],[44,46]]");
         int[] persons = {1, 8, 26, 7, 43, 26, 1};

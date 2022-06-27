@@ -45,7 +45,7 @@ public class Solution2092Tests {
     // 补充用例
     @Test
     public void example5() {
-        // https://leetcode-cn.com/submissions/detail/243033801/
+        // https://leetcode.cn/submissions/detail/243033801/
         // 36 / 42 个通过测试用例
         String fileName = "solution2092-example5-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);
@@ -57,7 +57,7 @@ public class Solution2092Tests {
 
     @Test
     public void example6() {
-        // https://leetcode-cn.com/submissions/detail/243018808/
+        // https://leetcode.cn/submissions/detail/243018808/
         // 38 / 42 个通过测试用例
         String fileName = "solution2092-example6-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);
@@ -69,7 +69,7 @@ public class Solution2092Tests {
 
     @Test
     public void example7() {
-        // https://leetcode-cn.com/submissions/detail/243032958/
+        // https://leetcode.cn/submissions/detail/243032958/
         // 39.40 / 42 个通过测试用例
         String fileName = "solution2092-example7-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);

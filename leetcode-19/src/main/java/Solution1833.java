@@ -19,7 +19,7 @@ public class Solution1833 {
 }
 /*
 1833. 雪糕的最大数量
-https://leetcode-cn.com/problems/maximum-ice-cream-bars/
+https://leetcode.cn/problems/maximum-ice-cream-bars/
 
 第 237 场周赛 T2。
 

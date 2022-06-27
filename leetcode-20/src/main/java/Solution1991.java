@@ -15,7 +15,7 @@ public class Solution1991 {
 }
 /*
 1991. 找到数组的中间位置
-https://leetcode-cn.com/problems/find-the-middle-index-in-array/
+https://leetcode.cn/problems/find-the-middle-index-in-array/
 
 第 60 场双周赛 T1。
 
@@ -26,5 +26,5 @@ nums[0] + nums[1] + ... + nums[middleIndex-1] == nums[middleIndex+1] + nums[midd
 请你返回满足上述条件 最左边 的 middleIndex ，如果不存在这样的中间位置，请你返回 -1 。
 
 同: 724. 寻找数组的中心下标
-https://leetcode-cn.com/problems/find-pivot-index/
+https://leetcode.cn/problems/find-pivot-index/
  */

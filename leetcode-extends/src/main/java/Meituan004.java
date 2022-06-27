@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * meituan-004. 小团的复制粘贴
- * https://leetcode-cn.com/problems/TOVGD1/
+ * https://leetcode.cn/problems/TOVGD1/
  */
 public class Meituan004 {
     private static final int N = 40010;

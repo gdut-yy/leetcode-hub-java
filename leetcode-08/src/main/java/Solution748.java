@@ -37,7 +37,7 @@ public class Solution748 {
 }
 /*
 748. 最短补全词
-https://leetcode-cn.com/problems/shortest-completing-word/
+https://leetcode.cn/problems/shortest-completing-word/
 
 给你一个字符串 licensePlate 和一个字符串数组 words ，请你找出并返回 words 中的 最短补全词 。
 补全词 是一个包含 licensePlate 中所有字母的单词。

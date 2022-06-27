@@ -34,7 +34,7 @@ public class Solution254 {
 }
 /*
 $254. 因子的组合
-https://leetcode-cn.com/problems/factor-combinations/
+https://leetcode.cn/problems/factor-combinations/
 
 整数可以被看作是其因子的乘积。
 例如：

@@ -29,7 +29,7 @@ public class Solution986 {
 }
 /*
 986. 区间列表的交集
-https://leetcode-cn.com/problems/interval-list-intersections/
+https://leetcode.cn/problems/interval-list-intersections/
 
 第 122 场周赛 T3。
 

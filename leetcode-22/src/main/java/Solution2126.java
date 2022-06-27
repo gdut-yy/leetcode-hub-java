@@ -20,7 +20,7 @@ public class Solution2126 {
 }
 /*
 2126. 摧毁小行星
-https://leetcode-cn.com/problems/destroying-asteroids/
+https://leetcode.cn/problems/destroying-asteroids/
 
 第 274 场周赛 T3。
 

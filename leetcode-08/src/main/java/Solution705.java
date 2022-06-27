@@ -24,7 +24,7 @@ public class Solution705 {
 }
 /*
 705. 设计哈希集合
-https://leetcode-cn.com/problems/design-hashset/
+https://leetcode.cn/problems/design-hashset/
 
 不使用任何内建的哈希表库设计一个哈希集合（HashSet）。
 

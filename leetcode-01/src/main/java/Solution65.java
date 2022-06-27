@@ -5,7 +5,7 @@ public class Solution65 {
 }
 /*
 65. 有效数字
-https://leetcode-cn.com/problems/valid-number/
+https://leetcode.cn/problems/valid-number/
 
 有效数字（按顺序）可以分成以下几个部分：
 1.一个 小数 或者 整数

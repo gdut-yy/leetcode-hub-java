@@ -43,5 +43,5 @@ https://leetcode.cn/problems/3sum-closest/
 双指针
 时间复杂度 O(n^2)
 相似题目: 15. 三数之和
-https://leetcode-cn.com/problems/3sum/
+https://leetcode.cn/problems/3sum/
  */

@@ -41,7 +41,7 @@ public class Solution1376 {
 }
 /*
 1376. 通知所有员工所需的时间
-https://leetcode-cn.com/problems/time-needed-to-inform-all-employees/
+https://leetcode.cn/problems/time-needed-to-inform-all-employees/
 
 公司里有 n 名员工，每个员工的 ID 都是独一无二的，编号从 0 到 n - 1。公司的总负责人通过 headID 进行标识。
 在 manager 数组中，每个员工都有一个直属负责人，其中 manager[i] 是第 i 名员工的直属负责人。对于总负责人，manager[headID] = -1。题目保证从属关系可以用树结构显示。

@@ -34,7 +34,7 @@ public class Solution2227 {
 }
 /*
 2227. 加密解密字符串
-https://leetcode-cn.com/problems/encrypt-and-decrypt-strings/
+https://leetcode.cn/problems/encrypt-and-decrypt-strings/
 
 第 287 场周赛 T4。
 
@@ -68,5 +68,5 @@ keys、values[i]、dictionary[i]、word1 和 word2 只含小写英文字母
 对于 encrypt 方法，本质上是 mapping，将 char 映射成 String，可以使用 HashMap 进行优化。
 对于 decrypt 方法，正向思维是用 dfs 找出所给 "密文" 的全部 "原文"，然而会 MLE 或者 TLE
 逆向思维是将 dictionary 所有字符串加密，然后判断 word2 是否为 dictionary 加密后的字符串
-失败的提交: https://leetcode-cn.com/submissions/detail/294041036/
+失败的提交: https://leetcode.cn/submissions/detail/294041036/
  */

@@ -69,7 +69,7 @@ public class Solution261 {
 }
 /*
 $261. 以图判树
-https://leetcode-cn.com/problems/graph-valid-tree/
+https://leetcode.cn/problems/graph-valid-tree/
 
 给定编号从 0 到 n - 1 的 n 个结点。给定一个整数 n 和一个 edges 列表，其中 edges[i] = [ai, bi] 表示图中节点 ai 和 bi 之间存在一条无向边。
 如果这些边能够形成一个合法有效的树结构，则返回 true ，否则返回 false 。

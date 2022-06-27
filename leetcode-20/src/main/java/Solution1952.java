@@ -11,7 +11,7 @@ public class Solution1952 {
 }
 /*
 1952. 三除数
-https://leetcode-cn.com/problems/three-divisors/
+https://leetcode.cn/problems/three-divisors/
 
 第 252 场周赛 T1。
 

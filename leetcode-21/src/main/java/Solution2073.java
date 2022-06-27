@@ -19,7 +19,7 @@ public class Solution2073 {
 }
 /*
 2073. 买票需要的时间
-https://leetcode-cn.com/problems/time-needed-to-buy-tickets/
+https://leetcode.cn/problems/time-needed-to-buy-tickets/
 
 第 267 场周赛 T1。
 

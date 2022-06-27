@@ -88,7 +88,7 @@ public class Solution1203 {
 }
 /*
 1203. 项目管理
-https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/
+https://leetcode.cn/problems/sort-items-by-groups-respecting-dependencies/
 
 有 n 个项目，每个项目或者不属于任何小组，或者属于 m 个小组之一。group[i] 表示第 i 个项目所属的小组，
 如果第 i 个项目不属于任何小组，则 group[i] 等于 -1。项目和小组都是从零开始编号的。可能存在小组不负责任何项目，即没有任何项目属于这个小组。
@@ -108,5 +108,5 @@ beforeItems[i] 不含重复元素
 两趟拓扑排序。
 如果不考虑 “同一小组的项目，排序后在列表中彼此相邻” 约束条件，只需要简单拓扑排序即可。
 加上约束条件，需要将 item 分组后，组内 item 也进行一趟拓扑排序。
-参考: https://leetcode-cn.com/problems/sort-items-by-groups-respecting-dependencies/solution/1203-xiang-mu-guan-li-by-leetcode-t63b/
+参考: https://leetcode.cn/problems/sort-items-by-groups-respecting-dependencies/solution/1203-xiang-mu-guan-li-by-leetcode-t63b/
  */

@@ -43,7 +43,7 @@ public class Solution225 {
 }
 /*
 225. 用队列实现栈
-https://leetcode-cn.com/problems/implement-stack-using-queues/
+https://leetcode.cn/problems/implement-stack-using-queues/
 
 请你仅使用两个队列实现一个后入先出（LIFO）的栈，并支持普通栈的全部四种操作（push、top、pop 和 empty）。
 实现 MyStack 类：
@@ -58,5 +58,5 @@ https://leetcode-cn.com/problems/implement-stack-using-queues/
 （实际工程中意义不大）
 jdk 官方推荐使用 Deque 去实现 Stack
 相似题目: 232. 用栈实现队列
-https://leetcode-cn.com/problems/implement-queue-using-stacks/
+https://leetcode.cn/problems/implement-queue-using-stacks/
  */

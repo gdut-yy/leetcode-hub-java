@@ -56,7 +56,7 @@ public class Solution1466 {
 }
 /*
 1466. 重新规划路线
-https://leetcode-cn.com/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/
+https://leetcode.cn/problems/reorder-routes-to-make-all-paths-lead-to-the-city-zero/
 
 n 座城市，从 0 到 n-1 编号，其间共有 n-1 条路线。因此，要想在两座不同城市之间旅行只有唯一一条路线可供选择（路线网形成一颗树）。去年，交通运输部决定重新规划路线，以改变交通拥堵的状况。
 路线用 connections 表示，其中 connections[i] = [a, b] 表示从城市 a 到 b 的一条有向路线。

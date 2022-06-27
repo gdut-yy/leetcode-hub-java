@@ -28,7 +28,7 @@ public class Solution44 {
 }
 /*
 44. 通配符匹配
-https://leetcode-cn.com/problems/wildcard-matching/
+https://leetcode.cn/problems/wildcard-matching/
 
 给定一个字符串 (s) 和一个字符模式 (p) ，实现一个支持 '?' 和 '*' 的通配符匹配。
 '?' 可以匹配任何单个字符。
@@ -42,5 +42,5 @@ https://leetcode-cn.com/problems/wildcard-matching/
 时间复杂度 O(mn)
 空间复杂度 O(mn)
 相似题目: 10. 正则表达式匹配
-https://leetcode-cn.com/problems/regular-expression-matching/
+https://leetcode.cn/problems/regular-expression-matching/
  */

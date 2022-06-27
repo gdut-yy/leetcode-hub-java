@@ -18,7 +18,7 @@ public class Solution1955 {
 }
 /*
 1955. 统计特殊子序列的数目
-https://leetcode-cn.com/problems/count-number-of-special-subsequences/
+https://leetcode.cn/problems/count-number-of-special-subsequences/
 
 第 252 场周赛 T4。
 

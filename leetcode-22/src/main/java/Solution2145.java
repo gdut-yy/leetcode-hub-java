@@ -20,7 +20,7 @@ public class Solution2145 {
 }
 /*
 2145. 统计隐藏数组数目
-https://leetcode-cn.com/problems/count-the-hidden-sequences/
+https://leetcode.cn/problems/count-the-hidden-sequences/
 
 第 70 场双周赛 T2。
 

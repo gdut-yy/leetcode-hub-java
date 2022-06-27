@@ -45,7 +45,7 @@ public class Solution1765 {
 }
 /*
 1765. 地图中的最高点
-https://leetcode-cn.com/problems/map-of-highest-peak/
+https://leetcode.cn/problems/map-of-highest-peak/
 
 给你一个大小为 m x n 的整数矩阵 isWater ，它代表了一个由 陆地 和 水域 单元格组成的地图。
 - 如果 isWater[i][j] == 0 ，格子 (i, j) 是一个 陆地 格子。

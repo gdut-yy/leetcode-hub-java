@@ -45,7 +45,7 @@ public class Solution852 {
 }
 /*
 852. 山脉数组的峰顶索引
-https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/
+https://leetcode.cn/problems/peak-index-in-a-mountain-array/
 
 第 89 场周赛 T1。
 
@@ -63,5 +63,5 @@ https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/
 
 二分查找。
 相似题目: 845. 数组中的最长山脉
-https://leetcode-cn.com/problems/longest-mountain-in-array/
+https://leetcode.cn/problems/longest-mountain-in-array/
  */

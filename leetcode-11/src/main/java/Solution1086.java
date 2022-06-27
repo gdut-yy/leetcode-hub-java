@@ -30,7 +30,7 @@ public class Solution1086 {
 }
 /*
 1086. 前五科的均分
-https://leetcode-cn.com/problems/high-five/
+https://leetcode.cn/problems/high-five/
 
 第 2 场双周赛 T2。
 

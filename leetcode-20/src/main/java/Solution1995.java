@@ -18,7 +18,7 @@ public class Solution1995 {
 }
 /*
 1995. 统计特殊四元组
-https://leetcode-cn.com/problems/count-special-quadruplets/
+https://leetcode.cn/problems/count-special-quadruplets/
 
 第 257 场周赛 T1。
 

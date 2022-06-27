@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  * meituan-012. 小美的书架
- * https://leetcode-cn.com/problems/FvoBGh/
+ * https://leetcode.cn/problems/FvoBGh/
  */
 public class Meituan012 {
     public static void main(String[] args) throws IOException {

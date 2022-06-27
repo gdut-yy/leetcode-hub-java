@@ -15,7 +15,7 @@ public class Solution226 {
 }
 /*
 226. 翻转二叉树
-https://leetcode-cn.com/problems/invert-binary-tree/
+https://leetcode.cn/problems/invert-binary-tree/
 
      4                4
    /   \            /   \

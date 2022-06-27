@@ -65,7 +65,7 @@ public class Solution352 {
 }
 /*
 352. 将数据流变为多个不相交区间
-https://leetcode-cn.com/problems/data-stream-as-disjoint-intervals/
+https://leetcode.cn/problems/data-stream-as-disjoint-intervals/
 
 给你一个由非负整数 a1, a2, ..., an 组成的数据流输入，请你将到目前为止看到的数字总结为不相交的区间列表。
 实现 SummaryRanges 类：

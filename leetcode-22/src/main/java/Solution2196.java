@@ -38,7 +38,7 @@ public class Solution2196 {
 }
 /*
 2196. 根据描述创建二叉树
-https://leetcode-cn.com/problems/create-binary-tree-from-descriptions/
+https://leetcode.cn/problems/create-binary-tree-from-descriptions/
 
 第 283 场周赛 T3。
 

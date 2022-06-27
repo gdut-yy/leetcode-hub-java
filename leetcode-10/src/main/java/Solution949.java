@@ -36,7 +36,7 @@ public class Solution949 {
 }
 /*
 949. 给定数字能组成的最大时间
-https://leetcode-cn.com/problems/largest-time-for-given-digits/
+https://leetcode.cn/problems/largest-time-for-given-digits/
 
 第 113 场周赛 T1。
 

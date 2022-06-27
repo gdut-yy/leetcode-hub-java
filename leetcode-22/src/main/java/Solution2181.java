@@ -49,7 +49,7 @@ public class Solution2181 {
 }
 /*
 2181. 合并零之间的节点
-https://leetcode-cn.com/problems/merge-nodes-in-between-zeros/
+https://leetcode.cn/problems/merge-nodes-in-between-zeros/
 
 第 281 场周赛 T2。
 

@@ -17,7 +17,7 @@ public class Solution1056 {
 }
 /*
 1056. 易混淆数
-https://leetcode-cn.com/problems/confusing-number/
+https://leetcode.cn/problems/confusing-number/
 
 给定一个数字 N，当它满足以下条件的时候返回 true：
 原数字旋转 180° 以后可以得到新的数字。

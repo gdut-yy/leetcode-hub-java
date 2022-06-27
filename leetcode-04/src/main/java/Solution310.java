@@ -53,7 +53,7 @@ public class Solution310 {
 }
 /*
 310. 最小高度树
-https://leetcode-cn.com/problems/minimum-height-trees/
+https://leetcode.cn/problems/minimum-height-trees/
 
 树是一个无向图，其中任何两个顶点只通过一条路径连接。 换句话说，一个任何没有简单环路的连通图都是一棵树。
 给你一棵包含 n 个节点的树，标记为 0 到 n - 1 。给定数字 n 和一个有 n - 1 条无向边的 edges 列表（每一个边都是一对标签），

@@ -108,7 +108,7 @@ public class Solution1969 {
 }
 /*
 1969. 数组元素的最小非零乘积
-https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/
+https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/
 
 第 254 场周赛 T3。
 
@@ -129,5 +129,5 @@ https://leetcode-cn.com/problems/minimum-non-zero-product-of-the-array-elements/
 (a^b) % p = ((a % p)^b) % p
 
 相似题目: 1922. 统计好数字的数目
-https://leetcode-cn.com/problems/count-good-numbers/
+https://leetcode.cn/problems/count-good-numbers/
  */

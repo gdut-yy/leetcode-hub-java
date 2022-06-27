@@ -55,7 +55,7 @@ public class Solution802 {
 }
 /*
 802. 找到最终的安全状态
-https://leetcode-cn.com/problems/find-eventual-safe-states/
+https://leetcode.cn/problems/find-eventual-safe-states/
 
 在有向图中，以某个节点为起始节点，从该点出发，每一步沿着图中的一条有向边行走。如果到达的节点是终点（即它没有连出的有向边），则停止。
 对于一个起始节点，如果从该节点出发，无论每一步选择沿哪条有向边行走，最后必然在有限步内到达终点，则将该起始节点称作是 安全 的。

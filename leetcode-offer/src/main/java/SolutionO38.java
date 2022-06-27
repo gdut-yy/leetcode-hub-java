@@ -36,11 +36,11 @@ public class SolutionO38 {
 }
 /*
 剑指 Offer 38. 字符串的排列
-https://leetcode-cn.com/problems/zi-fu-chuan-de-pai-lie-lcof/
+https://leetcode.cn/problems/zi-fu-chuan-de-pai-lie-lcof/
 
 输入一个字符串，打印出该字符串中字符的所有排列。
 你可以以任意顺序返回这个字符串数组，但里面不能有重复元素。
 
 相似题目: 面试题 08.08. 有重复字符串的排列组合
-https://leetcode-cn.com/problems/permutation-ii-lcci/
+https://leetcode.cn/problems/permutation-ii-lcci/
  */

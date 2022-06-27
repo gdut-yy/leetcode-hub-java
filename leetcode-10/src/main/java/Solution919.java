@@ -38,7 +38,7 @@ public class Solution919 {
 }
 /*
 919. 完全二叉树插入器
-https://leetcode-cn.com/problems/complete-binary-tree-inserter/
+https://leetcode.cn/problems/complete-binary-tree-inserter/
 
 第 105 场周赛 T3。
 

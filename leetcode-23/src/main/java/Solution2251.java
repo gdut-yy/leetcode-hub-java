@@ -72,7 +72,7 @@ public class Solution2251 {
 }
 /*
 2251. 花期内花的数目
-https://leetcode-cn.com/problems/number-of-flowers-in-full-bloom/
+https://leetcode.cn/problems/number-of-flowers-in-full-bloom/
 
 第 290 场周赛 T4。
 

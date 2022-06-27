@@ -26,7 +26,7 @@ public class SolutionI0201 {
 }
 /*
 面试题 02.01. 移除重复节点
-https://leetcode-cn.com/problems/remove-duplicate-node-lcci/
+https://leetcode.cn/problems/remove-duplicate-node-lcci/
 
 编写代码，移除未排序链表中的重复节点。保留最开始出现的节点。
 输入：[1, 2, 3, 3, 2, 1]
@@ -34,6 +34,6 @@ https://leetcode-cn.com/problems/remove-duplicate-node-lcci/
 
 HashSet 判断是否重复。
 相似题目: 83. 删除排序链表中的重复元素
-https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+https://leetcode.cn/problems/remove-duplicates-from-sorted-list/
 注意重复元素定义的区别。
  */

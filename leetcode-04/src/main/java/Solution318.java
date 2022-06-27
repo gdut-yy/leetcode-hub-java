@@ -21,7 +21,7 @@ public class Solution318 {
 }
 /*
 318. 最大单词长度乘积
-https://leetcode-cn.com/problems/maximum-product-of-word-lengths/
+https://leetcode.cn/problems/maximum-product-of-word-lengths/
 
 将长度为 26 的布尔型数组用 26 个二进制的数位代替, 0 对应 false, 1 对应 true
 如果两个整数 flags[i] 和 flags[j] 的与运算结果为 0，那么它们对应的字符串 words[i] 和 words[j] 一定没有相同的字符。

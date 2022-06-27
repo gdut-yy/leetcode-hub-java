@@ -38,7 +38,7 @@ public class Solution2246 {
 }
 /*
 2246. 相邻字符不同的最长路径
-https://leetcode-cn.com/problems/longest-path-with-different-adjacent-characters/
+https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/
 
 第 289 场周赛 T4。
 
@@ -58,5 +58,5 @@ s 仅由小写英文字母组成
 时间复杂度 O(n)
 如果用 时间复杂度 O(n^2) 的 BFS/DFS 会 TLE
 相似题目: $1245. 树的直径
-https://leetcode-cn.com/problems/tree-diameter/
+https://leetcode.cn/problems/tree-diameter/
  */

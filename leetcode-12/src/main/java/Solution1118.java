@@ -15,7 +15,7 @@ public class Solution1118 {
 }
 /*
 1118. 一月有多少天
-https://leetcode-cn.com/problems/number-of-days-in-a-month/
+https://leetcode.cn/problems/number-of-days-in-a-month/
 
 第 4 场双周赛 T1。
 
@@ -23,7 +23,7 @@ https://leetcode-cn.com/problems/number-of-days-in-a-month/
 
 Java 8 Date/Time API
 相似题目: 1154. 一年中的第几天
-https://leetcode-cn.com/problems/day-of-the-year/
+https://leetcode.cn/problems/day-of-the-year/
 1185. 一周中的第几天
-https://leetcode-cn.com/problems/day-of-the-week/
+https://leetcode.cn/problems/day-of-the-week/
  */

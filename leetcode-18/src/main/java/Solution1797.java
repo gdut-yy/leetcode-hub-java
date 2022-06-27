@@ -38,7 +38,7 @@ public class Solution1797 {
 }
 /*
 1797. 设计一个验证系统
-https://leetcode-cn.com/problems/design-authentication-manager/
+https://leetcode.cn/problems/design-authentication-manager/
 
 你需要设计一个包含验证码的验证系统。每一次验证中，用户会收到一个新的验证码，这个验证码在 currentTime 时刻之后 timeToLive 秒过期。
 如果验证码被更新了，那么它会在 currentTime （可能与之前的 currentTime 不同）时刻延长 timeToLive 秒。

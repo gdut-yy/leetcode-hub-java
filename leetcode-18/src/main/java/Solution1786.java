@@ -78,7 +78,7 @@ public class Solution1786 {
 }
 /*
 1786. 从第一个节点出发到最后一个节点的受限路径数
-https://leetcode-cn.com/problems/number-of-restricted-paths-from-first-to-last-node/
+https://leetcode.cn/problems/number-of-restricted-paths-from-first-to-last-node/
 
 现有一个加权无向连通图。给你一个正整数 n ，表示图中有 n 个节点，并按从 1 到 n 给节点编号；另给你一个数组 edges ，
 其中每个 edges[i] = [ui, vi, weighti] 表示存在一条位于节点 ui 和 vi 之间的边，这条边的权重为 weighti 。

@@ -33,7 +33,7 @@ public class Solution2231 {
 }
 /*
 2231. 按奇偶性交换后的最大数字
-https://leetcode-cn.com/problems/largest-number-after-digit-swaps-by-parity/
+https://leetcode.cn/problems/largest-number-after-digit-swaps-by-parity/
 
 第 288 场周赛 T1。
 

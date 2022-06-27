@@ -9,7 +9,7 @@ public class Solution1913 {
 }
 /*
 1913. 两个数对之间的最大乘积差
-https://leetcode-cn.com/problems/maximum-product-difference-between-two-pairs/
+https://leetcode.cn/problems/maximum-product-difference-between-two-pairs/
 
 第 247 场周赛 T1。
 

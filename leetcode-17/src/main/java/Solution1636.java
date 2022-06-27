@@ -34,7 +34,7 @@ public class Solution1636 {
 }
 /*
 1636. 按照频率将数组升序排序
-https://leetcode-cn.com/problems/sort-array-by-increasing-frequency/
+https://leetcode.cn/problems/sort-array-by-increasing-frequency/
 
 第 38 场双周赛 T1。
 

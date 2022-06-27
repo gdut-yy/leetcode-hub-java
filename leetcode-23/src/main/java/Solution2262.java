@@ -24,7 +24,7 @@ public class Solution2262 {
 }
 /*
 2262. 字符串的总引力
-https://leetcode-cn.com/contest/weekly-contest-291/problems/total-appeal-of-a-string/
+https://leetcode.cn/contest/weekly-contest-291/problems/total-appeal-of-a-string/
 
 第 291 场周赛 T4。
 

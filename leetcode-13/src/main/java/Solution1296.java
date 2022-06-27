@@ -29,12 +29,12 @@ public class Solution1296 {
 }
 /*
 1296. 划分数组为连续数字的集合
-https://leetcode-cn.com/problems/divide-array-in-sets-of-k-consecutive-numbers/
+https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/
 
 第 168 场周赛 T2。
 
 给你一个整数数组 nums 和一个正整数 k，请你判断是否可以把这个数组划分成一些由 k 个连续数字组成的集合。
 如果可以，请返回 true；否则，返回 false。
 
-此题目与 846 重复：https://leetcode-cn.com/problems/hand-of-straights/
+此题目与 846 重复：https://leetcode.cn/problems/hand-of-straights/
  */

@@ -49,12 +49,12 @@ public class Solution229 {
 }
 /*
 229. 求众数 II
-https://leetcode-cn.com/problems/majority-element-ii/
+https://leetcode.cn/problems/majority-element-ii/
 
 给定一个大小为 n 的整数数组，找出其中所有出现超过 ⌊ n/3 ⌋ 次的元素。
 
 相似题目: 169. 多数元素
-https://leetcode-cn.com/problems/majority-element/
+https://leetcode.cn/problems/majority-element/
 时间复杂度 O(n)
 空间复杂度 O(1)
  */

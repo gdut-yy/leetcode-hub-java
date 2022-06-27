@@ -15,7 +15,7 @@ public class Solution1984 {
 }
 /*
 1984. 学生分数的最小差值
-https://leetcode-cn.com/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
+https://leetcode.cn/problems/minimum-difference-between-highest-and-lowest-of-k-scores/
 
 第 256 场周赛 T1。
 

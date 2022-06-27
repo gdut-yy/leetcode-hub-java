@@ -32,7 +32,7 @@ public class Solution2155 {
 }
 /*
 2155. 分组得分最高的所有下标
-https://leetcode-cn.com/problems/all-divisions-with-the-highest-score-of-a-binary-array/
+https://leetcode.cn/problems/all-divisions-with-the-highest-score-of-a-binary-array/
 
 第 278 场周赛 T2。
 

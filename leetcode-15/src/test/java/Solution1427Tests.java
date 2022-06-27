@@ -23,7 +23,7 @@ public class Solution1427Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/285033113/
+        // https://leetcode.cn/submissions/detail/285033113/
         String s = "mecsk";
         int[][] shift = UtUtils.stringToInts2("[[1,4],[0,5],[0,4],[1,1],[1,5]]");
         String expected = "kmecs";

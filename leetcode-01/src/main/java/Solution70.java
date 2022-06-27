@@ -76,7 +76,7 @@ public class Solution70 {
 }
 /*
 70. 爬楼梯
-https://leetcode-cn.com/problems/climbing-stairs/
+https://leetcode.cn/problems/climbing-stairs/
 
 假设你正在爬楼梯。需要 n 阶你才能到达楼顶。
 每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
@@ -85,7 +85,7 @@ https://leetcode-cn.com/problems/climbing-stairs/
 1 <= n <= 45
 
 相似题目: 509. 斐波那契数
-https://leetcode-cn.com/problems/fibonacci-number/
+https://leetcode.cn/problems/fibonacci-number/
 1137. 第 N 个泰波那契数
-https://leetcode-cn.com/problems/n-th-tribonacci-number/
+https://leetcode.cn/problems/n-th-tribonacci-number/
  */

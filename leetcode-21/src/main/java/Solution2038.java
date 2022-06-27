@@ -19,7 +19,7 @@ public class Solution2038 {
 }
 /*
 2038. 如果相邻两个颜色均相同则删除当前颜色
-https://leetcode-cn.com/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/
+https://leetcode.cn/problems/remove-colored-pieces-if-both-neighbors-are-the-same-color/
 
 第 63 场双周赛 T2。
 

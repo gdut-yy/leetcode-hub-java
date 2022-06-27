@@ -17,7 +17,7 @@ public class Solution944 {
 }
 /*
 944. 删列造序
-https://leetcode-cn.com/problems/delete-columns-to-make-sorted/
+https://leetcode.cn/problems/delete-columns-to-make-sorted/
 
 第 111 场周赛 T2。
 

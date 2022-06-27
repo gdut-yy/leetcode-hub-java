@@ -14,7 +14,7 @@ public class Solution876 {
 }
 /*
 876. 链表的中间结点
-https://leetcode-cn.com/problems/middle-of-the-linked-list/
+https://leetcode.cn/problems/middle-of-the-linked-list/
 
 第 95 场周赛 T1。
 

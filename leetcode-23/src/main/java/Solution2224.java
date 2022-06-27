@@ -25,7 +25,7 @@ public class Solution2224 {
 }
 /*
 2224. 转化时间需要的最少操作数
-https://leetcode-cn.com/problems/minimum-number-of-operations-to-convert-time/
+https://leetcode.cn/problems/minimum-number-of-operations-to-convert-time/
 
 第 287 场周赛 T1。
 

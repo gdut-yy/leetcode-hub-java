@@ -39,7 +39,7 @@ public class Solution1627Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/290844058/
+        // https://leetcode.cn/submissions/detail/290844058/
         // 66 / 67 个通过测试用例
         String fileName = "solution1627-example4-input.txt";
         int n = UtUtils.loadingInt(fileName, 0);

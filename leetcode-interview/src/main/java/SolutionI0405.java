@@ -16,10 +16,10 @@ public class SolutionI0405 {
 }
 /*
 面试题 04.05. 合法二叉搜索树
-https://leetcode-cn.com/problems/legal-binary-search-tree-lcci/
+https://leetcode.cn/problems/legal-binary-search-tree-lcci/
 
 实现一个函数，检查一棵二叉树是否为二叉搜索树。
 
 同: 98. 验证二叉搜索树
-https://leetcode-cn.com/problems/validate-binary-search-tree/
+https://leetcode.cn/problems/validate-binary-search-tree/
  */

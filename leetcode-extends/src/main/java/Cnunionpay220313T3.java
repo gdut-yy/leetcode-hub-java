@@ -38,7 +38,7 @@ public class Cnunionpay220313T3 {
 }
 /*
 银联-03. 理财产品
-https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/I4mOGz/
+https://leetcode.cn/contest/cnunionpay-2022spring/problems/I4mOGz/
 
 某公司计划推出一批投资项目。 product[i] = price 表示第 i 个理财项目的投资金额 price 。客户在按需投资时，需要遵循以下规则：
 - 客户在首次对项目 product[i] 投资时，需要投入金额 price
@@ -54,5 +54,5 @@ https://leetcode-cn.com/contest/cnunionpay-2022spring/problems/I4mOGz/
 
 直接模拟显然会 TLE。可排序后 贪心 解决。
 相似题目: 1648. 销售价值减少的颜色球
-https://leetcode-cn.com/problems/sell-diminishing-valued-colored-balls/
+https://leetcode.cn/problems/sell-diminishing-valued-colored-balls/
  */

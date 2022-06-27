@@ -33,7 +33,7 @@ public class Solution953 {
 }
 /*
 953. 验证外星语词典
-https://leetcode-cn.com/problems/verifying-an-alien-dictionary/
+https://leetcode.cn/problems/verifying-an-alien-dictionary/
 
 第 114 场周赛 T1。
 

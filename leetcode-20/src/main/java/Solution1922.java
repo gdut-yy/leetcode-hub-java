@@ -59,7 +59,7 @@ public class Solution1922 {
 }
 /*
 1922. 统计好数字的数目
-https://leetcode-cn.com/problems/count-good-numbers/
+https://leetcode.cn/problems/count-good-numbers/
 
 第 248 场周赛 T3。
 
@@ -73,5 +73,5 @@ https://leetcode-cn.com/problems/count-good-numbers/
 奇数: (5^(pow+1) * 4^pow) % mod == (5 * 20^pow) % mod
 偶数: (5^pow * 4^pow) % mod == (20^pow) % mod
 由于 pow 能达到 10^15，会溢出，快速幂中需要每步取模
-快速幂推导过程可参考 https://leetcode-cn.com/problems/powx-n/solution/powx-n-by-leetcode-solution/
+快速幂推导过程可参考 https://leetcode.cn/problems/powx-n/solution/powx-n-by-leetcode-solution/
  */

@@ -81,7 +81,7 @@ public class Solution1964 {
 }
 /*
 1964. 找出到每个位置为止最长的有效障碍赛跑路线
-https://leetcode-cn.com/problems/find-the-longest-valid-obstacle-course-at-each-position/
+https://leetcode.cn/problems/find-the-longest-valid-obstacle-course-at-each-position/
 
 第 253 场周赛 T4。
 
@@ -98,7 +98,7 @@ input:    [5,1,5,5,1,3,4,5,1,4]
 actual:   [1,1,2,3,2,3,4,5,3,4]
 expected: [1,1,2,3,2,3,4,5,3,5]
 
-需要使用 LIS。参考第 300 题 https://leetcode-cn.com/problems/longest-increasing-subsequence/
+需要使用 LIS。参考第 300 题 https://leetcode.cn/problems/longest-increasing-subsequence/
 注: 时间复杂度需为 O(nlogn) 才能 AC, 时间复杂度 O(n^2) 本题会超出时间限制。
 本题代码直接修改自 Solution300#lengthOfLIS2()
 

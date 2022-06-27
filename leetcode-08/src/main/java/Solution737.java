@@ -110,7 +110,7 @@ public class Solution737 {
 }
 /*
 $737. 句子相似性 II
-https://leetcode-cn.com/problems/sentence-similarity-ii/
+https://leetcode.cn/problems/sentence-similarity-ii/
 
 我们可以将一个句子表示为一个单词数组，例如，句子 I am happy with leetcode"可以表示为 arr = ["I","am",happy","with","leetcode"]
 给定两个句子 sentence1 和 sentence2 分别表示为一个字符串数组，并给定一个字符串对 similarPairs ，其中 similarPairs[i] = [xi, yi] 表示两个单词 xi 和 yi 是相似的。

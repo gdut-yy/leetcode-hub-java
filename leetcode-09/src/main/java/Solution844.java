@@ -28,7 +28,7 @@ public class Solution844 {
 }
 /*
 844. 比较含退格的字符串
-https://leetcode-cn.com/problems/backspace-string-compare/
+https://leetcode.cn/problems/backspace-string-compare/
 
 第 87 场周赛 T1。
 

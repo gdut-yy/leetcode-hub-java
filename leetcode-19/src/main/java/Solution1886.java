@@ -32,7 +32,7 @@ public class Solution1886 {
 }
 /*
 1886. 判断矩阵经轮转后是否一致
-https://leetcode-cn.com/problems/determine-whether-matrix-can-be-obtained-by-rotation/
+https://leetcode.cn/problems/determine-whether-matrix-can-be-obtained-by-rotation/
 
 第 244 场周赛 T1。
 
@@ -46,5 +46,5 @@ mat[i][j] 和 target[i][j] 不是 0 就是 1
 
 矩阵旋转 90 度。
 相似题目: 48. 旋转图像
-https://leetcode-cn.com/problems/rotate-image/
+https://leetcode.cn/problems/rotate-image/
  */

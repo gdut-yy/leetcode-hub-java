@@ -25,7 +25,7 @@ public class Solution976 {
 }
 /*
 976. 三角形的最大周长
-https://leetcode-cn.com/problems/largest-perimeter-triangle/
+https://leetcode.cn/problems/largest-perimeter-triangle/
 
 第 119 场周赛 T2。
 

@@ -25,7 +25,7 @@ public class Solution1947Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/199541329/
+        // https://leetcode.cn/submissions/detail/199541329/
         // 49 / 86 个通过测试用例
         int[][] students = UtUtils.stringToInts2("[[0,0,1,1,1,0,1],[0,1,1,0,0,0,0],[0,0,1,1,1,1,1],[0,1,0,0,1,0,1],[1,0,1,1,1,1,1]]");
         int[][] mentors = UtUtils.stringToInts2("[[0,1,1,0,0,0,0],[0,1,0,0,0,0,1],[0,1,0,1,0,0,1],[1,0,0,0,1,0,1],[1,1,1,1,1,0,0]]");
@@ -36,7 +36,7 @@ public class Solution1947Tests {
 
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/199559900/
+        // https://leetcode.cn/submissions/detail/199559900/
         // 73 / 86 个通过测试用例
         int[][] students = UtUtils.stringToInts2("[[0,0,1,0,1],[1,0,1,1,1]]");
         int[][] mentors = UtUtils.stringToInts2("[[1,0,1,0,1],[1,0,1,1,0]]");
@@ -47,7 +47,7 @@ public class Solution1947Tests {
 
     @Test
     public void example5() {
-        // https://leetcode-cn.com/submissions/detail/199562244/
+        // https://leetcode.cn/submissions/detail/199562244/
         // 76 / 86 个通过测试用例
         int[][] students = UtUtils.stringToInts2("[[1,1,1],[0,0,1],[0,0,1],[0,1,0]]");
         int[][] mentors = UtUtils.stringToInts2("[[1,0,1],[0,1,1],[0,1,0],[1,1,0]]");
@@ -58,7 +58,7 @@ public class Solution1947Tests {
 
     @Test
     public void example6() {
-        // https://leetcode-cn.com/submissions/detail/199576573/
+        // https://leetcode.cn/submissions/detail/199576573/
         // 43 / 86 个通过测试用例
         // dfs
         int[][] students = UtUtils.stringToInts2("[[0,1,0,1,1,1],[1,0,0,1,0,1],[1,0,1,1,0,0]]");
@@ -70,7 +70,7 @@ public class Solution1947Tests {
 
     @Test
     public void example7() {
-        // https://leetcode-cn.com/submissions/detail/199577356/
+        // https://leetcode.cn/submissions/detail/199577356/
         // 85 / 86 个通过测试用例
         int[][] students = UtUtils.stringToInts2("[[1,0,0,0,0,1,1,1],[1,0,0,1,1,1,0,1],[1,0,1,1,1,0,1,1],[0,0,1,1,0,1,1,1],[1,1,1,1,0,0,0,1],[0,0,0,0,1,0,0,1],[1,0,0,0,0,0,0,1]]");
         int[][] mentors = UtUtils.stringToInts2("[[1,1,0,0,0,0,1,0],[1,0,1,1,0,0,1,0],[1,1,1,0,1,0,1,0],[1,0,1,1,1,0,0,1],[0,0,0,0,1,0,0,1],[0,0,1,0,1,0,0,0],[1,1,0,1,0,0,0,1]]");

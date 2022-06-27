@@ -61,7 +61,7 @@ public class Solution713 {
 }
 /*
 713. 乘积小于K的子数组
-https://leetcode-cn.com/problems/subarray-product-less-than-k/
+https://leetcode.cn/problems/subarray-product-less-than-k/
 
 给定一个正整数数组 nums和整数 k 。
 请找出该数组内乘积小于 k 的连续的子数组的个数。
@@ -70,8 +70,8 @@ https://leetcode-cn.com/problems/subarray-product-less-than-k/
 1 <= nums[i] <= 1000
 0 <= k <= 10^6
 
-参考第 560 题 https://leetcode-cn.com/problems/subarray-sum-equals-k/
+参考第 560 题 https://leetcode.cn/problems/subarray-sum-equals-k/
 “前缀积” 时间复杂度 O(n^2)
-参考第 209 题 https://leetcode-cn.com/problems/minimum-size-subarray-sum/
+参考第 209 题 https://leetcode.cn/problems/minimum-size-subarray-sum/
 双指针 时间复杂度 O(n)
  */

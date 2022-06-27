@@ -50,7 +50,7 @@ public class SolutionI0105 {
 }
 /*
 面试题 01.05. 一次编辑
-https://leetcode-cn.com/problems/one-away-lcci/
+https://leetcode.cn/problems/one-away-lcci/
 
 双指针。分三种情况。
 case1: 长度相差 > 1。无解

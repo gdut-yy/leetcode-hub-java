@@ -18,7 +18,7 @@ public class Solution1185 {
 }
 /*
 1185. 一周中的第几天
-https://leetcode-cn.com/problems/day-of-the-week/
+https://leetcode.cn/problems/day-of-the-week/
 
 第 153 场周赛 T2。
 
@@ -27,7 +27,7 @@ https://leetcode-cn.com/problems/day-of-the-week/
 您返回的结果必须是这几个值中的一个 {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}。
 
 相似题目: 1118. 一月有多少天
-https://leetcode-cn.com/problems/number-of-days-in-a-month/
+https://leetcode.cn/problems/number-of-days-in-a-month/
 1154. 一年中的第几天
-https://leetcode-cn.com/problems/day-of-the-year/
+https://leetcode.cn/problems/day-of-the-year/
  */

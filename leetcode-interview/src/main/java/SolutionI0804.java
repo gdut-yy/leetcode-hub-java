@@ -26,11 +26,11 @@ public class SolutionI0804 {
 }
 /*
 面试题 08.04. 幂集
-https://leetcode-cn.com/problems/power-set-lcci/
+https://leetcode.cn/problems/power-set-lcci/
 
 幂集。编写一种方法，返回某集合的所有子集。集合中不包含重复的元素。
 说明：解集不能包含重复的子集。
 
 同: 78. 子集
-https://leetcode-cn.com/problems/subsets/
+https://leetcode.cn/problems/subsets/
  */

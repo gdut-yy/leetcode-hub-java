@@ -52,10 +52,10 @@ public class SolutionI0304 {
 }
 /*
 面试题 03.04. 化栈为队
-https://leetcode-cn.com/problems/implement-queue-using-stacks-lcci/
+https://leetcode.cn/problems/implement-queue-using-stacks-lcci/
 
 实现一个MyQueue类，该类用两个栈来实现一个队列。
 
 同: 232. 用栈实现队列
-https://leetcode-cn.com/problems/implement-queue-using-stacks/
+https://leetcode.cn/problems/implement-queue-using-stacks/
  */

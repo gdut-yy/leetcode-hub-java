@@ -84,5 +84,5 @@ PolyNode.power > PolyNode.next.power
 模拟。指数由低到高，可用 TreeMap 进行模拟。
 时间复杂度 O(nlogn) 为排序时间复杂度
 相似题目: 21. 合并两个有序链表
-https://leetcode-cn.com/problems/merge-two-sorted-lists/
+https://leetcode.cn/problems/merge-two-sorted-lists/
  */

@@ -19,7 +19,7 @@ public class Solution2160 {
 }
 /*
 2160. 拆分数位后四位数字的最小和
-https://leetcode-cn.com/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
+https://leetcode.cn/problems/minimum-sum-of-four-digit-number-after-splitting-digits/
 
 第 71 场双周赛 T1。
 

@@ -17,7 +17,7 @@ public class Solution2259 {
 }
 /*
 2259. 移除指定数字得到的最大结果
-https://leetcode-cn.com/contest/weekly-contest-291/problems/remove-digit-from-number-to-maximize-result/
+https://leetcode.cn/contest/weekly-contest-291/problems/remove-digit-from-number-to-maximize-result/
 
 第 291 场周赛 T1。
 

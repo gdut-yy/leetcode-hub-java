@@ -4,7 +4,7 @@ import java.util.Queue;
 public class Solution346 {
     /**
      * 剑指 Offer II 041. 滑动窗口的平均值
-     * https://leetcode-cn.com/problems/qIsx9U/
+     * https://leetcode.cn/problems/qIsx9U/
      */
     static class MovingAverage {
         private final Queue<Integer> queue;
@@ -28,7 +28,7 @@ public class Solution346 {
 }
 /*
 $346. 数据流中的移动平均值
-https://leetcode-cn.com/problems/moving-average-from-data-stream/
+https://leetcode.cn/problems/moving-average-from-data-stream/
 
 队列
 滑动窗口的平均值

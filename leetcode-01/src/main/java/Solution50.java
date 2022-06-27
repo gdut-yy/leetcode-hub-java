@@ -20,7 +20,7 @@ public class Solution50 {
 }
 /*
 50. Pow(x, n)
-https://leetcode-cn.com/problems/powx-n/
+https://leetcode.cn/problems/powx-n/
 
 快速幂模板。
 注意本题 -2^31 <= n <= 2^31-1

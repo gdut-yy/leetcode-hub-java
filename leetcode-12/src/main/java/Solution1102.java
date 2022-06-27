@@ -80,7 +80,7 @@ public class Solution1102 {
 }
 /*
 1102. 得分最高的路径
-https://leetcode-cn.com/problems/path-with-maximum-minimum-value/
+https://leetcode.cn/problems/path-with-maximum-minimum-value/
 
 第 3 场双周赛 T4。
 

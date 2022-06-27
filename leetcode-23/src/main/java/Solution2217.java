@@ -28,7 +28,7 @@ public class Solution2217 {
 }
 /*
 2217. 找到指定长度的回文数
-https://leetcode-cn.com/problems/find-palindrome-with-fixed-length/
+https://leetcode.cn/problems/find-palindrome-with-fixed-length/
 
 第 286 场周赛 T3。
 
@@ -42,5 +42,5 @@ https://leetcode-cn.com/problems/find-palindrome-with-fixed-length/
 
 打表？intLength <= 15 显然打不了表，考虑 “回文根”
 相似题目: 866. 回文素数
-https://leetcode-cn.com/problems/prime-palindrome/
+https://leetcode.cn/problems/prime-palindrome/
  */

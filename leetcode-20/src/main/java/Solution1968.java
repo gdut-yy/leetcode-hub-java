@@ -29,7 +29,7 @@ public class Solution1968 {
 }
 /*
 1968. 构造元素不等于两相邻元素平均值的数组
-https://leetcode-cn.com/problems/array-with-elements-not-equal-to-average-of-neighbors/
+https://leetcode.cn/problems/array-with-elements-not-equal-to-average-of-neighbors/
 
 第 254 场周赛 T2。
 

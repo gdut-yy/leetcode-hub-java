@@ -37,7 +37,7 @@ public class Solution444Tests {
     // 补充用例
     @Test
     public void example5() {
-        // https://leetcode-cn.com/submissions/detail/239181254/
+        // https://leetcode.cn/submissions/detail/239181254/
         int[] org = {1};
         List<List<Integer>> seqs = UtUtils.stringToIntegerList2("[]");
         Assertions.assertFalse(solution444.sequenceReconstruction(org, seqs));
@@ -45,7 +45,7 @@ public class Solution444Tests {
 
     @Test
     public void example6() {
-        // https://leetcode-cn.com/submissions/detail/239183089/
+        // https://leetcode.cn/submissions/detail/239183089/
         int[] org = {1};
         List<List<Integer>> seqs = UtUtils.stringToIntegerList2("[[1,1]]");
         Assertions.assertFalse(solution444.sequenceReconstruction(org, seqs));
@@ -53,7 +53,7 @@ public class Solution444Tests {
 
     @Test
     public void example7() {
-        // https://leetcode-cn.com/submissions/detail/239226122/
+        // https://leetcode.cn/submissions/detail/239226122/
         int[] org = {3, 2, 1};
         List<List<Integer>> seqs = UtUtils.stringToIntegerList2("[[1,2],[1,3],[2,3]]");
         Assertions.assertFalse(solution444.sequenceReconstruction(org, seqs));
@@ -61,7 +61,7 @@ public class Solution444Tests {
 
     @Test
     public void example8() {
-        // https://leetcode-cn.com/submissions/detail/239227389/
+        // https://leetcode.cn/submissions/detail/239227389/
         int[] org = {5, 3, 2, 4, 1};
         List<List<Integer>> seqs = UtUtils.stringToIntegerList2("[[5,3,2,4],[4,1],[1],[3],[2,4],[1000000000]]");
         Assertions.assertFalse(solution444.sequenceReconstruction(org, seqs));

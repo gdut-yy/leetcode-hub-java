@@ -27,7 +27,7 @@ public class Solution71 {
 }
 /*
 71. 简化路径
-https://leetcode-cn.com/problems/simplify-path/
+https://leetcode.cn/problems/simplify-path/
 
 栈。
  */

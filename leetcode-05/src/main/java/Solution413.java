@@ -21,7 +21,7 @@ public class Solution413 {
 }
 /*
 413. 等差数列划分
-https://leetcode-cn.com/problems/arithmetic-slices/
+https://leetcode.cn/problems/arithmetic-slices/
 
 如果一个数列 至少有三个元素 ，并且任意两个相邻元素之差相同，则称该数列为等差数列。
 - 例如，[1,3,5,7,9]、[7,7,7,7] 和 [3,-1,-5,-9] 都是等差数列。

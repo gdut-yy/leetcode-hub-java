@@ -58,7 +58,7 @@ public class Solution2069 {
 }
 /*
 2069. 模拟行走机器人 II
-https://leetcode-cn.com/problems/walking-robot-simulation-ii/
+https://leetcode.cn/problems/walking-robot-simulation-ii/
 
 第 65 场双周赛 T2。
 

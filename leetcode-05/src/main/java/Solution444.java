@@ -64,7 +64,7 @@ public class Solution444 {
 }
 /*
 $444. 序列重建
-https://leetcode-cn.com/problems/sequence-reconstruction/
+https://leetcode.cn/problems/sequence-reconstruction/
 
 验证原始的序列 org 是否可以从序列集 seqs 中唯一地重建。序列 org 是 1 到 n 整数的排列，其中 1 ≤ n ≤ 104 。
 重建是指在序列集 seqs 中构建最短的公共超序列。（即使得所有  seqs 中的序列都是该最短序列的子序列）。

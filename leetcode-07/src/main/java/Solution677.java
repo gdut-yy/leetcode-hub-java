@@ -67,7 +67,7 @@ public class Solution677 {
 }
 /*
 677. 键值映射
-https://leetcode-cn.com/problems/map-sum-pairs/
+https://leetcode.cn/problems/map-sum-pairs/
 
 实现一个 MapSum 类，支持两个方法，insert 和 sum：
 

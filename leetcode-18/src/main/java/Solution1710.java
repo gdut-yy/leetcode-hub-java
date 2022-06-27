@@ -25,7 +25,7 @@ public class Solution1710 {
 }
 /*
 1710. 卡车上的最大单元数
-https://leetcode-cn.com/problems/maximum-units-on-a-truck/
+https://leetcode.cn/problems/maximum-units-on-a-truck/
 
 第 222 场周赛 T1。
 

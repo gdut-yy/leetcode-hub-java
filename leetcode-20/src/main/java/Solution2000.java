@@ -9,7 +9,7 @@ public class Solution2000 {
 }
 /*
 2000. 反转单词前缀
-https://leetcode-cn.com/problems/reverse-prefix-of-word/
+https://leetcode.cn/problems/reverse-prefix-of-word/
 
 第 258 场周赛 T1。
 

@@ -28,7 +28,7 @@ public class Solution1996Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/215354106/
+        // https://leetcode.cn/submissions/detail/215354106/
         // 40 / 44 个通过测试用例
         int[][] properties = UtUtils.loadingInts2("solution1996-example4-input.txt", 0);
         int expected = 0;

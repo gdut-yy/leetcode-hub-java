@@ -21,7 +21,7 @@ public class Solution2245Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/301231047/
+        // https://leetcode.cn/submissions/detail/301231047/
         // 爆 long
         int[][] grid = UtUtils.stringToInts2("[[824,709,193,413,701,836,727],[135,844,599,211,140,933,205],[329,68,285,282,301,387,231],[293,210,478,352,946,902,137],[806,900,290,636,589,522,611],[450,568,990,592,992,128,92],[780,653,795,457,980,942,927],[849,901,604,906,912,866,688]]");
         int expected = 6;
@@ -30,7 +30,7 @@ public class Solution2245Tests {
 
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/301241795/
+        // https://leetcode.cn/submissions/detail/301241795/
         // BigInteger TLE
         int[][] grid = UtUtils.loadingInts2("solution2245-example4-input.txt", 0);
         int expected = 203;

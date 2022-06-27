@@ -13,7 +13,7 @@ public class Solution814 {
 }
 /*
 814. 二叉树剪枝
-https://leetcode-cn.com/problems/binary-tree-pruning/
+https://leetcode.cn/problems/binary-tree-pruning/
 
 给你二叉树的根结点 root ，此外树的每个结点的值要么是 0 ，要么是 1 。
 返回移除了所有不包含 1 的子树的原二叉树。

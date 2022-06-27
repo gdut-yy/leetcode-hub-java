@@ -29,7 +29,7 @@ public class Solution1094 {
 }
 /*
 1094. 拼车
-https://leetcode-cn.com/problems/car-pooling/
+https://leetcode.cn/problems/car-pooling/
 
 第 142 场周赛 T2。
 

@@ -27,7 +27,7 @@ public class Cmbchina220410T2 {
 }
 /*
 招商银行-02. 公园规划
-https://leetcode-cn.com/contest/cmbchina-2022spring/problems/ReWLAw/
+https://leetcode.cn/contest/cmbchina-2022spring/problems/ReWLAw/
 
 公园规划小组为了让公园景观层次丰富，决定按以下方案对各花坛内的植物进行统一规划：
 - 一条小路两端的花坛不能栽种同一种花

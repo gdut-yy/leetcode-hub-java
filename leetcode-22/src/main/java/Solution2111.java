@@ -45,7 +45,7 @@ public class Solution2111 {
 }
 /*
 2111. 使数组 K 递增的最少操作次数
-https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-k-increasing/
+https://leetcode.cn/problems/minimum-operations-to-make-the-array-k-increasing/
 
 第 272 场周赛 T4。
 
@@ -68,5 +68,5 @@ https://leetcode-cn.com/problems/minimum-operations-to-make-the-array-k-increasi
 LIS 的时间复杂度需为贪心+二分的 O(nlogn) 而不能是 动态规划的 O(n^2)
 
 相似题目: 300. 最长递增子序列
-https://leetcode-cn.com/problems/longest-increasing-subsequence/
+https://leetcode.cn/problems/longest-increasing-subsequence/
  */

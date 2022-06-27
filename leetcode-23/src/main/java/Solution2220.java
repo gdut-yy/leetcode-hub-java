@@ -31,7 +31,7 @@ public class Solution2220 {
 }
 /*
 2220. 转换数字的最少位翻转次数
-https://leetcode-cn.com/problems/minimum-bit-flips-to-convert-number/
+https://leetcode.cn/problems/minimum-bit-flips-to-convert-number/
 
 第 75 场双周赛 T1。
 

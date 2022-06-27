@@ -39,7 +39,7 @@ public class Solution1175 {
 }
 /*
 1175. 质数排列
-https://leetcode-cn.com/problems/prime-arrangements/
+https://leetcode.cn/problems/prime-arrangements/
 
 第 152 场周赛 T1。
 

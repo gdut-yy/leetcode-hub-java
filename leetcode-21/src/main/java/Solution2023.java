@@ -18,7 +18,7 @@ public class Solution2023 {
 }
 /*
 2023. 连接后等于目标字符串的字符串对
-https://leetcode-cn.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/
+https://leetcode.cn/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target/
 
 第 62 场双周赛 T2。
 

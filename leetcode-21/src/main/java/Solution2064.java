@@ -25,7 +25,7 @@ public class Solution2064 {
 }
 /*
 2064. 分配给商店的最多商品的最小值
-https://leetcode-cn.com/problems/minimized-maximum-of-products-distributed-to-any-store/
+https://leetcode.cn/problems/minimized-maximum-of-products-distributed-to-any-store/
 
 第 266 场周赛 T3。
 

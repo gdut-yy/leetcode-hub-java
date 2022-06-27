@@ -19,7 +19,7 @@ public class Solution997 {
 }
 /*
 997. 找到小镇的法官
-https://leetcode-cn.com/problems/find-the-town-judge/
+https://leetcode.cn/problems/find-the-town-judge/
 
 第 125 场周赛 T1。
 

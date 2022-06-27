@@ -17,7 +17,7 @@ public class Solution1029 {
 }
 /*
 1029. 两地调度
-https://leetcode-cn.com/problems/two-city-scheduling/
+https://leetcode.cn/problems/two-city-scheduling/
 
 第 133 场周赛 T1。
 

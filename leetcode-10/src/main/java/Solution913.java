@@ -63,7 +63,7 @@ public class Solution913 {
 }
 /*
 913. 猫和老鼠
-https://leetcode-cn.com/problems/cat-and-mouse/
+https://leetcode.cn/problems/cat-and-mouse/
 
 第 104 场周赛 T4。
 

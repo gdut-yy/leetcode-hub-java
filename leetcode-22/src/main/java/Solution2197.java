@@ -39,7 +39,7 @@ public class Solution2197 {
 }
 /*
 2197. 替换数组中的非互质数
-https://leetcode-cn.com/problems/replace-non-coprime-numbers-in-array/
+https://leetcode.cn/problems/replace-non-coprime-numbers-in-array/
 
 第 283 场周赛 T4。
 

@@ -21,7 +21,7 @@ public class Solution2178 {
 }
 /*
 2178. 拆分成最多数目的偶整数之和
-https://leetcode-cn.com/problems/maximum-split-of-positive-even-integers/
+https://leetcode.cn/problems/maximum-split-of-positive-even-integers/
 
 第 72 场双周赛 T3。
 

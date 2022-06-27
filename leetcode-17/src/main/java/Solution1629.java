@@ -25,7 +25,7 @@ public class Solution1629 {
 }
 /*
 1629. 按键持续时间最长的键
-https://leetcode-cn.com/problems/slowest-key/
+https://leetcode.cn/problems/slowest-key/
 
 第 212 场周赛 T1。
 

@@ -45,7 +45,7 @@ public class Solution2013 {
 }
 /*
 2013. 检测正方形
-https://leetcode-cn.com/problems/detect-squares/
+https://leetcode.cn/problems/detect-squares/
 
 给你一个在 X-Y 平面上的点构成的数据流。设计一个满足下述要求的算法：
 - 添加 一个在数据流中的新点到某个数据结构中。可以添加 重复 的点，并会视作不同的点进行处理。

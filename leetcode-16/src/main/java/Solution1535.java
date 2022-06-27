@@ -19,7 +19,7 @@ public class Solution1535 {
 }
 /*
 1535. 找出数组游戏的赢家
-https://leetcode-cn.com/problems/find-the-winner-of-an-array-game/
+https://leetcode.cn/problems/find-the-winner-of-an-array-game/
 
 第 200 场周赛 T2。
 

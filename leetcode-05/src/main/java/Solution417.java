@@ -72,7 +72,7 @@ public class Solution417 {
 }
 /*
 417. 太平洋大西洋水流问题
-https://leetcode-cn.com/problems/pacific-atlantic-water-flow/
+https://leetcode.cn/problems/pacific-atlantic-water-flow/
 
 有一个 m × n 的长方形岛屿，与 太平洋 和 大西洋 相邻。 “太平洋” 处于大陆的左边界和上边界，而 “大西洋” 处于大陆的右边界和下边界。
 这个岛被分割成一个个方格网格。给定一个 m x n 的整数矩阵 heights ， heights[r][c] 表示坐标 (r, c) 上单元格 高于海平面的高度 。

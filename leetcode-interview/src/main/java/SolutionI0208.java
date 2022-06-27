@@ -24,7 +24,7 @@ public class SolutionI0208 {
 }
 /*
 面试题 02.08. 环路检测
-https://leetcode-cn.com/problems/linked-list-cycle-lcci/
+https://leetcode.cn/problems/linked-list-cycle-lcci/
 
 给定一个链表，如果它是有环链表，实现一个算法返回环路的开头节点。若环不存在，请返回 null。
 
@@ -33,5 +33,5 @@ https://leetcode-cn.com/problems/linked-list-cycle-lcci/
 注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。
 
 同: 142. 环形链表 II
-https://leetcode-cn.com/problems/linked-list-cycle-ii/
+https://leetcode.cn/problems/linked-list-cycle-ii/
  */

@@ -17,7 +17,7 @@ public class Solution848 {
 }
 /*
 848. 字母移位
-https://leetcode-cn.com/problems/shifting-letters/
+https://leetcode.cn/problems/shifting-letters/
 
 第 88 场周赛 T1。
 

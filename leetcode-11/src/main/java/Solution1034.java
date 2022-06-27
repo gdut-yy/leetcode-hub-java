@@ -45,7 +45,7 @@ public class Solution1034 {
 }
 /*
 1034. 边界着色
-https://leetcode-cn.com/problems/coloring-a-border/
+https://leetcode.cn/problems/coloring-a-border/
 
 第 134 场周赛 T2。
 

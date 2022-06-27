@@ -52,7 +52,7 @@ public class Solution2105 {
 }
 /*
 2105. 给植物浇水 II
-https://leetcode-cn.com/problems/watering-plants-ii/
+https://leetcode.cn/problems/watering-plants-ii/
 
 第 271 场周赛 T3。
 
@@ -73,5 +73,5 @@ Alice 按 从左到右 的顺序给植物浇水，从植物 0 开始。Bob 按 �
 双指针模拟（一开始以为不同速，后面发现同速，那相当于定长，在判断 plants.length 奇偶即可）
 
 相似题目: 2079. 给植物浇水
-https://leetcode-cn.com/problems/watering-plants/
+https://leetcode.cn/problems/watering-plants/
  */

@@ -40,7 +40,7 @@ public class Solution831 {
 }
 /*
 831. 隐藏个人信息
-https://leetcode-cn.com/problems/masking-personal-information/
+https://leetcode.cn/problems/masking-personal-information/
 
 第 83 场周赛 T2。
 

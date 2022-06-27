@@ -21,7 +21,7 @@ public class Solution74Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/224992426/
+        // https://leetcode.cn/submissions/detail/224992426/
         int[][] matrix = UtUtils.stringToInts2("[[1]]");
         int target = 2;
         Assertions.assertFalse(solution74.searchMatrix(matrix, target));

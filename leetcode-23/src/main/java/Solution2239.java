@@ -26,7 +26,7 @@ public class Solution2239 {
 }
 /*
 2239. 找到最接近 0 的数字
-https://leetcode-cn.com/problems/find-closest-number-to-zero/
+https://leetcode.cn/problems/find-closest-number-to-zero/
 
 第 76 场双周赛 T1。
 

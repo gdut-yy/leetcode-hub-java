@@ -27,7 +27,7 @@ public class SolutionLCP39 {
 }
 /*
 LCP 39. 无人机方阵
-https://leetcode-cn.com/problems/0jQkd0/
+https://leetcode.cn/problems/0jQkd0/
 
 LCCUP 力扣杯 2021 秋季编程大赛个人赛 T1。
 

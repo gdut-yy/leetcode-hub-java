@@ -19,7 +19,7 @@ public class Solution946 {
 }
 /*
 946. 验证栈序列
-https://leetcode-cn.com/problems/validate-stack-sequences/
+https://leetcode.cn/problems/validate-stack-sequences/
 
 第 112 场周赛 T2。
 

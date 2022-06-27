@@ -27,7 +27,7 @@ public class Solution872 {
 }
 /*
 872. 叶子相似的树
-https://leetcode-cn.com/problems/leaf-similar-trees/
+https://leetcode.cn/problems/leaf-similar-trees/
 
 第 94 场周赛 T1。
 

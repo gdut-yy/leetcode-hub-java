@@ -25,7 +25,7 @@ public class Solution1936 {
 }
 /*
 1936. 新增的最少台阶数
-https://leetcode-cn.com/problems/add-minimum-number-of-rungs/
+https://leetcode.cn/problems/add-minimum-number-of-rungs/
 
 第 250 场周赛 T2。
 

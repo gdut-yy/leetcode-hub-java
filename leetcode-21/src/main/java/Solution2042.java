@@ -31,7 +31,7 @@ public class Solution2042 {
 }
 /*
 2042. 检查句子中的数字是否递增
-https://leetcode-cn.com/problems/check-if-numbers-are-ascending-in-a-sentence/
+https://leetcode.cn/problems/check-if-numbers-are-ascending-in-a-sentence/
 
 第 263 场周赛 T1。
 

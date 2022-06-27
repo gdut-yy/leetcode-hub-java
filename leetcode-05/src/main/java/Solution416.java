@@ -29,7 +29,7 @@ public class Solution416 {
 }
 /*
 416. 分割等和子集
-https://leetcode-cn.com/problems/partition-equal-subset-sum/
+https://leetcode.cn/problems/partition-equal-subset-sum/
 
 给你一个 只包含正整数 的 非空 数组 nums 。请你判断是否可以将这个数组分割成两个子集，使得两个子集的元素和相等。
 提示：
@@ -48,5 +48,5 @@ f(i,j) 表示能否从前 i 个物品中选择若干物品放满容量为 j 的�
 当 j 等于 0 时，即背包容量为 0，则 f(i,0) 恒为 true
 当 i 等于 0 时，即物品数为 0，则 f(0,j) 恒为 false
 相似题目: 494. 目标和
-https://leetcode-cn.com/problems/target-sum/
+https://leetcode.cn/problems/target-sum/
  */

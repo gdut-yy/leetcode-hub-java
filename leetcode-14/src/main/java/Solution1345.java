@@ -70,7 +70,7 @@ public class Solution1345 {
 }
 /*
 1345. 跳跃游戏 IV
-https://leetcode-cn.com/problems/jump-game-iv/
+https://leetcode.cn/problems/jump-game-iv/
 
 第 19 场双周赛 T4。
 

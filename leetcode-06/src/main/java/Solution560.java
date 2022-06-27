@@ -47,7 +47,7 @@ public class Solution560 {
 }
 /*
 560. 和为K的子数组
-https://leetcode-cn.com/problems/subarray-sum-equals-k/
+https://leetcode.cn/problems/subarray-sum-equals-k/
 
 给定一个整数数组和一个整数 k，你需要找到该数组中和为 k 的连续的子数组的个数。
 提示：
@@ -58,5 +58,5 @@ https://leetcode-cn.com/problems/subarray-sum-equals-k/
 前缀和 + 枚举连续子数组。时间复杂度 O(n^2)
 前缀和 + HashMap 优化。时间复杂度 O(n) 空间复杂度 O(n)
 相似题目: 974. 和可被 K 整除的子数组
-https://leetcode-cn.com/problems/subarray-sums-divisible-by-k/
+https://leetcode.cn/problems/subarray-sums-divisible-by-k/
  */

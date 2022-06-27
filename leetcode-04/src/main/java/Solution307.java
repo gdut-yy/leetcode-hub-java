@@ -159,7 +159,7 @@ public class Solution307 {
 }
 /*
 307. 区域和检索 - 数组可修改
-https://leetcode-cn.com/problems/range-sum-query-mutable/
+https://leetcode.cn/problems/range-sum-query-mutable/
 
 给你一个数组 nums ，请你完成两类查询。
 1.其中一类查询要求 更新 数组 nums 下标对应的值

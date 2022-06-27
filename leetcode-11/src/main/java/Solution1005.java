@@ -46,7 +46,7 @@ public class Solution1005 {
 }
 /*
 1005. K 次取反后最大化的数组和
-https://leetcode-cn.com/problems/maximize-sum-of-array-after-k-negations/
+https://leetcode.cn/problems/maximize-sum-of-array-after-k-negations/
 
 第 127 场周赛 T1。
 

@@ -23,7 +23,7 @@ public class Solution2249 {
 }
 /*
 2249. 统计圆内格点数目
-https://leetcode-cn.com/problems/count-lattice-points-inside-a-circle/
+https://leetcode.cn/problems/count-lattice-points-inside-a-circle/
 
 第 290 场周赛 T2。
 

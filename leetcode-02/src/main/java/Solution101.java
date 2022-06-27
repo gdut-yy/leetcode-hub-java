@@ -15,7 +15,7 @@ public class Solution101 {
 }
 /*
 101. 对称二叉树
-https://leetcode-cn.com/problems/symmetric-tree/
+https://leetcode.cn/problems/symmetric-tree/
 
 给定一个二叉树，检查它是否是镜像对称的。
 例如，二叉树 [1,2,2,3,4,4,3] 是对称的。
@@ -33,5 +33,5 @@ https://leetcode-cn.com/problems/symmetric-tree/
    3    3
 
 同: 剑指 Offer 28. 对称的二叉树
-https://leetcode-cn.com/problems/dui-cheng-de-er-cha-shu-lcof/
+https://leetcode.cn/problems/dui-cheng-de-er-cha-shu-lcof/
  */

@@ -27,7 +27,7 @@ public class Solution2202 {
 }
 /*
 2202. K 次操作后最大化顶端元素
-https://leetcode-cn.com/problems/maximize-the-topmost-element-after-k-moves/
+https://leetcode.cn/problems/maximize-the-topmost-element-after-k-moves/
 
 第 284 场周赛 T3。
 

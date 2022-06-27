@@ -47,7 +47,7 @@ public class Solution741 {
 }
 /*
 741. 摘樱桃
-https://leetcode-cn.com/problems/cherry-pickup/
+https://leetcode.cn/problems/cherry-pickup/
 
 一个N x N的网格(grid) 代表了一块樱桃地，每个格子由以下三种数字的一种来表示：
 - 0 表示这个格子是空的，所以你可以穿过它。
@@ -67,5 +67,5 @@ grid 是一个 N * N 的二维数组，N的取值范围是1 <= N <= 50。
 时间复杂度 O(n^3)
 空间复杂度 O(n^2)
 相似题目: 1463. 摘樱桃 II
-https://leetcode-cn.com/problems/cherry-pickup-ii/
+https://leetcode.cn/problems/cherry-pickup-ii/
  */

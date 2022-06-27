@@ -37,7 +37,7 @@ public class Solution1034Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/246002945/
+        // https://leetcode.cn/submissions/detail/246002945/
         // 58 / 154 个通过测试用例
         int[][] grid = UtUtils.stringToInts2("[[1,2,1,2,1,2],[2,2,2,2,1,2],[1,2,2,2,1,2]]");
         int row = 1;

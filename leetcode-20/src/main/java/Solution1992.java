@@ -121,7 +121,7 @@ public class Solution1992 {
 }
 /*
 1992. 找到所有的农场组
-https://leetcode-cn.com/problems/find-all-groups-of-farmland/
+https://leetcode.cn/problems/find-all-groups-of-farmland/
 
 第 60 场双周赛 T2。
 
@@ -137,5 +137,5 @@ land 可以用坐标系统表示，其中 land 左上角坐标为 (0, 0) ，右�
 然后找出 parent[] 值相同的 最大/最小值，分别对应左上角/右下角
 
 相似题目: 200. 岛屿数量
-https://leetcode-cn.com/problems/number-of-islands/
+https://leetcode.cn/problems/number-of-islands/
  */

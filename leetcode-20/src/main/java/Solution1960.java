@@ -138,7 +138,7 @@ public class Solution1960 {
 }
 /*
 1960. 两个回文子字符串长度的最大乘积
-https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
+https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
 
 第 58 场双周赛 T4。
 
@@ -149,8 +149,8 @@ s[i...j] 表示下标从 i 到 j 且 包含 两端下标的子字符串。
 回文字符串 指的是一个从前往后读和从后往前读一模一样的字符串。子字符串 指的是一个字符串中一段连续字符。
 
 Manacher 算法 + 扫描线
-leetcode 题解 https://leetcode-cn.com/problems/maximum-product-of-the-length-of-two-palindromic-substrings/solution/liang-ge-hui-wen-zi-zi-fu-chuan-chang-du-soyb/
-第 5 题 https://leetcode-cn.com/problems/longest-palindromic-substring/
+leetcode 题解 https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/solution/liang-ge-hui-wen-zi-zi-fu-chuan-chang-du-soyb/
+第 5 题 https://leetcode.cn/problems/longest-palindromic-substring/
 Manacher https://oi-wiki.org/string/manacher/
 洛谷 P4555 [国家集训队]最长双回文串 https://www.luogu.com.cn/problem/P4555
  */

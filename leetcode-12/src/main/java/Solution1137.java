@@ -61,7 +61,7 @@ public class Solution1137 {
 }
 /*
 1137. 第 N 个泰波那契数
-https://leetcode-cn.com/problems/n-th-tribonacci-number/
+https://leetcode.cn/problems/n-th-tribonacci-number/
 
 第 147 场周赛 T1。
 
@@ -70,7 +70,7 @@ T0 = 0, T1 = 1, T2 = 1, 且在 n >= 0 的条件下 Tn+3 = Tn + Tn+1 + Tn+2
 给你整数 n，请返回第 n 个泰波那契数 Tn 的值。
 
 相似题目: 70. 爬楼梯
-https://leetcode-cn.com/problems/climbing-stairs/
+https://leetcode.cn/problems/climbing-stairs/
 509. 斐波那契数
-https://leetcode-cn.com/problems/fibonacci-number/
+https://leetcode.cn/problems/fibonacci-number/
  */

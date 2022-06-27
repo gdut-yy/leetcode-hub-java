@@ -221,5 +221,5 @@ https://leetcode.cn/problems/falling-squares/
 离散化线段树，区间修改 + 区间查询最值。
 需要实现带 懒惰标记 的线段树，从而确保在 区间修改 时复杂度仍为 O(log n)
 相似题目: 218. 天际线问题
-https://leetcode-cn.com/problems/the-skyline-problem/
+https://leetcode.cn/problems/the-skyline-problem/
  */

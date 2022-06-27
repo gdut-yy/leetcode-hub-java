@@ -13,7 +13,7 @@ public class Solution2138 {
 }
 /*
 2138. 将字符串拆分为若干长度为 k 的组
-https://leetcode-cn.com/problems/divide-a-string-into-groups-of-size-k/
+https://leetcode.cn/problems/divide-a-string-into-groups-of-size-k/
 
 第 276 场周赛 T1。
 

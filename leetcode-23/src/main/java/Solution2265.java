@@ -44,7 +44,7 @@ public class Solution2265 {
 }
 /*
 2265. 统计值等于子树平均值的节点数
-https://leetcode-cn.com/problems/count-nodes-equal-to-average-of-subtree/
+https://leetcode.cn/problems/count-nodes-equal-to-average-of-subtree/
 
 第 292 场周赛 T2。
 

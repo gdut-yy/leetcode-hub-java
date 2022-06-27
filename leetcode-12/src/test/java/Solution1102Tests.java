@@ -28,7 +28,7 @@ public class Solution1102Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/245181706/
+        // https://leetcode.cn/submissions/detail/245181706/
         // 76 / 85 个通过测试用例
         int[][] grid = UtUtils.loadingInts2("solution1102-example4-input.txt", 0);
         int expected = 3838890;

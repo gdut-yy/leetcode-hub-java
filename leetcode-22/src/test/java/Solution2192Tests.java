@@ -25,7 +25,7 @@ public class Solution2192Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/277929011/
+        // https://leetcode.cn/submissions/detail/277929011/
         // 40 / 80 个通过测试用例
         int n = UtUtils.loadingInt("solution2192-example3-input.txt", 0);
         int[][] edges = UtUtils.loadingInts2("solution2192-example3-input.txt", 1);

@@ -25,7 +25,7 @@ public class Solution131Tests {
     }
 
     // 剑指 Offer II 086. 分割回文子字符串
-    // https://leetcode-cn.com/problems/M99OJA/
+    // https://leetcode.cn/problems/M99OJA/
     @Test
     public void example1_2() {
         String s = "google";

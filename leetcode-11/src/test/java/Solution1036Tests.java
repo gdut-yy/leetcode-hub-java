@@ -23,7 +23,7 @@ public class Solution1036Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/246094265/
+        // https://leetcode.cn/submissions/detail/246094265/
         int[][] blocked = UtUtils.stringToInts2("[[10,9],[9,10],[10,11],[11,10]]");
         int[] source = {0, 0};
         int[] target = {10, 10};

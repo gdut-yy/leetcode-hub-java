@@ -40,7 +40,7 @@ public class Solution539 {
 }
 /*
 539. 最小时间差
-https://leetcode-cn.com/problems/minimum-time-difference/
+https://leetcode.cn/problems/minimum-time-difference/
 
 BitSet 长度为定长 1440，为常数，因此：
 时间复杂度 O(1)

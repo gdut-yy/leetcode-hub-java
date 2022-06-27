@@ -9,7 +9,7 @@ public class Solution1910 {
 }
 /*
 1910. 删除一个字符串中所有出现的给定子字符串
-https://leetcode-cn.com/problems/remove-all-occurrences-of-a-substring/
+https://leetcode.cn/problems/remove-all-occurrences-of-a-substring/
 
 第 55 场双周赛 T2。
 

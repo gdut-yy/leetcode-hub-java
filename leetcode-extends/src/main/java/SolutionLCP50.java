@@ -19,7 +19,7 @@ public class SolutionLCP50 {
 }
 /*
 LCP 50. 宝石补给
-https://leetcode-cn.com/problems/WHnhjV/
+https://leetcode.cn/problems/WHnhjV/
 
 LCCUP 力扣杯 2022 春季编程大赛个人赛 T1。
 

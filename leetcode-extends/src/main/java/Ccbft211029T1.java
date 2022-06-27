@@ -17,7 +17,7 @@ public class Ccbft211029T1 {
 }
 /*
 建信01. 间隔删除链表结点
-https://leetcode-cn.com/contest/ccbft-2021fall/problems/woGGnF/
+https://leetcode.cn/contest/ccbft-2021fall/problems/woGGnF/
 
 给你一个链表的头结点 head，每隔一个结点删除另一个结点（要求保留头结点）。
 请返回最终链表的头结点。

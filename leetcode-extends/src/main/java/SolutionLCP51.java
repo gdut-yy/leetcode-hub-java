@@ -47,7 +47,7 @@ public class SolutionLCP51 {
 }
 /*
 LCP 51. 烹饪料理
-https://leetcode-cn.com/problems/UEcfPD/
+https://leetcode.cn/problems/UEcfPD/
 
 LCCUP 力扣杯 2022 春季编程大赛个人赛 T2。
 

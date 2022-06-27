@@ -17,7 +17,7 @@ public class Solution219 {
 }
 /*
 219. 存在重复元素 II
-https://leetcode-cn.com/problems/contains-duplicate-ii/
+https://leetcode.cn/problems/contains-duplicate-ii/
 
 难度增加，多了个下标距离至多为 k 的约束。
 使用 Map。key 记录数值 value 记录下标。

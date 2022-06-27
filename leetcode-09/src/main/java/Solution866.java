@@ -870,7 +870,7 @@ public class Solution866 {
 }
 /*
 866. 回文素数
-https://leetcode-cn.com/problems/prime-palindrome/
+https://leetcode.cn/problems/prime-palindrome/
 
 第 92 场周赛 T3。
 

@@ -74,7 +74,7 @@ public class Solution1129 {
 }
 /*
 1129. 颜色交替的最短路径
-https://leetcode-cn.com/problems/shortest-path-with-alternating-colors/
+https://leetcode.cn/problems/shortest-path-with-alternating-colors/
 
 在一个有向图中，节点分别标记为 0, 1, ..., n-1。图中每条边为红色或者蓝色，且存在自环或平行边。
 red_edges 中的每一个 [i, j] 对表示从节点 i 到节点 j 的红色有向边。类似地，blue_edges 中的每一个 [i, j] 对表示从节点 i 到节点 j 的蓝色有向边。

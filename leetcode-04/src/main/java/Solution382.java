@@ -26,7 +26,7 @@ public class Solution382 {
 }
 /*
 382. 链表随机节点
-https://leetcode-cn.com/problems/linked-list-random-node/
+https://leetcode.cn/problems/linked-list-random-node/
 
 给你一个单链表，随机选择链表的一个节点，并返回相应的节点值。每个节点 被选中的概率一样 。
 实现 Solution 类：
@@ -43,5 +43,5 @@ https://leetcode-cn.com/problems/linked-list-random-node/
 水塘抽样。
 从链表头开始，遍历整个链表，对遍历到的第 i 个节点，随机选择区间 [0,i) 内的一个整数，如果其等于 0，则将答案置为该节点值，否则答案不变。
 相似题目: 398. 随机数索引
-https://leetcode-cn.com/problems/random-pick-index/
+https://leetcode.cn/problems/random-pick-index/
  */

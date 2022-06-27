@@ -16,10 +16,10 @@ public class SolutionI0402 {
 }
 /*
 面试题 04.02. 最小高度树
-https://leetcode-cn.com/problems/minimum-height-tree-lcci/
+https://leetcode.cn/problems/minimum-height-tree-lcci/
 
 给定一个有序整数数组，元素各不相同且按升序排列，编写一个算法，创建一棵高度最小的二叉搜索树。
 
 同: 108. 将有序数组转换为二叉搜索树
-https://leetcode-cn.com/problems/convert-sorted-array-to-binary-search-tree/
+https://leetcode.cn/problems/convert-sorted-array-to-binary-search-tree/
  */

@@ -45,7 +45,7 @@ public class Solution304 {
 }
 /*
 304. 二维区域和检索 - 矩阵不可变
-https://leetcode-cn.com/problems/range-sum-query-2d-immutable/
+https://leetcode.cn/problems/range-sum-query-2d-immutable/
 
 给定一个二维矩阵 matrix，以下类型的多个请求：
 - 计算其子矩形范围内元素的总和，该子矩阵的 左上角 为 (row1, col1) ，右下角 为 (row2, col2) 。

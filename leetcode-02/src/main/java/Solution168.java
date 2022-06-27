@@ -12,7 +12,7 @@ public class Solution168 {
 }
 /*
 168. Excel表列名称
-https://leetcode-cn.com/problems/excel-sheet-column-title/
+https://leetcode.cn/problems/excel-sheet-column-title/
 
 给你一个整数 columnNumber ，返回它在 Excel 表中相对应的列名称。
 例如：
@@ -29,5 +29,5 @@ AB -> 28
 
 模拟。
 相似题目: 171. Excel 表列序号
-https://leetcode-cn.com/problems/excel-sheet-column-number/
+https://leetcode.cn/problems/excel-sheet-column-number/
  */

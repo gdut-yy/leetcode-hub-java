@@ -48,7 +48,7 @@ public class Solution369 {
 }
 /*
 $369. 给单链表加一
-https://leetcode-cn.com/problems/plus-one-linked-list/
+https://leetcode.cn/problems/plus-one-linked-list/
 
 给定一个用链表表示的非负整数， 然后将这个整数 再加上 1 。
 这些数字的存储是这样的：最高位有效的数字位于链表的首位 head 。
@@ -59,5 +59,5 @@ https://leetcode-cn.com/problems/plus-one-linked-list/
 
 模拟。
 相似题目: 66. 加一
-https://leetcode-cn.com/problems/plus-one/
+https://leetcode.cn/problems/plus-one/
  */

@@ -56,7 +56,7 @@ public class Solution861 {
 }
 /*
 861. 翻转矩阵后的得分
-https://leetcode-cn.com/problems/score-after-flipping-matrix/
+https://leetcode.cn/problems/score-after-flipping-matrix/
 
 第 91 场周赛 T3。
 

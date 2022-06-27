@@ -25,7 +25,7 @@ public class Solution2050Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/239073738/
+        // https://leetcode.cn/submissions/detail/239073738/
         // 10 / 42 个通过测试用例
         int n = 9;
         int[][] relations = UtUtils.stringToInts2("[[2,7],[2,6],[3,6],[4,6],[7,6],[2,1],[3,1],[4,1],[6,1],[7,1],[3,8],[5,8],[7,8],[1,9],[2,9],[6,9],[7,9]]");

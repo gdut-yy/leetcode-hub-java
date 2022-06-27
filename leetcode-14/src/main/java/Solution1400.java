@@ -20,7 +20,7 @@ public class Solution1400 {
 }
 /*
 1400. 构造 K 个回文字符串
-https://leetcode-cn.com/problems/construct-k-palindrome-strings/
+https://leetcode.cn/problems/construct-k-palindrome-strings/
 
 第 23 场双周赛 T2。
 

@@ -66,7 +66,7 @@ public class Solution269 {
 }
 /*
 $269. 火星词典
-https://leetcode-cn.com/problems/alien-dictionary/
+https://leetcode.cn/problems/alien-dictionary/
 
 现有一种使用英语字母的火星语言，这门语言的字母顺序与英语顺序不同。
 给你一个字符串列表 words ，作为这门语言的词典，words 中的字符串已经 按这门新语言的字母顺序进行了排序 。

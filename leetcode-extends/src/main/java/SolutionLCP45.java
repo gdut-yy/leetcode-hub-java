@@ -52,7 +52,7 @@ public class SolutionLCP45 {
 }
 /*
 LCP 45. 自行车炫技赛场
-https://leetcode-cn.com/problems/kplEvH/
+https://leetcode.cn/problems/kplEvH/
 
 LCCUP 力扣杯 2021 秋季编程大赛战队赛 T2。
 

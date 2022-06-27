@@ -18,7 +18,7 @@ public class Solution566 {
 }
 /*
 566. 重塑矩阵
-https://leetcode-cn.com/problems/reshape-the-matrix/
+https://leetcode.cn/problems/reshape-the-matrix/
 
 在 MATLAB 中，有一个非常有用的函数 reshape ，它可以将一个 m x n 矩阵重塑为另一个大小不同（r x c）的新矩阵，但保留其原始数据。
 给你一个由二维数组 mat 表示的 m x n 矩阵，以及两个正整数 r 和 c ，分别表示想要的重构的矩阵的行数和列数。

@@ -28,7 +28,7 @@ public class Solution1091Tests {
     // 补充用例
     @Test
     public void example4() {
-        // https://leetcode-cn.com/submissions/detail/227590936/
+        // https://leetcode.cn/submissions/detail/227590936/
         // 87 / 88 个通过测试用例
         int[][] grid = UtUtils.stringToInts2("[[0]]");
         int expected = 1;

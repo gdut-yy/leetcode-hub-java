@@ -20,7 +20,7 @@ public class Solution2216 {
 }
 /*
 2216. 美化数组的最少删除数
-https://leetcode-cn.com/problems/minimum-deletions-to-make-array-beautiful/
+https://leetcode.cn/problems/minimum-deletions-to-make-array-beautiful/
 
 第 286 场周赛 T2。
 

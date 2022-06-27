@@ -58,7 +58,7 @@ public class SolutionLCP40 {
 }
 /*
 LCP 40. 心算挑战
-https://leetcode-cn.com/problems/uOAnQW/
+https://leetcode.cn/problems/uOAnQW/
 
 LCCUP 力扣杯 2021 秋季编程大赛个人赛 T2。
 找数学规律。

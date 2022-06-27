@@ -134,7 +134,7 @@ public class Solution743 {
 }
 /*
 743. 网络延迟时间
-https://leetcode-cn.com/problems/network-delay-time/
+https://leetcode.cn/problems/network-delay-time/
 
 有 n 个网络节点，标记为 1 到 n。
 给你一个列表 times，表示信号经过 有向 边的传递时间。 times[i] = (ui, vi, wi)，其中 ui 是源节点，vi 是目标节点， wi 是一个信号从源节点传递到目标节点的时间。
@@ -152,5 +152,5 @@ ui != vi
 Floyd 时间复杂度 O(n^3)
 堆优化 dijkstra 时间复杂度 O(nlogm)
 【宫水三叶】涵盖所有的「存图方式」与「最短路算法（详尽注释）」
-https://leetcode-cn.com/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/
+https://leetcode.cn/problems/network-delay-time/solution/gong-shui-san-xie-yi-ti-wu-jie-wu-chong-oghpz/
  */

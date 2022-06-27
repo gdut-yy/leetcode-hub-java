@@ -20,7 +20,7 @@ public class Solution1446 {
 }
 /*
 1446. 连续字符
-https://leetcode-cn.com/problems/consecutive-characters/
+https://leetcode.cn/problems/consecutive-characters/
 
 第 26 场双周赛 T1。
 

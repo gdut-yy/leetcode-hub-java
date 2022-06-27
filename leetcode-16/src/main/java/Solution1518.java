@@ -16,7 +16,7 @@ public class Solution1518 {
 }
 /*
 1518. 换酒问题
-https://leetcode-cn.com/problems/water-bottles/
+https://leetcode.cn/problems/water-bottles/
 
 第 198 场周赛 T1。
 

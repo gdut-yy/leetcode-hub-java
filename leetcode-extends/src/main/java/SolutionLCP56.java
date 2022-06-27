@@ -110,7 +110,7 @@ public class SolutionLCP56 {
 }
 /*
 LCP 56. 信物传送
-https://leetcode-cn.com/problems/6UEx57/
+https://leetcode.cn/problems/6UEx57/
 
 LCCUP 力扣杯 2022 春季编程大赛战队赛 T2。
 
@@ -128,5 +128,5 @@ matrix 中仅包含 '^'、'v'、'<'、'>'
 0 <= start[1],end[1] < matrix[i].length
 
 相似题目: 1368. 使网格图至少有一条有效路径的最小代价
-https://leetcode-cn.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
+https://leetcode.cn/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/
  */

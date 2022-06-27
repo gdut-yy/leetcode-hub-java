@@ -33,7 +33,7 @@ public class Solution896 {
 }
 /*
 896. 单调数列
-https://leetcode-cn.com/problems/monotonic-array/
+https://leetcode.cn/problems/monotonic-array/
 
 第 100 场周赛 T1。
 

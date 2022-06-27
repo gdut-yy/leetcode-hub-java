@@ -26,7 +26,7 @@ public class Solution1673 {
 }
 /*
 1673. 找出最具竞争力的子序列
-https://leetcode-cn.com/problems/find-the-most-competitive-subsequence/
+https://leetcode.cn/problems/find-the-most-competitive-subsequence/
 
 第 217 场周赛 T2。
 

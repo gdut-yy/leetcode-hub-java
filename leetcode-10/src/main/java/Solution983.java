@@ -22,7 +22,7 @@ public class Solution983 {
 }
 /*
 983. 最低票价
-https://leetcode-cn.com/problems/minimum-cost-for-tickets/
+https://leetcode.cn/problems/minimum-cost-for-tickets/
 
 第 121 场周赛 T3。
 

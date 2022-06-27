@@ -24,7 +24,7 @@ public class Solution735 {
 }
 /*
 735. 行星碰撞
-https://leetcode-cn.com/problems/asteroid-collision/
+https://leetcode.cn/problems/asteroid-collision/
 
 注意 Stack 与 Deque 的区别：
 Stack<Integer> stack1 = new Stack<>();

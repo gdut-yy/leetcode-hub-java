@@ -36,7 +36,7 @@ public class Solution1447 {
 }
 /*
 1447. 最简分数
-https://leetcode-cn.com/problems/simplified-fractions/
+https://leetcode.cn/problems/simplified-fractions/
 
 给你一个整数 n ，请你返回所有 0 到 1 之间（不包括 0 和 1）满足分母小于等于  n 的 最简 分数 。分数可以以 任意 顺序返回。
 提示：

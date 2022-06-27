@@ -54,7 +54,7 @@ public class Solution1905 {
 }
 /*
 1905. 统计子岛屿
-https://leetcode-cn.com/problems/count-sub-islands/
+https://leetcode.cn/problems/count-sub-islands/
 
 给你两个 m x n 的二进制矩阵 grid1 和 grid2 ，它们只包含 0 （表示水域）和 1 （表示陆地）。
 一个 岛屿 是由 四个方向 （水平或者竖直）上相邻的 1 组成的区域。任何矩阵以外的区域都视为水域。
@@ -70,5 +70,5 @@ BFS 模拟。在 grid2 中搜索某一个岛屿的过程中，我们需要判断
 时间复杂度 O(mn)
 空间复杂度 O(mn)
 相似题目: 200. 岛屿数量
-https://leetcode-cn.com/problems/number-of-islands/
+https://leetcode.cn/problems/number-of-islands/
  */

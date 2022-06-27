@@ -23,7 +23,7 @@ public class Solution2242Tests {
     // 补充用例
     @Test
     public void example3() {
-        // https://leetcode-cn.com/submissions/detail/309073214/
+        // https://leetcode.cn/submissions/detail/309073214/
         // 51 / 74 个通过测试用例
         // 不剪枝会 TLE
         int[] scores = UtUtils.loadingInts("solution2242-example3-input.txt", 0);

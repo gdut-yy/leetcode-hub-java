@@ -30,7 +30,7 @@ public class Solution14 {
 }
 /*
 14. 最长公共前缀
-https://leetcode-cn.com/problems/longest-common-prefix/
+https://leetcode.cn/problems/longest-common-prefix/
 
 查找字符串数组中的最长公共前缀。三种方法：
 横向扫描 时间复杂度O(mn) 空间复杂度O(1)

@@ -67,7 +67,7 @@ public class Solution2050 {
 }
 /*
 2050. 并行课程 III
-https://leetcode-cn.com/problems/parallel-courses-iii/
+https://leetcode.cn/problems/parallel-courses-iii/
 
 第 264 场周赛 T4。
 
@@ -88,5 +88,5 @@ https://leetcode-cn.com/problems/parallel-courses-iii/
 32
 
 相似题目: 851. 喧闹和富有
-https://leetcode-cn.com/problems/loud-and-rich/
+https://leetcode.cn/problems/loud-and-rich/
  */

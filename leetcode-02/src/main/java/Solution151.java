@@ -14,7 +14,7 @@ public class Solution151 {
 }
 /*
 151. 翻转字符串里的单词
-https://leetcode-cn.com/problems/reverse-words-in-a-string/
+https://leetcode.cn/problems/reverse-words-in-a-string/
 
 给你一个字符串 s ，逐个翻转字符串中的所有 单词 。
 单词 是由非空格字符组成的字符串。s 中使用至少一个空格将字符串中的 单词 分隔开。
@@ -26,5 +26,5 @@ https://leetcode-cn.com/problems/reverse-words-in-a-string/
 翻转后的字符串中不应包含额外的空格。
 
 同: 剑指 Offer 58 - I. 翻转单词顺序
-https://leetcode-cn.com/problems/fan-zhuan-dan-ci-shun-xu-lcof/
+https://leetcode.cn/problems/fan-zhuan-dan-ci-shun-xu-lcof/
  */

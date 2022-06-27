@@ -14,7 +14,7 @@ public class Solution1085 {
 }
 /*
 1085. 最小元素各数位之和
-https://leetcode-cn.com/problems/sum-of-digits-in-the-minimum-number/
+https://leetcode.cn/problems/sum-of-digits-in-the-minimum-number/
 
 第 2 场双周赛 T1。
 
