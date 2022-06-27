@@ -86,7 +86,7 @@ https://leetcode.cn/problems/number-of-restricted-paths-from-first-to-last-node/
 满足 z0 = start 、zk = end 且在所有符合 0 <= i <= k-1 的节点 zi 和 zi+1 之间存在一条边。
 路径的距离定义为这条路径上所有边的权重总和。用 distanceToLastNode(x) 表示节点 n 和 x 之间路径的最短距离。
 受限路径 为满足 distanceToLastNode(zi) > distanceToLastNode(zi+1) 的一条路径，其中 0 <= i <= k-1 。
-返回从节点 1 出发到节点 n 的 受限路径数 。由于数字可能很大，请返回对 109 + 7 取余 的结果。
+返回从节点 1 出发到节点 n 的 受限路径数 。由于数字可能很大，请返回对 10^9 + 7 取余 的结果。
 提示：
 1 <= n <= 2 * 10^4
 n - 1 <= edges.length <= 4 * 10^4
