@@ -1,4 +1,4 @@
-public class Solution6101 {
+public class Solution2319 {
     public boolean checkXMatrix(int[][] grid) {
         int n = grid.length;
 
@@ -19,7 +19,7 @@ public class Solution6101 {
     }
 }
 /*
-6101. 判断矩阵是否是一个 X 矩阵
+2319. 判断矩阵是否是一个 X 矩阵
 https://leetcode.cn/problems/check-if-matrix-is-x-matrix/
 
 第 299 场周赛 T1。

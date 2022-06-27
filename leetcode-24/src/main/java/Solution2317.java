@@ -1,4 +1,4 @@
-public class Solution6105 {
+public class Solution2317 {
     public int maximumXOR(int[] nums) {
         // 统计每位 1 的数量
         int[] cnt = new int[31];
@@ -21,7 +21,7 @@ public class Solution6105 {
     }
 }
 /*
-6105. 操作后的最大异或和
+2317. 操作后的最大异或和
 https://leetcode.cn/problems/maximum-xor-after-operations/
 
 第 81 场双周赛 T3。

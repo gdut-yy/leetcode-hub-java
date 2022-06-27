@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6103 {
+public class Solution2322 {
     private int[] nums;
     private int[] in;
     private int[] out;
@@ -91,7 +91,7 @@ public class Solution6103 {
     }
 }
 /*
-6103. 从树中删除边的最小分数
+2322. 从树中删除边的最小分数
 https://leetcode.cn/problems/minimum-score-after-removals-on-a-tree/
 
 存在一棵无向连通树，树中有编号从 0 到 n - 1 的 n 个节点， 以及 n - 1 条边。

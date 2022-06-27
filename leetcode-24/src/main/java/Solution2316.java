@@ -1,4 +1,4 @@
-public class Solution6106 {
+public class Solution2316 {
     public long countPairs(int n, int[][] edges) {
         UnionFind unionFind = new UnionFind(n);
         for (int[] edge : edges) {
@@ -56,7 +56,7 @@ public class Solution6106 {
     }
 }
 /*
-6106. 统计无向图中无法互相到达点对数
+2316. 统计无向图中无法互相到达点对数
 https://leetcode.cn/problems/count-unreachable-pairs-of-nodes-in-an-undirected-graph/
 
 第 81 场双周赛 T2。

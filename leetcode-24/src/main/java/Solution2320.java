@@ -1,4 +1,4 @@
-public class Solution6100 {
+public class Solution2320 {
     public int countHousePlacements(int n) {
         if (n == 1) {
             return 4;
@@ -14,7 +14,7 @@ public class Solution6100 {
     }
 }
 /*
-6100. 统计放置房子的方式数
+2320. 统计放置房子的方式数
 https://leetcode.cn/problems/count-number-of-ways-to-place-houses/
 
 第 299 场周赛 T2。

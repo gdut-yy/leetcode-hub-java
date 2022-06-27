@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution5229 {
+public class Solution2321 {
     public int maximumsSplicedArray(int[] nums1, int[] nums2) {
         int n = nums1.length;
 
@@ -27,7 +27,7 @@ public class Solution5229 {
     }
 }
 /*
-5229. 拼接数组的最大分数
+2321. 拼接数组的最大分数
 https://leetcode.cn/problems/maximum-score-of-spliced-array/
 
 第 299 场周赛 T3。

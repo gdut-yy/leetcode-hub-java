@@ -1,4 +1,4 @@
-public class Solution6107 {
+public class Solution2318 {
     // 7*7 转移矩阵
     private static final int[][] TRANSFER = {
             {},
@@ -57,7 +57,7 @@ public class Solution6107 {
     }
 }
 /*
-6107. 不同骰子序列的数目
+2318. 不同骰子序列的数目
 https://leetcode.cn/problems/number-of-distinct-roll-sequences/
 
 第 81 场双周赛 T4。

@@ -1,4 +1,4 @@
-public class Solution6104 {
+public class Solution2315 {
     public int countAsterisks(String s) {
         int pair = 0;
         int cnt = 0;
@@ -14,7 +14,7 @@ public class Solution6104 {
     }
 }
 /*
-6104. 统计星号
+2315. 统计星号
 https://leetcode.cn/problems/count-asterisks/
 
 第 81 场双周赛 T1。
