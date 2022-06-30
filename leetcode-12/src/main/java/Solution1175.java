@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Solution1175 {
     public int numPrimeArrangements(int n) {
         int[] primes = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97};
@@ -36,6 +40,45 @@ public class Solution1175 {
         }
         return left - 1;
     }
+
+    private static final long MOD = 1000000007;
+
+    public int numPrimeArrangements2(int n) {
+        // 质数个数
+        int cntPrime = countPrimes(n + 1);
+        // 非质数个数
+        int noPrime = n - cntPrime;
+
+        return (int) (factorial(cntPrime) * factorial(noPrime) % MOD);
+    }
+
+    private long factorial(int n) {
+        long res = 1;
+        for (int i = n; i >= 1; i--) {
+            res *= i;
+            res %= MOD;
+        }
+        return res;
+    }
+
+    // solution 204 线性筛
+    private int countPrimes(int n) {
+        List<Integer> primes = new ArrayList<>();
+        boolean[] isPrime = new boolean[n];
+        Arrays.fill(isPrime, true);
+        for (int i = 2; i < n; i++) {
+            if (isPrime[i]) {
+                primes.add(i);
+            }
+            for (int j = 0; j < primes.size() && i * primes.get(j) < n; j++) {
+                isPrime[i * primes.get(j)] = false;
+                if (i % primes.get(j) == 0) {
+                    break;
+                }
+            }
+        }
+        return primes.size();
+    }
 }
 /*
 1175. 质数排列
@@ -48,4 +91,8 @@ https://leetcode.cn/problems/prime-arrangements/
 由于答案可能会很大，所以请你返回答案 模 mod 10^9 + 7 之后的结果即可。
 提示：
 1 <= n <= 100
+
+组合数学，设有 a 个质数，b 个合数，则结果为 a! * b!
+相似题目: 204. 计数质数
+https://leetcode.cn/problems/count-primes/
  */
