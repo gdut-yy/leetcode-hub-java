@@ -1,29 +1,19 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution337 {
-    // root 为 key 被选取时的最大值
-    Map<TreeNode, Integer> dp0 = new HashMap<>();
-    // root 为 key 不被选取时的最大值
-    Map<TreeNode, Integer> dp1 = new HashMap<>();
-
     public int rob(TreeNode root) {
-        dfs(root);
-        return Math.max(dp0.getOrDefault(root, 0), dp1.getOrDefault(root, 0));
+        // dp[0] 表示 root 被选取时的最大值；dp[1] 表示 root 不被选取时的最大值
+        int[] dp = dfs(root);
+        return Math.max(dp[0], dp[1]);
     }
 
-    private void dfs(TreeNode root) {
+    private int[] dfs(TreeNode root) {
         if (root == null) {
-            return;
+            return new int[]{0, 0};
         }
-        dfs(root.left);
-        dfs(root.right);
-        // 动态规划
-        // dp0(root) = root.val + dp1(root.left) + dp1(root.right)
-        // dp1(root) = max(dp0(root.left), dp1(root.left)) + max(dp0(root.right), dp1(root.right))
-        dp0.put(root, root.val + dp1.getOrDefault(root.left, 0) + dp1.getOrDefault(root.right, 0));
-        dp1.put(root, Math.max(dp0.getOrDefault(root.left, 0), dp1.getOrDefault(root.left, 0))
-                + Math.max(dp0.getOrDefault(root.right, 0), dp1.getOrDefault(root.right, 0)));
+        int[] left = dfs(root.left);
+        int[] right = dfs(root.right);
+        int select = root.val + left[1] + right[1];
+        int notSelect = Math.max(left[0], left[1]) + Math.max(right[0], right[1]);
+        return new int[]{select, notSelect};
     }
 }
 /*

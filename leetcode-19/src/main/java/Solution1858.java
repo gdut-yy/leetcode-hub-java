@@ -11,48 +11,35 @@ public class Solution1858 {
         return trie.longestWord();
     }
 
-    /**
-     * 字典树
-     */
     private static class Trie {
-        /**
-         * 字典树节点
-         */
-        private static class TrieNode {
-            TrieNode[] children;
-            String word;
-
-            public TrieNode() {
-                children = new TrieNode[26];
-            }
-        }
-
-        private final TrieNode root;
+        private final Trie[] children;
+        private String word;
 
         public Trie() {
-            root = new TrieNode();
-            root.word = "";
+            children = new Trie[26];
         }
 
         public void insert(String word) {
-            TrieNode node = root;
+            Trie node = this;
             for (char ch : word.toCharArray()) {
-                if (node.children[ch - 'a'] == null) {
-                    node.children[ch - 'a'] = new TrieNode();
+                int idx = ch - 'a';
+                if (node.children[idx] == null) {
+                    node.children[idx] = new Trie();
                 }
-                node = node.children[ch - 'a'];
+                node = node.children[idx];
             }
             node.word = word;
         }
 
         public String longestWord() {
-            Queue<TrieNode> queue = new LinkedList<>();
-            queue.add(root);
+            Queue<Trie> queue = new LinkedList<>();
+            this.word = "";
+            queue.add(this);
             String res = "";
             while (!queue.isEmpty()) {
                 int size = queue.size();
                 for (int i = 0; i < size; i++) {
-                    TrieNode cur = queue.remove();
+                    Trie cur = queue.remove();
                     if (cur == null || cur.word == null) {
                         continue;
                     }
@@ -60,9 +47,7 @@ public class Solution1858 {
                     if (cur.word.length() > res.length()) {
                         res = cur.word;
                     }
-                    if (cur.children != null) {
-                        queue.addAll(Arrays.asList(cur.children));
-                    }
+                    queue.addAll(Arrays.asList(cur.children));
                 }
             }
             return res;
@@ -81,6 +66,7 @@ https://leetcode.cn/problems/longest-word-with-all-prefixes/
 1 <= words[i].length <= 10^5
 1 <= sum(words[i].length) <= 10^5
 
+前缀树
 同: 720. 词典中最长的单词
 https://leetcode.cn/problems/longest-word-in-dictionary/
  */

@@ -1,20 +1,19 @@
 public class Solution124 {
+    private int max = Integer.MIN_VALUE;
+
     public int maxPathSum(TreeNode root) {
-        int[] maxSum = {Integer.MIN_VALUE};
-        postorder(root, maxSum);
-        return maxSum[0];
+        dfs(root);
+        return max;
     }
 
-    private int postorder(TreeNode root, int[] maxSum) {
+    private int dfs(TreeNode root) {
         if (root == null) {
             return 0;
         }
-        int[] maxSumLeft = {Integer.MIN_VALUE};
-        int left = Math.max(0, postorder(root.left, maxSumLeft));
-        int[] maxSumRight = {Integer.MIN_VALUE};
-        int right = Math.max(0, postorder(root.right, maxSumRight));
-
-        maxSum[0] = Math.max(Math.max(maxSumLeft[0], maxSumRight[0]), root.val + left + right);
+        int left = Math.max(dfs(root.left), 0);
+        int right = Math.max(dfs(root.right), 0);
+        int pathSum = root.val + left + right;
+        max = Math.max(max, pathSum);
         return root.val + Math.max(left, right);
     }
 }

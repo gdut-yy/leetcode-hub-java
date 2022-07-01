@@ -18,7 +18,7 @@ public class Solution1427 {
     }
 }
 /*
-1427. 字符串的左右移
+$1427. 字符串的左右移
 https://leetcode.cn/problems/perform-string-shifts/
 
 给定一个包含小写英文字母的字符串 s 以及一个矩阵 shift，其中 shift[i] = [direction, amount]：
