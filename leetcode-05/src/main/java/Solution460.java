@@ -17,6 +17,9 @@ public class Solution460 {
         }
 
         public int get(int key) {
+            if (capacity == 0) {
+                return -1;
+            }
             if (!keyMap.containsKey(key)) {
                 return -1;
             }
@@ -41,6 +44,9 @@ public class Solution460 {
         }
 
         public void put(int key, int value) {
+            if (capacity == 0) {
+                return;
+            }
             if (!keyMap.containsKey(key)) {
                 // 缓存已满，需要进行删除操作
                 if (keyMap.size() == capacity) {
@@ -74,17 +80,17 @@ public class Solution460 {
                 keyMap.put(key, frequencyMap.get(freq + 1).peekFirst());
             }
         }
-    }
 
-    private static class Node {
-        int key;
-        int value;
-        int frequency;
+        private static class Node {
+            int key;
+            int value;
+            int frequency;
 
-        public Node(int key, int value, int frequency) {
-            this.key = key;
-            this.value = value;
-            this.frequency = frequency;
+            public Node(int key, int value, int frequency) {
+                this.key = key;
+                this.value = value;
+                this.frequency = frequency;
+            }
         }
     }
 }

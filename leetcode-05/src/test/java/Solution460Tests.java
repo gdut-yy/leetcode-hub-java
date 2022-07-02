@@ -44,4 +44,11 @@ public class Solution460Tests {
         // cache=[3,4], cnt(4)=2, cnt(3)=3
         Assertions.assertEquals(4, lfu.get(4));
     }
+
+    @Test
+    public void example2() {
+        Solution460.LFUCache lfu = new Solution460.LFUCache(0);
+        lfu.put(0, 0);
+        Assertions.assertEquals(-1, lfu.get(0));
+    }
 }
