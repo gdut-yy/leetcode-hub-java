@@ -44,8 +44,9 @@ https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii/
 1 <= startDayi <= endDayi <= 10^9
 1 <= valuei <= 10^6
 
-动态规划。
-线性DP/二分DP
-时间复杂度 O(n*(n+k+logn))
+动态规划
+时间复杂度 O(n*(n+k+logn)) 其中找 last 的部分可用二分优化至 O(n*(k+logn))
 空间复杂度 O(nk)
+相似题目: 1235. 规划兼职工作
+https://leetcode.cn/problems/maximum-profit-in-job-scheduling/
  */

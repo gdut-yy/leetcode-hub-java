@@ -1,38 +1,26 @@
 public class Solution852 {
-    /**
-     * 差分 + 遍历
-     * 时间复杂度 O(n)
-     */
+    // 遍历 时间复杂度 O(n)
     public int peakIndexInMountainArray(int[] arr) {
         int len = arr.length;
-        // 差分数组
-        int[] diff = new int[len];
-        diff[0] = arr[0];
-        for (int i = 1; i < len; i++) {
-            diff[i] = arr[i] - arr[i - 1];
-        }
 
         // 枚举 "峰顶"
-        for (int top = 1; top <= len - 1; top++) {
-            boolean isTop = diff[top] > 0 && diff[top + 1] < 0;
-            if (isTop) {
+        for (int top = 1; top <= len - 2; top++) {
+            if (arr[top] > arr[top - 1] && arr[top] > arr[top + 1]) {
                 return top;
             }
         }
         return -1;
     }
 
-    /**
-     * 二分查找
-     * 时间复杂度 O(logn)
-     */
+    // 二分查找 时间复杂度 O(logn)
     public int peakIndexInMountainArray2(int[] arr) {
         int len = arr.length;
+
         int left = 1;
         int right = len - 2;
         while (left <= right) {
             int mid = left + (right - left) / 2;
-            if (arr[mid] > arr[mid + 1] && arr[mid] > arr[mid - 1]) {
+            if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
                 return mid;
             } else if (arr[mid] > arr[mid - 1]) {
                 left = mid + 1;
@@ -64,4 +52,6 @@ https://leetcode.cn/problems/peak-index-in-a-mountain-array/
 二分查找。
 相似题目: 845. 数组中的最长山脉
 https://leetcode.cn/problems/longest-mountain-in-array/
+1095. 山脉数组中查找目标值
+https://leetcode.cn/problems/find-in-mountain-array/
  */
