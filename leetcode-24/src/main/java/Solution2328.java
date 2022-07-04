@@ -1,4 +1,4 @@
-public class Solution6110 {
+public class Solution2328 {
     private static final long MOD = 1000000007;
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     private int M;
@@ -38,7 +38,7 @@ public class Solution6110 {
     }
 }
 /*
-6110. 网格图中递增路径的数目
+2328. 网格图中递增路径的数目
 https://leetcode.cn/problems/number-of-increasing-paths-in-a-grid/
 
 第 300 场周赛 T4。

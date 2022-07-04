@@ -1,4 +1,4 @@
-public class Solution6109 {
+public class Solution2327 {
     private static final int MOD = 1000000007;
 
     // 时间复杂度 O(n^2)
@@ -41,7 +41,7 @@ public class Solution6109 {
     }
 }
 /*
-6109. 知道秘密的人数
+2327. 知道秘密的人数
 https://leetcode.cn/problems/number-of-people-aware-of-a-secret/
 
 第 300 场周赛 T3。

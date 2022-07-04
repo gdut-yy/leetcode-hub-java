@@ -1,4 +1,4 @@
-public class Solution6108 {
+public class Solution2325 {
     public String decodeMessage(String key, String message) {
         boolean[] visited = new boolean[26];
         char[] mapping = new char[26];
@@ -27,7 +27,7 @@ public class Solution6108 {
     }
 }
 /*
-6108. 解密消息
+2325. 解密消息
 https://leetcode.cn/problems/decode-the-message/
 
 第 300 场周赛 T1。

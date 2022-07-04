@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6111 {
+public class Solution2326 {
     public int[][] spiralMatrix(int m, int n, ListNode head) {
         int[][] matrix = new int[m][n];
         for (int i = 0; i < m; i++) {
@@ -55,7 +55,7 @@ public class Solution6111 {
     }
 }
 /*
-6111. 螺旋矩阵 IV
+2326. 螺旋矩阵 IV
 https://leetcode.cn/problems/spiral-matrix-iv/
 
 第 300 场周赛 T2。
