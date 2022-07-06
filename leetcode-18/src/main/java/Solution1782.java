@@ -9,6 +9,61 @@ import java.util.Set;
 
 public class Solution1782 {
     public int[] countPairs(int n, int[][] edges, int[] queries) {
+        // deg[a] + deg[b] - overlap[a][b] > query
+        int[] degrees = new int[n + 1];
+        Map<Integer, Integer> overLapMap = new HashMap<>();
+
+        for (int[] edge : edges) {
+            int from = edge[0];
+            int to = edge[1];
+            int encode = encode(n, from, to);
+
+            degrees[from]++;
+            degrees[to]++;
+            overLapMap.put(encode, overLapMap.getOrDefault(encode, 0) + 1);
+        }
+
+        int[] sortedDegrees = new int[n + 1];
+        System.arraycopy(degrees, 0, sortedDegrees, 0, n + 1);
+        Arrays.sort(sortedDegrees);
+
+        int[] res = new int[queries.length];
+        for (int i = 0; i < queries.length; i++) {
+            // 先求 deg[a] + deg[b] > query 的数量
+            int left = 1;
+            int right = n;
+            while (left < right) {
+                if (sortedDegrees[left] + sortedDegrees[right] > queries[i]) {
+                    res[i] += right - left;
+                    right--;
+                } else {
+                    left++;
+                }
+            }
+
+            // 再减去 deg[a] + deg[b] - overlap[a][b] <= query 的数量
+            Set<Integer> visited = new HashSet<>();
+            for (int[] edge : edges) {
+                int from = edge[0];
+                int to = edge[1];
+                int encode = encode(n, from, to);
+
+                if (degrees[from] + degrees[to] > queries[i]
+                        && degrees[from] + degrees[to] - overLapMap.get(encode) <= queries[i]
+                        && !visited.contains(encode)) {
+                    visited.add(encode);
+                    res[i]--;
+                }
+            }
+        }
+        return res;
+    }
+
+    private int encode(int n, int a, int b) {
+        return Math.max(a, b) * (n + 1) + Math.min(a, b);
+    }
+
+    public int[] countPairs2(int n, int[][] edges, int[] queries) {
         // 枚举边
         Map<Integer, Set<Integer>> idxMap = new HashMap<>();
         for (int i = 0; i < edges.length; i++) {
@@ -54,58 +109,6 @@ public class Solution1782 {
         }
         return res;
     }
-
-    public int[] countPairs2(int n, int[][] edges, int[] queries) {
-        // deg[a] + deg[b] - overlap[a][b] > query
-        int[] degrees = new int[n + 1];
-        Map<Integer, Integer> overLapMap = new HashMap<>();
-
-        for (int[] edge : edges) {
-            int from = edge[0];
-            int to = edge[1];
-            int encode = encode(n, from, to);
-
-            degrees[from]++;
-            degrees[to]++;
-            overLapMap.put(encode, overLapMap.getOrDefault(encode, 0) + 1);
-        }
-
-        int[] sortedDegrees = new int[n + 1];
-        System.arraycopy(degrees, 0, sortedDegrees, 0, n + 1);
-        Arrays.sort(sortedDegrees);
-
-        int[] res = new int[queries.length];
-        for (int i = 0; i < queries.length; i++) {
-            // 先求 deg[a] + deg[b] > query 的数量
-            int left = 1;
-            int right = n;
-            while (left < right) {
-                if (sortedDegrees[left] + sortedDegrees[right] > queries[i]) {
-                    res[i] += right - left;
-                    right--;
-                } else {
-                    left++;
-                }
-            }
-
-            // 再减去 deg[a] + deg[b] - overlap[a][b] <= query 的数量
-            for (int[] edge : edges) {
-                int from = edge[0];
-                int to = edge[1];
-                int encode = encode(n, from, to);
-
-                if (degrees[from] + degrees[to] > queries[i]
-                        && degrees[from] + degrees[to] - overLapMap.get(encode) <= queries[i]) {
-                    res[i]--;
-                }
-            }
-        }
-        return res;
-    }
-
-    private int encode(int n, int a, int b) {
-        return Math.max(a, b) * (n + 1) + Math.min(a, b);
-    }
 }
 /*
 1782. 统计点对的数目
@@ -124,4 +127,8 @@ https://leetcode.cn/problems/count-pairs-of-nodes/
 ui != vi
 1 <= queries.length <= 20
 0 <= queries[j] < edges.length
+
+直接求 deg[a] + deg[b] - overlap[a][b] > query 时间复杂度为 O(n^2) TLE
+巧妙转化为 先求 deg[a] + deg[b] > query 的数量，再减去 deg[a] + deg[b] - overlap[a][b] <= query 的数量
+时间复杂度 O(nlogn) 为排序时间复杂度
  */

@@ -51,7 +51,8 @@ public class Solution300 {
                     int mid = left + (right - left) / 2;
                     // 边界二分 F, F,..., F, [T, T,..., T]
                     // ----------------------^
-                    if (checkMid(nums[i], ascend, mid)) {
+                    // 严格递增
+                    if (ascend[mid] >= nums[i]) {
                         right = mid;
                     } else {
                         left = mid + 1;
@@ -61,11 +62,6 @@ public class Solution300 {
             }
         }
         return idx;
-    }
-
-    private boolean checkMid(int nums, int[] ascend, int mid) {
-        // 严格递增
-        return ascend[mid] >= nums;
     }
 }
 /*
@@ -83,6 +79,12 @@ https://leetcode.cn/problems/longest-increasing-subsequence/
 LIS 模板题。二分优化后：
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
-相似题目: 1964. 找出到每个位置为止最长的有效障碍赛跑路线
+相似题目: 673. 最长递增子序列的个数
+https://leetcode.cn/problems/number-of-longest-increasing-subsequence/
+1671. 得到山形数组的最少删除次数
+https://leetcode.cn/problems/minimum-number-of-removals-to-make-mountain-array/
+1713. 得到子序列的最少操作次数
+https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/
+1964. 找出到每个位置为止最长的有效障碍赛跑路线
 https://leetcode.cn/problems/find-the-longest-valid-obstacle-course-at-each-position/
  */

@@ -2,8 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 @Disabled
 public class Solution1782Tests {
     private final Solution1782 solution1782 = new Solution1782();
@@ -15,6 +13,7 @@ public class Solution1782Tests {
         int[] queries = {2, 3};
         int[] expected = {6, 5};
         Assertions.assertArrayEquals(expected, solution1782.countPairs(n, edges, queries));
+        Assertions.assertArrayEquals(expected, solution1782.countPairs2(n, edges, queries));
     }
 
     @Test
@@ -24,6 +23,7 @@ public class Solution1782Tests {
         int[] queries = {1, 2, 3, 4, 5};
         int[] expected = {10, 10, 9, 8, 6};
         Assertions.assertArrayEquals(expected, solution1782.countPairs(n, edges, queries));
+        Assertions.assertArrayEquals(expected, solution1782.countPairs2(n, edges, queries));
     }
 
     // 补充用例
@@ -33,7 +33,7 @@ public class Solution1782Tests {
         int[][] edges = UtUtils.stringToInts2("[[4,5],[1,3],[1,4]]");
         int[] queries = {0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 2};
         int[] expected = {10, 8, 10, 10, 8, 8, 10, 10, 10, 10, 8, 10, 10, 8, 10, 8, 8, 3};
-        Assertions.assertArrayEquals(expected, solution1782.countPairs2(n, edges, queries));
+        Assertions.assertArrayEquals(expected, solution1782.countPairs(n, edges, queries));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class Solution1782Tests {
         int[][] edges = UtUtils.loadingInts2(fileName, 1);
         int[] queries = UtUtils.loadingInts(fileName, 2);
         int[] expected = {42, 11503, 4366268, 1713097, 246, 2460297, 8642312, 1371, 252911, 142392, 434462, 3362352, 5747, 5747, 8642312, 0, 0, 0, 0};
-        Assertions.assertArrayEquals(expected, solution1782.countPairs2(n, edges, queries));
+        Assertions.assertArrayEquals(expected, solution1782.countPairs(n, edges, queries));
     }
 
     @Test
@@ -54,8 +54,7 @@ public class Solution1782Tests {
         int n = UtUtils.loadingInt(fileName, 0);
         int[][] edges = UtUtils.loadingInts2(fileName, 1);
         int[] queries = UtUtils.loadingInts(fileName, 2);
-//        System.out.println(Arrays.toString(solution1782.countPairs(n, edges, queries)));
         int[] expected = {3153795, 2560508, 2008211, 3273785, 3479333, 362, 3273785, 147, 3486120, 2560508, 362, 3415093, 3479333, 42958, 112246, 0, 0, 0};
-        Assertions.assertArrayEquals(expected, solution1782.countPairs2(n, edges, queries));
+        Assertions.assertArrayEquals(expected, solution1782.countPairs(n, edges, queries));
     }
 }
