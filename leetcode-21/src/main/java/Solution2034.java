@@ -68,4 +68,6 @@ https://leetcode.cn/problems/stock-price-fluctuation/
 设 key-value 为 时间戳-股票价格。
 我们知道 java.util.TreeMap 默认是根据 key 升序排序的，本题题意需要根据 value 进行排序，但 java 类库中没有现成的数据结构。
 可以结合 HashMap 和 TreeMap 二者的特性，将 value 放到 TreeMap 的 key 上，再用 HashMap 维护 key-value 的关系
+相似题目: $1244. 力扣排行榜
+https://leetcode.cn/problems/design-a-leaderboard/
  */
