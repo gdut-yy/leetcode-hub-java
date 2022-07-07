@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.IOException;
-
 public class Solution2063Tests {
     private final Solution2063 solution2063 = new Solution2063();
 

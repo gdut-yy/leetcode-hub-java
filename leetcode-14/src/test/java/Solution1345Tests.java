@@ -1,8 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.Utilities;
-
 public class Solution1345Tests {
     private final Solution1345 solution1345 = new Solution1345();
 

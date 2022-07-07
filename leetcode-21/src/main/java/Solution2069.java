@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Solution2069 {
     static class Robot {
         private final int width;

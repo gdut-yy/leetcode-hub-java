@@ -1,6 +1,5 @@
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class Solution658 {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {

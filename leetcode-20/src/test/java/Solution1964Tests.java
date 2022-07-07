@@ -1,8 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import java.io.IOException;
 
 public class Solution1964Tests {
     private final Solution1964 solution1964 = new Solution1964();
