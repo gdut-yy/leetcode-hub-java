@@ -18,8 +18,8 @@ public class Solution296 {
         }
         List<Integer> colsList = new ArrayList<>();
         for (int j = 0; j < N; j++) {
-            for (int[] ints : grid) {
-                if (ints[j] == 1) {
+            for (int i = 0; i < M; i++) {
+                if (grid[i][j] == 1) {
                     colsList.add(j);
                 }
             }
