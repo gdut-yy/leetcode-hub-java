@@ -49,7 +49,7 @@ public class Solution1136 {
     }
 }
 /*
-$1136. 平行课程
+$1136. 并行课程
 https://leetcode.cn/problems/parallel-courses/
 
 第 5 场双周赛 T4。

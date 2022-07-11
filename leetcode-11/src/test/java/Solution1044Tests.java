@@ -44,14 +44,18 @@ public class Solution1044Tests {
     }
 
     public static void main(String[] args) {
-        String s = "nqevzlndnwncofmtjkgxshqqntjcfhpbzxmhiebkreawllddumhjebpworxtvnwvkfvtvbvkilddvdaqvoesdfwuxqbdgttylkvjacjbufrcxexaopyddybfziickkfcfkuditudmaskgpwfbmaxevglqlpsznojbthnppikdexcfphfmhrzfemehvqtckmuqhuewljelhtqzptvquxfgsykdksuydqaoxhzgjxixobhfsehcbnrjzvgdwlryivwdstbiaajggszntwdoymwkiyemfjfdwaqgnqwwyllxubbhglwsstfeftngzqlnlqhxewxoireeqyllvbhgykqwpmfghjijwrtchabrsztgjzbpqwqobvssduzgfjrjdlshimopirlgarmmatznwawjynxujdryjmtlppftvnwxgajpovveeqxzlalaaxcgqoytcmplrgtbljuysybcjgiugmkszqgcrywpunzjcqxhbusuajowpxoeyincuwlsahvbzfcaxjiuxsgcpiolaanbewniihbigxruobajdhaqoqmzdsacyzjheyaagkabbawlffsmsnauyjzmmolsxqzacbatdirofgwlqhgwxnlrxmyzywwthextmfdkdfxiqcunamcnpfftsicxcsmhxphtustiewomntzzulkpjectzkgidvhiubqsgyereshkxbwfedmpwejixujbasmepnsjcrzmqztczpxpbtmwigdbsvfswxazxvxsrgicosfwtlbbuyxshymodhpdejdyojbldupcxtahuyabkpzpmyumooxtggazdkhjoyskzikrrxefoueqturcafszcsttemnkscafbalkoivwjowjrbkddvpdruhskghefrghnrcqutciajfplkvecppwpacobsfrluevebccyivelnruenavisglsiticlpzavruhnzlritvrktevphifrqqqdvkzynkzscxrjqjplptrjatzheypewhjhxqxvhszlvwxxsobbyypozcpqmlgqzhavmpcmxodbdxgytbybjvkblfyspvhxmejowdjrwzfviqsvvudsdwtqvtdxajlhfasbghfnfzkhfhkffpsctzwpiyrhhpvxnuyyllkzxytfbtehdycdigfbwpdmucjucabowgwehkrlbtknrorcnfkgsfzvgqtytcrsepykuowthayulbcikkuclovnhhlqxdzbaktsziaixgfxhqgpycmlekhbkofntjhxylqdtykmfmhikfwogyiwmjdejitzvxhdhzfpwpuozwtbezygdxsqeappvwaougxogcvstkynjah";
-        final int BASE = 26;
-        final long MOD = 1000000009;
+        System.out.println(getHash("dacbececeeaebaecbdeecdbaeeeeeadececcdcabbddadecdddabdeeedccabbaebddedecccacdbdcbbcddc"));
+        System.out.println(getHash("dcedaddeaeddecdecbeebeedaadbcbbebcbeecedaabcacaabdbaecaeebeaedadbabecbaabbebadaccadee"));
+    }
+
+    private static long getHash(String s) {
+        int BASE = 26;
+        long MOD = 1000000007;
 
         long hash = 0;
         for (int i = 0; i < s.length(); i++) {
             hash = (hash * BASE + (s.charAt(i) - 'a')) % MOD;
         }
-        System.out.println(hash);
+        return hash;
     }
 }

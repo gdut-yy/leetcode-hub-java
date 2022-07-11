@@ -67,7 +67,6 @@ public class Solution1044 {
 
     // res = a^b % mod
     private long quickPow(long a, long b, long mod) {
-        a %= mod;
         long res = 1;
         while (b > 0) {
             if (b % 2 == 1) {

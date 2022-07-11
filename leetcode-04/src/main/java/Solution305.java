@@ -3,90 +3,68 @@ import java.util.List;
 
 public class Solution305 {
     public List<Integer> numIslands2(int m, int n, int[][] positions) {
-        UnionFind unionFind = new UnionFind(m * n);
-        boolean[][] visited = new boolean[m][n];
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int[][] grid = new int[m][n];
 
         List<Integer> resList = new ArrayList<>();
+        DSU dsu = new DSU(m * n);
         for (int[] position : positions) {
-            int curM = position[0];
-            int curN = position[1];
+            int i = position[0];
+            int j = position[1];
 
-            if (!visited[curM][curN]) {
-                unionFind.count += 1;
-                visited[curM][curN] = true;
-                int curIdx = curM * n + curN;
+            if (grid[i][j] == 0) {
+                grid[i][j] = 1;
+                // 增加一个岛屿
+                dsu.sz++;
+                int p = position[0] * n + position[1];
 
-                for (int[] dir : directions) {
-                    int nextM = curM + dir[0];
-                    int nextN = curN + dir[1];
-                    int nextIdx = nextM * n + nextN;
-                    if (nextM >= 0 && nextM < m && nextN >= 0 && nextN < n
-                            && visited[nextM][nextN]
-                            && !unionFind.connected(curIdx, nextIdx)) {
-                        unionFind.union(curIdx, nextIdx);
-                    }
+                // up
+                if (i - 1 >= 0 && grid[i - 1][j] == 1) {
+                    dsu.union(p, p - n);
+                }
+                // down
+                if (i + 1 < m && grid[i + 1][j] == 1) {
+                    dsu.union(p, p + n);
+                }
+                // left
+                if (j - 1 >= 0 && grid[i][j - 1] == 1) {
+                    dsu.union(p, p - 1);
+                }
+                // right
+                if (j + 1 < n && grid[i][j + 1] == 1) {
+                    dsu.union(p, p + 1);
                 }
             }
-            resList.add(unionFind.count);
+            resList.add(dsu.sz);
         }
         return resList;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        int[] fa;
+        int sz;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-//            count = n;
-            count = 0;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        int find(int x) {
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+            fa[rootQ] = rootP;
+            sz--;
         }
     }
 }

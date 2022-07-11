@@ -1,64 +1,44 @@
 public class Solution547 {
     public int findCircleNum(int[][] isConnected) {
-        int M = isConnected.length;
-        int N = isConnected[0].length;
-
-        UnionFind unionFind = new UnionFind(M);
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                if(isConnected[i][j] == 1){
-                    unionFind.union(i,j);
+        int n = isConnected.length;
+        DSU dsu = new DSU(n);
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (isConnected[i][j] == 1) {
+                    dsu.union(i, j);
                 }
             }
         }
-        return unionFind.count;
+        return dsu.sz;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        int[] fa;
+        int sz;
 
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
+            sz = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        int find(int x) {
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
+            fa[rootQ] = rootP;
+            sz--;
         }
     }
 }

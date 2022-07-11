@@ -5,7 +5,6 @@ public class Solution208 {
 
         public Trie() {
             children = new Trie[26];
-            isWord = false;
         }
 
         public void insert(String word) {

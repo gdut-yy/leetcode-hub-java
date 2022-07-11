@@ -23,4 +23,16 @@ public class Solution305Tests {
         List<Integer> expected = List.of(1);
         Assertions.assertEquals(expected, solution305.numIslands2(m, n, positions));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/submissions/detail/335531123/
+        // positions[i] 可能重复
+        int m = 3;
+        int n = 3;
+        int[][] positions = UtUtils.stringToInts2("[[0,0],[0,1],[1,2],[1,2]]");
+        List<Integer> expected = List.of(1, 1, 2, 2);
+        Assertions.assertEquals(expected, solution305.numIslands2(m, n, positions));
+    }
 }

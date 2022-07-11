@@ -1,5 +1,4 @@
 public class Solution307 {
-    // 树状数组
     static class NumArray {
         private final BIT bit;
 
@@ -65,29 +64,28 @@ public class Solution307 {
 
     // 线段树
     static class NumArray2 {
-        private final int N;
         private final SegmentTree segmentTree;
 
         public NumArray2(int[] nums) {
-            N = nums.length;
             segmentTree = new SegmentTree(nums);
         }
 
         public void update(int index, int val) {
-            segmentTree.update(index + 1, index + 1, val, 1, N, 1);
+            segmentTree.update(index + 1, index + 1, val);
         }
 
         public int sumRange(int left, int right) {
-            return segmentTree.getsum(left + 1, right + 1, 1, N, 1);
+            return segmentTree.getsum(left + 1, right + 1);
         }
 
         private static class SegmentTree {
+            private final int N;
             private final int[] nums;
             private final int[] tree;
             private final int[] lazy;
 
             public SegmentTree(int[] nums) {
-                int N = nums.length;
+                this.N = nums.length;
                 this.nums = nums;
                 tree = new int[N * 4];
                 lazy = new int[N * 4];
@@ -101,34 +99,33 @@ public class Solution307 {
                     tree[p] = nums[s - 1];
                     return;
                 }
-                int m = s + ((t - s) >> 1);
-                // 移位运算符的优先级小于加减法，所以加上括号
-                // 如果写成 (s + t) >> 1 可能会超出 int 范围
-                build(s, m, p * 2);
-                build(m + 1, t, p * 2 + 1);
+                int mid = s + (t - s) / 2;
+                build(s, mid, p * 2);
+                build(mid + 1, t, p * 2 + 1);
                 // 递归对左右区间建树
                 tree[p] = tree[p * 2] + tree[(p * 2) + 1];
             }
 
             // [l,r] 范围置为 c
-            private void update(int l, int r, int c, int s, int t, int p) {
+            private void update(int l, int r, int val, int s, int t, int p) {
                 if (l <= s && t <= r) {
-                    tree[p] = (t - s + 1) * c;
-                    lazy[p] = c;
+                    tree[p] = (t - s + 1) * val;
+                    lazy[p] = val;
                     return;
                 }
-                int m = s + ((t - s) >> 1);
+                int mid = s + (t - s) / 2;
                 if (lazy[p] > 0) {
-                    tree[p * 2] = lazy[p] * (m - s + 1);
-                    tree[p * 2 + 1] = lazy[p] * (t - m);
-                    lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                    tree[p * 2] = lazy[p] * (mid - s + 1);
+                    tree[p * 2 + 1] = lazy[p] * (t - mid);
+                    lazy[p * 2] = lazy[p];
+                    lazy[p * 2 + 1] = lazy[p];
                     lazy[p] = 0;
                 }
-                if (l <= m) {
-                    update(l, r, c, s, m, p * 2);
+                if (l <= mid) {
+                    update(l, r, val, s, mid, p * 2);
                 }
-                if (r > m) {
-                    update(l, r, c, m + 1, t, p * 2 + 1);
+                if (r > mid) {
+                    update(l, r, val, mid + 1, t, p * 2 + 1);
                 }
                 tree[p] = tree[p * 2] + tree[p * 2 + 1];
             }
@@ -138,21 +135,30 @@ public class Solution307 {
                 if (l <= s && t <= r) {
                     return tree[p];
                 }
-                int m = s + ((t - s) >> 1);
+                int mid = s + (t - s) / 2;
                 if (lazy[p] > 0) {
-                    tree[p * 2] = lazy[p] * (m - s + 1);
-                    tree[p * 2 + 1] = lazy[p] * (t - m);
-                    lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                    tree[p * 2] = lazy[p] * (mid - s + 1);
+                    tree[p * 2 + 1] = lazy[p] * (t - mid);
+                    lazy[p * 2] = lazy[p];
+                    lazy[p * 2 + 1] = lazy[p];
                     lazy[p] = 0;
                 }
                 int sum = 0;
-                if (l <= m) {
-                    sum = getsum(l, r, s, m, p * 2);
+                if (l <= mid) {
+                    sum = getsum(l, r, s, mid, p * 2);
                 }
-                if (r > m) {
-                    sum += getsum(l, r, m + 1, t, p * 2 + 1);
+                if (r > mid) {
+                    sum += getsum(l, r, mid + 1, t, p * 2 + 1);
                 }
                 return sum;
+            }
+
+            void update(int l, int r, int val) {
+                update(l, r, val, 1, N, 1);
+            }
+
+            int getsum(int l, int r) {
+                return getsum(l, r, 1, N, 1);
             }
         }
     }

@@ -21,7 +21,7 @@ public class Solution465 {
                 } else {
                     dp[state] = Integer.bitCount(state) - 1;
                     for (int subState = state; subState > 0; subState = (subState - 1) & state) {
-                        dp[state] = Math.min(dp[state], dp[state - subState] + dp[subState]);
+                        dp[state] = Math.min(dp[state], dp[state ^ subState] + dp[subState]);
                     }
                 }
             }

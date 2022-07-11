@@ -20,7 +20,7 @@ public class Solution1723 {
             for (int state = 0; state < (1 << n); state++) {
                 int min = Integer.MAX_VALUE;
                 for (int subState = state; subState > 0; subState = (subState - 1) & state) {
-                    min = Math.min(min, Math.max(dp[i - 1][state - subState], sum[subState]));
+                    min = Math.min(min, Math.max(dp[i - 1][state ^ subState], sum[subState]));
                 }
                 dp[i][state] = min;
             }
@@ -44,6 +44,8 @@ https://leetcode.cn/problems/find-minimum-time-to-finish-all-jobs/
 有两种可行的解法：
 方法一：二分查找 + 回溯 + 剪枝
 方法二：状态压缩动态规划
+时间复杂度 O(n * 3^n)
+空间复杂度 O(n * 2^n)
 同: 2305. 公平分发饼干
 https://leetcode.cn/problems/fair-distribution-of-cookies/
  */

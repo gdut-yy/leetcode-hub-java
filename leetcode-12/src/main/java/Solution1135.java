@@ -5,73 +5,48 @@ public class Solution1135 {
     public int minimumCost(int n, int[][] connections) {
         // Kruskal 算法
         Arrays.sort(connections, Comparator.comparing(o -> o[2]));
-        UnionFind unionFind = new UnionFind(n + 1);
+        // 并查集
+        DSU dsu = new DSU(n + 1);
+        dsu.sz = n;
         int cost = 0;
         for (int[] connection : connections) {
-            if (!unionFind.connected(connection[0], connection[1])) {
-                unionFind.union(connection[0], connection[1]);
+            if (!dsu.union(connection[0], connection[1])) {
                 cost += connection[2];
             }
         }
-        if (unionFind.count != 2) {
+        if (dsu.sz != 1) {
             return -1;
         }
         return cost;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        int[] fa;
+        int sz;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        int find(int x) {
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        boolean union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return true;
             }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+            fa[rootQ] = rootP;
+            sz--;
+            return false;
         }
     }
 }
