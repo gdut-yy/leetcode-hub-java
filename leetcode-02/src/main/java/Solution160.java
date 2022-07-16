@@ -1,21 +1,13 @@
 public class Solution160 {
     public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
         // 双指针
-        ListNode pa = headA;
-        ListNode pb = headB;
-        while (pa != pb) {
-            if (pa == null) {
-                pa = headB;
-            } else {
-                pa = pa.next;
-            }
-            if (pb == null) {
-                pb = headA;
-            } else {
-                pb = pb.next;
-            }
+        ListNode p1 = headA;
+        ListNode p2 = headB;
+        while (p1 != p2) {
+            p1 = (p1 != null) ? p1.next : headB;
+            p2 = (p2 != null) ? p2.next : headA;
         }
-        return pa;
+        return p1;
     }
 }
 /*

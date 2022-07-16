@@ -2,21 +2,23 @@ public class Solution236 {
     private TreeNode ans;
 
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        rootContainsPQ(root, p, q);
+        dfs(root, p, q);
         return ans;
     }
 
-    // root 节点子树中是否包含 p 节点或 q 节点
-    private boolean rootContainsPQ(TreeNode root, TreeNode p, TreeNode q) {
+    // root 是否包含 p q
+    private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
         if (root == null) {
             return false;
         }
-        boolean leftSon = rootContainsPQ(root.left, p, q);
-        boolean rightSon = rootContainsPQ(root.right, p, q);
-        if ((leftSon && rightSon) || ((root.val == p.val || root.val == q.val) && (leftSon || rightSon))) {
+        boolean left = dfs(root.left, p, q);
+        boolean right = dfs(root.right, p, q);
+        boolean rootEqPq = root.val == p.val || root.val == q.val;
+
+        if ((left && right) || rootEqPq && (left || right)) {
             ans = root;
         }
-        return leftSon || rightSon || (root.val == p.val || root.val == q.val);
+        return left || right || rootEqPq;
     }
 }
 /*
@@ -32,7 +34,9 @@ https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree/
 p != q
 p 和 q 均存在于给定的二叉树中。
 
-不失一般性的 LCA 解法。
+递归
 时间复杂度 O(n)
 空间复杂度 O(n)
+相似题目: $1644. 二叉树的最近公共祖先 II
+https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-ii/
  */
