@@ -20,4 +20,6 @@ https://leetcode.cn/problems/same-tree/
 提示：
 两棵树上的节点数目都在范围 [0, 100] 内
 -10^4 <= Node.val <= 10^4
+
+递归
  */

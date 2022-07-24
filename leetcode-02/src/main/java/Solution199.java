@@ -34,7 +34,13 @@ public class Solution199 {
 https://leetcode.cn/problems/binary-tree-right-side-view/
 
 给定一个二叉树的 根节点 root，想象自己站在它的右侧，按照从顶部到底部的顺序，返回从右侧所能看到的节点值。
+提示:
+二叉树的节点个数的范围是 [0,100]
+-100 <= Node.val <= 100
 
 二叉树“按层”。两个队列实现二叉树广搜
-参考第 513、515 题
+相似题目: 513. 找树左下角的值
+https://leetcode.cn/problems/find-bottom-left-tree-value/
+515. 在每个树行中找最大值
+https://leetcode.cn/problems/find-largest-value-in-each-tree-row/
  */

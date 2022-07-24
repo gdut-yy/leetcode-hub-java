@@ -45,6 +45,12 @@ public class Solution234 {
 234. 回文链表
 https://leetcode.cn/problems/palindrome-linked-list/
 
+给你一个单链表的头节点 head ，请你判断该链表是否为回文链表。如果是，返回 true ；否则，返回 false 。
+提示：
+链表中节点数目在范围[1, 10^5] 内
+0 <= Node.val <= 9
+进阶：你能否用 O(n) 时间复杂度和 O(1) 空间复杂度解决此题？
+
 Step1: 找链表的中间结点。第 876 题 https://leetcode.cn/problems/middle-of-the-linked-list/
 Step2: 反转链表。第 206 题 https://leetcode.cn/problems/reverse-linked-list/
 Step3: 链表判等。

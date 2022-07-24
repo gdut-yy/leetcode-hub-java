@@ -5,24 +5,19 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Solution46 {
+    private int len;
+
     public List<List<Integer>> permute(int[] nums) {
+        len = nums.length;
+
         List<List<Integer>> res = new ArrayList<>();
         // nums 的一个快照
         List<Integer> snapshotNums = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        int len = nums.length;
-        dfs(res, snapshotNums, len, 0);
+        dfs(res, snapshotNums, 0);
         return res;
     }
 
-    /**
-     * 回溯算法
-     *
-     * @param res          结果集
-     * @param snapshotNums nums 的一种排列
-     * @param len          nums.length
-     * @param curI         当前发生交互位置下标
-     */
-    private void dfs(List<List<Integer>> res, List<Integer> snapshotNums, int len, int curI) {
+    private void dfs(List<List<Integer>> res, List<Integer> snapshotNums, int curI) {
         if (curI == len) {
             // 记录当前快照的副本
             res.add(new ArrayList<>(snapshotNums));
@@ -31,7 +26,7 @@ public class Solution46 {
             // 操作
             Collections.swap(snapshotNums, curI, i);
             // 下一迭代
-            dfs(res, snapshotNums, len, curI + 1);
+            dfs(res, snapshotNums, curI + 1);
             // 回退操作
             Collections.swap(snapshotNums, curI, i);
         }

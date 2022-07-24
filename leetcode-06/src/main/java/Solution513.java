@@ -30,6 +30,15 @@ public class Solution513 {
 513. 找树左下角的值
 https://leetcode.cn/problems/find-bottom-left-tree-value/
 
+给定一个二叉树的 根节点 root，请找出该二叉树的 最底层 最左边 节点的值。
+假设二叉树中至少有一个节点。
+提示:
+二叉树的节点个数的范围是 [1,10^4]
+-2^31 <= Node.val <= 2^31 - 1
+
 二叉树“按层”。两个队列实现二叉树广搜
-参考第 199、515 题
+相似题目: 199. 二叉树的右视图
+https://leetcode.cn/problems/binary-tree-right-side-view/
+515. 在每个树行中找最大值
+https://leetcode.cn/problems/find-largest-value-in-each-tree-row/
  */

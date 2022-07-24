@@ -35,6 +35,14 @@ public class Solution515 {
 515. 在每个树行中找最大值
 https://leetcode.cn/problems/find-largest-value-in-each-tree-row/
 
+给定一棵二叉树的根节点 root ，请找出该二叉树中每一层的最大值。
+提示：
+二叉树的节点个数的范围是 [0,10^4]
+-2^31 <= Node.val <= 2^31 - 1
+
 二叉树“按层”。两个队列实现二叉树广搜
-参考第 199、513 题
+相似题目: 199. 二叉树的右视图
+https://leetcode.cn/problems/binary-tree-right-side-view/
+513. 找树左下角的值
+https://leetcode.cn/problems/find-bottom-left-tree-value/
  */
