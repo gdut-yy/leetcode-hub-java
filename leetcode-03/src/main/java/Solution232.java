@@ -6,32 +6,20 @@ public class Solution232 {
         private final Deque<Integer> stack1;
         private final Deque<Integer> stack2;
 
-        /**
-         * Initialize your data structure here.
-         */
         public MyQueue() {
             stack1 = new ArrayDeque<>();
             stack2 = new ArrayDeque<>();
         }
 
-        /**
-         * Push element x to the back of queue.
-         */
         public void push(int x) {
             stack1.push(x);
         }
 
-        /**
-         * Removes the element from in front of queue and returns that element.
-         */
         public int pop() {
             peek();
             return stack2.pop();
         }
 
-        /**
-         * Get the front element.
-         */
         public int peek() {
             // 如果 stack2 空栈，将 stack1 的全部出栈并入栈到 stack2
             if (stack2.isEmpty()) {
@@ -39,12 +27,9 @@ public class Solution232 {
                     stack2.push(stack1.pop());
                 }
             }
-            return stack2.peek();
+            return stack2.element();
         }
 
-        /**
-         * Returns whether the queue is empty.
-         */
         public boolean empty() {
             return stack1.isEmpty() && stack2.isEmpty();
         }
@@ -63,6 +48,12 @@ https://leetcode.cn/problems/implement-queue-using-stacks/
 说明：
 - 你 只能 使用标准的栈操作 —— 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
 - 你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
+提示：
+1 <= x <= 9
+最多调用 100 次 push、pop、peek 和 empty
+假设所有操作都是有效的 （例如，一个空的队列不会调用 pop 或者 peek 操作）
+进阶：
+你能否实现每个操作均摊时间复杂度为 O(1) 的队列？换句话说，执行 n 个操作的总时间复杂度为 O(n) ，即使其中一个操作可能花费较长时间。
 
 （实际工程中意义不大）
 栈为先进后出，两个栈即可做到负负得正，先进先出

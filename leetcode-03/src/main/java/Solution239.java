@@ -1,33 +1,35 @@
+import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.LinkedList;
 
 public class Solution239 {
     public int[] maxSlidingWindow(int[] nums, int k) {
         int len = nums.length;
-        if (len == 0) {
-            return nums;
-        }
-        Deque<Integer> deque = new LinkedList<>();
-        for (int i = 0; i < k; ++i) {
-            while (!deque.isEmpty() && nums[i] >= nums[deque.peekLast()]) {
-                deque.pollLast();
+
+        // 前 k 个
+        Deque<Integer> deque = new ArrayDeque<>();
+        for (int i = 0; i < k; i++) {
+            while (!deque.isEmpty() && nums[i] >= nums[deque.getLast()]) {
+                deque.removeLast();
             }
-            deque.offerLast(i);
+            deque.addLast(i);
         }
 
-        int[] ans = new int[len - k + 1];
-        ans[0] = nums[deque.peekFirst()];
-        for (int i = k; i < len; ++i) {
-            while (!deque.isEmpty() && nums[i] >= nums[deque.peekLast()]) {
-                deque.pollLast();
+        int[] res = new int[len - k + 1];
+        res[0] = nums[deque.getFirst()];
+
+        // k+1 到 len
+        for (int i = k; i < len; i++) {
+            while (!deque.isEmpty() && nums[i] >= nums[deque.getLast()]) {
+                deque.removeLast();
             }
-            deque.offerLast(i);
-            while (deque.peekFirst() <= i - k) {
-                deque.pollFirst();
+            deque.addLast(i);
+
+            while (deque.getFirst() <= i - k) {
+                deque.removeFirst();
             }
-            ans[i - k + 1] = nums[deque.peekFirst()];
+            res[i - k + 1] = nums[deque.getFirst()];
         }
-        return ans;
+        return res;
     }
 }
 /*

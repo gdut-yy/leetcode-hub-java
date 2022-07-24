@@ -1,45 +1,39 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class Solution1192 {
+    private Map<Integer, List<Integer>> adj;
+
     public List<List<Integer>> criticalConnections(int n, List<List<Integer>> connections) {
         // 无向图
-        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        adj = new HashMap<>();
         for (List<Integer> connection : connections) {
             int from = connection.get(0);
             int to = connection.get(1);
 
-            Set<Integer> outSet = graph.getOrDefault(from, new HashSet<>());
-            outSet.add(to);
-            graph.put(from, outSet);
-
-            Set<Integer> inSet = graph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            graph.put(to, inSet);
+            adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+            adj.computeIfAbsent(to, key -> new ArrayList<>()).add(from);
         }
 
         int[] ids = new int[n];
         Arrays.fill(ids, -1);
 
         List<List<Integer>> resList = new ArrayList<>();
-        dfs(0, 0, -1, ids, graph, resList);
+        dfs(0, 0, -1, ids, resList);
         return resList;
     }
 
-    private int dfs(int idx, int nodeId, int pre, int[] ids,
-                    Map<Integer, Set<Integer>> graph, List<List<Integer>> resList) {
+    private int dfs(int idx, int nodeId, int pre, int[] ids, List<List<Integer>> resList) {
         // tarjan
         ids[idx] = nodeId;
 
-        for (int next : graph.get(idx)) {
+        for (int next : adj.get(idx)) {
             if (next != pre) {
                 if (ids[next] == -1) {
-                    ids[idx] = Math.min(ids[idx], dfs(next, nodeId + 1, idx, ids, graph, resList));
+                    ids[idx] = Math.min(ids[idx], dfs(next, nodeId + 1, idx, ids, resList));
                 } else {
                     ids[idx] = Math.min(ids[idx], ids[next]);
                 }

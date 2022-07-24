@@ -9,37 +9,33 @@ import java.util.Queue;
 import java.util.Set;
 
 public class Solution444 {
-    public boolean sequenceReconstruction(int[] org, List<List<Integer>> seqs) {
+    public boolean sequenceReconstruction(int[] nums, List<List<Integer>> sequences) {
+        int n = nums.length;
+
         // 拓扑排序
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
+        Map<Integer, List<Integer>> adj = new HashMap<>();
+        int[] inDegrees = new int[n+1];
         Set<Integer> seenSet = new HashSet<>();
-        for (List<Integer> seq : seqs) {
+        for (List<Integer> seq : sequences) {
             seenSet.addAll(seq);
             for (int i = 1; i < seq.size(); i++) {
-                int pre = seq.get(i - 1);
-                int cur = seq.get(i);
+                int from = seq.get(i - 1);
+                int to = seq.get(i);
 
-                Set<Integer> outSet = outGraph.getOrDefault(pre, new HashSet<>());
-                outSet.add(cur);
-                outGraph.put(pre, outSet);
-
-                Set<Integer> inSet = inGraph.getOrDefault(cur, new HashSet<>());
-                inSet.add(pre);
-                inGraph.put(cur, inSet);
+                adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+                inDegrees[to]++;
             }
         }
 
         // 入度为 0 进队列
         Queue<Integer> queue = new LinkedList<>();
-        int n = org.length;
         // 序列 org 是 1 到 n 整数的排列
         for (int i = 1; i <= n; i++) {
             // 用例 org = [1], seqs = []
             if (!seenSet.remove(i)) {
                 return false;
             }
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDegrees[i] == 0) {
                 queue.add(i);
             }
         }
@@ -51,24 +47,37 @@ public class Solution444 {
         while (queue.size() == 1) {
             int cur = queue.remove();
             resList.add(cur);
-            for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                inGraph.get(next).remove(cur);
-                if (inGraph.get(next).size() == 0) {
+            for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
+                inDegrees[next]--;
+                if (inDegrees[next] == 0) {
                     queue.add(next);
                 }
             }
         }
         int[] res = resList.stream().mapToInt(i -> i).toArray();
-        return Arrays.equals(org, res);
+        return Arrays.equals(nums, res);
     }
 }
 /*
 $444. 序列重建
 https://leetcode.cn/problems/sequence-reconstruction/
 
-验证原始的序列 org 是否可以从序列集 seqs 中唯一地重建。序列 org 是 1 到 n 整数的排列，其中 1 ≤ n ≤ 104 。
-重建是指在序列集 seqs 中构建最短的公共超序列。（即使得所有  seqs 中的序列都是该最短序列的子序列）。
-请你确定是否只可以从 seqs 重建唯一的序列，且该序列就是 org 。
+给定一个长度为 n 的整数数组 nums ，其中 nums 是范围为 [1，n] 的整数的排列。还提供了一个 2D 整数数组 sequences ，其中 sequences[i] 是 nums 的子序列。
+检查 nums 是否是唯一的最短 超序列 。最短 超序列 是 长度最短 的序列，并且所有序列 sequences[i] 都是它的子序列。对于给定的数组 sequences ，可能存在多个有效的 超序列 。
+- 例如，对于 sequences = [[1,2],[1,3]] ，有两个最短的 超序列 ，[1,2,3] 和 [1,3,2] 。
+- 而对于 sequences = [[1,2],[1,3],[1,2,3]] ，唯一可能的最短 超序列 是 [1,2,3] 。[1,2,3,4] 是可能的超序列，但不是最短的。
+如果 nums 是序列的唯一最短 超序列 ，则返回 true ，否则返回 false 。
+子序列 是一个可以通过从另一个序列中删除一些元素或不删除任何元素，而不改变其余元素的顺序的序列。
+提示：
+n == nums.length
+1 <= n <= 10^4
+nums 是 [1, n] 范围内所有整数的排列
+1 <= sequences.length <= 10^4
+1 <= sequences[i].length <= 10^4
+1 <= sum(sequences[i].length) <= 10^5
+1 <= sequences[i][j] <= n
+sequences 的所有数组都是 唯一 的
+sequences[i] 是 nums 的一个子序列
 
 拓扑排序。
  */

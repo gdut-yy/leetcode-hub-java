@@ -1,22 +1,22 @@
 public class Solution459 {
     public boolean repeatedSubstringPattern(String s) {
         int len = s.length();
-        for (int i = 1; i <= len / 2; i++) {
-            if (len % i == 0) {
-                if (check(s, i)) {
-                    return true;
-                }
+        for (int k = 1; k <= len / 2; k++) {
+            if (check(s, k)) {
+                return true;
             }
         }
         return false;
     }
 
-    private boolean check(String s, int length) {
-        int len = s.length();
-        String pattern = s.substring(0, length);
-        int partition = len / length;
-        for (int i = 0; i < partition; i++) {
-            String subString = s.substring(i * length, i * length + length);
+    // 长度为 k 是否为重复的子字符串
+    private boolean check(String s, int k) {
+        if (s.length() % k != 0) {
+            return false;
+        }
+        String pattern = s.substring(0, k);
+        for (int i = 0; i < s.length(); i += k) {
+            String subString = s.substring(i, i + k);
             if (!pattern.equals(subString)) {
                 return false;
             }

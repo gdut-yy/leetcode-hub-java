@@ -1,8 +1,5 @@
 public class Solution14 {
     public String longestCommonPrefix(String[] strs) {
-        if (strs == null || strs.length == 0) {
-            return "";
-        }
         String res = strs[0];
         // 横向扫描
         for (int i = 1; i < strs.length; i++) {
@@ -31,6 +28,13 @@ public class Solution14 {
 /*
 14. 最长公共前缀
 https://leetcode.cn/problems/longest-common-prefix/
+
+编写一个函数来查找字符串数组中的最长公共前缀。
+如果不存在公共前缀，返回空字符串 ""。
+提示：
+1 <= strs.length <= 200
+0 <= strs[i].length <= 200
+strs[i] 仅由小写英文字母组成
 
 查找字符串数组中的最长公共前缀。三种方法：
 横向扫描 时间复杂度O(mn) 空间复杂度O(1)

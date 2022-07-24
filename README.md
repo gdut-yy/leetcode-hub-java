@@ -686,6 +686,8 @@ Hierholzer 算法
 - [excalidraw](https://excalidraw.com/)
 - [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
 - [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
+- [clist.by](https://clist.by/account/zhang-yi-yang/resource/leetcode.com/)
 - [visualgo](https://visualgo.net/zh)
+- [宫水三叶の刷题日记](https://www.acoier.com/tags/)
 
 （全文完）

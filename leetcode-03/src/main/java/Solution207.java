@@ -8,14 +8,14 @@ import java.util.Queue;
 public class Solution207 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         // 拓扑排序
-        Map<Integer, List<Integer>> outGraph = new HashMap<>();
+        Map<Integer, List<Integer>> adj = new HashMap<>();
         int[] inDegrees = new int[numCourses];
 
         // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
         for (int[] prerequisite : prerequisites) {
             int from = prerequisite[1];
             int to = prerequisite[0];
-            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
+            adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
             inDegrees[to]++;
         }
 
@@ -31,7 +31,7 @@ public class Solution207 {
             int cur = queue.remove();
             resList.add(cur);
 
-            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
+            for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
                 inDegrees[next]--;
                 if (inDegrees[next] == 0) {
                     queue.add(next);

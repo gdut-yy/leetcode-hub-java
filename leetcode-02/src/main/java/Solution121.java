@@ -5,7 +5,7 @@ public class Solution121 {
         for (int price : prices) {
             // 到当日为止 历史最低价格
             min = Math.min(min, price);
-            // max(当日价格减去 历史最低价格)
+            // max(当日价格减去 - 历史最低价格)
             max = Math.max(max, price - min);
         }
         return max;

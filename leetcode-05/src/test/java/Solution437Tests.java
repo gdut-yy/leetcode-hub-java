@@ -19,4 +19,15 @@ public class Solution437Tests {
         int expected = 3;
         Assertions.assertEquals(expected, solution437.pathSum(root, targetSum));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/submissions/detail/340712419/
+        // 爆 int
+        TreeNode root = TreeNode.buildTreeNode("[1000000000,1000000000,null,294967296,null,1000000000,null,1000000000,null,1000000000]");
+        int targetSum = 0;
+        int expected = 0;
+        Assertions.assertEquals(expected, solution437.pathSum(root, targetSum));
+    }
 }

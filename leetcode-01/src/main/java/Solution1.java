@@ -3,22 +3,22 @@ import java.util.Map;
 
 public class Solution1 {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            // 2  => 0
-            // 7  => 1
-            // 11 => 2
-            // 15 => 3
-            map.put(nums[i], i);
+        int len = nums.length;
+
+        // 预处理下标
+        Map<Integer, Integer> idxMap = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            idxMap.put(nums[i], i);
         }
-        for (int i = 0; i < nums.length; i++) {
-            int want = target - nums[i];
-            // complement => 9 - 2 = 7
-            if (map.containsKey(want) && map.get(want) != i) {
-                return new int[]{i, map.get(want)};
+
+        for (int i = 0; i < len; i++) {
+            int another = target - nums[i];
+            // 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
+            if (idxMap.containsKey(another) && idxMap.get(another) != i) {
+                return new int[]{i, idxMap.get(another)};
             }
         }
-        return new int[]{};
+        return new int[0];
     }
 }
 /*

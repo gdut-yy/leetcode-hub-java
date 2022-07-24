@@ -19,7 +19,7 @@ public class Solution1706 {
                         } else {
                             res[i] = -1;
                         }
-                    }else {
+                    } else {
                         if (col - 1 >= 0 && grid[row][col - 1] == -1) {
                             res[i]--;
                         } else {

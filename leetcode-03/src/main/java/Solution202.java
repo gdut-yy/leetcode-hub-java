@@ -12,13 +12,14 @@ public class Solution202 {
     }
 
     private int getNext(int n) {
-        int totalSum = 0;
+        // 平方和
+        int sum = 0;
         while (n > 0) {
             int d = n % 10;
             n = n / 10;
-            totalSum += d * d;
+            sum += d * d;
         }
-        return totalSum;
+        return sum;
     }
 }
 /*

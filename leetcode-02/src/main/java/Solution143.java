@@ -33,7 +33,7 @@ public class Solution143 {
         }
     }
 
-    public ListNode solution206reverseList(ListNode head) {
+    private ListNode solution206reverseList(ListNode head) {
         ListNode prev = null;
         ListNode cur = head;
         while (cur != null) {
@@ -54,13 +54,15 @@ L0 → L1 → … → Ln - 1 → Ln
 请将其重新排列后变为：
 L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
 不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
+提示：
+链表的长度范围为 [1, 5 * 10^4]
+1 <= node.val <= 1000
 
 L0 → Ln → L1 → Ln-1 → L2 → Ln-2 → …
 即：
 1,2,3,4,5
 =>
 1,5,2,4,3
-
 相似题目:
 Step1: 找链表的中间结点。876. 链表的中间结点
 https://leetcode.cn/problems/middle-of-the-linked-list/
