@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6164 {
+public class Solution2342 {
     public int maximumSum(int[] nums) {
         Map<Integer, List<Integer>> cntMap = new HashMap<>();
         for (int num : nums) {
@@ -36,7 +36,7 @@ public class Solution6164 {
     }
 }
 /*
-6164. 数位和相等数对的最大和
+2342. 数位和相等数对的最大和
 https://leetcode.cn/problems/max-sum-of-a-pair-with-equal-sum-of-digits/
 
 第 302 场周赛 T2。

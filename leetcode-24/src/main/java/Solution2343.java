@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6121 {
+public class Solution2343 {
     public int[] smallestTrimmedNumbers(String[] nums, int[][] queries) {
         int[] res = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
@@ -41,7 +41,7 @@ public class Solution6121 {
     }
 }
 /*
-6121. 裁剪数字后查询第 K 小的数字
+2343. 裁剪数字后查询第 K 小的数字
 https://leetcode.cn/problems/query-kth-smallest-trimmed-number/
 
 第 302 场周赛 T3。

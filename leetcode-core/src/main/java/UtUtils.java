@@ -79,6 +79,11 @@ public class UtUtils {
         return list.toArray(new int[list.size()][]);
     }
 
+    // String => char[]
+    public static char[] stringToChars(String input) {
+        return String.join("", JSON.parseArray(input, String.class)).toCharArray();
+    }
+
     // String => char[][]
     public static char[][] stringToChars2(String input) {
         List<char[]> list = JSON.parseArray(input, char[].class);

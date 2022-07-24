@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6120 {
+public class Solution2341 {
     public int[] numberOfPairs(int[] nums) {
         // 统计频次
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -23,7 +23,7 @@ public class Solution6120 {
     }
 }
 /*
-6120. 数组能形成多少数对
+2341. 数组能形成多少数对
 https://leetcode.cn/problems/maximum-number-of-pairs-in-array/
 
 第 302 场周赛 T1。

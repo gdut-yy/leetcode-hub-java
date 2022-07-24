@@ -68,4 +68,8 @@ s 仅由小写英文字母组成
 0 <= k <= s.length
 
 贪心，优先使用频次高的，一次取 top k 个
+相似题目: 621. 任务调度器
+https://leetcode.cn/problems/task-scheduler/
+1405. 最长快乐字符串
+https://leetcode.cn/problems/longest-happy-string/
  */

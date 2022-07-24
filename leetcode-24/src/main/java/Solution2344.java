@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6122 {
+public class Solution2344 {
     public int minOperations(int[] nums, int[] numsDivide) {
         int divideGCD = numsDivide[0];
         for (int i = 1; i < numsDivide.length; i++) {
@@ -24,7 +24,7 @@ public class Solution6122 {
     }
 }
 /*
-6122. 使数组可以被整除的最少删除次数
+2344. 使数组可以被整除的最少删除次数
 https://leetcode.cn/problems/minimum-deletions-to-make-array-divisible/
 
 第 302 场周赛 T4。

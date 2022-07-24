@@ -55,4 +55,8 @@ https://leetcode.cn/problems/longest-happy-string/
 如果不存在这样的字符串 s ，请返回一个空字符串 ""。
 
 贪心。优先取个数多的字符，如果将要连成 3 个一样的，选择第二多的。
+相似题目: $358. K 距离间隔重排字符串
+https://leetcode.cn/problems/rearrange-string-k-distance-apart/
+621. 任务调度器
+https://leetcode.cn/problems/task-scheduler/
  */
