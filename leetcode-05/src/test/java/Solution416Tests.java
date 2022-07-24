@@ -15,4 +15,12 @@ public class Solution416Tests {
         int[] nums = {1, 2, 3, 5};
         Assertions.assertFalse(solution416.canPartition(nums));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/problems/partition-equal-subset-sum/submissions/
+        int[] nums = {1, 2, 5};
+        Assertions.assertFalse(solution416.canPartition(nums));
+    }
 }

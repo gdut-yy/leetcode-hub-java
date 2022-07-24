@@ -1,12 +1,12 @@
 public class Solution50 {
     public double myPow(double x, int n) {
         if (n >= 0) {
-            return fastPower(x, n);
+            return quickPow(x, n);
         }
-        return 1.0 / fastPower(x, -(long) n);
+        return 1.0 / quickPow(x, -(long) n);
     }
 
-    private double fastPower(double x, long pow) {
+    private double quickPow(double x, long pow) {
         double ans = 1.0;
         while (pow > 0) {
             if (pow % 2 == 1) {

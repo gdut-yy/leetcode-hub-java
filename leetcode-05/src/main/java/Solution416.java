@@ -1,30 +1,23 @@
+import java.util.Arrays;
+
 public class Solution416 {
     public boolean canPartition(int[] nums) {
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
+        int sum = Arrays.stream(nums).sum();
+
         if (sum % 2 == 1) {
             return false;
         }
-        return subsetSum(nums, sum / 2);
-    }
+        int target = sum / 2;
 
-    private boolean subsetSum(int[] nums, int target) {
-        int len = nums.length;
-        boolean[][] dp = new boolean[len + 1][target + 1];
-        for (int i = 0; i <= len; i++) {
-            dp[i][0] = true;
-        }
-        for (int i = 1; i <= len; i++) {
-            for (int j = 1; j <= target; j++) {
-                dp[i][j] = dp[i - 1][j];
-                if (!dp[i][j] && j >= nums[i - 1]) {
-                    dp[i][j] = dp[i - 1][j - nums[i - 1]];
-                }
+        // 0-1 背包
+        // f[j] 代表选择数字总和不超过 j 的最大和。
+        int[] f = new int[target + 1];
+        for (int wi : nums) {
+            for (int j = target; j >= wi; j--) {
+                f[j] = Math.max(f[j], f[j - wi] + wi);
             }
         }
-        return dp[len][target];
+        return f[target] == target;
     }
 }
 /*

@@ -26,9 +26,7 @@ public class Solution70 {
         return getFn(f, mPowN);
     }
 
-    /**
-     * 矩阵快速幂 res = f(n)
-     */
+    // 矩阵快速幂 res = f(n)
     private int getFn(int[] f, int[][] mPowN) {
         int len = f.length;
         int res = 0;
@@ -38,9 +36,7 @@ public class Solution70 {
         return res;
     }
 
-    /**
-     * 矩阵快速幂 res = a^n
-     */
+    // 矩阵快速幂 res = a^n
     private int[][] matQuickPow(int[][] a, int n) {
         int len = a.length;
         // 对角矩阵
@@ -58,9 +54,7 @@ public class Solution70 {
         return res;
     }
 
-    /**
-     * 矩阵快速幂 res = a * b
-     */
+    // 矩阵快速幂 res = a * b
     private int[][] matMulti(int[][] a, int[][] b) {
         int len = a.length;
         int[][] res = new int[len][len];

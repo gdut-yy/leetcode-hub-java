@@ -1,25 +1,27 @@
+import java.util.Arrays;
+
 public class Solution494 {
     public int findTargetSumWays(int[] nums, int target) {
-        target = Math.abs(target);
-        int sum = 0;
-        for (int num : nums) {
-            sum += num;
-        }
-        if ((sum + target) % 2 == 1 || sum < target) {
+        int n = nums.length;
+        int sum = Arrays.stream(nums).sum();
+
+        // 负数和 neg，正数和 sum-neg，sum - 2 * neg = target
+        if ((sum - target < 0) || (sum - target) % 2 == 1) {
             return 0;
         }
-        return subsetSum(nums, (sum + target) / 2);
-    }
+        int neg = (sum - target) / 2;
 
-    private int subsetSum(int[] nums, int target) {
-        int[] dp = new int[target + 1];
-        dp[0] = 1;
-        for (int num : nums) {
-            for (int i = target; i >= num; i--) {
-                dp[i] += dp[i - num];
+        // 0-1 背包
+        // f[j] 表示元素之和等于 j 的方案数。
+        int[] f = new int[neg + 1];
+        f[0] = 1;
+        for (int i = 1; i <= n; i++) {
+            int wi = nums[i - 1];
+            for (int j = neg; j >= wi; j--) {
+                f[j] += f[j - wi];
             }
         }
-        return dp[target];
+        return f[neg];
     }
 }
 /*

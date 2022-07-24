@@ -1,14 +1,13 @@
 public class SfTech220619T2 {
     public int minRemainingSpace(int[] N, int V) {
-        int[] dp = new int[2022];
-        for (int k : N) {
-            for (int j = V; j >= k; j--) {
-                if (dp[j] < dp[j - k] + k) {
-                    dp[j] = dp[j - k] + k;
-                }
+        // 0-1 背包
+        int[] f = new int[V + 1];
+        for (int wi : N) {
+            for (int j = V; j >= wi; j--) {
+                f[j] = Math.max(f[j], f[j - wi] + wi);
             }
         }
-        return V - dp[V];
+        return V - f[V];
     }
 }
 /*
