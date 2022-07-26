@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6128Tests {
-    private final Solution6128 solution6128 = new Solution6128();
+public class Solution2347Tests {
+    private final Solution2347 solution2347 = new Solution2347();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution6128Tests {
                 ["a","a","a","a","a"]
                 """);
         String expected = "Flush";
-        Assertions.assertEquals(expected, solution6128.bestHand(ranks, suits));
+        Assertions.assertEquals(expected, solution2347.bestHand(ranks, suits));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class Solution6128Tests {
                 ["d","a","a","b","c"]
                  """);
         String expected = "Three of a Kind";
-        Assertions.assertEquals(expected, solution6128.bestHand(ranks, suits));
+        Assertions.assertEquals(expected, solution2347.bestHand(ranks, suits));
     }
 
     @Test
@@ -31,6 +31,6 @@ public class Solution6128Tests {
                 ["a","b","c","a","d"]
                  """);
         String expected = "Pair";
-        Assertions.assertEquals(expected, solution6128.bestHand(ranks, suits));
+        Assertions.assertEquals(expected, solution2347.bestHand(ranks, suits));
     }
 }

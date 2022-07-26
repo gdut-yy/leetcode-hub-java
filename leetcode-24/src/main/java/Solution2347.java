@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6128 {
+public class Solution2347 {
     public String bestHand(int[] ranks, char[] suits) {
         if (suits[0] == suits[1] && suits[0] == suits[2] && suits[0] == suits[3] && suits[0] == suits[4]) {
             return "Flush";
@@ -24,7 +24,7 @@ public class Solution6128 {
     }
 }
 /*
-6128. 最好的扑克手牌
+2347. 最好的扑克手牌
 https://leetcode.cn/problems/best-poker-hand/
 
 第 83 场双周赛 T1。

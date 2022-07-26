@@ -15,8 +15,8 @@ public class ReaderMain {
             if (x % k == 0) {
                 count++;
             }
-            System.out.println(count);
         }
+        System.out.println(count);
     }
 
     static class Reader {

@@ -1,4 +1,4 @@
-public class Solution6124 {
+public class Solution2351 {
     public char repeatedCharacter(String s) {
         boolean[] visited = new boolean[26];
         for (char ch : s.toCharArray()) {
@@ -12,7 +12,7 @@ public class Solution6124 {
     }
 }
 /*
-6124. 第一个出现两次的字母
+2351. 第一个出现两次的字母
 https://leetcode.cn/problems/first-letter-to-appear-twice/
 
 第 303 场周赛 T1。

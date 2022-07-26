@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6125 {
+public class Solution2352 {
     public int equalPairs(int[][] grid) {
         int n = grid.length;
 
@@ -30,7 +30,7 @@ public class Solution6125 {
     }
 }
 /*
-6125. 相等行列对
+2352. 相等行列对
 https://leetcode.cn/problems/equal-row-and-column-pairs/
 
 第 303 场周赛 T2。

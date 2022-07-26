@@ -1,4 +1,4 @@
-public class Solution6129 {
+public class Solution2348 {
     public long zeroFilledSubarray(int[] nums) {
         long cnt = 0;
         long res = 0;
@@ -17,7 +17,7 @@ public class Solution6129 {
     }
 }
 /*
-6129. 全 0 子数组的数目
+2348. 全 0 子数组的数目
 https://leetcode.cn/problems/number-of-zero-filled-subarrays/
 
 第 83 场双周赛 T2。

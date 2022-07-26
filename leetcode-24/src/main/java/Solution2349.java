@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
-public class Solution6130 {
+public class Solution2349 {
     static class NumberContainers {
         // num -> idx[]
         private final Map<Integer, TreeSet<Integer>> numIdxSetMap;
@@ -33,7 +33,7 @@ public class Solution6130 {
     }
 }
 /*
-6130. 设计数字容器系统
+2349. 设计数字容器系统
 https://leetcode.cn/problems/design-a-number-container-system/
 
 第 83 场双周赛 T3。

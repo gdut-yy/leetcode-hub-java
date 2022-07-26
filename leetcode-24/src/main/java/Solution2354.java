@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
-public class Solution6127 {
+public class Solution2354 {
     public long countExcellentPairs(int[] nums, int k) {
         // bitCount(num) -> num
         TreeMap<Integer, Set<Integer>> bitCountTreeMap = new TreeMap<>();
@@ -29,7 +29,7 @@ public class Solution6127 {
     }
 }
 /*
-6127. 优质数对的数目
+2354. 优质数对的数目
 https://leetcode.cn/problems/number-of-excellent-pairs/
 
 第 303 场周赛 T4。

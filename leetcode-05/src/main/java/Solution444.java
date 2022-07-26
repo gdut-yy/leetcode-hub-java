@@ -14,10 +14,8 @@ public class Solution444 {
 
         // 拓扑排序
         Map<Integer, List<Integer>> adj = new HashMap<>();
-        int[] inDegrees = new int[n+1];
-        Set<Integer> seenSet = new HashSet<>();
+        int[] inDegrees = new int[n + 1];
         for (List<Integer> seq : sequences) {
-            seenSet.addAll(seq);
             for (int i = 1; i < seq.size(); i++) {
                 int from = seq.get(i - 1);
                 int to = seq.get(i);
@@ -31,22 +29,16 @@ public class Solution444 {
         Queue<Integer> queue = new LinkedList<>();
         // 序列 org 是 1 到 n 整数的排列
         for (int i = 1; i <= n; i++) {
-            // 用例 org = [1], seqs = []
-            if (!seenSet.remove(i)) {
-                return false;
-            }
             if (inDegrees[i] == 0) {
                 queue.add(i);
             }
-        }
-        if (!seenSet.isEmpty()) {
-            return false;
         }
         List<Integer> resList = new ArrayList<>();
         // 从 seqs 重建唯一的序列
         while (queue.size() == 1) {
             int cur = queue.remove();
             resList.add(cur);
+
             for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
                 inDegrees[next]--;
                 if (inDegrees[next] == 0) {

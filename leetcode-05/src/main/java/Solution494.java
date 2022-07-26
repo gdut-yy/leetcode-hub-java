@@ -2,7 +2,6 @@ import java.util.Arrays;
 
 public class Solution494 {
     public int findTargetSumWays(int[] nums, int target) {
-        int n = nums.length;
         int sum = Arrays.stream(nums).sum();
 
         // 负数和 neg，正数和 sum-neg，sum - 2 * neg = target
@@ -15,8 +14,7 @@ public class Solution494 {
         // f[j] 表示元素之和等于 j 的方案数。
         int[] f = new int[neg + 1];
         f[0] = 1;
-        for (int i = 1; i <= n; i++) {
-            int wi = nums[i - 1];
+        for (int wi : nums) {
             for (int j = neg; j >= wi; j--) {
                 f[j] += f[j - wi];
             }

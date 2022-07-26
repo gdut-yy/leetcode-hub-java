@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6131 {
+public class Solution2350 {
     public int shortestSequence(int[] rolls, int k) {
         boolean[] visited = new boolean[k + 1];
         int res = 0;
@@ -20,7 +20,7 @@ public class Solution6131 {
     }
 }
 /*
-6131. 不可能得到的最短骰子序列
+2350. 不可能得到的最短骰子序列
 https://leetcode.cn/problems/shortest-impossible-sequence-of-rolls/
 
 第 83 场双周赛 T4。

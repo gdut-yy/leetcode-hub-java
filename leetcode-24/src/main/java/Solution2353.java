@@ -1,9 +1,8 @@
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeSet;
 
-public class Solution6126 {
+public class Solution2353 {
     static class FoodRatings {
         private final Map<String, Node> foodCuisineMap;
         private final Map<String, TreeSet<Node>> cuisineFoodTreeSetMap;
@@ -60,7 +59,7 @@ public class Solution6126 {
     }
 }
 /*
-6126. 设计食物评分系统
+2353. 设计食物评分系统
 https://leetcode.cn/problems/design-a-food-rating-system/
 
 第 303 场周赛 T3。

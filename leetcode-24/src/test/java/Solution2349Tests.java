@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6130Tests {
+public class Solution2349Tests {
     @Test
     public void example1() {
-        Solution6130.NumberContainers nc = new Solution6130.NumberContainers();
+        Solution2349.NumberContainers nc = new Solution2349.NumberContainers();
         // 没有数字 10 ，所以返回 -1 。
         Assertions.assertEquals(-1, nc.find(10));
 

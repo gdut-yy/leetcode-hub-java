@@ -1,28 +1,25 @@
 public class Solution14 {
     public String longestCommonPrefix(String[] strs) {
-        String res = strs[0];
-        // 横向扫描
+        String lcp = strs[0];
         for (int i = 1; i < strs.length; i++) {
             // 若已经为空串，返回结果
-            if ("".equals(res)) {
+            if (lcp.equals("") || strs[i].equals("")) {
                 return "";
-            } else {
-                res = strs[i].length() == 0 ? "" : getLongestCommonPrefix(res, strs[i]);
             }
+
+            lcp = getLCP(lcp, strs[i]);
         }
-        return res;
+        return lcp;
     }
 
-    private String getLongestCommonPrefix(String str1, String str2) {
+    private String getLCP(String str1, String str2) {
         int minLen = Math.min(str1.length(), str2.length());
-        int curLen = 0;
         for (int i = 0; i < minLen; i++) {
             if (str1.charAt(i) != str2.charAt(i)) {
-                break;
+                return str1.substring(0, i);
             }
-            curLen++;
         }
-        return str1.substring(0, curLen);
+        return str1.substring(0, minLen);
     }
 }
 /*
