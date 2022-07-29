@@ -8,9 +8,10 @@ public class Solution76 {
         }
         Map<Character, Integer> sCntMap = new HashMap<>();
         Map<Character, Integer> tCntMap = new HashMap<>();
-        for (int i = 0; i < t.length(); i++) {
-            tCntMap.put(t.charAt(i), tCntMap.getOrDefault(t.charAt(i), 0) + 1);
+        for (char ch : t.toCharArray()) {
+            tCntMap.put(ch, tCntMap.getOrDefault(ch, 0) + 1);
         }
+
         // 双指针-滑动窗口
         int left = 0;
         int right = 0;
@@ -39,13 +40,7 @@ public class Solution76 {
         return ansLen == Integer.MAX_VALUE ? "" : s.substring(ansStart, ansStart + ansLen);
     }
 
-    /**
-     * 判断 window 中是否包含所需字符
-     *
-     * @param window window中各字符出现次数
-     * @param need   需要包含的字符出现次数
-     * @return 是否包含
-     */
+    // window 是否包含 need 的字符
     private boolean checkInclusion(Map<Character, Integer> window, Map<Character, Integer> need) {
         for (Map.Entry<Character, Integer> entry : need.entrySet()) {
             char curCh = entry.getKey();
