@@ -20,6 +20,9 @@ public class Solution24 {
 https://leetcode.cn/problems/swap-nodes-in-pairs/
 
 给你一个链表，两两交换其中相邻的节点，并返回交换后链表的头节点。你必须在不修改节点内部的值的情况下完成本题（即，只能进行节点交换）。
+提示：
+链表中节点的数目在范围 [0, 100] 内
+0 <= Node.val <= 100
 
 0 -> 1 -> 2 -> 3
      p    q

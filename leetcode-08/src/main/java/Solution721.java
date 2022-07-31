@@ -6,37 +6,34 @@ import java.util.Map;
 
 public class Solution721 {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
-        // 邮箱地址 映射到 idx
         int idx = 0;
-        Map<String, Integer> idxMap = new HashMap<>();
-        Map<String, String> nameMap = new HashMap<>();
+        // email, idx
+        Map<String, Integer> emailIdxMap = new HashMap<>();
+        // email, name
+        Map<String, String> nameEmailMap = new HashMap<>();
         for (List<String> account : accounts) {
             String name = account.get(0);
             for (int i = 1; i < account.size(); i++) {
-                if (!idxMap.containsKey(account.get(i))) {
-                    idxMap.put(account.get(i), idx);
-                    idx++;
-                    nameMap.put(account.get(i), name);
-                }
+                String email = account.get(i);
+                emailIdxMap.putIfAbsent(email, idx++);
+                nameEmailMap.putIfAbsent(email, name);
             }
         }
 
         // 并查集 合并账户
-        UnionFind unionFind = new UnionFind(idx);
+        DSU dsu = new DSU(idx);
         for (List<String> account : accounts) {
             String firstMail = account.get(1);
             for (int i = 2; i < account.size(); i++) {
-                unionFind.union(idxMap.get(firstMail), idxMap.get(account.get(i)));
+                dsu.union(emailIdxMap.get(firstMail), emailIdxMap.get(account.get(i)));
             }
         }
 
         // 同 祖先 的 emails
         Map<Integer, List<String>> rootEmailsMap = new HashMap<>();
-        for (Map.Entry<String, Integer> entry : idxMap.entrySet()) {
-            int root = unionFind.find(entry.getValue());
-            List<String> emails = rootEmailsMap.getOrDefault(root, new ArrayList<>());
-            emails.add(entry.getKey());
-            rootEmailsMap.put(root, emails);
+        for (Map.Entry<String, Integer> entry : emailIdxMap.entrySet()) {
+            int root = dsu.find(entry.getValue());
+            rootEmailsMap.computeIfAbsent(root, key -> new ArrayList<>()).add(entry.getKey());
         }
 
         // 返回结果
@@ -44,7 +41,7 @@ public class Solution721 {
         for (List<String> emails : rootEmailsMap.values()) {
             List<String> account = new ArrayList<>();
             // 每个账户的第一个元素是名称
-            account.add(nameMap.get(emails.get(0)));
+            account.add(nameEmailMap.get(emails.get(0)));
             // 其余元素是 按字符 ASCII 顺序排列 的邮箱地址
             Collections.sort(emails);
             account.addAll(emails);
@@ -53,52 +50,35 @@ public class Solution721 {
         return resList;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        // 父节点数组/祖先数组
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        // 初始化
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        // 查找
+        int find(int x) {
+            // 路径压缩
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        // 合并
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
+            fa[rootQ] = rootP;
         }
     }
 }

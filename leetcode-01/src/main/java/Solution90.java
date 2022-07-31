@@ -36,11 +36,12 @@ public class Solution90 {
         return next;
     }
 
+    // 时间复杂度 O(n * 2^n)
     public List<List<Integer>> subsetsWithDup2(int[] nums) {
-        Set<List<Integer>> resSet = new HashSet<>();
-        // 90. 子集 II 可能包含重复元素
-        Arrays.sort(nums);
         int len = nums.length;
+        Arrays.sort(nums);
+
+        Set<List<Integer>> resSet = new HashSet<>();
         // 状态压缩 dp
         for (int state = 0; state < (1 << len); state++) {
             List<Integer> curList = new ArrayList<>();
