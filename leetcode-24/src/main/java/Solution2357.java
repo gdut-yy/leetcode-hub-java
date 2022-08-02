@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6132 {
+public class Solution2357 {
     public int minimumOperations(int[] nums) {
         Set<Integer> hashSet = new HashSet<>();
         for (int num : nums) {
@@ -13,7 +13,7 @@ public class Solution6132 {
     }
 }
 /*
-6132. 使数组中所有元素都等于零
+2357. 使数组中所有元素都等于零
 https://leetcode.cn/problems/make-array-zero-by-subtracting-equal-amounts/
 
 第 304 场周赛 T1。

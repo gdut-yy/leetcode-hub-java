@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6134 {
+public class Solution2359 {
     private static final int INF = 100000;
 
     public int closestMeetingNode(int[] edges, int node1, int node2) {
@@ -36,7 +36,7 @@ public class Solution6134 {
     }
 }
 /*
-6134. 找到离给定两个节点最近的节点
+2359. 找到离给定两个节点最近的节点
 https://leetcode.cn/problems/find-closest-node-to-given-two-nodes/
 
 第 304 场周赛 T3。

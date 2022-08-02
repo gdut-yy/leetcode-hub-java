@@ -9,16 +9,19 @@ import java.util.Set;
 
 public class Solution310 {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+        List<Integer> resList = new ArrayList<>();
         if (n == 1) {
-            return List.of(0);
+            resList.add(0);
+            return resList;
         }
+
         // 无向图
-        Map<Integer, Set<Integer>> graph = new HashMap<>();
+        Map<Integer, Set<Integer>> adj = new HashMap<>();
         for (int[] edge : edges) {
             int from = edge[0];
             int to = edge[1];
-            graph.computeIfAbsent(from, key -> new HashSet<>()).add(to);
-            graph.computeIfAbsent(to, key -> new HashSet<>()).add(from);
+            adj.computeIfAbsent(from, key -> new HashSet<>()).add(to);
+            adj.computeIfAbsent(to, key -> new HashSet<>()).add(from);
         }
 
         // 度为 1 进队列
@@ -26,12 +29,11 @@ public class Solution310 {
         boolean[] visited = new boolean[n];
         // n 个节点的树，标记为 0 到 n - 1
         for (int i = 0; i < n; i++) {
-            if (graph.getOrDefault(i, new HashSet<>()).size() == 1) {
+            if (adj.getOrDefault(i, new HashSet<>()).size() == 1) {
                 queue.add(i);
                 visited[i] = true;
             }
         }
-        List<Integer> resList = new ArrayList<>();
         while (!queue.isEmpty()) {
             resList.clear();
             int size = queue.size();
@@ -39,9 +41,9 @@ public class Solution310 {
                 int cur = queue.remove();
                 resList.add(cur);
 
-                for (int next : graph.getOrDefault(cur, new HashSet<>())) {
-                    graph.get(next).remove(cur);
-                    if (!visited[next] && graph.get(next).size() == 1) {
+                for (int next : adj.getOrDefault(cur, new HashSet<>())) {
+                    adj.get(next).remove(cur);
+                    if (!visited[next] && adj.get(next).size() == 1) {
                         visited[next] = true;
                         queue.add(next);
                     }

@@ -1,4 +1,4 @@
-public class Solution6133 {
+public class Solution2358 {
     public int maximumGroups(int[] grades) {
         int n = grades.length;
 
@@ -11,7 +11,7 @@ public class Solution6133 {
     }
 }
 /*
-6133. 分组的最大数量
+2358. 分组的最大数量
 https://leetcode.cn/problems/maximum-number-of-groups-entering-a-competition/
 
 第 304 场周赛 T2。

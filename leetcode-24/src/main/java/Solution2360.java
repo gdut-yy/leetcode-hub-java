@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Solution6135 {
+public class Solution2360 {
     public int longestCycle(int[] edges) {
         int n = edges.length;
 
@@ -61,7 +61,7 @@ public class Solution6135 {
     }
 }
 /*
-6135. 图中的最长环
+2360. 图中的最长环
 https://leetcode.cn/problems/longest-cycle-in-a-graph/
 
 第 304 场周赛 T4。
