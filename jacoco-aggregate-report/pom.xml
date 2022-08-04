@@ -19,9 +19,25 @@
     <dependencies>
         <dependency>
             <groupId>com.devyy</groupId>
-            <artifactId>codeforces</artifactId>
+            <artifactId>codeforces-div2</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-div3</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-div4</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-extends</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>com.devyy</groupId>
             <artifactId>leetcode-01</artifactId>

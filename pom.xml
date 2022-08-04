@@ -9,8 +9,15 @@
     <version>1.0-SNAPSHOT</version>
 
     <modules>
+        <!-- codeforces -->
+        <module>codeforces-core</module>
+        <module>codeforces-div2</module>
+        <module>codeforces-div3</module>
+        <module>codeforces-div4</module>
+        <module>codeforces-extends</module>
+
+        <!-- leetcode -->
         <module>jacoco-aggregate-report</module>
-        <module>codeforces</module>
         <module>leetcode-01</module>
         <module>leetcode-02</module>
         <module>leetcode-03</module>
@@ -62,13 +69,13 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>${org.junit.jupiter.junit-jupiter.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
             <version>${org.junit.jupiter.junit-jupiter.version}</version>
-            <scope>test</scope>
+<!--            <scope>test</scope>-->
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
