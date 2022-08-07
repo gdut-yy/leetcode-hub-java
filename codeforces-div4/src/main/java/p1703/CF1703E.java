@@ -1,35 +1,28 @@
 package p1703;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1703E {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String[] lineN = new String[n];
+            int n = scanner.nextInt();
+            char[][] a = new char[n][n];
             for (int j = 0; j < n; j++) {
-                lineN[j] = reader.readLine();
+                a[j] = scanner.next().toCharArray();
             }
-            writer.write(solution(n, lineN).concat(System.lineSeparator()));
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String[] lineN) {
+    private static String solve(int n, char[][] a) {
         int[][][] grid = new int[4][n][n];
         // 0
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                grid[0][i][j] = lineN[i].charAt(j) == '1' ? 1 : 0;
+                grid[0][i][j] = a[i][j] == '1' ? 1 : 0;
             }
         }
         // 90

@@ -1,36 +1,30 @@
 package p1669;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1669B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
+    private static String solve(int n, int[] a) {
         Map<Integer, Integer> cntMap = new HashMap<>();
-        for (String s : lines) {
-            int a = Integer.parseInt(s);
-            cntMap.put(a, cntMap.getOrDefault(a, 0) + 1);
-            if (cntMap.get(a) == 3) {
-                return String.valueOf(a);
+        for (int ai : a) {
+            cntMap.put(ai, cntMap.getOrDefault(ai, 0) + 1);
+            if (cntMap.get(ai) == 3) {
+                return String.valueOf(ai);
             }
         }
         return "-1";

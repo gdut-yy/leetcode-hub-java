@@ -1,38 +1,27 @@
 package p1692;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1692H {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] x = new int[n];
+            for (int j = 0; j < n; j++) {
+                x[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, x));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
-        int[] x = new int[n];
-        for (int i = 0; i < n; i++) {
-            x[i] = Integer.parseInt(line2s[i]);
-        }
-
+    private static String solve(int n, int[] x) {
         // 预处理
         Map<Integer, List<Integer>> idxListMap = new HashMap<>();
         for (int i = 0; i < n; i++) {

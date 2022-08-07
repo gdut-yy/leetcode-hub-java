@@ -1,39 +1,32 @@
 package p1669;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1669C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int len = lines.length;
-
-        int num0 = Integer.parseInt(lines[0]) % 2;
-        int num1 = Integer.parseInt(lines[1]) % 2;
-        for (int i = 0; i < len; i += 2) {
-            if (Integer.parseInt(lines[i]) % 2 != num0) {
+    private static String solve(int n, int[] a) {
+        int evenRemainder = a[0] % 2;
+        int oddRemainder = a[1] % 2;
+        for (int i = 0; i < n; i += 2) {
+            if (a[i] % 2 != evenRemainder) {
                 return "NO";
             }
         }
-        for (int i = 1; i < len; i += 2) {
-            if (Integer.parseInt(lines[i]) % 2 != num1) {
+        for (int i = 1; i < n; i += 2) {
+            if (a[i] % 2 != oddRemainder) {
                 return "NO";
             }
         }

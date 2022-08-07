@@ -1,43 +1,35 @@
 package p1703;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CF1703C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String lineA = reader.readLine();
-            String[] lineN = new String[n];
+            int n = scanner.nextInt();
+            int[] a = new int[n];
             for (int j = 0; j < n; j++) {
-                lineN[j] = reader.readLine();
+                a[j] = scanner.nextInt();
             }
-            writer.write(solution(n, lineA, lineN).concat(System.lineSeparator()));
+            scanner.nextLine();
+            String[] b = new String[n];
+            for (int j = 0; j < n; j++) {
+                b[j] = scanner.nextLine();
+            }
+            System.out.println(solve(n, a, b));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String lineA, String[] lineN) {
-        String[] lineAs = lineA.split(" ");
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = Integer.parseInt(lineAs[i]);
-        }
+    private static String solve(int n, int[] a, String[] b) {
         List<String> resList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            String b = lineN[i].split(" ")[1];
+            String s = b[i].split(" ")[1];
             int cnt = 0;
-            for (char ch : b.toCharArray()) {
+            for (char ch : s.toCharArray()) {
                 if (ch == 'U') {
                     cnt--;
                 } else {

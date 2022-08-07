@@ -1,30 +1,23 @@
 package p1703;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1703B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            String s = scanner.next();
+            System.out.println(solve(n, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
+    private static String solve(int n, String s) {
         boolean[] visited = new boolean[26];
         int cnt = 0;
-        for (char ch : line2.toCharArray()) {
+        for (char ch : s.toCharArray()) {
             int idx = ch - 'A';
             if (!visited[idx]) {
                 visited[idx] = true;

@@ -1,57 +1,52 @@
 package p1676;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class CF1676E {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String[] line1 = reader.readLine().split(" ");
-            int n = Integer.parseInt(line1[0]);
-            int q = Integer.parseInt(line1[1]);
-            String line2 = reader.readLine();
-            String[] lineQ = new String[q];
-            for (int j = 0; j < q; j++) {
-                lineQ[j] = reader.readLine();
+            int n = scanner.nextInt();
+            int q = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
             }
-            String[] res = solution(n, q, line2, lineQ);
+            int[] x = new int[q];
+            for (int j = 0; j < q; j++) {
+                x[j] = scanner.nextInt();
+            }
+
+            List<String> res = solve(n, q, a, x);
             for (String re : res) {
-                writer.write(re.concat(System.lineSeparator()));
+                System.out.println(re);
             }
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String[] solution(int n, int q, String line2, String[] lineQ) {
-        String[] line2s = line2.split(" ");
-        List<Integer> a = new ArrayList<>();
+    private static List<String> solve(int n, int q, int[] a, int[] x) {
+        List<Integer> aList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            a.add(Integer.parseInt(line2s[i]));
+            aList.add(a[i]);
         }
-        a.sort(Comparator.reverseOrder());
+        aList.sort(Comparator.reverseOrder());
         // 前缀和
         long[] preSum = new long[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + a.get(i);
+            preSum[i + 1] = preSum[i] + aList.get(i);
         }
 
         // 二分
-        String[] res = new String[q];
+        List<String> res = new ArrayList<>();
         for (int i = 0; i < q; i++) {
-            long query = Long.parseLong(lineQ[i]);
+            long query = x[i];
             if (preSum[n] < query) {
-                res[i] = "-1";
+                res.add("-1");
                 continue;
             }
             int left = 0;
@@ -66,7 +61,7 @@ public class CF1676E {
                     left = mid + 1;
                 }
             }
-            res[i] = String.valueOf(left);
+            res.add(String.valueOf(left));
         }
         return res;
     }

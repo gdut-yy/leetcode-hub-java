@@ -1,10 +1,5 @@
 package p1676;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,31 +7,31 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class CF1676G {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            String line3 = reader.readLine();
-            writer.write(solution(line1, line2, line3).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n - 1];
+            for (int j = 0; j < n - 1; j++) {
+                a[j] = scanner.nextInt();
+            }
+            String s = scanner.next();
+
+            System.out.println(solve(n, a, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2, String line3) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
+    private static String solve(int n, int[] a, String s) {
         Map<Integer, List<Integer>> adj = new HashMap<>();
         // 入度数组
         int[] inDegrees = new int[n + 1];
         for (int i = 2; i <= n; i++) {
             int from = i;
-            int to = Integer.parseInt(line2s[i - 2]);
+            int to = a[i - 2];
             adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
             inDegrees[to]++;
         }
@@ -46,7 +41,7 @@ public class CF1676G {
         // 入度为 0 进队列
         Queue<Integer> queue = new LinkedList<>();
         for (int i = 1; i <= n; i++) {
-            memo.put(i, line3.charAt(i - 1) == 'W' ? 1 : -1);
+            memo.put(i, s.charAt(i - 1) == 'W' ? 1 : -1);
             if (inDegrees[i] == 0) {
                 queue.add(i);
             }

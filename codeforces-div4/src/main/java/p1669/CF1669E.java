@@ -1,43 +1,35 @@
 package p1669;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1669E {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            int n = Integer.parseInt(line1);
-            String[] lines = new String[n];
+            int n = scanner.nextInt();
+            String[] s = new String[n];
             for (int j = 0; j < n; j++) {
-                lines[j] = reader.readLine();
+                s[j] = scanner.next();
             }
-            writer.write(solution(n, lines).concat(System.lineSeparator()));
+            System.out.println(solve(n, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String[] lines) {
+    private static String solve(int n, String[] s) {
         // from 'a' to 'k'.
         int[][] cntArray = new int[11][11];
-        for (String line : lines) {
-            int idx0 = line.charAt(0) - 'a';
-            int idx1 = line.charAt(1) - 'a';
+        for (String si : s) {
+            int idx0 = si.charAt(0) - 'a';
+            int idx1 = si.charAt(1) - 'a';
             cntArray[idx0][idx1]++;
         }
 
-        long cnt = 0;
-        for (String line : lines) {
-            int idx0 = line.charAt(0) - 'a';
-            int idx1 = line.charAt(1) - 'a';
+        long cnt = 0L;
+        for (String si : s) {
+            int idx0 = si.charAt(0) - 'a';
+            int idx1 = si.charAt(1) - 'a';
             for (int i = 0; i < 11; i++) {
                 // 第一个位置不等
                 if (i != idx0) {

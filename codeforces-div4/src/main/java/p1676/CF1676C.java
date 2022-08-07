@@ -1,37 +1,29 @@
 package p1676;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1676C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String[] line1 = reader.readLine().split(" ");
-            int n = Integer.parseInt(line1[0]);
-            int m = Integer.parseInt(line1[1]);
-            String[] lineN = new String[n];
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            String[] s = new String[n];
             for (int j = 0; j < n; j++) {
-                lineN[j] = reader.readLine();
+                s[j] = scanner.next();
             }
-            writer.write(solution(n, m, lineN).concat(System.lineSeparator()));
+            System.out.println(solve(n, m, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, int m, String[] lineN) {
+    private static String solve(int n, int m, String[] s) {
         int min = Integer.MAX_VALUE;
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                String s1 = lineN[i];
-                String s2 = lineN[j];
+                String s1 = s[i];
+                String s2 = s[j];
                 int sum = 0;
                 for (int k = 0; k < m; k++) {
                     sum += Math.abs(s1.charAt(k) - s2.charAt(k));

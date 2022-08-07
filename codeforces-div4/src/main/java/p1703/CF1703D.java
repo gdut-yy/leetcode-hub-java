@@ -1,41 +1,34 @@
 package p1703;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class CF1703D {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String[] lineN = new String[n];
+            int n = scanner.nextInt();
+            String[] s = new String[n];
             for (int j = 0; j < n; j++) {
-                lineN[j] = reader.readLine();
+                s[j] = scanner.next();
             }
-            writer.write(solution(n, lineN).concat(System.lineSeparator()));
+            System.out.println(solve(n, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String[] lineN) {
+    private static String solve(int n, String[] s) {
         Set<String> hashSet = new HashSet<>();
-        Collections.addAll(hashSet, lineN);
+        Collections.addAll(hashSet, s);
 
         char[] chars = new char[n];
         Arrays.fill(chars, '0');
         for (int i = 0; i < n; i++) {
-            String si = lineN[i];
+            String si = s[i];
             for (int j = 1; j < si.length(); j++) {
                 String sj = si.substring(0, j);
                 String sk = si.substring(j);

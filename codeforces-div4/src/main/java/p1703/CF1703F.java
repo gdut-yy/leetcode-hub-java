@@ -1,41 +1,34 @@
 package p1703;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Scanner;
 
 public class CF1703F {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
+    private static String solve(int n, int[] a) {
         List<Integer> iList = new ArrayList<>();
         List<Integer> ajList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            int ai = Integer.parseInt(line2s[i]);
             // ai < i
             // aj < j
-            if (ai < i + 1) {
+            if (a[i] < i + 1) {
                 iList.add(i + 1);
-                ajList.add(ai);
+                ajList.add(a[i]);
             }
         }
 

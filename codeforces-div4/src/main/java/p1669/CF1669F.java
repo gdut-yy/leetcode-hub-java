@@ -1,46 +1,36 @@
 package p1669;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1669F {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] w = new int[n];
+            for (int j = 0; j < n; j++) {
+                w[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, w));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int n = lines.length;
-
+    private static String solve(int n, int[] w) {
         int sum = 0;
-        int[] nums = new int[n];
         int[] reNums = new int[n];
         for (int i = 0; i < n; i++) {
-            int num = Integer.parseInt(lines[i]);
-            sum += num;
-            nums[i] = num;
-            reNums[n - 1 - i] = num;
+            sum += w[i];
+            reNums[n - 1 - i] = w[i];
         }
 
         // 前缀和
         int[] preSum = new int[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+            preSum[i + 1] = preSum[i] + w[i];
         }
         int[] rePreSum = new int[n + 1];
         for (int i = 0; i < n; i++) {

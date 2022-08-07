@@ -1,45 +1,32 @@
 package p1669;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
+import java.util.Scanner;
 
 public class CF1669G {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String[] line1s = reader.readLine().split(" ");
-            int n = Integer.parseInt(line1s[0]);
-            int m = Integer.parseInt(line1s[1]);
-            String[] lines = new String[n];
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            char[][] chars = new char[n][m];
             for (int j = 0; j < n; j++) {
-                lines[j] = reader.readLine();
+                chars[j] = scanner.next().toCharArray();
             }
-            String[] res = solution(n, m, lines);
-            // output
+
+            List<String> res = solve(n, m, chars);
             for (String re : res) {
-                writer.write(re);
-                writer.write(System.lineSeparator());
+                System.out.println(re);
             }
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String[] solution(int n, int m, String[] lines) {
-        // n * m
-        char[][] chars = new char[n][m];
-        for (int i = 0; i < n; i++) {
-            chars[i] = lines[i].toCharArray();
-        }
-
+    private static List<String> solve(int n, int m, char[][] chars) {
         // 每一列
         for (int j = 0; j < m; j++) {
             Deque<Integer> deque = new ArrayDeque<>();
@@ -74,9 +61,9 @@ public class CF1669G {
         }
 
         // res
-        String[] res = new String[n];
+        List<String> res = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            res[i] = new String(chars[i]);
+            res.add(new String(chars[i]));
         }
         return res;
     }
