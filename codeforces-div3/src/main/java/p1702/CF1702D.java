@@ -1,70 +1,61 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1702D {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            String w = scanner.next();
+            int p = scanner.nextInt();
+            System.out.println(solve(w, p));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int p = Integer.parseInt(line2);
-
+    private static String solve(String w, int p) {
         int[] cntArr = new int[27];
         int sum = 0;
-        for (char ch : line1.toCharArray()) {
-            int w = ch - 'a' + 1;
-            cntArr[w]++;
-            sum += w;
+        for (char ch : w.toCharArray()) {
+            int idx = ch - 'a' + 1;
+            cntArr[idx]++;
+            sum += idx;
         }
         if (sum <= p) {
-            return line1;
+            return w;
         }
         // sum > p
         sum -= p;
 
         // 需要移除
         int[] rmArr = new int[27];
-        for (int w = 26; w >= 1 && sum > 0; w--) {
-            int k = cntArr[w];
+        for (int idx = 26; idx >= 1 && sum > 0; idx--) {
+            int k = cntArr[idx];
             if (k == 0) {
                 continue;
             }
-            if (sum - w * k <= 0) {
-                if (sum % w == 0) {
-                    int k1 = sum / w;
-                    rmArr[w] += k1;
-                    sum -= w * k1;
+            if (sum - idx * k <= 0) {
+                if (sum % idx == 0) {
+                    int k1 = sum / idx;
+                    rmArr[idx] += k1;
+                    sum -= idx * k1;
                 } else {
-                    int k1 = sum / w + 1;
-                    rmArr[w] += k1;
-                    sum -= w * k1;
+                    int k1 = sum / idx + 1;
+                    rmArr[idx] += k1;
+                    sum -= idx * k1;
                 }
             } else {
-                rmArr[w] += k;
-                sum -= w * k;
+                rmArr[idx] += k;
+                sum -= idx * k;
             }
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        for (char ch : line1.toCharArray()) {
-            int w = ch - 'a' + 1;
-            if (rmArr[w] > 0) {
-                rmArr[w]--;
+        for (char ch : w.toCharArray()) {
+            int idx = ch - 'a' + 1;
+            if (rmArr[idx] > 0) {
+                rmArr[idx]--;
             } else {
                 stringBuilder.append(ch);
             }

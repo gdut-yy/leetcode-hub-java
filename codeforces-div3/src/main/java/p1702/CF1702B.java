@@ -1,32 +1,25 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class CF1702B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            String s = scanner.next();
+            System.out.println(solve(s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
+    private static String solve(String s) {
         int cnt = 0;
         int k = 0;
         Set<Character> hashSet = new HashSet<>();
-        for (char ch : line.toCharArray()) {
+        for (char ch : s.toCharArray()) {
             if (!hashSet.contains(ch)) {
                 k++;
                 hashSet.add(ch);

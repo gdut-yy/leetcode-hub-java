@@ -1,29 +1,21 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1702A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int m = scanner.nextInt();
+            System.out.println(solve(m));
         }
-        writer.close();
-        reader.close();
     }
 
     private static final int[] TABLES = {1, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
 
-    private static String solution(String line) {
-        int m = Integer.parseInt(line);
+    private static String solve(int m) {
         for (int i = TABLES.length - 1; i >= 0; i--) {
             if (m >= TABLES[i]) {
                 return String.valueOf(m - TABLES[i]);
@@ -32,7 +24,6 @@ public class CF1702A {
         return "";
     }
 }
-
 /*
 Codeforces Round #805 (Div. 3)
 A. Round Down the Price

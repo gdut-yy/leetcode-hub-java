@@ -1,61 +1,60 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1702C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            reader.readLine();
-            String[] lines = reader.readLine().split(" ");
-            int n = Integer.parseInt(lines[0]);
-            int k = Integer.parseInt(lines[1]);
-            String lineU = reader.readLine();
-            String[] lineKs = new String[k];
-            for (int j = 0; j < k; j++) {
-                lineKs[j] = reader.readLine();
+            scanner.nextLine();
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            int[] u = new int[n];
+            for (int j = 0; j < n; j++) {
+                u[j] = scanner.nextInt();
             }
-            String[] res = solution(n, k, lineU, lineKs);
+            int[] a = new int[k];
+            int[] b = new int[k];
+            for (int j = 0; j < k; j++) {
+                a[j] = scanner.nextInt();
+                b[j] = scanner.nextInt();
+            }
+
+            List<String> res = solution(n, k, u, a, b);
             for (String re : res) {
-                writer.write(re.concat(System.lineSeparator()));
+                System.out.println(re);
             }
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String[] solution(int n, int k, String lineU, String[] lineKs) {
-        String[] lineUs = lineU.split(" ");
+    private static List<String> solution(int n, int k, int[] u, int[] a, int[] b) {
         Map<Integer, LinkedList<Integer>> idxListMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            int u = Integer.parseInt(lineUs[i]);
-            idxListMap.computeIfAbsent(u, key -> new LinkedList<>()).add(i);
+            idxListMap.computeIfAbsent(u[i], key -> new LinkedList<>()).add(i);
         }
 
-        String[] res = new String[k];
+        List<String> resList = new ArrayList<>();
         for (int i = 0; i < k; i++) {
-            String[] lineK = lineKs[i].split(" ");
-            int a = Integer.parseInt(lineK[0]);
-            int b = Integer.parseInt(lineK[1]);
-            if (!idxListMap.containsKey(a) || !idxListMap.containsKey(b)) {
-                res[i] = "NO";
+            if (!idxListMap.containsKey(a[i]) || !idxListMap.containsKey(b[i])) {
+                resList.add("NO");
             } else {
-                int firstA = idxListMap.get(a).getFirst();
-                int lastB = idxListMap.get(b).getLast();
-                res[i] = (firstA < lastB) ? "YES" : "NO";
+                int firstA = idxListMap.get(a[i]).getFirst();
+                int lastB = idxListMap.get(b[i]).getLast();
+                if (firstA < lastB) {
+                    resList.add("YES");
+                } else {
+                    resList.add("NO");
+                }
             }
         }
-        return res;
+        return resList;
     }
 }
 /*

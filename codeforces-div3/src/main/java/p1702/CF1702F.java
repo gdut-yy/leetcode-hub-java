@@ -1,45 +1,40 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class CF1702F {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(n, line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            int[] b = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            for (int j = 0; j < n; j++) {
+                b[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a, b));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String line1, String line2) {
+    private static String solve(int n, int[] a, int[] b) {
         Map<Integer, LinkedList<Integer>> aMap = new HashMap<>();
         PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
-        String[] line1s = line1.split(" ");
-        String[] line2s = line2.split(" ");
         for (int i = 0; i < n; i++) {
-            int ai = Integer.parseInt(line1s[i]);
-            int bi = Integer.parseInt(line2s[i]);
-            while (ai % 2 == 0) {
-                ai /= 2;
+            while (a[i] % 2 == 0) {
+                a[i] /= 2;
             }
-            aMap.computeIfAbsent(ai, key -> new LinkedList<>()).add(i);
-            priorityQueue.add(bi);
+            aMap.computeIfAbsent(a[i], key -> new LinkedList<>()).add(i);
+            priorityQueue.add(b[i]);
         }
 
         while (!priorityQueue.isEmpty()) {
@@ -62,7 +57,6 @@ public class CF1702F {
         return "YES";
     }
 }
-
 /*
 F. Equate Multisets
 https://codeforces.com/contest/1702/problem/F

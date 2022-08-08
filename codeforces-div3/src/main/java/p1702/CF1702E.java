@@ -1,42 +1,34 @@
 package p1702;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1702E {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String[] lineNs = new String[n];
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            int[] b = new int[n];
             for (int j = 0; j < n; j++) {
-                lineNs[j] = reader.readLine();
+                a[j] = scanner.nextInt();
+                b[j] = scanner.nextInt();
             }
-            writer.write(solution(n, lineNs).concat(System.lineSeparator()));
+            System.out.println(solve(n, a, b));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String[] lineNs) {
+    private static String solve(int n, int[] a, int[] b) {
         UnionFind unionFind = new UnionFind(n);
         int[] cntArr = new int[n + 1];
-        for (String line : lineNs) {
-            String[] lines = line.split(" ");
-            int a = Integer.parseInt(lines[0]);
-            int b = Integer.parseInt(lines[1]);
-            if (a == b) {
+        for (int i = 0; i < n; i++) {
+            if (a[i] == b[i]) {
                 return "NO";
             }
-            cntArr[a]++;
-            cntArr[b]++;
-            unionFind.union(a, b);
+            cntArr[a[i]]++;
+            cntArr[b[i]]++;
+            unionFind.union(a[i], b[i]);
         }
 
         for (int i = 1; i <= n; i++) {

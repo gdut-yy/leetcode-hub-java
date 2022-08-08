@@ -17,6 +17,7 @@ public class CF1579D {
             for (int j = 0; j < n; j++) {
                 a[j] = scanner.nextInt();
             }
+
             List<String> res = solve(n, a);
             System.out.println(res.size());
             for (String re : res) {
@@ -56,8 +57,54 @@ D. Productive Meeting
 https://codeforces.com/contest/1579/problem/D
 
 题目大意：
-给出字符串 s。s 只包含 'A','B','C' 三种字符，每次操作可去除 1个'A'和 1个'B'，或去除 1个'B'和 1个'C'，问最后能否成为空串。
+给出整数 n 和长度为 n 的数组 a。任何两个人可退一步单独交谈，求最多谈话总次数。
 
-统计字符频次，判断 'B'的频次是否等于 'A','C'频次之和即可。
+贪心，优先序列。
 ======
+
+input
+8
+2
+2 3
+3
+1 2 3
+4
+1 2 3 4
+3
+0 0 2
+2
+6 2
+3
+0 0 2
+5
+8 2 0 1 1
+5
+0 1 0 0 6
+
+output
+2
+1 2
+1 2
+3
+1 3
+2 3
+2 3
+5
+1 3
+2 4
+2 4
+3 4
+3 4
+0
+2
+1 2
+1 2
+0
+4
+1 2
+1 5
+1 4
+1 2
+1
+5 2
  */
