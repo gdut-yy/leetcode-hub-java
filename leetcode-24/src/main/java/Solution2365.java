@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6174 {
+public class Solution2365 {
     public long taskSchedulerII(int[] tasks, int space) {
         // 任务完成时间
         Map<Integer, Long> preMap = new HashMap<>();
@@ -24,7 +24,7 @@ public class Solution6174 {
     }
 }
 /*
-6174. 任务调度器 II
+2365. 任务调度器 II
 https://leetcode.cn/problems/task-scheduler-ii/
 
 第 84 场双周赛 T3。

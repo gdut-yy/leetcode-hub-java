@@ -1,4 +1,4 @@
-public class Solution6144 {
+public class Solution2366 {
     public long minimumReplacement(int[] nums) {
         int len = nums.length;
         long ans = 0L;
@@ -17,7 +17,7 @@ public class Solution6144 {
     }
 }
 /*
-6144. 将数组排序的最少替换次数
+2366. 将数组排序的最少替换次数
 https://leetcode.cn/problems/minimum-replacements-to-sort-the-array/
 
 第 84 场双周赛 T4。

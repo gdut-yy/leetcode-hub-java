@@ -1,4 +1,4 @@
-public class Solution6137 {
+public class Solution2369 {
     public boolean validPartition(int[] nums) {
         int len = nums.length;
         boolean[] dp = new boolean[len + 1];
@@ -20,7 +20,7 @@ public class Solution6137 {
     }
 }
 /*
-6137. 检查数组是否存在有效划分
+2369. 检查数组是否存在有效划分
 https://leetcode.cn/problems/check-if-there-is-a-valid-partition-for-the-array/
 
 第 305 场周赛 T3。

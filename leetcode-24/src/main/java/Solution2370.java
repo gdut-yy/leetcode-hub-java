@@ -1,4 +1,4 @@
-public class Solution6138 {
+public class Solution2370 {
     public int longestIdealString(String s, int k) {
         int[] cntArr = new int[26];
         for (char ch : s.toCharArray()) {
@@ -18,7 +18,7 @@ public class Solution6138 {
     }
 }
 /*
-6138. 最长理想子序列
+2370. 最长理想子序列
 https://leetcode.cn/problems/longest-ideal-subsequence/
 
 给你一个由小写字母组成的字符串 s ，和一个整数 k 。如果满足下述条件，则可以将字符串 t 视作是 理想字符串 ：

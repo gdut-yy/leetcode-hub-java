@@ -3,7 +3,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6141 {
+public class Solution2363 {
     public List<List<Integer>> mergeSimilarItems(int[][] items1, int[][] items2) {
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         for (int[] ints : items1) {
@@ -21,7 +21,7 @@ public class Solution6141 {
     }
 }
 /*
-6141. 合并相似的物品
+2363. 合并相似的物品
 https://leetcode.cn/problems/merge-similar-items/
 
 第 84 场双周赛 T1。

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6142 {
+public class Solution2364 {
     public long countBadPairs(int[] nums) {
         int len = nums.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -22,7 +22,7 @@ public class Solution6142 {
     }
 }
 /*
-6142. 统计坏数对的数目
+2364. 统计坏数对的数目
 https://leetcode.cn/problems/count-number-of-bad-pairs/
 
 第 84 场双周赛 T2。

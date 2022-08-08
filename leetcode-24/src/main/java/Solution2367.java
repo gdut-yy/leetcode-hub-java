@@ -1,4 +1,4 @@
-public class Solution6136 {
+public class Solution2367 {
     public int arithmeticTriplets(int[] nums, int diff) {
         int len = nums.length;
         int cnt = 0;
@@ -17,7 +17,7 @@ public class Solution6136 {
     }
 }
 /*
-6136. 算术三元组的数目
+2367. 算术三元组的数目
 https://leetcode.cn/problems/number-of-arithmetic-triplets/
 
 第 305 场周赛 T1。

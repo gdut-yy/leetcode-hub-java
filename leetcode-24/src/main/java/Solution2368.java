@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution6139 {
+public class Solution2368 {
     public int reachableNodes(int n, int[][] edges, int[] restricted) {
         Map<Integer, List<Integer>> adj = new HashMap<>();
         for (int[] edge : edges) {
@@ -42,7 +42,7 @@ public class Solution6139 {
     }
 }
 /*
-6139. 受限条件下可到达节点的数目
+2368. 受限条件下可到达节点的数目
 https://leetcode.cn/problems/reachable-nodes-with-restrictions/
 
 第 305 场周赛 T2。

@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6138Tests {
-    private final Solution6138 solution6138 = new Solution6138();
+public class Solution2370Tests {
+    private final Solution2370 solution2370 = new Solution2370();
 
     @Test
     public void example1() {
         String s = "acfgbd";
         int k = 2;
         int expected = 4;
-        Assertions.assertEquals(expected, solution6138.longestIdealString(s, k));
+        Assertions.assertEquals(expected, solution2370.longestIdealString(s, k));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6138Tests {
         String s = "abcd";
         int k = 3;
         int expected = 4;
-        Assertions.assertEquals(expected, solution6138.longestIdealString(s, k));
+        Assertions.assertEquals(expected, solution2370.longestIdealString(s, k));
     }
 
     // 补充用例
@@ -27,6 +27,6 @@ public class Solution6138Tests {
         String s = "eduktdb";
         int k = 15;
         int expected = 5;
-        Assertions.assertEquals(expected, solution6138.longestIdealString(s, k));
+        Assertions.assertEquals(expected, solution2370.longestIdealString(s, k));
     }
 }
