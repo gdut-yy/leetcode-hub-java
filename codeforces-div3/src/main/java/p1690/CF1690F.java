@@ -1,36 +1,24 @@
 package p1690;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1690F {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            String line3 = reader.readLine();
-            writer.write(solution2(line1, line2, line3).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            String s = scanner.next();
+            int[] p = new int[n];
+            for (int j = 0; j < n; j++) {
+                p[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, s, p));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution2(String line1, String line2, String line3) {
-        int n = Integer.parseInt(line1);
-        String s = line2;
-        String[] line3s = line3.split(" ");
-        int[] p = new int[n];
-        for (int i = 0; i < n; i++) {
-            p[i] = Integer.parseInt(line3s[i]) - 1;
-        }
-
+    private static String solve(int n, String s, int[] p) {
         long lcm = 1L;
         boolean[] visited = new boolean[n];
         int idx = 0;
@@ -39,7 +27,7 @@ public class CF1690F {
             while (!visited[idx]) {
                 stringBuilder.append(s.charAt(idx));
                 visited[idx] = true;
-                idx = p[idx];
+                idx = p[idx] - 1;
             }
             idx++;
 
@@ -73,29 +61,6 @@ public class CF1690F {
         }
         return getGCD(num2 % num1, num1);
     }
-
-//    private static String solution(String line1, String line2, String line3) {
-//        int n = Integer.parseInt(line1);
-//        String[] line3s = line3.split(" ");
-//        int[] p = new int[n];
-//        for (int i = 0; i < n; i++) {
-//            p[i] = Integer.parseInt(line3s[i]);
-//        }
-//
-//        String s = line2;
-//        for (int k = 1; ; k++) {
-//            char[] chars = s.toCharArray();
-//            char[] newChars = new char[n];
-//            for (int i = 0; i < n; i++) {
-//                newChars[i] = chars[p[i] - 1];
-//            }
-//            String newStr = new String(newChars);
-//            if (newStr.equals(line2)) {
-//                return String.valueOf(k);
-//            }
-//            s = newStr;
-//        }
-//    }
 }
 /*
 F. Shifting String

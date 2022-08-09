@@ -1,38 +1,23 @@
 package p1674;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1674B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
-        }
-        writer.close();
-        reader.close();
-
-        for (char i = 'a'; i <= 'z'; i++) {
-            for (char j = 'a'; j <= 'z'; j++) {
-                if (i != j) {
-                    System.out.println("" + i + j);
-                }
-            }
+            String s = scanner.next();
+            System.out.println(solve(s));
         }
     }
 
     private static Map<String, Integer> idxMap;
 
-    private static String solution(String line) {
+    private static String solve(String s) {
         if (idxMap == null) {
             idxMap = new HashMap<>();
             int idx = 1;
@@ -44,7 +29,7 @@ public class CF1674B {
                 }
             }
         }
-        return String.valueOf(idxMap.get(line));
+        return String.valueOf(idxMap.get(s));
     }
 }
 /*

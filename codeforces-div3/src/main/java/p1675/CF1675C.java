@@ -1,43 +1,33 @@
 package p1675;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class CF1675C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            String s = scanner.next();
+            System.out.println(solve(s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        int n = line.length();
+    private static String solve(String s) {
+        int n = s.length();
         // 排除嫌疑:
         // 1 后面有 1
         // 0 前面有 0
         // ? 后面有 1 || ? 前面有 0
         List<Integer> idxList1 = new ArrayList<>();
         List<Integer> idxList0 = new ArrayList<>();
-        List<Integer> idxList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (line.charAt(i) == '1') {
+            if (s.charAt(i) == '1') {
                 idxList1.add(i);
-            } else if (line.charAt(i) == '0') {
+            } else if (s.charAt(i) == '0') {
                 idxList0.add(i);
-            } else {
-                idxList.add(i);
             }
         }
 
@@ -53,11 +43,11 @@ public class CF1675C {
 
         int cnt = 0;
         for (int i = 0; i < n; i++) {
-            if (line.charAt(i) == '1') {
+            if (s.charAt(i) == '1') {
                 if (i == last1Idx) {
                     cnt++;
                 }
-            } else if (line.charAt(i) == '0') {
+            } else if (s.charAt(i) == '0') {
                 if (i == first0Idx) {
                     cnt++;
                 }

@@ -1,36 +1,27 @@
 package p1674;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1674A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            System.out.println(solve(x, y));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int x = Integer.parseInt(lines[0]);
-        int y = Integer.parseInt(lines[1]);
-
+    private static String solve(int x, int y) {
         // y = x * b^a
         for (int a = 1; a <= 100; a++) {
             for (int b = 1; b <= 100; b++) {
-                if ((int) (x * Math.pow(b, a)) == y) {
+                int pow = (int) (x * Math.pow(b, a));
+                if (pow == y) {
                     return a + " " + b;
-                } else if ((int) (x * Math.pow(b, a)) > y) {
+                } else if (pow > y) {
                     break;
                 }
             }

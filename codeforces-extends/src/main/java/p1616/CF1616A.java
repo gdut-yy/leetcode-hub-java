@@ -1,46 +1,37 @@
 package p1616;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1616A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String line = reader.readLine();
-            writer.write(solution(n, line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String line) {
-        String[] lines = line.split(" ");
+    private static String solve(int n, int[] a) {
         Map<Integer, Integer> cntMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            int num = Math.abs(Integer.parseInt(lines[i]));
-            cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
+            int abs = Math.abs(a[i]);
+            cntMap.put(abs, cntMap.getOrDefault(abs, 0) + 1);
         }
 
         int cnt = 0;
         for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            if (entry.getKey() == 0) {
-                cnt++;
+            if (entry.getKey() != 0 && entry.getValue() > 1) {
+                cnt += 2;
             } else {
-                if (entry.getValue() > 1) {
-                    cnt += 2;
-                } else {
-                    cnt++;
-                }
+                cnt += 1;
             }
         }
         return String.valueOf(cnt);

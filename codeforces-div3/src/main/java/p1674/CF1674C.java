@@ -1,38 +1,31 @@
 package p1674;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1674C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
-        for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int q = scanner.nextInt();
+        for (int i = 0; i < q; i++) {
+            String s = scanner.next();
+            String t = scanner.next();
+            System.out.println(solve(s, t));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
+    private static String solve(String s, String t) {
         // t 等于 "a" 换了等于没换
-        if (line2.equals("a")) {
+        if (t.equals("a")) {
             return "1";
         }
 
         // 如果 t 含 'a' 且不为 "a"，则无限大
-        if (line2.contains("a")) {
+        if (t.contains("a")) {
             return "-1";
         }
 
-        int n = line1.length();
+        int n = s.length();
         return String.valueOf((long) Math.pow(2, n));
     }
 }

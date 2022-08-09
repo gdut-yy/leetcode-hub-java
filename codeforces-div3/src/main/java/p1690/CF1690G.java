@@ -1,45 +1,34 @@
 package p1690;
 
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.TreeSet;
 
 public class CF1690G {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            String line1 = reader.readLine();
-            String[] line1s = line1.split(" ");
-            int n = Integer.parseInt(line1s[0]);
-            int m = Integer.parseInt(line1s[1]);
-            String line2 = reader.readLine();
-            String[] lineM = new String[m];
-            for (int j = 0; j < m; j++) {
-                lineM[j] = reader.readLine();
+            scanner.nextLine();
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
             }
-            writer.write(solution(n, m, line2, lineM).concat(System.lineSeparator()));
+            int[] k = new int[m];
+            int[] d = new int[m];
+            for (int j = 0; j < m; j++) {
+                k[j] = scanner.nextInt();
+                d[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, m, a, k, d));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, int m, String line2, String[] lineM) {
-        String[] line2s = line2.split(" ");
-        int[] a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = Integer.parseInt(line2s[i]);
-        }
-
+    private static String solve(int n, int m, int[] a, int[] k, int[] d) {
         TreeSet<Integer> treeSet = new TreeSet<>();
         for (int i = 0; i < n; i++) {
             if (treeSet.isEmpty() || a[i] < a[treeSet.last()]) {
@@ -48,17 +37,16 @@ public class CF1690G {
         }
 
         List<String> resList = new ArrayList<>();
-        for (String line : lineM) {
-            String[] lines = line.split(" ");
-            int k = Integer.parseInt(lines[0]);
-            int d = Integer.parseInt(lines[1]);
-            k -= 1;
-            a[k] -= d;
+        for (int i = 0; i < m; i++) {
+            int ki = k[i];
+            int di = d[i];
+            ki -= 1;
+            a[ki] -= di;
 
-            Integer pre = treeSet.lower(k);
-            if (pre == null || a[k] < a[pre]) {
-                treeSet.add(k);
-                for (Integer suf = treeSet.higher(k); suf != null && a[suf] >= a[k]; suf = treeSet.higher(k)) {
+            Integer pre = treeSet.lower(ki);
+            if (pre == null || a[ki] < a[pre]) {
+                treeSet.add(ki);
+                for (Integer suf = treeSet.higher(ki); suf != null && a[suf] >= a[ki]; suf = treeSet.higher(ki)) {
                     treeSet.remove(suf);
                 }
             }

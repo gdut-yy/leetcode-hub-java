@@ -1,38 +1,27 @@
 package p1674;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CF1674D {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
-        int[] a = new int[n];
-        int[] b = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = Integer.parseInt(line2s[i]);
-            b[i] = a[i];
-        }
+    private static String solve(int n, int[] a) {
+        int[] sortedA = a.clone();
+        Arrays.sort(sortedA);
 
-        Arrays.sort(b);
         for (int i = n - 1; i > 0; i -= 2) {
             if (a[i] < a[i - 1]) {
                 int tmp = a[i];
@@ -40,7 +29,7 @@ public class CF1674D {
                 a[i - 1] = tmp;
             }
         }
-        return Arrays.equals(a, b) ? "YES" : "NO";
+        return Arrays.equals(a, sortedA) ? "YES" : "NO";
     }
 }
 /*

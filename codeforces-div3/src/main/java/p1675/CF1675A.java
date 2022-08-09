@@ -1,33 +1,23 @@
 package p1675;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1675A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            int c = scanner.nextInt();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            System.out.println(solve(a, b, c, x, y));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int a = Integer.parseInt(lines[0]);
-        int b = Integer.parseInt(lines[1]);
-        int c = Integer.parseInt(lines[2]);
-        int x = Integer.parseInt(lines[3]);
-        int y = Integer.parseInt(lines[4]);
-
+    private static String solve(int a, int b, int c, int x, int y) {
         if (a + c >= x && b + c >= y && a + b + c >= x + y) {
             return "YES";
         }

@@ -1,74 +1,69 @@
 package p1621;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class CF1621B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            int[][] nums = new int[n][3];
+            int n = scanner.nextInt();
+            int[] l = new int[n];
+            int[] r = new int[n];
+            int[] c = new int[n];
             for (int j = 0; j < n; j++) {
-                String[] lines = reader.readLine().split(" ");
-                nums[j][0] = Integer.parseInt(lines[0]);
-                nums[j][1] = Integer.parseInt(lines[1]);
-                nums[j][2] = Integer.parseInt(lines[2]);
+                l[j] = scanner.nextInt();
+                r[j] = scanner.nextInt();
+                c[j] = scanner.nextInt();
             }
-            int[] res = solution(n, nums);
-            for (int re : res) {
-                writer.write(String.valueOf(re).concat(System.lineSeparator()));
+
+            List<String> res = solve(n, l, r, c);
+            for (String re : res) {
+                System.out.println(re);
             }
         }
-        writer.close();
-        reader.close();
     }
 
-    private static int[] solution(int n, int[][] nums) {
-        // 三个指针，left 指向最小花费的最小 l 所在的 idx，right 指向最小花费的最大 r 所在的 idx，longest 指向最小花费的最长 r-l 所在的 idx
+    private static List<String> solve(int n, int[] l, int[] r, int[] c) {
+        // 三指针
+        // left 指向最小花费的最小 l 所在的 idx
+        // right 指向最小花费的最大 r 所在的 idx
+        // longest 指向最小花费的最长 r-l 所在的 idx
         int left = 0;
         int right = 0;
         int longest = 0;
 
-        int[] res = new int[n];
-        res[0] = nums[0][2];
+        List<String> resList = new ArrayList<>();
+        resList.add(String.valueOf(c[0]));
         for (int i = 1; i < n; i++) {
-            int[] cur = nums[i];
-            int minL = nums[left][0];
-            int maxR = nums[right][1];
-            int longestLen = nums[longest][1] - nums[longest][0];
-
             // 更新 left
-            if ((cur[0] < minL) || (cur[0] == minL && cur[2] < nums[left][2])) {
+            if (l[i] < l[left] || (l[i] == l[left] && c[i] < c[left])) {
                 left = i;
             }
 
             // 更新 right
-            if ((cur[1] > maxR) || (cur[1] == maxR && cur[2] < nums[right][2])) {
+            if (r[i] > r[right] || (r[i] == r[right] && c[i] < c[right])) {
                 right = i;
             }
 
+            int maxLen = r[longest] - l[longest];
             // 更新 longest
-            if ((cur[1] - cur[0] > longestLen) || (cur[1] - cur[0] == longestLen && cur[2] < nums[longest][2])) {
+            if (r[i] - l[i] > maxLen || (r[i] - l[i] == maxLen && c[i] < c[longest])) {
                 longest = i;
             }
 
-            // 更新 res[i]
+            // 最左和最右行是同一行还是不同行
+            int res = (left == right) ? c[left] : c[left] + c[right];
             // 是否考虑 longest 行
-            boolean bool = nums[right][1] - nums[left][0] == nums[longest][1] - nums[longest][0];
-            if (left == right) {
-                res[i] = bool ? Math.min(nums[longest][2], nums[left][2]) : nums[left][2];
-            } else {
-                res[i] = bool ? Math.min(nums[longest][2], nums[left][2] + nums[right][2]) : nums[left][2] + nums[right][2];
+            if (r[right] - l[left] == r[longest] - l[longest]) {
+                res = Math.min(res, c[longest]);
             }
+            resList.add(String.valueOf(res));
         }
-        return res;
+        return resList;
     }
 }
 /*

@@ -1,10 +1,5 @@
 package p1675;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,37 +7,37 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class CF1675D {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-
-            List<String> res = solution(line1, line2);
-            for (String re : res) {
-                writer.write(re.concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] p = new int[n];
+            for (int j = 0; j < n; j++) {
+                p[j] = scanner.nextInt();
             }
-            writer.write(System.lineSeparator());
+
+            List<String> res = solve(n, p);
+            System.out.println(res.size() / 2);
+            for (String re : res) {
+                System.out.println(re);
+            }
+            System.out.println();
         }
-        writer.close();
-        reader.close();
     }
 
     private static Map<Integer, List<Integer>> adj;
     private static boolean[] visited;
 
-    private static List<String> solution(String line1, String line2) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
+    private static List<String> solve(int n, int[] p) {
         // 建图
         int root = -1;
         adj = new HashMap<>();
         for (int i = 0; i < n; i++) {
-            int u = Integer.parseInt(line2s[i]);
+            int u = p[i];
             int v = i + 1;
             if (u != v) {
                 // the minimum amount of non-intersecting leading down paths that can cover all vertices of the tree.
@@ -65,35 +60,23 @@ public class CF1675D {
                 int cur = queue.remove();
                 if (!visited[cur]) {
                     visited[cur] = true;
-                    List<Integer> listI = new ArrayList<>();
-                    listI.add(cur);
+                    List<String> listI = new ArrayList<>();
+                    listI.add(String.valueOf(cur));
                     dfs(listI, cur);
                     resList.add(String.valueOf(listI.size()));
-                    resList.add(ints2Str(listI));
+                    resList.add(String.join(" ", listI));
                 }
-
                 queue.addAll(adj.getOrDefault(cur, new ArrayList<>()));
             }
         }
-
-        int resSz = resList.size() / 2;
-        resList.add(0, String.valueOf(resSz));
         return resList;
     }
 
-    private static String ints2Str(List<Integer> list) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int num : list) {
-            stringBuilder.append(num).append(" ");
-        }
-        return stringBuilder.substring(0, stringBuilder.length() - 1);
-    }
-
-    private static void dfs(List<Integer> list, int node) {
+    private static void dfs(List<String> list, int node) {
         for (int next : adj.getOrDefault(node, new ArrayList<>())) {
             if (!visited[next]) {
                 visited[next] = true;
-                list.add(next);
+                list.add(String.valueOf(next));
                 dfs(list, next);
                 break;
             }

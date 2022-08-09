@@ -1,44 +1,32 @@
 package p1616;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1616B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String line = reader.readLine();
-            writer.write(solution(n, line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            String s = scanner.next();
+            System.out.println(solve(n, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String line) {
+    private static String solve(int n, String s) {
         StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(line.charAt(0));
+        stringBuilder.append(s.charAt(0));
         for (int i = 1; i < n; i++) {
-            if (i == 1) {
-                if (line.charAt(1) < line.charAt(0)) {
-                    stringBuilder.append(line.charAt(i));
-                } else {
-                    break;
-                }
-            } else {
-                if (line.charAt(i) <= line.charAt(i - 1)) {
-                    stringBuilder.append(line.charAt(i));
-                } else {
-                    break;
-                }
+            // 特判
+            if (s.charAt(0) == s.charAt(1)) {
+                break;
             }
-
+            if (s.charAt(i - 1) >= s.charAt(i)) {
+                stringBuilder.append(s.charAt(i));
+            } else {
+                break;
+            }
         }
         String left = stringBuilder.toString();
         String right = stringBuilder.reverse().toString();

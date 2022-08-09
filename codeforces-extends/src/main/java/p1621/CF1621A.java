@@ -1,33 +1,33 @@
 package p1621;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 
 public class CF1621A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+
+            List<String> res = solve(n, k);
+            if (res.isEmpty()) {
+                System.out.println("-1");
+            } else {
+                for (String re : res) {
+                    System.out.println(re);
+                }
+            }
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int n = Integer.parseInt(lines[0]);
-        int k = Integer.parseInt(lines[1]);
-        if (k + k - 1 > n) {
-            return "-1";
-        } else {
+    private static List<String> solve(int n, int k) {
+        List<String> resList = new ArrayList<>();
+        if (k + k - 1 <= n) {
             char[][] chars = new char[n][n];
             for (int i = 0; i < n; i++) {
                 Arrays.fill(chars[i], '.');
@@ -35,15 +35,12 @@ public class CF1621A {
             for (int i = 0; i < k; i++) {
                 chars[i * 2][i * 2] = 'R';
             }
-            StringBuilder stringBuilder = new StringBuilder();
+
             for (int i = 0; i < n; i++) {
-                stringBuilder.append(new String(chars[i]));
-                if (i != n - 1) {
-                    stringBuilder.append(System.lineSeparator());
-                }
+                resList.add(new String(chars[i]));
             }
-            return stringBuilder.toString();
         }
+        return resList;
     }
 }
 /*

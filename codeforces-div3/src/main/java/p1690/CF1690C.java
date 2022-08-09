@@ -1,38 +1,27 @@
 package p1690;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1690C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            String line3 = reader.readLine();
-            writer.write(solution(line1, line2, line3).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] s = new int[n];
+            int[] f = new int[n];
+            for (int j = 0; j < n; j++) {
+                s[j] = scanner.nextInt();
+            }
+            for (int j = 0; j < n; j++) {
+                f[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, s, f));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2, String line3) {
-        int n = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
-        String[] line3s = line3.split(" ");
-        int[] s = new int[n];
-        int[] f = new int[n];
-        for (int i = 0; i < n; i++) {
-            s[i] = Integer.parseInt(line2s[i]);
-            f[i] = Integer.parseInt(line3s[i]);
-        }
-
+    private static String solve(int n, int[] s, int[] f) {
         String[] res = new String[n];
         for (int i = 0; i < n; i++) {
             if (i - 1 >= 0) {
