@@ -1,43 +1,34 @@
 package p1619;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.BitSet;
+import java.util.Scanner;
 
 public class CF1619D {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            reader.readLine();
-            String[] line1 = reader.readLine().split(" ");
+            scanner.nextLine();
             // m 家商店
-            int m = Integer.parseInt(line1[0]);
+            int m = scanner.nextInt();
             // n 个好友
-            int n = Integer.parseInt(line1[1]);
-            int[][] nums = new int[m][n];
+            int n = scanner.nextInt();
+            int[][] p = new int[m][n];
             for (int j = 0; j < m; j++) {
-                String[] lineJ = reader.readLine().split(" ");
                 for (int k = 0; k < n; k++) {
-                    nums[j][k] = Integer.parseInt(lineJ[k]);
+                    p[j][k] = scanner.nextInt();
                 }
             }
-            writer.write(solution(m, n, nums).concat(System.lineSeparator()));
+            System.out.println(solve(m, n, p));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int m, int n, int[][] nums) {
+    private static String solve(int m, int n, int[][] p) {
         // 二分
         int min = Integer.MAX_VALUE;
         int max = Integer.MIN_VALUE;
-        for (int[] num : nums) {
+        for (int[] num : p) {
             for (int i : num) {
                 min = Math.min(min, i);
                 max = Math.max(max, i);
@@ -49,7 +40,7 @@ public class CF1619D {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
-            if (!checkMid(m, n, nums, mid)) {
+            if (!checkMid(m, n, p, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -58,15 +49,15 @@ public class CF1619D {
         return String.valueOf(left - 1);
     }
 
-    private static boolean checkMid(int m, int n, int[][] nums, int mid) {
+    private static boolean checkMid(int m, int n, int[][] p, int mid) {
         // 访问最多 n−1 家商店，必然至少 2 个朋友在同 1 家商店购物
         boolean gt1 = false;
         BitSet bitSet = new BitSet(n);
         for (int i = 0; i < m; i++) {
             int cnt = 0;
             for (int j = 0; j < n; j++) {
-                // nums[i][j] 表示在商店 i 购买 j 朋友的快乐值
-                if (nums[i][j] >= mid) {
+                // p[i][j] 表示在商店 i 购买 j 朋友的快乐值
+                if (p[i][j] >= mid) {
                     bitSet.set(j);
                     cnt++;
                     if (cnt > 1) {

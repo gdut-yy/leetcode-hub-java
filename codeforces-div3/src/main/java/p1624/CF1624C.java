@@ -1,43 +1,34 @@
 package p1624;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class CF1624C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            String line = reader.readLine();
-            writer.write(solution(n, line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, String line) {
-        String[] lines = line.split(" ");
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(lines[i]);
-        }
+    private static String solve(int n, int[] a) {
         // 贪心。先排序，小的数机会小，优先处理
-        Arrays.sort(nums);
+        Arrays.sort(a);
 
         // BFS
         Queue<Integer> queue = new LinkedList<>();
-        for (int num : nums) {
-            queue.add(num);
+        for (int ai : a) {
+            queue.add(ai);
         }
         BitSet bitSet = new BitSet(n + 1);
         while (!queue.isEmpty()) {

@@ -1,30 +1,32 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class Solution199 {
     public List<Integer> rightSideView(TreeNode root) {
-        if (root == null) {
-            return new ArrayList<>();
-        }
         List<Integer> resList = new ArrayList<>();
-        Queue<TreeNode> queue1 = new ArrayDeque<>();
-        Queue<TreeNode> queue2 = new ArrayDeque<>();
-        queue1.add(root);
-        while (!queue1.isEmpty()) {
-            TreeNode node = queue1.remove();
-            if (node.left != null) {
-                queue2.add(node.left);
+        if (root == null) {
+            return resList;
+        }
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            // 当前层元素
+            List<Integer> levelList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                TreeNode cur = queue.remove();
+                levelList.add(cur.val);
+
+                if (cur.left != null) {
+                    queue.add(cur.left);
+                }
+                if (cur.right != null) {
+                    queue.add(cur.right);
+                }
             }
-            if (node.right != null) {
-                queue2.add(node.right);
-            }
-            if (queue1.isEmpty()) {
-                resList.add(node.val);
-                queue1 = queue2;
-                queue2 = new ArrayDeque<>();
-            }
+            resList.add(levelList.get(levelList.size() - 1));
         }
         return resList;
     }

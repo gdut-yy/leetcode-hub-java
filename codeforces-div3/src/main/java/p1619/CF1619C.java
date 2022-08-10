@@ -1,47 +1,40 @@
 package p1619;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1619C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            long a = scanner.nextLong();
+            long s = scanner.nextLong();
+            System.out.println(solve(a, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        String aStr = lines[0];
-        String sStr = lines[1];
+    private static String solve(long a, long s) {
+        String aStr = String.valueOf(a);
+        String sStr = String.valueOf(s);
         // 双指针
         int p1 = aStr.length() - 1;
         int p2 = sStr.length() - 1;
         // b
         StringBuilder stringBuilder = new StringBuilder();
         while (p2 >= 0) {
-            int a = (p1 >= 0) ? aStr.charAt(p1) - '0' : 0;
-            int s = sStr.charAt(p2) - '0';
+            int ai = (p1 >= 0) ? aStr.charAt(p1) - '0' : 0;
+            int si = sStr.charAt(p2) - '0';
             // a 中 1 个字符对应 s 中 1-2 个字符
-            if (s >= a) {
-                stringBuilder.append(s - a);
+            if (si >= ai) {
+                stringBuilder.append(si - ai);
                 p1--;
                 p2--;
             } else {
                 // 第 2 个字符必须为 1
                 if (p2 - 1 >= 0 && sStr.charAt(p2 - 1) == '1') {
-                    int sum = s + 10;
-                    stringBuilder.append(sum - a);
+                    int sum = si + 10;
+                    stringBuilder.append(sum - ai);
                     p2 -= 2;
                     p1--;
                 } else {

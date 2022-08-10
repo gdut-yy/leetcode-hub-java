@@ -1,31 +1,24 @@
 package p1619;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 public class CF1619B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            System.out.println(solve(n));
         }
-        writer.close();
-        reader.close();
     }
 
     private static int[] TABLES;
 
-    private static String solution(String line) {
+    private static String solve(int n) {
         // 打表
         if (TABLES == null) {
             Set<Integer> hashSet = new HashSet<>();
@@ -41,8 +34,7 @@ public class CF1619B {
             Arrays.sort(TABLES);
         }
 
-        int num = Integer.parseInt(line);
-        int idx = binarySearchRightBound(TABLES, num);
+        int idx = binarySearchRightBound(TABLES, n);
         return String.valueOf(idx + 1);
     }
 
