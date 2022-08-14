@@ -1,43 +1,31 @@
 package p1593;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class CF1593C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int k = scanner.nextInt();
+            int[] x = new int[k];
+            for (int j = 0; j < k; j++) {
+                x[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, k, x));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        String[] line1s = line1.split(" ");
-        int n = Integer.parseInt(line1s[0]);
-        int k = Integer.parseInt(line1s[1]);
-        Integer[] nums = new Integer[k];
-        String[] line2s = line2.split(" ");
-        for (int j = 0; j < k; j++) {
-            nums[j] = Integer.parseInt(line2s[j]);
-        }
-
-        Arrays.sort(nums);
+    private static String solve(int n, int k, int[] x) {
+        Arrays.sort(x);
         int cnt = 0;
         int res = 0;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            if (cnt + n - nums[i] < n) {
-                cnt += n - nums[i];
+        for (int i = x.length - 1; i >= 0; i--) {
+            if (cnt + n - x[i] < n) {
+                cnt += n - x[i];
                 res++;
             } else {
                 break;

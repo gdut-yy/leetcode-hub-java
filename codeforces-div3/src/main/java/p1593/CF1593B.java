@@ -1,31 +1,25 @@
 package p1593;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1593B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            long n = scanner.nextLong();
+            System.out.println(solve(n));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        if (line.endsWith("00") || line.endsWith("25") || line.endsWith("50") || line.endsWith("75")) {
+    private static String solve(long n) {
+        String nStr = String.valueOf(n);
+        if (nStr.endsWith("00") || nStr.endsWith("25") || nStr.endsWith("50") || nStr.endsWith("75")) {
             return "0";
         }
         int res = Integer.MAX_VALUE;
-        String reverse = new StringBuilder(line).reverse().toString();
+        String reverse = new StringBuilder(nStr).reverse().toString();
         int indexOf0 = reverse.indexOf("0");
         if (indexOf0 > -1) {
             int indexOf00 = reverse.substring(indexOf0 + 1).indexOf("0");

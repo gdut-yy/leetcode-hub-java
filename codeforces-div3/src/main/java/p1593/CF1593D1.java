@@ -1,38 +1,28 @@
 package p1593;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CF1593D1 {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int len = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
-        int[] nums = new int[len];
-        for (int i = 0; i < len; i++) {
-            nums[i] = Integer.parseInt(line2s[i]);
-        }
-
-        List<Integer> list = Arrays.stream(nums).boxed().distinct().collect(Collectors.toList());
+    private static String solve(int n, int[] a) {
+        List<Integer> list = Arrays.stream(a).boxed().distinct().toList();
         if (list.size() == 1) {
             return "-1";
         }

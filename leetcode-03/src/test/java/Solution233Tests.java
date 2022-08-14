@@ -9,6 +9,7 @@ public class Solution233Tests {
         int n = 13;
         int expected = 6;
         Assertions.assertEquals(expected, solution233.countDigitOne(n));
+        Assertions.assertEquals(expected, solution233.countDigitOne2(n));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution233Tests {
         int n = 0;
         int expected = 0;
         Assertions.assertEquals(expected, solution233.countDigitOne(n));
+        Assertions.assertEquals(expected, solution233.countDigitOne2(n));
     }
 }
