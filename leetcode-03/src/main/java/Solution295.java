@@ -31,7 +31,7 @@ public class Solution295 {
             if (maxHeap.size() > minHeap.size()) {
                 return maxHeap.peek();
             }
-            return (maxHeap.peek() + minHeap.peek()) / 2.0;
+            return (maxHeap.element() + minHeap.element()) / 2.0;
         }
     }
 }

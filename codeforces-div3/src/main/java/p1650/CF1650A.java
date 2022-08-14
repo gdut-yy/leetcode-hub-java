@@ -1,31 +1,23 @@
 package p1650;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1650A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            String s = scanner.next();
+            char c = scanner.next().charAt(0);
+            System.out.println(solve(s, c));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        char ch = line2.charAt(0);
-        int len = line1.length();
+    private static String solve(String s, char c) {
+        int len = s.length();
         for (int i = 0; i < len; i++) {
-            if (line1.charAt(i) == ch) {
+            if (s.charAt(i) == c) {
                 int left = i;
                 int right = len - 1 - i;
                 if (left % 2 == 0 && right % 2 == 0) {
