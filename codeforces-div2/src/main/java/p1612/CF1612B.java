@@ -1,30 +1,21 @@
 package p1612;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1612B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            System.out.println(solve(n, a, b));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1) {
-        String[] lines = line1.split(" ");
-        int n = Integer.parseInt(lines[0]);
-        int a = Integer.parseInt(lines[1]);
-        int b = Integer.parseInt(lines[2]);
+    private static String solve(int n, int a, int b) {
         int halfN = n / 2;
 
         boolean canSolve;

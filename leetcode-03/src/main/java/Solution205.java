@@ -35,4 +35,7 @@ https://leetcode.cn/problems/isomorphic-strings/
 1 <= s.length <= 5 * 10^4
 t.length == s.length
 s 和 t 由任意有效的 ASCII 字符组成
+
+时间复杂度 O(n)
+空间复杂度 O(n)
  */

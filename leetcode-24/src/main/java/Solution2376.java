@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6051 {
+public class Solution2376 {
     private char[] s;
     private int[][] dp;
 
@@ -45,7 +45,7 @@ public class Solution6051 {
     }
 }
 /*
-6151. 统计特殊整数
+2376. 统计特殊整数
 https://leetcode.cn/problems/count-special-integers/
 
 第 306 场周赛 T4。

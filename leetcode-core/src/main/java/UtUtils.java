@@ -90,6 +90,12 @@ public class UtUtils {
         return list.toArray(new char[list.size()][]);
     }
 
+    // String => String[]
+    public static String[] stringToStrings(String input) {
+        List<String> list = JSON.parseArray(input, String.class);
+        return list.toArray(new String[0]);
+    }
+
     // String => String[][]
     public static String[][] stringToStrings2(String input) {
         List<String[]> list = JSON.parseArray(input, String[].class);
@@ -145,6 +151,13 @@ public class UtUtils {
      */
     public static String loadingString(String fileName, int line) {
         return loadingStringList(fileName).get(line);
+    }
+
+    /**
+     * resources 文件加载 String[]
+     */
+    public static String[] loadingStrings(String fileName, int line) {
+        return stringToStrings(loadingStringList(fileName).get(line));
     }
 
     /**

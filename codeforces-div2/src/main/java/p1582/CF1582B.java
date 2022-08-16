@@ -1,40 +1,29 @@
 package p1582;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1582B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String line2 = reader.readLine();
-            writer.write(solution(line1, line2).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] a = new int[n];
+            for (int j = 0; j < n; j++) {
+                a[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, a));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1, String line2) {
-        int len = Integer.parseInt(line1);
-        String[] line2s = line2.split(" ");
-        int[] nums = new int[len];
-        for (int i = 0; i < len; i++) {
-            nums[i] = Integer.parseInt(line2s[i]);
-        }
-
+    private static String solve(int n, int[] a) {
         int cnt0 = 0;
         int cnt1 = 0;
-        for (int num : nums) {
-            if (num == 0) {
+        for (int ai : a) {
+            if (ai == 0) {
                 cnt0++;
-            } else if (num == 1) {
+            } else if (ai == 1) {
                 cnt1++;
             }
         }

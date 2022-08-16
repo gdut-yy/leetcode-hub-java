@@ -1,37 +1,26 @@
 package p1623;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedList;
 import java.util.Queue;
+import java.util.Scanner;
 
 public class CF1623A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int rb = scanner.nextInt();
+            int cb = scanner.nextInt();
+            int rd = scanner.nextInt();
+            int cd = scanner.nextInt();
+            System.out.println(solve(n, m, rb, cb, rd, cd));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        // 1 to n, 1 to m
-        int n = Integer.parseInt(lines[0]);
-        int m = Integer.parseInt(lines[1]);
-        int rb = Integer.parseInt(lines[2]);
-        int cb = Integer.parseInt(lines[3]);
-        int rd = Integer.parseInt(lines[4]);
-        int cd = Integer.parseInt(lines[5]);
-
+    private static String solve(int n, int m, int rb, int cb, int rd, int cd) {
         if (rb == rd || cb == cd) {
             return "0";
         }

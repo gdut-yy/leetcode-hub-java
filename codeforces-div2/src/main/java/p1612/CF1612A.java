@@ -1,36 +1,27 @@
 package p1612;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1612A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
+            System.out.println(solve(x, y));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line1) {
-        String[] line1s = line1.split(" ");
-        int bx = Integer.parseInt(line1s[0]);
-        int by = Integer.parseInt(line1s[1]);
-        if ((bx + by) % 2 != 0) {
+    private static String solve(int x, int y) {
+        if ((x + y) % 2 != 0) {
             return "-1 -1";
         } else {
-            int halfSum = (bx + by) / 2;
+            int halfSum = (x + y) / 2;
             for (int cx = 0; cx <= halfSum; cx++) {
                 int cy = halfSum - cx;
-                if (Math.abs(cx - bx) + Math.abs(cy - by) == halfSum) {
+                if (Math.abs(cx - x) + Math.abs(cy - y) == halfSum) {
                     return cx + " " + cy;
                 }
             }

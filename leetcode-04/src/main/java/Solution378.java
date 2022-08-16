@@ -54,7 +54,7 @@ n == matrix[i].length
 
 二分
 时间复杂度 O(nlog(r-l))
-时间复杂度 O(1)
+空间复杂度 O(1)
 相似题目: 668. 乘法表中第k小的数
 https://leetcode.cn/problems/kth-smallest-number-in-multiplication-table/
  */

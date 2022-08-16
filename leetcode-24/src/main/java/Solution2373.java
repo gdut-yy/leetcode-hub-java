@@ -1,4 +1,4 @@
-public class Solution6048 {
+public class Solution2373 {
     public int[][] largestLocal(int[][] grid) {
         int n = grid.length;
 
@@ -22,7 +22,7 @@ public class Solution6048 {
     }
 }
 /*
-6148. 矩阵中的局部最大值
+2373. 矩阵中的局部最大值
 https://leetcode.cn/problems/largest-local-values-in-a-matrix/
 
 第 306 场周赛 T1。

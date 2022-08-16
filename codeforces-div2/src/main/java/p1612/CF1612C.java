@@ -1,29 +1,20 @@
 package p1612;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1612C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int k = scanner.nextInt();
+            long x = scanner.nextLong();
+            System.out.println(solve(k, x));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        long k = Long.parseLong(lines[0]);
-        long x = Long.parseLong(lines[1]);
+    private static String solve(long k, long x) {
         // 第 1 到第 k 行
         long halfUp = k * (k + 1) / 2;
         long halfDown = k * (k - 1) / 2;

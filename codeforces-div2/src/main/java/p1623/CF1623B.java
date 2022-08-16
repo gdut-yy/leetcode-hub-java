@@ -1,47 +1,39 @@
 package p1623;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.BitSet;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
 
 public class CF1623B {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            int[][] nums = new int[n][2];
+            int n = scanner.nextInt();
+            int[][] lr = new int[n][2];
             for (int j = 0; j < n; j++) {
-                String[] lines = reader.readLine().split(" ");
-                nums[j][0] = Integer.parseInt(lines[0]);
-                nums[j][1] = Integer.parseInt(lines[1]);
+                lr[j][0] = scanner.nextInt();
+                lr[j][1] = scanner.nextInt();
             }
-            String[] res = solution(n, nums);
-            for (int j = 0; j < n; j++) {
-                writer.write(res[j].concat(System.lineSeparator()));
+
+            List<String> res = solve(n, lr);
+            for (String re : res) {
+                System.out.println(re);
             }
-            writer.write(System.lineSeparator());
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String[] solution(int n, int[][] nums) {
-        Arrays.sort(nums, Comparator.comparingInt(o -> o[1] - o[0]));
+    private static List<String> solve(int n, int[][] lr) {
+        Arrays.sort(lr, Comparator.comparingInt(o -> o[1] - o[0]));
         BitSet bitSet = new BitSet(1001);
         List<String> resList = new ArrayList<>();
-        for (int[] num : nums) {
-            int left = num[0];
-            int right = num[1];
+        for (int[] tuple : lr) {
+            int left = tuple[0];
+            int right = tuple[1];
             for (int i = left; i <= right; i++) {
                 // 可选
                 if (!bitSet.get(i)) {
@@ -50,7 +42,7 @@ public class CF1623B {
                 }
             }
         }
-        return resList.toArray(new String[0]);
+        return resList;
     }
 }
 /*

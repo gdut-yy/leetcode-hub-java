@@ -1,34 +1,23 @@
 package p1623;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1623C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            reader.readLine();
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            int[] h = new int[n];
+            for (int j = 0; j < n; j++) {
+                h[j] = scanner.nextInt();
+            }
+            System.out.println(solve(n, h));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        String[] lines = line.split(" ");
-        int n = lines.length;
-        long[] nums = new long[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = Long.parseLong(lines[i]);
-        }
-
+    private static String solve(int n, int[] h) {
         // 二分
         int left = 1;
         int right = 1000000000;
@@ -36,7 +25,7 @@ public class CF1623C {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
-            if (!checkMid(n, nums, mid)) {
+            if (!checkMid(n, h, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -45,19 +34,22 @@ public class CF1623C {
         return String.valueOf(left - 1);
     }
 
-    private static boolean checkMid(int n, long[] nums, int mid) {
-        long[] newNums = nums.clone();
+    private static boolean checkMid(int n, int[] h, int mid) {
+        long[] hLong = new long[n];
+        for (int i = 0; i < n; i++) {
+            hLong[i] = h[i];
+        }
         // 贪心
         for (int i = n - 1; i - 2 >= 0; i--) {
-            if (newNums[i] < mid) {
+            if (hLong[i] < mid) {
                 return false;
             }
-            long d = Math.min(nums[i], newNums[i] - mid) / 3;
-            newNums[i - 2] += d * 2;
-            newNums[i - 1] += d;
-            newNums[i] -= d * 3;
+            long d = Math.min(h[i], hLong[i] - mid) / 3;
+            hLong[i - 2] += d * 2;
+            hLong[i - 1] += d;
+            hLong[i] -= d * 3;
         }
-        return newNums[0] >= mid && newNums[1] >= mid;
+        return hLong[0] >= mid && hLong[1] >= mid;
     }
 }
 /*

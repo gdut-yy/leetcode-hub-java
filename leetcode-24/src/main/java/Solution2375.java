@@ -1,4 +1,4 @@
-public class Solution6050 {
+public class Solution2375 {
     public String smallestNumber(String pattern) {
         int n = pattern.length();
 
@@ -25,7 +25,7 @@ public class Solution6050 {
     }
 }
 /*
-6150. 根据模式串构造最小数字
+2375. 根据模式串构造最小数字
 https://leetcode.cn/problems/construct-smallest-number-from-di-string/
 
 第 306 场周赛 T3。

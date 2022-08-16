@@ -27,14 +27,14 @@ public class CF1702C {
                 b[j] = scanner.nextInt();
             }
 
-            List<String> res = solution(n, k, u, a, b);
+            List<String> res = solve(n, k, u, a, b);
             for (String re : res) {
                 System.out.println(re);
             }
         }
     }
 
-    private static List<String> solution(int n, int k, int[] u, int[] a, int[] b) {
+    private static List<String> solve(int n, int k, int[] u, int[] a, int[] b) {
         Map<Integer, LinkedList<Integer>> idxListMap = new HashMap<>();
         for (int i = 0; i < n; i++) {
             idxListMap.computeIfAbsent(u[i], key -> new LinkedList<>()).add(i);

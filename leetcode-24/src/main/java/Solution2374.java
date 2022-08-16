@@ -1,4 +1,4 @@
-public class Solution6049 {
+public class Solution2374 {
     public int edgeScore(int[] edges) {
         int n = edges.length;
         long[] edgeScores = new long[n];
@@ -18,7 +18,7 @@ public class Solution6049 {
     }
 }
 /*
-6149. 边积分最高的节点
+2374. 边积分最高的节点
 https://leetcode.cn/problems/node-with-highest-edge-score/
 
 第 306 场周赛 T2。

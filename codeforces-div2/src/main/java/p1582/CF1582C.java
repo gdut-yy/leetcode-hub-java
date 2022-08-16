@@ -1,42 +1,34 @@
 package p1582;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1582C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            reader.readLine();
-            String line = reader.readLine();
-            writer.write(solution(line).concat(System.lineSeparator()));
+            int n = scanner.nextInt();
+            String s = scanner.next();
+            System.out.println(solve(n, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String line) {
-        int len = line.length();
+    private static String solve(int n, String s) {
         int min = Integer.MAX_VALUE;
         for (char ch = 'a'; ch <= 'z'; ch++) {
             int left = 0;
-            int right = len - 1;
+            int right = n - 1;
             int erased = 0;
             while (left < right) {
-                if (line.charAt(left) == line.charAt(right)) {
+                if (s.charAt(left) == s.charAt(right)) {
                     left++;
                     right--;
                 } else {
-                    if (line.charAt(left) == ch) {
+                    if (s.charAt(left) == ch) {
                         erased++;
                         left++;
-                    } else if (line.charAt(right) == ch) {
+                    } else if (s.charAt(right) == ch) {
                         erased++;
                         right--;
                     } else {
