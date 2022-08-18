@@ -39,4 +39,9 @@ https://leetcode.cn/problems/video-stitching/
 1 <= clips.length <= 100
 0 <= starti <= endi <= 100
 1 <= time <= 100
+
+针对每个起点，找到最右端点
+每次尽可能找最长的区间延申，以达到所需片段的最小
+时间复杂度 O(clips.length + time)
+空间复杂度 O(time)
  */
