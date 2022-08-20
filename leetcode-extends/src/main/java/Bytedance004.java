@@ -1,4 +1,26 @@
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
 public class Bytedance004 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int N = scanner.nextInt();
+        int[] H = new int[N];
+        for (int i = 0; i < N; i++) {
+            H[i] = scanner.nextInt();
+        }
+        System.out.println(solve(N, H));
+    }
+
+    private static String solve(int N, int[] H) {
+        int res = 0;
+        for (int i = N - 1; i >= 0; i--) {
+            // 现在遇到了4, 要达到目标为res也就是0, 上一个值最小应该为多少？，应该是2, X - (4 - X) = res， 2X = res + 4
+            // 向上取整所以加一
+            res = (res + H[i] + 1) / 2;
+        }
+        return String.valueOf(res);
+    }
 }
 /*
 bytedance-004. 机器人跳跃问题

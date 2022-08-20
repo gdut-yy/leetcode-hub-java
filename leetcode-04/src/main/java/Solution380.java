@@ -9,17 +9,11 @@ public class Solution380 {
         private final Map<Integer, Integer> hashMap;
         private final List<Integer> list;
 
-        /**
-         * Initialize your data structure here.
-         */
         public RandomizedSet() {
             hashMap = new HashMap<>();
             list = new ArrayList<>();
         }
 
-        /**
-         * Inserts a value to the set. Returns true if the set did not already contain the specified element.
-         */
         public boolean insert(int val) {
             if (hashMap.containsKey(val)) {
                 return false;
@@ -29,9 +23,6 @@ public class Solution380 {
             return true;
         }
 
-        /**
-         * Removes a value from the set. Returns true if the set contained the specified element.
-         */
         public boolean remove(int val) {
             if (hashMap.containsKey(val)) {
                 int idx = hashMap.get(val);
@@ -44,9 +35,6 @@ public class Solution380 {
             return false;
         }
 
-        /**
-         * Get a random element from the set.
-         */
         public int getRandom() {
             Random random = new Random();
             return list.get(random.nextInt(list.size()));

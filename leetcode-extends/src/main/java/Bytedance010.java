@@ -1,22 +1,15 @@
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class Bytedance010 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        String line1 = reader.readLine();
-        writer.write(solution(line1).concat(System.lineSeparator()));
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        String line = scanner.next();
+        System.out.println(solve(line));
     }
 
-    private static String solution(String line) {
+    private static String solve(String line) {
         line = line.substring(1, line.length() - 1);
         String[] lines = line.split(",");
         Arrays.sort(lines, (o1, o2) -> (o2 + o1).compareTo(o1 + o2));

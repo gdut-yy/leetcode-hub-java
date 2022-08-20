@@ -1,4 +1,31 @@
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
 public class Bytedance003 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        String[] strings = scanner.next().split(",");
+        System.out.println(solve(strings));
+    }
+
+    private static String solve(String[] strings) {
+        int len1 = strings[0].length();
+        int len2 = strings[1].length();
+        int[][] dp = new int[len1 + 1][len2 + 1];
+        for (int i = 0; i <= len1; i++) {
+            dp[i][0] = i;
+        }
+        for (int j = 0; j <= len2; j++) {
+            dp[0][j] = j;
+        }
+        for (int i = 1; i < len1 + 1; i++) {
+            for (int j = 1; j < len2 + 1; j++) {
+                dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1);
+                dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + (strings[0].charAt(i - 1) == strings[1].charAt(j - 1) ? 0 : 1));
+            }
+        }
+        return String.valueOf(dp[len1][len2]);
+    }
 }
 /*
 bytedance-003. 古生物血缘远近判定

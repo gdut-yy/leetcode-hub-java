@@ -1,4 +1,41 @@
+import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
+
 public class Bytedance006 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int n = scanner.nextInt();
+        int X = scanner.nextInt();
+        int[] a = new int[n];
+        int[] b = new int[n];
+        int[] w = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+            b[i] = scanner.nextInt();
+            w[i] = scanner.nextInt();
+        }
+        System.out.println(solve(n, X, a, b, w));
+    }
+
+    private static String solve(int n, int X, int[] a, int[] b, int[] w) {
+        for (int i = 0; i < n; i++) {
+            int weight = b[i] - (a[i] - b[i]);
+            // 作为物品重量
+            b[i] = Math.max(0, weight);
+            // 溢出部分用于拓展背包容量(实际上等价于降低物品重量, 但是物品重量到0已经不能继续减少了，所以溢出部分可以提高背包容量。)
+            X += weight > 0 ? 0 : -weight;
+        }
+
+        // 3. 使用01背包
+        // 观察测试用例范围这里用long
+        long[] dp = new long[X + 1];
+        for (int i = 0; i < n; i++) {
+            for (int j = X; j >= b[i]; j--) {
+                dp[j] = Math.max(dp[j], dp[j - b[i]] + w[i]);
+            }
+        }
+        return String.valueOf(dp[X]);
+    }
 }
 /*
 bytedance-006. 夏季特惠

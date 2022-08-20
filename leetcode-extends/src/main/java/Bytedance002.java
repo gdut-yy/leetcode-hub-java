@@ -1,4 +1,69 @@
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class Bytedance002 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int K = scanner.nextInt();
+        int N = scanner.nextInt();
+        int[] T = new int[N];
+        for (int i = 0; i < N; i++) {
+            T[i] = scanner.nextInt();
+        }
+        System.out.println(solve(K, N, T));
+    }
+
+    private static String solve(int K, int N, int[] T) {
+        int left = 0;
+        int right = N;
+        for (int i = 0; i < N; i++) {
+            right += T[i];
+        }
+
+        // 2. 对答案区间(有序递增区间)进行二分法
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (isValid(T, K, mid)) {
+                right = mid; // 符合条件要等于 => 逼近下限
+            } else {
+                left = mid + 1; // 不符合条件要+1 => 逼近下限
+            }
+        }
+        return String.valueOf(left);
+    }
+
+    private static boolean isValid(int[] T, int K, int res) {
+        // 模拟派送过程: 用完人数资源后, 是否能配送完成。
+        int[] nums = Arrays.copyOfRange(T, 0, T.length);
+        // 1. 可用人数（每个人可用res个配送时间）
+        for (int i = 0; i < K; i++) {
+            int t = res;// 每个人可用的时间
+            // 从每个工区头部进行配送
+            for (int j = 0; j < nums.length; j++) {
+                t--; // 往前移动一步
+                if (t <= 0) {
+                    break; // 时间用完
+                }
+                if (nums[j] >= t) {
+                    nums[j] = nums[j] - t; // 用完全部配送时间
+                    break;
+                } else {
+                    t -= nums[j]; // 配送完还剩余时间
+                    nums[j] = 0;
+                }
+            }
+        }
+        // 2. 派送完毕验证是否存在没有配送的情况
+        boolean done = true;
+        for (int num : nums) {
+            if (num > 0) {
+                done = false;
+                break;
+            }
+        }
+        return done;
+    }
 }
 /*
 bytedance-002. 发下午茶
