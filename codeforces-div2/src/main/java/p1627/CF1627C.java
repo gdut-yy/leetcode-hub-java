@@ -1,10 +1,5 @@
 package p1627;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,46 +8,37 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Scanner;
 import java.util.Set;
 
 public class CF1627C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            int n = Integer.parseInt(reader.readLine());
-            int[][] nums = new int[n - 1][2];
+            int n = scanner.nextInt();
+            int[][] uv = new int[n - 1][2];
             for (int j = 0; j < n - 1; j++) {
-                String[] lines = reader.readLine().split(" ");
-                nums[j][0] = Integer.parseInt(lines[0]);
-                nums[j][1] = Integer.parseInt(lines[1]);
+                uv[j][0] = scanner.nextInt();
+                uv[j][1] = scanner.nextInt();
             }
-            writer.write(solution(n, nums).concat(System.lineSeparator()));
+            System.out.println(solve(n, uv));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, int[][] nums) {
+    private static String solve(int n, int[][] uv) {
         // 无向图
-        Map<Integer, Map<Integer, Integer>> graph = new HashMap<>();
-        for (int[] num : nums) {
-            int u = num[0];
-            int v = num[1];
-
-            Map<Integer, Integer> uMap = graph.getOrDefault(u, new HashMap<>());
-            uMap.put(v, -1);
-            graph.put(u, uMap);
-
-            Map<Integer, Integer> vMap = graph.getOrDefault(v, new HashMap<>());
-            vMap.put(u, -1);
-            graph.put(v, vMap);
+        Map<Integer, Map<Integer, Integer>> adj = new HashMap<>();
+        for (int[] tuple : uv) {
+            int u = tuple[0];
+            int v = tuple[1];
+            adj.computeIfAbsent(u, key -> new HashMap<>()).put(v, -1);
+            adj.computeIfAbsent(v, key -> new HashMap<>()).put(u, -1);
         }
 
         // 不存在三个质数，任意两个之和也是质数
         for (int i = 1; i <= n; i++) {
-            if (graph.getOrDefault(i, new HashMap<>()).size() > 2) {
+            if (adj.getOrDefault(i, new HashMap<>()).size() > 2) {
                 return "-1";
             }
         }
@@ -60,10 +46,10 @@ public class CF1627C {
         Queue<Integer> queue = new LinkedList<>();
         Set<Integer> visited = new HashSet<>();
         // 设 (u,v) 权重为 2
-        int u0 = nums[0][0];
-        int v0 = nums[0][1];
-        graph.get(u0).put(v0, 2);
-        graph.get(v0).put(u0, 2);
+        int u0 = uv[0][0];
+        int v0 = uv[0][1];
+        adj.get(u0).put(v0, 2);
+        adj.get(v0).put(u0, 2);
         queue.add(u0);
         queue.add(v0);
         visited.add(u0);
@@ -74,30 +60,24 @@ public class CF1627C {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 int cur = queue.remove();
-                for (int next : graph.get(cur).keySet()) {
+                for (int next : adj.get(cur).keySet()) {
                     if (!visited.contains(next)) {
                         visited.add(next);
-                        graph.get(cur).put(next, is2 ? 2 : 3);
-                        graph.get(next).put(cur, is2 ? 2 : 3);
+                        adj.get(cur).put(next, is2 ? 2 : 3);
+                        adj.get(next).put(cur, is2 ? 2 : 3);
                         queue.add(next);
                     }
                 }
             }
         }
 
-        List<Integer> resList = new ArrayList<>();
-        for (int[] num : nums) {
-            int u = num[0];
-            int v = num[1];
-            resList.add(graph.get(u).get(v));
+        List<String> resList = new ArrayList<>();
+        for (int[] tuple : uv) {
+            int u = tuple[0];
+            int v = tuple[1];
+            resList.add(String.valueOf(adj.get(u).get(v)));
         }
-
-        // List<Integer> => String
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int num : resList) {
-            stringBuilder.append(num).append(" ");
-        }
-        return stringBuilder.substring(0, stringBuilder.length() - 1);
+        return String.join(" ", resList);
     }
 }
 /*

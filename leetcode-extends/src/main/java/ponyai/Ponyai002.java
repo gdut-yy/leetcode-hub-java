@@ -1,0 +1,114 @@
+package ponyai;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
+
+/**
+ * Pony.ai-002. 车辆安排
+ * https://leetcode.cn/problems/aLtKLZ/
+ */
+public class Ponyai002 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
+        // input
+        String[] line0 = reader.readLine().split(" ");
+        int N = Integer.parseInt(line0[0]);
+        int M = Integer.parseInt(line0[1]);
+        String A = reader.readLine();
+        String B = reader.readLine();
+
+        // solution
+        long res = solution(N, M, A, B);
+
+        // output
+        writer.write(String.valueOf(res));
+        writer.close();
+        reader.close();
+    }
+
+    private static long solution(int n, int m, String a, String b) {
+        char[] store = a.toCharArray();
+        char[] require = b.toCharArray();
+
+        int[] vehicles = new int[26];
+        for (char color : store) {
+            vehicles[color - 'a']++;
+        }
+
+        long res = 0;
+        int left = 0;
+        int right = 0;
+        while (right < m) {
+            int color = require[right] - 'a';
+            vehicles[color]--;
+            while (left <= right && vehicles[color] < 0) {
+                left++;
+                vehicles[require[left] - 'a']++;
+            }
+            res += right - left + 1;
+            right++;
+        }
+        return res;
+    }
+}
+/*
+目前小马智行已经获得了加州 RoboTaxi 服务的许可，意味着小马智行已经可以在加州向所有的公众提供服务。
+于是在未来的某一天，小马智行在加州已经拥有了 N 辆自动驾驶车辆可以面向公众服务，这些车总共有 26 种颜色，颜色分别为小写字母 a 到 z。
+现在已知在 Pony 的服务系统 PonyPilot 中，总共有 M 个乘客正在排队，其中每个乘客也有各自的车辆颜色偏好,颜色范围也是 a 到 z。
+
+现在运营小 P 突然有了一个奇怪的想法：小 P 想知道总共有多少个位置连续的子队列，能够满足现有的所有车辆可以在同一时刻
+把子队列中的乘客同时接上乘客喜爱的颜色的车。注意每个车辆只能接一个乘客，且车的颜色要恰好是乘客喜欢的颜色。
+
+输入描述:
+第一行输入两个数字 N，M。N 代表车辆数，M 代表乘客人数。
+第二行输入一个字符串 A，长度为 N，表示每辆车的颜色。
+第三行输入一个字符串 B，长度为 M，表示当前排队的乘客分别喜欢的车的颜色。
+其中，1<=N<=1000000，1<=M<=1000000。
+
+输出描述:
+输出一个数，即总共满足要求的子队列数。
+
+示例 1:
+输入
+4 6
+pony
+pponyy
+
+输出
+12
+
+说明
+满足的子队列分别为（[]内为子队列对应的下标区间）：
+p, [0, 0]
+p, [1, 1]
+o, [2, 2]
+po, [1, 2]
+n, [3, 3]
+on, [2, 3]
+pon, [1, 3]
+y, [4, 4]
+ny, [3, 4]
+ony, [2, 4]
+pony, [1, 4]
+y, [5, 5]
+
+示例 2：
+输入
+2 2
+ab
+ba
+
+输出
+3
+
+说明
+满足的子队列分别为（[]内为子队列对应的下标区间）：
+b, [0, 0]
+ba, [0, 1]
+a, [1, 1]
+ */

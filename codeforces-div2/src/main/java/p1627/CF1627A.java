@@ -1,52 +1,43 @@
 package p1627;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1627A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String line1 = reader.readLine();
-            String[] line1s = line1.split(" ");
-            int n = Integer.parseInt(line1s[0]);
-            int m = Integer.parseInt(line1s[1]);
-            int r = Integer.parseInt(line1s[2]);
-            int c = Integer.parseInt(line1s[3]);
-            char[][] chars = new char[n][m];
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int r = scanner.nextInt();
+            int c = scanner.nextInt();
+            char[][] gird = new char[n][m];
             for (int j = 0; j < n; j++) {
-                chars[j] = reader.readLine().toCharArray();
+                gird[j] = scanner.next().toCharArray();
             }
-            writer.write(solution(n, m, r, c, chars).concat(System.lineSeparator()));
+            System.out.println(solve(n, m, r, c, gird));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(int n, int m, int r, int c, char[][] chars) {
+    private static String solve(int n, int m, int r, int c, char[][] grid) {
         // BFS
-        if (chars[r - 1][c - 1] == 'B') {
+        if (grid[r - 1][c - 1] == 'B') {
             return "0";
         }
         for (int i = 0; i < n; i++) {
-            if (chars[i][c - 1] == 'B') {
+            if (grid[i][c - 1] == 'B') {
                 return "1";
             }
         }
         for (int j = 0; j < m; j++) {
-            if (chars[r - 1][j] == 'B') {
+            if (grid[r - 1][j] == 'B') {
                 return "1";
             }
         }
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
-                if (chars[i][j] == 'B') {
+                if (grid[i][j] == 'B') {
                     return "2";
                 }
             }

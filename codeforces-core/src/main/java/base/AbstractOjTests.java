@@ -16,6 +16,8 @@ public abstract class AbstractOjTests {
     private static final String DEFAULT_OUTPUT = "output.txt";
     protected static final String INPUT2 = "input2.txt";
     protected static final String OUTPUT2 = "output2.txt";
+    protected static final String INPUT3 = "input3.txt";
+    protected static final String OUTPUT3 = "output3.txt";
 
     private final String path;
     private final ByteArrayOutputStream byteArrayOutputStream;

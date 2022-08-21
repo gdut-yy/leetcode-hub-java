@@ -192,7 +192,7 @@ public class UtUtils {
      * resources 文件加载 long[]
      */
     public static long[] loadingLongs(String fileName, int line) {
-        List<Integer> list = JSON.parseArray(loadingString(fileName, line), Integer.class);
+        List<Long> list = JSON.parseArray(loadingString(fileName, line), Long.class);
         return list.stream().mapToLong(l -> l).toArray();
     }
 
