@@ -1,4 +1,4 @@
-public class Solution6152 {
+public class Solution2383 {
     public int minNumberOfHours(int initialEnergy, int initialExperience, int[] energy, int[] experience) {
         int n = energy.length;
         int minEnergy = 0;
@@ -18,7 +18,7 @@ public class Solution6152 {
     }
 }
 /*
-6152. 赢得比赛需要的最少训练时长
+2383. 赢得比赛需要的最少训练时长
 https://leetcode.cn/problems/minimum-hours-of-training-to-win-a-competition/
 
 第 307 场周赛 T1。

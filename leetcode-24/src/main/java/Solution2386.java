@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6155 {
+public class Solution2386 {
     public long kSum(int[] nums, int k) {
         int n = nums.length;
         // 所有非负数和
@@ -34,7 +34,7 @@ public class Solution6155 {
     }
 }
 /*
-6155. 找出数组的第 K 大和
+2386. 找出数组的第 K 大和
 https://leetcode.cn/problems/find-the-k-sum-of-an-array/
 
 第 307 场周赛 T4。

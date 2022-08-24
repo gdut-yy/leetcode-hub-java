@@ -21,6 +21,8 @@ public class Solution2370 {
 2370. 最长理想子序列
 https://leetcode.cn/problems/longest-ideal-subsequence/
 
+第 305 场周赛 T4。
+
 给你一个由小写字母组成的字符串 s ，和一个整数 k 。如果满足下述条件，则可以将字符串 t 视作是 理想字符串 ：
 - t 是字符串 s 的一个子序列。
 - t 中每两个 相邻 字母在字母表中位次的绝对差值小于或等于 k 。

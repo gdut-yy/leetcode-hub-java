@@ -1,4 +1,4 @@
-public class Solution6156 {
+public class Solution2379 {
     public int minimumRecolors(String blocks, int k) {
         int len = blocks.length();
 
@@ -24,7 +24,7 @@ public class Solution6156 {
     }
 }
 /*
-6156. 得到 K 个黑块的最少涂色次数
+2379. 得到 K 个黑块的最少涂色次数
 https://leetcode.cn/problems/minimum-recolors-to-get-k-consecutive-black-blocks/
 
 第 85 场双周赛 T1。

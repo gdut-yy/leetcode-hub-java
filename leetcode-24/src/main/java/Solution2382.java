@@ -1,4 +1,4 @@
-public class Solution6159 {
+public class Solution2382 {
     private static final long INF = 100000L * 1000000000L + 10L;
 
     public long[] maximumSegmentSum(int[] nums, int[] removeQueries) {
@@ -109,7 +109,7 @@ public class Solution6159 {
     }
 }
 /*
-6159. 删除操作后的最大子段和
+2382. 删除操作后的最大子段和
 https://leetcode.cn/problems/maximum-segment-sum-after-removals/
 
 给你两个下标从 0 开始的整数数组 nums 和 removeQueries ，两者长度都为 n 。对于第 i 个查询，nums 中位于下标 removeQueries[i] 处的元素被删除，将 nums 分割成更小的子段。

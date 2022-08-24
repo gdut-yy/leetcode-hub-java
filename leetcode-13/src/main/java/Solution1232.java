@@ -1,6 +1,5 @@
 public class Solution1232 {
     public boolean checkStraightLine(int[][] coordinates) {
-        // 2 <= coordinates.length <= 1000
         int len = coordinates.length;
 
         // 斜率
@@ -9,9 +8,9 @@ public class Solution1232 {
         int dx = point1[0] - point0[0];
         int dy = point1[1] - point0[1];
         for (int i = 2; i < len; i++) {
-            int[] pointN = coordinates[i];
-            int dx1 = pointN[0] - point0[0];
-            int dy1 = pointN[1] - point0[1];
+            int[] pointI = coordinates[i];
+            int dx1 = pointI[0] - point0[0];
+            int dy1 = pointI[1] - point0[1];
             if (dx * dy1 != dy * dx1) {
                 return false;
             }

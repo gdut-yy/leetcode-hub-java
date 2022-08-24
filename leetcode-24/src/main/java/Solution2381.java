@@ -1,4 +1,4 @@
-public class Solution6158 {
+public class Solution2381 {
     public String shiftingLetters(String s, int[][] shifts) {
         int len = s.length();
 
@@ -27,7 +27,7 @@ public class Solution6158 {
     }
 }
 /*
-6158. 字母移位 II
+2381. 字母移位 II
 https://leetcode.cn/problems/shifting-letters-ii/
 
 给你一个小写英文字母组成的字符串 s 和一个二维整数数组 shifts ，其中 shifts[i] = [starti, endi, directioni] 。

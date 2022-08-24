@@ -27,7 +27,8 @@ public class Solution1012 {
             // 可以跳过当前数位
             res = f(i + 1, state, false, false);
         }
-        for (int d = isNum ? 0 : 1, up = isLimit ? s[i] - '0' : 9; d <= up; d++) {
+        int up = isLimit ? s[i] - '0' : 9;
+        for (int d = isNum ? 0 : 1; d <= up; d++) {
             // 枚举要填入的数字 d
             if ((state >> d & 1) == 0) {
                 // d 不在 mask 中

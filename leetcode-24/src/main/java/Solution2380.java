@@ -1,4 +1,4 @@
-public class Solution6157 {
+public class Solution2380 {
     public int secondsToRemoveOccurrences(String s) {
         int cnt = 0;
         while (s.contains("01")) {
@@ -9,7 +9,7 @@ public class Solution6157 {
     }
 }
 /*
-6157. 二进制字符串重新安排顺序需要的时间
+2380. 二进制字符串重新安排顺序需要的时间
 https://leetcode.cn/problems/time-needed-to-rearrange-a-binary-string/
 
 第 85 场双周赛 T2。

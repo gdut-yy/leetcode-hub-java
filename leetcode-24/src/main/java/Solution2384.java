@@ -1,4 +1,4 @@
-public class Solution6166 {
+public class Solution2384 {
     public String largestPalindromic(String num) {
         int[] cntArr = new int[10];
         for (char ch : num.toCharArray()) {
@@ -28,7 +28,7 @@ public class Solution6166 {
     }
 }
 /*
-6166. 最大回文数字
+2384. 最大回文数字
 https://leetcode.cn/problems/largest-palindromic-number/
 
 第 307 场周赛 T2。

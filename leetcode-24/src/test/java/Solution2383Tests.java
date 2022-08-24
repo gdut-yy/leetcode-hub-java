@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6152Tests {
-    private final Solution6152 solution6152 = new Solution6152();
+public class Solution2383Tests {
+    private final Solution2383 solution2383 = new Solution2383();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution6152Tests {
         int[] energy = {1, 4, 3, 2};
         int[] experience = {2, 6, 3, 1};
         int expected = 8;
-        Assertions.assertEquals(expected, solution6152.minNumberOfHours(initialEnergy, initialExperience, energy, experience));
+        Assertions.assertEquals(expected, solution2383.minNumberOfHours(initialEnergy, initialExperience, energy, experience));
     }
 
     @Test
@@ -21,6 +21,6 @@ public class Solution6152Tests {
         int[] energy = {1};
         int[] experience = {3};
         int expected = 0;
-        Assertions.assertEquals(expected, solution6152.minNumberOfHours(initialEnergy, initialExperience, energy, experience));
+        Assertions.assertEquals(expected, solution2383.minNumberOfHours(initialEnergy, initialExperience, energy, experience));
     }
 }

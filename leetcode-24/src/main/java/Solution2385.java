@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution6154 {
+public class Solution2385 {
     private Map<Integer, TreeNode> faMap;
 
     public int amountOfTime(TreeNode root, int start) {
@@ -68,7 +68,7 @@ public class Solution6154 {
     }
 }
 /*
-6154. 感染二叉树需要的总时间
+2385. 感染二叉树需要的总时间
 https://leetcode.cn/problems/amount-of-time-for-binary-tree-to-be-infected/
 
 第 307 场周赛 T3。

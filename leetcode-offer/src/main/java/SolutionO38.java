@@ -5,9 +5,9 @@ import java.util.Set;
 
 public class SolutionO38 {
     public String[] permutation(String s) {
-        List<String> resList = new ArrayList<>();
+        int len = s.length();
         char[] chars = s.toCharArray();
-        int len = chars.length;
+        List<String> resList = new ArrayList<>();
         dfs(resList, chars, len, 0);
         return resList.toArray(new String[0]);
     }
