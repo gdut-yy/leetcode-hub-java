@@ -10,7 +10,6 @@ public class UtCoverageCorrectionTest {
         Solution231.main(null);
         Solution326.main(null);
         Solution342.main(null);
-        Solution679.main(null);
         Solution866.main(null);
         Solution906.main(null);
         Solution1922.main(null);
