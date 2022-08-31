@@ -52,7 +52,7 @@ public class Solution2250 {
     }
 }
 /*
-6043. 统计包含每个点的矩形数目
+2250. 统计包含每个点的矩形数目
 https://leetcode.cn/problems/count-number-of-rectangles-containing-each-point/
 
 第 290 场周赛 T3。

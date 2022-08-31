@@ -12,7 +12,7 @@ cnt_lc_solutions = 0
 cnt_lc_tests = 0
 cwd = os.getcwd()
 for dirpath, dirnames, filenames in os.walk(cwd):
-    if("codeforces" not in dirpath and "leetcode-core" not in dirpath and "leetcode-extends" not in dirpath):
+    if("codeforces" not in dirpath and "leetcode-core" not in dirpath and "leetcode-extends" not in dirpath and "leetcode-lcp" not in dirpath):
         # 统计 Solution*.java
         if('\src\main\java' in dirpath):
             for filename in filenames:

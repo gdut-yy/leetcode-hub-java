@@ -23,4 +23,8 @@ public class Solution145 {
 https://leetcode.cn/problems/binary-tree-postorder-traversal/
 
 给定一个二叉树，返回它的 后序 遍历。
+提示：
+树中节点的数目在范围 [0, 100] 内
+-100 <= Node.val <= 100
+进阶：递归算法很简单，你可以通过迭代算法完成吗？
  */

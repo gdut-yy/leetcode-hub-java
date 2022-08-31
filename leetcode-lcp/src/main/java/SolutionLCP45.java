@@ -5,10 +5,12 @@ import java.util.List;
 import java.util.Queue;
 
 public class SolutionLCP45 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int[][] bicycleYard(int[] position, int[][] terrain, int[][] obstacle) {
         int M = terrain.length;
         int N = terrain[0].length;
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
         Queue<int[]> queue = new LinkedList<>();
         List<int[]> resList = new ArrayList<>();
         // position[0] position[1] speed
@@ -18,7 +20,8 @@ public class SolutionLCP45 {
 
         while (!queue.isEmpty()) {
             int[] cur = queue.remove();
-            for (int[] dir : direction) {
+
+            for (int[] dir : DIRECTIONS) {
                 int nextM = cur[0] + dir[0];
                 int nextN = cur[1] + dir[1];
                 int curSpeed = cur[2];
@@ -35,6 +38,7 @@ public class SolutionLCP45 {
                 }
             }
         }
+
         // List<int[]> => int[][]
         int resLen = resList.size();
         int[][] resArray = new int[resLen][];
@@ -43,9 +47,9 @@ public class SolutionLCP45 {
         }
         Arrays.sort(resArray, (o1, o2) -> {
             if (o1[0] == o2[0]) {
-                return o1[1] - o2[1];
+                return Integer.compare(o1[1], o2[1]);
             }
-            return o1[0] - o2[0];
+            return Integer.compare(o1[0], o2[0]);
         });
         return resArray;
     }

@@ -3,15 +3,14 @@ import java.util.Arrays;
 public class Solution435 {
     public int eraseOverlapIntervals(int[][] intervals) {
         int len = intervals.length;
-        if (len == 0) {
-            return 0;
-        }
+
         Arrays.sort(intervals, (o1, o2) -> {
             if (o1[1] == o2[1]) {
-                return o1[0] - o2[0];
+                return Integer.compare(o1[0], o2[0]);
             }
-            return o1[1] - o2[1];
+            return Integer.compare(o1[1], o2[1]);
         });
+
         int cnt = 1;
         int right = intervals[0][1];
         for (int i = 1; i < len; i++) {

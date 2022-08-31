@@ -12,7 +12,7 @@ public class Solution786 {
         }
         // a/b < c/d
         // ad < bc
-        list.sort((o1, o2) -> o1[0] * o2[1] - o1[1] * o2[0]);
+        list.sort((o1, o2) -> Integer.compare(o1[0] * o2[1], o1[1] * o2[0]));
         return list.get(k - 1);
     }
 }

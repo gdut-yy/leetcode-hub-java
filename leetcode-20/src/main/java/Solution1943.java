@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,7 +21,7 @@ public class Solution1943 {
         for (Map.Entry<Integer, Long> entry : colorMap.entrySet()) {
             axis.add(new long[]{entry.getKey(), entry.getValue()});
         }
-        axis.sort((o1, o2) -> (int) (o1[0] - o2[0]));
+        axis.sort(Comparator.comparingLong(o -> o[0]));
 
         // 对数组求前缀和计算对应颜色和
         int len = axis.size();

@@ -170,6 +170,11 @@
         </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
+            <artifactId>leetcode-lcp</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
             <artifactId>leetcode-offer</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

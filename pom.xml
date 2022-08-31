@@ -45,6 +45,7 @@
         <module>leetcode-core</module>
         <module>leetcode-extends</module>
         <module>leetcode-interview</module>
+        <module>leetcode-lcp</module>
         <module>leetcode-offer</module>
     </modules>
     <packaging>pom</packaging>

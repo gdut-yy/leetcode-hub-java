@@ -4,12 +4,12 @@ import java.util.List;
 
 public class Solution56 {
     public int[][] merge(int[][] intervals) {
-        // 排序
+        // start 升序 end 降序
         Arrays.sort(intervals, (o1, o2) -> {
             if (o1[0] == o2[0]) {
-                return -(o1[1] - o2[1]);
+                return Integer.compare(o2[1], o1[1]);
             }
-            return o1[0] - o2[0];
+            return Integer.compare(o1[0], o2[0]);
         });
 
         int left = intervals[0][0];
