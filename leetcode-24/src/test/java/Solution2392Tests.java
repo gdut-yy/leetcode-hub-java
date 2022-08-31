@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6163Tests {
-    private final Solution6163 solution6163 = new Solution6163();
+public class Solution2392Tests {
+    private final Solution2392 solution2392 = new Solution2392();
 
     @Test
     public void example1() {
@@ -12,7 +12,7 @@ public class Solution6163Tests {
         // 答案不唯一
 //        int[][] expected = UtUtils.stringToInts2("[[3,0,0],[0,0,1],[0,2,0]]");
         int[][] expected = UtUtils.stringToInts2("[[0,0,1],[3,0,0],[0,2,0]]");
-        Assertions.assertArrayEquals(expected, solution6163.buildMatrix(k, rowConditions, colConditions));
+        Assertions.assertArrayEquals(expected, solution2392.buildMatrix(k, rowConditions, colConditions));
     }
 
     @Test
@@ -21,6 +21,6 @@ public class Solution6163Tests {
         int[][] rowConditions = UtUtils.stringToInts2("[[1,2],[2,3],[3,1],[2,3]]");
         int[][] colConditions = UtUtils.stringToInts2("[[2,1]]");
         int[][] expected = UtUtils.stringToInts2("[]");
-        Assertions.assertArrayEquals(expected, solution6163.buildMatrix(k, rowConditions, colConditions));
+        Assertions.assertArrayEquals(expected, solution2392.buildMatrix(k, rowConditions, colConditions));
     }
 }

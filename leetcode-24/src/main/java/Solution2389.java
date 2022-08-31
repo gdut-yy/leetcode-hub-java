@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6160 {
+public class Solution2389 {
     public int[] answerQueries(int[] nums, int[] queries) {
         int n = nums.length;
         int m = queries.length;
@@ -36,7 +36,7 @@ public class Solution6160 {
     }
 }
 /*
-6160. 和有限的最长子序列
+2389. 和有限的最长子序列
 https://leetcode.cn/problems/longest-subsequence-with-limited-sum/
 
 第 308 场周赛 T1。

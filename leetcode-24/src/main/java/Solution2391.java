@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6162 {
+public class Solution2391 {
     public int garbageCollection(String[] garbage, int[] travel) {
         int len = garbage.length;
 
@@ -60,7 +60,7 @@ public class Solution6162 {
     }
 }
 /*
-6162. 收集垃圾的最少总时间
+2391. 收集垃圾的最少总时间
 https://leetcode.cn/problems/minimum-amount-of-time-to-collect-garbage/
 
 第 308 场周赛 T3。

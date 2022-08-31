@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6162Tests {
-    private final Solution6162 solution6162 = new Solution6162();
+public class Solution2391Tests {
+    private final Solution2391 solution2391 = new Solution2391();
 
     @Test
     public void example1() {
         String[] garbage = {"G", "P", "GP", "GG"};
         int[] travel = {2, 4, 3};
         int expected = 21;
-        Assertions.assertEquals(expected, solution6162.garbageCollection(garbage, travel));
+        Assertions.assertEquals(expected, solution2391.garbageCollection(garbage, travel));
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Solution6162Tests {
         String[] garbage = {"MMM", "PGM", "GP"};
         int[] travel = {3, 10};
         int expected = 37;
-        Assertions.assertEquals(expected, solution6162.garbageCollection(garbage, travel));
+        Assertions.assertEquals(expected, solution2391.garbageCollection(garbage, travel));
     }
 }

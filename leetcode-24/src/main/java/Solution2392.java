@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6163 {
+public class Solution2392 {
     public int[][] buildMatrix(int k, int[][] rowConditions, int[][] colConditions) {
         // 拓扑排序
         int[] rowTopo = topo(k, rowConditions);
@@ -75,7 +75,7 @@ public class Solution6163 {
     }
 }
 /*
-6163. 给定条件下构造矩阵
+2392. 给定条件下构造矩阵
 https://leetcode.cn/problems/build-a-matrix-with-conditions/
 
 第 308 场周赛 T4。

@@ -1,4 +1,4 @@
-public class Solution6161 {
+public class Solution2390 {
     public String removeStars(String s) {
         int len = s.length();
         int del = 0;
@@ -17,7 +17,7 @@ public class Solution6161 {
     }
 }
 /*
-6161. 从字符串中移除星号
+2390. 从字符串中移除星号
 https://leetcode.cn/problems/removing-stars-from-a-string/
 
 第 308 场周赛 T2。
