@@ -11,18 +11,25 @@ print(between.days, 'days')
 cnt_lc_solutions = 0
 cnt_lc_tests = 0
 cwd = os.getcwd()
+exclude_paths = ['codeforces', 'leetcode-core',
+                 'leetcode-extends', 'leetcode-lcp']
 for dirpath, dirnames, filenames in os.walk(cwd):
-    if("codeforces" not in dirpath and "leetcode-core" not in dirpath and "leetcode-extends" not in dirpath and "leetcode-lcp" not in dirpath):
+    ok = True
+    for exclude_path in exclude_paths:
+        if(exclude_path in dirpath):
+            ok = False
+            break
+    if(ok):
         # 统计 Solution*.java
         if('\src\main\java' in dirpath):
             for filename in filenames:
                 if('Solution' in filename):
-                    cnt_lc_solutions+=1
+                    cnt_lc_solutions += 1
         # 统计 Solution*Tests.java
         if('\src\\test\java' in dirpath):
             for filename in filenames:
                 if('Tests' in filename):
-                    cnt_lc_tests+=1
+                    cnt_lc_tests += 1
 print('leetcode:')
 print(cnt_lc_solutions)
 print(cnt_lc_tests)
@@ -37,12 +44,12 @@ for dirpath, dirnames, filenames in os.walk(cwd):
         if('\src\main\java' in dirpath):
             for filename in filenames:
                 if('CF' in filename):
-                    cnt_cf_mains+=1
+                    cnt_cf_mains += 1
         # 统计 CF*Tests.java
         if('\src\\test\java' in dirpath):
             for filename in filenames:
                 if('CF' in filename and 'Tests' in filename):
-                    cnt_cf_tests+=1
+                    cnt_cf_tests += 1
 print('codeforces:')
 print(cnt_cf_mains)
 print(cnt_cf_tests)

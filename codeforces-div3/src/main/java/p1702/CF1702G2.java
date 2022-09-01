@@ -12,32 +12,35 @@ public class CF1702G2 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         int n = scanner.nextInt();
-        int[] u = new int[n];
-        int[] v = new int[n];
+        int[][] uv = new int[n][2];
         for (int i = 0; i < n - 1; i++) {
-            u[i] = scanner.nextInt() - 1;
-            v[i] = scanner.nextInt() - 1;
+            uv[i][0] = scanner.nextInt() - 1;
+            uv[i][1] = scanner.nextInt() - 1;
         }
-
-        solution(n, u, v);
-
         int q = scanner.nextInt();
+        int[] qK = new int[q];
+        int[][] qP = new int[q][];
         for (int i = 0; i < q; i++) {
             int k = scanner.nextInt();
-            Integer[] p = new Integer[k];
+            qK[i] = k;
+            qP[i] = new int[k];
             for (int j = 0; j < k; j++) {
-                p[j] = scanner.nextInt() - 1;
+                qP[i][j] = scanner.nextInt() - 1;
             }
-            System.out.println(solve(k, p));
+        }
+
+        List<String> res = solve(n, uv, q, qK, qP);
+        for (String re : res) {
+            System.out.println(re);
         }
     }
 
-    static int[] d;
-    static int sz;
-    static int[][] up;
-    static Map<Integer, List<Integer>> adj;
+    private static int[] d;
+    private static int sz;
+    private static int[][] up;
+    private static Map<Integer, List<Integer>> adj;
 
-    private static void solution(int n, int[] u, int[] v) {
+    private static List<String> solve(int n, int[][] uv, int q, int[] qK, int[][] qP) {
         sz = 0;
         while ((1 << sz) < n) {
             sz++;
@@ -47,47 +50,52 @@ public class CF1702G2 {
         up = new int[n][sz + 1];
         // 存图
         adj = new HashMap<>();
-
         for (int i = 0; i < n; i++) {
-            adj.computeIfAbsent(u[i], key -> new ArrayList<>()).add(v[i]);
-            adj.computeIfAbsent(v[i], key -> new ArrayList<>()).add(u[i]);
+            adj.computeIfAbsent(uv[i][0], key -> new ArrayList<>()).add(uv[i][1]);
+            adj.computeIfAbsent(uv[i][1], key -> new ArrayList<>()).add(uv[i][0]);
         }
-
         // 预处理
         precalc(0, 0);
-    }
 
-    private static String solve(int k, Integer[] p) {
-        Arrays.sort(p, (o1, o2) -> Integer.compare(d[o2], d[o1]));
-
-        boolean[] used = new boolean[k];
-        for (int i = 0; i < k; i++) {
-            if (lca(p[0], p[i]) == p[i]) {
-                used[i] = true;
+        List<String> resList = new ArrayList<>();
+        for (int qi = 0; qi < q; qi++) {
+            int k = qK[qi];
+            Integer[] p = new Integer[k];
+            for (int i = 0; i < k; i++) {
+                p[i] = qP[qi][i];
             }
-        }
-        int f = 0;
-        while (f < k && used[f]) {
-            f++;
-        }
-        if (f == k) {
-            return "YES";
-        } else {
-            boolean ans = true;
-            for (int i = f; i < k; i++) {
-                if (lca(p[f], p[i]) == p[i]) {
+
+            Arrays.sort(p, (o1, o2) -> Integer.compare(d[o2], d[o1]));
+            boolean[] used = new boolean[k];
+            for (int i = 0; i < k; i++) {
+                if (lca(p[0], p[i]) == p[i]) {
                     used[i] = true;
                 }
             }
-            for (boolean e : used) {
-                ans &= e;
+            int f = 0;
+            while (f < k && used[f]) {
+                f++;
             }
-            ans &= d[lca(p[0], p[f])] <= d[p[k - 1]];
-            return ans ? "YES" : "NO";
+            if (f == k) {
+                resList.add("YES");
+            } else {
+                boolean ans = true;
+                for (int i = f; i < k; i++) {
+                    if (lca(p[f], p[i]) == p[i]) {
+                        used[i] = true;
+                    }
+                }
+                for (boolean e : used) {
+                    ans &= e;
+                }
+                ans &= d[lca(p[0], p[f])] <= d[p[k - 1]];
+                resList.add(ans ? "YES" : "NO");
+            }
         }
+        return resList;
     }
 
-    static void precalc(int v, int p) {
+    private static void precalc(int v, int p) {
         d[v] = d[p] + 1;
         up[v][0] = p;
         for (int i = 1; i <= sz; ++i) {
@@ -102,7 +110,7 @@ public class CF1702G2 {
     }
 
     // 倍增法求 lca
-    static int lca(int u, int v) {
+    private static int lca(int u, int v) {
         if (d[u] < d[v]) {
             int tmp = u;
             u = v;

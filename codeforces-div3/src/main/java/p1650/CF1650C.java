@@ -1,10 +1,5 @@
 package p1650;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,62 +7,58 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class CF1650C {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            reader.readLine();
-            String[] line1s = reader.readLine().split(" ");
-            int n = Integer.parseInt(line1s[0]);
-            int m = Integer.parseInt(line1s[1]);
-            int[][] nums = new int[m][2];
+            scanner.nextLine();
+            int n = scanner.nextInt();
+            int m = scanner.nextInt();
+            int[][] xw = new int[m][2];
             for (int j = 0; j < m; j++) {
-                String[] lines = reader.readLine().split(" ");
-                nums[j][0] = Integer.parseInt(lines[0]);
-                nums[j][1] = Integer.parseInt(lines[1]);
+                xw[j][0] = scanner.nextInt();
+                xw[j][1] = scanner.nextInt();
             }
-            List<String> res = solution(n, m, nums);
+
+            List<String> res = solve(n, m, xw);
             for (String re : res) {
-                writer.write(re.concat(System.lineSeparator()));
+                System.out.println(re);
             }
-            writer.write(System.lineSeparator());
         }
-        writer.close();
-        reader.close();
     }
 
-    private static List<String> solution(int n, int m, int[][] nums) {
-        Map<Integer, Integer> numberMap = new HashMap<>();
+    private static List<String> solve(int n, int m, int[][] xw) {
+        // 记录序号 1~m
+        Map<Integer, Integer> xwIdxMap = new HashMap<>();
         for (int i = 0; i < m; i++) {
-            numberMap.put(nums[i][0], i + 1);
+            xwIdxMap.put(xw[i][0], i + 1);
         }
 
         // 按权重升序排列
-        Arrays.sort(nums, Comparator.comparingInt(o -> o[1]));
-
-        // 子数组
-        int[][] subNums = new int[n * 2][2];
+        Arrays.sort(xw, Comparator.comparingInt(o -> o[1]));
+        // 权重最小的 2n 个点
+        int[][] xw2n = new int[n * 2][2];
         int sum = 0;
         for (int i = 0; i < n * 2; i++) {
-            subNums[i] = nums[i];
-            sum += nums[i][1];
+            xw2n[i] = xw[i];
+            sum += xw[i][1];
         }
-        List<String> resList = new ArrayList<>();
-        resList.add(String.valueOf(sum));
-
         // 按坐标升序排列
-        Arrays.sort(subNums, Comparator.comparingInt(o -> o[0]));
+        Arrays.sort(xw2n, Comparator.comparingInt(o -> o[0]));
 
-        // n 行
+        List<String> resList = new ArrayList<>();
+        // 第 1 行
+        resList.add(String.valueOf(sum));
+        // 接下来 n 行
         int left = 0;
         int right = n * 2 - 1;
         for (int i = 0; i < n; i++) {
-            int leftPoint = subNums[left][0];
-            int rightPoint = subNums[right][0];
-            resList.add(numberMap.get(leftPoint) + " " + numberMap.get(rightPoint));
+            int lIdx = xwIdxMap.get(xw2n[left][0]);
+            int rIdx = xwIdxMap.get(xw2n[right][0]);
+            resList.add(lIdx + " " + rIdx);
             left++;
             right--;
         }

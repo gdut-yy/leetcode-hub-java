@@ -1,37 +1,31 @@
 package p1607;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 public class CF1607A {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        int t = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        int t = scanner.nextInt();
         for (int i = 0; i < t; i++) {
-            String keyboard = reader.readLine();
-            String word = reader.readLine();
-            writer.write(solution(keyboard, word).concat(System.lineSeparator()));
+            String keyboard = scanner.next();
+            String s = scanner.next();
+            System.out.println(solve(keyboard, s));
         }
-        writer.close();
-        reader.close();
     }
 
-    private static String solution(String keyboard, String word) {
+    private static String solve(String keyboard, String s) {
         // 长度 26 数组模拟 HashMap
         int[] dict = new int[26];
         for (int i = 0; i < keyboard.length(); i++) {
             dict[keyboard.charAt(i) - 'a'] = i;
         }
         int res = 0;
-        int preIdx = dict[word.charAt(0) - 'a'];
-        for (int i = 1; i < word.length(); i++) {
-            res += Math.abs(dict[word.charAt(i) - 'a'] - preIdx);
-            preIdx = dict[word.charAt(i) - 'a'];
+        int preIdx = dict[s.charAt(0) - 'a'];
+        for (int i = 1; i < s.length(); i++) {
+            int idx = s.charAt(i) - 'a';
+            res += Math.abs(dict[idx] - preIdx);
+            preIdx = dict[idx];
         }
         return String.valueOf(res);
     }
