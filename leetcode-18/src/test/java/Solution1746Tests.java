@@ -9,6 +9,7 @@ public class Solution1746Tests {
         int[] nums = {2, -1, -4, -3};
         int expected = 17;
         Assertions.assertEquals(expected, solution1746.maxSumAfterOperation(nums));
+        Assertions.assertEquals(expected, solution1746.maxSumAfterOperation2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution1746Tests {
         int[] nums = {1, -1, 1, 1, -1, -1, 1};
         int expected = 4;
         Assertions.assertEquals(expected, solution1746.maxSumAfterOperation(nums));
+        Assertions.assertEquals(expected, solution1746.maxSumAfterOperation2(nums));
     }
 
     // 补充用例
@@ -24,5 +26,6 @@ public class Solution1746Tests {
         int[] nums = {-4, -49, -12, -75, -48, 46, 72, 10, 51, -51, 26, -74, 70, -1, -25, 29, 27};
         int expected = 5757;
         Assertions.assertEquals(expected, solution1746.maxSumAfterOperation(nums));
+        Assertions.assertEquals(expected, solution1746.maxSumAfterOperation2(nums));
     }
 }

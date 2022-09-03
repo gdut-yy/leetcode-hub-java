@@ -19,6 +19,23 @@ public class Solution1746 {
         }
         return max;
     }
+
+    // 压缩
+    public int maxSumAfterOperation2(int[] nums) {
+        int len = nums.length;
+
+        // 未替换
+        int no = Math.max(0, nums[0]);
+        // 替换
+        int yes = nums[0] * nums[0];
+        int maxSum = yes;
+        for (int i = 1; i < len; i++) {
+            yes = Math.max(no + nums[i] * nums[i], yes + nums[i]);
+            no = Math.max(0, no + nums[i]);
+            maxSum = Math.max(maxSum, yes);
+        }
+        return maxSum;
+    }
 }
 /*
 $1746. 经过一次操作后的最大子数组和
