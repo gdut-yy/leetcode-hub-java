@@ -1,4 +1,4 @@
-public class Solution6169 {
+public class Solution2401 {
     public int longestNiceSubarray(int[] nums) {
         int len = nums.length;
 
@@ -23,7 +23,7 @@ public class Solution6169 {
     }
 }
 /*
-6169. 最长优雅子数组
+2401. 最长优雅子数组
 https://leetcode.cn/problems/longest-nice-subarray/
 
 第 309 场周赛 T3。

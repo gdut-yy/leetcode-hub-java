@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6171 {
+public class Solution2395 {
     public boolean findSubarrays(int[] nums) {
         int len = nums.length;
         Set<Integer> sumSet = new HashSet<>();
@@ -16,7 +16,7 @@ public class Solution6171 {
     }
 }
 /*
-6171. 和相等的子数组
+2395. 和相等的子数组
 https://leetcode.cn/problems/find-subarrays-with-equal-sum/
 
 第 86 场双周赛 T1。

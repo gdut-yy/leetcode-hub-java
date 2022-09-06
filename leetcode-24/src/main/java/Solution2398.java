@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Solution6143 {
+public class Solution2398 {
     public int maximumRobots(int[] chargeTimes, int[] runningCosts, long budget) {
         int n = chargeTimes.length;
 
@@ -65,7 +65,7 @@ public class Solution6143 {
     }
 }
 /*
-6143. 预算内的最多机器人数目
+2398. 预算内的最多机器人数目
 https://leetcode.cn/problems/maximum-number-of-robots-within-budget/
 
 第 86 场双周赛 T4。

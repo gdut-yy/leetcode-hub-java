@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class SolutionLCP3 {
+public class SolutionLCP03 {
     public boolean robot(String command, int[][] obstacles, int x, int y) {
         // 路径中的点
         Set<String> pathSet = new HashSet<>();

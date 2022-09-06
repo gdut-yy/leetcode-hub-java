@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6167 {
+public class Solution2399 {
     public boolean checkDistances(String s, int[] distance) {
         int len = s.length();
         // 第一次出现的下标
@@ -18,7 +18,7 @@ public class Solution6167 {
     }
 }
 /*
-6167. 检查相同字母间的距离
+2399. 检查相同字母间的距离
 https://leetcode.cn/problems/check-distances-between-same-letters/
 
 第 309 场周赛 T1。

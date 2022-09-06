@@ -1,4 +1,4 @@
-public class Solution6168 {
+public class Solution2400 {
     private static final int MOD = 1000000007;
 
     public int numberOfWays(int startPos, int endPos, int k) {
@@ -29,7 +29,7 @@ public class Solution6168 {
     }
 }
 /*
-6168. 恰好移动 k 步到达某一位置的方法数目
+2400. 恰好移动 k 步到达某一位置的方法数目
 https://leetcode.cn/problems/number-of-ways-to-reach-a-position-after-exactly-k-steps/
 
 第 309 场周赛 T2。

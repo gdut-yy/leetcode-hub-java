@@ -9,6 +9,7 @@ public class Solution414Tests {
         int[] nums = {3, 2, 1};
         int expected = 1;
         Assertions.assertEquals(expected, solution414.thirdMax(nums));
+        Assertions.assertEquals(expected, solution414.thirdMax2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution414Tests {
         int[] nums = {1, 2};
         int expected = 2;
         Assertions.assertEquals(expected, solution414.thirdMax(nums));
+        Assertions.assertEquals(expected, solution414.thirdMax2(nums));
     }
 
     @Test
@@ -23,5 +25,16 @@ public class Solution414Tests {
         int[] nums = {2, 2, 3, 1};
         int expected = 1;
         Assertions.assertEquals(expected, solution414.thirdMax(nums));
+        Assertions.assertEquals(expected, solution414.thirdMax2(nums));
+    }
+
+    // 补充用例
+    @Test
+    public void example4() {
+        // https://leetcode.cn/submissions/detail/359495587/
+        int[] nums = {1, 2, -2147483648};
+        int expected = -2147483648;
+        Assertions.assertEquals(expected, solution414.thirdMax(nums));
+        Assertions.assertEquals(expected, solution414.thirdMax2(nums));
     }
 }

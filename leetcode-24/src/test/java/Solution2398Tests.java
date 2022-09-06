@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6143Tests {
-    private final Solution6143 solution6143 = new Solution6143();
+public class Solution2398Tests {
+    private final Solution2398 solution2398 = new Solution2398();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6143Tests {
         int[] runningCosts = {2, 1, 3, 4, 5};
         long budget = 25;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6143.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6143Tests {
         int[] runningCosts = {10, 8, 7};
         long budget = 19;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6143.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
     }
 
     // 补充用例
@@ -31,6 +31,6 @@ public class Solution6143Tests {
         int[] runningCosts = {1, 92, 41, 63, 22, 37, 37, 8, 68, 97, 39, 59, 45, 50, 29, 37};
         long budget = 412;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6143.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
     }
 }

@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6168Tests {
-    private final Solution6168 solution6168 = new Solution6168();
+public class Solution2400Tests {
+    private final Solution2400 solution2400 = new Solution2400();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6168Tests {
         int endPos = 2;
         int k = 3;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6168.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6168Tests {
         int endPos = 5;
         int k = 10;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6168.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
     }
 
     // 补充用例
@@ -30,7 +30,7 @@ public class Solution6168Tests {
         int endPos = 270;
         int k = 6;
         int expected = 15;
-        Assertions.assertEquals(expected, solution6168.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
     }
 
     @Test
@@ -40,7 +40,7 @@ public class Solution6168Tests {
         int endPos = 198;
         int k = 68;
         int expected = 68;
-        Assertions.assertEquals(expected, solution6168.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
     }
 
     @Test
@@ -50,7 +50,7 @@ public class Solution6168Tests {
         int endPos = 1000;
         int k = 99;
         int expected = 934081896;
-        Assertions.assertEquals(expected, solution6168.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
     }
 }
 /*

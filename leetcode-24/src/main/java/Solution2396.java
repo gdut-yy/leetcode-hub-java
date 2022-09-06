@@ -1,4 +1,4 @@
-public class Solution6172 {
+public class Solution2396 {
     public boolean isStrictlyPalindromic(int n) {
         for (int i = 2; i <= n - 2; i++) {
             if (!isPal(Integer.toString(n, i))) {
@@ -23,7 +23,7 @@ public class Solution6172 {
     }
 }
 /*
-6172. 严格回文的数字
+2396. 严格回文的数字
 https://leetcode.cn/problems/strictly-palindromic-number/
 
 第 86 场双周赛 T2。

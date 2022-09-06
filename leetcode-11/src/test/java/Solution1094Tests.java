@@ -18,17 +18,13 @@ public class Solution1094Tests {
         Assertions.assertTrue(solution1094.carPooling(trips, capacity));
     }
 
+    // 补充用例
     @Test
     public void example3() {
-        int[][] trips = {{2, 1, 5}, {3, 5, 7}};
-        int capacity = 3;
-        Assertions.assertTrue(solution1094.carPooling(trips, capacity));
-    }
-
-    @Test
-    public void example4() {
-        int[][] trips = {{3, 2, 7}, {3, 7, 9}, {8, 3, 9}};
-        int capacity = 11;
-        Assertions.assertTrue(solution1094.carPooling(trips, capacity));
+        // https://leetcode.cn/submissions/detail/359493179/
+        // RE
+        int[][] trips = UtUtils.stringToInts2("[[9,0,1],[3,3,7]]");
+        int capacity = 4;
+        Assertions.assertFalse(solution1094.carPooling(trips, capacity));
     }
 }

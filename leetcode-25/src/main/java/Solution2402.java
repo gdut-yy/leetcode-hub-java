@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6170 {
+public class Solution2402 {
     public int mostBooked(int n, int[][] meetings) {
         int[] cnt = new int[n];
 
@@ -63,7 +63,7 @@ public class Solution6170 {
     }
 }
 /*
-6170. 会议室 III
+2402. 会议室 III
 https://leetcode.cn/problems/meeting-rooms-iii/
 
 第 309 场周赛 T4。

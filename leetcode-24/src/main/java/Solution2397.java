@@ -1,4 +1,4 @@
-public class Solution6173 {
+public class Solution2397 {
     public int maximumRows(int[][] mat, int cols) {
         int m = mat.length;
         int n = mat[0].length;
@@ -88,7 +88,7 @@ public class Solution6173 {
     }
 }
 /*
-6173. 被列覆盖的最多行数
+2397. 被列覆盖的最多行数
 https://leetcode.cn/problems/maximum-rows-covered-by-columns/
 
 第 86 场双周赛 T3。
