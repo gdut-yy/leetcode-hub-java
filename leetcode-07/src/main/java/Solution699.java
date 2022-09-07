@@ -58,7 +58,6 @@ public class Solution699 {
                 return;
             }
             int mid = s + (t - s) / 2;
-            // pushDown
             pushDown(p);
             if (l <= mid) {
                 update(l, r, val, s, mid, p * 2);
@@ -66,7 +65,6 @@ public class Solution699 {
             if (r > mid) {
                 update(l, r, val, mid + 1, t, p * 2 + 1);
             }
-            // pushUp
             pushUp(p);
         }
 
@@ -78,23 +76,23 @@ public class Solution699 {
                 return max[p];
             }
             int mid = s + (t - s) / 2;
-            // pushDown
             pushDown(p);
-            int maxn = 0;
+            int max = 0;
             if (l <= mid) {
-                maxn = Math.max(maxn, getMax(l, r, s, mid, p * 2));
+                max = Math.max(max, getMax(l, r, s, mid, p * 2));
             }
             if (r > mid) {
-                maxn = Math.max(maxn, getMax(l, r, mid + 1, t, p * 2 + 1));
+                max = Math.max(max, getMax(l, r, mid + 1, t, p * 2 + 1));
             }
-            return maxn;
+            return max;
         }
 
         private void pushDown(int p) {
             if (lazy[p] > 0) {
                 max[p * 2] = lazy[p];
                 max[p * 2 + 1] = lazy[p];
-                lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                lazy[p * 2] = lazy[p];
+                lazy[p * 2 + 1] = lazy[p];
                 lazy[p] = 0;
             }
         }
@@ -156,8 +154,8 @@ public class Solution699 {
                 node.lazy = val;
                 return;
             }
-            pushDown(node);
             int mid = s + (t - s) / 2;
+            pushDown(node);
             if (l <= mid) {
                 update(l, r, val, s, mid, node.ls);
             }
@@ -171,8 +169,8 @@ public class Solution699 {
             if (l <= s && t <= r) {
                 return node.max;
             }
-            pushDown(node);
             int mid = s + (t - s) / 2;
+            pushDown(node);
             int max = 0;
             if (l <= mid) {
                 max = Math.max(max, getMax(l, r, s, mid, node.ls));
@@ -193,7 +191,8 @@ public class Solution699 {
             if (node.lazy > 0) {
                 node.ls.max = node.lazy;
                 node.rs.max = node.lazy;
-                node.ls.lazy = node.rs.lazy = node.lazy;
+                node.ls.lazy = node.lazy;
+                node.rs.lazy = node.lazy;
                 node.lazy = 0;
             }
         }

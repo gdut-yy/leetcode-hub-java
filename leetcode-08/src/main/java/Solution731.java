@@ -47,8 +47,8 @@ public class Solution731 {
                     node.lazy += val;
                     return;
                 }
-                pushDown(node);
                 int mid = s + (t - s) / 2;
+                pushDown(node);
                 if (l <= mid) {
                     update(l, r, val, s, mid, node.ls);
                 }
@@ -62,8 +62,8 @@ public class Solution731 {
                 if (l <= s && t <= r) {
                     return node.max;
                 }
-                pushDown(node);
                 int mid = s + (t - s) / 2;
+                pushDown(node);
                 int max = 0;
                 if (l <= mid) {
                     max = Math.max(max, getMax(l, r, s, mid, node.ls));

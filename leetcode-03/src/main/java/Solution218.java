@@ -68,7 +68,6 @@ public class Solution218 {
                 return;
             }
             int mid = s + (t - s) / 2;
-            // pushDown
             pushDown(p);
             if (l <= mid) {
                 update(l, r, val, s, mid, p * 2);
@@ -76,7 +75,6 @@ public class Solution218 {
             if (r > mid) {
                 update(l, r, val, mid + 1, t, p * 2 + 1);
             }
-            // pushUp
             pushUp(p);
         }
 
@@ -87,7 +85,6 @@ public class Solution218 {
                 return max[p];
             }
             int mid = s + (t - s) / 2;
-            // pushDown
             pushDown(p);
             int maxn = 0;
             if (l <= mid) {
@@ -103,7 +100,8 @@ public class Solution218 {
             if (lazy[p] > 0) {
                 max[p * 2] = lazy[p];
                 max[p * 2 + 1] = lazy[p];
-                lazy[p * 2] = lazy[p * 2 + 1] = lazy[p];
+                lazy[p * 2] = lazy[p];
+                lazy[p * 2 + 1] = lazy[p];
                 lazy[p] = 0;
             }
         }
@@ -175,8 +173,8 @@ public class Solution218 {
                 node.lazy = val;
                 return;
             }
-            pushDown(node);
             int mid = s + (t - s) / 2;
+            pushDown(node);
             if (l <= mid) {
                 update(l, r, val, s, mid, node.ls);
             }
@@ -190,8 +188,8 @@ public class Solution218 {
             if (l <= s && t <= r) {
                 return node.max;
             }
-            pushDown(node);
             int mid = s + (t - s) / 2;
+            pushDown(node);
             int max = 0;
             if (l <= mid) {
                 max = Math.max(max, getMax(l, r, s, mid, node.ls));
@@ -212,7 +210,8 @@ public class Solution218 {
             if (node.lazy > 0) {
                 node.ls.max = node.lazy;
                 node.rs.max = node.lazy;
-                node.ls.lazy = node.rs.lazy = node.lazy;
+                node.ls.lazy = node.lazy;
+                node.rs.lazy = node.lazy;
                 node.lazy = 0;
             }
         }

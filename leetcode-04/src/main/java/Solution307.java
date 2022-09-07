@@ -75,7 +75,7 @@ public class Solution307 {
         }
 
         public int sumRange(int left, int right) {
-            return segmentTree.getsum(left + 1, right + 1);
+            return segmentTree.getSum(left + 1, right + 1);
         }
 
         private static class SegmentTree {
@@ -89,7 +89,6 @@ public class Solution307 {
                 this.nums = nums;
                 tree = new int[N * 4];
                 lazy = new int[N * 4];
-
                 build(1, N, 1);
             }
 
@@ -103,7 +102,7 @@ public class Solution307 {
                 build(s, mid, p * 2);
                 build(mid + 1, t, p * 2 + 1);
                 // 递归对左右区间建树
-                tree[p] = tree[p * 2] + tree[(p * 2) + 1];
+                pushUp(p);
             }
 
             // [l,r] 范围置为 c
@@ -114,28 +113,34 @@ public class Solution307 {
                     return;
                 }
                 int mid = s + (t - s) / 2;
-                if (lazy[p] > 0) {
-                    tree[p * 2] = lazy[p] * (mid - s + 1);
-                    tree[p * 2 + 1] = lazy[p] * (t - mid);
-                    lazy[p * 2] = lazy[p];
-                    lazy[p * 2 + 1] = lazy[p];
-                    lazy[p] = 0;
-                }
+                pushDown(s, t, p, mid);
                 if (l <= mid) {
                     update(l, r, val, s, mid, p * 2);
                 }
                 if (r > mid) {
                     update(l, r, val, mid + 1, t, p * 2 + 1);
                 }
-                tree[p] = tree[p * 2] + tree[p * 2 + 1];
+                pushUp(p);
             }
 
             // [l,r] 范围求和
-            private int getsum(int l, int r, int s, int t, int p) {
+            private int getSum(int l, int r, int s, int t, int p) {
                 if (l <= s && t <= r) {
                     return tree[p];
                 }
                 int mid = s + (t - s) / 2;
+                pushDown(s, t, p, mid);
+                int sum = 0;
+                if (l <= mid) {
+                    sum = getSum(l, r, s, mid, p * 2);
+                }
+                if (r > mid) {
+                    sum += getSum(l, r, mid + 1, t, p * 2 + 1);
+                }
+                return sum;
+            }
+
+            private void pushDown(int s, int t, int p, int mid) {
                 if (lazy[p] > 0) {
                     tree[p * 2] = lazy[p] * (mid - s + 1);
                     tree[p * 2 + 1] = lazy[p] * (t - mid);
@@ -143,22 +148,18 @@ public class Solution307 {
                     lazy[p * 2 + 1] = lazy[p];
                     lazy[p] = 0;
                 }
-                int sum = 0;
-                if (l <= mid) {
-                    sum = getsum(l, r, s, mid, p * 2);
-                }
-                if (r > mid) {
-                    sum += getsum(l, r, mid + 1, t, p * 2 + 1);
-                }
-                return sum;
+            }
+
+            private void pushUp(int p) {
+                tree[p] = tree[p * 2] + tree[p * 2 + 1];
             }
 
             void update(int l, int r, int val) {
                 update(l, r, val, 1, N, 1);
             }
 
-            int getsum(int l, int r) {
-                return getsum(l, r, 1, N, 1);
+            int getSum(int l, int r) {
+                return getSum(l, r, 1, N, 1);
             }
         }
     }

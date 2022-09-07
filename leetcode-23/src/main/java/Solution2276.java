@@ -80,8 +80,8 @@ public class Solution2276 {
                     node.lazy = val;
                     return;
                 }
-                pushDown(node, len);
                 int mid = s + (t - s) / 2;
+                pushDown(node, len);
                 if (l <= mid) {
                     update(l, r, val, s, mid, node.ls);
                 }
@@ -95,8 +95,8 @@ public class Solution2276 {
                 if (l <= s && t <= r) {
                     return node.sum;
                 }
-                pushDown(node, t - s + 1);
                 int mid = s + (t - s) / 2;
+                pushDown(node, t - s + 1);
                 int sum = 0;
                 if (l <= mid) {
                     sum = getSum(l, r, s, mid, node.ls);
