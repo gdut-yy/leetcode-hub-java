@@ -42,4 +42,8 @@ https://leetcode.cn/problems/single-number/
 你的算法应该具有线性时间复杂度。 你可以不使用额外空间来实现吗？
 
 HashMap 统计/位运算
+相似题目: 137. 只出现一次的数字 II
+https://leetcode.cn/problems/single-number-ii/
+260. 只出现一次的数字 III
+https://leetcode.cn/problems/single-number-iii/
  */

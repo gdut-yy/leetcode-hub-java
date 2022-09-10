@@ -35,6 +35,10 @@ https://leetcode.cn/problems/count-good-triplets/
 - |arr[i] - arr[k]| <= c
 其中 |x| 表示 x 的绝对值。
 返回 好三元组的数量 。
+提示：
+3 <= arr.length <= 100
+0 <= arr[i] <= 1000
+0 <= a, b, c <= 1000
 
 暴力枚举即可。时间复杂度 O(n^3)
 可以进行剪枝，时间复杂度 O(n^2)

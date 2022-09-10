@@ -1,7 +1,5 @@
 public class Solution1014 {
     public int maxScoreSightseeingPair(int[] values) {
-        // values[i] + values[j] + i - j == (values[i]+i) + (values[j]-j)
-        // i < j
         int maxI = 0;
         int maxIj = 0;
         for (int j = 1; j < values.length; j++) {
@@ -25,4 +23,6 @@ https://leetcode.cn/problems/best-sightseeing-pair/
 1 <= values[i] <= 1000
 
 由于 用例 数值较大，需要将时间复杂度由 O(n^2) 优化到 O(n)
+当 i < j 时：
+f(i,j) = values[i] + values[j] + i - j == (values[i] + i) + (values[j] - j)
  */
