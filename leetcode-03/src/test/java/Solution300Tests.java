@@ -10,6 +10,7 @@ public class Solution300Tests {
         int expected = 4;
         Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
         Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
+        Assertions.assertEquals(expected, solution300.lengthOfLIS3(nums));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution300Tests {
         int expected = 4;
         Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
         Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
+        Assertions.assertEquals(expected, solution300.lengthOfLIS3(nums));
     }
 
     @Test
@@ -26,6 +28,7 @@ public class Solution300Tests {
         int expected = 1;
         Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
         Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
+        Assertions.assertEquals(expected, solution300.lengthOfLIS3(nums));
     }
 
     // 补充用例
@@ -35,5 +38,6 @@ public class Solution300Tests {
         int expected = 3;
         Assertions.assertEquals(expected, solution300.lengthOfLIS(nums));
         Assertions.assertEquals(expected, solution300.lengthOfLIS2(nums));
+        Assertions.assertEquals(expected, solution300.lengthOfLIS3(nums));
     }
 }

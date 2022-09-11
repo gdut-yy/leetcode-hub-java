@@ -6,21 +6,20 @@ import java.util.Set;
 
 public class Solution752 {
     public int openLock(String[] deadends, String target) {
-        // 记录需要跳过的死亡密码
-        Set<String> deads = new HashSet<>(Arrays.asList(deadends));
-        // 记录已经穷举过的密码，防止走回头路
-        Set<String> visited = new HashSet<>();
+        Set<String> deadSet = new HashSet<>(Arrays.asList(deadends));
+
+        // BFS
         Queue<String> queue = new LinkedList<>();
-        // 从起点开始启动广度优先搜索
-        int step = 0;
         queue.add("0000");
+        Set<String> visited = new HashSet<>();
         visited.add("0000");
 
+        int step = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
                 String cur = queue.remove();
-                if (deads.contains(cur)) {
+                if (deadSet.contains(cur)) {
                     continue;
                 }
                 // 判断是否到终点
@@ -46,9 +45,7 @@ public class Solution752 {
         return -1;
     }
 
-    /**
-     * + 1 场景 9->0 0->1
-     */
+    // +1 场景 9->0, 0->1
     private String plusOne(String str, int index) {
         char[] ch = str.toCharArray();
         if (ch[index] == '9') {
@@ -59,9 +56,7 @@ public class Solution752 {
         return new String(ch);
     }
 
-    /**
-     * - 1 场景 1->0 0->9
-     */
+    // -1 场景 1->0, 0->9
     private String minusOne(String str, int index) {
         char[] ch = str.toCharArray();
         if (ch[index] == '0') {

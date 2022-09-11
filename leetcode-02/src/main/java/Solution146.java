@@ -1,4 +1,5 @@
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Solution146 {
     static class LRUCache {
@@ -41,6 +42,27 @@ public class Solution146 {
             // 删除 key，重新插入到队尾
             lruCache.remove(key);
             lruCache.put(key, val);
+        }
+    }
+
+    static class LRUCache2 {
+        private final LinkedHashMap<Integer, Integer> linkedHashMap;
+
+        public LRUCache2(int capacity) {
+            linkedHashMap = new LinkedHashMap<>(capacity, 0.75F, true) {
+                @Override
+                public boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+                    return size() > capacity;
+                }
+            };
+        }
+
+        public int get(int key) {
+            return linkedHashMap.getOrDefault(key, -1);
+        }
+
+        public void put(int key, int value) {
+            linkedHashMap.put(key, value);
         }
     }
 }

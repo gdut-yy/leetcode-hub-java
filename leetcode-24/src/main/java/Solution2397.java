@@ -3,16 +3,14 @@ public class Solution2397 {
         int m = mat.length;
         int n = mat[0].length;
 
-        // 预处理 第 i 行有多少个 1
-        int[] cnt1 = new int[m];
+        // 预处理 int[] => state 将一行映射成一个整数
+        int[] mask = new int[m];
         for (int i = 0; i < m; i++) {
-            int sum = 0;
             for (int j = 0; j < n; j++) {
                 if (mat[i][j] == 1) {
-                    sum++;
+                    mask[i] |= (1 << j);
                 }
             }
-            cnt1[i] = sum;
         }
 
         // 选取 cols 列
@@ -23,16 +21,8 @@ public class Solution2397 {
             }
             int cnt = 0;
             for (int i = 0; i < m; i++) {
-                int sum = 0;
-                // 第 k 位被选中
-                for (int k = 0; k < n; k++) {
-                    if (((state >> k) & 1) == 1) {
-                        if (mat[i][k] == 1) {
-                            sum++;
-                        }
-                    }
-                }
-                if (sum == cnt1[i]) {
+                // mask[i] 是否是 state 的一个子集
+                if ((mask[i] & state) == mask[i]) {
                     cnt++;
                 }
             }
@@ -45,42 +35,31 @@ public class Solution2397 {
         int m = mat.length;
         int n = mat[0].length;
 
-        // 预处理 第 i 行有多少个 1
-        int[] cnt1 = new int[m];
+        // 预处理 int[] => state 将一行映射成一个整数
+        int[] mask = new int[m];
         for (int i = 0; i < m; i++) {
-            int sum = 0;
             for (int j = 0; j < n; j++) {
                 if (mat[i][j] == 1) {
-                    sum++;
+                    mask[i] |= (1 << j);
                 }
             }
-            cnt1[i] = sum;
         }
 
-        // 选取 cols 列
-        int max = 0;
+        // Gosper's Hack 时间复杂度 O(1) 找到下一个大小为 cols 的集合
         int state = (1 << cols) - 1;
-
+        int max = 0;
         while (state < (1 << n)) {
             int cnt = 0;
             for (int i = 0; i < m; i++) {
-                int sum = 0;
-                // 第 k 位被选中
-                for (int k = 0; k < n; k++) {
-                    if (((state >> k) & 1) == 1) {
-                        if (mat[i][k] == 1) {
-                            sum++;
-                        }
-                    }
-                }
-                if (sum == cnt1[i]) {
+                // mask[i] 是否是 state 的一个子集
+                if ((mask[i] & state) == mask[i]) {
                     cnt++;
                 }
             }
             max = Math.max(max, cnt);
 
-            // Gosper's Hack 时间复杂度 O(1) 找到下一个大小为 cols 的集合
-            int lowbit = state & -state;
+            // Gosper's Hack
+            int lowbit = state & (-state);
             int x = state + lowbit;
             state = (state ^ x) / lowbit >> 2 | x;
         }
@@ -104,6 +83,7 @@ mat[i][j] 要么是 0 要么是 1 。
 1 <= cols <= n
 
 状态压缩枚举
-时间复杂度 O(m*2^n) 本题上界为 12 * 2^12 = 49152
+时间复杂度 O(C(n, k))。本题理论上界为 12! / 6! / 6! = 479,001,600 / 720 / 720 = 924。（朴素状态压缩枚举理论上界为 2^n = 2^12 = 4096）。
+空间复杂度 O(m)
 灵神直播介绍的黑科技 Gosper's Hack 时间复杂度 O(1) 找到下一个大小为 cols 的集合
  */

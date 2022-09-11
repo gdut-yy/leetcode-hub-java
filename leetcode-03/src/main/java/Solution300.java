@@ -5,7 +5,6 @@ public class Solution300 {
      * 空间复杂度 O(n)
      */
     public int lengthOfLIS(int[] nums) {
-        // 1 <= nums.length <= 2500
         int len = nums.length;
 
         // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
@@ -31,7 +30,6 @@ public class Solution300 {
      * 空间复杂度 O(n)
      */
     public int lengthOfLIS2(int[] nums) {
-        // 1 <= nums.length <= 2500
         int len = nums.length;
 
         // ascend[idx] 表示长度为 idx 的最长上升子序列的末尾元素的最小值，用 idx 记录目前最长上升子序列的长度
@@ -52,7 +50,8 @@ public class Solution300 {
                     // 边界二分 F, F,..., F, [T, T,..., T]
                     // ----------------------^
                     // 严格递增
-                    if (ascend[mid] >= nums[i]) {
+                    // !(nums[i] > ascend[idx])
+                    if (!(nums[i] > ascend[mid])) {
                         right = mid;
                     } else {
                         left = mid + 1;
@@ -62,6 +61,99 @@ public class Solution300 {
             }
         }
         return idx;
+    }
+
+    public int lengthOfLIS3(int[] nums) {
+        int offset = 10000;
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] += offset;
+        }
+
+        DynamicSegTree dynamicSegTree = new DynamicSegTree();
+        for (int num : nums) {
+            int max = dynamicSegTree.getMax(0, num - 1);
+            dynamicSegTree.update(num, num, max + 1);
+        }
+        return dynamicSegTree.getMax(0, offset * 2);
+    }
+
+    private static class DynamicSegTree {
+        private static class Node {
+            // 左子树
+            Node ls;
+            // 右子树
+            Node rs;
+            // 区间最大值
+            int max;
+            // 懒标记
+            int lazy;
+        }
+
+        private static final int N = 20000;
+        private final Node root = new Node();
+
+        // 区间更新 [l,r] 置为 val
+        void update(int l, int r, int val) {
+            this.update(l, r, val, 0, N, root);
+        }
+
+        // 区间查询 [l,r] 最大值
+        int getMax(int l, int r) {
+            return this.getMax(l, r, 0, N, root);
+        }
+
+        private void update(int l, int r, int val, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                node.max = val;
+                node.lazy = val;
+                return;
+            }
+            int mid = s + (t - s) / 2;
+            pushDown(node);
+            if (l <= mid) {
+                update(l, r, val, s, mid, node.ls);
+            }
+            if (r > mid) {
+                update(l, r, val, mid + 1, t, node.rs);
+            }
+            pushUp(node);
+        }
+
+        private int getMax(int l, int r, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                return node.max;
+            }
+            int mid = s + (t - s) / 2;
+            pushDown(node);
+            int max = 0;
+            if (l <= mid) {
+                max = Math.max(max, getMax(l, r, s, mid, node.ls));
+            }
+            if (r > mid) {
+                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
+            }
+            return max;
+        }
+
+        private void pushDown(Node node) {
+            if (node.ls == null) {
+                node.ls = new Node();
+            }
+            if (node.rs == null) {
+                node.rs = new Node();
+            }
+            if (node.lazy > 0) {
+                node.ls.max = node.lazy;
+                node.rs.max = node.lazy;
+                node.ls.lazy = node.lazy;
+                node.rs.lazy = node.lazy;
+                node.lazy = 0;
+            }
+        }
+
+        private void pushUp(Node node) {
+            node.max = Math.max(node.ls.max, node.rs.max);
+        }
     }
 }
 /*

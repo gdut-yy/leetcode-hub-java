@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -55,6 +56,21 @@ public class Solution39Tests {
         int[] candidates = {1};
         int target = 2;
         List<List<Integer>> expected = new ArrayList<>(List.of(List.of(1, 1)));
+        List<List<Integer>> actual = solution39.combinationSum(candidates, target);
+        actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
+        expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
+        Assertions.assertEquals(expected, actual);
+    }
+
+    // 补充用例
+    @Test
+    @Disabled
+    public void example6() {
+        // https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues/9000
+        // hqztrue：其实因为可以重复选同一个数的原因，连 O(n*2^n) 都不是一个上界，最坏数据会 TLE 得很惨...
+        int[] candidates = {2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50, 52, 54, 56, 58, 60};
+        int target = 499;
+        List<List<Integer>> expected = new ArrayList<>();
         List<List<Integer>> actual = solution39.combinationSum(candidates, target);
         actual.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         expected.sort(UtUtils.INTEGER_LIST_COMPARATOR);
