@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6716 {
+public class Solution2404 {
     public int mostFrequentEven(int[] nums) {
         int maxCnt = -1;
         TreeMap<Integer, Integer> cntMap = new TreeMap<>();
@@ -20,7 +20,7 @@ public class Solution6716 {
     }
 }
 /*
-6176. 出现最频繁的偶数元素
+2404. 出现最频繁的偶数元素
 https://leetcode.cn/problems/most-frequent-even-element/
 
 第 310 场周赛 T1。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6717 {
+public class Solution2405 {
     public int partitionString(String s) {
         int len = s.length();
         int cnt = 1;
@@ -19,7 +19,7 @@ public class Solution6717 {
     }
 }
 /*
-6177. 子字符串的最优划分
+2405. 子字符串的最优划分
 https://leetcode.cn/problems/optimal-partition-of-string/
 
 第 310 场周赛 T2。

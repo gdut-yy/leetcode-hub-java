@@ -1,4 +1,4 @@
-public class Solution6718 {
+public class Solution2406 {
     public int minGroups(int[][] intervals) {
         int len = 1000005;
 
@@ -22,7 +22,7 @@ public class Solution6718 {
     }
 }
 /*
-6178. 将区间分为最少组数
+2406. 将区间分为最少组数
 https://leetcode.cn/problems/divide-intervals-into-minimum-number-of-groups/
 
 第 310 场周赛 T3。

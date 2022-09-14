@@ -1,4 +1,4 @@
-public class Solution6206 {
+public class Solution2407 {
     private static final int N = 100000;
 
     public int lengthOfLIS(int[] nums, int k) {
@@ -89,7 +89,7 @@ public class Solution6206 {
     }
 }
 /*
-6206. 最长递增子序列 II
+2407. 最长递增子序列 II
 https://leetcode.cn/problems/longest-increasing-subsequence-ii/
 
 第 310 场周赛 T4。
