@@ -44,11 +44,3 @@ public class Solution218Tests {
         Assertions.assertEquals(expected, solution218.getSkyline2(buildings));
     }
 }
-/*
-输入：
-[[2,13,10],[10,17,25],[12,20,14]]
-输出：
-[[2,10],[10,25],[13,14],[20,0]]
-预期结果：
-[[2,10],[10,25],[17,14],[20,0]]
- */

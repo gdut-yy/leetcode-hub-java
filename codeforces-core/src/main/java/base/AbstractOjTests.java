@@ -18,6 +18,14 @@ public abstract class AbstractOjTests {
     protected static final String OUTPUT2 = "output2.txt";
     protected static final String INPUT3 = "input3.txt";
     protected static final String OUTPUT3 = "output3.txt";
+    protected static final String INPUT4 = "input4.txt";
+    protected static final String OUTPUT4 = "output4.txt";
+    protected static final String INPUT5 = "input5.txt";
+    protected static final String OUTPUT5 = "output5.txt";
+    protected static final String INPUT6 = "input6.txt";
+    protected static final String OUTPUT6 = "output6.txt";
+    protected static final String INPUT7 = "input7.txt";
+    protected static final String OUTPUT7 = "output7.txt";
 
     private final String path;
     private final ByteArrayOutputStream byteArrayOutputStream;

@@ -37,12 +37,3 @@ public class Solution2141Tests {
         Assertions.assertEquals(expected, solution2141.maxRunTime(n, batteries));
     }
 }
-/*
-输入：
-12
-[11,89,16,32,70,67,35,35,31,24,41,29,6,53,78,83]
-输出：
-44
-预期结果：
-43
- */

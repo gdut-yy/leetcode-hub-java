@@ -11,6 +11,7 @@ public class Solution2400Tests {
         int k = 3;
         int expected = 3;
         Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays2(startPos, endPos, k));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution2400Tests {
         int k = 10;
         int expected = 0;
         Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays2(startPos, endPos, k));
     }
 
     // 补充用例
@@ -31,6 +33,7 @@ public class Solution2400Tests {
         int k = 6;
         int expected = 15;
         Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays2(startPos, endPos, k));
     }
 
     @Test
@@ -41,6 +44,7 @@ public class Solution2400Tests {
         int k = 68;
         int expected = 68;
         Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays2(startPos, endPos, k));
     }
 
     @Test
@@ -51,15 +55,6 @@ public class Solution2400Tests {
         int k = 99;
         int expected = 934081896;
         Assertions.assertEquals(expected, solution2400.numberOfWays(startPos, endPos, k));
+        Assertions.assertEquals(expected, solution2400.numberOfWays2(startPos, endPos, k));
     }
 }
-/*
-输入：
-989
-1000
-99
-输出：
-59
-预期结果：
-934081896
- */
