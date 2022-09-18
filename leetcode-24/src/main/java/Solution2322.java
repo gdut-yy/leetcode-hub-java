@@ -76,13 +76,13 @@ public class Solution2322 {
     private void dfs(int x, int fa) {
         in[x] = ++clock;
         xor[x] = nums[x];
-        for (int y : adj.get(x)) {
-            if (y != fa) {
-                dfs(y, x);
-                xor[x] ^= xor[y];
+        for (int next : adj.get(x)) {
+            if (next != fa) {
+                dfs(next, x);
+                xor[x] ^= xor[next];
             }
-            out[x] = clock;
         }
+        out[x] = clock;
     }
 
     // x 是 y 的祖先节点（或重合）

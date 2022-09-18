@@ -28,23 +28,20 @@ public class Solution167 {
      * 时间复杂度 O(n)
      */
     public int[] twoSum(int[] numbers, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < numbers.length; i++) {
-            // 2  => 0
-            // 7  => 1
-            // 11 => 2
-            // 15 => 3
-            map.put(numbers[i], i);
+        int len = numbers.length;
+        Map<Integer, Integer> idxMap = new HashMap<>();
+        for (int i = 0; i < len; i++) {
+            idxMap.put(numbers[i], i);
         }
-        for (int i = 0; i < numbers.length; i++) {
+
+        for (int i = 0; i < len; i++) {
             int want = target - numbers[i];
-            // complement => 9 - 2 = 7
-            if (map.containsKey(want) && map.get(want) != i) {
+            if (idxMap.containsKey(want) && idxMap.get(want) != i) {
                 // 下标 从 1 开始计数
-                return new int[]{i + 1, map.get(want) + 1};
+                return new int[]{i + 1, idxMap.get(want) + 1};
             }
         }
-        return new int[]{};
+        return new int[0];
     }
 
     /**

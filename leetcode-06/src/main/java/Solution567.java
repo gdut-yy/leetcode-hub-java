@@ -1,51 +1,42 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Solution567 {
     public boolean checkInclusion(String s1, String s2) {
-        if (s2.length() < s1.length()) {
+        int len1 = s1.length();
+        int len2 = s2.length();
+
+        // 特判
+        if (len2 < len1) {
             return false;
         }
-        Map<Character, Integer> s1CntMap = new HashMap<>();
-        Map<Character, Integer> s2CntMap = new HashMap<>();
-        for (int i = 0; i < s1.length(); i++) {
-            // s1 中各字符出现次数
-            s1CntMap.put(s1.charAt(i), s1CntMap.getOrDefault(s1.charAt(i), 0) + 1);
-            // s2 中前 s1.length() 长度的字符串各字符出现次数
-            s2CntMap.put(s2.charAt(i), s2CntMap.getOrDefault(s2.charAt(i), 0) + 1);
+
+        // 统计长为 len1 的子串的字符频次
+        int[] cntArr1 = new int[26];
+        int[] cntArr2 = new int[26];
+        for (int i = 0; i < len1; i++) {
+            int idx1 = s1.charAt(i) - 'a';
+            int idx2 = s2.charAt(i) - 'a';
+            cntArr1[idx1]++;
+            cntArr2[idx2]++;
         }
-        if (checkInclusion(s2CntMap, s1CntMap)) {
+        if (Arrays.equals(cntArr1, cntArr2)) {
             return true;
         }
+
         // 滑动窗口-窗口大小固定为 s1.length() 注意是 <=
-        for (int i = 1; i <= s2.length() - s1.length(); i++) {
+        for (int i = 1; i - 1 + len1 < len2; i++) {
             // 窗口往右移动 map 中加一个字符，减一个字符
-            char addCh = s2.charAt(i + s1.length() - 1);
-            char rmCh = s2.charAt(i - 1);
-            s2CntMap.put(addCh, s2CntMap.getOrDefault(addCh, 0) + 1);
-            s2CntMap.put(rmCh, s2CntMap.getOrDefault(rmCh, 0) - 1);
-            if (checkInclusion(s2CntMap, s1CntMap)) {
+            int addIdx = s2.charAt(i - 1 + len1) - 'a';
+            int rmIdx = s2.charAt(i - 1) - 'a';
+            cntArr2[addIdx]++;
+            cntArr2[rmIdx]--;
+            if (Arrays.equals(cntArr1, cntArr2)) {
                 return true;
             }
         }
         return false;
-    }
-
-    /**
-     * 判断 window 中是否包含所需字符
-     *
-     * @param window window中各字符出现次数
-     * @param need   需要包含的字符出现次数
-     * @return 是否包含
-     */
-    private boolean checkInclusion(Map<Character, Integer> window, Map<Character, Integer> need) {
-        for (Map.Entry<Character, Integer> entry : need.entrySet()) {
-            char curCh = entry.getKey();
-            if (window.getOrDefault(curCh, 0) < entry.getValue()) {
-                return false;
-            }
-        }
-        return true;
     }
 }
 /*
