@@ -1,4 +1,4 @@
-public class Solution6184 {
+public class Solution2409 {
     private static final int MAX_N = 12;
     private static final int[] DAYS = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     private int[] preSum;
@@ -23,7 +23,7 @@ public class Solution6184 {
     }
 }
 /*
-6184. 统计共同度过的日子数
+2409. 统计共同度过的日子数
 https://leetcode.cn/problems/count-days-spent-together/
 
 第 87 场双周赛 T1。

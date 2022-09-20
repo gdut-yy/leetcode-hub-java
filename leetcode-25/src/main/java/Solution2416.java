@@ -1,4 +1,4 @@
-public class Solution6183 {
+public class Solution2416 {
     public int[] sumPrefixScores(String[] words) {
         int len = words.length;
         Trie trie = new Trie();
@@ -50,7 +50,7 @@ public class Solution6183 {
     }
 }
 /*
-6183. 字符串的前缀分数和
+2416. 字符串的前缀分数和
 https://leetcode.cn/problems/sum-of-prefix-scores-of-strings/
 
 第 311 场周赛 T4。

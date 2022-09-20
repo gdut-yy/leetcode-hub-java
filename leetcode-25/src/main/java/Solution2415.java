@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution6182 {
+public class Solution2415 {
     public TreeNode reverseOddLevels(TreeNode root) {
         int level = 0;
         Queue<TreeNode> queue = new LinkedList<>();
@@ -39,7 +39,7 @@ public class Solution6182 {
     }
 }
 /*
-6182. 反转二叉树的奇数层
+2415. 反转二叉树的奇数层
 https://leetcode.cn/problems/reverse-odd-levels-of-binary-tree/
 
 第 311 场周赛 T3。

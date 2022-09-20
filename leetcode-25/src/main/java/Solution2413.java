@@ -1,4 +1,4 @@
-public class Solution6180 {
+public class Solution2413 {
     public int smallestEvenMultiple(int n) {
         if (n % 2 == 1) {
             return n * 2;
@@ -22,7 +22,7 @@ public class Solution6180 {
     }
 }
 /*
-6180. 最小偶倍数
+2413. 最小偶倍数
 https://leetcode.cn/problems/smallest-even-multiple/
 
 第 311 场周赛 T1。

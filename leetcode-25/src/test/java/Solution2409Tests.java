@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6184Tests {
-    private final Solution6184 solution6184 = new Solution6184();
+public class Solution2409Tests {
+    private final Solution2409 solution2409 = new Solution2409();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution6184Tests {
         String arriveBob = "08-16";
         String leaveBob = "08-19";
         int expected = 3;
-        Assertions.assertEquals(expected, solution6184.countDaysTogether(arriveAlice, leaveAlice, arriveBob, leaveBob));
+        Assertions.assertEquals(expected, solution2409.countDaysTogether(arriveAlice, leaveAlice, arriveBob, leaveBob));
     }
 
     @Test
@@ -21,6 +21,6 @@ public class Solution6184Tests {
         String arriveBob = "11-01";
         String leaveBob = "12-31";
         int expected = 0;
-        Assertions.assertEquals(expected, solution6184.countDaysTogether(arriveAlice, leaveAlice, arriveBob, leaveBob));
+        Assertions.assertEquals(expected, solution2409.countDaysTogether(arriveAlice, leaveAlice, arriveBob, leaveBob));
     }
 }

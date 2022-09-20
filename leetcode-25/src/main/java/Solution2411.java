@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6186 {
+public class Solution2411 {
     private static final int MAX_N = 31;
 
     public int[] smallestSubarrays(int[] nums) {
@@ -90,7 +90,7 @@ public class Solution6186 {
     }
 }
 /*
-6186. 按位或最大的最小子数组长度
+2411. 按位或最大的最小子数组长度
 https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or/
 
 第 87 场双周赛 T3。

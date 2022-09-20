@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6185 {
+public class Solution2410 {
     public int matchPlayersAndTrainers(int[] players, int[] trainers) {
         Arrays.sort(players);
         Arrays.sort(trainers);
@@ -22,7 +22,7 @@ public class Solution6185 {
     }
 }
 /*
-6185. 运动员和训练师的最大匹配数
+2410. 运动员和训练师的最大匹配数
 https://leetcode.cn/problems/maximum-matching-of-players-with-trainers/
 
 第 87 场双周赛 T2。

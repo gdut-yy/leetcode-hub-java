@@ -1,4 +1,4 @@
-public class Solution6181 {
+public class Solution2414 {
     public int longestContinuousSubstring(String s) {
         int len = s.length();
 
@@ -16,7 +16,7 @@ public class Solution6181 {
     }
 }
 /*
-6181. 最长的字母序连续子字符串的长度
+2414. 最长的字母序连续子字符串的长度
 https://leetcode.cn/problems/length-of-the-longest-alphabetical-continuous-substring/
 
 第 311 场周赛 T2。

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6187 {
+public class Solution2412 {
     public long minimumMoney(int[][] transactions) {
         List<int[]> negativeList = new ArrayList<>();
         List<int[]> positiveList = new ArrayList<>();
@@ -32,7 +32,7 @@ public class Solution6187 {
     }
 }
 /*
-6187. 完成所有交易的初始最少钱数
+2412. 完成所有交易的初始最少钱数
 https://leetcode.cn/problems/minimum-money-required-before-transactions/
 
 给你一个下标从 0 开始的二维整数数组 transactions，其中transactions[i] = [costi, cashbacki] 。
