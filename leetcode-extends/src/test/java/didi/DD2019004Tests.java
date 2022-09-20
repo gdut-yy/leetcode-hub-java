@@ -12,8 +12,8 @@ public class DD2019004Tests extends AbstractOjTests {
 
     @Test
     public void example1() throws IOException {
-        super.doSetSystemInOut();
+        super.doSetSystemInOut(INPUT1);
         DD2019004.main(null);
-        super.doAssertion();
+        super.doAssertion(OUTPUT1);
     }
 }

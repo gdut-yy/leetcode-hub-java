@@ -1,7 +1,6 @@
 package didi;
 
 import base.AbstractOjTests;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -12,10 +11,9 @@ public class DD2019009Tests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled
     public void example1() throws IOException {
-        super.doSetSystemInOut();
+        super.doSetSystemInOut(INPUT1);
         DD2019009.main(null);
-        super.doAssertion();
+        super.doAssertion(OUTPUT1);
     }
 }
