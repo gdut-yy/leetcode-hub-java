@@ -56,6 +56,9 @@ https://leetcode.cn/problems/find-the-minimum-and-maximum-number-of-nodes-betwee
 注意：节点只有在同时存在前一个节点和后一个节点的情况下，才能成为一个 局部极大值点 / 极小值点 。
 给你一个链表 head ，返回一个长度为 2 的数组 [minDistance, maxDistance] ，其中 minDistance 是任意两个不同临界点之间的最小距离，
 maxDistance 是任意两个不同临界点之间的最大距离。如果临界点少于两个，则返回 [-1，-1] 。
+提示：
+链表中节点的数量在范围 [2, 10^5] 内
+1 <= Node.val <= 10^5
 
 扫描一遍，找出所有 临界点 下标。
 扫描所有 临界点 下标，找出 最小和最大距离。

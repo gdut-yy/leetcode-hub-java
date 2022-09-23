@@ -5,37 +5,22 @@ public class Solution225 {
     static class MyStack {
         private final Deque<Integer> deque;
 
-        /**
-         * Initialize your data structure here.
-         */
         public MyStack() {
             deque = new ArrayDeque<>();
         }
 
-        /**
-         * Push element x onto stack.
-         */
         public void push(int x) {
             deque.push(x);
         }
 
-        /**
-         * Removes the element on top of the stack and returns that element.
-         */
         public int pop() {
             return deque.pop();
         }
 
-        /**
-         * Get the top element.
-         */
         public int top() {
             return deque.peek();
         }
 
-        /**
-         * Returns whether the stack is empty.
-         */
         public boolean empty() {
             return deque.isEmpty();
         }
@@ -54,6 +39,10 @@ https://leetcode.cn/problems/implement-stack-using-queues/
 注意：
 - 你只能使用队列的基本操作 —— 也就是 push to back、peek/pop from front、size 和 is empty 这些操作。
 - 你所使用的语言也许不支持队列。 你可以使用 list （列表）或者 deque（双端队列）来模拟一个队列 , 只要是标准的队列操作即可。
+提示：
+1 <= x <= 9
+最多调用100 次 push、pop、top 和 empty
+每次调用 pop 和 top 都保证栈不为空
 
 （实际工程中意义不大）
 jdk 官方推荐使用 Deque 去实现 Stack

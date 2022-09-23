@@ -19,35 +19,26 @@ public class DD2019002 {
         String[] lines = line.split(" ");
         int n = lines.length;
 
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
-            if (o1.score == o2.score) {
-                return Integer.compare(o1.id, o2.id);
+        // [score, id] 如得分相同，则按照输入顺序进行排序。
+        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+            if (o1[0] == o2[0]) {
+                return Integer.compare(o1[1], o2[1]);
             }
-            return Integer.compare(o1.score, o2.score);
+            return Integer.compare(o1[0], o2[0]);
         });
 
         for (int i = 1; i < n; i++) {
             int score = editDistance(lines[0], lines[i]);
-            priorityQueue.add(new Node(i, score));
+            priorityQueue.add(new int[]{score, i});
         }
 
         List<String> resList = new ArrayList<>();
         int k = 3;
         while (!priorityQueue.isEmpty() && k > 0) {
-            resList.add(lines[priorityQueue.remove().id]);
+            resList.add(lines[priorityQueue.remove()[1]]);
             k--;
         }
         return String.join(" ", resList);
-    }
-
-    private static class Node {
-        int id;
-        int score;
-
-        public Node(int id, int dist) {
-            this.id = id;
-            this.score = dist;
-        }
     }
 
     private static int editDistance(String word1, String word2) {
