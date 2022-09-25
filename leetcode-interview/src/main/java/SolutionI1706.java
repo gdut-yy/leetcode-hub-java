@@ -11,27 +11,23 @@ public class SolutionI1706 {
         for (int i = 0; i < len; i++) {
             Arrays.fill(dp[i], -1);
         }
-        return f(0, 0, true, false);
+        return f(0, 0, true);
     }
 
-    private int f(int i, int sum, boolean isLimit, boolean isNum) {
+    private int f(int i, int sum, boolean isLimit) {
         if (i == s.length) {
-            return isNum ? sum : 0;
+            return sum;
         }
         // 记忆化搜索
-        if (!isLimit && isNum && dp[i][sum] >= 0) {
+        if (!isLimit && dp[i][sum] >= 0) {
             return dp[i][sum];
         }
         int res = 0;
-        if (!isNum) {
-            // 可以跳过当前数位
-            res = f(i + 1, sum, false, false);
-        }
         int up = isLimit ? s[i] - '0' : 9;
-        for (int d = isNum ? 0 : 1; d <= up; d++) {
-            res += f(i + 1, sum + (d == 2 ? 1 : 0), isLimit && d == up, true);
+        for (int d = 0; d <= up; d++) {
+            res += f(i + 1, sum + (d == 2 ? 1 : 0), isLimit && d == up);
         }
-        if (!isLimit && isNum) {
+        if (!isLimit) {
             dp[i][sum] = res;
         }
         return res;

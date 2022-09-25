@@ -53,4 +53,6 @@ A 有车厢编组 (从左至右)1-2-3-4，列车在经过编组后，能否在 B
 输出：No
 
 栈模拟
+相似题目: 946. 验证栈序列
+https://leetcode.cn/problems/validate-stack-sequences/
  */

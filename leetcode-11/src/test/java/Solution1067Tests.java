@@ -32,4 +32,15 @@ public class Solution1067Tests {
         int expected = 2;
         Assertions.assertEquals(expected, solution1067.digitsCount(d, low, high));
     }
+
+    @Test
+    public void example4() {
+        // https://leetcode.cn/submissions/detail/367150722/
+        // 不能去掉 isNum，否则 d = 0 时出问题
+        int d = 0;
+        int low = 1;
+        int high = 10;
+        int expected = 1;
+        Assertions.assertEquals(expected, solution1067.digitsCount(d, low, high));
+    }
 }
