@@ -83,6 +83,9 @@ meetings[i].length == 2
 0 <= starti < endi <= 5 * 10^5
 starti 的所有值 互不相同
 
+双堆模拟
+时间复杂度 O(n + m(logn + logm)) 其中 m = meetings.length
+空间复杂度 O(n)
 相似题目: 1606. 找到处理最多请求的服务器
 https://leetcode.cn/problems/find-servers-that-handled-most-number-of-requests/
 1882. 使用服务器处理任务

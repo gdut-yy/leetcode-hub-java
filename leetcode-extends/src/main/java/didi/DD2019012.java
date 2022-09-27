@@ -32,7 +32,7 @@ public class DD2019012 {
     }
 
     // convert (x,y) to d
-    static int xy2d(int n, int[] p) {
+    private static int xy2d(int n, int[] p) {
         int rx, ry, s, d = 0;
         for (s = n / 2; s > 0; s /= 2) {
             rx = (p[0] & s) > 0 ? 1 : 0;
@@ -44,7 +44,7 @@ public class DD2019012 {
     }
 
     // convert d to (x,y)
-    static void d2xy(int n, int d, int[] p) {
+    private static void d2xy(int n, int d, int[] p) {
         int rx, ry, s, t = d;
         p[0] = p[1] = 0;
         for (s = 1; s < n; s *= 2) {
@@ -58,7 +58,7 @@ public class DD2019012 {
     }
 
     // rotate/flip a quadrant appropriately
-    static void rot(int n, int[] p, int rx, int ry) {
+    private static void rot(int n, int[] p, int rx, int ry) {
         if (ry == 0) {
             if (rx == 1) {
                 p[0] = n - 1 - p[0];

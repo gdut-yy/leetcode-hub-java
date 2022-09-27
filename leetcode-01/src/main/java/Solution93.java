@@ -2,22 +2,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution93 {
+    private String s;
+
     public List<String> restoreIpAddresses(String s) {
+        this.s = s;
         List<String> resList = new ArrayList<>();
-        helper(s, 0, 0, "", "", resList);
+        helper(0, 0, "", "", resList);
         return resList;
     }
 
-    private void helper(String s, int i, int segI, String seg, String ip, List<String> resList) {
-        if (i == s.length() && segI == 3 && isValidSeg(seg)) {
+    private void helper(int pos, int segI, String seg, String ip, List<String> resList) {
+        if (pos == s.length() && segI == 3 && isValidSeg(seg)) {
             resList.add(ip + seg);
-        } else if (i < s.length() && segI <= 3) {
-            char ch = s.charAt(i);
+        } else if (pos < s.length() && segI <= 3) {
+            char ch = s.charAt(pos);
             if (isValidSeg(seg + ch)) {
-                helper(s, i + 1, segI, seg + ch, ip, resList);
+                helper(pos + 1, segI, seg + ch, ip, resList);
             }
             if (seg.length() > 0 && segI < 3) {
-                helper(s, i + 1, segI + 1, "" + ch, ip + seg + ".", resList);
+                helper(pos + 1, segI + 1, "" + ch, ip + seg + ".", resList);
             }
         }
     }

@@ -1,4 +1,6 @@
 public class Solution1712 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int waysToSplit(int[] nums) {
         int len = nums.length;
 
@@ -50,7 +52,7 @@ public class Solution1712 {
             int maxJ = left - 1;
 
             cnt += Math.max(0, maxJ - minJ + 1);
-            cnt %= 1000000007;
+            cnt %= MOD;
         }
         return (int) cnt;
     }

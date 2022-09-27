@@ -1,7 +1,9 @@
+import java.util.Arrays;
+
 public class Solution1011 {
     public int shipWithinDays(int[] weights, int days) {
         int left = 1;
-        int right = Integer.MAX_VALUE;
+        int right = Arrays.stream(weights).sum();
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]

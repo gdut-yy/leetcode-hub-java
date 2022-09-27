@@ -27,7 +27,7 @@ public class DD2019010 {
         return trie.bfs();
     }
 
-    static class Trie {
+    private static class Trie {
         private final Trie[] children;
 
         public Trie() {

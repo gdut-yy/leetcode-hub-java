@@ -33,7 +33,6 @@ public class DD2019011 {
         return String.valueOf(res);
     }
 
-
     // C(n, m) = n! / m!(n-m)! （n 为下标） (% mod)
     private static long combination(int n, int m, int mod) {
         if (n == 0 && m == 0) {

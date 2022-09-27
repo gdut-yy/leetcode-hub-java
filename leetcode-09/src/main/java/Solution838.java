@@ -3,9 +3,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution838 {
+    private int n;
+    private char[] chars;
+
     public String pushDominoes(String dominoes) {
-        int n = dominoes.length();
-        char[] chars = dominoes.toCharArray();
+        n = dominoes.length();
+        chars = dominoes.toCharArray();
 
         Queue<Integer> queue = new LinkedList<>();
         int[] times = new int[n];
@@ -23,32 +26,36 @@ public class Solution838 {
             time++;
             for (int i = 0; i < size; i++) {
                 int curIdx = queue.remove();
-                if (chars[curIdx] == 'L') {
-                    if (curIdx - 1 >= 0) {
-                        if (chars[curIdx - 1] == '.' && times[curIdx - 1] == -1) {
-                            chars[curIdx - 1] = 'L';
-                            times[curIdx - 1] = time;
-                            queue.add(curIdx - 1);
-                        } else if (chars[curIdx - 1] == 'R' && times[curIdx - 1] == time) {
-                            // 复位
-                            chars[curIdx - 1] = '.';
-                        }
-                    }
-                } else {
-                    if (curIdx + 1 < n) {
-                        if (chars[curIdx + 1] == '.' && times[curIdx + 1] == -1) {
-                            chars[curIdx + 1] = 'R';
-                            times[curIdx + 1] = time;
-                            queue.add(curIdx + 1);
-                        } else if (chars[curIdx + 1] == 'L' && times[curIdx + 1] == time) {
-                            // 复位
-                            chars[curIdx + 1] = '.';
-                        }
-                    }
-                }
+                extracted(queue, times, time, curIdx);
             }
         }
         return new String(chars);
+    }
+
+    private void extracted(Queue<Integer> queue, int[] times, int time, int curIdx) {
+        if (chars[curIdx] == 'L') {
+            if (curIdx - 1 >= 0) {
+                if (chars[curIdx - 1] == '.' && times[curIdx - 1] == -1) {
+                    chars[curIdx - 1] = 'L';
+                    times[curIdx - 1] = time;
+                    queue.add(curIdx - 1);
+                } else if (chars[curIdx - 1] == 'R' && times[curIdx - 1] == time) {
+                    // 复位
+                    chars[curIdx - 1] = '.';
+                }
+            }
+        } else {
+            if (curIdx + 1 < n) {
+                if (chars[curIdx + 1] == '.' && times[curIdx + 1] == -1) {
+                    chars[curIdx + 1] = 'R';
+                    times[curIdx + 1] = time;
+                    queue.add(curIdx + 1);
+                } else if (chars[curIdx + 1] == 'L' && times[curIdx + 1] == time) {
+                    // 复位
+                    chars[curIdx + 1] = '.';
+                }
+            }
+        }
     }
 }
 /*
