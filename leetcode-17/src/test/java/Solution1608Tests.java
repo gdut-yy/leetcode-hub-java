@@ -9,6 +9,7 @@ public class Solution1608Tests {
         int[] nums = {3, 5};
         int expected = 2;
         Assertions.assertEquals(expected, solution1608.specialArray(nums));
+        Assertions.assertEquals(expected, solution1608.specialArray2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution1608Tests {
         int[] nums = {0, 0};
         int expected = -1;
         Assertions.assertEquals(expected, solution1608.specialArray(nums));
+        Assertions.assertEquals(expected, solution1608.specialArray2(nums));
     }
 
     @Test
@@ -23,6 +25,7 @@ public class Solution1608Tests {
         int[] nums = {0, 4, 3, 0, 4};
         int expected = 3;
         Assertions.assertEquals(expected, solution1608.specialArray(nums));
+        Assertions.assertEquals(expected, solution1608.specialArray2(nums));
     }
 
     @Test
@@ -30,5 +33,6 @@ public class Solution1608Tests {
         int[] nums = {3, 6, 7, 7, 0};
         int expected = -1;
         Assertions.assertEquals(expected, solution1608.specialArray(nums));
+        Assertions.assertEquals(expected, solution1608.specialArray2(nums));
     }
 }

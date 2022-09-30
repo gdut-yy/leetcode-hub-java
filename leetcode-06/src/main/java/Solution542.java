@@ -2,10 +2,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution542 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int[][] updateMatrix(int[][] mat) {
         int M = mat.length;
         int N = mat[0].length;
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
         // BFS
         Queue<int[]> queue = new LinkedList<>();
@@ -23,16 +24,17 @@ public class Solution542 {
 
         while (!queue.isEmpty()) {
             int[] cur = queue.remove();
-            int dist = distances[cur[0]][cur[1]];
+            int curM = cur[0];
+            int curN = cur[1];
+            int curDist = distances[curM][curN];
 
-            for (int[] dir : directions) {
-                int nextM = cur[0] + dir[0];
-                int nextN = cur[1] + dir[1];
-                if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
-                    if (distances[nextM][nextN] > dist + 1) {
-                        distances[nextM][nextN] = dist + 1;
-                        queue.add(new int[]{nextM, nextN});
-                    }
+            for (int[] dir : DIRECTIONS) {
+                int nextM = curM + dir[0];
+                int nextN = curN + dir[1];
+                if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N
+                        && distances[nextM][nextN] > curDist + 1) {
+                    distances[nextM][nextN] = curDist + 1;
+                    queue.add(new int[]{nextM, nextN});
                 }
             }
         }

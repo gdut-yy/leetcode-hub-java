@@ -5,13 +5,15 @@ import java.util.Map;
 
 public class Solution187 {
     public List<String> findRepeatedDnaSequences(String s) {
-        List<String> resList = new ArrayList<>();
         int len = s.length();
+
+        List<String> resList = new ArrayList<>();
         if (len < 10) {
             return resList;
         }
+
         Map<String, Integer> cntMap = new HashMap<>();
-        for (int i = 0; i <= len - 10; i++) {
+        for (int i = 0; i + 10 <= len; i++) {
             String str = s.substring(i, i + 10);
             cntMap.put(str, cntMap.getOrDefault(str, 0) + 1);
             if (cntMap.get(str) == 2) {

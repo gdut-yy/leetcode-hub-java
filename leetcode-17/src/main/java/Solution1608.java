@@ -19,6 +19,35 @@ public class Solution1608 {
         }
         return -1;
     }
+
+    // 朴素二分 时间复杂度 O(nlogn)
+    public int specialArray2(int[] nums) {
+        int len = nums.length;
+
+        int left = 0;
+        int right = len + 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+
+            // nums 中恰好有 x 个元素 大于或者等于 x
+            int cnt = 0;
+            for (int num : nums) {
+                if (num >= mid) {
+                    cnt++;
+                }
+            }
+
+            // 朴素二分
+            if (cnt < mid) {
+                right = mid - 1;
+            } else if (cnt > mid) {
+                left = mid + 1;
+            } else {
+                return mid;
+            }
+        }
+        return -1;
+    }
 }
 /*
 1608. 特殊数组的特征值
