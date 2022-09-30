@@ -32,6 +32,20 @@ public class UtUtils {
     };
 
     /**
+     * int[][] 自定义 Comparator
+     */
+    public static final Comparator<int[]> INTS2_COMPARATOR = (o1, o2) -> {
+        // o1.length != o2.length;
+        int minLen = Math.min(o1.length, o2.length);
+        for (int i = 0; i < minLen; i++) {
+            if (!Objects.equals(o1[i], o2[i])) {
+                return Integer.compare(o1[i], o2[i]);
+            }
+        }
+        return Integer.compare(o1.length, o2.length);
+    };
+
+    /**
      * List<List<String>> 自定义 Comparator
      */
     public static final Comparator<List<String>> STRING_LIST_COMPARATOR = (o1, o2) -> {
