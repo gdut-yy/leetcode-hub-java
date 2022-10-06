@@ -1,0 +1,2 @@
+Number of Chinese characters:4
+Number of letters:5
