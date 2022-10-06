@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6212 {
+public class Solution2423 {
     public boolean equalFrequency(String word) {
         int len = word.length();
         for (int i = 0; i < len; i++) {
@@ -35,7 +35,7 @@ public class Solution6212 {
     }
 }
 /*
-6212. 删除字符使频率相同
+2423. 删除字符使频率相同
 https://leetcode.cn/problems/remove-letter-to-equalize-frequency/
 
 第 88 场双周赛 T1。

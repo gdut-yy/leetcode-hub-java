@@ -1,4 +1,4 @@
-public class Solution6213 {
+public class Solution2425 {
     public int xorAllNums(int[] nums1, int[] nums2) {
         int len1 = nums1.length;
         int len2 = nums2.length;
@@ -23,7 +23,7 @@ public class Solution6213 {
     }
 }
 /*
-6213. 所有数对的异或和
+2425. 所有数对的异或和
 https://leetcode.cn/problems/bitwise-xor-of-all-pairings/
 
 第 88 场双周赛 T3。

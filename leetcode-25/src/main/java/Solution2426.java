@@ -1,4 +1,4 @@
-public class Solution6198 {
+public class Solution2426 {
     private static final int OFFSET = (int) 1e4 * 3 + 5;
 
     public long numberOfPairs(int[] nums1, int[] nums2, int diff) {
@@ -118,7 +118,7 @@ public class Solution6198 {
     }
 }
 /*
-6198. 满足不等式的数对数目
+2426. 满足不等式的数对数目
 https://leetcode.cn/problems/number-of-pairs-satisfying-inequality/
 
 第 88 场双周赛 T4。

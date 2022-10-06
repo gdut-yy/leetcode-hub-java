@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6197Tests {
+public class Solution2424Tests {
     @Test
     public void example1() {
         // 初始化 4个视频的上传流
-        Solution6197.LUPrefix server = new Solution6197.LUPrefix(4);
+        Solution2424.LUPrefix server = new Solution2424.LUPrefix(4);
 
         // 上传视频 3 。
         server.upload(3);

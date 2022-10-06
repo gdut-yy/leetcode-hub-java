@@ -1,5 +1,5 @@
 
-public class Solution6197 {
+public class Solution2424 {
     static class LUPrefix {
         private final int n;
         private final DSU dsu;
@@ -70,7 +70,7 @@ public class Solution6197 {
     }
 }
 /*
-6197. 最长上传前缀
+2424. 最长上传前缀
 https://leetcode.cn/problems/longest-uploaded-prefix/
 
 第 88 场双周赛 T2。
