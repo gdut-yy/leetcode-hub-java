@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+// 1/1
 public class DD2020011Tests extends AbstractOjTests {
     public DD2020011Tests() {
         super("/didi/2020011/");
