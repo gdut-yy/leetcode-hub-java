@@ -82,5 +82,7 @@ n == start.length == target.length
 1 <= n <= 10^5
 start 和 target 由字符 'L'、'R' 和 '_' 组成
 
-分类讨论
+分类讨论。
+相似题目: 777. 在LR字符串中交换相邻字符
+https://leetcode.cn/problems/swap-adjacent-in-lr-string/
  */

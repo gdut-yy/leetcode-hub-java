@@ -11,6 +11,7 @@
     <modules>
         <!-- codeforces -->
         <module>codeforces-core</module>
+        <module>codeforces-div1</module>
         <module>codeforces-div2</module>
         <module>codeforces-div3</module>
         <module>codeforces-div4</module>
