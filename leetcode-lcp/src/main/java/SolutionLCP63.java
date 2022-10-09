@@ -76,7 +76,7 @@ public class SolutionLCP63 {
 LCP 63. 弹珠游戏
 https://leetcode.cn/problems/EXvqDp/
 
-LCCUP 力扣杯 2022 秋季编程大赛个人赛 T3。
+LCCUP'22 力扣杯秋季编程大赛个人赛 T3。
 
 欢迎各位来到「力扣嘉年华」，接下来将为各位介绍在活动中广受好评的弹珠游戏。
 N*M 大小的弹珠盘的初始状态信息记录于一维字符串型数组 plate 中，数组中的每个元素为仅由 "O"、"W"、"E"、"." 组成的字符串。其中：

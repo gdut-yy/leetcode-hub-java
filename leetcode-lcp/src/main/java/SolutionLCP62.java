@@ -30,7 +30,7 @@ public class SolutionLCP62 {
 LCP 62. 交通枢纽
 https://leetcode.cn/problems/D9PW8w/
 
-LCCUP 力扣杯 2022 秋季编程大赛个人赛 T2。
+LCCUP'22 力扣杯秋季编程大赛个人赛 T2。
 
 为了缓解「力扣嘉年华」期间的人流压力，组委会在活动期间开设了一些交通专线。path[i] = [a, b] 表示有一条从地点 a通往地点 b 的 单向 交通专线。
 若存在一个地点，满足以下要求，我们则称之为 交通枢纽：
