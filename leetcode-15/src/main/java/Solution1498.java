@@ -1,11 +1,13 @@
 import java.util.Arrays;
 
 public class Solution1498 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int numSubseq(int[] nums, int target) {
         int len = nums.length;
         Arrays.sort(nums);
 
-        int cnt = 0;
+        long cnt = 0;
         for (int i = 0; i < len; i++) {
 
             int left = i;
@@ -25,14 +27,14 @@ public class Solution1498 {
 
             // 快速幂
             if (j - i >= 0) {
-                cnt += quickPow(2, j - i, 1000000007);
-                cnt %= 1000000007;
+                cnt += quickPow(2, j - i, MOD);
+                cnt %= MOD;
             }
         }
-        return cnt;
+        return (int) cnt;
     }
 
-    private int quickPow(long a, long b, int mod) {
+    private long quickPow(long a, long b, int mod) {
         a %= mod;
         long res = 1;
         while (b > 0) {
@@ -44,7 +46,7 @@ public class Solution1498 {
             a %= mod;
             b /= 2;
         }
-        return (int) res;
+        return res;
     }
 }
 /*

@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Solution6202 {
+public class Solution2434 {
     public String robotWithString(String s) {
         int len = s.length();
         char[] chars = s.toCharArray();
@@ -28,7 +28,7 @@ public class Solution6202 {
     }
 }
 /*
-6202. 使用机器人打印字典序最小的字符串
+2434. 使用机器人打印字典序最小的字符串
 https://leetcode.cn/problems/using-a-robot-to-print-the-lexicographically-smallest-string/
 
 第 314 场周赛 T3。

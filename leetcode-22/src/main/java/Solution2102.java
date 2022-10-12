@@ -12,19 +12,19 @@ public class Solution2102 {
             }
         }
 
-        PriorityQueue<Scenic> priorityQueue1;
-        PriorityQueue<Scenic> priorityQueue2;
+        private final PriorityQueue<Scenic> minHeap;
+        private final PriorityQueue<Scenic> maxHeap;
 
         public SORTracker() {
             // 小顶堆顶存放第 i 个最大值
-            priorityQueue1 = new PriorityQueue<>((o1, o2) -> {
+            minHeap = new PriorityQueue<>((o1, o2) -> {
                 if (o1.score == o2.score) {
                     return o2.name.compareTo(o1.name);
                 }
                 return Integer.compare(o1.score, o2.score);
             });
             // 大顶堆存放 i-1 个最大的值
-            priorityQueue2 = new PriorityQueue<>((o1, o2) -> {
+            maxHeap = new PriorityQueue<>((o1, o2) -> {
                 if (o1.score == o2.score) {
                     return o1.name.compareTo(o2.name);
                 }
@@ -33,13 +33,13 @@ public class Solution2102 {
         }
 
         public void add(String name, int score) {
-            priorityQueue1.add(new Scenic(name, score));
-            priorityQueue2.add(priorityQueue1.poll());
+            minHeap.add(new Scenic(name, score));
+            maxHeap.add(minHeap.poll());
         }
 
         public String get() {
-            priorityQueue1.add(priorityQueue2.poll());
-            return priorityQueue1.peek().name;
+            minHeap.add(maxHeap.poll());
+            return minHeap.element().name;
         }
     }
 }
@@ -60,6 +60,12 @@ https://leetcode.cn/problems/sequentially-ordinal-rank-tracker/
 - SORTracker() 初始化系统。
 - void add(string name, int score) 向系统中添加一个名为 name 评分为 score 的景点。
 - string get() 查询第 i 好的景点，其中 i 是目前系统查询的次数（包括当前这次查询）。
+提示：
+name 只包含小写英文字母，且每个景点名字互不相同。
+1 <= name.length <= 10
+1 <= score <= 10^5
+任意时刻，调用 get 的次数都不超过调用 add 的次数。
+总共 调用 add 和 get 不超过 4 * 10^4
 
 双优先队列倒腾。
 相似题目: 295. 数据流的中位数

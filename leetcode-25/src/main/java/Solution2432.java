@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6200 {
+public class Solution2432 {
     public int hardestWorker(int n, int[][] logs) {
         int len = logs.length;
 
@@ -26,7 +26,7 @@ public class Solution6200 {
     }
 }
 /*
-6200. 处理用时最长的那个任务的员工
+2432. 处理用时最长的那个任务的员工
 https://leetcode.cn/problems/the-employee-that-worked-on-the-longest-task/
 
 第 314 场周赛 T1。

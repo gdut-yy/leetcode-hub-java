@@ -1,4 +1,4 @@
-public class Solution6203 {
+public class Solution2435 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int numberOfPaths(int[][] grid, int k) {
@@ -28,7 +28,7 @@ public class Solution6203 {
     }
 }
 /*
-6203. 矩阵中和能被 K 整除的路径
+2435. 矩阵中和能被 K 整除的路径
 https://leetcode.cn/problems/paths-in-matrix-whose-sum-is-divisible-by-k/
 
 第 314 场周赛 T4。

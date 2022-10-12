@@ -1,4 +1,4 @@
-public class Solution6201 {
+public class Solution2433 {
     public int[] findArray(int[] pref) {
         int len = pref.length;
         int[] res = new int[len];
@@ -10,7 +10,7 @@ public class Solution6201 {
     }
 }
 /*
-6201. 找出前缀异或的原始数组
+2433. 找出前缀异或的原始数组
 https://leetcode.cn/problems/find-the-original-array-of-prefix-xor/
 
 第 314 场周赛 T2。
