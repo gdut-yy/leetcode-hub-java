@@ -40,4 +40,11 @@ https://leetcode.cn/problems/strobogrammatic-number-ii/
 
 中心对称数是指一个数字在旋转了 180 度之后看起来依旧相同的数字（或者上下颠倒地看）。
 找到所有长度为 n 的中心对称数。
+提示：
+1 <= n <= 14
+
+相似题目: $246. 中心对称数
+https://leetcode.cn/problems/strobogrammatic-number/
+$248. 中心对称数 III
+https://leetcode.cn/problems/strobogrammatic-number-iii/
  */
