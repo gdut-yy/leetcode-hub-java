@@ -1,0 +1,9 @@
+code
+aj
+abacaba
+ll
+codeforces
+aaaak
+aaaaj
+aaaaa
+zf
