@@ -2,18 +2,19 @@ public class SolutionLCP61 {
     public int temperatureTrend(int[] temperatureA, int[] temperatureB) {
         int n = temperatureA.length;
 
-        int[] diff = new int[n - 1];
+        boolean[] isEqual = new boolean[n];
         for (int i = 1; i < n; i++) {
             if ((temperatureA[i] - temperatureA[i - 1] > 0 && temperatureB[i] - temperatureB[i - 1] > 0)
                     || (temperatureA[i] - temperatureA[i - 1] < 0 && temperatureB[i] - temperatureB[i - 1] < 0)
                     || (temperatureA[i] - temperatureA[i - 1] == 0 && temperatureB[i] - temperatureB[i - 1] == 0)) {
-                diff[i - 1] = 1;
+                isEqual[i] = true;
             }
         }
+
         int max = 0;
         int cnt = 0;
-        for (int num : diff) {
-            if (num == 1) {
+        for (boolean eq : isEqual) {
+            if (eq) {
                 cnt++;
                 max = Math.max(max, cnt);
             } else {

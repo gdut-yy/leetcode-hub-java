@@ -65,10 +65,10 @@ public class SolutionLCP69_2 {
             char ch = str.charAt(k);
             String nextStr = str.substring(0, k) + str.substring(k + 1);
             int nextTot = tot + k * (str.length() - 1 - k);
-            Node nextMask = new Node(mask.cnt);
             for (int i = 0; i < Node.N; i++) {
                 // 可以选 ch
-                if (ch == Node.CHARS[i] && nextMask.cnt[i] < Node.LIMIT[i]) {
+                if (ch == Node.CHARS[i] && mask.cnt[i] < Node.LIMIT[i]) {
+                    Node nextMask = new Node(mask.cnt);
                     nextMask.cnt[i]++;
                     dfs(nextStr, nextMask, nextTot, costMap);
                     break;

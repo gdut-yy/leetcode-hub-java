@@ -7,19 +7,23 @@ public class QuickPower {
     /**
      * 快速幂 res = a^b % mod
      */
-    private int quickPow(long a, long b, int mod) {
-        a %= mod;
-        long res = 1;
+    private long quickPow(long a, long b, long mod) {
+        long res = 1L;
         while (b > 0) {
-            if (b % 2 == 1) {
-                res *= a;
-                res %= mod;
+            if ((b & 1) == 1) {
+                res = res * a % mod;
             }
-            a *= a;
-            a %= mod;
-            b /= 2;
+            a = a * a % mod;
+            b >>= 1;
         }
-        return (int) res;
+        return res;
+    }
+
+    /**
+     * 求 a 在模 mod 下的乘法逆元
+     */
+    private long inv(long a, long mod) {
+        return quickPow(a, mod - 2, mod);
     }
 
     /**
@@ -67,7 +71,7 @@ public class QuickPower {
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
                 for (int k = 0; k < row; k++) {
-                    res[i][j] += (a[i][k] * b[k][j]) % mod;
+                    res[i][j] += a[i][k] * b[k][j] % mod;
                     res[i][j] %= mod;
                 }
             }
@@ -83,7 +87,7 @@ public class QuickPower {
         long[] res = new long[row];
         for (int i = 0; i < row; i++) {
             for (int j = 0; j < row; j++) {
-                res[i] += ((a[i][j]) * b[j]) % mod;
+                res[i] += a[i][j] * b[j] % mod;
                 res[i] %= mod;
             }
         }

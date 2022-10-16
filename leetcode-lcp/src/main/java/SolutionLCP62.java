@@ -5,21 +5,24 @@ import java.util.Set;
 
 public class SolutionLCP62 {
     public int transportationHub(int[][] path) {
-        Set<Integer> points = new HashSet<>();
         Map<Integer, Integer> inDegrees = new HashMap<>();
         Map<Integer, Integer> outDegrees = new HashMap<>();
+        // 出现过的节点
+        Set<Integer> seen = new HashSet<>();
         for (int[] tuple : path) {
             int u = tuple[0];
             int v = tuple[1];
             // v入度+1 u出度+1
             inDegrees.put(v, inDegrees.getOrDefault(v, 0) + 1);
             outDegrees.put(u, outDegrees.getOrDefault(u, 0) + 1);
-            points.add(u);
-            points.add(v);
+            seen.add(u);
+            seen.add(v);
         }
-        int size = points.size();
-        for (int x : points) {
-            if (inDegrees.getOrDefault(x, 0) == size - 1 && outDegrees.getOrDefault(x, 0) == 0) {
+
+        // 入度为 n-1 && 出度为 0
+        int sz = seen.size();
+        for (int x : seen) {
+            if (inDegrees.getOrDefault(x, 0) == sz - 1 && outDegrees.getOrDefault(x, 0) == 0) {
                 return x;
             }
         }

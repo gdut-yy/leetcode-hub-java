@@ -67,13 +67,13 @@ public class Solution1044 {
 
     // res = a^b % mod
     private long quickPow(long a, long b, long mod) {
-        long res = 1;
+        long res = 1L;
         while (b > 0) {
-            if (b % 2 == 1) {
+            if ((b & 1) == 1) {
                 res = res * a % mod;
             }
             a = a * a % mod;
-            b /= 2;
+            b >>= 1;
         }
         return res;
     }

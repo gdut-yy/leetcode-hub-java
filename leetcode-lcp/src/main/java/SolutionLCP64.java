@@ -9,7 +9,9 @@ public class SolutionLCP64 {
         return f(root, 0);
     }
 
-    // mask = switch2Odd, switch3 = bit1, bit0
+    // f(TreeNode node, boolean switch2Odd, boolean switch3)
+    // 表示当前节点，父节点开关 2 切换次数是否是奇数次，父节点开关 3 是否切换时，关闭子树所有灯最少需要操作多少次开关
+    // f(node, 0/1, 0/1) => f(node, mask) 方便进行记忆化 mask = switch2Odd << 1 + switch3
     private int f(TreeNode node, int mask) {
         if (node == null) {
             return 0;

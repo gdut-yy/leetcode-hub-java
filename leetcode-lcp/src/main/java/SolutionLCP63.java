@@ -5,8 +5,8 @@ import java.util.Queue;
 
 public class SolutionLCP63 {
     // up left down right
-    int[] dx = {-1, 0, 1, 0};
-    int[] dy = {0, 1, 0, -1};
+    private static final int[] DX = {-1, 0, 1, 0};
+    private static final int[] DY = {0, 1, 0, -1};
 
     public int[][] ballGame(int num, String[] plate) {
         int M = plate.length;
@@ -60,15 +60,14 @@ public class SolutionLCP63 {
                     // "W" 表示逆时针转向器（弹珠经过时方向将逆时针旋转 90 度）；
                     dir = (dir + 3) % 4;
                 }
-                int nextM = curM + dx[dir];
-                int nextN = curN + dy[dir];
+                int nextM = curM + DX[dir];
+                int nextN = curN + DY[dir];
                 if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
                     queue.add(new int[]{startM, startN, nextM, nextN, dir});
                 }
             }
             num--;
         }
-
         return resList.toArray(new int[resList.size()][]);
     }
 }

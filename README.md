@@ -2,15 +2,18 @@
 
 基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
-~~（拼搏百天，我要完成 300 道 leetcode 题！（始于 2021.07.05，Day87(2021.09.29) 已完成 300 题，Day154(2021.12.05) 已完成 700 题~~
+`@since` 2021.07.05
 
-~~（拼搏 300 天，完成 1000 道 leetcode 题！（Day300(2022.04.25) 已完成 1047 题）~~
+~~（拼搏百天，我要完成 300 道 leetcode 题！（Day87 (2021.09.29) 已完成 303 题）~~
 
-- `codeforces` 存放 codeforces 题目。
+~~（拼搏 300 天，我要完成 1000 道 leetcode 题！（Day269 (2022.03.30) 已完成 1001 题）~~
+
+- `codeforces-*` 存放 codeforces 题目。
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 - `leetcode-core` 存放 leetcode 自定义对象。
-- `leetcode-extends` 存放 LCCUP/OJ 题目
+- `leetcode-extends` 存放 专场竞赛/OJ 题目
 - `leetcode-interview` 存放 《程序员面试金典》 题目。
+- `leetcode-lcp` 存放 力扣杯 题目。
 - `leetcode-offer` 存放 《剑指 Offer》 题目。
 - `数据库`题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
 
@@ -177,87 +180,14 @@ junit5 常用断言：
 
 ### 快速幂
 
-```java
-    /**
-     * 快速幂 res = a^b % mod
-     */
-    private int quickPow(long a, long b, int mod) {
-        a %= mod;
-        long res = 1;
-        while (b > 0) {
-            if (b % 2 == 1) {
-                res *= a;
-                res %= mod;
-            }
-            a *= a;
-            a %= mod;
-            b /= 2;
-        }
-        return (int) res;
-    }
-```
+[模板代码](./leetcode-core/src/main/java/template/QuickPower.java)
 
 - [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers/)
 - [1969. 数组元素的最小非零乘积](https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/)
 
 ### 矩阵快速幂
 
-```java
-    public int tribonacci(int n) {
-        int[][] mat = {{1, 1, 1}, {1, 0, 0}, {0, 1, 0}};
-        int[][] mPowN = matQuickPow(mat, n);
-        int[] f = {0, 1, 1};
-        return getFn(f, mPowN);
-    }
-
-    /**
-     * 矩阵快速幂 res = f(n)
-     */
-    private int getFn(int[] f, int[][] mPowN) {
-        int len = f.length;
-        int res = 0;
-        for (int i = 0; i < len; i++) {
-            res += mPowN[len - 1][i] * f[len - 1 - i];
-        }
-        return res;
-    }
-
-    /**
-     * 矩阵快速幂 res[][] = a[][]^n
-     */
-    private int[][] matQuickPow(int[][] a, int n) {
-        int len = a.length;
-        // 对角矩阵
-        int[][] res = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            res[i][i] = 1;
-        }
-        while (n > 0) {
-            if ((n & 1) == 1) {
-                res = matMulti(res, a);
-            }
-            n >>= 1;
-            a = matMulti(a, a);
-        }
-        return res;
-    }
-
-    /**
-     * 矩阵快速幂 res[][] = a[][] * b[][]
-     */
-    private int[][] matMulti(int[][] a, int[][] b) {
-        int len = a.length;
-        int[][] res = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            for (int j = 0; j < len; j++) {
-                for (int k = 0; k < len; k++) {
-                    res[i][j] += a[i][k] * b[k][j];
-                }
-            }
-        }
-        return res;
-    }
-```
+[模板代码](./leetcode-core/src/main/java/template/QuickPower.java)
 
 - [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 - [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
@@ -265,25 +195,7 @@ junit5 常用断言：
 
 ### 二分查找
 
-```java
-    // int mid = (left + right) / 2;
-    // 可能会在相加步骤溢出，优化为:
-    // int mid = left + (right - left) / 2;
-
-    int left = 0;
-    int right = nums.length;
-    while (left < right) {
-        int mid = left + (right - left) / 2;
-        // 边界二分 F, F,..., F, [T, T,..., T]
-        // ----------------------^
-        if (checkMid(nums, mid)) {
-            right = mid;
-        } else {
-            left = mid + 1;
-        }
-    }
-    return left;
-```
+[模板代码](./leetcode-core/src/main/java/template/BinarySearch.java)
 
 二分/边界二分
 
@@ -678,10 +590,12 @@ Hierholzer 算法
 
 - [OI-Wiki](https://oi-wiki.org/)
 - [codeforces](https://codeforces.com/)
+- [atcoder](https://atcoder.jp/home)
+- [acwing](https://www.acwing.com/)
 - [北大 OJ](http://poj.org/)
 - [中科大 OJ](http://acm.ustc.edu.cn/ustcoj/)
-- [杭电 OJ](https://www.acm.hdu.edu.cn/)
-- [哈工大 OJ](http://acm.hit.edu.cn/)
+- ~~[杭电 OJ](https://www.acm.hdu.edu.cn/)~~
+- ~~[哈工大 OJ](http://acm.hit.edu.cn/)~~
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
 - [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
