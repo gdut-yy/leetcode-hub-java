@@ -1,0 +1,14 @@
+3
+5
+2 1 aa
+1 2 a
+2 3 a
+1 2 b
+2 3 abca
+2
+1 5 mihai
+2 2 buiucani
+3
+1 5 b
+2 3 a
+2 4 paiu

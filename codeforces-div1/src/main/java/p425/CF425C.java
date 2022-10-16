@@ -54,3 +54,7 @@ public class CF425C {
         return String.valueOf(ans);
     }
 }
+/*
+C. Sereja and Two Sequences
+https://codeforces.com/contest/425/problem/C
+ */
