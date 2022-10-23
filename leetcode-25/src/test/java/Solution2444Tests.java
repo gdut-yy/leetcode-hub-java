@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6207Tests {
-    private final Solution6207 solution6207 = new Solution6207();
+public class Solution2444Tests {
+    private final Solution2444 solution2444 = new Solution2444();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6207Tests {
         int minK = 1;
         int maxK = 5;
         long expected = 2;
-        Assertions.assertEquals(expected, solution6207.countSubarrays(nums, minK, maxK));
+        Assertions.assertEquals(expected, solution2444.countSubarrays(nums, minK, maxK));
     }
 
     @Test
@@ -19,19 +19,19 @@ public class Solution6207Tests {
         int minK = 1;
         int maxK = 1;
         long expected = 10;
-        Assertions.assertEquals(expected, solution6207.countSubarrays(nums, minK, maxK));
+        Assertions.assertEquals(expected, solution2444.countSubarrays(nums, minK, maxK));
     }
 
     // 补充用例
     @Test
     public void example3() {
         // https://leetcode.cn/submissions/detail/373512994/
-        final String fileName = "solution6207-example3-input.txt";
+        final String fileName = "solution2444-example3-input.txt";
         int[] nums = UtUtils.loadingInts(fileName, 0);
         int minK = UtUtils.loadingInt(fileName, 1);
         int maxK = UtUtils.loadingInt(fileName, 2);
         long expected = 5000050000L;
-        Assertions.assertEquals(expected, solution6207.countSubarrays(nums, minK, maxK));
+        Assertions.assertEquals(expected, solution2444.countSubarrays(nums, minK, maxK));
     }
 }
 /*

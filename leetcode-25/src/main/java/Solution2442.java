@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6205 {
+public class Solution2442 {
     public int countDistinctIntegers(int[] nums) {
         Set<Integer> hashSet = new HashSet<>();
         for (int num : nums) {
@@ -13,7 +13,7 @@ public class Solution6205 {
     }
 }
 /*
-6205. 反转之后不同整数的数目
+2442. 反转之后不同整数的数目
 https://leetcode.cn/problems/count-number-of-distinct-integers-after-reverse-operations/
 
 第 315 场周赛 T2。

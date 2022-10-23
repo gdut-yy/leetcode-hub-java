@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6210 {
+public class Solution2439 {
     public int minimizeArrayValue(int[] nums) {
         // 二分下界为 nums[0]，上界为 max(nums[i])
         int left = nums[0];
@@ -46,7 +46,7 @@ public class Solution6210 {
     }
 }
 /*
-6210. 最小化数组中的最大值
+2439. 最小化数组中的最大值
 https://leetcode.cn/problems/minimize-maximum-of-array/
 
 第 89 场双周赛 T3。

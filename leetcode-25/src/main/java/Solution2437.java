@@ -1,4 +1,4 @@
-public class Solution6208 {
+public class Solution2437 {
     public int countTime(String time) {
         int a = time.charAt(0) == '?' ? 10 : time.charAt(0) - '0';
         int b = time.charAt(1) == '?' ? 10 : time.charAt(1) - '0';
@@ -58,7 +58,7 @@ public class Solution6208 {
     }
 }
 /*
-6208. 有效时间的数目
+2437. 有效时间的数目
 https://leetcode.cn/problems/number-of-valid-clock-times/
 
 第 89 场双周赛 T1。

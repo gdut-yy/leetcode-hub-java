@@ -1,4 +1,4 @@
-public class Solution6219 {
+public class Solution2443 {
     public boolean sumOfNumberAndReverse(int num) {
         if (num == 0) {
             return true;
@@ -13,7 +13,7 @@ public class Solution6219 {
     }
 }
 /*
-6219. 反转之后的数字和
+2443. 反转之后的数字和
 https://leetcode.cn/problems/sum-of-number-and-its-reverse/
 
 第 315 场周赛 T3。

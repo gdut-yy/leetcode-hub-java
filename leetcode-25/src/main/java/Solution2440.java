@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6211 {
+public class Solution2440 {
     private int[] nums;
     private Map<Integer, List<Integer>> adj;
 
@@ -49,7 +49,7 @@ public class Solution6211 {
     }
 }
 /*
-6211. 创建价值相同的连通块
+2440. 创建价值相同的连通块
 https://leetcode.cn/problems/create-components-with-same-value/
 
 第 89 场双周赛 T4。

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6209 {
+public class Solution2438 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int[] productQueries(int n, int[][] queries) {
@@ -141,7 +141,7 @@ public class Solution6209 {
     }
 }
 /*
-6209. 二的幂数组中查询范围内的乘积
+2438. 二的幂数组中查询范围内的乘积
 https://leetcode.cn/problems/range-product-queries-of-powers/
 
 第 89 场双周赛 T2。

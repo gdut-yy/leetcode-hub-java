@@ -1,4 +1,4 @@
-public class Solution6207 {
+public class Solution2444 {
     public long countSubarrays(int[] nums, int minK, int maxK) {
         int len = nums.length;
         int minI = -1;
@@ -22,7 +22,7 @@ public class Solution6207 {
     }
 }
 /*
-6207. 统计定界子数组的数目
+2444. 统计定界子数组的数目
 https://leetcode.cn/problems/count-subarrays-with-fixed-bounds/
 
 第 315 场周赛 T4。

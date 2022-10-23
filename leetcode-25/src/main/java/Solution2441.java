@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6204 {
+public class Solution2441 {
     public int findMaxK(int[] nums) {
         Arrays.sort(nums);
         Set<Integer> hashSet = new HashSet<>();
@@ -18,7 +18,7 @@ public class Solution6204 {
     }
 }
 /*
-6204. 与对应负数同时存在的最大正整数
+2441. 与对应负数同时存在的最大正整数
 https://leetcode.cn/problems/largest-positive-integer-that-exists-with-its-negative/
 
 第 315 场周赛 T1。
