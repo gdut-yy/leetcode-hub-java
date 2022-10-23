@@ -44,7 +44,6 @@ https://leetcode.cn/contest/ubiquant2022/problems/uGuf0v/
 1.将自己的数字乘以 2
 2.将自己的数字乘以 3
 若最终所有同学可以通过操作得到相等数字，则返回所有同学的最少操作次数总数；否则请返回 -1。
-
 示例 1：
 输入：numbers = [50, 75, 100]
 输出：5
@@ -52,12 +51,10 @@ https://leetcode.cn/contest/ubiquant2022/problems/uGuf0v/
 numbers[0] * 2 * 3 = 300 操作两次；
 numbers[1] * 2 * 2 = 300 操作两次；
 numbers[2] * 3 = 300 操作一次。共计操作五次。
-
 示例 2：
 输入：numbers = [10, 14]
 输出：-1
 解释：无法通过操作得到相同数字。
-
 提示：
 1 <= numbers.length <= 10^5
 1 <= numbers[i] <= 10^9

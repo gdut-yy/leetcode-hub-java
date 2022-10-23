@@ -23,6 +23,7 @@ public class Ubiquant220821T1 {
     }
 }
 /*
+九坤投资专场竞赛
 九坤-01. 可以读通讯稿的组数
 https://leetcode.cn/contest/ubiquant2022/problems/xdxykd/
 
@@ -32,7 +33,6 @@ https://leetcode.cn/contest/ubiquant2022/problems/xdxykd/
 注意：
 镜像号码中如存在前置零，则忽略前置零。
 同一位同学可有多次兑换机会。
-
 示例 1：
 输入：nums = [17,28,39,71]
 输出：3
@@ -41,14 +41,12 @@ https://leetcode.cn/contest/ubiquant2022/problems/xdxykd/
 第一对同学：17 + 82 = 71 + 28；
 第二对同学：17 + 93 = 71 + 39；
 第三对同学：28 + 93 = 82 + 39。
-
 示例 2：
 输入：nums = [71, 60]
 输出：1
 解释：
 共有一对同学，为 [71, 60]。
 因为 71 + 6 = 17 + 60，此处 60 的镜像号码为 6，前导零被忽略。
-
 提示：
 0 <= nums.length <= 10^6
 0 <= nums[i] <= 10^9

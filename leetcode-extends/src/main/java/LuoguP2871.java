@@ -1,8 +1,7 @@
-import java.io.IOException;
 import java.util.Scanner;
 
 public class LuoguP2871 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 有 N 件物品和一个容量为 M 的背包。
         int N = scanner.nextInt();
