@@ -1,4 +1,4 @@
-public class Solution6214 {
+public class Solution2446 {
     public boolean haveConflict(String[] event1, String[] event2) {
         int start1 = Integer.parseInt(event1[0].substring(0, 2)) * 60 + Integer.parseInt(event1[0].substring(3, 5));
         int end1 = Integer.parseInt(event1[1].substring(0, 2)) * 60 + Integer.parseInt(event1[1].substring(3, 5));
@@ -10,7 +10,7 @@ public class Solution6214 {
     }
 }
 /*
-6214. 判断两个事件是否存在冲突
+2446. 判断两个事件是否存在冲突
 https://leetcode.cn/problems/determine-if-two-events-have-conflict/
 
 第 316 场周赛 T1。

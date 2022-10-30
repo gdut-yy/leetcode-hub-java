@@ -1,4 +1,4 @@
-public class Solution6224 {
+public class Solution2447 {
     public int subarrayGCD(int[] nums, int k) {
         int len = nums.length;
 
@@ -23,7 +23,7 @@ public class Solution6224 {
     }
 }
 /*
-6224. 最大公因数等于 K 的子数组数目
+2447. 最大公因数等于 K 的子数组数目
 https://leetcode.cn/problems/number-of-subarrays-with-gcd-equal-to-k/
 
 第 316 场周赛 T2。

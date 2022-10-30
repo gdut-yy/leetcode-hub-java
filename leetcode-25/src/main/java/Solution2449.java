@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution6217 {
+public class Solution2449 {
     public long makeSimilar(int[] nums, int[] target) {
         Arrays.sort(nums);
         Arrays.sort(target);
@@ -38,7 +38,7 @@ public class Solution6217 {
     }
 }
 /*
-6217. 使数组相似的最少操作次数
+2449. 使数组相似的最少操作次数
 https://leetcode.cn/problems/minimum-number-of-operations-to-make-arrays-similar/
 
 第 316 场周赛 T4。

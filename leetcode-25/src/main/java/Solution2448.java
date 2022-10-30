@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6216 {
+public class Solution2448 {
     private int[] nums;
     private int[] cost;
 
@@ -40,7 +40,7 @@ public class Solution6216 {
     }
 }
 /*
-6216. 使数组相等的最小开销
+2448. 使数组相等的最小开销
 https://leetcode.cn/problems/minimum-cost-to-make-array-equal/
 
 第 316 场周赛 T3。
