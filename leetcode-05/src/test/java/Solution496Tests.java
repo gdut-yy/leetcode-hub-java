@@ -10,6 +10,7 @@ public class Solution496Tests {
         int[] nums2 = {1, 3, 4, 2};
         int[] expected = {-1, 3, -1};
         Assertions.assertArrayEquals(expected, solution496.nextGreaterElement(nums1, nums2));
+        Assertions.assertArrayEquals(expected, solution496.nextGreaterElement2(nums1, nums2));
     }
 
     @Test
@@ -18,5 +19,6 @@ public class Solution496Tests {
         int[] nums2 = {1, 2, 3, 4};
         int[] expected = {3, -1};
         Assertions.assertArrayEquals(expected, solution496.nextGreaterElement(nums1, nums2));
+        Assertions.assertArrayEquals(expected, solution496.nextGreaterElement2(nums1, nums2));
     }
 }

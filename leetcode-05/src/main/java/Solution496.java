@@ -5,25 +5,43 @@ import java.util.Map;
 
 public class Solution496 {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        // 单调栈
+        int len1 = nums1.length;
+        int len2 = nums2.length;
+
+        Map<Integer, Integer> memoMap = new HashMap<>();
         Deque<Integer> stack = new ArrayDeque<>();
-        Map<Integer, Integer> resMap = new HashMap<>();
-        for (int i = nums2.length - 1; i >= 0; i--) {
+        // 从右到左
+        for (int i = len2 - 1; i >= 0; i--) {
             while (!stack.isEmpty() && stack.peek() <= nums2[i]) {
                 stack.pop();
             }
-            if (!stack.isEmpty()) {
-                resMap.put(nums2[i], stack.peek());
-            } else {
-                resMap.put(nums2[i], -1);
-            }
+            memoMap.put(nums2[i], stack.isEmpty() ? -1 : stack.peek());
             stack.push(nums2[i]);
         }
-        // 遍历 nums1 得到结果
-        int len1 = nums1.length;
+
         int[] res = new int[len1];
         for (int i = 0; i < len1; i++) {
-            res[i] = resMap.get(nums1[i]);
+            res[i] = memoMap.get(nums1[i]);
+        }
+        return res;
+    }
+
+    public int[] nextGreaterElement2(int[] nums1, int[] nums2) {
+        Map<Integer, Integer> memoMap = new HashMap<>();
+        Deque<Integer> stack = new ArrayDeque<>();
+        // 从左到右
+        for (int x : nums2) {
+            while (!stack.isEmpty() && stack.peek() <= x) {
+                int top = stack.pop();
+                memoMap.put(top, x);
+            }
+            stack.push(x);
+        }
+
+        int len = nums1.length;
+        int[] res = new int[len];
+        for (int i = 0; i < len; i++) {
+            res[i] = memoMap.getOrDefault(nums1[i], -1);
         }
         return res;
     }
