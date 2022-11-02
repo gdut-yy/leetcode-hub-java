@@ -5,8 +5,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
-public class Solution6221Tests {
-    private final Solution6221 solution6221 = new Solution6221();
+public class Solution2456Tests {
+    private final Solution2456 solution2456 = new Solution2456();
 
     public static final Comparator<List<String>> STRING_LIST_COMPARATOR = (o1, o2) -> {
         // o1.size() != o2.size();
@@ -27,7 +27,7 @@ public class Solution6221Tests {
         List<List<String>> expected = UtUtils.stringToStringList2("""
                 [["alice","one"],["bob","two"]]
                 """);
-        List<List<String>> actual = solution6221.mostPopularCreator(creators, ids, views);
+        List<List<String>> actual = solution2456.mostPopularCreator(creators, ids, views);
         expected.sort(STRING_LIST_COMPARATOR);
         actual.sort(STRING_LIST_COMPARATOR);
         Assertions.assertEquals(expected, actual);
@@ -41,7 +41,7 @@ public class Solution6221Tests {
         List<List<String>> expected = UtUtils.stringToStringList2("""
                 [["alice","b"]]
                 """);
-        List<List<String>> actual = solution6221.mostPopularCreator(creators, ids, views);
+        List<List<String>> actual = solution2456.mostPopularCreator(creators, ids, views);
         expected.sort(STRING_LIST_COMPARATOR);
         actual.sort(STRING_LIST_COMPARATOR);
         Assertions.assertEquals(expected, actual);
@@ -52,14 +52,14 @@ public class Solution6221Tests {
     public void example3() {
         // https://leetcode.cn/submissions/detail/377703493/
         // 81 / 82 个通过测试用例
-        final String fileName = "solution6221-example3-input.txt";
+        final String fileName = "solution2456-example3-input.txt";
         String[] creators = UtUtils.loadingStrings(fileName, 0);
         String[] ids = UtUtils.loadingStrings(fileName, 1);
         int[] views = UtUtils.loadingInts(fileName, 2);
         List<List<String>> expected = UtUtils.stringToStringList2("""
                 [["l", "vy"]]
                 """);
-        List<List<String>> actual = solution6221.mostPopularCreator(creators, ids, views);
+        List<List<String>> actual = solution2456.mostPopularCreator(creators, ids, views);
         expected.sort(STRING_LIST_COMPARATOR);
         actual.sort(STRING_LIST_COMPARATOR);
         Assertions.assertEquals(expected, actual);

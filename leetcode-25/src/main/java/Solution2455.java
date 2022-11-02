@@ -1,4 +1,4 @@
-public class Solution6220 {
+public class Solution2455 {
     public int averageValue(int[] nums) {
         int sum = 0;
         int cnt = 0;
@@ -13,7 +13,7 @@ public class Solution6220 {
     }
 }
 /*
-6220. 可被三整除的偶数的平均值
+2455. 可被三整除的偶数的平均值
 https://leetcode.cn/problems/average-value-of-even-numbers-that-are-divisible-by-three/
 
 第 317 场周赛 T1。

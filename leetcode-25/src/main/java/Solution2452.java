@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6228 {
+public class Solution2452 {
     public List<String> twoEditWords(String[] queries, String[] dictionary) {
         List<String> resList = new ArrayList<>();
         for (String query : queries) {
@@ -29,7 +29,7 @@ public class Solution6228 {
     }
 }
 /*
-6228. 距离字典两次编辑以内的单词
+2452. 距离字典两次编辑以内的单词
 https://leetcode.cn/problems/words-within-two-edits-of-dictionary/
 
 第 90 场双周赛 T2。

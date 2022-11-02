@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6222Tests {
-    private final Solution6222 solution6222 = new Solution6222();
+public class Solution2457Tests {
+    private final Solution2457 solution2457 = new Solution2457();
 
     @Test
     public void example1() {
         long n = 16;
         int target = 6;
         long expected = 4;
-        Assertions.assertEquals(expected, solution6222.makeIntegerBeautiful(n, target));
+        Assertions.assertEquals(expected, solution2457.makeIntegerBeautiful(n, target));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6222Tests {
         long n = 467;
         int target = 6;
         long expected = 33;
-        Assertions.assertEquals(expected, solution6222.makeIntegerBeautiful(n, target));
+        Assertions.assertEquals(expected, solution2457.makeIntegerBeautiful(n, target));
     }
 
     @Test
@@ -25,6 +25,6 @@ public class Solution6222Tests {
         long n = 1;
         int target = 1;
         long expected = 0;
-        Assertions.assertEquals(expected, solution6222.makeIntegerBeautiful(n, target));
+        Assertions.assertEquals(expected, solution2457.makeIntegerBeautiful(n, target));
     }
 }

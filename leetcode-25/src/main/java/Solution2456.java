@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6221 {
+public class Solution2456 {
     public List<List<String>> mostPopularCreator(String[] creators, String[] ids, int[] views) {
         int n = creators.length;
 
@@ -49,7 +49,7 @@ public class Solution6221 {
     }
 }
 /*
-6221. 最流行的视频创作者
+2456. 最流行的视频创作者
 https://leetcode.cn/problems/most-popular-video-creator/
 
 第 317 场周赛 T2。

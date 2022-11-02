@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6225 {
+public class Solution2451 {
     public String oddString(String[] words) {
         Map<String, List<Integer>> cntMap = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
@@ -24,7 +24,7 @@ public class Solution6225 {
     }
 }
 /*
-6225. 差值数组不同的字符串
+2451. 差值数组不同的字符串
 https://leetcode.cn/problems/odd-string-difference/
 
 第 90 场双周赛 T1。

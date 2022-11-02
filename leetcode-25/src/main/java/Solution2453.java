@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6226 {
+public class Solution2453 {
     public int destroyTargets(int[] nums, int space) {
         int max = 0;
         Map<Integer, List<Integer>> cntMap = new HashMap<>();
@@ -23,7 +23,7 @@ public class Solution6226 {
     }
 }
 /*
-6226. 摧毁一系列目标
+2453. 摧毁一系列目标
 https://leetcode.cn/problems/destroy-sequential-targets/
 
 第 90 场双周赛 T3。

@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
-public class Solution6227 {
+public class Solution2454 {
     public int[] secondGreaterElement(int[] nums) {
         int len = nums.length;
 
@@ -34,7 +34,7 @@ public class Solution6227 {
     }
 }
 /*
-6227. 下一个更大元素 IV
+2454. 下一个更大元素 IV
 https://leetcode.cn/problems/next-greater-element-iv/
 
 第 90 场双周赛 T4。

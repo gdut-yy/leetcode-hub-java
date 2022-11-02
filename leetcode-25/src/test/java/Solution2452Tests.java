@@ -4,15 +4,15 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6228Tests {
-    private final Solution6228 solution6228 = new Solution6228();
+public class Solution2452Tests {
+    private final Solution2452 solution2452 = new Solution2452();
 
     @Test
     public void example1() {
         String[] queries = {"word", "note", "ants", "wood"};
         String[] dictionary = {"wood", "joke", "moat"};
         List<String> expected = List.of("word", "note", "wood");
-        Assertions.assertEquals(expected, solution6228.twoEditWords(queries, dictionary));
+        Assertions.assertEquals(expected, solution2452.twoEditWords(queries, dictionary));
     }
 
     @Test
@@ -20,6 +20,6 @@ public class Solution6228Tests {
         String[] queries = {"yes"};
         String[] dictionary = {"not"};
         List<String> expected = new ArrayList<>();
-        Assertions.assertEquals(expected, solution6228.twoEditWords(queries, dictionary));
+        Assertions.assertEquals(expected, solution2452.twoEditWords(queries, dictionary));
     }
 }

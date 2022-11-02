@@ -1,4 +1,4 @@
-public class Solution6222 {
+public class Solution2457 {
     public long makeIntegerBeautiful(long n, int target) {
         String ss = String.valueOf(n);
         int len = ss.length();
@@ -27,7 +27,7 @@ public class Solution6222 {
     }
 }
 /*
-6222. 美丽整数的最小增量
+2457. 美丽整数的最小增量
 https://leetcode.cn/problems/minimum-addition-to-make-integer-beautiful/
 
 第 317 场周赛 T3。
