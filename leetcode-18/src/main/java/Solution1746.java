@@ -48,6 +48,6 @@ https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
 -10^4 <= nums[i] <= 10^4
 
 动态规划。
-相似题目: 53. 最大子序和
+相似题目: 53. 最大子数组和
 https://leetcode.cn/problems/maximum-subarray/
  */

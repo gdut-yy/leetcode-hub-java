@@ -170,7 +170,7 @@ https://codeforces.com/contest/1692/problem/H
 给定整数 n 和长度为 n 的数组 x，求 a,l,r，在 [l,r] 内均选择 a，如果 a == x[i] 那么翻倍，否则减半。
 
 动态最大子数组和。线段树。时间复杂度 O(nlogn)
-相似题目: 53. 最大子序和 （静态最大子数组和）
+相似题目: 53. 最大子数组和（静态最大子数组和）
 https://leetcode.cn/problems/maximum-subarray/
 ======
 

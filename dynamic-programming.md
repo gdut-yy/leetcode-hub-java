@@ -134,7 +134,7 @@ dp[0] = nums[0]
 贪心
 ```
 
-## 10. [53. 最大子序和](https://leetcode.cn/problems/maximum-subarray/)
+## 10. [53. 最大子数组和](https://leetcode.cn/problems/maximum-subarray/)
 
 ```
 给定一个整数数组 nums ，找到一个具有最大和的连续子数组（子数组最少包含一个元素），返回其最大和。

@@ -46,7 +46,8 @@ public class Solution529 {
                 for (int[] dir : DIRECTIONS8) {
                     int nextM = cur[0] + dir[0];
                     int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && board[nextM][nextN] == 'E' && !visited[nextM][nextN]) {
+                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N
+                            && board[nextM][nextN] == 'E' && !visited[nextM][nextN]) {
                         visited[nextM][nextN] = true;
                         queue.add(new int[]{nextM, nextN});
                     }
