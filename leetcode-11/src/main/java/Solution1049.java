@@ -53,6 +53,27 @@ public class Solution1049 {
         }
         return treeSet;
     }
+
+    // 动态规划 时间复杂度 O(n*sum)
+    public int lastStoneWeightII2(int[] stones) {
+        int sum = Arrays.stream(stones).sum();
+        int halfSum = sum / 2;
+
+        boolean[] dp = new boolean[halfSum + 1];
+        dp[0] = true;
+        for (int weight : stones) {
+            for (int j = halfSum; j >= weight; j--) {
+                dp[j] = dp[j] || dp[j - weight];
+            }
+        }
+
+        for (int j = halfSum; j >= 0; j--) {
+            if (dp[j]) {
+                return sum - 2 * j;
+            }
+        }
+        return 0;
+    }
 }
 /*
 1049. 最后一块石头的重量 II

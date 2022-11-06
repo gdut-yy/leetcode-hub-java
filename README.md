@@ -505,6 +505,18 @@ public int[] singleNumber2(int[] nums) {
 }
 ```
 
+### 石子游戏系列
+
+- [877. 石子游戏](https://leetcode.cn/problems/stone-game/)
+- [1140. 石子游戏 II](https://leetcode.cn/problems/stone-game-ii/)
+- [1406. 石子游戏 III](https://leetcode.cn/problems/stone-game-iii/)
+- [1510. 石子游戏 IV](https://leetcode.cn/problems/stone-game-iv/)
+- [1563. 石子游戏 V](https://leetcode.cn/problems/stone-game-v/)
+- [1686. 石子游戏 VI](https://leetcode.cn/problems/stone-game-vi/)
+- [1690. 石子游戏 VII](https://leetcode.cn/problems/stone-game-vii/)
+- [1872. 石子游戏 VIII](https://leetcode.cn/problems/stone-game-viii/)
+- [2029. 石子游戏 IX](https://leetcode.cn/problems/stone-game-ix/)
+
 ### 图论
 
 - 顶点 Vertex (复数 vertices)
@@ -598,7 +610,7 @@ Hierholzer 算法
 - ~~[哈工大 OJ](http://acm.hit.edu.cn/)~~
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
-- [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
+- [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor) | [onrender](http://lcpredictor.onrender.com/)
 - [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
 - [clist.by](https://clist.by/account/zhang-yi-yang/resource/leetcode.com/)
 - [visualgo](https://visualgo.net/zh)

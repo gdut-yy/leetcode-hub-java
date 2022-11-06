@@ -11,7 +11,7 @@ public class Solution213 {
         return Math.max(rob1(arr1, arr1.length), rob1(arr2, arr2.length));
     }
 
-    public int rob1(int[] nums, int len) {
+    private int rob1(int[] nums, int len) {
         int[] dp = new int[len];
         if (len == 1) {
             return nums[0];

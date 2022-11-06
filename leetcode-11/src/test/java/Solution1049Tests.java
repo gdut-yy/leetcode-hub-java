@@ -9,6 +9,7 @@ public class Solution1049Tests {
         int[] stones = {2, 7, 4, 1, 8, 1};
         int expected = 1;
         Assertions.assertEquals(expected, solution1049.lastStoneWeightII(stones));
+        Assertions.assertEquals(expected, solution1049.lastStoneWeightII2(stones));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution1049Tests {
         int[] stones = {31, 26, 33, 21, 40};
         int expected = 5;
         Assertions.assertEquals(expected, solution1049.lastStoneWeightII(stones));
+        Assertions.assertEquals(expected, solution1049.lastStoneWeightII2(stones));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution1049Tests {
         int[] stones = {1, 2};
         int expected = 1;
         Assertions.assertEquals(expected, solution1049.lastStoneWeightII(stones));
+        Assertions.assertEquals(expected, solution1049.lastStoneWeightII2(stones));
     }
 }
