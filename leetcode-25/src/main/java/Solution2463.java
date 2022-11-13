@@ -3,7 +3,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6232 {
+public class Solution2463 {
     private static final long INF = Long.MAX_VALUE / 2;
     private List<Integer> robot;
     private int[][] factory;
@@ -126,7 +126,7 @@ public class Solution6232 {
     }
 }
 /*
-6232. 最小移动总距离
+2463. 最小移动总距离
 https://leetcode.cn/problems/minimum-total-distance-traveled/
 
 第 318 场周赛 T4。

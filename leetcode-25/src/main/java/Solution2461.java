@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution6230 {
+public class Solution2461 {
     public long maximumSubarraySum(int[] nums, int k) {
         int len = nums.length;
 
@@ -51,7 +51,7 @@ public class Solution6230 {
     }
 }
 /*
-6230. 长度为 K 子数组中的最大和
+2461. 长度为 K 子数组中的最大和
 https://leetcode.cn/problems/maximum-sum-of-distinct-subarrays-with-length-k/
 
 第 318 场周赛 T2。

@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution6231 {
+public class Solution2462 {
     private int p;
     private int q;
 
@@ -66,7 +66,7 @@ public class Solution6231 {
     }
 }
 /*
-6231. 雇佣 K 位工人的总代价
+2462. 雇佣 K 位工人的总代价
 https://leetcode.cn/problems/total-cost-to-hire-k-workers/
 
 第 318 场周赛 T3。

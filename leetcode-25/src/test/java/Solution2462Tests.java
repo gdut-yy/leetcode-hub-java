@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6231Tests {
-    private final Solution6231 solution6231 = new Solution6231();
+public class Solution2462Tests {
+    private final Solution2462 solution2462 = new Solution2462();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6231Tests {
         int k = 3;
         int candidates = 4;
         long expected = 11;
-        Assertions.assertEquals(expected, solution6231.totalCost(costs, k, candidates));
+        Assertions.assertEquals(expected, solution2462.totalCost(costs, k, candidates));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6231Tests {
         int k = 3;
         int candidates = 3;
         long expected = 4;
-        Assertions.assertEquals(expected, solution6231.totalCost(costs, k, candidates));
+        Assertions.assertEquals(expected, solution2462.totalCost(costs, k, candidates));
     }
 }

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6229 {
+public class Solution2460 {
     public int[] applyOperations(int[] nums) {
         int len = nums.length;
         for (int i = 0; i < len - 1; i++) {
@@ -24,7 +24,7 @@ public class Solution6229 {
     }
 }
 /*
-6229. 对数组执行操作
+2460. 对数组执行操作
 https://leetcode.cn/problems/apply-operations-to-an-array/
 
 第 318 场周赛 T1。
