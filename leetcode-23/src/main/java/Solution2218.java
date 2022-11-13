@@ -43,4 +43,6 @@ n == piles.length
 利用前缀和 转化为分组背包
 时间复杂度 O(ks)
 空间复杂度 O(k)
+相似题目: 221021天池-04. 意外惊喜
+https://leetcode.cn/contest/tianchi2022/problems/tRZfIV/
  */

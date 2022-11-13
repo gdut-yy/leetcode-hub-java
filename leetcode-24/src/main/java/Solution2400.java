@@ -18,7 +18,6 @@ public class Solution2400 {
             for (int i = 0; i < a + 1; i++) {
                 Arrays.fill(memo[i], -1);
             }
-
             return (int) dfs(a, b);
         }
         return 0;
@@ -41,10 +40,7 @@ public class Solution2400 {
             res += dfs(a, b - 1);
             res %= MOD;
         }
-
-        if (memo[a][b] == -1) {
-            memo[a][b] = res;
-        }
+        memo[a][b] = res;
         return res;
     }
 

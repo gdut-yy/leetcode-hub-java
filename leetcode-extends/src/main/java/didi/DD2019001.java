@@ -45,6 +45,7 @@ public class DD2019001 {
         if (memo[pre][np][nq][nr] != -1) {
             return memo[pre][np][nq][nr];
         }
+
         long res = 0;
         if (pre != 0 && np > 0) {
             res += dfs(0, np - 1, nq, nr);
@@ -55,9 +56,7 @@ public class DD2019001 {
         if (pre != 2 && nr > 0) {
             res += dfs(2, np, nq, nr - 1);
         }
-        if (memo[pre][np][nq][nr] == -1) {
-            memo[pre][np][nq][nr] = res;
-        }
+        memo[pre][np][nq][nr] = res;
         return res;
     }
 }

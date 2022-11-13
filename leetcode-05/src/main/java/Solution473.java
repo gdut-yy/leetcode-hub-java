@@ -43,4 +43,6 @@ https://leetcode.cn/problems/matchsticks-to-square/
 
 状态压缩动态规划
 时间复杂度 O(n*2^n)
+相似题目: 698. 划分为k个相等的子集
+https://leetcode.cn/problems/partition-to-k-equal-sum-subsets/
  */

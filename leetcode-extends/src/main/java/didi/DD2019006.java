@@ -66,10 +66,7 @@ public class DD2019006 {
         }
         // 做不同的事
         res += dfs(n, d, first, pos + 1, 1 - posVal, 1, posVal == 0 ? cnt0 : cnt0 + 1);
-
-        if (memo[first][pos][posVal][subStrLen][cnt0] == -1) {
-            memo[first][pos][posVal][subStrLen][cnt0] = res;
-        }
+        memo[first][pos][posVal][subStrLen][cnt0] = res;
         return res;
     }
 }

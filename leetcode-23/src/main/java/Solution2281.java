@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Deque;
 
 public class Solution2281 {
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
 
     public int totalStrength(int[] strength) {
         int n = strength.length;

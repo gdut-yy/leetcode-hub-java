@@ -9,6 +9,7 @@ public class Solution316Tests {
         String s = "bcabc";
         String expected = "abc";
         Assertions.assertEquals(expected, solution316.removeDuplicateLetters(s));
+        Assertions.assertEquals(expected, solution316.removeDuplicateLetters2(s));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution316Tests {
         String s = "cbacdcbc";
         String expected = "acdb";
         Assertions.assertEquals(expected, solution316.removeDuplicateLetters(s));
+        Assertions.assertEquals(expected, solution316.removeDuplicateLetters2(s));
     }
 }

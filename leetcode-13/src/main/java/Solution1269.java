@@ -11,7 +11,6 @@ public class Solution1269 {
         for (int i = 0; i < steps + 1; i++) {
             Arrays.fill(memo[i], -1);
         }
-
         return (int) dfs(steps, arrLen, 0);
     }
 
@@ -36,10 +35,7 @@ public class Solution1269 {
             res += dfs(steps - 1, arrLen, pos - 1);
             res %= MOD;
         }
-
-        if (memo[steps][pos] == -1) {
-            memo[steps][pos] = res;
-        }
+        memo[steps][pos] = res;
         return res;
     }
 }

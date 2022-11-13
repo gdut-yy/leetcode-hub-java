@@ -5,7 +5,9 @@ public class Solution947 {
     public int removeStones(int[][] stones) {
         DSU dsu = new DSU();
         for (int[] stone : stones) {
-            // 并查集里如何区分横纵坐标
+            // 并查集里如何区分横纵坐标 下面这三种写法任选其一
+//            dsu.union(~stone[0], stone[1]);
+//            dsu.union(stone[0] - 10001, stone[1]);
             dsu.union(stone[0] + 10001, stone[1]);
         }
         return stones.length - dsu.sz;

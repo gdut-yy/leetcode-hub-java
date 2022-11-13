@@ -2,6 +2,40 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Solution316 {
+    public String removeDuplicateLetters2(String s) {
+        // 右侧（含自身）元素频次
+        int[] cntArr = new int[26];
+        for (char ch : s.toCharArray()) {
+            cntArr[ch - 'a']++;
+        }
+
+        // 栈中元素频次
+        int[] stackArr = new int[26];
+        Deque<Character> stack = new ArrayDeque<>();
+        for (char ch : s.toCharArray()) {
+            // 无法入栈
+            if (stackArr[ch - 'a'] == 1) {
+                cntArr[ch - 'a']--;
+                continue;
+            }
+            // 栈顶元素能出栈
+            while (!stack.isEmpty() && stack.peek() > ch && cntArr[stack.peek() - 'a'] > 1) {
+                char pop = stack.pop();
+                cntArr[pop - 'a']--;
+                stackArr[pop - 'a']--;
+            }
+            stack.push(ch);
+            stackArr[ch - 'a']++;
+        }
+
+        int sz = stack.size();
+        char[] chars = new char[sz];
+        for (int i = sz - 1; i >= 0; i--) {
+            chars[i] = stack.pop();
+        }
+        return new String(chars);
+    }
+
     public String removeDuplicateLetters(String s) {
         int len = s.length();
         // 记录各小写英文字母最后一次出现的下标
