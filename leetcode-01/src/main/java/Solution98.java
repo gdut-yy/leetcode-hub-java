@@ -1,17 +1,17 @@
 public class Solution98 {
     public boolean isValidBST(TreeNode root) {
         // -2^31 <= Node.val <= 2^31 - 1
-        return postOrder(root, Long.MIN_VALUE, Long.MAX_VALUE);
+        return validBST(root, Long.MIN_VALUE, Long.MAX_VALUE);
     }
 
-    private boolean postOrder(TreeNode root, long left, long right) {
+    private boolean validBST(TreeNode root, long min, long max) {
         if (root == null) {
             return true;
         }
-        if (root.val <= left || root.val >= right) {
+        if (root.val <= min || root.val >= max) {
             return false;
         }
-        return postOrder(root.left, left, root.val) && postOrder(root.right, root.val, right);
+        return validBST(root.left, min, root.val) && validBST(root.right, root.val, max);
     }
 }
 /*
@@ -28,4 +28,8 @@ https://leetcode.cn/problems/validate-binary-search-tree/
 -2^31 <= Node.val <= 2^31 - 1
 
 前序遍历。注意需要开到 Long
+相似题目: $333. 最大 BST 子树
+https://leetcode.cn/problems/largest-bst-subtree/
+1373. 二叉搜索子树的最大键值和
+https://leetcode.cn/problems/maximum-sum-bst-in-binary-tree/
  */
