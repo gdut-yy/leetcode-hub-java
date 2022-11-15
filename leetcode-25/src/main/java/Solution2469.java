@@ -1,10 +1,10 @@
-public class Solution6233 {
+public class Solution2469 {
     public double[] convertTemperature(double celsius) {
         return new double[]{celsius + 273.15, celsius * 1.8 + 32.0};
     }
 }
 /*
-6233. 温度转换
+2469. 温度转换
 https://leetcode.cn/problems/convert-the-temperature/
 
 第 319 场周赛 T1。

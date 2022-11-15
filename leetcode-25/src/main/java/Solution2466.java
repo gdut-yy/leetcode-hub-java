@@ -1,4 +1,4 @@
-public class Solution6238 {
+public class Solution2466 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int countGoodStrings(int low, int high, int zero, int one) {
@@ -26,7 +26,7 @@ public class Solution6238 {
     }
 }
 /*
-6238. 统计构造好字符串的方案数
+2466. 统计构造好字符串的方案数
 https://leetcode.cn/problems/count-ways-to-build-good-strings/
 
 第 91 场双周赛 T2。

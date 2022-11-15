@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
-public class Solution6240 {
+public class Solution2467 {
     public int mostProfitablePath(int[][] edges, int bob, int[] amount) {
         // step1: 建图
         int n = edges.length + 1;
@@ -110,7 +110,7 @@ public class Solution6240 {
     }
 }
 /*
-6240. 树上最大得分和路径
+2467. 树上最大得分和路径
 https://leetcode.cn/problems/most-profitable-path-in-a-tree/
 
 一个 n 个节点的无向树，节点编号为 0 到 n - 1 ，树的根结点是 0 号节点。给你一个长度为 n - 1 的二维整数数组 edges ，其中 edges[i] = [ai, bi] ，表示节点 ai 和 bi 在树中有一条边。

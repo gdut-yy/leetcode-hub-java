@@ -1,4 +1,4 @@
-public class Solution6239 {
+public class Solution2468 {
     public String[] splitMessage(String message, int limit) {
         int len = message.length();
 
@@ -45,7 +45,7 @@ public class Solution6239 {
     }
 }
 /*
-6239. 根据限制分割消息
+2468. 根据限制分割消息
 https://leetcode.cn/problems/split-message-based-on-limit/
 
 第 91 场双周赛 T4。

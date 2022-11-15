@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6235 {
+public class Solution2471 {
     public int minimumOperations(TreeNode root) {
         int res = 0;
 
@@ -46,7 +46,7 @@ public class Solution6235 {
     }
 }
 /*
-6235. 逐层排序二叉树所需的最少操作数目
+2471. 逐层排序二叉树所需的最少操作数目
 https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-by-level/
 
 第 319 场周赛 T3。

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6236 {
+public class Solution2472 {
     public int maxPalindromes(String s, int k) {
         int len = s.length();
         if (k == 1) {
@@ -79,7 +79,7 @@ public class Solution6236 {
     }
 }
 /*
-6236. 不重叠回文子字符串的最大数目
+2472. 不重叠回文子字符串的最大数目
 https://leetcode.cn/problems/maximum-number-of-non-overlapping-palindrome-substrings/
 
 第 319 场周赛 T4。

@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6240Tests {
-    private final Solution6240 solution6240 = new Solution6240();
+public class Solution2467Tests {
+    private final Solution2467 solution2467 = new Solution2467();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6240Tests {
         int bob = 3;
         int[] amount = {-2, 4, 2, -4, 6};
         int expected = 6;
-        Assertions.assertEquals(expected, solution6240.mostProfitablePath(edges, bob, amount));
+        Assertions.assertEquals(expected, solution2467.mostProfitablePath(edges, bob, amount));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6240Tests {
         int bob = 1;
         int[] amount = {-7280, 2350};
         int expected = -7280;
-        Assertions.assertEquals(expected, solution6240.mostProfitablePath(edges, bob, amount));
+        Assertions.assertEquals(expected, solution2467.mostProfitablePath(edges, bob, amount));
     }
 
     // 补充用例
@@ -31,6 +31,6 @@ public class Solution6240Tests {
         int bob = 3;
         int[] amount = {-5644, -6018, 1188, -8502};
         int expected = -11662;
-        Assertions.assertEquals(expected, solution6240.mostProfitablePath(edges, bob, amount));
+        Assertions.assertEquals(expected, solution2467.mostProfitablePath(edges, bob, amount));
     }
 }

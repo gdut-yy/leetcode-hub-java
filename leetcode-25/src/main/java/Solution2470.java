@@ -1,4 +1,4 @@
-public class Solution6234 {
+public class Solution2470 {
     public int subarrayLCM(int[] nums, int k) {
         int len = nums.length;
 
@@ -26,7 +26,7 @@ public class Solution6234 {
     }
 }
 /*
-6234. 最小公倍数为 K 的子数组数目
+2470. 最小公倍数为 K 的子数组数目
 https://leetcode.cn/problems/number-of-subarrays-with-lcm-equal-to-k/
 
 第 319 场周赛 T2。

@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6237 {
+public class Solution2465 {
     public int distinctAverages(int[] nums) {
         int len = nums.length;
         Arrays.sort(nums);
@@ -14,7 +14,7 @@ public class Solution6237 {
     }
 }
 /*
-6237. 不同的平均值数目
+2465. 不同的平均值数目
 https://leetcode.cn/problems/number-of-distinct-averages/
 
 第 91 场双周赛 T1。
