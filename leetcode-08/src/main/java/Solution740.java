@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution740 {
     public int deleteAndEarn(int[] nums) {
-        int max = Arrays.stream(nums).max().getAsInt();
+        int max = Arrays.stream(nums).max().orElseThrow();
         int[] sum = new int[max + 1];
         for (int num : nums) {
             sum[num] += num;

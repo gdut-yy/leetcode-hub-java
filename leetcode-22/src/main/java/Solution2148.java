@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class Solution2148 {
     public int countElements(int[] nums) {
-        int min = Arrays.stream(nums).min().getAsInt();
-        int max = Arrays.stream(nums).max().getAsInt();
+        int min = Arrays.stream(nums).min().orElseThrow();
+        int max = Arrays.stream(nums).max().orElseThrow();
         int cnt = 0;
         for (int num : nums) {
             if (num > min && num < max) {

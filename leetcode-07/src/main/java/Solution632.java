@@ -75,8 +75,8 @@ nums[i] 按非递减顺序排列
 
 滑动窗口
 注意值域是离散的，使用 TreeMap 使其升序排序，并且用 higherKey 模拟离散化跳跃到下一个节点。
-时间复杂度 O(nk)
-空间复杂度 O(nk)
+时间复杂度 O(nklogk)
+空间复杂度 O(k)
 相似题目: 76. 最小覆盖子串
 https://leetcode.cn/problems/minimum-window-substring/
  */

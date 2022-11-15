@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution1231 {
     public int maximizeSweetness(int[] sweetness, int k) {
-        int left = Arrays.stream(sweetness).min().getAsInt();
+        int left = Arrays.stream(sweetness).min().orElseThrow();
         int right = Arrays.stream(sweetness).sum() + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;

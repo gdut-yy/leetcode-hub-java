@@ -42,9 +42,13 @@ public class Solution539 {
 539. 最小时间差
 https://leetcode.cn/problems/minimum-time-difference/
 
+给定一个 24 小时制（小时:分钟 "HH:MM"）的时间列表，找出列表中任意两个时间的最小时间差并以分钟数表示。
+提示：
+2 <= timePoints.length <= 2 * 10^4
+timePoints[i] 格式为 "HH:MM"
+
 BitSet 长度为定长 1440，为常数，因此：
 时间复杂度 O(1)
 空间复杂度 O(1)
-
 注意 BitSet#size()、BitSet#length() 与 boolean[] bitset; bitset.length 之间的区别
  */

@@ -2,8 +2,8 @@ import java.util.Arrays;
 
 public class Solution644 {
     public double findMaxAverage(int[] nums, int k) {
-        double left = Arrays.stream(nums).min().getAsInt();
-        double right = Arrays.stream(nums).max().getAsInt();
+        double left = Arrays.stream(nums).min().orElseThrow();
+        double right = Arrays.stream(nums).max().orElseThrow();
 
         while (right - left > 1e-5) {
             double mid = left + (right - left) / 2;

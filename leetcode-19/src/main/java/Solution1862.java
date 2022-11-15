@@ -17,7 +17,7 @@ public class Solution1862 {
 
     // 枚举 y 和 floor(x/y) 时间复杂度 O(n + ClogC)
     public int sumOfFlooredPairs(int[] nums) {
-        int max = Arrays.stream(nums).max().getAsInt();
+        int max = Arrays.stream(nums).max().orElseThrow();
         int[] cnt = new int[max + 1];
         for (int num : nums) {
             cnt[num]++;

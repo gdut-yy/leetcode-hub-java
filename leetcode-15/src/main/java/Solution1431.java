@@ -5,7 +5,7 @@ import java.util.List;
 public class Solution1431 {
     public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
         List<Boolean> resList = new ArrayList<>();
-        int max = Arrays.stream(candies).max().getAsInt();
+        int max = Arrays.stream(candies).max().orElseThrow();
         for (int candy : candies) {
             if (candy + extraCandies >= max) {
                 resList.add(true);

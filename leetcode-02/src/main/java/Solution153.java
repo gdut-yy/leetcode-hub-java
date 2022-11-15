@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution153 {
     public int findMin(int[] nums) {
-        return Arrays.stream(nums).min().getAsInt();
+        return Arrays.stream(nums).min().orElseThrow();
     }
 }
 /*

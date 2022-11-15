@@ -17,15 +17,27 @@ public class Solution1235 {
         for (int i = 1; i <= len; i++) {
             int[] ei = events[i - 1];
 
-            int last = 0;
-            for (int j = i - 1; j - 1 >= 0; j--) {
-                int[] ej = events[j - 1];
-
-                if (ej[1] <= ei[0]) {
-                    last = j;
-                    break;
+//            int last = 0;
+//            for (int j = i - 1; j - 1 >= 0; j--) {
+//                int[] ej = events[j - 1];
+//
+//                if (ej[1] <= ei[0]) {
+//                    last = j;
+//                    break;
+//                }
+//            }
+            // 二分优化
+            int left = 0;
+            int right = i - 1;
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                if (events[mid][1] > ei[0]) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
                 }
             }
+            int last = left;
 
             // 选 or 不选
             f[i] = Math.max(f[i - 1], f[last] + ei[2]);

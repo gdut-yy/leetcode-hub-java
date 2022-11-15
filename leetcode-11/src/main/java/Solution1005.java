@@ -19,7 +19,7 @@ public class Solution1005 {
         if (remain > 0) {
             // 不存在 0
             if (!has0) {
-                int min = Arrays.stream(nums).min().getAsInt();
+                int min = Arrays.stream(nums).min().orElseThrow();
                 if (remain % 2 == 1) {
                     return Arrays.stream(nums).sum() - min - min;
                 }

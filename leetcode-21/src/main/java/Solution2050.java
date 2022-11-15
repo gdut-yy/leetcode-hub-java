@@ -62,7 +62,7 @@ public class Solution2050 {
             }
         }
         // 最少 月份数 max(dp[i])
-        return Arrays.stream(dp).max().getAsInt();
+        return Arrays.stream(dp).max().orElseThrow();
     }
 }
 /*

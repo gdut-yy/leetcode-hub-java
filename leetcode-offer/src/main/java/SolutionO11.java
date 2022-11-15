@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class SolutionO11 {
     public int minArray(int[] numbers) {
-        return Arrays.stream(numbers).min().getAsInt();
+        return Arrays.stream(numbers).min().orElseThrow();
     }
 }
 /*

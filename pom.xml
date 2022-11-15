@@ -106,7 +106,7 @@
                 <version>${maven-surefire-plugin.version}</version>
                 <configuration>
                     <!-- https://codeforces.com/blog/entry/79 -->
-                    <argLine>-Xss64M -Xmx256M</argLine>
+                    <argLine>@{argLine} -Xss64M -Xmx256M</argLine>
                 </configuration>
             </plugin>
             <plugin>

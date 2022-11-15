@@ -26,7 +26,7 @@ public class Solution2304 {
                 dp[i][j1] += min;
             }
         }
-        return Arrays.stream(dp[m - 1]).min().getAsInt();
+        return Arrays.stream(dp[m - 1]).min().orElseThrow();
     }
 }
 /*

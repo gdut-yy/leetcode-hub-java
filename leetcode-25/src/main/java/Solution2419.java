@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution2419 {
     public int longestSubarray(int[] nums) {
-        int max = Arrays.stream(nums).max().getAsInt();
+        int max = Arrays.stream(nums).max().orElseThrow();
 
         int res = 0;
         int cnt = 0;

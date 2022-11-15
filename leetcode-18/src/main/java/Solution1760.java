@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution1760 {
     public int minimumSize(int[] nums, int maxOperations) {
-        int max = Arrays.stream(nums).max().getAsInt();
+        int max = Arrays.stream(nums).max().orElseThrow();
 
         int left = 1;
         int right = max;

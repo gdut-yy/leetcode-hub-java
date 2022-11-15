@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 public class Solution1085 {
     public int sumOfDigits(int[] nums) {
-        int min = Arrays.stream(nums).min().getAsInt();
+        int min = Arrays.stream(nums).min().orElseThrow();
         int sum = 0;
         while (min > 0) {
             sum += min % 10;

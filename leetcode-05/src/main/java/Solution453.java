@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution453 {
     public int minMoves(int[] nums) {
         // 最小值
-        int min = Arrays.stream(nums).min().getAsInt();
+        int min = Arrays.stream(nums).min().orElseThrow();
         int cnt = 0;
         for (int num : nums) {
             cnt += num - min;

@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution1300 {
     public int findBestValue(int[] arr, int target) {
         int left = 0;
-        int right = Arrays.stream(arr).max().getAsInt();
+        int right = Arrays.stream(arr).max().orElseThrow();
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]

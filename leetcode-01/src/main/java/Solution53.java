@@ -24,13 +24,13 @@ public class Solution53 {
      * 空间复杂度 O(1)
      */
     public int maxSubArray2(int[] nums) {
-        int pre = 0;
-        int maxAns = nums[0];
-        for (int num : nums) {
-            pre = Math.max(pre + num, num);
-            maxAns = Math.max(maxAns, pre);
+        int dp = nums[0];
+        int max = nums[0];
+        for (int i = 1; i < nums.length; i++) {
+            dp = nums[i] + Math.max(dp, 0);
+            max = Math.max(max, dp);
         }
-        return maxAns;
+        return max;
     }
 
     // 线段树 时间复杂度 O(n)
@@ -101,6 +101,8 @@ https://leetcode.cn/problems/maximum-subarray/
 https://leetcode.cn/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
 相似题目: 152. 乘积最大子数组
 https://leetcode.cn/problems/maximum-product-subarray/
+918. 环形子数组的最大和
+https://leetcode.cn/problems/maximum-sum-circular-subarray/
 $1746. 经过一次操作后的最大子数组和
 https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
  */
