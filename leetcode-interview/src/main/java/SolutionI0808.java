@@ -9,7 +9,7 @@ public class SolutionI0808 {
         char[] chars = S.toCharArray();
         int len = chars.length;
         dfs(resList, chars, len, 0);
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 
     private void dfs(List<String> resList, char[] chars, int len, int curI) {

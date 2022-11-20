@@ -17,7 +17,7 @@ public class Solution500 {
                 resList.add(word);
             }
         }
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 
     private Set<Character> getSet(String word) {

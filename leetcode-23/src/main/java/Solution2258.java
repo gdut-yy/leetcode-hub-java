@@ -14,15 +14,13 @@ public class Solution2258 {
         int right = 20000;
         while (left < right) {
             int mid = left + (right - left) / 2;
-            int[][] gridClone = new int[M][N];
+            int[][] gridCopy = new int[M][N];
             for (int i = 0; i < M; i++) {
-                if (N >= 0) {
-                    System.arraycopy(grid[i], 0, gridClone[i], 0, N);
-                }
+                System.arraycopy(grid[i], 0, gridCopy[i], 0, N);
             }
             // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
-            if (!checkMid(gridClone, mid)) {
+            if (!checkMid(gridCopy, mid)) {
                 right = mid;
             } else {
                 left = mid + 1;

@@ -22,7 +22,7 @@ public class SolutionLCP70 {
             }
             k = (k + 1) % 4;
         }
-        return list.toArray(new int[list.size()][]);
+        return list.toArray(int[][]::new);
     }
 }
 /*

@@ -30,7 +30,7 @@ public class Solution57 {
         }
 
         // List<int[]> => int[][]
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 }
 /*

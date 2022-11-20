@@ -89,8 +89,7 @@ public class UtUtils {
 
     // String => int[][]
     public static int[][] stringToInts2(String input) {
-        List<int[]> list = JSON.parseArray(input, int[].class);
-        return list.toArray(new int[list.size()][]);
+        return JSON.parseArray(input, int[].class).toArray(int[][]::new);
     }
 
     // String => char[]
@@ -100,20 +99,17 @@ public class UtUtils {
 
     // String => char[][]
     public static char[][] stringToChars2(String input) {
-        List<char[]> list = JSON.parseArray(input, char[].class);
-        return list.toArray(new char[list.size()][]);
+        return JSON.parseArray(input, char[].class).toArray(char[][]::new);
     }
 
     // String => String[]
     public static String[] stringToStrings(String input) {
-        List<String> list = JSON.parseArray(input, String.class);
-        return list.toArray(new String[0]);
+        return JSON.parseArray(input, String.class).toArray(String[]::new);
     }
 
     // String => String[][]
     public static String[][] stringToStrings2(String input) {
-        List<String[]> list = JSON.parseArray(input, String[].class);
-        return list.toArray(new String[list.size()][]);
+        return JSON.parseArray(input, String[].class).toArray(String[][]::new);
     }
 
     // String => List<List<Integer>>

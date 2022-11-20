@@ -34,7 +34,7 @@ public class Solution2097 {
             if (entry.getValue() == -1) {
                 dfs(entry.getKey());
                 Collections.reverse(resList);
-                return resList.toArray(new int[resList.size()][]);
+                return resList.toArray(int[][]::new);
             }
         }
 
@@ -43,7 +43,7 @@ public class Solution2097 {
         // dfs 任意点
         dfs(pairs[0][0]);
         Collections.reverse(resList);
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 
     private void dfs(int cur) {

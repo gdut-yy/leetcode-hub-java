@@ -11,7 +11,7 @@ public class Solution1078 {
                 resList.add(words[i + 2]);
             }
         }
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 }
 /*

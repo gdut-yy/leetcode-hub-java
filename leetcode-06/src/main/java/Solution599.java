@@ -21,7 +21,7 @@ public class Solution599 {
                 }
             }
         }
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 }
 /*

@@ -9,7 +9,7 @@ public class SolutionO38 {
         char[] chars = s.toCharArray();
         List<String> resList = new ArrayList<>();
         dfs(resList, chars, len, 0);
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 
     private void dfs(List<String> resList, char[] chars, int len, int curI) {

@@ -19,7 +19,7 @@ public class Solution884 {
                 resList.add(entry.getKey());
             }
         }
-        return resList.toArray(new String[0]);
+        return resList.toArray(String[]::new);
     }
 }
 /*

@@ -19,7 +19,7 @@ public class Solution1065 {
             }
             return Integer.compare(o1[0], o2[0]);
         });
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 
     private void helper(String text, String word, List<Integer> list, int fromIndex) {

@@ -21,7 +21,7 @@ public class SolutionO57_2 {
                 left++;
             }
         }
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 }
 /*

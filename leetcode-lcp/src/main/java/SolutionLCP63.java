@@ -68,7 +68,7 @@ public class SolutionLCP63 {
             }
             num--;
         }
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 }
 /*

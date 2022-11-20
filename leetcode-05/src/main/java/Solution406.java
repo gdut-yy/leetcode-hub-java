@@ -12,7 +12,7 @@ public class Solution406 {
         for (int[] peo : people) {
             resList.add(peo[1], peo);
         }
-        return resList.toArray(new int[resList.size()][]);
+        return resList.toArray(int[][]::new);
     }
 }
 /*

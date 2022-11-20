@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -40,18 +39,12 @@ public class SolutionLCP45 {
         }
 
         // List<int[]> => int[][]
-        int resLen = resList.size();
-        int[][] resArray = new int[resLen][];
-        for (int i = 0; i < resLen; i++) {
-            resArray[i] = resList.get(i);
-        }
-        Arrays.sort(resArray, (o1, o2) -> {
+        return resList.stream().sorted((o1, o2) -> {
             if (o1[0] == o2[0]) {
                 return Integer.compare(o1[1], o2[1]);
             }
             return Integer.compare(o1[0], o2[0]);
-        });
-        return resArray;
+        }).toArray(int[][]::new);
     }
 }
 /*
