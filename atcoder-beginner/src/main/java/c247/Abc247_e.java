@@ -1,7 +1,9 @@
+package c247;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-public class Atcoder_abc247_e {
+public class Abc247_e {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         int N = scanner.nextInt();
