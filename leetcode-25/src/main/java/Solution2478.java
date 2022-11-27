@@ -1,4 +1,4 @@
-public class Solution6244 {
+public class Solution2478 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int beautifulPartitions(String s, int k, int minLength) {
@@ -33,7 +33,7 @@ public class Solution6244 {
     }
 }
 /*
-6244. 完美分割的方案数
+2478. 完美分割的方案数
 https://leetcode.cn/problems/number-of-beautiful-partitions/
 
 第 320 场周赛 T4。

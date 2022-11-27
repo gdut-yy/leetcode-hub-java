@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6244Tests {
-    private final Solution6244 solution6244 = new Solution6244();
+public class Solution2478Tests {
+    private final Solution2478 solution2478 = new Solution2478();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6244Tests {
         int k = 3;
         int minLength = 2;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6244.beautifulPartitions(s, k, minLength));
+        Assertions.assertEquals(expected, solution2478.beautifulPartitions(s, k, minLength));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6244Tests {
         int k = 3;
         int minLength = 3;
         int expected = 1;
-        Assertions.assertEquals(expected, solution6244.beautifulPartitions(s, k, minLength));
+        Assertions.assertEquals(expected, solution2478.beautifulPartitions(s, k, minLength));
     }
 
     @Test
@@ -28,7 +28,7 @@ public class Solution6244Tests {
         int k = 3;
         int minLength = 1;
         int expected = 1;
-        Assertions.assertEquals(expected, solution6244.beautifulPartitions(s, k, minLength));
+        Assertions.assertEquals(expected, solution2478.beautifulPartitions(s, k, minLength));
     }
 
     // 补充用例
@@ -40,6 +40,6 @@ public class Solution6244Tests {
         int k = 4;
         int minLength = 6;
         int expected = 4;
-        Assertions.assertEquals(expected, solution6244.beautifulPartitions(s, k, minLength));
+        Assertions.assertEquals(expected, solution2478.beautifulPartitions(s, k, minLength));
     }
 }

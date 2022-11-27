@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6241 {
+public class Solution2475 {
     public int unequalTriplets(int[] nums) {
         int len = nums.length;
         int res = 0;
@@ -32,7 +32,7 @@ public class Solution6241 {
     }
 }
 /*
-6241. 数组中不等三元组的数目
+2475. 数组中不等三元组的数目
 https://leetcode.cn/problems/number-of-unequal-triplets-in-array/
 
 第 320 场周赛 T1。

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6243 {
+public class Solution2477 {
     public long minimumFuelCost(int[][] roads, int seats) {
         int n = roads.length + 1;
 
@@ -51,7 +51,7 @@ public class Solution6243 {
     }
 }
 /*
-6243. 到达首都的最少油耗
+2477. 到达首都的最少油耗
 https://leetcode.cn/problems/minimum-fuel-cost-to-report-to-the-capital/
 
 第 320 场周赛 T3。

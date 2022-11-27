@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6242 {
+public class Solution2476 {
     public List<List<Integer>> closestNodes(TreeNode root, List<Integer> queries) {
         List<Integer> nums = new ArrayList<>();
         dfs(root, nums);
@@ -55,7 +55,7 @@ public class Solution6242 {
     }
 }
 /*
-6242. 二叉搜索树最近节点查询
+2476. 二叉搜索树最近节点查询
 https://leetcode.cn/problems/closest-nodes-queries-in-a-binary-search-tree/
 
 第 320 场周赛 T2。
