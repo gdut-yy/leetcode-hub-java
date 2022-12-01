@@ -27,6 +27,7 @@ public class Solution486 {
      */
     public boolean PredictTheWinner2(int[] nums) {
         int len = nums.length;
+        // dp[i][j] 表示当数组剩下的部分为下标 i 到下标 j 时，即在下标范围 [i,j] 中，当前玩家与另一个玩家的分数之差的最大值
         int[][] dp = new int[len][len];
         for (int i = 0; i < len; i++) {
             dp[i][i] = nums[i];
