@@ -1,4 +1,4 @@
-public class Solution6246 {
+public class Solution2486 {
     public int appendCharacters(String s, String t) {
         int p = 0;
         int q = 0;
@@ -14,7 +14,7 @@ public class Solution6246 {
     }
 }
 /*
-6246. 追加字符以获得子序列
+2486. 追加字符以获得子序列
 https://leetcode.cn/problems/append-characters-to-string-to-make-subsequence/
 
 第 321 场周赛 T2。

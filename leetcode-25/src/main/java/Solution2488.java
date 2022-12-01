@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6248 {
+public class Solution2488 {
     public int countSubarrays(int[] nums, int k) {
         int len = nums.length;
         int[] arr = new int[len];
@@ -40,7 +40,7 @@ public class Solution6248 {
     }
 }
 /*
-6248. 统计中位数为 K 的子数组
+2488. 统计中位数为 K 的子数组
 https://leetcode.cn/problems/count-subarrays-with-median-k/
 
 第 321 场周赛 T4。

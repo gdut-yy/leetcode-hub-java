@@ -1,4 +1,4 @@
-public class Solution6251 {
+public class Solution2484 {
     private static final int MAX_N = 10;
     private static final int MOD = (int) (1e9 + 7);
 
@@ -58,7 +58,7 @@ public class Solution6251 {
     }
 }
 /*
-6251. 统计回文子序列数目
+2484. 统计回文子序列数目
 https://leetcode.cn/problems/count-palindromic-subsequences/
 
 第 92 场双周赛 T4。

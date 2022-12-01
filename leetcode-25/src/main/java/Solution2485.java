@@ -1,4 +1,4 @@
-public class Solution6245 {
+public class Solution2485 {
     public int pivotInteger(int n) {
         for (int i = 1; i <= 1000; i++) {
             if ((1 + i) * i == (i + n) * (n - i + 1)) {
@@ -9,7 +9,7 @@ public class Solution6245 {
     }
 }
 /*
-6245. 找出中枢整数
+2485. 找出中枢整数
 https://leetcode.cn/problems/find-the-pivot-integer/
 
 第 321 场周赛 T1。

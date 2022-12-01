@@ -1,4 +1,4 @@
-public class Solution6250 {
+public class Solution2483 {
     public int bestClosingTime(String customers) {
         int len = customers.length();
 
@@ -35,7 +35,7 @@ public class Solution6250 {
     }
 }
 /*
-6250. 商店的最少代价
+2483. 商店的最少代价
 https://leetcode.cn/problems/minimum-penalty-for-a-shop/
 
 第 92 场双周赛 T3。

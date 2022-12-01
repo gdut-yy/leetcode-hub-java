@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
-public class Solution6247 {
+public class Solution2487 {
     public ListNode removeNodes(ListNode head) {
         int[] arr = toArray(head);
 
@@ -42,7 +42,7 @@ public class Solution6247 {
     }
 }
 /*
-6247. 从链表中移除节点
+2487. 从链表中移除节点
 https://leetcode.cn/problems/remove-nodes-from-linked-list/
 
 第 321 场周赛 T3。

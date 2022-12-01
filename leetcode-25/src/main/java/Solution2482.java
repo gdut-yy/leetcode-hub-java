@@ -1,4 +1,4 @@
-public class Solution6277 {
+public class Solution2482 {
     public int[][] onesMinusZeros(int[][] grid) {
         int M = grid.length;
         int N = grid[0].length;
@@ -45,7 +45,7 @@ public class Solution6277 {
     }
 }
 /*
-6277. 行和列中一和零的差值
+2482. 行和列中一和零的差值
 https://leetcode.cn/problems/difference-between-ones-and-zeros-in-row-and-column/
 
 第 92 场双周赛 T2。

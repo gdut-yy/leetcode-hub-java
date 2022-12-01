@@ -1,4 +1,4 @@
-public class Solution6249 {
+public class Solution2481 {
     public int numberOfCuts(int n) {
         if (n == 1) {
             return 0;
@@ -10,7 +10,7 @@ public class Solution6249 {
     }
 }
 /*
-6249. 分割圆的最少切割次数
+2481. 分割圆的最少切割次数
 https://leetcode.cn/problems/minimum-cuts-to-divide-a-circle/
 
 第 92 场双周赛 T1。
