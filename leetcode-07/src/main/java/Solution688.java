@@ -2,8 +2,8 @@ public class Solution688 {
     public double knightProbability(int n, int k, int row, int column) {
         int[][] directions = {{-2, -1}, {-2, 1}, {2, -1}, {2, 1}, {-1, -2}, {-1, 2}, {1, -2}, {1, 2}};
 
+        // dp[step][i][j] 表示骑士从棋盘上的点 (i,j) 出发，走了 step 步时仍然留在棋盘上的概率。
         double[][][] dp = new double[k + 1][n][n];
-
         for (int step = 0; step <= k; step++) {
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
@@ -39,6 +39,8 @@ https://leetcode.cn/problems/knight-probability-in-chessboard/
 0 <= row, column <= n
 
 动态规划。
+时间复杂度 O(k*n^2)
+空间复杂度 O(k*n^2)
 相似题目: 576. 出界的路径数
 https://leetcode.cn/problems/out-of-boundary-paths/
  */
