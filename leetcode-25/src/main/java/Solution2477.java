@@ -38,7 +38,7 @@ public class Solution2477 {
                 for (int v : adj.getOrDefault(u, new ArrayList<>())) {
                     if (adj.get(u).size() == 1) {
                         adj.get(v).remove(u);
-                        // 向上取整
+                        // 数论向上取整
                         res += (sz[u] + seats - 1) / seats;
                         sz[v] += sz[u];
                         sz[u] = 0;

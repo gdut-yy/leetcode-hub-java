@@ -15,7 +15,8 @@ public class Solution1055 {
                 return -1;
             }
         }
-        return (int) Math.ceil(p1 / (double) len1);
+        // 数论向上取整法
+        return (p1 + len1 - 1) / len1;
     }
 }
 /*
