@@ -59,7 +59,6 @@ public class CF1744E1 {
         }
         return factors;
     }
-
 }
 /*
 E1. Divisible Numbers (easy version)
