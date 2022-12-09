@@ -51,6 +51,9 @@ https://leetcode.cn/problems/fraction-to-recurring-decimal/
 如果小数部分为循环小数，则将循环的部分括在括号内。
 如果存在多个答案，只需返回 任意一个 。
 对于所有给定的输入，保证 答案字符串的长度小于 10^4 。
+提示：
+-2^31 <= numerator, denominator <= 2^31 - 1
+denominator != 0
 
 长除法。
 时间复杂度 O(L)

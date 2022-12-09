@@ -51,7 +51,7 @@ n == matrix[i].length
 1 <= m, n <= 10
 -100 <= matrix[i][j] <= 100
 
-
+模拟
 相似题目: 59. 螺旋矩阵 II
 https://leetcode.cn/problems/spiral-matrix-ii/
  */

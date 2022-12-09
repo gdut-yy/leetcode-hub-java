@@ -1,21 +1,21 @@
 public class Solution161 {
     public boolean isOneEditDistance(String s, String t) {
-        int firstLen = s.length();
-        int secondLen = t.length();
-        int disLen = Math.abs(firstLen - secondLen);
+        int sLen = s.length();
+        int tLen = t.length();
+        int diffLen = Math.abs(sLen - tLen);
         // 长度相差超过 1 无解
-        if (disLen > 1) {
+        if (diffLen > 1) {
             return false;
         }
         // 长度相差 1 插入或删除
-        else if (disLen == 1) {
+        else if (diffLen == 1) {
             int p1 = 0;
             int p2 = 0;
             int choice = 1;
-            while (p1 < firstLen && p2 < secondLen) {
+            while (p1 < sLen && p2 < tLen) {
                 if (s.charAt(p1) != t.charAt(p2)) {
                     choice--;
-                    if (firstLen < secondLen) {
+                    if (sLen < tLen) {
                         p2++;
                     } else {
                         p1++;
@@ -36,7 +36,7 @@ public class Solution161 {
                 return false;
             }
             int choice = 1;
-            for (int i = 0; i < firstLen; i++) {
+            for (int i = 0; i < sLen; i++) {
                 if (s.charAt(i) != t.charAt(i)) {
                     choice--;
                 }
@@ -58,4 +58,11 @@ https://leetcode.cn/problems/one-edit-distance/
 - 往 s 中插入一个字符得到 t
 - 从 s 中删除一个字符得到 t
 - 在 s 中替换一个字符得到 t
+提示:
+0 <= s.length, t.length <= 10^4
+s 和 t 由小写字母，大写字母和数字组成
+
+分类讨论
+时间复杂度 O(m + n)
+空间复杂度 O(1)
  */

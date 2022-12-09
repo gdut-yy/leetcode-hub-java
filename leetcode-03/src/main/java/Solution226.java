@@ -27,5 +27,5 @@ https://leetcode.cn/problems/invert-binary-tree/
  / \   / \        / \   / \
 1   3 6   9      9   6 3   1
 
-前缀（或后缀）遍历交换左右叶子节点即可
+前序（或后序）遍历交换左右叶子节点即可
  */

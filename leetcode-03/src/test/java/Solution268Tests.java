@@ -9,6 +9,8 @@ public class Solution268Tests {
         int[] nums = {3, 0, 1};
         int expected = 2;
         Assertions.assertEquals(expected, solution268.missingNumber(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber2(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber3(nums));
     }
 
     @Test
@@ -16,6 +18,8 @@ public class Solution268Tests {
         int[] nums = {0, 1};
         int expected = 2;
         Assertions.assertEquals(expected, solution268.missingNumber(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber2(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber3(nums));
     }
 
     @Test
@@ -23,6 +27,8 @@ public class Solution268Tests {
         int[] nums = {9, 6, 4, 2, 3, 5, 7, 0, 1};
         int expected = 8;
         Assertions.assertEquals(expected, solution268.missingNumber(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber2(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber3(nums));
     }
 
     @Test
@@ -30,5 +36,7 @@ public class Solution268Tests {
         int[] nums = {0};
         int expected = 1;
         Assertions.assertEquals(expected, solution268.missingNumber(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber2(nums));
+        Assertions.assertEquals(expected, solution268.missingNumber3(nums));
     }
 }

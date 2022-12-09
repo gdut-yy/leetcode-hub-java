@@ -60,6 +60,11 @@ https://leetcode.cn/problems/sudoku-solver/
 2.数字 1-9 在每一列只能出现一次。
 3.数字 1-9 在每一个以粗实线分隔的 3x3 宫内只能出现一次。（请参考示例图）
 数独部分空格内已填入了数字，空白格用 '.' 表示。
+提示：
+board.length == 9
+board[i].length == 9
+board[i][j] 是一位数字或者 '.'
+题目数据 保证 输入数独仅有一个解
 
 DFS.
  */

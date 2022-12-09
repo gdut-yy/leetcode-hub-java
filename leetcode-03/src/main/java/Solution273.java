@@ -44,9 +44,12 @@ public class Solution273 {
 https://leetcode.cn/problems/integer-to-english-words/
 
 将非负整数 num 转换为其对应的英文表示。
-
+示例 1：
 输入：num = 123
 输出："One Hundred Twenty Three"
+提示：
+0 <= num <= 2^31 - 1
 
+递归
 没营养的一道题。
  */

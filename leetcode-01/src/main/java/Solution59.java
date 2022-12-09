@@ -46,6 +46,7 @@ https://leetcode.cn/problems/spiral-matrix-ii/
 提示：
 1 <= n <= 20
 
+模拟
 相似题目: 54. 螺旋矩阵
 https://leetcode.cn/problems/spiral-matrix/
  */

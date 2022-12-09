@@ -4,17 +4,17 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution241 {
-    private final Map<String, List<Integer>> cacheMap = new HashMap<>();
+    private final Map<String, List<Integer>> memo = new HashMap<>();
 
     public List<Integer> diffWaysToCompute(String expression) {
         List<Integer> resList = new ArrayList<>();
         if (expression == null || expression.length() == 0) {
             return resList;
         }
-        // cache
-        if (cacheMap.containsKey(expression)) {
-            return cacheMap.get(expression);
+        if (memo.containsKey(expression)) {
+            return memo.get(expression);
         }
+
         for (int i = 0; i < expression.length(); i++) {
             char ch = expression.charAt(i);
             if (ch == '+' || ch == '-' || ch == '*') {
@@ -37,8 +37,7 @@ public class Solution241 {
         if (resList.isEmpty()) {
             resList.add(Integer.parseInt(expression));
         }
-        // cache
-        cacheMap.putIfAbsent(expression, resList);
+        memo.put(expression, resList);
         return resList;
     }
 }
@@ -54,11 +53,11 @@ https://leetcode.cn/problems/different-ways-to-add-parentheses/
 解释: 
 ((2-1)-1) = 0 
 (2-(1-1)) = 2
+提示：
+1 <= expression.length <= 20
+expression 由数字和算符 '+'、'-' 和 '*' 组成。
+输入表达式中的所有整数值在范围 [0, 99]
 
 分治法
-trick：使用 HashMap 做 cache 可以缩短程序运行时间。
-执行结果：通过
-执行用时：1 ms, 在所有 Java 提交中击败了99.56%的用户
-内存消耗：36.7 MB, 在所有 Java 提交中击败了92.52%的用户
-通过测试用例：25 / 25
+trick：使用 HashMap 做 cache 可以缩短程序运行时间。（记忆化搜索）
  */

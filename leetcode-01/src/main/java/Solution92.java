@@ -22,15 +22,21 @@ public class Solution92 {
 92. 反转链表 II
 https://leetcode.cn/problems/reverse-linked-list-ii/
 
-第 206 题反转链表 https://leetcode.cn/problems/reverse-linked-list/ 升级版
+给你单链表的头指针 head 和两个整数 left 和 right ，其中 left <= right 。请你反转从位置 left 到位置 right 的链表节点，返回 反转后的链表 。
+提示：
+链表中节点数目为 n
+1 <= n <= 500
+-500 <= Node.val <= 500
+1 <= left <= right <= n
 
+反转链表升级版
 一次遍历「穿针引线」反转链表（头插法）
-
        9,7,[2,5,4,3,]6
 step1: 9,7,[5,2,4,3,]6
 step2: 9,7,[4,5,2,3,]6
 step3: 9,7,[3,4,5,2,]6
-
 时间复杂度 O(n)
 空间复杂度 O(1)
+相似题目: 206. 反转链表
+https://leetcode.cn/problems/reverse-linked-list/
  */

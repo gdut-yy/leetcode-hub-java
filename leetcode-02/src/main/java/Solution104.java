@@ -42,7 +42,6 @@ https://leetcode.cn/problems/maximum-depth-of-binary-tree/
   9  20
     /  \
    15   7
-
 返回它的最大深度 3 。
 
 二叉树层序遍历。

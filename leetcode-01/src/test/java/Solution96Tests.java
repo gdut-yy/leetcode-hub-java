@@ -9,6 +9,7 @@ public class Solution96Tests {
         int n = 3;
         int expected = 5;
         Assertions.assertEquals(expected, solution96.numTrees(n));
+        Assertions.assertEquals(expected, solution96.numTrees2(n));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution96Tests {
         int n = 1;
         int expected = 1;
         Assertions.assertEquals(expected, solution96.numTrees(n));
+        Assertions.assertEquals(expected, solution96.numTrees2(n));
     }
 }

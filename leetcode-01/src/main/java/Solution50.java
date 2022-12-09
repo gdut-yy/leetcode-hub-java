@@ -22,6 +22,12 @@ public class Solution50 {
 50. Pow(x, n)
 https://leetcode.cn/problems/powx-n/
 
+实现 pow(x, n) ，即计算 x 的整数 n 次幂函数（即，x^n ）。
+提示：
+-100.0 < x < 100.0
+-2^31 <= n <= 2^31-1
+-10^4 <= xn <= 10^4
+
 快速幂模板。
 注意本题 -2^31 <= n <= 2^31-1
 若 n = -2^31 取反会爆 int，因此需转 long 避免溢出。

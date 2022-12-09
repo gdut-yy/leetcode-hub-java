@@ -38,11 +38,13 @@ $159. 至多包含两个不同字符的最长子串
 https://leetcode.cn/problems/longest-substring-with-at-most-two-distinct-characters/
 
 给定一个字符串 s ，找出 至多 包含两个不同字符的最长子串 t ，并返回该子串的长度。
+提示：
+1 <= s.length <= 10^5
+s 由英文字母组成
 
 滑动窗口 + HashMap
 时间复杂度 O(n)
 空间复杂度 O(1)
-
 相似题目: $340. 至多包含 K 个不同字符的最长子串
 https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/
  */

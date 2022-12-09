@@ -33,6 +33,14 @@ public class Solution220 {
 220. 存在重复元素 III
 https://leetcode.cn/problems/contains-duplicate-iii/
 
+给你一个整数数组 nums 和两个整数 k 和 t 。请你判断是否存在 两个不同下标 i 和 j，使得 abs(nums[i] - nums[j]) <= t ，同时又满足 abs(i - j) <= k 。
+如果存在则返回 true，不存在返回 false。
+提示：
+0 <= nums.length <= 2 * 10^4
+-2^31 <= nums[i] <= 2^31 - 1
+0 <= k <= 10^4
+0 <= t <= 2^31 - 1
+
 难度增加，多了 t
 桶。时间复杂度 O(n)
  */
