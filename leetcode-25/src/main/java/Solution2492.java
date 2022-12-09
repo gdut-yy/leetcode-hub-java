@@ -1,4 +1,4 @@
-public class Solution6255 {
+public class Solution2492 {
     public int minScore(int n, int[][] roads) {
         DSU dsu = new DSU(n + 1);
         for (int[] road : roads) {
@@ -48,7 +48,7 @@ public class Solution6255 {
     }
 }
 /*
-6255. 两个城市间路径的最小分数
+2492. 两个城市间路径的最小分数
 https://leetcode.cn/problems/minimum-score-of-a-path-between-two-cities/
 
 第 322 场周赛 T3。

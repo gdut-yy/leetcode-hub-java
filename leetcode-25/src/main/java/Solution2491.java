@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6254 {
+public class Solution2491 {
     public long dividePlayers(int[] skill) {
         int n = skill.length;
         Arrays.sort(skill);
@@ -17,7 +17,7 @@ public class Solution6254 {
     }
 }
 /*
-6254. 划分技能点相等的团队
+2491. 划分技能点相等的团队
 https://leetcode.cn/problems/divide-players-into-teams-of-equal-skill/
 
 第 322 场周赛 T2。

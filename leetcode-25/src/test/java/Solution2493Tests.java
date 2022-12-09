@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6256Tests {
-    private final Solution6256 solution6256 = new Solution6256();
+public class Solution2493Tests {
+    private final Solution2493 solution2493 = new Solution2493();
 
     @Test
     public void example1() {
         int n = 6;
         int[][] edges = UtUtils.stringToInts2("[[1,2],[1,4],[1,5],[2,6],[2,3],[4,6]]");
         int expected = 4;
-        Assertions.assertEquals(expected, solution6256.magnificentSets(n, edges));
+        Assertions.assertEquals(expected, solution2493.magnificentSets(n, edges));
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Solution6256Tests {
         int n = 3;
         int[][] edges = UtUtils.stringToInts2("[[1,2],[2,3],[3,1]]");
         int expected = -1;
-        Assertions.assertEquals(expected, solution6256.magnificentSets(n, edges));
+        Assertions.assertEquals(expected, solution2493.magnificentSets(n, edges));
     }
 }

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6256 {
+public class Solution2493 {
     private int n;
     private Map<Integer, List<Integer>> adj;
 
@@ -134,7 +134,7 @@ public class Solution6256 {
     }
 }
 /*
-6256. 将节点分成尽可能多的组
+2493. 将节点分成尽可能多的组
 https://leetcode.cn/problems/divide-nodes-into-the-maximum-number-of-groups/
 
 第 322 场周赛 T4。

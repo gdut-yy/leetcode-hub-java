@@ -1,4 +1,4 @@
-public class Solution6253 {
+public class Solution2490 {
     public boolean isCircularSentence(String sentence) {
         if (sentence.charAt(0) != sentence.charAt(sentence.length() - 1)) {
             return false;
@@ -17,7 +17,7 @@ public class Solution6253 {
     }
 }
 /*
-6253. 回环句
+2490. 回环句
 https://leetcode.cn/problems/circular-sentence/
 
 第 322 场周赛 T1。
