@@ -1,34 +1,34 @@
 public class Solution2483 {
     public int bestClosingTime(String customers) {
         int len = customers.length();
-
         char[] chars = customers.toCharArray();
-        int cntY = 0;
+
+        int totY = 0;
         for (char ch : chars) {
             if (ch == 'Y') {
-                cntY++;
+                totY++;
             }
         }
 
-        int res = 0;
         // 0 时刻关门
-        int min = cntY;
+        int res = 0;
+        int min = totY;
 
-        int cntY1 = 0;
-        int cntN1 = 0;
-        for (int i = 1; i <= len; i++) {
-            char ch = chars[i - 1];
+        int cntY = 0;
+        int cntN = 0;
+        for (int i = 0; i < len; i++) {
+            char ch = chars[i];
             if (ch == 'Y') {
-                cntY1++;
+                cntY++;
             } else {
-                cntN1++;
+                cntN++;
             }
 
             // 关门
-            int cost = cntN1 + cntY - cntY1;
-            if (cost < min) {
-                res = i;
+            int cost = cntN + totY - cntY;
+            if (min > cost) {
                 min = cost;
+                res = i + 1;
             }
         }
         return res;

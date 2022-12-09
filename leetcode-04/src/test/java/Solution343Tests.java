@@ -9,6 +9,8 @@ public class Solution343Tests {
         int n = 2;
         int expected = 1;
         Assertions.assertEquals(expected, solution343.integerBreak(n));
+        Assertions.assertEquals(expected, solution343.integerBreak2(n));
+        Assertions.assertEquals(expected, solution343.integerBreak3(n));
     }
 
     @Test
@@ -16,5 +18,7 @@ public class Solution343Tests {
         int n = 10;
         int expected = 36;
         Assertions.assertEquals(expected, solution343.integerBreak(n));
+        Assertions.assertEquals(expected, solution343.integerBreak2(n));
+        Assertions.assertEquals(expected, solution343.integerBreak3(n));
     }
 }
