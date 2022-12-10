@@ -53,7 +53,7 @@ https://leetcode.cn/problems/remove-boxes/
 1 <= boxes.length <= 100
 1 <= boxes[i] <= 100
 
-记忆化搜索
+区间 DP / 记忆化搜索
 时间复杂度 O(n^4)
 空间复杂度 O(n^3)
  */

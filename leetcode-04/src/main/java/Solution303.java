@@ -2,11 +2,6 @@ public class Solution303 {
     static class NumArray {
         private final int[] preSum;
 
-        /**
-         * 使用数组 nums 初始化对象
-         *
-         * @param nums nums
-         */
         public NumArray(int[] nums) {
             int len = nums.length;
             preSum = new int[len + 1];
@@ -16,13 +11,6 @@ public class Solution303 {
             }
         }
 
-        /**
-         * 返回数组 nums 从索引 i 到 j（i ≤ j）范围内元素的总和
-         *
-         * @param left  i
-         * @param right j
-         * @return 数组 nums 从索引 i 到 j（i ≤ j）范围内元素的总和
-         */
         public int sumRange(int left, int right) {
             return preSum[right + 1] - preSum[left];
         }
@@ -37,6 +25,11 @@ https://leetcode.cn/problems/range-sum-query-immutable/
 实现 NumArray 类：
 - NumArray(int[] nums) 使用数组 nums 初始化对象
 - int sumRange(int i, int j) 返回数组 nums 中索引 left 和 right 之间的元素的 总和 ，包含 left 和 right 两点（也就是 nums[left] + nums[left + 1] + ... + nums[right] )
+提示：
+1 <= nums.length <= 10^4
+-10^5 <= nums[i] <= 10^5
+0 <= i <= j < nums.length
+最多调用 10^4 次 sumRange 方法
 
 前缀和。
  */

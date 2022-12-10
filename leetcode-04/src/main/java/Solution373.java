@@ -62,6 +62,11 @@ https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/
 给定两个以升序排列的整数数组 nums1 和 nums2,以及一个整数 k。
 定义一对值(u,v)，其中第一个元素来自 nums1，第二个元素来自 nums2。
 请找到和最小的 k 个数对(u1,v1), (u2,v2) ... (uk,vk)。
+提示:
+1 <= nums1.length, nums2.length <= 10^5
+-10^9 <= nums1[i], nums2[i] <= 10^9
+nums1 和 nums2 均为升序排列
+1 <= k <= 1000
 
 优先队列（小顶堆/大顶堆）
  */

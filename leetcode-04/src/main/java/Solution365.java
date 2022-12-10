@@ -26,6 +26,8 @@ https://leetcode.cn/problems/water-and-jug-problem/
 - 装满任意一个水壶
 - 清空任意一个水壶
 - 从一个水壶向另外一个水壶倒水，直到装满或者倒空
+提示:
+1 <= jug1Capacity, jug2Capacity, targetCapacity <= 10^6
 
 贝祖定理。OI WIKI: https://oi-wiki.org/math/number-theory/bezouts/
 ax+by=z 有解当且仅当 z 是 x,y 的最大公约数的倍数。

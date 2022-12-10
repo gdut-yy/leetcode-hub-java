@@ -40,7 +40,6 @@ points[i].length == 2
 贪心。考虑箭总在气球的右边界射出
 按右边界升序排序，当左边界大于当前右边界时，需要下一箭才能引爆。
 时间复杂度 O(nlogn)
-
 相似题目: 435. 无重叠区间
 https://leetcode.cn/problems/non-overlapping-intervals/
  */

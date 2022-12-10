@@ -27,8 +27,13 @@ public class Solution525 {
 https://leetcode.cn/problems/contiguous-array/
 
 给定一个二进制数组 nums , 找到含有相同数量的 0 和 1 的最长连续子数组，并返回该子数组的长度。
-将 0 看成 -1，等价于求最长和为 0 的连续子数组。参考第 560 题实现思路。
+提示：
+1 <= nums.length <= 10^5
+nums[i] 不是 0 就是 1
 
+将 0 看成 -1，等价于求最长和为 0 的连续子数组。参考第 560 题实现思路。
 时间复杂度 O(n)
 空间复杂度 O(n)
+相似题目: 560. 和为K的子数组
+https://leetcode.cn/problems/subarray-sum-equals-k/
  */

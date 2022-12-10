@@ -23,4 +23,8 @@ https://leetcode.cn/problems/complex-number-multiplication/
 - 虚部 也是一个整数，取值范围是 [-100, 100]
 - i2 == -1
 给你两个字符串表示的复数 num1 和 num2 ，请你遵循复数表示形式，返回表示它们乘积的字符串。
+提示：
+num1 和 num2 都是有效的复数表示。
+
+模拟
  */

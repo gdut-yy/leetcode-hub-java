@@ -11,11 +11,28 @@ public class Solution400 {
         }
         return 0;
     }
+
+    // 时间复杂度 O(log10(n))
+    public int findNthDigit2(int n) {
+        int d = 1;
+        int count = 9;
+        while (n > (long) d * count) {
+            n -= d * count;
+            d++;
+            count *= 10;
+        }
+        int index = n - 1;
+        int start = (int) Math.pow(10, d - 1);
+        int num = start + index / d;
+        int digitIndex = index % d;
+        return (num / (int) (Math.pow(10, d - digitIndex - 1))) % 10;
+    }
 }
 /*
 400. 第 N 位数字
 https://leetcode.cn/problems/nth-digit/
 
-在无限的整数序列 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...中找到第 n 位数字。
-注意：n 是正数且在 32 位整数范围内（n < 2^31）。
+给你一个整数 n ，请你在无限的整数序列 [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, ...] 中找出并返回第 n 位上的数字。
+提示：
+1 <= n <= 2^31 - 1
  */

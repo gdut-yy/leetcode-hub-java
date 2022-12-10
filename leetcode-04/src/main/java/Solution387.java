@@ -1,14 +1,11 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution387 {
     public int firstUniqChar(String s) {
-        Map<Character, Integer> cntMap = new HashMap<>();
+        int[] cntArr = new int[26];
         for (char ch : s.toCharArray()) {
-            cntMap.put(ch, cntMap.getOrDefault(ch, 0) + 1);
+            cntArr[ch - 'a']++;
         }
         for (int i = 0; i < s.length(); i++) {
-            if (cntMap.getOrDefault(s.charAt(i), 0) == 1) {
+            if (cntArr[s.charAt(i) - 'a'] == 1) {
                 return i;
             }
         }
@@ -23,4 +20,6 @@ https://leetcode.cn/problems/first-unique-character-in-a-string/
 提示:
 1 <= s.length <= 10^5
 s 只包含小写字母
+
+统计频次
  */

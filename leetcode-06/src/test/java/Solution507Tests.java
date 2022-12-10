@@ -8,29 +8,34 @@ public class Solution507Tests {
     public void example1() {
         int num = 28;
         Assertions.assertTrue(solution507.checkPerfectNumber(num));
+        Assertions.assertTrue(solution507.checkPerfectNumber2(num));
     }
 
     @Test
     public void example2() {
         int num = 6;
         Assertions.assertTrue(solution507.checkPerfectNumber(num));
+        Assertions.assertTrue(solution507.checkPerfectNumber2(num));
     }
 
     @Test
     public void example3() {
         int num = 496;
         Assertions.assertTrue(solution507.checkPerfectNumber(num));
+        Assertions.assertTrue(solution507.checkPerfectNumber2(num));
     }
 
     @Test
     public void example4() {
         int num = 8128;
         Assertions.assertTrue(solution507.checkPerfectNumber(num));
+        Assertions.assertTrue(solution507.checkPerfectNumber2(num));
     }
 
     @Test
     public void example5() {
         int num = 2;
         Assertions.assertFalse(solution507.checkPerfectNumber(num));
+        Assertions.assertFalse(solution507.checkPerfectNumber2(num));
     }
 }

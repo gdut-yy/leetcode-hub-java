@@ -10,6 +10,7 @@ public class Solution415Tests {
         String num2 = "123";
         String expected = "134";
         Assertions.assertEquals(expected, solution415.addStrings(num1, num2));
+        Assertions.assertEquals(expected, solution415.addStrings2(num1, num2));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution415Tests {
         String num2 = "77";
         String expected = "533";
         Assertions.assertEquals(expected, solution415.addStrings(num1, num2));
+        Assertions.assertEquals(expected, solution415.addStrings2(num1, num2));
     }
 
     @Test
@@ -26,5 +28,6 @@ public class Solution415Tests {
         String num2 = "0";
         String expected = "0";
         Assertions.assertEquals(expected, solution415.addStrings(num1, num2));
+        Assertions.assertEquals(expected, solution415.addStrings2(num1, num2));
     }
 }

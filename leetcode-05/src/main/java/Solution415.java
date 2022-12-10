@@ -4,6 +4,25 @@ public class Solution415 {
     public String addStrings(String num1, String num2) {
         return new BigInteger(num1).add(new BigInteger(num2)).toString();
     }
+
+    // 时间复杂度 O(max(len1, len2))
+    public String addStrings2(String num1, String num2) {
+        int i = num1.length() - 1;
+        int j = num2.length() - 1;
+        int add = 0;
+        StringBuilder stringBuilder = new StringBuilder();
+        while (i >= 0 || j >= 0 || add != 0) {
+            int x = i >= 0 ? num1.charAt(i) - '0' : 0;
+            int y = j >= 0 ? num2.charAt(j) - '0' : 0;
+            int result = x + y + add;
+            stringBuilder.append(result % 10);
+            add = result / 10;
+            i--;
+            j--;
+        }
+        // 计算完以后的答案需要翻转过来
+        return stringBuilder.reverse().toString();
+    }
 }
 /*
 415. 字符串相加

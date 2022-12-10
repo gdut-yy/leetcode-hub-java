@@ -25,4 +25,9 @@ https://leetcode.cn/problems/max-consecutive-ones-ii/
 1 <= nums.length <= 10^5
 nums[i] 不是 0 就是 1.
 进阶：如果输入的数字是作为 无限流 逐个输入如何处理？换句话说，内存不能存储下所有从流中输入的数字。您可以有效地解决吗？
+
+相似题目: 485. 最大连续 1 的个数
+https://leetcode.cn/problems/max-consecutive-ones/
+1004. 最大连续1的个数 III
+https://leetcode.cn/problems/max-consecutive-ones-iii/
  */

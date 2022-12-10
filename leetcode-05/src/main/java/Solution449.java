@@ -76,6 +76,10 @@ https://leetcode.cn/problems/serialize-and-deserialize-bst/
 设计一个算法来序列化和反序列化 二叉搜索树 。 对序列化/反序列化算法的工作方式没有限制。 您只需确保二叉搜索树可以序列化为字符串，
 并且可以将该字符串反序列化为最初的二叉搜索树。
 编码的字符串应尽可能紧凑。
+提示：
+树中节点数范围是 [0, 10^4]
+0 <= Node.val <= 10^4
+题目数据 保证 输入的树是一棵二叉搜索树。
 
 同: 297. 二叉树的序列化与反序列化
 https://leetcode.cn/problems/serialize-and-deserialize-binary-tree/

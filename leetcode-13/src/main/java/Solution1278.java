@@ -46,7 +46,7 @@ https://leetcode.cn/problems/palindrome-partitioning-iii/
 1 <= k <= s.length <= 100
 s 中只含有小写英文字母。
 
-动态规划
+区间 DP
 相似题目: 131. 分割回文串
 https://leetcode.cn/problems/palindrome-partitioning/
 132. 分割回文串 II
