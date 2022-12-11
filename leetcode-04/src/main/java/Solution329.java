@@ -1,39 +1,47 @@
 public class Solution329 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    private int[][] matrix;
     private int M;
     private int N;
+    private int[][] memo;
 
     public int longestIncreasingPath(int[][] matrix) {
-        this.M = matrix.length;
-        this.N = matrix[0].length;
+        this.matrix = matrix;
+        M = matrix.length;
+        N = matrix[0].length;
 
-        int[][] lengths = new int[M][N];
-        int longest = 0;
+        // 记忆化搜索
+        memo = new int[M][N];
+
+        int max = 1;
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
-                int length = dfs(matrix, lengths, i, j);
-                longest = Math.max(longest, length);
+                int length = dfs(i, j);
+                max = Math.max(max, length);
             }
         }
-        return longest;
+        return max;
     }
 
-    private int dfs(int[][] matrix, int[][] lengths, int i, int j) {
-        if (lengths[i][j] != 0) {
-            return lengths[i][j];
+    // 从 matrix[i][j] 出发的最长递增路径
+    private int dfs(int i, int j) {
+        if (memo[i][j] != 0) {
+            return memo[i][j];
         }
 
-        int length = 1;
+        // 长度
+        int res = 1;
         for (int[] dir : DIRECTIONS) {
             int nextM = i + dir[0];
             int nextN = j + dir[1];
-            if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && matrix[nextM][nextN] > matrix[i][j]) {
-                int path = dfs(matrix, lengths, nextM, nextN);
-                length = Math.max(length, path + 1);
+            if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N
+                    && matrix[nextM][nextN] > matrix[i][j]) {
+                int length = dfs(nextM, nextN);
+                res = Math.max(res, length + 1);
             }
         }
-        lengths[i][j] = length;
-        return length;
+        memo[i][j] = res;
+        return res;
     }
 }
 /*

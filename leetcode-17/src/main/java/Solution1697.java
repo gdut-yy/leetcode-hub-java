@@ -1,86 +1,61 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.stream.IntStream;
 
 public class Solution1697 {
     public boolean[] distanceLimitedPathsExist(int n, int[][] edgeList, int[][] queries) {
+        int m = edgeList.length;
+        int q = queries.length;
+
         // 按 dis 升序排序
         Arrays.sort(edgeList, Comparator.comparingInt(o -> o[2]));
 
-        // 记录原始顺序
-        for (int i = 0; i < queries.length; i++) {
-            int[] query = queries[i];
-            // queries[i][3] == i（即下标）
-            queries[i] = new int[]{query[0], query[1], query[2], i};
-        }
-        // 按 limit 升序排序
-        Arrays.sort(queries, Comparator.comparingInt(o -> o[2]));
+        // 离线
+        Integer[] qIds = IntStream.range(0, q).boxed().toArray(Integer[]::new);
+        Arrays.sort(qIds, Comparator.comparingInt(o -> queries[o][2]));
 
-        UnionFind unionFind = new UnionFind(n);
-        int edgeIdx = 0;
-        boolean[] res = new boolean[queries.length];
-        for (int[] query : queries) {
-            while (edgeIdx < edgeList.length && edgeList[edgeIdx][2] < query[2]) {
-                unionFind.union(edgeList[edgeIdx][0], edgeList[edgeIdx][1]);
-                edgeIdx++;
+        DSU dsu = new DSU(n);
+        int eId = 0;
+        boolean[] res = new boolean[q];
+        for (int qId : qIds) {
+            while (eId < m && edgeList[eId][2] < queries[qId][2]) {
+                dsu.union(edgeList[eId][0], edgeList[eId][1]);
+                eId++;
             }
-            res[query[3]] = unionFind.connected(query[0], query[1]);
+            res[qId] = (dsu.find(queries[qId][0]) == dsu.find(queries[qId][1]));
         }
         return res;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        // 父节点数组/祖先数组
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        // 初始化
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        // 查找
+        int find(int x) {
+            // 路径压缩
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        // 合并
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+            fa[rootQ] = rootP;
         }
     }
 }

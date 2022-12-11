@@ -11,6 +11,7 @@ public class Solution2398Tests {
         long budget = 25;
         int expected = 3;
         Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots2(chargeTimes, runningCosts, budget));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution2398Tests {
         long budget = 19;
         int expected = 0;
         Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots2(chargeTimes, runningCosts, budget));
     }
 
     // 补充用例
@@ -32,5 +34,6 @@ public class Solution2398Tests {
         long budget = 412;
         int expected = 3;
         Assertions.assertEquals(expected, solution2398.maximumRobots(chargeTimes, runningCosts, budget));
+        Assertions.assertEquals(expected, solution2398.maximumRobots2(chargeTimes, runningCosts, budget));
     }
 }

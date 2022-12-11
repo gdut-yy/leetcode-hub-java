@@ -63,6 +63,37 @@ public class Solution2398 {
         }
         return false;
     }
+
+    public int maximumRobots2(int[] chargeTimes, int[] runningCosts, long budget) {
+        int len = chargeTimes.length;
+        Deque<Integer> deque = new ArrayDeque<>();
+
+        int max = 0;
+        long sum = 0L;
+        // 双指针
+        int left = 0;
+        int right = 0;
+        while (right < len) {
+            // 滑动窗口最大值
+            while (!deque.isEmpty() && chargeTimes[right] > deque.getLast()) {
+                deque.removeLast();
+            }
+            deque.addLast(chargeTimes[right]);
+            sum += runningCosts[right];
+
+            while (!deque.isEmpty() && deque.getFirst() + (right - left + 1) * sum > budget) {
+                if (chargeTimes[left] == deque.getFirst()) {
+                    deque.removeFirst();
+                }
+                sum -= runningCosts[left];
+                left++;
+            }
+
+            max = Math.max(max, right - left + 1);
+            right++;
+        }
+        return max;
+    }
 }
 /*
 2398. 预算内的最多机器人数目

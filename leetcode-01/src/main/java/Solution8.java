@@ -1,5 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Solution8 {
     private static final String START = "start";
@@ -50,6 +52,49 @@ public class Solution8 {
             return 2;
         }
         return 3;
+    }
+
+    // 模拟
+    public int myAtoi2(String s) {
+        // 忽略前导空格
+        s = s.trim();
+        if (s.length() == 0) {
+            return 0;
+        }
+        int len = s.length();
+        char[] chars = s.toCharArray();
+
+        int res = 0;
+        int sign = chars[0] == '-' ? -1 : 1;
+        int beginIdx = (chars[0] == '+' || chars[0] == '-') ? 1 : 0;
+        for (int i = beginIdx; i < len; i++) {
+            int digit = chars[i] - '0';
+            if (digit < 0 || digit > 9) {
+                break;
+            }
+            if (res > (Integer.MAX_VALUE - digit) / 10) {
+                return (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
+            }
+            res = res * 10 + digit;
+        }
+        return sign * res;
+    }
+
+    private static final Pattern pattern = Pattern.compile("^[+-]?\\d+");
+
+    // 正则表达式
+    public int myAtoi3(String s) {
+        s = s.trim();
+        Matcher matcher = pattern.matcher(s);
+        if (!matcher.find()) {
+            return 0;
+        }
+        String str = matcher.group();
+        try {
+            return Integer.parseInt(str);
+        } catch (NumberFormatException ex) {
+            return str.charAt(0) == '-' ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        }
     }
 }
 /*
