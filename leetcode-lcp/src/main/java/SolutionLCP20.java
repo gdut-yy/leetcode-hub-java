@@ -47,4 +47,6 @@ https://leetcode.cn/problems/meChtZ/
 1 <= inc, dec, cost[i] <= 10^6
 
 后往前 BFS
+https://leetcode.cn/problems/meChtZ/solution/suan-fa-xiao-ai-li-kou-bei-li-jie-zhen-t-tg1z/
+思考 hqztrue 佬的 hack 用例
  */

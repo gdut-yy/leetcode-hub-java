@@ -1,22 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 public class Solution2334 {
     public int validSubarraySize(int[] nums, int threshold) {
         int n = nums.length;
 
-        List<Integer> idxList = new ArrayList<>(IntStream.range(0, n).boxed().toList());
-        idxList.sort((o1, o2) -> Integer.compare(nums[o2], nums[o1]));
+        Integer[] ids = IntStream.range(0, n).boxed().toArray(Integer[]::new);
+        Arrays.sort(ids, (o1, o2) -> Integer.compare(nums[o2], nums[o1]));
 
-        UnionFind unionFind = new UnionFind(n);
-        for (int i : idxList) {
-            int faI = unionFind.find(i);
-            int faJ = unionFind.find(i + 1);
+        DSU dsu = new DSU(n);
+        for (int i : ids) {
+            int faI = dsu.find(i);
+            int faJ = dsu.find(i + 1);
             // 贪心，优先 union 较大的数
-            unionFind.union(faI, faJ);
+            dsu.union(faI, faJ);
 
-            int k = unionFind.sz[faI] - 1;
+            int k = dsu.sz[faI] - 1;
             if (nums[i] > threshold / k) {
                 return k;
             }
@@ -24,11 +23,11 @@ public class Solution2334 {
         return -1;
     }
 
-    private static class UnionFind {
+    private static class DSU {
         int[] fa;
         int[] sz;
 
-        public UnionFind(int n) {
+        public DSU(int n) {
             int N = n + 1;
             fa = new int[N];
             sz = new int[N];

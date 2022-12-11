@@ -11,12 +11,13 @@ public class SolutionLCP68 {
         int[] cntArr = new int[MAX_N];
         long res = 0;
         while (right < len) {
+            // 右指针右移
             cntArr[flowers[right]]++;
             right++;
 
-            res += right - left;
-            res %= MOD;
+            res = (res + (right - left)) % MOD;
             while (right < len && cntArr[flowers[right]] == cnt) {
+                // 左指针右移
                 cntArr[flowers[left]]--;
                 left++;
             }
