@@ -31,5 +31,13 @@ public class Solution680 {
 680. 验证回文字符串 Ⅱ
 https://leetcode.cn/problems/valid-palindrome-ii/
 
-给定一个非空字符串 s，最多删除一个字符。判断是否能成为回文字符串。
+给你一个字符串 s，最多 可以从中删除一个字符。
+请你判断 s 是否能成为回文字符串：如果能，返回 true ；否则，返回 false 。
+提示：
+1 <= s.length <= 10^5
+s 由小写英文字母组成
+
+贪心
+时间复杂度 O(n)
+空间复杂度 O(1)
  */

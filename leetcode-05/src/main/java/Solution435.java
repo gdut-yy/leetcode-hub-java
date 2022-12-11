@@ -34,4 +34,6 @@ intervals[i].length == 2
 
 贪心。按右区间升序排序，找到最小的右区间即为 第 1 个区间，余下来的区间，只要满足左区间大于当前右区间，则更新右区间。
 时间复杂度 O(nlogn)
+相似题目: 646. 最长数对链
+https://leetcode.cn/problems/maximum-length-of-pair-chain/
  */

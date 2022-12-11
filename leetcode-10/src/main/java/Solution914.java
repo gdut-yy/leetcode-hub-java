@@ -35,6 +35,9 @@ https://leetcode.cn/problems/x-of-a-kind-in-a-deck-of-cards/
 - 每组都有 X 张牌。
 - 组内所有的牌上都写着相同的整数。
 仅当你可选的 X >= 2 时返回 true。
+提示：
+1 <= deck.length <= 10^4
+0 <= deck[i] < 10^4
 
 统计各数字频次。然后判断频次的最大公约数是否 >= 2 即可。
 时间复杂度：O(NlogC)，其中 N 是卡牌的个数，C 是数组 deck 中数的范围，在本题中 C 的值为 10000。求两个数最大公约数的复杂度是 O(logC)

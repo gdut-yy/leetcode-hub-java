@@ -31,6 +31,10 @@ https://leetcode.cn/problems/largest-number-at-least-twice-of-others/
 
 给你一个整数数组 nums ，其中总是存在 唯一的 一个最大整数 。
 请你找出数组中的最大元素并检查它是否 至少是数组中每个其他数字的两倍 。如果是，则返回 最大元素的下标 ，否则返回 -1 。
+提示：
+1 <= nums.length <= 50
+0 <= nums[i] <= 100
+nums 中的最大元素是唯一的
 
 一次遍历
 时间复杂度 O(n)

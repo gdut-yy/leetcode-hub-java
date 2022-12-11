@@ -42,9 +42,6 @@ https://leetcode.cn/problems/swap-adjacent-in-lr-string/
 提示：
 1 <= len(start) = len(end) <= 10000。
 start和end中的字符串仅限于'L', 'R'和'X'。
-提示：
-1 <= len(start) = len(end) <= 10000。
-start和end中的字符串仅限于'L', 'R'和'X'。
 
 相似题目: 2337. 移动片段得到字符串
 https://leetcode.cn/problems/move-pieces-to-obtain-a-string/

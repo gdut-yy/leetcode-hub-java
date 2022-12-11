@@ -77,6 +77,8 @@ public class Solution863 {
 863. 二叉树中所有距离为 K 的结点
 https://leetcode.cn/problems/all-nodes-distance-k-in-binary-tree/
 
+给定一个二叉树（具有根结点 root）， 一个目标结点 target ，和一个整数值 k 。
+返回到目标结点 target 距离为 k 的所有结点的值的列表。 答案可以以 任何顺序 返回。
 提示:
 节点数在 [1, 500] 范围内
 0 <= Node.val <= 500

@@ -81,9 +81,8 @@ public class TreeNode {
         return root;
     }
 
-    public static String printTreeNode(TreeNode root) {
+    public static String tree2String(TreeNode root) {
         if (root == null) {
-            System.out.println("[]");
             return "[]";
         }
         List<String> list = new ArrayList<>();
@@ -114,8 +113,6 @@ public class TreeNode {
             }
             stringBuilder.append(list.get(i));
         }
-        String res = stringBuilder.append("]").toString();
-        System.out.println(res);
-        return res;
+        return stringBuilder.append("]").toString();
     }
 }

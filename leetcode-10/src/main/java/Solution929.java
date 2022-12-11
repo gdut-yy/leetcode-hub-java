@@ -26,6 +26,13 @@ https://leetcode.cn/problems/unique-email-addresses/
 - 例如 m.y+name@email.com 将转发到 my@email.com。
 可以同时使用这两个规则。
 给你一个字符串数组 emails，我们会向每个 emails[i] 发送一封电子邮件。返回实际收到邮件的不同地址数目。
+提示：
+1 <= emails.length <= 100
+1 <= emails[i].length <= 100
+emails[i] 由小写英文字母、'+'、'.' 和 '@' 组成
+每个 emails[i] 都包含有且仅有一个 '@' 字符
+所有本地名和域名都不为空
+本地名不会以 '+' 字符作为开头
 
 模拟。字符串操作
  */

@@ -31,6 +31,9 @@ https://leetcode.cn/problems/delete-and-earn/
 给你一个整数数组 nums ，你可以对它进行一些操作。
 每次操作中，选择任意一个 nums[i] ，删除它并获得 nums[i] 的点数。之后，你必须删除 所有 等于 nums[i] - 1 和 nums[i] + 1 的元素。
 开始你拥有 0 个点数。返回你能通过这些操作获得的最大点数。
+提示：
+1 <= nums.length <= 2 * 10^4
+1 <= nums[i] <= 10^4
 
 先求出每个 num 出现了 cnt 次，求和 sum[num] = num * cnt
 同198题，若选取了 sum[num]，sum[num-1] 和 sum[num+1] 都不可再选取，取 rob(int[] sum) 最大值即可。

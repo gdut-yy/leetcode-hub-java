@@ -48,7 +48,11 @@ https://leetcode.cn/problems/number-of-distinct-islands/
  1
 11
 是不同的岛屿，因为我们不考虑旋转、翻转操作。
-提示：二维数组每维的大小都不会超过 50 。
+提示：
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 50
+grid[i][j] 仅包含 0 或 1
 
 形状相同等价与 dfs 顺序相同，因此 dfs 每个岛屿的时候记录 path，最后去重后求数量即可。
  */

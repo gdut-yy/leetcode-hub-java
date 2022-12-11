@@ -32,10 +32,16 @@ public class Solution801 {
 801. 使序列递增的最小交换次数
 https://leetcode.cn/problems/minimum-swaps-to-make-sequences-increasing/
 
-我们有两个长度相等且不为空的整型数组 A 和 B 。
-我们可以交换 A[i] 和 B[i] 的元素。注意这两个元素在各自的序列中应该处于相同的位置。
-在交换过一些元素之后，数组 A 和 B 都应该是严格递增的（数组严格递增的条件仅为A[0] < A[1] < A[2] < ... < A[A.length - 1]）。
-给定数组 A 和 B ，请返回使得两个数组均保持严格递增状态的最小交换次数。假设给定的输入总是有效的。
+我们有两个长度相等且不为空的整型数组 nums1 和 nums2 。在一次操作中，我们可以交换 nums1[i] 和 nums2[i]的元素。
+- 例如，如果 nums1 = [1,2,3,8] ， nums2 =[5,6,7,4] ，你可以交换 i = 3 处的元素，得到 nums1 =[1,2,3,4] 和 nums2 =[5,6,7,8] 。
+返回 使 nums1 和 nums2 严格递增 所需操作的最小次数 。
+数组 arr 严格递增 且  arr[0] < arr[1] < arr[2] < ... < arr[arr.length - 1] 。
+注意：
+- 用例保证可以实现操作。
+提示:
+2 <= nums1.length <= 10^5
+nums2.length == nums1.length
+0 <= nums1[i], nums2[i] <= 2 * 10^5
 
 动态规划
 时间复杂度 O(n)

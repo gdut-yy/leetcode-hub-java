@@ -5,12 +5,6 @@ public class Solution703 {
         private final PriorityQueue<Integer> priorityQueue;
         private final int size;
 
-        /**
-         * 使用整数 k 和整数流 nums 初始化对象。
-         *
-         * @param k    第 k 大元素
-         * @param nums 整数流 nums
-         */
         public KthLargest(int k, int[] nums) {
             size = k;
             priorityQueue = new PriorityQueue<>();
@@ -19,12 +13,6 @@ public class Solution703 {
             }
         }
 
-        /**
-         * 将 val 插入数据流 nums 后，返回当前数据流中第 k 大的元素。
-         *
-         * @param val val
-         * @return int
-         */
         public int add(int val) {
             if (priorityQueue.size() < size) {
                 priorityQueue.add(val);
@@ -40,8 +28,19 @@ public class Solution703 {
 703. 数据流中的第 K 大元素
 https://leetcode.cn/problems/kth-largest-element-in-a-stream/
 
-优先队列（小顶堆）
+设计一个找到数据流中第 k 大元素的类（class）。注意是排序后的第 k 大元素，不是第 k 个不同的元素。
+请实现 KthLargest 类：
+- KthLargest(int k, int[] nums) 使用整数 k 和整数流 nums 初始化对象。
+- int add(int val) 将 val 插入数据流 nums 后，返回当前数据流中第 k 大的元素。
+提示：
+1 <= k <= 10^4
+0 <= nums.length <= 10^4
+-10^4 <= nums[i] <= 10^4
+-10^4 <= val <= 10^4
+最多调用 add 方法 10^4 次
+题目数据保证，在查找第 k 大元素时，数组中至少有 k 个元素
 
+优先队列（小顶堆）
 每个 int add(int val) 时间复杂度为 O(logk)
 priorityQueue 空间复杂度为 O(k)
  */

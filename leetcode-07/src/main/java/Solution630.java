@@ -46,11 +46,13 @@ https://leetcode.cn/problems/course-schedule-iii/
 表示第 i 门课将会 持续 上 durationi 天课，并且必须在不晚于 lastDayi 的时候完成。
 你的学期从第 1 天开始。且不能同时修读两门及两门以上的课程。
 返回你最多可以修读的课程数目。
+提示:
+1 <= courses.length <= 10^4
+1 <= durationi, lastDayi <= 10^4
 
 贪心。
 sorted [[9, 10], [3, 12], [7, 17], [4, 18], [10, 19], [10, 20], [5, 20]]
 expected [3, 12], [7, 17], [4, 18], [5, 20]
-
 不判断 course[0] < peek[0] 场景:
 [9, 10]
 [9+3, 12]

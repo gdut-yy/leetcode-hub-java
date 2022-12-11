@@ -11,18 +11,10 @@ public class Solution676 {
 
         private final TrieNode root;
 
-        /**
-         * 初始化对象
-         */
         public MagicDictionary() {
             root = new TrieNode();
         }
 
-        /**
-         * 使用字符串数组 dictionary 设定该数据结构，dictionary 中的字符串互不相同
-         *
-         * @param dictionary dictionary
-         */
         public void buildDict(String[] dictionary) {
             for (String dict : dictionary) {
                 TrieNode node = root;
@@ -36,13 +28,6 @@ public class Solution676 {
             }
         }
 
-        /**
-         * 给定一个字符串 searchWord ，判定能否只将字符串中 一个 字母换成另一个字母，使得所形成的新字符串能够与字典中的任一字符串匹配。
-         * 如果可以，返回 true ；否则，返回 false 。
-         *
-         * @param searchWord searchWord
-         * @return true/false
-         */
         public boolean search(String searchWord) {
             return dfs(root, searchWord, 0, 0);
         }

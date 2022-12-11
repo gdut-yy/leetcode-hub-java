@@ -45,6 +45,9 @@ https://leetcode.cn/problems/valid-mountain-array/
 - 在 0 < i < arr.length - 1 条件下，存在 i 使得：
   - arr[0] < arr[1] < ... arr[i-1] < arr[i]
   - arr[i] > arr[i+1] > ... > arr[arr.length - 1]
+提示：
+1 <= arr.length <= 10^4
+0 <= arr[i] <= 10^4
 
 分别 从左往右 从右往左 找 "山顶"，看是否同一个 "山顶" 即可。
  */

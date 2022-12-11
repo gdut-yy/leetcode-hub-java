@@ -34,7 +34,7 @@ public class Solution637 {
 637. 二叉树的层平均值
 https://leetcode.cn/problems/average-of-levels-in-binary-tree/
 
-给定一个非空二叉树, 返回一个由每层节点平均值组成的数组。
+给定一个非空二叉树的根节点 root , 以数组的形式返回每一层节点的平均值。与实际答案相差 10^-5 以内的答案可以被接受。
 示例 1：
 输入：
     3
@@ -42,10 +42,12 @@ https://leetcode.cn/problems/average-of-levels-in-binary-tree/
   9  20
     /  \
    15   7
-
 输出：[3, 14.5, 11]
 解释：
 第 0 层的平均值是 3 ,  第1层是 14.5 , 第2层是 11 。因此返回 [3, 14.5, 11] 。
+提示：
+树中节点数量在 [1, 10^4] 范围内
+-2^31 <= Node.val <= 2^31 - 1
 
 二叉树层序遍历。
  */

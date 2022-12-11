@@ -66,6 +66,11 @@ https://leetcode.cn/problems/magic-squares-in-grid/
 
 3 x 3 的幻方是一个填充有从 1 到 9 的不同数字的 3 x 3 矩阵，其中每行，每列以及两条对角线上的各数之和都相等。
 给定一个由整数组成的 grid，其中有多少个 3 × 3 的 “幻方” 子矩阵？（每个子矩阵都是连续的）。
+提示:
+row == grid.length
+col == grid[i].length
+1 <= row, col <= 10
+0 <= grid[i][j] <= 15
 
 易通过数学知识得知 矩阵中心点 数值为 5，需注意剔除不满足的题意用例
  */

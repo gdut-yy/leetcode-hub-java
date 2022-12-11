@@ -41,10 +41,14 @@ https://leetcode.cn/problems/hand-of-straights/
 
 Alice 手中有一把牌，她想要重新排列这些牌，分成若干组，使每一组的牌数都是 groupSize ，并且由 groupSize 张连续的牌组成。
 给你一个整数数组 hand 其中 hand[i] 是写在第 i 张牌，和一个整数 groupSize 。如果她可能重新排列这些牌，返回 true ；否则，返回 false 。
+提示：
+1 <= hand.length <= 10^4
+0 <= hand[i] <= 10^9
+1 <= groupSize <= hand.length
 
-此题目与 1296 重复：https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/
-TreeMap 很少登场，特性类似优先队列，根据 key 升序排序。
 暴力模拟。从最小的牌开始取，连续取，若取完，即可以完成分组
 注意 Map.replace(key, value) 与 Map.put(key, value) 区别：
 replace 若 key 不存在不会往里放，put 不管是否存在都会往里放
+同: 1296. 划分数组为连续数字的集合
+https://leetcode.cn/problems/divide-array-in-sets-of-k-consecutive-numbers/
  */

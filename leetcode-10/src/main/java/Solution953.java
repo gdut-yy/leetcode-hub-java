@@ -39,6 +39,11 @@ https://leetcode.cn/problems/verifying-an-alien-dictionary/
 
 某种外星语也使用英文小写字母，但可能顺序 order 不同。字母表的顺序（order）是一些小写字母的排列。
 给定一组用外星语书写的单词 words，以及其字母表的顺序 order，只有当给定的单词在这种外星语中按字典序排列时，返回 true；否则，返回 false。
+提示：
+1 <= words.length <= 100
+1 <= words[i].length <= 20
+order.length == 26
+在 words[i] 和 order 中的所有字符都是英文小写字母。
 
 输入 n 个单词，每个单词平均长度为 k
 时间复杂度 O(nk)

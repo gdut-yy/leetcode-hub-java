@@ -19,7 +19,6 @@ public class Solution108Tests {
         // 输出：[3,1]
         // 解释：[1,3] 和 [3,1] 都是高度平衡二叉搜索树。
         TreeNode expected = TreeNode.buildTreeNode("[1,null,3]");
-        TreeNode.printTreeNode(solution108.sortedArrayToBST(nums));
         Assertions.assertTrue(TreeNode.assertTreeNodeEquals(expected, solution108.sortedArrayToBST(nums)));
     }
 }

@@ -39,6 +39,10 @@ https://leetcode.cn/problems/projection-area-of-3d-shapes/
 投影就像影子，将三维形体映射到一个二维平面上。
 在这里，从顶部、前面和侧面看立方体时，我们会看到“影子”。
 返回所有三个投影的总面积。
+提示：
+n == grid.length == grid[i].length
+1 <= n <= 50
+0 <= grid[i][j] <= 50
 
 用数组记录 "主视图" 与 "左视图"，累加最大值即可。
  */

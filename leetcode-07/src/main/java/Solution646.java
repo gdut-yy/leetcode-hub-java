@@ -28,4 +28,6 @@ https://leetcode.cn/problems/maximum-length-of-pair-chain/
 
 贪心。
 时间复杂度 O(nlogn)
+相似题目: 435. 无重叠区间
+https://leetcode.cn/problems/non-overlapping-intervals/
  */

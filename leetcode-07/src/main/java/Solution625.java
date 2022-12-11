@@ -25,6 +25,8 @@ https://leetcode.cn/problems/minimum-factorization/
 
 给定一个正整数 a，找出最小的正整数 b 使得 b 的所有数位相乘恰好等于 a。
 如果不存在这样的结果或者结果不是 32 位有符号整数，返回 0。
+Constraints:
+1 <= num <= 2^31 - 1
 
 因式分解
 时间复杂度 O(logn)

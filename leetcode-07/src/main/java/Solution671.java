@@ -31,7 +31,6 @@ https://leetcode.cn/problems/second-minimum-node-in-a-binary-tree/
 给出这样的一个二叉树，你需要输出所有节点中的 第二小的值 。
 如果第二小的值不存在的话，输出 -1 。
 提示：
-
 树中节点数目在范围 [1, 25] 内
 1 <= Node.val <= 2^31 - 1
 对于树中每个节点 root.val == min(root.left.val, root.right.val)

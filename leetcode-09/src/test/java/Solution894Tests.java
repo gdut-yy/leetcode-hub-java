@@ -17,8 +17,8 @@ public class Solution894Tests {
                 TreeNode.buildTreeNode("[0,0,0,0,0,null,null,null,null,0,0]"),
                 TreeNode.buildTreeNode("[0,0,0,0,0,null,null,0,0]")
         );
-        List<String> expectedStr = expected.stream().map(TreeNode::printTreeNode).toList();
-        List<String> actualStr = solution894.allPossibleFBT(n).stream().map(TreeNode::printTreeNode).toList();
+        List<String> expectedStr = expected.stream().map(TreeNode::tree2String).toList();
+        List<String> actualStr = solution894.allPossibleFBT(n).stream().map(TreeNode::tree2String).toList();
         Assertions.assertEquals(expectedStr, actualStr);
     }
 
@@ -28,8 +28,8 @@ public class Solution894Tests {
         List<TreeNode> expected = Arrays.asList(
                 TreeNode.buildTreeNode("[0,0,0]")
         );
-        List<String> expectedStr = expected.stream().map(TreeNode::printTreeNode).toList();
-        List<String> actualStr = solution894.allPossibleFBT(n).stream().map(TreeNode::printTreeNode).toList();
+        List<String> expectedStr = expected.stream().map(TreeNode::tree2String).toList();
+        List<String> actualStr = solution894.allPossibleFBT(n).stream().map(TreeNode::tree2String).toList();
         Assertions.assertEquals(expectedStr, actualStr);
     }
 }
