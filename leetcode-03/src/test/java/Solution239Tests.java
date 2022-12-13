@@ -10,6 +10,7 @@ public class Solution239Tests {
         int k = 3;
         int[] expected = {3, 3, 5, 5, 6, 7};
         Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow2(nums, k));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution239Tests {
         int k = 1;
         int[] expected = {1};
         Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow2(nums, k));
     }
 
     @Test
@@ -26,6 +28,7 @@ public class Solution239Tests {
         int k = 1;
         int[] expected = {1, -1};
         Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow2(nums, k));
     }
 
     @Test
@@ -34,6 +37,7 @@ public class Solution239Tests {
         int k = 2;
         int[] expected = {11};
         Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow2(nums, k));
     }
 
     @Test
@@ -42,5 +46,6 @@ public class Solution239Tests {
         int k = 2;
         int[] expected = {4};
         Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow(nums, k));
+        Assertions.assertArrayEquals(expected, solution239.maxSlidingWindow2(nums, k));
     }
 }

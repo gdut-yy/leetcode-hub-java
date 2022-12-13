@@ -1,7 +1,9 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.TreeSet;
 
 public class Solution239 {
+    // 单调队列 O(n)
     public int[] maxSlidingWindow(int[] nums, int k) {
         int len = nums.length;
 
@@ -28,6 +30,34 @@ public class Solution239 {
                 deque.removeFirst();
             }
             res[i - k + 1] = nums[deque.getFirst()];
+        }
+        return res;
+    }
+
+    // 有序集合 O(nlogn)
+    public int[] maxSlidingWindow2(int[] nums, int k) {
+        int n = nums.length;
+
+        TreeSet<Integer> maxTreeSet = new TreeSet<>((o1, o2) -> {
+            if (nums[o1] == nums[o2]) {
+                return Integer.compare(o1, o2);
+            }
+            return Integer.compare(nums[o2], nums[o1]);
+        });
+
+        int[] res = new int[n - k + 1];
+        // [0, k-1] 前 k 个
+        for (int i = 0; i < k; i++) {
+            maxTreeSet.add(i);
+        }
+        res[0] = nums[maxTreeSet.first()];
+
+        // [k, n-1] 滑动窗口
+        for (int i = k; i < n; i++) {
+            // 先删后增
+            maxTreeSet.remove(i - k);
+            maxTreeSet.add(i);
+            res[i - k + 1] = nums[maxTreeSet.first()];
         }
         return res;
     }
