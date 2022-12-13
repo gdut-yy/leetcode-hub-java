@@ -13,14 +13,14 @@ public class Abc281dTests extends AbstractOjTests {
     @Test
     public void example1() throws IOException {
         super.doSetSystemInOut(INPUT1);
-        Abc280_d.main(null);
+        Abc281_d.main(null);
         super.doAssertion(OUTPUT1);
     }
 
     @Test
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
-        Abc280_d.main(null);
+        Abc281_d.main(null);
         super.doAssertion(OUTPUT2);
     }
 }

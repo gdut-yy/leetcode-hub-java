@@ -11,6 +11,7 @@
     <modules>
         <!-- atcoder -->
         <module>atcoder-beginner</module>
+        <module>atcoder-regular</module>
 
         <!-- codeforces -->
         <module>codeforces-core</module>
@@ -47,6 +48,8 @@
         <module>leetcode-23</module>
         <module>leetcode-24</module>
         <module>leetcode-25</module>
+        <module>leetcode-26</module>
+
         <module>leetcode-core</module>
         <module>leetcode-extends</module>
         <module>leetcode-interview</module>
