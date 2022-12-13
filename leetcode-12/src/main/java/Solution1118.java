@@ -20,6 +20,9 @@ https://leetcode.cn/problems/number-of-days-in-a-month/
 第 4 场双周赛 T1。
 
 指定年份 Y 和月份 M，请你帮忙计算出该月一共有多少天。
+提示：
+1583 <= year <= 2100
+1 <= month <= 12
 
 Java 8 Date/Time API
 相似题目: 1154. 一年中的第几天

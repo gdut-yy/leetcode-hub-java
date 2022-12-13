@@ -32,6 +32,11 @@ https://leetcode.cn/problems/number-of-visible-people-in-a-queue/
 一个人能 看到 他右边另一个人的条件是这两人之间的所有人都比他们两人 矮 。
 更正式的，第 i 个人能看到第 j 个人的条件是 i < j 且 min(heights[i], heights[j]) > max(heights[i+1], heights[i+2], ..., heights[j-1]) 。
 请你返回一个长度为 n 的数组 answer ，其中 answer[i] 是第 i 个人在他右侧队列中能 看到 的 人数 。
+提示：
+n == heights.length
+1 <= n <= 10^5
+1 <= heights[i] <= 10^5
+heights 中所有数 互不相同 。
 
 单调栈。
  */

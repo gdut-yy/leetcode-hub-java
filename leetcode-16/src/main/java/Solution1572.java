@@ -23,6 +23,10 @@ https://leetcode.cn/problems/matrix-diagonal-sum/
 
 给你一个正方形矩阵 mat，请你返回矩阵对角线元素的和。
 请你返回在矩阵主对角线上的元素和副对角线上且不在主对角线上元素的和。
+提示：
+n == mat.length == mat[i].length
+1 <= n <= 100
+1 <= mat[i][j] <= 100
 
 模拟。
  */

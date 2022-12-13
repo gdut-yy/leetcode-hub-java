@@ -30,7 +30,10 @@ https://leetcode.cn/problems/binary-search-tree-to-greater-sum-tree/
 - 节点的左子树仅包含键 小于 节点键的节点。
 - 节点的右子树仅包含键 大于 节点键的节点。
 - 左右子树也必须是二叉搜索树。
-注意：该题目与 538: https://leetcode.cn/problems/convert-bst-to-greater-tree/  相同
+提示：
+树中的节点数在 [1, 100] 范围内。
+0 <= Node.val <= 100
+树中的所有值均 不重复 。
 
 同: 538. 把二叉搜索树转换为累加树
 https://leetcode.cn/problems/convert-bst-to-greater-tree/

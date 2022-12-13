@@ -147,6 +147,9 @@ https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-su
 s[i...j] 表示下标从 i 到 j 且 包含 两端下标的子字符串。
 请你返回两个不重叠回文子字符串长度的 最大 乘积。
 回文字符串 指的是一个从前往后读和从后往前读一模一样的字符串。子字符串 指的是一个字符串中一段连续字符。
+提示：
+2 <= s.length <= 10^5
+s 只包含小写英文字母。
 
 Manacher 算法 + 扫描线
 leetcode 题解 https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/solution/liang-ge-hui-wen-zi-zi-fu-chuan-chang-du-soyb/

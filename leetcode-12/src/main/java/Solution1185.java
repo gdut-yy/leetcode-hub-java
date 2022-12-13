@@ -25,6 +25,8 @@ https://leetcode.cn/problems/day-of-the-week/
 给你一个日期，请你设计一个算法来判断它是对应一周中的哪一天。
 输入为三个整数：day、month 和 year，分别表示日、月、年。
 您返回的结果必须是这几个值中的一个 {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"}。
+提示：
+给出的日期一定是在 1971 到 2100 年之间的有效日期。
 
 相似题目: 1118. 一月有多少天
 https://leetcode.cn/problems/number-of-days-in-a-month/

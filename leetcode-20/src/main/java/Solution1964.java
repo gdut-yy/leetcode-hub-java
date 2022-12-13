@@ -92,16 +92,18 @@ https://leetcode.cn/problems/find-the-longest-valid-obstacle-course-at-each-posi
 - 你必须按障碍在 obstacles 中的 出现顺序 布置这些障碍。
 - 除第一个障碍外，路线中每个障碍的高度都必须和前一个障碍 相同 或者 更高 。
 返回长度为 n 的答案数组 ans ，其中 ans[i] 是上面所述的下标 i 对应的最长障碍赛跑路线的长度。
+提示：
+n == obstacles.length
+1 <= n <= 10^5
+1 <= obstacles[i] <= 10^7
 
 容易误想到单调栈，实际上本题单调栈不可行，单调栈求出的长度并不是最优的，如：
 input:    [5,1,5,5,1,3,4,5,1,4]
 actual:   [1,1,2,3,2,3,4,5,3,4]
 expected: [1,1,2,3,2,3,4,5,3,5]
-
 需要使用 LIS。参考第 300 题 https://leetcode.cn/problems/longest-increasing-subsequence/
 注: 时间复杂度需为 O(nlogn) 才能 AC, 时间复杂度 O(n^2) 本题会超出时间限制。
 本题代码直接修改自 Solution300#lengthOfLIS2()
-
 实战时，部分用例因数组太长，无法直接在 java 代码中通过硬编码的方式初始化。如以下两个用例。在 UT 中，我们通过文件的方式进行初始化，详见：
 Solution1964Tests#example4()
 Solution1964Tests#example5()

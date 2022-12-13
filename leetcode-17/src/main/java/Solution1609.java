@@ -81,9 +81,11 @@ https://leetcode.cn/problems/even-odd-tree/
 - 偶数下标 层上的所有节点的值都是 奇 整数，从左到右按顺序 严格递增
 - 奇数下标 层上的所有节点的值都是 偶 整数，从左到右按顺序 严格递减
 给你二叉树的根节点，如果二叉树为 奇偶树 ，则返回 true ，否则返回 false 。
+提示：
+树中节点数在范围 [1, 10^5] 内
+1 <= Node.val <= 10^6
 
 二叉树层序遍历。
-
 相似题目: 102. 二叉树的层序遍历
 https://leetcode.cn/problems/binary-tree-level-order-traversal/
  */

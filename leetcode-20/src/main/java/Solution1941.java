@@ -27,6 +27,9 @@ https://leetcode.cn/problems/check-if-all-characters-have-equal-number-of-occurr
 
 给你一个字符串 s ，如果 s 是一个 好 字符串，请你返回 true ，否则请返回 false 。
 如果 s 中出现过的 所有 字符的出现次数 相同 ，那么我们称字符串 s 是 好 字符串。
+提示：
+1 <= s.length <= 1000
+s 只包含小写英文字母。
 
 统计字符串各字符频次后比较即可。
  */

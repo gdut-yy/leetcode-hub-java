@@ -46,7 +46,12 @@ https://leetcode.cn/problems/matrix-block-sum/
 第 17 场双周赛 T2。
 
 给你一个 m x n 的矩阵 mat 和一个整数 k ，请你返回一个矩阵 answer ，其中每个 answer[i][j] 是所有满足下述条件的元素 mat[r][c] 的和： 
-i - k <= r <= i + k,
-j - k <= c <= j + k 且
-(r, c) 在矩阵内。
+- i - k <= r <= i + k,
+- j - k <= c <= j + k 且
+- (r, c) 在矩阵内。
+提示：
+m == mat.length
+n == mat[i].length
+1 <= m, n, k <= 100
+1 <= mat[i][j] <= 100
  */

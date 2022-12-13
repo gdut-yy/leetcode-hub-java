@@ -65,6 +65,11 @@ https://leetcode.cn/problems/get-the-maximum-score/
 得分定义为合法路径中不同数字的和。
 请你返回所有可能合法路径中的最大得分。
 由于答案可能很大，请你将它对 10^9 + 7 取余后返回。
+提示：
+1 <= nums1.length <= 10^5
+1 <= nums2.length <= 10^5
+1 <= nums1[i], nums2[i] <= 10^7
+nums1 和 nums2 都是严格递增的数组。
 
 @since 2020-08-20 怀念那段日子
 很有意思的一道题，前缀和 + 二分搜索即可。

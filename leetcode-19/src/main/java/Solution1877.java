@@ -23,6 +23,11 @@ https://leetcode.cn/problems/minimize-maximum-pair-sum-in-array/
 - nums 中每个元素 恰好 在 一个 数对中，且
 - 最大数对和 的值 最小 。
 请你在最优数对划分的方案下，返回最小的 最大数对和 。
+提示：
+n == nums.length
+2 <= n <= 10^5
+n 是 偶数 。
+1 <= nums[i] <= 10^5
 
 题目要求最小的最大数对和 即 从有序数组的首尾两端求和中取最值
  */

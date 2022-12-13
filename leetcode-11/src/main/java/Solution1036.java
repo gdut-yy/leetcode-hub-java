@@ -79,7 +79,6 @@ source.length == target.length == 2
 source != target
 题目数据保证 source 和 target 不在封锁列表内
 
-
 我们知道 BFS 时空复杂度在 O(n^2) 10^6 妥妥 TLE + MLE
 因此需要转变思维，从长度为 200 的 blocked 入手。
  */

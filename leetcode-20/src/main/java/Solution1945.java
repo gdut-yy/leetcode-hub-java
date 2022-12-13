@@ -30,6 +30,10 @@ https://leetcode.cn/problems/sum-of-digits-of-string-after-convert/
 - 转换 #1：262124 ➝ 2 + 6 + 2 + 1 + 2 + 4 ➝ 17
 - 转换 #2：17 ➝ 1 + 7 ➝ 8
 返回执行上述操作后得到的结果整数。
+提示：
+1 <= s.length <= 100
+1 <= k <= 10
+s 由小写英文字母组成
 
 根据题意进行模拟即可。
  */

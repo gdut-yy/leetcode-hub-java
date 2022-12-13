@@ -26,6 +26,9 @@ https://leetcode.cn/problems/largest-unique-number/
 
 给你一个整数数组 A，请找出并返回在该数组中仅出现一次的最大整数。
 如果不存在这个只出现一次的整数，则返回 -1。
+提示：
+1 <= A.length <= 2000
+0 <= A[i] <= 1000
 
 HashMap 统计频次。
  */

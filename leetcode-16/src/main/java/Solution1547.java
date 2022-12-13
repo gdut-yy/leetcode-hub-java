@@ -24,7 +24,6 @@ public class Solution1547 {
         }
         return f[1][m];
     }
-
 }
 /*
 1547. 切棍子的最小成本

@@ -29,6 +29,9 @@ https://leetcode.cn/problems/sign-of-the-product-of-an-array/
 - 如果 x 是等于 0 ，返回 0 。
 给你一个整数数组 nums 。令 product 为数组 nums 中所有元素值的乘积。
 返回 signFunc(product) 。
+提示：
+1 <= nums.length <= 1000
+-100 <= nums[i] <= 100
 
 正数个数无须统计，因为怎么乘也是正数。
 统计负数的个数，若为个数为奇数，则结果为负数

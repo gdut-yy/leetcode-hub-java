@@ -32,6 +32,10 @@ https://leetcode.cn/problems/remove-stones-to-minimize-the-total/
 注意：你可以对 同一堆 石子多次执行此操作。
 返回执行 k 次操作后，剩下石子的 最小 总数。
 floor(x) 为 小于 或 等于 x 的 最大 整数。（即，对 x 向下取整）。
+提示：
+1 <= piles.length <= 10^5
+1 <= piles[i] <= 10^4
+1 <= k <= 10^5
 
 使用优先队列大顶堆进行模拟即可。
  */

@@ -20,6 +20,10 @@ https://leetcode.cn/problems/concatenation-of-array/
 - ans[i + n] == nums[i]
 具体而言，ans 由两个 nums 数组 串联 形成。
 返回数组 ans 。
+提示：
+n == nums.length
+1 <= n <= 1000
+1 <= nums[i] <= 1000
 
 模拟。
  */

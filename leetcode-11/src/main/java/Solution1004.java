@@ -26,6 +26,10 @@ https://leetcode.cn/problems/max-consecutive-ones-iii/
 返回仅包含 1 的最长（连续）子数组的长度。
 输入：A = [1,1,1,0,0,0,1,1,1,1,0], K = 2
 输出：6
+提示：
+1 <= nums.length <= 10^5
+nums[i] 不是 0 就是 1
+0 <= k <= nums.length
 
 滑动窗口。
 时间复杂度 O(n)

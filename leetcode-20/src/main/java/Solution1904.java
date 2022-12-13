@@ -70,6 +70,11 @@ https://leetcode.cn/problems/the-number-of-full-rounds-you-have-played/
 而你没有完成从 05:15 到 05:30 的完整对局，因为你是在对局开始后进入的游戏；同时，你也没有完成从 05:45 到 06:00 的完整对局，因为你是在对局结束前退出的游戏。
 如果 finishTime 早于 startTime ，这表示你玩了个通宵（也就是从 startTime 到午夜，再从午夜到 finishTime）。
 假设你是从 startTime 进入游戏，并在 finishTime 退出游戏，请计算并返回你完成的 完整对局的对局数 。
+提示：
+startTime 和 finishTime 的格式为 HH:MM
+00 <= HH <= 23
+00 <= MM <= 59
+startTime 和 finishTime 不相等
 
 考察边界值处理。需注意用例 startTime = "00:47", finishTime = "00:57" 避免返回负值
  */

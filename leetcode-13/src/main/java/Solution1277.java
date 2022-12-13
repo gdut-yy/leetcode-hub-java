@@ -30,6 +30,10 @@ https://leetcode.cn/problems/count-square-submatrices-with-all-ones/
 第 165 场周赛 T3。
 
 给你一个 m * n 的矩阵，矩阵中的元素不是 0 就是 1，请你统计并返回其中完全由 1 组成的 正方形 子矩阵的个数。
+提示：
+1 <= arr.length <= 300
+1 <= arr[0].length <= 300
+0 <= arr[i][j] <= 1
 
 动态规划。
 dp[i][j] 表示以 [i,j] 为右下角，只包含 1 的正方形的边长的最大值

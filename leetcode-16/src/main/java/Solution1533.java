@@ -73,7 +73,6 @@ https://leetcode.cn/problems/find-the-index-of-the-large-integer/
 你最多可以调用函数 compareSub() 20 次。你可以认为这两个函数的时间复杂度都为 O(1) 。
 返回 arr 中最大整数的索引。
 提示:
-
 2 <= arr.length <= 5 * 10^5
 1 <= arr[i] <= 100
 arr 中除一个最大元素外，其余所有元素都相等。

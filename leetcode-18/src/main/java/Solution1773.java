@@ -34,6 +34,11 @@ https://leetcode.cn/problems/count-items-matching-a-rule/
 - ruleKey == "color" 且 ruleValue == colori 。
 - ruleKey == "name" 且 ruleValue == namei 。
 统计并返回 匹配检索规则的物品数量 。
+提示：
+1 <= items.length <= 10^4
+1 <= typei.length, colori.length, namei.length, ruleValue.length <= 10
+ruleKey 等于 "type"、"color" 或 "name"
+所有字符串仅由小写字母组成
 
 根据题意模拟即可。
  */

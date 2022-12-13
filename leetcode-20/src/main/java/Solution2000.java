@@ -17,6 +17,10 @@ https://leetcode.cn/problems/reverse-prefix-of-word/
 找出 ch 第一次出现的下标 i ，反转 word 中从下标 0 开始、直到下标 i 结束（含下标 i ）的那段字符。如果 word 中不存在字符 ch ，则无需进行任何操作。
 - 例如，如果 word = "abcdefd" 且 ch = "d" ，那么你应该 反转 从下标 0 开始、直到下标 3 结束（含下标 3 ）。结果字符串将会是 "dcbaefd" 。
 返回 结果字符串 。
+提示：
+1 <= word.length <= 250
+word 由小写英文字母组成
+ch 是一个小写英文字母
 
 模拟。
  */

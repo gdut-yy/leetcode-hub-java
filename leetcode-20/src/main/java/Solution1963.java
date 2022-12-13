@@ -32,6 +32,12 @@ https://leetcode.cn/problems/minimum-number-of-swaps-to-make-the-string-balanced
 - 字符串可以写成 [C] ，其中 C 是一个 平衡字符串 。
 你可以交换 任意 两个下标所对应的括号 任意 次数。
 返回使 s 变成 平衡字符串 所需要的 最小 交换次数。
+提示：
+n == s.length
+2 <= n <= 10^6
+n 为偶数
+s[i] 为'[' 或 ']'
+开括号 '[' 的数目为 n / 2 ，闭括号 ']' 的数目也是 n / 2
 
 括号匹配的题型一般可以用栈解决。找规律，统计不能匹配的个数：
     ][     1 次
@@ -39,9 +45,7 @@ https://leetcode.cn/problems/minimum-number-of-swaps-to-make-the-string-balanced
   ]]][[[   2 次
  ]]]][[[[  2 次
 ]]]]][[[[[ 3 次
-
 当不匹配数为偶数时，最小交换次数 = n / 2
 当不匹配数为奇数时，最小交换次数 = n / 2 + 1
-
 可直接简化成最小交换次数 = (n + 1) / 2
  */

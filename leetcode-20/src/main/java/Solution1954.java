@@ -30,21 +30,20 @@ https://leetcode.cn/problems/minimum-garden-perimeter-to-collect-enough-apples/
 |x| 的值定义为：
 - 如果 x >= 0 ，那么值为 x
 - 如果 x < 0 ，那么值为 -x
+提示：
+1 <= neededApples <= 10^15
 
 打表模拟。
-
 边长为 2 时:
 2 1 2
 1 0 1
 2 1 2
-
 边长为 4 时:
 4 3 2 3 4
 3 2 1 2 3
 2 1 0 1 2
 3 2 1 2 3
 4 3 2 3 4
-
 边长为 6 时:
 6 5 4 3 4 5 6
 5 4 3 2 3 4 5
@@ -53,7 +52,6 @@ https://leetcode.cn/problems/minimum-garden-perimeter-to-collect-enough-apples/
 4 3 2 1 2 3 4
 5 4 3 2 3 4 5
 6 5 4 3 4 5 6
-
 将正方形分成 4 等分:
     1 2      = (1 + 2) * 1
   3 2 3 4    = (2 + 4) * 2

@@ -50,6 +50,9 @@ https://leetcode.cn/problems/minimum-remove-to-make-valid-parentheses/
 - 空字符串或只包含小写字母的字符串
 - 可以被写作 AB（A 连接 B）的字符串，其中 A 和 B 都是有效「括号字符串」
 - 可以被写作 (A) 的字符串，其中 A 是一个有效的「括号字符串」
+提示：
+1 <= s.length <= 10^5
+s[i] 可能是 '('、')' 或英文小写字母
 
 栈模拟括号配对。
 时间复杂度 O(n)

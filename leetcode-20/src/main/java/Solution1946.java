@@ -30,6 +30,11 @@ https://leetcode.cn/problems/largest-number-after-mutating-substring/
 你可以选择 突变  num 的任一子字符串。突变 子字符串意味着将每位数字 num[i] 替换为该数字在 change 中的映射（也就是说，将 num[i] 替换为 change[num[i]]）。
 请你找出在对 num 的任一子字符串执行突变操作（也可以不执行）后，可能得到的 最大整数 ，并用字符串表示返回。
 子字符串 是字符串中的一个连续序列。
+提示：
+1 <= num.length <= 10^5
+num 仅由数字 0-9 组成
+change.length == 10
+0 <= change[d] <= 9
 
 双指针。其实单指针亦可。
 先找到 change 数组中开始大于 num[i] 的下标，然后取一个区间进行替换即是可能得到的最大整数

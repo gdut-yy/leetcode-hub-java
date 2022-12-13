@@ -17,6 +17,9 @@ https://leetcode.cn/problems/maximum-product-difference-between-two-pairs/
 - 例如，(5, 6) 和 (2, 7) 之间的乘积差是 (5 * 6) - (2 * 7) = 16 。
 给你一个整数数组 nums ，选出四个 不同的 下标 w、x、y 和 z ，使数对 (nums[w], nums[x]) 和 (nums[y], nums[z]) 之间的 乘积差 取到 最大值 。
 返回以这种方式取得的乘积差中的 最大值 。
+提示：
+4 <= nums.length <= 10^4
+1 <= nums[i] <= 10^4
 
 数组排序后，最大两个数乘积减去最小两个数乘积即可。
  */

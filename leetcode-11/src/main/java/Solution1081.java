@@ -42,6 +42,9 @@ https://leetcode.cn/problems/smallest-subsequence-of-distinct-characters/
 第 140 场周赛 T4。
 
 返回 s 字典序最小的子序列，该子序列包含 s 的所有不同字符，且只包含一次。
+提示：
+1 <= s.length <= 1000
+s 由小写英文字母组成
 
 单调栈。
 同: 316. 去除重复字母

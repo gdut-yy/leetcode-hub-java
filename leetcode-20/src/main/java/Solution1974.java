@@ -39,6 +39,9 @@ https://leetcode.cn/problems/minimum-time-to-type-word-using-special-typewriter/
 - 将指针 顺时针 或者 逆时针 移动一个字符。
 - 键入指针 当前 指向的字符。
 给你一个字符串 word ，请你返回键入 word 所表示单词的 最少 秒数 。
+提示：
+1 <= word.length <= 100
+word 只包含小写英文字母。
 
 类似密码学的凯撒密码，写出一组 offset 为 0 的解，其余情况按需计算偏移量即可。
  */
