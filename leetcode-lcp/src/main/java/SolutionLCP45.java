@@ -11,27 +11,31 @@ public class SolutionLCP45 {
         int N = terrain[0].length;
 
         Queue<int[]> queue = new LinkedList<>();
-        List<int[]> resList = new ArrayList<>();
         // position[0] position[1] speed
         queue.add(new int[]{position[0], position[1], 1});
         boolean[][][] visited = new boolean[M][N][105];
         visited[position[0]][position[1]][1] = true;
 
+        List<int[]> resList = new ArrayList<>();
         while (!queue.isEmpty()) {
             int[] cur = queue.remove();
+            int curM = cur[0];
+            int curN = cur[1];
+            int curSpeed = cur[2];
+            if (curSpeed == 1) {
+                if (curM != position[0] || curN != position[1]) {
+                    resList.add(new int[]{curM, curN});
+                }
+            }
 
             for (int[] dir : DIRECTIONS) {
-                int nextM = cur[0] + dir[0];
-                int nextN = cur[1] + dir[1];
-                int curSpeed = cur[2];
+                int nextM = curM + dir[0];
+                int nextN = curN + dir[1];
                 if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
                     int nextSpeed = curSpeed + terrain[cur[0]][cur[1]] - terrain[nextM][nextN] - obstacle[nextM][nextN];
                     // 骑行过程中速度不能为零或负值
                     if (nextSpeed > 0 && !visited[nextM][nextN][nextSpeed]) {
                         visited[nextM][nextN][nextSpeed] = true;
-                        if (nextSpeed == 1) {
-                            resList.add(new int[]{nextM, nextN});
-                        }
                         queue.add(new int[]{nextM, nextN, nextSpeed});
                     }
                 }

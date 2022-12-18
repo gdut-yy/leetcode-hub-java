@@ -71,6 +71,8 @@ public class Solution2421 {
 2421. 好路径的数目
 https://leetcode.cn/problems/number-of-good-paths/
 
+第 312 场周赛 T4。
+
 给你一棵 n 个节点的树（连通无向无环的图），节点编号从 0 到 n - 1 且恰好有 n - 1 条边。
 给你一个长度为 n 下标从 0 开始的整数数组 vals ，分别表示每个节点的值。同时给你一个二维整数数组 edges ，其中 edges[i] = [ai, bi] 表示节点 ai 和 bi 之间有一条 无向 边。
 一条 好路径 需要满足以下条件：

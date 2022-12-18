@@ -1,139 +1,40 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Solution2502 {
     static class Allocator {
         private final int n;
-        private final Map<Integer, List<Integer>> mIdListMap;
-        private final DynamicSegTreeUpd dynamicSegTreeUpd;
+        private final int[] arr;
 
         public Allocator(int n) {
             this.n = n;
-            mIdListMap = new HashMap<>();
-            dynamicSegTreeUpd = new DynamicSegTreeUpd();
+            arr = new int[n];
         }
 
         public int allocate(int size, int mID) {
-            for (int i = 0; i + size - 1 < n; i++) {
-                int r = i + size - 1;
-                if (dynamicSegTreeUpd.getSum(i, r) == 0) {
-                    dynamicSegTreeUpd.update(i, r, 1);
-                    for (int j = i; j <= r; j++) {
-                        mIdListMap.computeIfAbsent(mID, key -> new ArrayList<>()).add(j);
+            int cnt = 0;
+            for (int i = 0; i < n; i++) {
+                if (arr[i] > 0) {
+                    cnt = 0;
+                } else {
+                    cnt++;
+                    if (cnt == size) {
+                        Arrays.fill(arr, i - size + 1, i + 1, mID);
+                        return i - size + 1;
                     }
-                    return i;
                 }
             }
             return -1;
         }
 
         public int free(int mID) {
-            List<Integer> idList = mIdListMap.getOrDefault(mID, new ArrayList<>());
-            for (int id : idList) {
-                dynamicSegTreeUpd.update(id, id, 0);
-            }
-            mIdListMap.put(mID, new ArrayList<>());
-            return idList.size();
-        }
-
-        private static class DynamicSegTreeUpd {
-            private static final int N = 1005;
-            private final Node root = new Node();
-
-            private static class Node {
-                Node ls, rs;
-                long sum, max, lazy;
-            }
-
-            // 区间 [l,r] 置为 val
-            public void update(int l, int r, int val) {
-                this.update(l, r, val, 0, N, root);
-            }
-
-            // 区间 [l,r] 求和
-            public long getSum(int l, int r) {
-                return this.getSum(l, r, 0, N, root);
-            }
-
-            // 区间 [l,r] 最大值
-            public long getMax(int l, int r) {
-                return this.getMax(l, r, 0, N, root);
-            }
-
-            private void update(int l, int r, int val, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    node.sum = (t - s + 1L) * val;
-                    node.max = val;
-                    node.lazy = val;
-                    return;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                if (l <= mid) {
-                    update(l, r, val, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    update(l, r, val, mid + 1, t, node.rs);
-                }
-                pushUp(node);
-            }
-
-            private long getSum(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.sum;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                long sum = 0;
-                if (l <= mid) {
-                    sum = getSum(l, r, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    sum += getSum(l, r, mid + 1, t, node.rs);
-                }
-                return sum;
-            }
-
-            private long getMax(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.max;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                long max = 0;
-                if (l <= mid) {
-                    max = getMax(l, r, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-                }
-                return max;
-            }
-
-            private void pushDown(Node node, int s, int t, int mid) {
-                if (node.ls == null) {
-                    node.ls = new Node();
-                }
-                if (node.rs == null) {
-                    node.rs = new Node();
-                }
-                if (node.lazy > 0) {
-                    node.ls.sum = node.lazy * (mid - s + 1L);
-                    node.rs.sum = node.lazy * (t - mid);
-                    node.ls.max = node.lazy;
-                    node.rs.max = node.lazy;
-                    node.ls.lazy = node.lazy;
-                    node.rs.lazy = node.lazy;
-                    node.lazy = 0;
+            int cnt = 0;
+            for (int i = 0; i < n; i++) {
+                if (arr[i] == mID) {
+                    cnt++;
+                    arr[i] = 0;
                 }
             }
-
-            private void pushUp(Node node) {
-                node.sum = node.ls.sum + node.rs.sum;
-                node.max = Math.max(node.ls.max, node.rs.max);
-            }
+            return cnt;
         }
     }
 }
@@ -158,5 +59,5 @@ https://leetcode.cn/problems/design-memory-allocator/
 1 <= n, size, mID <= 1000
 最多调用 allocate 和 free 方法 1000 次
 
-暂没想到啥非暴力做法，套了个线段树板子。。。
+暴力
  */
