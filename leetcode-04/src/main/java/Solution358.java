@@ -18,14 +18,14 @@ public class Solution358 {
         }
 
         // 优先使用频次高的
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> {
             if (o1.cnt == o2.cnt) {
                 return Character.compare(o1.ch, o2.ch);
             }
             return Integer.compare(o2.cnt, o1.cnt);
         });
         for (Map.Entry<Character, Integer> entry : cntMap.entrySet()) {
-            priorityQueue.add(new Node(entry.getKey(), entry.getValue()));
+            maxHeap.add(new Node(entry.getKey(), entry.getValue()));
         }
 
         int n = s.length();
@@ -33,7 +33,7 @@ public class Solution358 {
         for (int i = 0; i < n; i += k) {
             List<Node> tmpList = new ArrayList<>();
             for (int j = 0; j < k && i + j < n; j++) {
-                Node node = priorityQueue.poll();
+                Node node = maxHeap.poll();
                 if (node == null) {
                     return "";
                 }
@@ -42,7 +42,7 @@ public class Solution358 {
                     tmpList.add(new Node(node.ch, node.cnt - 1));
                 }
             }
-            priorityQueue.addAll(tmpList);
+            maxHeap.addAll(tmpList);
         }
         return stringBuilder.toString();
     }

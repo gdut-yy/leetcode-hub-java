@@ -56,17 +56,17 @@ public class Solution1514 {
             Arrays.fill(dist, 0);
 
             // 优先队列 按 成功概率 降序排列
-            PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+            PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> {
                 if (o1.dist == o2.dist) {
                     return Integer.compare(o1.node, o2.node);
                 }
                 return Double.compare(o2.dist, o1.dist);
             });
-            priorityQueue.add(new Node(src, 1));
+            maxHeap.add(new Node(src, 1));
             dist[src] = 1;
 
-            while (!priorityQueue.isEmpty()) {
-                Node poll = priorityQueue.poll();
+            while (!maxHeap.isEmpty()) {
+                Node poll = maxHeap.poll();
                 int id = poll.node;
 
                 if (visited[id]) {
@@ -78,7 +78,7 @@ public class Solution1514 {
                     // 变种
                     if (dist[j] < dist[id] * weightArr[i]) {
                         dist[j] = dist[id] * weightArr[i];
-                        priorityQueue.add(new Node(j, dist[j]));
+                        maxHeap.add(new Node(j, dist[j]));
                     }
                 }
             }

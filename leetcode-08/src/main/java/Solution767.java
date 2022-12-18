@@ -8,34 +8,34 @@ public class Solution767 {
         for (char ch : s.toCharArray()) {
             cntMap.put(ch, cntMap.getOrDefault(ch, 0) + 1);
         }
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> {
             if (o1.cnt == o2.cnt) {
                 return Character.compare(o1.ch, o2.ch);
             }
             return Integer.compare(o2.cnt, o1.cnt);
         });
         for (Map.Entry<Character, Integer> entry : cntMap.entrySet()) {
-            priorityQueue.add(new Node(entry.getKey(), entry.getValue()));
+            maxHeap.add(new Node(entry.getKey(), entry.getValue()));
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        while (!priorityQueue.isEmpty()) {
-            if (priorityQueue.size() == 1) {
-                Node top1 = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            if (maxHeap.size() == 1) {
+                Node top1 = maxHeap.remove();
                 stringBuilder.append(top1.ch);
                 break;
             } else {
-                Node top1 = priorityQueue.remove();
-                Node top2 = priorityQueue.remove();
+                Node top1 = maxHeap.remove();
+                Node top2 = maxHeap.remove();
                 stringBuilder.append(top1.ch);
                 stringBuilder.append(top2.ch);
                 top1.cnt--;
                 top2.cnt--;
                 if (top1.cnt > 0) {
-                    priorityQueue.add(top1);
+                    maxHeap.add(top1);
                 }
                 if (top2.cnt > 0) {
-                    priorityQueue.add(top2);
+                    maxHeap.add(top2);
                 }
             }
         }

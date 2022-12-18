@@ -9,18 +9,18 @@ public class Solution2182 {
         }
 
         // 贪心，按字典序降序
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> Character.compare(o2.ch, o1.ch));
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> Character.compare(o2.ch, o1.ch));
         for (int i = 0; i < 26; i++) {
             if (cntArr[i] > 0) {
                 char ch = (char) (i + 'a');
                 String str = String.valueOf(ch);
-                priorityQueue.add(new Node(ch, str, cntArr[i]));
+                maxHeap.add(new Node(ch, str, cntArr[i]));
             }
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        while (!priorityQueue.isEmpty()) {
-            Node top1 = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            Node top1 = maxHeap.remove();
             if (top1.cnt <= 0) {
                 break;
             }
@@ -30,16 +30,16 @@ public class Solution2182 {
                 top1.cnt -= maxLen;
                 stringBuilder.append(top1.str.repeat(maxLen));
                 if (top1.cnt > 0) {
-                    priorityQueue.add(top1);
+                    maxHeap.add(top1);
                 }
             } else {
-                Node top2 = priorityQueue.poll();
+                Node top2 = maxHeap.poll();
                 if (top2 != null && top2.cnt > 0) {
                     stringBuilder.append(top2.str);
                     top2.cnt--;
-                    priorityQueue.add(top1);
+                    maxHeap.add(top1);
                     if (top2.cnt > 0) {
-                        priorityQueue.add(top2);
+                        maxHeap.add(top2);
                     }
                 } else {
                     break;

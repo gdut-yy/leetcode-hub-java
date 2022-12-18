@@ -14,14 +14,14 @@ public class Solution502 {
         Arrays.sort(profitCapital, Comparator.comparingInt(o -> o[0]));
 
         int cur = 0;
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < k; i++) {
             while (cur < n && profitCapital[cur][0] <= w) {
-                priorityQueue.add(profitCapital[cur][1]);
+                maxHeap.add(profitCapital[cur][1]);
                 cur++;
             }
-            if (!priorityQueue.isEmpty()) {
-                w += priorityQueue.remove();
+            if (!maxHeap.isEmpty()) {
+                w += maxHeap.remove();
             } else {
                 break;
             }

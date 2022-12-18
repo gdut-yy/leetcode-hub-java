@@ -12,28 +12,28 @@ public class Solution621 {
         }
 
         // 贪心
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < 26; i++) {
             if (cntArr[i] > 0) {
-                priorityQueue.add(cntArr[i]);
+                maxHeap.add(cntArr[i]);
             }
         }
         int cnt = 0;
-        while (!priorityQueue.isEmpty()) {
+        while (!maxHeap.isEmpty()) {
             // 两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间
-            int size = Math.min(priorityQueue.size(), n + 1);
+            int size = Math.min(maxHeap.size(), n + 1);
             List<Integer> tmpList = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                int cur = priorityQueue.remove();
+                int cur = maxHeap.remove();
                 if (cur > 1) {
                     tmpList.add(cur - 1);
                 }
                 cnt++;
             }
-            priorityQueue.addAll(tmpList);
+            maxHeap.addAll(tmpList);
 
             // 最后一轮不需要继续 "待命"
-            if (!priorityQueue.isEmpty()) {
+            if (!maxHeap.isEmpty()) {
                 cnt += n + 1 - size;
             }
         }

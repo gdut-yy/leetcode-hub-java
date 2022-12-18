@@ -4,19 +4,19 @@ import java.util.PriorityQueue;
 public class Solution1962 {
     public int minStoneSum(int[] piles, int k) {
         // 大顶堆
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int pile : piles) {
-            priorityQueue.add(pile);
+            maxHeap.add(pile);
         }
-        while (!priorityQueue.isEmpty() && k > 0) {
-            int curMax = priorityQueue.poll();
+        while (!maxHeap.isEmpty() && k > 0) {
+            int curMax = maxHeap.poll();
             int newVal = curMax - (int) Math.floor(curMax >> 1);
-            priorityQueue.add(newVal);
+            maxHeap.add(newVal);
             k--;
         }
         int res = 0;
-        while (!priorityQueue.isEmpty()) {
-            res += priorityQueue.poll();
+        while (!maxHeap.isEmpty()) {
+            res += maxHeap.poll();
         }
         return res;
     }

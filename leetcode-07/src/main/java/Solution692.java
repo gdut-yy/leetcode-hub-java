@@ -11,19 +11,19 @@ public class Solution692 {
             hashMap.put(word, hashMap.getOrDefault(word, 0) + 1);
         }
 
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> {
             if (o1.freq.equals(o2.freq)) {
                 return o1.word.compareTo(o2.word);
             }
             return Integer.compare(o2.freq, o1.freq);
         });
         for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
-            priorityQueue.add(new Node(entry.getKey(), entry.getValue()));
+            maxHeap.add(new Node(entry.getKey(), entry.getValue()));
         }
 
         List<String> resList = new ArrayList<>();
         for (int i = 0; i < k; i++) {
-            resList.add(priorityQueue.remove().word);
+            resList.add(maxHeap.remove().word);
         }
         return resList;
     }

@@ -22,13 +22,13 @@ public class DD2020006 {
         int preSum = 0;
         int leftSum = 0;
         int res = Arrays.stream(a).sum();
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < n; i++) {
             preSum += a[i];
             if (i >= m) {
                 leftSum += a[i - m];
-                priorityQueue.add(leftSum);
-                int leftMax = priorityQueue.element();
+                maxHeap.add(leftSum);
+                int leftMax = maxHeap.element();
                 res = Math.min(res, preSum - leftMax);
             }
         }

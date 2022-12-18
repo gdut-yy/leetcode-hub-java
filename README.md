@@ -8,6 +8,7 @@
 
 ~~（拼搏 300 天，我要完成 1000 道 leetcode 题！（Day269 (2022.03.30) 已完成 1001 题）~~
 
+- `atcoder-*` 存放 atcoder 题目。
 - `codeforces-*` 存放 codeforces 题目。
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
 - `leetcode-core` 存放 leetcode 自定义对象。

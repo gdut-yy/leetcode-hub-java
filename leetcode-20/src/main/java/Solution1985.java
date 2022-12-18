@@ -5,17 +5,15 @@ import java.util.PriorityQueue;
 public class Solution1985 {
     public String kthLargestNumber(String[] nums, int k) {
         // 大顶堆
-        PriorityQueue<String> priorityQueue = new PriorityQueue<>((o1, o2) -> new BigInteger(o2).compareTo(new BigInteger(o1)));
-        Collections.addAll(priorityQueue, nums);
+        PriorityQueue<String> maxHeap = new PriorityQueue<>((o1, o2) -> new BigInteger(o2).compareTo(new BigInteger(o1)));
+        Collections.addAll(maxHeap, nums);
         String res = "";
         while (k > 0) {
-            res = priorityQueue.poll();
+            res = maxHeap.poll();
             k--;
         }
         return res;
     }
-
-
 }
 /*
 1985. 找出数组中的第 K 大整数

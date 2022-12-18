@@ -16,18 +16,18 @@ public class Solution2386 {
         }
         Arrays.sort(nums);
 
-        PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(o -> o[0]));
+        PriorityQueue<long[]> minHeap = new PriorityQueue<>(Comparator.comparingLong(o -> o[0]));
         // [sum, i]
-        priorityQueue.add(new long[]{nums[0], 0});
+        minHeap.add(new long[]{nums[0], 0});
 
         long subSum = 0;
         for (int i = 0; i < k - 1; i++) {
-            long[] top = priorityQueue.remove();
+            long[] top = minHeap.remove();
             subSum = top[0];
             int idx = (int) top[1];
             if (idx + 1 < n) {
-                priorityQueue.add(new long[]{subSum + nums[idx + 1], idx + 1});
-                priorityQueue.add(new long[]{subSum + nums[idx + 1] - nums[idx], idx + 1});
+                minHeap.add(new long[]{subSum + nums[idx + 1], idx + 1});
+                minHeap.add(new long[]{subSum + nums[idx + 1] - nums[idx], idx + 1});
             }
         }
         return sum - subSum;

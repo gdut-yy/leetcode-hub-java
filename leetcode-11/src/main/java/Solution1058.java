@@ -4,19 +4,19 @@ import java.util.PriorityQueue;
 public class Solution1058 {
     public String minimizeError(String[] prices, int target) {
         int floorSum = 0;
-        PriorityQueue<Double> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Double> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (String s : prices) {
             double price = Double.parseDouble(s);
             int floor = (int) Math.floor(price);
             floorSum += floor;
             if (price - floor > 0) {
                 // 小数部分
-                priorityQueue.add(price - floor);
+                maxHeap.add(price - floor);
             }
         }
 
         // 无法达到目标值 target，就返回字符串 "-1"。
-        if (target < floorSum || target > floorSum + priorityQueue.size()) {
+        if (target < floorSum || target > floorSum + maxHeap.size()) {
             return "-1";
         }
 
@@ -24,10 +24,10 @@ public class Solution1058 {
         int ceilNum = target - floorSum;
         double res = 0;
         for (int i = 0; i < ceilNum; i++) {
-            res += (1.0 - priorityQueue.remove());
+            res += (1.0 - maxHeap.remove());
         }
-        while (!priorityQueue.isEmpty()) {
-            res += priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            res += maxHeap.remove();
         }
         return String.format("%.3f", res);
     }

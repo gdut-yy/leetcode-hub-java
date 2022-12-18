@@ -7,21 +7,17 @@ import java.util.PriorityQueue;
 
 public class Solution332 {
     // 如果存在多种有效的行程，请你按字典排序返回最小的行程组合。
-    private Map<String, PriorityQueue<String>> outGraph;
+    private Map<String, PriorityQueue<String>> adj;
     private List<String> resList;
 
     public List<String> findItinerary(List<List<String>> tickets) {
-        outGraph = new HashMap<>();
-        resList = new ArrayList<>();
-
+        adj = new HashMap<>();
         for (List<String> ticket : tickets) {
-            String pre = ticket.get(0);
-            String cur = ticket.get(1);
-
-            PriorityQueue<String> priorityQueue = outGraph.getOrDefault(pre, new PriorityQueue<>());
-            priorityQueue.add(cur);
-            outGraph.put(pre, priorityQueue);
+            String u = ticket.get(0);
+            String v = ticket.get(1);
+            adj.computeIfAbsent(u, key -> new PriorityQueue<>()).add(v);
         }
+        resList = new ArrayList<>();
 
         // 欧拉通路 / 欧拉回路
         // 该行程必须从 JFK 开始
@@ -32,8 +28,8 @@ public class Solution332 {
 
     private void dfs(String cur) {
         // 当我们遍历完一个节点所连的所有节点后，我们才将该节点入队（即逆序入队）
-        while (outGraph.containsKey(cur) && outGraph.get(cur).size() > 0) {
-            String next = outGraph.get(cur).poll();
+        while (adj.containsKey(cur) && adj.get(cur).size() > 0) {
+            String next = adj.get(cur).poll();
             dfs(next);
         }
         resList.add(cur);

@@ -13,14 +13,14 @@ public class SolutionLCP30 {
         // 模拟
         long mock = 1;
         int cnt = 0;
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int num : nums) {
             if (num < 0) {
-                priorityQueue.add(num);
+                minHeap.add(num);
             }
             if (mock + num <= 0) {
                 cnt++;
-                mock -= priorityQueue.remove();
+                mock -= minHeap.remove();
             }
             mock += num;
         }

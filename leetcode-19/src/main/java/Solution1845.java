@@ -2,23 +2,23 @@ import java.util.PriorityQueue;
 
 public class Solution1845 {
     static class SeatManager {
-        private final PriorityQueue<Integer> priorityQueue;
+        private final PriorityQueue<Integer> minHeap;
 
         public SeatManager(int n) {
-            priorityQueue = new PriorityQueue<>();
+            minHeap = new PriorityQueue<>();
             for (int i = 1; i <= n; i++) {
-                priorityQueue.add(i);
+                minHeap.add(i);
             }
         }
 
         public int reserve() {
             // 每一次对 reserve 的调用，题目保证至少存在一个可以预约的座位。
-            return priorityQueue.poll();
+            return minHeap.remove();
         }
 
         public void unreserve(int seatNumber) {
             // 每一次对 unreserve 的调用，题目保证 seatNumber 在调用函数前都是被预约状态。
-            priorityQueue.add(seatNumber);
+            minHeap.add(seatNumber);
         }
     }
 }

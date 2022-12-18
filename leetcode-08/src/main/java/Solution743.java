@@ -108,12 +108,12 @@ public class Solution743 {
             Arrays.fill(dist, Integer.MAX_VALUE);
 
             // 优先队列优化
-            PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
-            priorityQueue.add(new int[]{src, 0});
+            PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
+            minHeap.add(new int[]{src, 0});
             dist[src] = 0;
 
-            while (!priorityQueue.isEmpty()) {
-                int[] poll = priorityQueue.poll();
+            while (!minHeap.isEmpty()) {
+                int[] poll = minHeap.poll();
                 int id = poll[0];
 
                 if (visited[id]) {
@@ -124,7 +124,7 @@ public class Solution743 {
                     int j = edgeArr[i];
                     if (dist[j] > dist[id] + weightArr[i]) {
                         dist[j] = dist[id] + weightArr[i];
-                        priorityQueue.add(new int[]{j, dist[j]});
+                        minHeap.add(new int[]{j, dist[j]});
                     }
                 }
             }

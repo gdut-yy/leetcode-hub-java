@@ -10,7 +10,7 @@ public class Solution630 {
 
         int curDuration = 0;
         // 优先队列 按 duration 降序排列
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0], o1[0]));
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0], o1[0]));
         for (int[] course : courses) {
             // 排除 durationi > lastDayi 的
             if (course[0] > course[1]) {
@@ -19,23 +19,22 @@ public class Solution630 {
             // 尝试加
             if (curDuration + course[0] <= course[1]) {
                 curDuration += course[0];
-                priorityQueue.add(course);
+                maxHeap.add(course);
             } else {
-                if (priorityQueue.size() > 0) {
-                    int[] peek = priorityQueue.peek();
+                if (maxHeap.size() > 0) {
+                    int[] peek = maxHeap.peek();
                     // 贪心。
                     // 看当前的课程能否与已选 duration 最长的课程交换，注意当前的课程 duration 需小于已选 duration 最长的课程
                     // 不行就继续看下一门
-
                     if (curDuration + course[0] - peek[0] <= course[1] && course[0] < peek[0]) {
                         curDuration += course[0] - peek[0];
-                        priorityQueue.poll();
-                        priorityQueue.add(course);
+                        maxHeap.poll();
+                        maxHeap.add(course);
                     }
                 }
             }
         }
-        return priorityQueue.size();
+        return maxHeap.size();
     }
 }
 /*

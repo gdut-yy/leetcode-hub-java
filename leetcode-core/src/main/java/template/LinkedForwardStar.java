@@ -53,12 +53,12 @@ public class LinkedForwardStar {
         Arrays.fill(dist, Integer.MAX_VALUE);
 
         // 优先队列优化
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
-        priorityQueue.add(new int[]{src, 0});
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
+        minHeap.add(new int[]{src, 0});
         dist[src] = 0;
 
-        while (!priorityQueue.isEmpty()) {
-            int[] top = priorityQueue.remove();
+        while (!minHeap.isEmpty()) {
+            int[] top = minHeap.remove();
             int cur = top[0];
 
             if (visited[cur]) {
@@ -69,7 +69,7 @@ public class LinkedForwardStar {
                 int next = edgeArr[i];
                 if (dist[next] > dist[cur] + weightArr[i]) {
                     dist[next] = dist[cur] + weightArr[i];
-                    priorityQueue.add(new int[]{next, dist[next]});
+                    minHeap.add(new int[]{next, dist[next]});
                 }
             }
         }

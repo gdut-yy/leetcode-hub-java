@@ -6,7 +6,7 @@ public class Solution1705 {
         // 一连 n 天
         int n = apples.length;
         // [腐败日期, 数量] 小顶堆
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
         int cnt = 0;
         // 当天
         int today = 0;
@@ -16,37 +16,37 @@ public class Solution1705 {
             int lastDay = today + days[i];
             // 苹果数量
             int amount = apples[i];
-            priorityQueue.add(new int[]{lastDay, amount});
+            minHeap.add(new int[]{lastDay, amount});
 
             // 扔掉已腐败的苹果
-            while (!priorityQueue.isEmpty() && priorityQueue.peek()[0] <= today) {
-                priorityQueue.poll();
+            while (!minHeap.isEmpty() && minHeap.peek()[0] <= today) {
+                minHeap.poll();
             }
 
-            if (!priorityQueue.isEmpty()) {
-                int[] peek = priorityQueue.poll();
+            if (!minHeap.isEmpty()) {
+                int[] peek = minHeap.poll();
                 if (peek[1] > 1) {
                     // 吃掉 1 个
                     peek[1] -= 1;
-                    priorityQueue.add(peek);
+                    minHeap.add(peek);
                 }
                 // 扔掉数量为 0 的
                 cnt++;
             }
         }
         // 继续吃
-        while (!priorityQueue.isEmpty()) {
+        while (!minHeap.isEmpty()) {
             today++;
             // 已腐败的扔掉
-            while (!priorityQueue.isEmpty() && priorityQueue.peek()[0] <= today) {
-                priorityQueue.poll();
+            while (!minHeap.isEmpty() && minHeap.peek()[0] <= today) {
+                minHeap.poll();
             }
-            if (!priorityQueue.isEmpty()) {
-                int[] peek = priorityQueue.poll();
+            if (!minHeap.isEmpty()) {
+                int[] peek = minHeap.poll();
                 if (peek[1] > 1) {
                     // 吃掉 1 个
                     peek[1] -= 1;
-                    priorityQueue.add(peek);
+                    minHeap.add(peek);
                 }
                 // 扔掉数量为 0 的
                 cnt++;

@@ -5,11 +5,11 @@ public class SolutionLCP20 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int busRapidTransit(int target, int inc, int dec, int[] jump, int[] cost) {
-        PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(o -> o[0]));
+        PriorityQueue<long[]> minHeap = new PriorityQueue<>(Comparator.comparingLong(o -> o[0]));
         // 后往前 BFS. target => 0 [time, pos]
-        priorityQueue.add(new long[]{0, target});
-        while (!priorityQueue.isEmpty()) {
-            long[] top = priorityQueue.remove();
+        minHeap.add(new long[]{0, target});
+        while (!minHeap.isEmpty()) {
+            long[] top = minHeap.remove();
             long time = top[0];
             long pos = top[1];
             if (pos == 0) {
@@ -17,13 +17,13 @@ public class SolutionLCP20 {
             }
 
             // 直接走 0 => target
-            priorityQueue.add(new long[]{time + pos * inc, 0});
+            minHeap.add(new long[]{time + pos * inc, 0});
             for (int i = 0; i < jump.length; i++) {
                 long remain = pos % jump[i];
                 // 先跳右后左 (x+y) % jump[i] == 0
-                priorityQueue.add(new long[]{time + remain * inc + cost[i], pos / jump[i]});
+                minHeap.add(new long[]{time + remain * inc + cost[i], pos / jump[i]});
                 // 先跳左后右 (x-y) % jump[i] == 0
-                priorityQueue.add(new long[]{time + (jump[i] - remain) * dec + cost[i], pos / jump[i] + 1});
+                minHeap.add(new long[]{time + (jump[i] - remain) * dec + cost[i], pos / jump[i] + 1});
             }
         }
         return -1;

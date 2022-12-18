@@ -3,8 +3,8 @@ import java.util.Deque;
 
 public class Solution402 {
     public String removeKdigits(String num, int k) {
-        Deque<Character> stack = new ArrayDeque<>();
         int len = num.length();
+        Deque<Character> stack = new ArrayDeque<>();
         for (int i = 0; i < len; i++) {
             while (!stack.isEmpty() && k > 0 && stack.peek() > num.charAt(i)) {
                 stack.pop();
@@ -16,22 +16,20 @@ public class Solution402 {
             stack.pop();
             k--;
         }
+
         // stack => String
         StringBuilder stringBuilder = new StringBuilder();
-        // 前导 0
-        boolean leadingZero = true;
         while (!stack.isEmpty()) {
-            char ch = stack.removeLast();
-            if (ch == '0') {
-                if (!leadingZero) {
-                    stringBuilder.append(ch);
-                }
-            } else {
-                stringBuilder.append(ch);
-                leadingZero = false;
+            stringBuilder.append(stack.pop());
+        }
+        String res = stringBuilder.reverse().toString();
+        int i = 0;
+        for (; i < res.length(); i++) {
+            if (res.charAt(i) != '0') {
+                break;
             }
         }
-        return stringBuilder.length() == 0 ? "0" : stringBuilder.toString();
+        return res.substring(i).length() == 0 ? "0" : res.substring(i);
     }
 }
 /*

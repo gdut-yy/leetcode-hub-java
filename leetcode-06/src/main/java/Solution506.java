@@ -9,14 +9,14 @@ public class Solution506 {
     private static final String BRONZE_MEDAL = "Bronze Medal";
 
     public String[] findRelativeRanks(int[] score) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int sco : score) {
-            priorityQueue.add(sco);
+            maxHeap.add(sco);
         }
         Map<Integer, Integer> orderMap = new HashMap<>();
         int n = score.length;
         for (int i = 1; i <= n; i++) {
-            orderMap.put(priorityQueue.poll(), i);
+            orderMap.put(maxHeap.remove(), i);
         }
         String[] res = new String[n];
         for (int i = 0; i < n; i++) {

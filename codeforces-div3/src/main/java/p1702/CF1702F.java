@@ -28,17 +28,17 @@ public class CF1702F {
 
     private static String solve(int n, int[] a, int[] b) {
         Map<Integer, LinkedList<Integer>> aMap = new HashMap<>();
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < n; i++) {
             while (a[i] % 2 == 0) {
                 a[i] /= 2;
             }
             aMap.computeIfAbsent(a[i], key -> new LinkedList<>()).add(i);
-            priorityQueue.add(b[i]);
+            maxHeap.add(b[i]);
         }
 
-        while (!priorityQueue.isEmpty()) {
-            int bMax = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            int bMax = maxHeap.remove();
             if (aMap.containsKey(bMax)) {
                 int size = aMap.get(bMax).size();
                 if (size == 1) {
@@ -50,7 +50,7 @@ public class CF1702F {
                 if (bMax == 1) {
                     return "NO";
                 } else {
-                    priorityQueue.add(bMax / 2);
+                    maxHeap.add(bMax / 2);
                 }
             }
         }

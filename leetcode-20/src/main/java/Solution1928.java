@@ -37,6 +37,8 @@ public class Solution1928 {
 1928. 规定时间内到达终点的最小花费
 https://leetcode.cn/problems/minimum-cost-to-reach-destination-in-time/
 
+第 56 场双周赛 T4。
+
 一个国家有 n 个城市，城市编号为 0 到 n - 1 ，题目保证 所有城市 都由双向道路 连接在一起 。道路由二维整数数组 edges 表示，
 其中 edges[i] = [xi, yi, timei] 表示城市 xi 和 yi 之间有一条双向道路，耗费时间为 timei 分钟。
 两个城市之间可能会有多条耗费时间不同的道路，但是不会有道路两头连接着同一座城市。

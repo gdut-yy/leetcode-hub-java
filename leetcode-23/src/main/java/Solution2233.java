@@ -2,19 +2,19 @@ import java.util.PriorityQueue;
 
 public class Solution2233 {
     public int maximumProduct(int[] nums, int k) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int num : nums) {
-            priorityQueue.add(num);
+            minHeap.add(num);
         }
         for (int i = 0; i < k; i++) {
-            int remove = priorityQueue.remove();
-            priorityQueue.add(remove + 1);
+            int remove = minHeap.remove();
+            minHeap.add(remove + 1);
         }
 
         // res
         long res = 1;
         long mod = 1000000007;
-        for (Integer integer : priorityQueue) {
+        for (Integer integer : minHeap) {
             res = (res * integer) % mod;
         }
         return (int) res;

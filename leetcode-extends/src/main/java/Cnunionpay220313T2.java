@@ -22,7 +22,7 @@ public class Cnunionpay220313T2 {
         public int consume(int userId, int cost) {
             // 若同时满足多个优惠活动时，则优先参加优惠减免最大的活动
             // 注：若有多个优惠减免最大的活动，优先参加 actId 最小的活动
-            PriorityQueue<Activity> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+            PriorityQueue<Activity> maxHeap = new PriorityQueue<>((o1, o2) -> {
                 if (o1.discount == o2.discount) {
                     return Integer.compare(o1.actId, o2.actId);
                 }
@@ -37,13 +37,13 @@ public class Cnunionpay220313T2 {
                 if (cost >= activity.priceLimit
                         && activity.cntMap.getOrDefault(userId, 0) < activity.userLimit
                         && activity.cnt < activity.number) {
-                    priorityQueue.add(activity);
+                    maxHeap.add(activity);
                 }
             }
 
             // 若可享受优惠减免，则 「支付金额 = 原价 - 优惠减免」
-            if (!priorityQueue.isEmpty()) {
-                Activity activity = priorityQueue.poll();
+            if (!maxHeap.isEmpty()) {
+                Activity activity = maxHeap.poll();
                 Activity update = hashMap.get(activity.actId);
                 update.cntMap.put(userId, update.cntMap.getOrDefault(userId, 0) + 1);
                 update.cnt += 1;

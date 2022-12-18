@@ -3,18 +3,18 @@ import java.util.PriorityQueue;
 
 public class Solution2144 {
     public int minimumCost(int[] cost) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int cos : cost) {
-            priorityQueue.add(cos);
+            maxHeap.add(cos);
         }
 
         int res = 0;
         int len = cost.length;
         for (int i = 0; i < len; i++) {
             if (i % 3 != 2) {
-                res += priorityQueue.remove();
+                res += maxHeap.remove();
             } else {
-                priorityQueue.remove();
+                maxHeap.remove();
             }
         }
         return res;

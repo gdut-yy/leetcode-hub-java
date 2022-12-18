@@ -3,28 +3,28 @@ import java.util.PriorityQueue;
 public class Solution1405 {
     public String longestDiverseString(int a, int b, int c) {
         // 根据数量降序排列
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
-        priorityQueue.add(new Node("a", a));
-        priorityQueue.add(new Node("b", b));
-        priorityQueue.add(new Node("c", c));
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
+        maxHeap.add(new Node("a", a));
+        maxHeap.add(new Node("b", b));
+        maxHeap.add(new Node("c", c));
 
         StringBuilder stringBuilder = new StringBuilder();
-        while (!priorityQueue.isEmpty()) {
-            Node top1 = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            Node top1 = maxHeap.remove();
             if (top1.cnt <= 0) {
                 break;
             }
             if (!stringBuilder.toString().endsWith(top1.ch + top1.ch)) {
                 stringBuilder.append(top1.ch);
                 top1.cnt--;
-                priorityQueue.add(top1);
+                maxHeap.add(top1);
             } else {
-                Node top2 = priorityQueue.remove();
+                Node top2 = maxHeap.remove();
                 if (top2.cnt > 0) {
                     stringBuilder.append(top2.ch);
                     top2.cnt--;
-                    priorityQueue.add(top1);
-                    priorityQueue.add(top2);
+                    maxHeap.add(top1);
+                    maxHeap.add(top2);
                 } else {
                     break;
                 }

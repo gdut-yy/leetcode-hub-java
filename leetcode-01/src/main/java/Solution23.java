@@ -2,17 +2,17 @@ import java.util.PriorityQueue;
 
 public class Solution23 {
     public ListNode mergeKLists(ListNode[] lists) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (ListNode listNode : lists) {
             while (listNode != null) {
-                priorityQueue.add(listNode.val);
+                minHeap.add(listNode.val);
                 listNode = listNode.next;
             }
         }
         ListNode dummy = new ListNode(0);
         ListNode p0 = dummy;
-        while (!priorityQueue.isEmpty()) {
-            p0.next = new ListNode(priorityQueue.poll());
+        while (!minHeap.isEmpty()) {
+            p0.next = new ListNode(minHeap.poll());
             p0 = p0.next;
         }
         return dummy.next;

@@ -5,11 +5,11 @@ public class Solution1903 {
     public String largestOddNumber(String num) {
         String[] odds = {"1", "3", "5", "7", "9"};
         // 优先队列-大顶堆（降序排列）
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (String odd : odds) {
-            priorityQueue.add(num.lastIndexOf(odd));
+            maxHeap.add(num.lastIndexOf(odd));
         }
-        Integer maxIndex = priorityQueue.poll();
+        Integer maxIndex = maxHeap.poll();
         return num.substring(0, maxIndex + 1);
     }
 }

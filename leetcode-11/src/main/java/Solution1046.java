@@ -3,17 +3,17 @@ import java.util.PriorityQueue;
 
 public class Solution1046 {
     public int lastStoneWeight(int[] stones) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int stone : stones) {
-            priorityQueue.add(stone);
+            maxHeap.add(stone);
         }
 
-        while (priorityQueue.size() > 1) {
-            int y = priorityQueue.remove();
-            int x = priorityQueue.remove();
-            priorityQueue.add(y - x);
+        while (maxHeap.size() > 1) {
+            int y = maxHeap.remove();
+            int x = maxHeap.remove();
+            maxHeap.add(y - x);
         }
-        return priorityQueue.remove();
+        return maxHeap.remove();
     }
 }
 /*

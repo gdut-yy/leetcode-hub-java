@@ -3,23 +3,23 @@ import java.util.PriorityQueue;
 
 public class Solution2335 {
     public int fillCups(int[] amount) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int am : amount) {
             if (am > 0) {
-                priorityQueue.add(am);
+                maxHeap.add(am);
             }
         }
         int cnt = 0;
-        while (!priorityQueue.isEmpty()) {
-            int top1 = priorityQueue.remove();
-            if (!priorityQueue.isEmpty()) {
-                int top2 = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            int top1 = maxHeap.remove();
+            if (!maxHeap.isEmpty()) {
+                int top2 = maxHeap.remove();
                 if (top2 - 1 > 0) {
-                    priorityQueue.add(top2 - 1);
+                    maxHeap.add(top2 - 1);
                 }
             }
             if (top1 - 1 > 0) {
-                priorityQueue.add(top1 - 1);
+                maxHeap.add(top1 - 1);
             }
             cnt++;
         }

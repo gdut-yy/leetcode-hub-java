@@ -3,24 +3,24 @@ import java.util.PriorityQueue;
 
 public class Solution2208 {
     public int halveArray(int[] nums) {
-        PriorityQueue<Double> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Double> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
 
         // 数组和的一半
         double halfSum = 0;
         for (int num : nums) {
             halfSum += num;
-            priorityQueue.add((double) num);
+            maxHeap.add((double) num);
         }
         halfSum /= 2;
 
         // 贪心
         int cnt = 0;
         double sum = 0;
-        while (sum < halfSum && !priorityQueue.isEmpty()) {
-            double poll = priorityQueue.poll();
+        while (sum < halfSum && !maxHeap.isEmpty()) {
+            double poll = maxHeap.poll();
             poll /= 2.0;
             sum += poll;
-            priorityQueue.add(poll);
+            maxHeap.add(poll);
             cnt++;
         }
         return cnt;

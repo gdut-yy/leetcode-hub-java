@@ -8,13 +8,13 @@ public class Solution451 {
         for (char ch : s.toCharArray()) {
             cntMap.put(ch, cntMap.getOrDefault(ch, 0) + 1);
         }
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
+        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
         for (Map.Entry<Character, Integer> entry : cntMap.entrySet()) {
-            priorityQueue.add(new Node(entry.getKey(), entry.getValue()));
+            maxHeap.add(new Node(entry.getKey(), entry.getValue()));
         }
         StringBuilder stringBuilder = new StringBuilder();
-        while (!priorityQueue.isEmpty()) {
-            Node cur = priorityQueue.poll();
+        while (!maxHeap.isEmpty()) {
+            Node cur = maxHeap.poll();
             stringBuilder.append(String.valueOf(cur.ch).repeat(Math.max(0, cur.cnt)));
         }
         return stringBuilder.toString();

@@ -19,7 +19,7 @@ public class CF1722D {
     }
 
     private static String solve(int n, String s) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         long sum = 0;
         for (int i = 0; i < n; i++) {
             int left = i;
@@ -28,20 +28,20 @@ public class CF1722D {
             if (s.charAt(i) == 'L') {
                 sum += left;
                 if (right > left) {
-                    priorityQueue.add(right - left);
+                    maxHeap.add(right - left);
                 }
             } else {
                 sum += right;
                 if (left > right) {
-                    priorityQueue.add(left - right);
+                    maxHeap.add(left - right);
                 }
             }
         }
 
         List<String> resList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
-            if (!priorityQueue.isEmpty()) {
-                sum += priorityQueue.remove();
+            if (!maxHeap.isEmpty()) {
+                sum += maxHeap.remove();
             }
             resList.add(String.valueOf(sum));
         }

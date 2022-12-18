@@ -2,15 +2,15 @@ import java.util.PriorityQueue;
 
 public class Autox220828T1 {
     public int getLengthOfWaterfallFlow(int num, int[] block) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         for (int i = 0; i < num; i++) {
-            priorityQueue.add(0);
+            minHeap.add(0);
         }
 
         int max = 0;
         for (int x : block) {
-            int top = priorityQueue.remove();
-            priorityQueue.add(top + x);
+            int top = minHeap.remove();
+            minHeap.add(top + x);
             max = Math.max(max, top + x);
         }
         return max;

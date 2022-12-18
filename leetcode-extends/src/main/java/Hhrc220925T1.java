@@ -3,17 +3,17 @@ import java.util.PriorityQueue;
 
 public class Hhrc220925T1 {
     public int lastMaterial(int[] material) {
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int x : material) {
-            priorityQueue.add(x);
+            maxHeap.add(x);
         }
 
-        while (priorityQueue.size() > 1) {
-            int j = priorityQueue.remove();
-            int i = priorityQueue.remove();
-            priorityQueue.add(j - i);
+        while (maxHeap.size() > 1) {
+            int j = maxHeap.remove();
+            int i = maxHeap.remove();
+            maxHeap.add(j - i);
         }
-        return priorityQueue.remove();
+        return maxHeap.remove();
     }
 }
 /*

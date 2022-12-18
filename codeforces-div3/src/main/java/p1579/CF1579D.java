@@ -28,25 +28,25 @@ public class CF1579D {
 
     private static List<String> solve(int n, int[] a) {
         // [val, idx]
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0], o1[0]));
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0], o1[0]));
         for (int i = 0; i < n; i++) {
             if (a[i] > 0) {
-                priorityQueue.add(new int[]{a[i], i + 1});
+                maxHeap.add(new int[]{a[i], i + 1});
             }
         }
 
         List<String> resList = new ArrayList<>();
-        while (priorityQueue.size() > 1) {
-            int[] top1 = priorityQueue.remove();
-            int[] top2 = priorityQueue.remove();
+        while (maxHeap.size() > 1) {
+            int[] top1 = maxHeap.remove();
+            int[] top2 = maxHeap.remove();
             resList.add(top1[1] + " " + top2[1]);
             if (top1[0] - 1 > 0) {
                 top1[0]--;
-                priorityQueue.add(top1);
+                maxHeap.add(top1);
             }
             if (top2[0] - 1 > 0) {
                 top2[0]--;
-                priorityQueue.add(top2);
+                maxHeap.add(top2);
             }
         }
         return resList;

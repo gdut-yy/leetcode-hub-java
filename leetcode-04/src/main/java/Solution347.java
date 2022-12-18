@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.PriorityQueue;
@@ -9,20 +10,22 @@ public class Solution347 {
             cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
         }
 
-        PriorityQueue<Map.Entry<Integer, Integer>> priorityQueue = new PriorityQueue<>(Map.Entry.comparingByValue());
+        // key, value
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
         for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            if (priorityQueue.size() < k) {
-                priorityQueue.add(entry);
+            if (minHeap.size() < k) {
+                minHeap.add(new int[]{entry.getKey(), entry.getValue()});
             } else {
-                if (entry.getValue() > priorityQueue.element().getValue()) {
-                    priorityQueue.remove();
-                    priorityQueue.add(entry);
+                if (entry.getValue() > minHeap.element()[1]) {
+                    minHeap.remove();
+                    minHeap.add(new int[]{entry.getKey(), entry.getValue()});
                 }
             }
         }
+
         int[] res = new int[k];
         for (int i = 0; i < k; i++) {
-            res[i] = priorityQueue.remove().getKey();
+            res[i] = minHeap.remove()[0];
         }
         return res;
     }

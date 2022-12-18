@@ -20,7 +20,7 @@ public class DD2019002 {
         int n = lines.length;
 
         // [score, id] 如得分相同，则按照输入顺序进行排序。
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>((o1, o2) -> {
             if (o1[0] == o2[0]) {
                 return Integer.compare(o1[1], o2[1]);
             }
@@ -29,13 +29,13 @@ public class DD2019002 {
 
         for (int i = 1; i < n; i++) {
             int score = editDistance(lines[0], lines[i]);
-            priorityQueue.add(new int[]{score, i});
+            minHeap.add(new int[]{score, i});
         }
 
         List<String> resList = new ArrayList<>();
         int k = 3;
-        while (!priorityQueue.isEmpty() && k > 0) {
-            resList.add(lines[priorityQueue.remove()[1]]);
+        while (!minHeap.isEmpty() && k > 0) {
+            resList.add(lines[minHeap.remove()[1]]);
             k--;
         }
         return String.join(" ", resList);

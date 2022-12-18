@@ -25,32 +25,30 @@ public class Solution2170 {
         }
 
         // 排序
-        PriorityQueue<int[]> evenPriorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
-        PriorityQueue<int[]> oddPriorityQueue = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
+        PriorityQueue<int[]> evenMaxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
+        PriorityQueue<int[]> oddMaxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
         for (Map.Entry<Integer, Integer> entry : cntEvenMap.entrySet()) {
-            evenPriorityQueue.add(new int[]{entry.getKey(), entry.getValue()});
+            evenMaxHeap.add(new int[]{entry.getKey(), entry.getValue()});
         }
         for (Map.Entry<Integer, Integer> entry : cntOddMap.entrySet()) {
-            oddPriorityQueue.add(new int[]{entry.getKey(), entry.getValue()});
+            oddMaxHeap.add(new int[]{entry.getKey(), entry.getValue()});
         }
 
         int min = Integer.MAX_VALUE;
-        int[] evenTop1 = evenPriorityQueue.remove();
-        int[] oddTop1 = oddPriorityQueue.remove();
+        int[] evenTop1 = evenMaxHeap.remove();
+        int[] oddTop1 = oddMaxHeap.remove();
         if (evenTop1[0] != oddTop1[0]) {
-            int res = evenLen - evenTop1[1] + oddLen - oddTop1[1];
-            min = Math.min(min, res);
+            min = evenLen - evenTop1[1] + oddLen - oddTop1[1];
         } else {
-            if (evenPriorityQueue.isEmpty() && oddPriorityQueue.isEmpty()) {
+            if (evenMaxHeap.isEmpty() && oddMaxHeap.isEmpty()) {
                 min = Math.min(evenLen, oddLen);
             } else {
-                if (!evenPriorityQueue.isEmpty()) {
-                    int[] evenTop2 = evenPriorityQueue.remove();
-                    int res = evenLen - evenTop2[1] + oddLen - oddTop1[1];
-                    min = Math.min(min, res);
+                if (!evenMaxHeap.isEmpty()) {
+                    int[] evenTop2 = evenMaxHeap.remove();
+                    min = evenLen - evenTop2[1] + oddLen - oddTop1[1];
                 }
-                if (!oddPriorityQueue.isEmpty()) {
-                    int[] oddTop2 = oddPriorityQueue.remove();
+                if (!oddMaxHeap.isEmpty()) {
+                    int[] oddTop2 = oddMaxHeap.remove();
                     int res = evenLen - evenTop1[1] + oddLen - oddTop2[1];
                     min = Math.min(min, res);
                 }

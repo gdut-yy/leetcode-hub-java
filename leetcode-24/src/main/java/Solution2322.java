@@ -94,6 +94,8 @@ public class Solution2322 {
 2322. 从树中删除边的最小分数
 https://leetcode.cn/problems/minimum-score-after-removals-on-a-tree/
 
+第 299 场周赛 T4。
+
 存在一棵无向连通树，树中有编号从 0 到 n - 1 的 n 个节点， 以及 n - 1 条边。
 给你一个下标从 0 开始的整数数组 nums ，长度为 n ，其中 nums[i] 表示第 i 个节点的值。另给你一个二维整数数组 edges ，长度为 n - 1 ，其中 edges[i] = [ai, bi] 表示树中存在一条位于节点 ai 和 bi 之间的边。
 删除树中两条 不同 的边以形成三个连通组件。对于一种删除边方案，定义如下步骤以计算其分数：

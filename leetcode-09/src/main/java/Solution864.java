@@ -33,13 +33,13 @@ public class Solution864 {
         }
 
         // Dijkstra
-        PriorityQueue<ANode> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(a -> a.dist));
-        priorityQueue.add(new ANode(new Node('@', 0), 0));
+        PriorityQueue<ANode> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a.dist));
+        minHeap.add(new ANode(new Node('@', 0), 0));
         Map<Node, Integer> finalDist = new HashMap<>();
         finalDist.put(new Node('@', 0), 0);
 
-        while (!priorityQueue.isEmpty()) {
-            ANode anode = priorityQueue.poll();
+        while (!minHeap.isEmpty()) {
+            ANode anode = minHeap.poll();
             Node node = anode.node;
             int d = anode.dist;
             if (finalDist.getOrDefault(node, INF) < d) {
@@ -65,7 +65,7 @@ public class Solution864 {
                 }
                 if (d + d2 < finalDist.getOrDefault(new Node(destination, state2), INF)) {
                     finalDist.put(new Node(destination, state2), d + d2);
-                    priorityQueue.add(new ANode(new Node(destination, state2), d + d2));
+                    minHeap.add(new ANode(new Node(destination, state2), d + d2));
                 }
             }
         }

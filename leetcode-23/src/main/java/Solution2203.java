@@ -73,12 +73,12 @@ public class Solution2203 {
             Arrays.fill(dist, INF);
 
             // 优先队列优化
-            PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(o -> o[1]));
-            priorityQueue.add(new long[]{src, 0});
+            PriorityQueue<long[]> minHeap = new PriorityQueue<>(Comparator.comparingLong(o -> o[1]));
+            minHeap.add(new long[]{src, 0});
             dist[src] = 0;
 
-            while (!priorityQueue.isEmpty()) {
-                long[] poll = priorityQueue.poll();
+            while (!minHeap.isEmpty()) {
+                long[] poll = minHeap.poll();
                 int id = (int) poll[0];
 
                 if (visited[id]) {
@@ -89,7 +89,7 @@ public class Solution2203 {
                     int j = edgeArr[i];
                     if (dist[j] > dist[id] + weightArr[i]) {
                         dist[j] = dist[id] + weightArr[i];
-                        priorityQueue.add(new long[]{j, dist[j]});
+                        minHeap.add(new long[]{j, dist[j]});
                     }
                 }
             }

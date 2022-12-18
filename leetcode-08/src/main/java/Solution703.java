@@ -2,25 +2,25 @@ import java.util.PriorityQueue;
 
 public class Solution703 {
     static class KthLargest {
-        private final PriorityQueue<Integer> priorityQueue;
+        private final PriorityQueue<Integer> minHeap;
         private final int size;
 
         public KthLargest(int k, int[] nums) {
             size = k;
-            priorityQueue = new PriorityQueue<>();
+            minHeap = new PriorityQueue<>();
             for (int num : nums) {
                 this.add(num);
             }
         }
 
         public int add(int val) {
-            if (priorityQueue.size() < size) {
-                priorityQueue.add(val);
-            } else if (val > priorityQueue.element()) {
-                priorityQueue.remove();
-                priorityQueue.add(val);
+            if (minHeap.size() < size) {
+                minHeap.add(val);
+            } else if (val > minHeap.element()) {
+                minHeap.remove();
+                minHeap.add(val);
             }
-            return priorityQueue.element();
+            return minHeap.element();
         }
     }
 }

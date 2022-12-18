@@ -5,29 +5,29 @@ import java.util.PriorityQueue;
 
 public class Solution272 {
     private double target;
-    private PriorityQueue<Integer> ltPQ;
-    private PriorityQueue<Integer> gtPQ;
+    private PriorityQueue<Integer> maxHeap;
+    private PriorityQueue<Integer> minHeap;
 
     public List<Integer> closestKValues(TreeNode root, double target, int k) {
         this.target = target;
-        ltPQ = new PriorityQueue<>(Comparator.reverseOrder());
-        gtPQ = new PriorityQueue<>();
+        maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        minHeap = new PriorityQueue<>();
         dfs(root);
 
         List<Integer> resList = new ArrayList<>();
         for (int i = 0; i < k; i++) {
-            if (ltPQ.isEmpty()) {
-                resList.add(gtPQ.remove());
+            if (maxHeap.isEmpty()) {
+                resList.add(minHeap.remove());
                 continue;
             }
-            if (gtPQ.isEmpty()) {
-                resList.add(ltPQ.remove());
+            if (minHeap.isEmpty()) {
+                resList.add(maxHeap.remove());
                 continue;
             }
-            if (target - ltPQ.peek() <= gtPQ.peek() - target) {
-                resList.add(ltPQ.remove());
+            if (target - maxHeap.peek() <= minHeap.peek() - target) {
+                resList.add(maxHeap.remove());
             } else {
-                resList.add(gtPQ.remove());
+                resList.add(minHeap.remove());
             }
         }
         return resList;
@@ -38,9 +38,9 @@ public class Solution272 {
             return;
         }
         if (root.val >= target) {
-            gtPQ.add(root.val);
+            minHeap.add(root.val);
         } else {
-            ltPQ.add(root.val);
+            maxHeap.add(root.val);
         }
         dfs(root.left);
         dfs(root.right);

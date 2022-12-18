@@ -6,16 +6,16 @@ import java.util.PriorityQueue;
 public class Solution1403 {
     public List<Integer> minSubsequence(int[] nums) {
         int sum = 0;
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
-            priorityQueue.add(num);
+            maxHeap.add(num);
             sum += num;
         }
 
         int sum2 = 0;
         List<Integer> resList = new ArrayList<>();
         while (sum2 <= sum - sum2) {
-            int top = priorityQueue.remove();
+            int top = maxHeap.remove();
             sum2 += top;
             resList.add(top);
         }

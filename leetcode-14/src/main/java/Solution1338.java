@@ -10,14 +10,14 @@ public class Solution1338 {
         for (int num : arr) {
             cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
         }
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            priorityQueue.add(entry.getValue());
+            maxHeap.add(entry.getValue());
         }
         int cnt = 0;
         int ans = 0;
-        while (!priorityQueue.isEmpty()) {
-            cnt += priorityQueue.poll();
+        while (!maxHeap.isEmpty()) {
+            cnt += maxHeap.poll();
             ans++;
             if (cnt >= len / 2) {
                 return ans;

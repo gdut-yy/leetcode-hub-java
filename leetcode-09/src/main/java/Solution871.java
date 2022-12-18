@@ -7,33 +7,33 @@ public class Solution871 {
 
         int pre = 0;
         long fuel = startFuel;
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int[] station : stations) {
             // 当前站与上一站的距离
             fuel -= station[0] - pre;
             if (fuel < 0) {
-                while (!priorityQueue.isEmpty() && fuel < 0) {
-                    fuel += priorityQueue.remove();
+                while (!maxHeap.isEmpty() && fuel < 0) {
+                    fuel += maxHeap.remove();
                 }
                 if (fuel < 0) {
                     return -1;
                 }
             }
             pre = station[0];
-            priorityQueue.add(station[1]);
+            maxHeap.add(station[1]);
         }
 
         // 最后一站到 target
         fuel -= target - pre;
         if (fuel < 0) {
-            while (!priorityQueue.isEmpty() && fuel < 0) {
-                fuel += priorityQueue.remove();
+            while (!maxHeap.isEmpty() && fuel < 0) {
+                fuel += maxHeap.remove();
             }
             if (fuel < 0) {
                 return -1;
             }
         }
-        return len - priorityQueue.size();
+        return len - maxHeap.size();
     }
 }
 /*

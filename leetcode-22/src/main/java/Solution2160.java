@@ -7,14 +7,14 @@ public class Solution2160 {
         int num3 = num / 10 % 10;
         int num4 = num % 10;
 
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
-        priorityQueue.add((num1 + num2) * 10 + (num3 + num4));
-        priorityQueue.add((num1 + num3) * 10 + (num2 + num4));
-        priorityQueue.add((num1 + num4) * 10 + (num2 + num3));
-        priorityQueue.add((num2 + num3) * 10 + (num1 + num4));
-        priorityQueue.add((num2 + num4) * 10 + (num1 + num3));
-        priorityQueue.add((num3 + num4) * 10 + (num1 + num2));
-        return priorityQueue.remove();
+        PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+        minHeap.add((num1 + num2) * 10 + (num3 + num4));
+        minHeap.add((num1 + num3) * 10 + (num2 + num4));
+        minHeap.add((num1 + num4) * 10 + (num2 + num3));
+        minHeap.add((num2 + num3) * 10 + (num1 + num4));
+        minHeap.add((num2 + num4) * 10 + (num1 + num3));
+        minHeap.add((num3 + num4) * 10 + (num1 + num2));
+        return minHeap.remove();
     }
 }
 /*

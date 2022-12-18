@@ -16,13 +16,13 @@ public class Solution1522 {
         if (root == null) {
             return 0;
         }
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (Node child : root.children) {
             int cnt = dfs(child);
-            priorityQueue.add(cnt);
+            maxHeap.add(cnt);
         }
-        int top1 = priorityQueue.isEmpty() ? 0 : priorityQueue.remove();
-        int top2 = priorityQueue.isEmpty() ? 0 : priorityQueue.remove();
+        int top1 = maxHeap.isEmpty() ? 0 : maxHeap.remove();
+        int top2 = maxHeap.isEmpty() ? 0 : maxHeap.remove();
         max = Math.max(max, top1 + top2 + 1);
         return Math.max(top1, top2) + 1;
     }

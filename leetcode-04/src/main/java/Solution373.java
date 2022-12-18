@@ -9,23 +9,23 @@ public class Solution373 {
      * 时间复杂度 O(k^2logk)
      */
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((o1, o2) -> (o2[0] + o2[1]) - (o1[0] + o1[1]));
+        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0] + o2[1], o1[0] + o1[1]));
         for (int i = 0; i < Math.min(k, nums1.length); i++) {
             for (int j = 0; j < Math.min(k, nums2.length); j++) {
-                if (priorityQueue.size() >= k) {
-                    int[] peek = priorityQueue.element();
+                if (maxHeap.size() >= k) {
+                    int[] peek = maxHeap.element();
                     if (peek[0] + peek[1] > nums1[i] + nums2[j]) {
-                        priorityQueue.remove();
-                        priorityQueue.add(new int[]{nums1[i], nums2[j]});
+                        maxHeap.remove();
+                        maxHeap.add(new int[]{nums1[i], nums2[j]});
                     }
                 } else {
-                    priorityQueue.add(new int[]{nums1[i], nums2[j]});
+                    maxHeap.add(new int[]{nums1[i], nums2[j]});
                 }
             }
         }
         List<List<Integer>> resList = new ArrayList<>();
-        while (!priorityQueue.isEmpty()) {
-            int[] value = priorityQueue.remove();
+        while (!maxHeap.isEmpty()) {
+            int[] value = maxHeap.remove();
             resList.add(List.of(value[0], value[1]));
         }
         return resList;
@@ -36,19 +36,19 @@ public class Solution373 {
      * 时间复杂度 O(klogk)
      */
     public List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
-        PriorityQueue<int[]> priorityQueue
+        PriorityQueue<int[]> minHeap
                 = new PriorityQueue<>(Comparator.comparingInt(o -> (nums1[o[0]] + nums2[o[1]])));
         if (nums2.length > 0) {
             for (int i = 0; i < Math.min(k, nums1.length); i++) {
-                priorityQueue.add(new int[]{i, 0});
+                minHeap.add(new int[]{i, 0});
             }
         }
         List<List<Integer>> resList = new ArrayList<>();
-        while (k > 0 && !priorityQueue.isEmpty()) {
-            int[] ids = priorityQueue.remove();
+        while (k > 0 && !minHeap.isEmpty()) {
+            int[] ids = minHeap.remove();
             resList.add(List.of(nums1[ids[0]], nums2[ids[1]]));
             if (ids[1] < nums2.length - 1) {
-                priorityQueue.add(new int[]{ids[0], ids[1] + 1});
+                minHeap.add(new int[]{ids[0], ids[1] + 1});
             }
             k--;
         }

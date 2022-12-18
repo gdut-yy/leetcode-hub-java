@@ -113,6 +113,8 @@ public class Solution2467 {
 2467. 树上最大得分和路径
 https://leetcode.cn/problems/most-profitable-path-in-a-tree/
 
+第 91 场双周赛 T3。
+
 一个 n 个节点的无向树，节点编号为 0 到 n - 1 ，树的根结点是 0 号节点。给你一个长度为 n - 1 的二维整数数组 edges ，其中 edges[i] = [ai, bi] ，表示节点 ai 和 bi 在树中有一条边。
 在每一个节点 i 处有一扇门。同时给你一个都是偶数的数组 amount ，其中 amount[i] 表示：
 - 如果 amount[i] 的值是负数，那么它表示打开节点 i 处门扣除的分数。

@@ -67,11 +67,11 @@ public class Solution1976 {
         long[] dist = new long[n];
         Arrays.fill(dist, INF);
         // 优先队列优化
-        PriorityQueue<long[]> priorityQueue = new PriorityQueue<>(Comparator.comparingLong(o -> o[1]));
-        priorityQueue.add(new long[]{0, 0});
+        PriorityQueue<long[]> minHeap = new PriorityQueue<>(Comparator.comparingLong(o -> o[1]));
+        minHeap.add(new long[]{0, 0});
         dist[0] = 0;
-        while (!priorityQueue.isEmpty()) {
-            long[] top = priorityQueue.remove();
+        while (!minHeap.isEmpty()) {
+            long[] top = minHeap.remove();
             int u = (int) top[0];
             if (visited[u]) {
                 continue;
@@ -82,7 +82,7 @@ public class Solution1976 {
                 int w = tuple[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
-                    priorityQueue.add(new long[]{v, dist[v]});
+                    minHeap.add(new long[]{v, dist[v]});
                 }
             }
         }
@@ -133,6 +133,8 @@ public class Solution1976 {
 /*
 1976. 到达目的地的方案数
 https://leetcode.cn/problems/number-of-ways-to-arrive-at-destination/
+
+第 59 场双周赛 T3。
 
 你在一个城市里，城市由 n 个路口组成，路口编号为 0 到 n - 1 ，某些路口之间有 双向 道路。输入保证你可以从任意路口出发到达其他任意路口，且任意两个路口之间最多有一条路。
 给你一个整数 n 和二维整数数组 roads ，其中 roads[i] = [ui, vi, timei] 表示在路口 ui 和 vi 之间有一条需要花费 timei 时间才能通过的道路。你想知道花费 最少时间 从路口 0 出发到达路口 n - 1 的方案数。

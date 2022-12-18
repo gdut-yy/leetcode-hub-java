@@ -11,7 +11,7 @@ public class Solution2462 {
         this.p = 0;
         this.q = len - 1;
 
-        PriorityQueue<Node> priorityQueue = new PriorityQueue<>((o1, o2) -> {
+        PriorityQueue<Node> minHeap = new PriorityQueue<>((o1, o2) -> {
             // 如果有多位代价相同且最小的工人，选择下标更小的一位工人。
             if (o1.cost == o2.cost) {
                 return Integer.compare(o1.id, o2.id);
@@ -21,18 +21,18 @@ public class Solution2462 {
         });
 
         for (int i = 0; i < candidates; i++) {
-            addLeft(costs, priorityQueue);
-            addRight(costs, priorityQueue);
+            addLeft(costs, minHeap);
+            addRight(costs, minHeap);
         }
 
         long sum = 0L;
         for (int i = 0; i < k; i++) {
-            Node top = priorityQueue.remove();
+            Node top = minHeap.remove();
             sum += top.cost;
             if (top.left) {
-                addLeft(costs, priorityQueue);
+                addLeft(costs, minHeap);
             } else {
-                addRight(costs, priorityQueue);
+                addRight(costs, minHeap);
             }
         }
         return sum;

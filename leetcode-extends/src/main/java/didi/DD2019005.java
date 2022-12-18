@@ -45,12 +45,12 @@ public class DD2019005 {
         Arrays.fill(noDiscount, INF);
         Arrays.fill(discount, INF);
         // 优先队列优化
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[2]));
         // [t, a, p]
-        priorityQueue.add(new int[]{0, -1, 0});
+        minHeap.add(new int[]{0, -1, 0});
         noDiscount[0] = 0;
-        while (!priorityQueue.isEmpty()) {
-            int[] top = priorityQueue.remove();
+        while (!minHeap.isEmpty()) {
+            int[] top = minHeap.remove();
             int ut = top[0];
             int ua = top[1];
             int up = top[2];
@@ -74,7 +74,7 @@ public class DD2019005 {
                 int price = Math.min(noDiscount[ut], discount[ut]) + vp;
                 if (noDiscount[vt] > price) {
                     noDiscount[vt] = price;
-                    priorityQueue.add(new int[]{vt, va, vp});
+                    minHeap.add(new int[]{vt, va, vp});
                 }
             }
         }

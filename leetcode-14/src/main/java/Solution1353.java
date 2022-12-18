@@ -19,23 +19,23 @@ public class Solution1353 {
         }
 
         // [endi, i]
-        PriorityQueue<int[]> priorityQueue = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
+        PriorityQueue<int[]> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
 
         int res = 0;
         for (int day = 1; day <= endMax; day++) {
             // 加入当天开始的会议
             List<Integer> startIdxList = startIdxListMap.getOrDefault(day, new ArrayList<>());
             for (int idx : startIdxList) {
-                priorityQueue.add(new int[]{events[idx][1], idx});
+                minHeap.add(new int[]{events[idx][1], idx});
             }
 
             // 移除当天已结束的会议
-            while (!priorityQueue.isEmpty() && priorityQueue.peek()[0] < day) {
-                priorityQueue.remove();
+            while (!minHeap.isEmpty() && minHeap.peek()[0] < day) {
+                minHeap.remove();
             }
 
-            if (!priorityQueue.isEmpty()) {
-                priorityQueue.remove();
+            if (!minHeap.isEmpty()) {
+                minHeap.remove();
                 res++;
             }
         }

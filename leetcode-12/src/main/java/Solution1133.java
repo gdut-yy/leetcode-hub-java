@@ -9,13 +9,13 @@ public class Solution1133 {
         for (int num : nums) {
             cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
         }
-        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
             if (entry.getValue() == 1) {
-                priorityQueue.add(entry.getKey());
+                maxHeap.add(entry.getKey());
             }
         }
-        return priorityQueue.isEmpty() ? -1 : priorityQueue.peek();
+        return maxHeap.isEmpty() ? -1 : maxHeap.peek();
     }
 }
 /*

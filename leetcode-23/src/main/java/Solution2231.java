@@ -7,14 +7,14 @@ public class Solution2231 {
         int len = numStr.length();
 
         // 贪心
-        PriorityQueue<Integer> oddPriorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
-        PriorityQueue<Integer> evenPriorityQueue = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> oddMaxHeap = new PriorityQueue<>(Comparator.reverseOrder());
+        PriorityQueue<Integer> evenMaxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int i = 0; i < len; i++) {
             int n = numStr.charAt(i) - '0';
             if (n % 2 == 1) {
-                oddPriorityQueue.add(n);
+                oddMaxHeap.add(n);
             } else {
-                evenPriorityQueue.add(n);
+                evenMaxHeap.add(n);
             }
         }
 
@@ -23,9 +23,9 @@ public class Solution2231 {
         for (int i = 0; i < len; i++) {
             int n = numStr.charAt(i) - '0';
             if (n % 2 == 1) {
-                stringBuilder.append(oddPriorityQueue.remove());
+                stringBuilder.append(oddMaxHeap.remove());
             } else {
-                stringBuilder.append(evenPriorityQueue.remove());
+                stringBuilder.append(evenMaxHeap.remove());
             }
         }
         return Integer.parseInt(stringBuilder.toString());
