@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution6267 {
+public class Solution2508 {
     private Map<Integer, Set<Integer>> adj;
 
     public boolean isPossible(int n, List<List<Integer>> edges) {
@@ -69,7 +69,7 @@ public class Solution6267 {
     }
 }
 /*
-6267. 添加边使所有节点度数都为偶数
+2508. 添加边使所有节点度数都为偶数
 https://leetcode.cn/problems/add-edges-to-make-degrees-of-all-nodes-even/
 
 第 324 场周赛 T3。

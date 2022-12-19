@@ -1,4 +1,4 @@
-public class Solution6266 {
+public class Solution2507 {
     private static final int MAX_N = 100000;
     private static int[] memo;
 
@@ -39,7 +39,7 @@ public class Solution6266 {
     }
 }
 /*
-6266. 使用质因数之和替换后可以取到的最小值
+2507. 使用质因数之和替换后可以取到的最小值
 https://leetcode.cn/problems/smallest-value-after-replacing-with-sum-of-prime-factors/
 
 第 324 场周赛 T2。

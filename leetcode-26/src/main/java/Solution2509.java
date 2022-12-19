@@ -1,4 +1,4 @@
-public class Solution6268 {
+public class Solution2509 {
     public int[] cycleLengthQueries(int n, int[][] queries) {
         int m = queries.length;
         int[] res = new int[m];
@@ -20,7 +20,7 @@ public class Solution6268 {
     }
 }
 /*
-6268. 查询树中环的长度
+2509. 查询树中环的长度
 https://leetcode.cn/problems/cycle-length-queries-in-a-tree/
 
 第 324 场周赛 T4。

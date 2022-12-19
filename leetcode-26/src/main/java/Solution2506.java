@@ -1,4 +1,4 @@
-public class Solution6265 {
+public class Solution2506 {
     public int similarPairs(String[] words) {
         int len = words.length;
         int[] mask = new int[len];
@@ -21,7 +21,7 @@ public class Solution6265 {
     }
 }
 /*
-6265. 统计相似字符串对的数目
+2506. 统计相似字符串对的数目
 https://leetcode.cn/problems/count-pairs-of-similar-strings/
 
 第 324 场周赛 T1。
