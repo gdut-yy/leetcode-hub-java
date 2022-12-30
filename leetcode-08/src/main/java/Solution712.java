@@ -3,7 +3,7 @@ public class Solution712 {
         int n = s1.length();
         int m = s2.length();
 
-        // f[i][j] 表示 s1 前 i 个字母与 s2 前 j 个字母的最小ASCII删除和
+        // f[i][j] 表示 s1 前 i 个元素与 s2 前 j 个元素的最小ASCII删除和
         int[][] f = new int[n + 1][m + 1];
 
         // 初始状态

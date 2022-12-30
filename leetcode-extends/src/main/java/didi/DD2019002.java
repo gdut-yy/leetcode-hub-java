@@ -13,7 +13,7 @@ public class DD2019002 {
         System.out.println(solve(line));
     }
 
-    private static final String GROUP = "qwertasdfgzxcv";
+    private static final String GROUP1 = "qwertasdfgzxcv";
 
     private static String solve(String line) {
         String[] lines = line.split(" ");
@@ -42,38 +42,38 @@ public class DD2019002 {
     }
 
     private static int editDistance(String word1, String word2) {
-        int len1 = word1.length();
-        int len2 = word2.length();
+        int n = word1.length();
+        int m = word2.length();
 
-        // dp[i][j] 表示 word1 的前 i 个字母和 word2 的前 j 个字母之间的编辑距离
-        int[][] dp = new int[len1 + 1][len2 + 1];
+        // f[i][j] 表示 word1 的前 i 个元素和 word2 的前 j 个元素的编辑距离
+        int[][] f = new int[n + 1][m + 1];
 
         // 初始状态
-        for (int i = 1; i <= len1; i++) {
-            dp[i][0] = dp[i - 1][0] + 3;
+        for (int i = 1; i <= n; i++) {
+            f[i][0] = f[i - 1][0] + 3;
         }
-        for (int j = 1; j <= len2; j++) {
-            dp[0][j] = dp[0][j - 1] + 3;
+        for (int j = 1; j <= m; j++) {
+            f[0][j] = f[0][j - 1] + 3;
         }
 
         // 状态转移
-        for (int i = 1; i <= len1; i++) {
-            for (int j = 1; j <= len2; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (word1.charAt(i - 1) == word2.charAt(j - 1)) {
-                    dp[i][j] = dp[i][j] = dp[i - 1][j - 1];
+                    f[i][j] = f[i][j] = f[i - 1][j - 1];
                 } else {
-                    dp[i][j] = Math.min(dp[i - 1][j], dp[i][j - 1]) + 3;
-                    boolean b1 = GROUP.contains("" + word1.charAt(i - 1));
-                    boolean b2 = GROUP.contains("" + word2.charAt(j - 1));
+                    f[i][j] = Math.min(f[i - 1][j], f[i][j - 1]) + 3;
+                    boolean b1 = GROUP1.contains("" + word1.charAt(i - 1));
+                    boolean b2 = GROUP1.contains("" + word2.charAt(j - 1));
                     if ((b1 && b2) || (!b1 && !b2)) {
-                        dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + 1);
+                        f[i][j] = Math.min(f[i][j], f[i - 1][j - 1] + 1);
                     } else {
-                        dp[i][j] = Math.min(dp[i][j], dp[i - 1][j - 1] + 2);
+                        f[i][j] = Math.min(f[i][j], f[i - 1][j - 1] + 2);
                     }
                 }
             }
         }
-        return dp[len1][len2];
+        return f[n][m];
     }
 }
 /*

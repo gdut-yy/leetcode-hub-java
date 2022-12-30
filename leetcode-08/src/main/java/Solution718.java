@@ -6,6 +6,7 @@ public class Solution718 {
     private static final long MOD1 = 1000000007;
     private static final long MOD2 = 1000000009;
 
+    // 时间复杂度 O((m+n)logmin(m,n))
     public int findLength(int[] nums1, int[] nums2) {
         int left = 1;
         int right = Math.min(nums1.length, nums2.length) + 1;
@@ -60,7 +61,7 @@ public class Solution718 {
         if (hashSet.contains(hash2)) {
             return true;
         }
-        for (int i = 1; i <  nums2.length - mid + 1; i++) {
+        for (int i = 1; i < nums2.length - mid + 1; i++) {
             hash2mod1 = (hash2mod1 * BASE - nums2[i - 1] * aL1 % MOD1 + MOD1) % MOD1;
             hash2mod1 = (hash2mod1 + nums2[i + mid - 1]) % MOD1;
 
@@ -87,6 +88,29 @@ public class Solution718 {
             b >>= 1;
         }
         return res;
+    }
+
+    // 时间复杂度 O(nm)
+    public int findLength2(int[] nums1, int[] nums2) {
+        int n = nums1.length;
+        int m = nums2.length;
+
+        // f[i][j] 表示 nums1 前 i 个元素且以 i 结尾与 nums2 前 j 个元素且以 j 结尾的最长重复子数组
+        int[][] f = new int[n + 1][m + 1];
+        int max = 0;
+        for (int i = 1; i <= n; i++) {
+            int num1 = nums1[i - 1];
+            for (int j = 1; j <= m; j++) {
+                int num2 = nums2[j - 1];
+                if (num1 == num2) {
+                    f[i][j] = f[i - 1][j - 1] + 1;
+                } else {
+                    f[i][j] = 0;
+                }
+                max = Math.max(max, f[i][j]);
+            }
+        }
+        return max;
     }
 }
 /*

@@ -1,29 +1,30 @@
 public class Solution44 {
     public boolean isMatch(String s, String p) {
-        int m = s.length();
-        int n = p.length();
+        int n = s.length();
+        int m = p.length();
 
-        // 类似 Solution10 dp[i][j] 表示字符串 s 的前 i 个字符和模式 p 的前 j 个字符是否能匹配
-        boolean[][] dp = new boolean[m + 1][n + 1];
-        dp[0][0] = true;
-        for (int i = 1; i <= n; ++i) {
+        // f[i][j] 表示字符串 s 的前 i 个元素和字符串 p 的前 j 个元素是否能匹配
+        boolean[][] f = new boolean[n + 1][m + 1];
+        // 初始状态
+        f[0][0] = true;
+        for (int i = 1; i <= m; ++i) {
             if (p.charAt(i - 1) == '*') {
-                dp[0][i] = true;
+                f[0][i] = true;
             } else {
                 break;
             }
         }
         // 状态转移
-        for (int i = 1; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (p.charAt(j - 1) == '*') {
-                    dp[i][j] = dp[i][j - 1] || dp[i - 1][j];
+                    f[i][j] = f[i][j - 1] || f[i - 1][j];
                 } else if (p.charAt(j - 1) == '?' || s.charAt(i - 1) == p.charAt(j - 1)) {
-                    dp[i][j] = dp[i - 1][j - 1];
+                    f[i][j] = f[i - 1][j - 1];
                 }
             }
         }
-        return dp[m][n];
+        return f[n][m];
     }
 }
 /*

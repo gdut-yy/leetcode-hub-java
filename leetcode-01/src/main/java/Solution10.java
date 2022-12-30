@@ -1,27 +1,28 @@
 public class Solution10 {
     public boolean isMatch(String s, String p) {
-        int m = s.length();
-        int n = p.length();
+        int n = s.length();
+        int m = p.length();
 
-        // dp[i][j] 表示 s 的前 i 个字符与 p 中的前 j 个字符是否能够匹配
-        boolean[][] dp = new boolean[m + 1][n + 1];
-        dp[0][0] = true;
-        for (int i = 0; i <= m; i++) {
-            for (int j = 1; j <= n; j++) {
+        // f[i][j] 表示 s 的前 i 个元素与 p 的前 j 个元素是否能够匹配
+        boolean[][] f = new boolean[n + 1][m + 1];
+        // 初始状态
+        f[0][0] = true;
+        for (int i = 0; i <= n; i++) {
+            for (int j = 1; j <= m; j++) {
                 if (p.charAt(j - 1) == '*') {
-                    dp[i][j] = dp[i][j - 2];
+                    f[i][j] = f[i][j - 2];
                     if (matches(s, p, i, j - 1)) {
-                        dp[i][j] = dp[i][j] || dp[i - 1][j];
+                        f[i][j] = f[i][j] || f[i - 1][j];
                     }
                 } else {
                     // 如果 p 的第 j 个字符是一个小写字母，那么我们必须在 s 中匹配一个相同的小写字母
                     if (matches(s, p, i, j)) {
-                        dp[i][j] = dp[i - 1][j - 1];
+                        f[i][j] = f[i - 1][j - 1];
                     }
                 }
             }
         }
-        return dp[m][n];
+        return f[n][m];
     }
 
     private boolean matches(String s, String p, int i, int j) {

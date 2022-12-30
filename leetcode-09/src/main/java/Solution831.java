@@ -1,41 +1,30 @@
-import java.util.Locale;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 public class Solution831 {
     public String maskPII(String s) {
-        // 电子邮箱
-        if (isEmail(s)) {
-            s = s.toLowerCase(Locale.ENGLISH);
-            int index = s.indexOf("@");
-            return String.format(Locale.ENGLISH, "%s*****%s", s.charAt(0), s.substring(index - 1));
-        }
-        // 电话号码
-        else {
-            // 保留 0-9 数字
-            String phoneNum = s.replaceAll("\\D+", "");
-            int len = phoneNum.length();
-            String format = "***-***-%s";
-            switch (len) {
-                case 11:
-                    format = "+*-***-***-%s";
-                    break;
-                case 12:
-                    format = "+**-***-***-%s";
-                    break;
-                case 13:
-                    format = "+***-***-***-%s";
-                    break;
+        int idx = s.indexOf("@");
+        if (idx == -1) {
+            // 手机号码
+            StringBuilder stringBuilder = new StringBuilder();
+            for (char ch : s.toCharArray()) {
+                if (Character.isDigit(ch)) {
+                    stringBuilder.append(ch);
+                }
             }
-            return String.format(Locale.ENGLISH, format, phoneNum.substring(phoneNum.length() - 4));
+            String phoneNum = stringBuilder.toString();
+            int len = phoneNum.length();
+            String res = "***-***-";
+            if (len == 11) {
+                res = "+*-***-***-";
+            } else if (len == 12) {
+                res = "+**-***-***-";
+            } else if (len == 13) {
+                res = "+***-***-***-";
+            }
+            return res + phoneNum.substring(len - 4);
+        } else {
+            // 邮箱
+            s = s.toLowerCase(java.util.Locale.ENGLISH);
+            return s.charAt(0) + "*****" + s.substring(idx - 1);
         }
-    }
-
-    private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z]{2,}@[a-zA-Z]{2,}.[a-zA-Z]{2,}$");
-
-    private boolean isEmail(String s) {
-        Matcher matcher = EMAIL_PATTERN.matcher(s);
-        return matcher.matches();
     }
 }
 /*
