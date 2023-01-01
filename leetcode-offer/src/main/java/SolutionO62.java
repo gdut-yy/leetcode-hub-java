@@ -1,9 +1,28 @@
 public class SolutionO62 {
     public int lastRemaining(int n, int m) {
+        return josephus(n, m);
+    }
+
+    // [0, n-1] 编号
+    // k 较小 n 较大时。时间复杂度 O(klogn)
+    private int josephus(int n, int k) {
         if (n == 1) {
             return 0;
         }
-        return (lastRemaining(n - 1, m) + m) % n;
+        if (k == 1) {
+            return n - 1;
+        }
+        if (k > n) {
+            return (josephus(n - 1, k) + k) % n;  // 线性算法
+        }
+        int res = josephus(n - n / k, k);
+        res -= n % k;
+        if (res < 0) {
+            res += n;  // mod n
+        } else {
+            res += res / (k - 1);  // 还原位置
+        }
+        return res;
     }
 }
 /*

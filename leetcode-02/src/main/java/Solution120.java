@@ -3,16 +3,16 @@ import java.util.List;
 public class Solution120 {
     public int minimumTotal(List<List<Integer>> triangle) {
         // 三角形的高度
-        int triangleM = triangle.size();
-        // dp[i][j] 为自底向上到 [i,j] 的最小路径和。 +1 避免最后一层越界
-        int[][] dp = new int[triangleM + 1][triangleM + 1];
+        int h = triangle.size();
+        // f[i][j] 为自底向上到 [i,j] 的最小路径和。+1 避免最后一层越界
+        int[][] f = new int[h + 1][h + 1];
         // 状态转移
-        for (int i = triangleM - 1; i >= 0; i--) {
+        for (int i = h - 1; i >= 0; i--) {
             for (int j = 0; j <= i; j++) {
-                dp[i][j] = Math.min(dp[i + 1][j], dp[i + 1][j + 1]) + triangle.get(i).get(j);
+                f[i][j] = Math.min(f[i + 1][j], f[i + 1][j + 1]) + triangle.get(i).get(j);
             }
         }
-        return dp[0][0];
+        return f[0][0];
     }
 }
 /*

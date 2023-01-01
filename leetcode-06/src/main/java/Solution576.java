@@ -1,8 +1,8 @@
 public class Solution576 {
-    public int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
-        int mod = 1000000007;
-        int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+    private static final int MOD = (int) (1e9 + 7);
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
+    public int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
         int[][][] dp = new int[maxMove + 1][m][n];
         dp[0][startRow][startColumn] = 1;
 
@@ -12,13 +12,13 @@ public class Solution576 {
                 for (int j = 0; j < n; j++) {
                     int count = dp[step][i][j];
                     if (count > 0) {
-                        for (int[] dir : directions) {
+                        for (int[] dir : DIRECTIONS) {
                             int nextM = i + dir[0];
                             int nextN = j + dir[1];
                             if (nextM >= 0 && nextM < m && nextN >= 0 && nextN < n) {
-                                dp[step + 1][nextM][nextN] = (dp[step + 1][nextM][nextN] + count) % mod;
+                                dp[step + 1][nextM][nextN] = (dp[step + 1][nextM][nextN] + count) % MOD;
                             } else {
-                                cnt = (cnt + count) % mod;
+                                cnt = (cnt + count) % MOD;
                             }
                         }
                     }

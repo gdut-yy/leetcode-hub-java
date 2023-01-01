@@ -1,15 +1,28 @@
 public class Solution1823 {
     public int findTheWinner(int n, int k) {
-        // 约瑟夫环（n 个人，数到 m 的人出局）
-        // joseph(n, m) = (joseph(n - 1, m) + m - 1) % n
-        // 当 n = 1 时，joseph(n, m) = 1
-        // + m - 1 是因为下一个需要往后移 m 位，同时减去已出局的 1 人
-        // % n 是因为需要避免数组越界
+        return josephus(n, k) + 1;
+    }
+
+    // [0, n-1] 编号
+    // k 较小 n 较大时。时间复杂度 O(klogn)
+    private int josephus(int n, int k) {
         if (n == 1) {
-            return 1;
+            return 0;
         }
-        // + 1 因为题目从 1 到 n 编号
-        return (findTheWinner(n - 1, k) + k - 1) % n + 1;
+        if (k == 1) {
+            return n - 1;
+        }
+        if (k > n) {
+            return (josephus(n - 1, k) + k) % n;  // 线性算法
+        }
+        int res = josephus(n - n / k, k);
+        res -= n % k;
+        if (res < 0) {
+            res += n;  // mod n
+        } else {
+            res += res / (k - 1);  // 还原位置
+        }
+        return res;
     }
 }
 /*

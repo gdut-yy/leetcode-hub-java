@@ -8,6 +8,8 @@
 
 ~~（拼搏 300 天，我要完成 1000 道 leetcode 题！（Day269 (2022.03.30) 已完成 1001 题）~~
 
+（Day545 (2022.12.31) 已完成 1665 题）
+
 - `atcoder-*` 存放 atcoder 题目。
 - `codeforces-*` 存放 codeforces 题目。
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
@@ -47,7 +49,7 @@ mvn clean verify -s settings.xml
 python countSolutions.py
 ```
 
-![](./ut-coverage-report.png)
+![](./ut-coverage-report-2022.png)
 
 ## UT、TDD
 
@@ -263,10 +265,8 @@ public int bfs(char[][] maze, int[] entrance) {
     while (!queue.isEmpty()) {
         int size = queue.size();
         for (int i = 0; i < size; i++) {
-            int[] cur = queue.poll();
-            if (cur == null) {
-                break;
-            }
+            int[] cur = queue.remove();
+
             for (int[] dir : direction) {
                 int nextM = cur[0] + dir[0];
                 int nextN = cur[1] + dir[1];

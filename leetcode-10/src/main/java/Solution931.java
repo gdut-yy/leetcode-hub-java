@@ -1,31 +1,30 @@
+import java.util.Arrays;
+
 public class Solution931 {
     public int minFallingPathSum(int[][] matrix) {
         // n x n 的 方形 整数数组
         int n = matrix.length;
-        // 状态定义
-        // dp[i][j] 表示到 matrix[i][j] 的下降路径最小和
-        int[][] dp = new int[n][n];
-        // 初始状态 dp[][] 首行等于 matrix[][] 首行
-        System.arraycopy(matrix[0], 0, dp[0], 0, n);
+
+        // f[i][j] 表示到 matrix[i][j] 的下降路径最小和
+        int[][] f = new int[n][n];
+        // 初始状态
+        // dp[][] 首行等于 matrix[][] 首行
+        System.arraycopy(matrix[0], 0, f[0], 0, n);
         // 状态转移
         for (int i = 1; i < n; i++) {
-            int[] prev = dp[i - 1];
+            int[] pre = f[i - 1];
             for (int j = 0; j < n; j++) {
                 if (j == 0) {
-                    dp[i][j] = Math.min(prev[j], prev[j + 1]);
+                    f[i][j] = Math.min(pre[j], pre[j + 1]);
                 } else if (j < n - 1) {
-                    dp[i][j] = Math.min(prev[j - 1], Math.min(prev[j], prev[j + 1]));
+                    f[i][j] = Math.min(pre[j - 1], Math.min(pre[j], pre[j + 1]));
                 } else {
-                    dp[i][j] = Math.min(prev[j - 1], prev[j]);
+                    f[i][j] = Math.min(pre[j - 1], pre[j]);
                 }
-                dp[i][j] += matrix[i][j];
+                f[i][j] += matrix[i][j];
             }
         }
-        int min = dp[n - 1][0];
-        for (int j = 1; j < n; j++) {
-            min = Math.min(min, dp[n - 1][j]);
-        }
-        return min;
+        return Arrays.stream(f[n - 1]).min().orElseThrow();
     }
 }
 /*
@@ -45,4 +44,6 @@ n == matrix.length == matrix[i].length
 动态规划。
 时间复杂度 O(n^2)
 空间复杂度 O(n^2)
+相似题目: 1289. 下降路径最小和  II
+https://leetcode.cn/problems/minimum-falling-path-sum-ii/
  */

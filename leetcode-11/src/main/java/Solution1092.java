@@ -53,6 +53,7 @@ https://leetcode.cn/problems/shortest-common-supersequence/
 str1 和 str2 都由小写英文字母组成。
 
 LCS
+最终的方案必然是由三部分组成：两字符串的公共子序列（且必然是最长公共子序列）+ 两者特有的字符部分。
 时间复杂度 O(nm)
 相似题目: 1143. 最长公共子序列
 https://leetcode.cn/problems/longest-common-subsequence/

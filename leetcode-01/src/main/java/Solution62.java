@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Solution62 {
     /**
      * 组合数学
@@ -20,20 +18,23 @@ public class Solution62 {
      * 空间复杂度 O(mn)
      */
     public int uniquePaths2(int m, int n) {
-        // dp[i][j] 来表示从坐标 (0,0) 到坐标 (i,j) 的路径总数
-        int[][] dp = new int[m][n];
+        // f[i][j] 表示到达坐标 (i,j) 的不同路径数
+        int[][] f = new int[m][n];
         // 初始状态
-        Arrays.fill(dp[0], 1);
+        f[0][0] = 1;
         for (int i = 1; i < m; i++) {
-            dp[i][0] = 1;
+            f[i][0] = 1;
+        }
+        for (int j = 1; j < n; j++) {
+            f[0][j] = 1;
         }
         // 状态转移
         for (int i = 1; i < m; i++) {
             for (int j = 1; j < n; j++) {
-                dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+                f[i][j] = f[i][j - 1] + f[i - 1][j];
             }
         }
-        return dp[m - 1][n - 1];
+        return f[m - 1][n - 1];
     }
 }
 /*
