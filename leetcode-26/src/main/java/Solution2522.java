@@ -1,4 +1,4 @@
-public class Solution6196 {
+public class Solution2522 {
     public int minimumPartition(String s, int k) {
         int cnt = 0;
         long num = 0L;
@@ -22,7 +22,7 @@ public class Solution6196 {
     }
 }
 /*
-6196. 将字符串分割成值不超过 K 的子字符串
+2522. 将字符串分割成值不超过 K 的子字符串
 https://leetcode.cn/problems/partition-string-into-substrings-with-values-at-most-k/
 
 第 326 场周赛 T3。

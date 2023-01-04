@@ -1,4 +1,4 @@
-public class Solution6278 {
+public class Solution2520 {
     public int countDigits(int num) {
         int cnt = 0;
         int n = num;
@@ -13,7 +13,7 @@ public class Solution6278 {
     }
 }
 /*
-6278. 统计能整除数字的位数
+2520. 统计能整除数字的位数
 https://leetcode.cn/problems/count-the-digits-that-divide-a-number/
 
 第 326 场周赛 T1。

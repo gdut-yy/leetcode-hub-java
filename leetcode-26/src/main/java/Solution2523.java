@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution6280 {
+public class Solution2523 {
     private static final int MAX_N = (int) (1e6 + 1);
     private static List<Integer> primes;
 
@@ -42,7 +42,7 @@ public class Solution6280 {
     }
 }
 /*
-6280. 范围内最接近的两个质数
+2523. 范围内最接近的两个质数
 https://leetcode.cn/problems/closest-prime-numbers-in-range/
 
 第 326 场周赛 T4。

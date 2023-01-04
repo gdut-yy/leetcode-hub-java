@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6279 {
+public class Solution2521 {
     public int distinctPrimeFactors(int[] nums) {
         Set<Integer> primeFactorSet = new HashSet<>();
         for (int num : nums) {
@@ -23,7 +23,7 @@ public class Solution6279 {
     }
 }
 /*
-6279. 数组乘积中的不同质因数数目
+2521. 数组乘积中的不同质因数数目
 https://leetcode.cn/problems/distinct-prime-factors-of-product-of-array/
 
 第 326 场周赛 T2。
