@@ -70,4 +70,6 @@ columns == heights[i].length
 二分 + BFS
 相似题目: 778. 水位上升的泳池中游泳
 https://leetcode.cn/problems/swim-in-rising-water/
+1970. 你能穿过矩阵的最后一天
+https://leetcode.cn/problems/last-day-where-you-can-still-cross/
  */

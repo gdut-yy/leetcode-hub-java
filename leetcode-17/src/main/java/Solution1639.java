@@ -46,7 +46,7 @@ https://leetcode.cn/problems/number-of-ways-to-form-a-target-string-given-a-dict
 - 一旦你使用了 words 中第 j 个字符串的第 k 个字符，你不能再使用 words 字符串列表中任意单词的第 x 个字符（x <= k）。也就是说，所有单词下标小于等于 k 的字符都不能再被使用。
 - 请你重复此过程直到得到目标字符串 target 。
 请注意， 在构造目标字符串的过程中，你可以按照上述规定使用 words 列表中 同一个字符串 的 多个字符 。
-请你返回使用 words 构造 target 的方案数。由于答案可能会很大，请对 109 + 7 取余 后返回。
+请你返回使用 words 构造 target 的方案数。由于答案可能会很大，请对 10^9 + 7 取余 后返回。
 （译者注：此题目求的是有多少个不同的 k 序列，详情请见示例。）
 提示：
 1 <= words.length <= 1000

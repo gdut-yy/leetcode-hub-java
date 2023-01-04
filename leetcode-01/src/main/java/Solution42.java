@@ -34,4 +34,6 @@ n == height.length
 双指针
 时间复杂度 O(n)
 空间复杂度 O(1)
+相似题目: 407. 接雨水 II
+https://leetcode.cn/problems/trapping-rain-water-ii/
  */

@@ -127,4 +127,6 @@ Rabin-Karp 字符串哈希算法
 https://leetcode.cn/problems/longest-duplicate-substring/
 $1062. 最长重复子串
 https://leetcode.cn/problems/longest-repeating-substring/
+1923. 最长公共子路径
+https://leetcode.cn/problems/longest-common-subpath/
  */

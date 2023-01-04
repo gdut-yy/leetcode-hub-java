@@ -29,4 +29,6 @@ s 仅由小写英文字母组成
 
 动态规划
 时间复杂度 O(n+26)
+相似题目: 1987. 不同的好子序列数目
+https://leetcode.cn/problems/number-of-unique-good-subsequences/
  */

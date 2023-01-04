@@ -15,7 +15,7 @@ public class Solution1235 {
         // solution 1751
         int[] f = new int[len + 1];
         for (int i = 1; i <= len; i++) {
-            int[] ei = events[i - 1];
+            int[] event = events[i - 1];
 
 //            int last = 0;
 //            for (int j = i - 1; j - 1 >= 0; j--) {
@@ -31,7 +31,7 @@ public class Solution1235 {
             int right = i - 1;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                if (events[mid][1] > ei[0]) {
+                if (events[mid][1] > event[0]) {
                     right = mid;
                 } else {
                     left = mid + 1;
@@ -40,7 +40,7 @@ public class Solution1235 {
             int last = left;
 
             // 选 or 不选
-            f[i] = Math.max(f[i - 1], f[last] + ei[2]);
+            f[i] = Math.max(f[i - 1], f[last] + event[2]);
         }
         return f[len];
     }
@@ -63,4 +63,6 @@ https://leetcode.cn/problems/maximum-profit-in-job-scheduling/
 时间复杂度 O(nlogn) 其中找 last 的部分可用二分优化到 O(logn)
 相似题目: 1751. 最多可以参加的会议数目 II
 https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii/
+2008. 出租车的最大盈利
+https://leetcode.cn/problems/maximum-earnings-from-taxi/
  */

@@ -9,7 +9,7 @@ public class Solution1751 {
 
         int[][] f = new int[len + 1][k + 1];
         for (int i = 1; i <= len; i++) {
-            int[] ei = events[i - 1];
+            int[] event = events[i - 1];
 
 //            int last = 0;
 //            for (int j = i - 1; j - 1 >= 0; j--) {
@@ -24,7 +24,7 @@ public class Solution1751 {
             int right = i - 1;
             while (left < right) {
                 int mid = left + (right - left) / 2;
-                if (events[mid][1] >= ei[0]) {
+                if (events[mid][1] >= event[0]) {
                     right = mid;
                 } else {
                     left = mid + 1;
@@ -34,7 +34,7 @@ public class Solution1751 {
 
             for (int j = 1; j <= k; j++) {
                 // 选 or 不选
-                f[i][j] = Math.max(f[i - 1][j], f[last][j - 1] + ei[2]);
+                f[i][j] = Math.max(f[i - 1][j], f[last][j - 1] + event[2]);
             }
         }
         return f[len][k];
@@ -60,4 +60,6 @@ https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii/
 空间复杂度 O(nk)
 相似题目: 1235. 规划兼职工作
 https://leetcode.cn/problems/maximum-profit-in-job-scheduling/
+2008. 出租车的最大盈利
+https://leetcode.cn/problems/maximum-earnings-from-taxi/
  */
