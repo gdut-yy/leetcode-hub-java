@@ -15,9 +15,7 @@ public class Solution372 {
         return part1 * part2 % mod;
     }
 
-    /**
-     * 快速幂 res = a^b % mod
-     */
+    // 快速幂 res = a^b % mod
     private int quickPow(long a, long b, int mod) {
         a %= mod;
         long res = 1;

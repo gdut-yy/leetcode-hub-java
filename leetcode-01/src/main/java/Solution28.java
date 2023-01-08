@@ -3,13 +3,7 @@ public class Solution28 {
         return haystack.indexOf(needle);
     }
 
-    /**
-     * Knuth-Morris-Pratt 算法
-     *
-     * @param haystack 给定字符串
-     * @param needle   目标字符串
-     * @return 目标字符串首次出现的下标值
-     */
+    // Knuth-Morris-Pratt 算法
     public int strStr2(String haystack, String needle) {
         int haystackLen = haystack.length();
         int needleLen = needle.length();

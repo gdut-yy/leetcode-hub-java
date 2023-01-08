@@ -4,10 +4,6 @@ public class Solution713 {
     /**
      * 类似 "前缀和" 的 "前缀积"
      * 时间复杂度 O(n^2) 使用 BigInteger 是因为 long 会溢出
-     *
-     * @param nums 正整数数组
-     * @param k    整数 k
-     * @return 乘积小于 k 的连续的子数组的个数
      */
     public int numSubarrayProductLessThanK2(int[] nums, int k) {
         // 前缀“积”
@@ -30,14 +26,7 @@ public class Solution713 {
         return res;
     }
 
-    /**
-     * 双指针
-     * 时间复杂度 O(n)
-     *
-     * @param nums 正整数数组
-     * @param k    整数 k
-     * @return 乘积小于 k 的连续的子数组的个数
-     */
+    // 双指针 时间复杂度 O(n)
     public int numSubarrayProductLessThanK(int[] nums, int k) {
         // 双指针
         int left = 0;

@@ -14,17 +14,13 @@ public class Solution370 {
             diff = new int[n + 1];
         }
 
-        /**
-         * nums[i,j] 增加 inc
-         */
+        // nums[i,j] 增加 inc
         public void rangeAdd(int i, int j, int inc) {
             diff[i] += inc;
             diff[j + 1] -= inc;
         }
 
-        /**
-         * 获取原数组
-         */
+        // 获取原数组
         public int[] getRawArray() {
             int[] res = new int[diff.length - 1];
             res[0] = diff[0];

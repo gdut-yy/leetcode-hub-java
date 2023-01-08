@@ -4,9 +4,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class SolutionLCP46 {
-    /**
-     * 一元一次方程法
-     */
+    // 一元一次方程法
     public int[] volunteerDeployment(int[] finalCnt, long totalNum, int[][] edges, int[][] plans) {
         Map<Integer, Set<Integer>> fromToMap = buildFromToMap(edges);
         // 第 1 ~ n-1 个场馆
@@ -72,9 +70,7 @@ public class SolutionLCP46 {
         return fromToMap;
     }
 
-    /**
-     * 二分查找法
-     */
+    // 二分查找法
     public int[] volunteerDeployment2(int[] finalCnt, long totalNum, int[][] edges, int[][] plans) {
         Map<Integer, Set<Integer>> fromToMap = buildFromToMap(edges);
         // 第 1 ~ n-1 个场馆

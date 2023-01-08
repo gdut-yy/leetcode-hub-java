@@ -1,8 +1,9 @@
 public class Solution2023 {
     public int numOfPairs(String[] nums, String target) {
+        int len = nums.length;
         int res = 0;
-        for (int i = 0; i < nums.length; i++) {
-            for (int j = i + 1; j < nums.length; j++) {
+        for (int i = 0; i < len; i++) {
+            for (int j = i + 1; j < len; j++) {
                 String pair0 = nums[i] + nums[j];
                 if (pair0.equals(target)) {
                     res++;

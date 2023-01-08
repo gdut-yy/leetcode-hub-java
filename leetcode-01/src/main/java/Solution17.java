@@ -17,9 +17,7 @@ public class Solution17 {
         return List.of(res);
     }
 
-    /**
-     * 8 * 4
-     */
+    // 8 * 4
     private static final String[][] KEYBOARD_ARR = new String[][]{
             {"a", "b", "c"},
             {"d", "e", "f"},
@@ -31,9 +29,7 @@ public class Solution17 {
             {"w", "x", "y", "z"}
     };
 
-    /**
-     * 两个数组的笛卡尔积
-     */
+    // 两个数组的笛卡尔积
     private String[] getCartesianProduct(String[] arr1, String[] arr2) {
         int lenTotal = arr1.length * arr2.length;
         String[] resArr = new String[lenTotal];

@@ -1,12 +1,13 @@
 import java.util.Arrays;
 
 public class Solution1648 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int maxProfit(int[] inventory, int orders) {
+        int len = inventory.length;
         Arrays.sort(inventory);
 
         long sum = 0;
-        long mod = 1000000007;
-        int len = inventory.length;
         // 贪心 数目多到少
         for (int i = len - 1; i >= 0; i--) {
             // 宽度（每次+1）
@@ -18,15 +19,15 @@ public class Solution1648 {
                 long costHeight = Math.min(height, orders / width);
                 if (costHeight > 0) {
                     // 等差数列求和 (首项+末项)*项数/2
-                    long total = ((inventory[i] + (inventory[i] - costHeight + 1)) * costHeight / 2) * width % mod;
-                    sum = (sum + total) % mod;
+                    long total = ((inventory[i] + (inventory[i] - costHeight + 1)) * costHeight / 2) * width % MOD;
+                    sum = (sum + total) % MOD;
                     // 消耗掉的总数
                     orders -= costHeight * width;
                     inventory[i] -= costHeight;
                 }
                 // 处理余数
                 if (orders / width < 1) {
-                    sum = (sum + (long) inventory[i] * orders % mod) % mod;
+                    sum = (sum + (long) inventory[i] * orders % MOD) % MOD;
                     break;
                 }
             } else {
@@ -50,6 +51,7 @@ https://leetcode.cn/problems/sell-diminishing-valued-colored-balls/
 1 <= inventory[i] <= 10^9
 1 <= orders <= min(sum(inventory[i]), 10^9)
 
-贪心。
-时间复杂度 O(n)
+贪心。排序后模拟。
+时间复杂度 O(nlogn)
+空间复杂度 O(1)
  */

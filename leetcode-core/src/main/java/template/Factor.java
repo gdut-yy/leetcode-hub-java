@@ -47,13 +47,9 @@ public class Factor {
     }
 
     public static void main(String[] args) {
-        System.out.println(Factor.getFactorPrime(123456789011L));
-        System.out.println(Factor.getFactorPrime(720720));
-
-        System.out.println(Factor.getFactors(123456789011L));
-        System.out.println(Factor.getFactors(720720));
-        // 240
-        System.out.println(Factor.getFactors(720720).size());
+        System.out.println(Factor.getFactorPrime(2023));
+        System.out.println(Factor.getFactorPrime(63));
+        System.out.println(Factor.getFactorPrime(1059872604593911L));
     }
 }
 

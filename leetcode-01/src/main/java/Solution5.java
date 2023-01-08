@@ -2,10 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution5 {
-    /**
-     * 动态规划
-     * 时间复杂度 O(n^2)
-     */
+    // 动态规划 时间复杂度 O(n^2)
     public String longestPalindrome(String s) {
         // 长度 0 和 1
         int len = s.length();
@@ -53,10 +50,7 @@ public class Solution5 {
         return s.substring(resBegin, resBegin + resLen);
     }
 
-    /**
-     * Manacher 算法
-     * 时间复杂度 O(n)
-     */
+    // Manacher 算法 时间复杂度 O(n)
     public String longestPalindrome2(String s) {
         // 填充字符 '#' (统一处理长度为奇数)
         // aaba => #a#a#b#a#

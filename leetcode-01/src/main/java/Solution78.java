@@ -24,13 +24,10 @@ public class Solution78 {
         }
     }
 
-    /**
-     * 状态压缩 DP
-     */
+    // 状态压缩
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> resList = new ArrayList<>();
         int len = nums.length;
-        // 状态压缩 dp
         for (int state = 0; state < (1 << len); state++) {
             List<Integer> curList = new ArrayList<>();
             for (int k = 0; k < len; k++) {

@@ -13,10 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-/**
- * meituan-012. 小美的书架
- * https://leetcode.cn/problems/FvoBGh/
- */
 public class Meituan012 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
@@ -136,13 +132,15 @@ public class Meituan012 {
     }
 }
 /*
+meituan-012. 小美的书架
+https://leetcode.cn/problems/FvoBGh/
+
 小美的书架上有很多书。小美是个爱读书的新时代好青年。
 小团虽然也喜欢看书，但小团大多数时候都更喜欢来小美家蹭书读。
 这就导致小美的书架上很多书都会被小团借走。
 小美很烦这一点，就想出了一个招数，小美的书架是一行一行的，他会对一些行加锁，这样小团就借不走了。
 现在小团想要借书，请你帮忙看看小团能不能借到书，如果可以借到的话在哪一行书架上有这本书。
 为了简单起见，每本书将用一个正整数进行编号，小美的书架一共有 N 行。
-
 格式：
 输入：
 - 第一行三个正整数 M，N，Q，表示小美书架有 N 行编号 1 到 N ，书本编号从 1 到 M ，接下来有 Q 个操作
@@ -155,7 +153,6 @@ public class Meituan012 {
   5. x : x 是书本的编号，代表小团还回来编号为 x 的书本。若该书本不在小团手上该操作无效。
 输出：
 - 对于每个操作 4 ，若可以借到输出一行正整数在哪一行，借不到输出一行 -1 。
-
 示例：
 输入：
 5 5 10
@@ -174,7 +171,6 @@ public class Meituan012 {
 -1
 -1
 3
-
 提示：
 对于 30% 的数据有 N<=10, M<=10, Q<=20
 对于 80% 的数据有 N<=1000, M<=1000, Q<=100000

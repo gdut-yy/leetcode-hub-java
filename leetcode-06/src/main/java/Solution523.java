@@ -4,19 +4,21 @@ import java.util.Map;
 public class Solution523 {
     public boolean checkSubarraySum(int[] nums, int k) {
         int len = nums.length;
-        if (len < 2) {
-            return false;
-        }
-        // 同余定理
-        Map<Integer, Integer> remainderIdxMap = new HashMap<>();
-        remainderIdxMap.put(0, -1);
-        int remainder = 0;
-        for (int i = 0; i < len; i++) {
-            remainder = (remainder + nums[i]) % k;
-            if (!remainderIdxMap.containsKey(remainder)) {
-                remainderIdxMap.put(remainder, i);
-            } else if (i - remainderIdxMap.get(remainder) > 1) {
-                return true;
+
+        // 模 k 下的前缀和
+        int sumMod = 0;
+        // 首次出现下标
+        Map<Integer, Integer> sumModFirstMap = new HashMap<>();
+        sumModFirstMap.put(0, -1);
+        for (int j = 0; j < len; j++) {
+            sumMod = (sumMod + nums[j]) % k;
+            if (sumModFirstMap.containsKey(sumMod)) {
+                int i = sumModFirstMap.get(sumMod);
+                if (j - i >= 2) {
+                    return true;
+                }
+            } else {
+                sumModFirstMap.put(sumMod, j);
             }
         }
         return false;
@@ -37,7 +39,20 @@ https://leetcode.cn/problems/continuous-subarray-sum/
 0 <= sum(nums[i]) <= 2^31 - 1
 1 <= k <= 2^31 - 1
 
-同余定理。
-相似题目: 974. 和可被 K 整除的子数组
+前缀和 + 同余 + HashMap
+时间复杂度 O(n)
+相似题目: 560. 和为K的子数组
+https://leetcode.cn/problems/subarray-sum-equals-k/
+930. 和相同的二元子数组
+https://leetcode.cn/problems/binary-subarrays-with-sum/
+974. 和可被 K 整除的子数组
 https://leetcode.cn/problems/subarray-sums-divisible-by-k/
+1371. 每个元音包含偶数次的最长子字符串
+https://leetcode.cn/problems/find-the-longest-substring-containing-vowels-in-even-counts/
+1542. 找出最长的超赞子字符串
+https://leetcode.cn/problems/find-longest-awesome-substring/
+1590. 使数组和能被 P 整除
+https://leetcode.cn/problems/make-sum-divisible-by-p/
+1915. 最美子字符串的数目
+https://leetcode.cn/problems/number-of-wonderful-substrings/
  */

@@ -51,7 +51,7 @@ public class Prime {
      * 时间复杂度 O(n)
      * 空间复杂度 O(n)
      */
-    public int countPrimes2(int n) {
+    public static int countPrimes2(int n) {
         List<Integer> primes = new ArrayList<>();
         boolean[] isPrime = new boolean[n];
         Arrays.fill(isPrime, true);
@@ -68,4 +68,15 @@ public class Prime {
         }
         return primes.size();
     }
+
+    public static void main(String[] args) {
+        System.out.println(countPrimes2((int) 1e7));
+    }
 }
+/*
+√10^18 = 10^9
+
+10^9 size = 50847534
+
+size = 78498
+ */

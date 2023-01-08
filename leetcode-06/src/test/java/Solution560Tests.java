@@ -10,6 +10,13 @@ public class Solution560Tests {
         int k = 2;
         int expected = 2;
         Assertions.assertEquals(expected, solution560.subarraySum(nums, k));
-        Assertions.assertEquals(expected, solution560.subarraySum2(nums, k));
+    }
+
+    @Test
+    public void example2() {
+        int[] nums = {1, 2, 3};
+        int k = 3;
+        int expected = 2;
+        Assertions.assertEquals(expected, solution560.subarraySum(nums, k));
     }
 }

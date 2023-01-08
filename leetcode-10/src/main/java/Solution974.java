@@ -1,27 +1,21 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution974 {
     public int subarraysDivByK(int[] nums, int k) {
-        // 根据同余定理，只需 preSum[j + 1] % k == preSum[i] % k 即可，时间复杂度降低为 O(n)
-        Map<Integer, Integer> modCntMap = new HashMap<>();
-        // 前缀和
-        int len = nums.length;
-        int[] preSum = new int[len + 1];
-        preSum[0] = 0;
-        modCntMap.put(0, 1);
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
-            // 避免负数
-            int mod = (preSum[i + 1] % k + k) % k;
-            modCntMap.put(mod, modCntMap.getOrDefault(mod, 0) + 1);
+        // 模 k 下的前缀和
+        int sumMod = 0;
+
+        // 前缀和 频次
+        int[] modCnt = new int[k];
+        modCnt[0] = 1;
+        for (int num : nums) {
+            sumMod = ((sumMod + num) % k + k) % k;
+            modCnt[sumMod]++;
         }
-        // 根据排列组合公式进行统计
-        int ans = 0;
-        for (Map.Entry<Integer, Integer> entry : modCntMap.entrySet()) {
-            ans += entry.getValue() * (entry.getValue() - 1) / 2;
+
+        int res = 0;
+        for (int x : modCnt) {
+            res += x * (x - 1) / 2;
         }
-        return ans;
+        return res;
     }
 }
 /*
@@ -44,4 +38,14 @@ https://leetcode.cn/problems/subarray-sums-divisible-by-k/
 https://leetcode.cn/problems/continuous-subarray-sum/
 560. 和为K的子数组
 https://leetcode.cn/problems/subarray-sum-equals-k/
+930. 和相同的二元子数组
+https://leetcode.cn/problems/binary-subarrays-with-sum/
+1371. 每个元音包含偶数次的最长子字符串
+https://leetcode.cn/problems/find-the-longest-substring-containing-vowels-in-even-counts/
+1542. 找出最长的超赞子字符串
+https://leetcode.cn/problems/find-longest-awesome-substring/
+1590. 使数组和能被 P 整除
+https://leetcode.cn/problems/make-sum-divisible-by-p/
+1915. 最美子字符串的数目
+https://leetcode.cn/problems/number-of-wonderful-substrings/
  */

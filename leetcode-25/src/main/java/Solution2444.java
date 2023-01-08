@@ -42,4 +42,6 @@ https://leetcode.cn/problems/count-subarrays-with-fixed-bounds/
 拓展：
 原题 https://atcoder.jp/contests/abc247/tasks/abc247_e
 https://codeforces.com/problemset/problem/1730/E
+相似题目: 795. 区间子数组个数
+https://leetcode.cn/problems/number-of-subarrays-with-bounded-maximum/
  */

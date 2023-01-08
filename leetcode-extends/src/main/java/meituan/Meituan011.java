@@ -9,10 +9,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/**
- * meituan-011. 搭配出售
- * https://leetcode.cn/problems/0JzXQB/
- */
 public class Meituan011 {
     public static void main(String[] args) throws IOException {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
@@ -40,15 +36,16 @@ public class Meituan011 {
     }
 }
 /*
+meituan-011. 搭配出售
+https://leetcode.cn/problems/0JzXQB/
+
 服装店新进了 a 条领带，b 条裤子，c 个帽子，d 件衬衫，现在要把这些搭配起来售卖。有三种搭配方式，一条领带和一件衬衫，一条裤子和一件衬衫，
 一个帽子和一件衬衫。卖出一套领带加衬衫可以得到 e 元，卖出一套裤子加衬衫可以得到 f 元，卖出一套帽子加衬衫可以得到 g 元。现在你需要输出最大获利。
-
 格式：
 输入：
 - 一行 7 个整数分别表示 a, b, c, d, e, f, g 。
 输出：
 - 最大获利。
-
 示例：
 输入：2 3 4 5 6 7 8
 输出：39
