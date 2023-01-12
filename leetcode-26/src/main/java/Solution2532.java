@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution6306 {
+public class Solution2532 {
     public int findCrossingTime(int n, int k, int[][] time) {
         // 大顶堆
         PriorityQueue<Worker> bridge = new PriorityQueue<>((o1, o2) -> {
@@ -118,7 +118,7 @@ public class Solution6306 {
     }
 }
 /*
-6306. 过桥的时间
+2532. 过桥的时间
 https://leetcode.cn/problems/time-to-cross-a-bridge/
 
 第 327 场周赛 T4。

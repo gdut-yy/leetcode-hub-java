@@ -1,4 +1,4 @@
-public class Solution6284 {
+public class Solution2531 {
     public boolean isItPossible(String word1, String word2) {
         int[] cntArr1 = new int[26];
         int[] cntArr2 = new int[26];
@@ -46,7 +46,7 @@ public class Solution6284 {
     }
 }
 /*
-6284. 使字符串总不同字符的数目相等
+2531. 使字符串总不同字符的数目相等
 https://leetcode.cn/problems/make-number-of-distinct-characters-equal/
 
 第 327 场周赛 T3。

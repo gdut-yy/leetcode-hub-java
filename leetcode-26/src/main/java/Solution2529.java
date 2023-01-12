@@ -1,4 +1,4 @@
-public class Solution6283 {
+public class Solution2529 {
     public int maximumCount(int[] nums) {
         int pos = 0;
         int neg = 0;
@@ -13,7 +13,7 @@ public class Solution6283 {
     }
 }
 /*
-6283. 正整数和负整数的最大计数
+2529. 正整数和负整数的最大计数
 https://leetcode.cn/problems/maximum-count-of-positive-integer-and-negative-integer/
 
 第 327 场周赛 T1。

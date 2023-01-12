@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6285 {
+public class Solution2530 {
     public long maxKelements(int[] nums, int k) {
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         for (int num : nums) {
@@ -18,7 +18,7 @@ public class Solution6285 {
     }
 }
 /*
-6285. 执行 K 次操作后的最大分数
+2530. 执行 K 次操作后的最大分数
 https://leetcode.cn/problems/maximal-score-after-applying-k-operations/
 
 第 327 场周赛 T2。
