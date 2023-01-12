@@ -2,12 +2,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution1765 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int[][] highestPeak(int[][] isWater) {
         int M = isWater.length;
         int N = isWater[0].length;
 
         // BFS
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         Queue<int[]> queue = new LinkedList<>();
         boolean[][] visited = new boolean[M][N];
         for (int i = 0; i < M; i++) {
@@ -29,7 +30,7 @@ public class Solution1765 {
                 int curN = cur[1];
                 res[curM][curN] = height;
 
-                for (int[] dir : direction) {
+                for (int[] dir : DIRECTIONS) {
                     int nextM = curM + dir[0];
                     int nextN = curN + dir[1];
                     if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !visited[nextM][nextN]) {
@@ -63,5 +64,5 @@ n == isWater[i].length
 isWater[i][j] 要么是 0 ，要么是 1 。
 至少有 1 个水域格子。
 
-标准 BFS
+多源 BFS
  */

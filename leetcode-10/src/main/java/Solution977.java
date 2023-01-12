@@ -2,19 +2,22 @@ public class Solution977 {
     public int[] sortedSquares(int[] nums) {
         int len = nums.length;
         int[] res = new int[len];
+
         int left = 0;
         int right = len - 1;
-        int idx = len - 1;
-        // 双指针 两侧向中心
+
+        int id = len - 1;
+        // 抛物线开口向上，两端大，中间小。由大到小
         while (left <= right) {
-            if (nums[left] * nums[left] > nums[right] * nums[right]) {
-                res[idx] = nums[left] * nums[left];
+            int lans = nums[left] * nums[left];
+            int rans = nums[right] * nums[right];
+            if (lans > rans) {
+                res[id--] = lans;
                 left++;
             } else {
-                res[idx] = nums[right] * nums[right];
+                res[id--] = rans;
                 right--;
             }
-            idx--;
         }
         return res;
     }
@@ -36,4 +39,6 @@ nums 已按 非递减顺序 排序
 双指针法，两侧向中心，这种方法无需处理某一指针移动至边界的情况。
 时间复杂度 O(n)
 空间复杂度 O(1)
+相似题目: $360. 有序转化数组
+https://leetcode.cn/problems/sort-transformed-array/
  */

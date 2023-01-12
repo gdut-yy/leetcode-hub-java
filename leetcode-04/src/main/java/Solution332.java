@@ -26,13 +26,13 @@ public class Solution332 {
         return resList;
     }
 
-    private void dfs(String cur) {
+    private void dfs(String u) {
         // 当我们遍历完一个节点所连的所有节点后，我们才将该节点入队（即逆序入队）
-        while (adj.containsKey(cur) && adj.get(cur).size() > 0) {
-            String next = adj.get(cur).poll();
-            dfs(next);
+        while (adj.containsKey(u) && adj.get(u).size() > 0) {
+            String v = adj.get(u).poll();
+            dfs(v);
         }
-        resList.add(cur);
+        resList.add(u);
     }
 }
 /*
@@ -66,4 +66,6 @@ Hierholzer 算法。
 所有其他顶点的入度和出度相同。
 时间复杂度 O(mlogm) m 为边的数量
 空间复杂度 O(m) 需要存储每一条边
+相似题目: 2097. 合法重新排列数对
+https://leetcode.cn/problems/valid-arrangement-of-pairs/
  */
