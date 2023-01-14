@@ -34,4 +34,6 @@ https://leetcode.cn/problems/maximum-binary-tree/
 nums 中的所有整数 互不相同
 
 递归
+相似题目: 998. 最大二叉树 II
+https://leetcode.cn/problems/maximum-binary-tree-ii/
  */

@@ -6,21 +6,12 @@ import java.util.Map;
 public class Solution1916 {
     private static final int MOD = (int) (1e9 + 7);
     private Map<Integer, List<Integer>> adj;
-
-    private long[] fac;
-    private long[] inv;
-    private long[] f;
+    private long[] fac, inv, f;
     private int[] cnt;
 
     // 时间复杂度 O(nlogn)
     public int waysToBuildRooms(int[] prevRoom) {
         int n = prevRoom.length;
-
-        adj = new HashMap<>();
-        for (int i = 1; i < n; i++) {
-            adj.computeIfAbsent(prevRoom[i], key -> new ArrayList<>()).add(i);
-        }
-
         // fac[i] 表示 i!
         // inv[i] 表示 i! 的乘法逆元
         fac = new long[n];
@@ -33,9 +24,14 @@ public class Solution1916 {
             inv[i] = quickPow(fac[i], MOD - 2);
         }
 
+        // 构造树
+        adj = new HashMap<>();
+        for (int i = 1; i < n; i++) {
+            adj.computeIfAbsent(prevRoom[i], key -> new ArrayList<>()).add(i);
+        }
+
         f = new long[n];
         cnt = new int[n];
-
         dfs(0);
         return (int) f[0];
     }
@@ -70,42 +66,30 @@ public class Solution1916 {
     // 时间复杂度 O(n + logp)
     public int waysToBuildRooms2(int[] prevRoom) {
         int n = prevRoom.length;
+        // fac[i] 表示 i!
+        // inv[i] 表示 i! 的乘法逆元
+        fac = new long[n];
+        inv = new long[n];
+        fac[0] = 1;
+        for (int i = 1; i < n; ++i) {
+            fac[i] = fac[i - 1] * i % MOD;
+        }
+        // 线性求逆元 时间复杂度 O(n + logp)
+        long[] s = new long[n + 1], sv = new long[n + 1];
+        s[0] = 1;
+        for (int i = 1; i <= n; ++i) s[i] = s[i - 1] * fac[i - 1] % MOD;
+        sv[n] = quickPow(s[n], MOD - 2);
+        for (int i = n; i >= 1; --i) sv[i - 1] = sv[i] * fac[i - 1] % MOD;
+        for (int i = 1; i <= n; ++i) inv[i - 1] = sv[i] * s[i - 1] % MOD;
 
+        // 构造树
         adj = new HashMap<>();
         for (int i = 1; i < n; i++) {
             adj.computeIfAbsent(prevRoom[i], key -> new ArrayList<>()).add(i);
         }
 
-        // fac[i] 表示 i!
-        fac = new long[n];
-        fac[0] = 1;
-        for (int i = 1; i < n; ++i) {
-            fac[i] = fac[i - 1] * i % MOD;
-        }
-
-        // 线性求逆元
-        // 前缀积
-        long[] s = new long[n + 1];
-        // 前缀积逆元
-        long[] sv = new long[n + 1];
-        s[0] = 1;
-        for (int i = 1; i <= n; ++i) {
-            s[i] = s[i - 1] * fac[i - 1] % MOD;
-        }
-        sv[n] = quickPow(s[n], MOD - 2);
-        // 当然这里也可以用 exgcd 来求逆元,视个人喜好而定.
-        for (int i = n; i >= 1; --i) {
-            sv[i - 1] = sv[i] * fac[i - 1] % MOD;
-        }
-        // inv[i] 表示 i! 的乘法逆元
-        inv = new long[n];
-        for (int i = 1; i <= n; ++i) {
-            inv[i - 1] = sv[i] * s[i - 1] % MOD;
-        }
-
         f = new long[n];
         cnt = new int[n];
-
         dfs(0);
         return (int) f[0];
     }

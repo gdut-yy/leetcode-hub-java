@@ -86,6 +86,14 @@ junit5 常用断言：
    - `List<List<String>>` 可参考 `UtUtils#STRING_LIST_COMPARATOR`，如第 49、51 题等；
 4. 部分题目是非精确判等（随机问题），如第 384、528 题等；
 
+---
+
+一些心得：
+
+1. leetcode 题目，可从 `F12` 控制台 `Request Payload` 中 `mySubmissionDetail` 关键词抓取；
+2. 使用 Java 反射实现 UT 的题目：716、2227、2276、2286；
+3. 类中提供接口，UT 中需实现该接口：341、489、702、1095、1428、1533；
+
 ## 一些 Trick
 
 ```java

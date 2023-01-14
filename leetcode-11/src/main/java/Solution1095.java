@@ -76,26 +76,6 @@ public class Solution1095 {
 
         int length();
     }
-
-    static class MountainArrayImpl implements MountainArray {
-        int[] array;
-        int cnt = 0;
-
-        public MountainArrayImpl(int[] array) {
-            this.array = array;
-        }
-
-        @Override
-        public int get(int index) {
-            cnt++;
-            return array[index];
-        }
-
-        @Override
-        public int length() {
-            return array.length;
-        }
-    }
 }
 /*
 1095. 山脉数组中查找目标值

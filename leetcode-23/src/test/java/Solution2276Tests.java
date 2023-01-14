@@ -65,19 +65,19 @@ public class Solution2276Tests {
         for (int i = 1; i < methods.length; i++) {
             String method = methods[i];
             String parameter = parameters[i];
-            Object expected = returns[i];
 
-            Object invoke = null;
             if (method.equals("add")) {
                 int[] tuple = JSON.parseObject(parameter, int[].class);
                 int left = tuple[0];
                 int right = tuple[1];
-                invoke = add.invoke(obj, left, right);
+                add.invoke(obj, left, right);
+                invokes.add(null);
             } else if (method.equals("count")) {
-                invoke = count.invoke(obj);
-                Assertions.assertEquals(expected, String.valueOf(invoke));
+                int invoke = (int) count.invoke(obj);
+                int expected= JSON.parseObject(returns[i], int.class);
+                Assertions.assertEquals(expected, invoke);
+                invokes.add(invoke);
             }
-            invokes.add(invoke);
         }
         System.out.println(JSON.toJSONString(invokes, SerializerFeature.WRITE_MAP_NULL_FEATURES));
     }

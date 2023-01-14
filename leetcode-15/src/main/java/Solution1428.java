@@ -33,28 +33,6 @@ public class Solution1428 {
 
         List<Integer> dimensions();
     }
-
-    static class BinaryMatrixImpl implements BinaryMatrix {
-        int[][] mat;
-        int m;
-        int n;
-
-        public BinaryMatrixImpl(int[][] mat) {
-            this.mat = mat;
-            m = mat.length;
-            n = mat[0].length;
-        }
-
-        @Override
-        public int get(int row, int col) {
-            return mat[row][col];
-        }
-
-        @Override
-        public List<Integer> dimensions() {
-            return List.of(m, n);
-        }
-    }
 }
 /*
 $1428. 至少有一个 1 的最左端列

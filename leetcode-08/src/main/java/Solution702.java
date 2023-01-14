@@ -19,21 +19,6 @@ public class Solution702 {
     interface ArrayReader {
         int get(int index);
     }
-
-    static class ArrayReaderImpl implements ArrayReader {
-        private final int[] secret;
-        private final int n;
-
-        public ArrayReaderImpl(int[] secret) {
-            this.secret = secret;
-            n = secret.length;
-        }
-
-        @Override
-        public int get(int index) {
-            return (index < n) ? secret[index] : Integer.MAX_VALUE;
-        }
-    }
 }
 /*
 $702. 搜索长度未知的有序数组

@@ -4,43 +4,30 @@ import java.util.Objects;
 
 public class Solution155 {
     static class MinStack {
-        private final Deque<Integer> stack1;
-        private final Deque<Integer> stack2;
+        private final Deque<Integer> stack;
+        private final Deque<Integer> minStack;
 
-        /**
-         * initialize your data structure here.
-         */
         public MinStack() {
-            stack1 = new ArrayDeque<>();
-            stack2 = new ArrayDeque<>();
+            stack = new ArrayDeque<>();
+            minStack = new ArrayDeque<>();
         }
 
         public void push(int val) {
-            stack1.push(val);
-            if (stack2.isEmpty() || stack2.peek() >= val) {
-                stack2.push(val);
-            }
+            stack.push(val);
+            minStack.push(Math.min(java.util.Optional.ofNullable(minStack.peek()).orElse(val), val));
         }
 
         public void pop() {
-            int pop = stack1.pop();
-            if (Objects.equals(stack2.peek(), pop)) {
-                stack2.pop();
-            }
+            stack.pop();
+            minStack.pop();
         }
 
         public int top() {
-            if (!stack1.isEmpty()) {
-                return stack1.peek();
-            }
-            return -1;
+            return stack.element();
         }
 
         public int getMin() {
-            if (!stack2.isEmpty()) {
-                return stack2.peek();
-            }
-            return -1;
+            return minStack.element();
         }
     }
 }
@@ -60,8 +47,10 @@ https://leetcode.cn/problems/min-stack/
 pop、top 和 getMin 操作总是在 非空栈 上调用
 push, pop, top, and getMin最多被调用 3 * 10^4 次
 
-双栈实现最小栈。
-相似题目: 剑指 Offer 30. 包含min函数的栈
+双栈
+相似题目: $716. 最大栈
+https://leetcode.cn/problems/max-stack/
+剑指 Offer 30. 包含min函数的栈
 https://leetcode.cn/problems/bao-han-minhan-shu-de-zhan-lcof/
 面试题 03.02. 栈的最小值
 https://leetcode.cn/problems/min-stack-lcci/

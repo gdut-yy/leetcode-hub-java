@@ -25,7 +25,7 @@ public class Solution341Tests {
 
         @Override
         public boolean isInteger() {
-            return !Objects.isNull(integer);
+            return Objects.nonNull(integer);
         }
 
         @Override
@@ -53,5 +53,10 @@ public class Solution341Tests {
             actual.add(i.next());
         }
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void example2() {
+        // TODO
     }
 }

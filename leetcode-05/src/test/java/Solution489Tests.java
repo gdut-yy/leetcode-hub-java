@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution489Tests {
-    private static class RobotImpl implements Solution489.Robot {
+    static class RobotImpl implements Solution489.Robot {
         private final int[][] room;
         private final int M;
         private final int N;

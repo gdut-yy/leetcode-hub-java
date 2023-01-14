@@ -8,8 +8,9 @@ public class Solution1977 {
             return 0;
         }
 
-        int n = num.length();
         this.num = num;
+        int n = num.length();
+        // 计算 lcp
         lcp = new int[n + 1][n + 1];
         for (int i = n - 1; i >= 0; i--) {
             for (int j = n - 1; j >= 0; j--) {

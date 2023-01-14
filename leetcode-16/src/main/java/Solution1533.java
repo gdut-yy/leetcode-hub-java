@@ -33,31 +33,6 @@ public class Solution1533 {
         // Returns the length of the array
         int length();
     }
-
-    static class ArrayReaderImpl implements ArrayReader {
-        private final int len;
-        private final int[] preSum;
-
-        public ArrayReaderImpl(int[] arr) {
-            this.len = arr.length;
-            preSum = new int[len + 1];
-            for (int i = 0; i < len; i++) {
-                preSum[i + 1] = preSum[i] + arr[i];
-            }
-        }
-
-        @Override
-        public int compareSub(int l, int r, int x, int y) {
-            int sum1 = preSum[r + 1] - preSum[l];
-            int sum2 = preSum[y + 1] - preSum[x];
-            return Integer.compare(sum1, sum2);
-        }
-
-        @Override
-        public int length() {
-            return len;
-        }
-    }
 }
 /*
 $1533. 找到最大整数的索引
