@@ -1,19 +1,16 @@
+import java.util.Arrays;
+
 public class SolutionLCP50 {
     public int giveGem(int[] gem, int[][] operations) {
         for (int[] operation : operations) {
-            int from = operation[0];
-            int to = operation[1];
-
-            int half = gem[from]/2;
-            gem[from] -= half;
-            gem[to] += half;
+            int u = operation[0];
+            int v = operation[1];
+            int half = gem[u] / 2;
+            gem[u] -= half;
+            gem[v] += half;
         }
-        int min = gem[0];
-        int max = gem[0];
-        for (int i : gem) {
-            min = Math.min(min, i);
-            max = Math.max(max, i);
-        }
+        int min = Arrays.stream(gem).min().orElseThrow();
+        int max = Arrays.stream(gem).max().orElseThrow();
         return max - min;
     }
 }

@@ -1,28 +1,36 @@
 public class SolutionLCP51 {
+    private int[] materials;
+    private int[][] cookbooks;
+    private int[][] attribute;
+    private int limit;
+    private int len;
+
     public int perfectMenu(int[] materials, int[][] cookbooks, int[][] attribute, int limit) {
-        // 1 <= cookbooks.length == attribute.length <= 8
-        int len = cookbooks.length;
+        this.materials = materials;
+        this.cookbooks = cookbooks;
+        this.attribute = attribute;
+        this.limit = limit;
+        len = cookbooks.length;
 
         // 状态压缩 2^8 = 256
         int max = -1;
-        for (int state = 0; state < (1 << len); state++) {
-            int delicious = getDelicious(materials, cookbooks, attribute, limit, state);
+        for (int mask = 0; mask < (1 << len); mask++) {
+            int delicious = getDeliciousByMask(mask);
             max = Math.max(max, delicious);
         }
         return max;
     }
 
-    private int getDelicious(int[] materials, int[][] cookbooks, int[][] attribute, int limit, int state) {
+    private int getDeliciousByMask(int mask) {
         int[] materialsCopy = materials.clone();
         // 美味度
         int delicious = 0;
         // 饱腹感
         int satiety = 0;
 
-        for (int k = 0; k < cookbooks.length; k++) {
+        for (int k = 0; k < len; k++) {
             // 第 k 位被选中
-            if (((state >> k) & 1) == 1) {
-
+            if (((mask >> k) & 1) == 1) {
                 // 编号为 0 ~ 4 的五种食材
                 for (int j = 0; j < 5; j++) {
                     materialsCopy[j] -= cookbooks[k][j];
