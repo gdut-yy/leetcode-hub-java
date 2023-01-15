@@ -51,16 +51,12 @@ public class Solution2132 {
             diff2d = new int[M + 1][N + 1];
         }
 
-        /**
-         * 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
-         */
+        // 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
         public int sumRegion(int row1, int col1, int row2, int col2) {
             return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
         }
 
-        /**
-         * 二维差分：matrix [row1,col1] 到 [row2,col2] 全部增加 inc
-         */
+        // 二维差分：matrix [row1,col1] 到 [row2,col2] 全部增加 inc
         public void rangeAdd(int row1, int col1, int row2, int col2, int inc) {
             diff2d[row1][col1] += inc;
             diff2d[row1][col2 + 1] -= inc;
@@ -68,9 +64,7 @@ public class Solution2132 {
             diff2d[row2 + 1][col2 + 1] += inc;
         }
 
-        /**
-         * 二维差分：获取原数组
-         */
+        // 二维差分：获取原数组
         public int[][] originalArray() {
             int[][] res = new int[M][N];
             // 0 行
@@ -115,13 +109,11 @@ n == grid[r].length
 grid[r][c] 要么是 0 ，要么是 1 。
 1 <= stampHeight, stampWidth <= 10^5
 
-
 二维前缀和 + 二维差分
 前缀和用于 O(1) 内检查区域内是否有被占据 的格子
 差分用于模拟贴邮票，最后还原原数组。
 时间复杂度 O(mn)
 空间复杂度 O(mn)
-
 相似题目: 304. 二维区域和检索 - 矩阵不可变
 https://leetcode.cn/problems/range-sum-query-2d-immutable/
  */

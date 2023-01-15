@@ -31,9 +31,6 @@ public class Solution1292 {
         return false;
     }
 
-    /**
-     * 二维前缀和
-     */
     private static class PrefixSum2d {
         private final int[][] preSum2d;
 
@@ -46,9 +43,7 @@ public class Solution1292 {
             }
         }
 
-        /**
-         * 求 [row1,col1] 到 [row2,col2] 的累加和
-         */
+        // 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
         public int sumRegion(int row1, int col1, int row2, int col2) {
             return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
         }

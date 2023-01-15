@@ -24,16 +24,12 @@ public class PrefixSum2d {
         diff2d = new int[M + 1][N + 1];
     }
 
-    /**
-     * 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
-     */
+    // 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
     public int sumRegion(int row1, int col1, int row2, int col2) {
         return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
     }
 
-    /**
-     * 二维差分：matrix [row1,col1] 到 [row2,col2] 全部增加 inc
-     */
+    // 二维差分：matrix [row1,col1] 到 [row2,col2] 全部增加 inc
     public void rangeAdd(int row1, int col1, int row2, int col2, int inc) {
         diff2d[row1][col1] += inc;
         diff2d[row1][col2 + 1] -= inc;
@@ -41,9 +37,7 @@ public class PrefixSum2d {
         diff2d[row2 + 1][col2 + 1] += inc;
     }
 
-    /**
-     * 二维差分：获取原数组
-     */
+    // 二维差分：获取原数组
     public int[][] originalArray() {
         int[][] res = new int[M][N];
         // 0 行

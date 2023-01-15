@@ -19,24 +19,18 @@ public class PrefixSum {
         diff = new int[len + 1];
     }
 
-    /**
-     * 前缀和：求 nums [i,j] 的累加和
-     */
+    // 前缀和：求 nums [i,j] 的累加和
     public int sumRange(int i, int j) {
         return preSum[j + 1] - preSum[i];
     }
 
-    /**
-     * 差分：nums [i,j] 增加 inc
-     */
+    // 差分：nums [i,j] 增加 inc
     public void rangeAdd(int i, int j, int inc) {
         diff[i] += inc;
         diff[j + 1] -= inc;
     }
 
-    /**
-     * 差分：获取原数组
-     */
+    // 差分：获取原数组
     public int[] originalArray() {
         int[] res = new int[len];
         res[0] = diff[0];

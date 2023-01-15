@@ -4,41 +4,32 @@ import java.util.List;
 import java.util.Map;
 
 public class Solution1245 {
-    private Map<Integer, List<Integer>> graph;
+    private Map<Integer, List<Integer>> adj;
     private int ans;
-    int n;
-    private boolean[] visited;
 
     public int treeDiameter(int[][] edges) {
-        // n 个点
-        n = edges.length + 1;
-        visited = new boolean[n];
-        ans = 0;
-        graph = new HashMap<>();
+        adj = new HashMap<>();
         for (int[] edge : edges) {
-            graph.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            graph.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
+            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
         }
+        ans = 0;
 
-        visited[0] = true;
-        dfs(0);
+        dfs(0, -1);
         return ans;
     }
 
-    private int dfs(int x) {
-        if (x > n) {
-            return 0;
-        }
+    private int dfs(int x, int fa) {
         int maxLen = 0;
-        for (int y : graph.getOrDefault(x, new ArrayList<>())) {
-            if (!visited[y]) {
-                visited[y] = true;
-                int len = dfs(y) + 1;
-                ans = Math.max(ans, maxLen + len);
-                maxLen = Math.max(maxLen, len);
+        for (int y : adj.getOrDefault(x, new ArrayList<>())) {
+            if (y == fa) {
+                continue;
             }
+            int len = dfs(y, x);
+            ans = Math.max(ans, maxLen + len);
+            maxLen = Math.max(maxLen, len);
         }
-        return maxLen;
+        return maxLen + 1;
     }
 }
 /*
@@ -54,7 +45,7 @@ edges[i][0] != edges[i][1]
 0 <= edges[i][j] <= edges.length
 edges 会形成一棵无向树
 
-树形 dp。
+树形 DP
 相似题目: 2246. 相邻字符不同的最长路径
 https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/
  */

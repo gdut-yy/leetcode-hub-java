@@ -1,23 +1,17 @@
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
-import java.util.stream.Collectors;
 
 public class Solution1947 {
-    /**
-     * 全排列
-     * 时间复杂度 O(m^2*n + m*m!)
-     */
+    // 状态压缩动态规划
+    // 时间复杂度 O(n·m^2 + m·2^m) 其中 O(n·m^2) 预处理 score[i][j]，O(m·2^m) 进行状态转移
+    // 空间复杂度 O(m^2 + 2^m) 其中 O(m^2) 存储 score[i][j]，O(2^m) 进行状态个数
     public int maxCompatibilitySum(int[][] students, int[][] mentors) {
-        // n 个问题
-        int n = students[0].length;
-        // m 名学生和 m 名导师
+        // m 名学生和 m 名导师，n 个问题
         int m = students.length;
-        // 预处理
-        // score[i][j] 代表下标为 i 的学生与下标为 j 的老师的 兼容性评分
+        int n = students[0].length;
+
+        // score[i][j] 表示第 i 个学生与第 j 个老师的 兼容性评分
         int[][] score = new int[m][m];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
@@ -28,60 +22,31 @@ public class Solution1947 {
                 }
             }
         }
-        // 全排列学生
-        int[] studentOrders = new int[m];
-        for (int i = 0; i < m; i++) {
-            studentOrders[i] = i;
-        }
-        List<List<Integer>> arrangeList = permute(studentOrders);
-        int max = 0;
-        for (List<Integer> arrange : arrangeList) {
-            int cnt = 0;
-            for (int mentorIdx = 0; mentorIdx < m; mentorIdx++) {
-                int studentIdx = arrange.get(mentorIdx);
-                cnt += score[studentIdx][mentorIdx];
+
+        // f[mask] 表示当老师被分配学生的状态为 mask 时，最大的兼容性评分和
+        int[] f = new int[1 << m];
+        for (int mask = 1; mask < (1 << m); mask++) {
+            // bitCount 个学生
+            int bitCount = Integer.bitCount(mask);
+            for (int k = 0; k < m; k++) {
+                // 第 k 个老师被分配到了学生
+                if (((mask >> k) & 1) == 1) {
+                    f[mask] = Math.max(f[mask], f[mask ^ (1 << k)] + score[bitCount - 1][k]);
+                }
             }
-            max = Math.max(max, cnt);
         }
-        return max;
+        return f[(1 << m) - 1];
     }
 
-    // 全排列
-    public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> res = new ArrayList<>();
-        // nums 的一个快照
-        List<Integer> snapshotNums = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        int len = nums.length;
-        dfs(res, snapshotNums, len, 0);
-        return res;
-    }
-
-    private void dfs(List<List<Integer>> res, List<Integer> snapshotNums, int len, int curI) {
-        if (curI == len) {
-            // 记录当前快照的副本
-            res.add(new ArrayList<>(snapshotNums));
-        }
-        for (int i = curI; i < len; i++) {
-            // 操作
-            Collections.swap(snapshotNums, curI, i);
-            // 下一迭代
-            dfs(res, snapshotNums, len, curI + 1);
-            // 回退操作
-            Collections.swap(snapshotNums, curI, i);
-        }
-    }
-
-    /**
-     * 匈牙利算法（KM 算法）
-     * 时间复杂度 O(n^3)
-     */
+    // 二分图最大权匹配
+    // 时间复杂度 O(n^3)
+    // 空间复杂度 O(n^2)
     public int maxCompatibilitySum2(int[][] students, int[][] mentors) {
-        // n 个问题
-        int n = students[0].length;
-        // m 名学生和 m 名导师
+        // m 名学生和 m 名导师，n 个问题
         int m = students.length;
-        // 预处理
-        // score[i][j] 代表下标为 i 的学生与下标为 j 的老师的 兼容性评分
+        int n = students[0].length;
+
+        // score[i][j] 表示第 i 个学生与第 j 个老师的 兼容性评分
         int[][] score = new int[m][m];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < m; j++) {
@@ -251,7 +216,6 @@ mentors[j][k] 为 0 或 1
 数据量很少，直接 全排列 或者 状态压缩 dp
 全排列 时间复杂度 O(m^2*n + m*m!)
 也可以使用 匈牙利算法（KM 算法）
-
-相似题目: 1066. 校园自行车分配 II
+相似题目: $1066. 校园自行车分配 II
 https://leetcode.cn/problems/campus-bikes-ii/
  */

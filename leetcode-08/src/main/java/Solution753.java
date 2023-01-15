@@ -66,6 +66,7 @@ public class Solution753 {
     private StringBuilder stringBuilder;
     private int highest;
 
+    // 官方解
     public String crackSafe2(int n, int k) {
         this.k = k;
         seen = new HashSet<>();

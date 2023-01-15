@@ -5,33 +5,34 @@ import java.util.Map;
 
 public class Solution2246 {
     private String s;
-    private Map<Integer, List<Integer>> graph;
+    private Map<Integer, List<Integer>> adj;
     private int ans;
 
     public int longestPath(int[] parent, String s) {
-        int n = parent.length;
-
         this.s = s;
-        graph = new HashMap<>();
+        adj = new HashMap<>();
+        for (int i = 1; i < parent.length; i++) {
+            adj.computeIfAbsent(parent[i], key -> new ArrayList<>()).add(i);
+        }
         ans = 0;
 
-        for (int i = 1; i < n; i++) {
-            graph.computeIfAbsent(parent[i], key -> new ArrayList<>()).add(i);
-        }
-        dfs(0);
+        dfs(0, -1);
         return ans + 1;
     }
 
-    private int dfs(int x) {
+    private int dfs(int x, int fa) {
         int maxLen = 0;
-        for (int y : graph.getOrDefault(x, new ArrayList<>())) {
-            int len = dfs(y) + 1;
+        for (int y : adj.getOrDefault(x, new ArrayList<>())) {
+            if (y == fa) {
+                continue;
+            }
+            int len = dfs(y, x);
             if (s.charAt(y) != s.charAt(x)) {
                 ans = Math.max(ans, maxLen + len);
                 maxLen = Math.max(maxLen, len);
             }
         }
-        return maxLen;
+        return maxLen + 1;
     }
 }
 /*
@@ -52,7 +53,7 @@ parent[0] == -1
 parent 表示一棵有效的树
 s 仅由小写英文字母组成
 
-树形 dp。
+树形 DP
 时间复杂度 O(n)
 如果用 时间复杂度 O(n^2) 的 BFS/DFS 会 TLE
 相似题目: $1245. 树的直径

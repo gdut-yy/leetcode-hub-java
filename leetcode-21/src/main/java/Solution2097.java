@@ -17,7 +17,6 @@ public class Solution2097 {
             int u = pair[0];
             int v = pair[1];
             adj.computeIfAbsent(u, key -> new LinkedList<>()).add(v);
-
             // 出度 -1 入度 +1
             degreeMap.put(u, degreeMap.getOrDefault(u, 0) - 1);
             degreeMap.put(v, degreeMap.getOrDefault(v, 0) + 1);
