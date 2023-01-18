@@ -12,6 +12,7 @@ public class Solution310Tests {
         int[][] edges = UtUtils.stringToInts2("[[1,0],[1,2],[1,3]]");
         List<Integer> expected = List.of(1);
         Assertions.assertEquals(expected, solution310.findMinHeightTrees(n, edges));
+        Assertions.assertEquals(expected, solution310.findMinHeightTrees2(n, edges));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution310Tests {
         int[][] edges = UtUtils.stringToInts2("[[3,0],[3,1],[3,2],[3,4],[5,4]]");
         List<Integer> expected = List.of(3, 4);
         Assertions.assertEquals(expected, solution310.findMinHeightTrees(n, edges));
+        Assertions.assertEquals(expected, solution310.findMinHeightTrees2(n, edges));
     }
 
     // 补充用例
@@ -30,6 +32,7 @@ public class Solution310Tests {
         int[][] edges = UtUtils.stringToInts2("[]");
         List<Integer> expected = List.of(0);
         Assertions.assertEquals(expected, solution310.findMinHeightTrees(n, edges));
+        Assertions.assertEquals(expected, solution310.findMinHeightTrees2(n, edges));
     }
 
     @Test
@@ -38,5 +41,6 @@ public class Solution310Tests {
         int[][] edges = {{0, 1}};
         List<Integer> expected = List.of(0, 1);
         Assertions.assertEquals(expected, solution310.findMinHeightTrees(n, edges));
+        Assertions.assertEquals(expected, solution310.findMinHeightTrees2(n, edges));
     }
 }

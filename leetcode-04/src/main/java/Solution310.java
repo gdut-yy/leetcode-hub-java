@@ -52,6 +52,75 @@ public class Solution310 {
         }
         return resList;
     }
+
+    private Map<Integer, List<Integer>> adj;
+    private int[] f1, f2, g, p;
+
+    // 树形 DP
+    // https://leetcode.cn/problems/minimum-height-trees/solution/by-ac_oier-7xio/
+    public List<Integer> findMinHeightTrees2(int n, int[][] edges) {
+        adj = new HashMap<>();
+        for (int[] edge : edges) {
+            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
+            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        }
+        // f[u] 代表在以 0 号点为根节点的树中，以 u 节点为子树根节点时，往下的最大高度
+        // g[u] 代表在以 0 号点为根节点的树中，以 u 节点为子节点时，往上的最大高度
+        // f1 最大值，f2 次大值
+        f1 = new int[n];
+        f2 = new int[n];
+        g = new int[n];
+        // p 数组记录下取得 f1[u] 时 u 的子节点 j 为何值。
+        p = new int[n];
+
+        dfs1(0, -1);
+        dfs2(0, -1);
+        List<Integer> ans = new ArrayList<>();
+        int min = n;
+        for (int i = 0; i < n; i++) {
+            int cur = Math.max(f1[i], g[i]);
+            if (cur < min) {
+                min = cur;
+                ans.clear();
+                ans.add(i);
+            } else if (cur == min) {
+                ans.add(i);
+            }
+        }
+        return ans;
+    }
+
+    private int dfs1(int u, int fa) {
+        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
+            if (v == fa) {
+                continue;
+            }
+            int sub = dfs1(v, u) + 1;
+            if (sub > f1[u]) {
+                f2[u] = f1[u];
+                f1[u] = sub;
+                p[u] = v;
+            } else if (sub > f2[u]) {
+                f2[u] = sub;
+            }
+        }
+        return f1[u];
+    }
+
+    private void dfs2(int u, int fa) {
+        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
+            if (v == fa) {
+                continue;
+            }
+            if (p[u] != v) {
+                g[v] = Math.max(g[v], f1[u] + 1);
+            } else {
+                g[v] = Math.max(g[v], f2[u] + 1);
+            }
+            g[v] = Math.max(g[v], g[u] + 1);
+            dfs2(v, u);
+        }
+    }
 }
 /*
 310. 最小高度树
