@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6293 {
+public class Solution2537 {
     public long countGood(int[] nums, int k) {
         int len = nums.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -31,7 +31,7 @@ public class Solution6293 {
     }
 }
 /*
-6293. 统计好子数组的数目
+2537. 统计好子数组的数目
 https://leetcode.cn/problems/count-the-number-of-good-subarrays/
 
 第 328 场周赛 T3。

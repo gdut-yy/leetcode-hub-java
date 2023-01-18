@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6294 {
+public class Solution2538 {
     private int[] price;
     private Map<Integer, List<Integer>> adj;
     private long ans;
@@ -37,7 +37,7 @@ public class Solution6294 {
     }
 }
 /*
-6294. 最大价值和与最小价值和的差值
+2538. 最大价值和与最小价值和的差值
 https://leetcode.cn/problems/difference-between-maximum-and-minimum-price-sum/
 
 第 328 场周赛 T4。

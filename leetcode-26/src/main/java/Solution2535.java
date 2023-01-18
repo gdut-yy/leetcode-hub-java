@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6291 {
+public class Solution2535 {
     public int differenceOfSum(int[] nums) {
         int sum = Arrays.stream(nums).sum();
         int digitSum = 0;
@@ -14,7 +14,7 @@ public class Solution6291 {
     }
 }
 /*
-6291. 数组元素和与数字和的绝对差
+2535. 数组元素和与数字和的绝对差
 https://leetcode.cn/problems/difference-between-element-sum-and-digit-sum-of-an-array/
 
 第 328 场周赛 T1。

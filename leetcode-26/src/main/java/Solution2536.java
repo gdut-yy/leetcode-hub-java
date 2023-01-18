@@ -1,4 +1,4 @@
-public class Solution6292 {
+public class Solution2536 {
     public int[][] rangeAddQueries(int n, int[][] queries) {
         PrefixSum2d prefixSum2d = new PrefixSum2d(new int[n][n]);
         for (int[] query : queries) {
@@ -49,7 +49,7 @@ public class Solution6292 {
     }
 }
 /*
-6292. 子矩阵元素加 1
+2536. 子矩阵元素加 1
 https://leetcode.cn/problems/increment-submatrices-by-one/
 
 第 328 场周赛 T2。
