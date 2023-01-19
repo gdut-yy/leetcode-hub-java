@@ -1,18 +1,15 @@
 public class Solution2348 {
     public long zeroFilledSubarray(int[] nums) {
-        long cnt = 0;
         long res = 0;
+        int cnt = 0;
         for (int num : nums) {
             if (num == 0) {
                 cnt++;
+                res += cnt;
             } else {
-                // 等差数列求和
-                res += (cnt + 1) * cnt / 2;
                 cnt = 0;
             }
         }
-        // 最后一组
-        res += (cnt + 1) * cnt / 2;
         return res;
     }
 }
@@ -28,6 +25,5 @@ https://leetcode.cn/problems/number-of-zero-filled-subarrays/
 1 <= nums.length <= 10^5
 -10^9 <= nums[i] <= 10^9
 
-计数，数学。
-连续 0 个数的等差数列乘积。
+计数。连续 0 个数的长度贡献累加。
  */
