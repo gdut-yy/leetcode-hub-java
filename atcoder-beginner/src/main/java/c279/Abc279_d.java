@@ -38,4 +38,6 @@ D - Freefall
 https://atcoder.jp/contests/abc279/tasks/abc279_d
 
 凹函数，三分法取最小值。
+https://atcoder.jp/contests/abc279/submissions/37250161
+mumuxinfei: java的精度 没法过, 就这样，太sb了
  */

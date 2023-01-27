@@ -122,6 +122,7 @@ dictionary.length == n
 target 和 dictionary[i] 仅包含小写字符
 
 位运算 + 剪枝
+java continue label 参考 https://leetcode.cn/problems/minimum-unique-word-abbreviation/solution/yu-niang-niang-411-zui-duan-du-zhan-dan-9ssj0/
 相似题目: $320. 列举单词的全部缩写
 https://leetcode.cn/problems/generalized-abbreviation/
 $408. 有效单词缩写
