@@ -2,49 +2,45 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution76 {
+    private Map<Character, Integer> tMap;
+
     public String minWindow(String s, String t) {
-        if (s.length() < t.length()) {
+        int n = s.length();
+        int m = t.length();
+        if (n < m) {
             return "";
         }
-        Map<Character, Integer> sCntMap = new HashMap<>();
-        Map<Character, Integer> tCntMap = new HashMap<>();
+        tMap = new HashMap<>();
         for (char ch : t.toCharArray()) {
-            tCntMap.put(ch, tCntMap.getOrDefault(ch, 0) + 1);
+            tMap.put(ch, tMap.getOrDefault(ch, 0) + 1);
         }
 
-        // 双指针-滑动窗口
-        int left = 0;
-        int right = 0;
-        // 此处有坑，不能直接 s.length() 因为存在 s = "a", t = "b" 用例
-        int ansLen = Integer.MAX_VALUE;
-        int ansStart = 0;
-        while (right < s.length()) {
-            // 右指针右移 增加字符
-            char addCh = s.charAt(right);
-            sCntMap.put(addCh, sCntMap.getOrDefault(addCh, 0) + 1);
-            right++;
-
-            // 左指针右移
-            while (checkInclusion(sCntMap, tCntMap)) {
-                int curLen = right - left;
-                if (curLen < ansLen) {
-                    ansLen = curLen;
-                    ansStart = left;
+        Map<Character, Integer> sMap = new HashMap<>();
+        int left = 0, right = 0;
+        int ansLen = n + 1;
+        int ansL = 0;
+        while (right < n) {
+            char ch = s.charAt(right);
+            sMap.put(ch, sMap.getOrDefault(ch, 0) + 1);
+            while (check(sMap)) {
+                if (ansLen > right - left + 1) {
+                    ansLen = right - left + 1;
+                    ansL = left;
                 }
-                // 移除字符
-                char rmCh = s.charAt(left);
-                sCntMap.put(rmCh, sCntMap.getOrDefault(rmCh, 0) - 1);
+                char rm = s.charAt(left);
+                sMap.put(rm, sMap.get(rm) - 1);
                 left++;
             }
+            right++;
         }
-        return ansLen == Integer.MAX_VALUE ? "" : s.substring(ansStart, ansStart + ansLen);
+        return (ansLen == n + 1) ? "" : s.substring(ansL, ansL + ansLen);
     }
 
-    // window 是否包含 need 的字符
-    private boolean checkInclusion(Map<Character, Integer> window, Map<Character, Integer> need) {
-        for (Map.Entry<Character, Integer> entry : need.entrySet()) {
-            char curCh = entry.getKey();
-            if (window.getOrDefault(curCh, 0) < entry.getValue()) {
+    // sMap 是否完全覆盖 tMap
+    private boolean check(Map<Character, Integer> sMap) {
+        for (Map.Entry<Character, Integer> entry : tMap.entrySet()) {
+            char ch = entry.getKey();
+            if (sMap.getOrDefault(ch, 0) < entry.getValue()) {
                 return false;
             }
         }

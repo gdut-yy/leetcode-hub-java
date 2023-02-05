@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -9,25 +10,21 @@ import java.util.Set;
 public class Solution2225 {
     public List<List<Integer>> findWinners(int[][] matches) {
         Set<Integer> players = new HashSet<>();
-        // 建图
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
+        // 入度
+        Map<Integer, Integer> deg = new HashMap<>();
         for (int[] match : matches) {
-            int from = match[0];
-            int to = match[1];
-            players.add(from);
-            players.add(to);
-
-            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            inGraph.put(to, inSet);
+            int u = match[0];
+            int v = match[1];
+            deg.put(v, deg.getOrDefault(v, 0) + 1);
+            players.add(u);
+            players.add(v);
         }
 
         // 统计入度
         List<Integer> answer0 = new ArrayList<>();
         List<Integer> answer1 = new ArrayList<>();
         for (int player : players) {
-            int inDegree = inGraph.getOrDefault(player, new HashSet<>()).size();
-
+            int inDegree = deg.getOrDefault(player, 0);
             if (inDegree == 0) {
                 answer0.add(player);
             } else if (inDegree == 1) {
@@ -36,7 +33,7 @@ public class Solution2225 {
         }
         Collections.sort(answer0);
         Collections.sort(answer1);
-        return List.of(answer0, answer1);
+        return Arrays.asList(answer0, answer1);
     }
 }
 /*

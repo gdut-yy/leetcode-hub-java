@@ -1,51 +1,19 @@
-import java.math.BigInteger;
-
 public class Solution713 {
-    /**
-     * 类似 "前缀和" 的 "前缀积"
-     * 时间复杂度 O(n^2) 使用 BigInteger 是因为 long 会溢出
-     */
-    public int numSubarrayProductLessThanK2(int[] nums, int k) {
-        // 前缀“积”
-        int len = nums.length;
-        BigInteger[] preSum = new BigInteger[len + 1];
-        preSum[0] = new BigInteger("1");
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i].multiply(BigInteger.valueOf(nums[i]));
-        }
-        // 枚举连续子数组 时间复杂度 O(n^2)
-        BigInteger kBigInteger = BigInteger.valueOf(k);
-        int res = 0;
-        for (int i = 0; i < len; i++) {
-            for (int j = i; j < len; j++) {
-                if (preSum[j + 1].divide(preSum[i]).compareTo(kBigInteger) < 0) {
-                    res++;
-                }
-            }
-        }
-        return res;
-    }
-
-    // 双指针 时间复杂度 O(n)
     public int numSubarrayProductLessThanK(int[] nums, int k) {
-        // 双指针
-        int left = 0;
-        int right = 0;
-        // 乘积
-        long product = 1;
-        int cnt = 0;
-        while (right < nums.length) {
-            // 右指针右移
+        int n = nums.length;
+        int left = 0, right = 0;
+        long product = 1L;
+        int res = 0;
+        while (right < n) {
             product *= nums[right];
-            right++;
-            // 左指针右移
-            while (product >= k && left < right) {
+            while (product >= k && left <= right) {
                 product /= nums[left];
                 left++;
             }
-            cnt += right - left;
+            res += right - left + 1;
+            right++;
         }
-        return cnt;
+        return res;
     }
 }
 /*
@@ -59,8 +27,8 @@ https://leetcode.cn/problems/subarray-product-less-than-k/
 1 <= nums[i] <= 1000
 0 <= k <= 10^6
 
-参考第 560 题 https://leetcode.cn/problems/subarray-sum-equals-k/
-“前缀积” 时间复杂度 O(n^2)
-参考第 209 题 https://leetcode.cn/problems/minimum-size-subarray-sum/
-双指针 时间复杂度 O(n)
+双指针
+时间复杂度 O(n)
+相似题目: 209. 长度最小的子数组
+https://leetcode.cn/problems/minimum-size-subarray-sum/
  */

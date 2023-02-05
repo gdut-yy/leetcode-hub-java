@@ -9,6 +9,7 @@ public class Solution2546Tests {
         String s = "1010";
         String target = "0110";
         Assertions.assertTrue(solution2546.makeStringsEqual(s, target));
+        Assertions.assertTrue(solution2546.makeStringsEqual2(s, target));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution2546Tests {
         String s = "11";
         String target = "00";
         Assertions.assertFalse(solution2546.makeStringsEqual(s, target));
+        Assertions.assertFalse(solution2546.makeStringsEqual2(s, target));
     }
 }

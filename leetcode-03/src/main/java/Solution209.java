@@ -1,24 +1,19 @@
 public class Solution209 {
     public int minSubArrayLen(int target, int[] nums) {
-        // 双指针
-        int left = 0;
-        int right = 0;
+        int n = nums.length;
+        int left = 0, right = 0;
         int sum = 0;
-        int minLen = Integer.MAX_VALUE;
-        while (right < nums.length) {
-            // 右指针右移
+        int min = n + 1;
+        while (right < n) {
             sum += nums[right];
-            right++;
-
             while (sum >= target) {
-                minLen = Math.min(minLen, right - left);
-
-                // 左指针右移
+                min = Math.min(min, right - left + 1);
                 sum -= nums[left];
                 left++;
             }
+            right++;
         }
-        return (minLen == Integer.MAX_VALUE) ? 0 : minLen;
+        return (min == n + 1) ? 0 : min;
     }
 }
 /*

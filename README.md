@@ -619,7 +619,8 @@ Hierholzer 算法
 - ~~[哈工大 OJ](http://acm.hit.edu.cn/)~~
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
-- [leetcode-rating-predictor](http://lcpredictor.herokuapp.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor) | [onrender](http://lcpredictor.onrender.com/)
+- [leetcode-rating-predictor](https://lcpredictor.onrender.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
+- [lccn.lbao.site](https://lccn.lbao.site/)
 - [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
 - [clist.by](https://clist.by/account/zhang-yi-yang/resource/leetcode.com/)
 - [visualgo](https://visualgo.net/zh)

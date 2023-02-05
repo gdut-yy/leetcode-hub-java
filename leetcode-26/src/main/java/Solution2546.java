@@ -18,6 +18,10 @@ public class Solution2546 {
         }
         return s0 != n && t0 != n;
     }
+
+    public boolean makeStringsEqual2(String s, String target) {
+        return s.contains("1") == target.contains("1");
+    }
 }
 /*
 2546. 执行逐位运算使字符串相等
