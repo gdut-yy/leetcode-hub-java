@@ -1,17 +1,18 @@
 public class Solution6331 {
     public int maximizeWin(int[] prizePositions, int k) {
-        int len = prizePositions.length;
-        int left = 0;
-        int right = 0;
-        // pre[right] = max{[l, right]}
-        int[] pre = new int[len + 1];
+        int n = prizePositions.length;
+
+        // f[i] 表示 [0, i) 线段长度 <= k 的最多奖品数
+        int[] f = new int[n + 1];
+
+        int left = 0, right = 0;
         int res = 0;
-        while (right < len) {
+        while (right < n) {
             while (prizePositions[right] - prizePositions[left] > k) {
                 left++;
             }
-            res = Math.max(res, right - left + 1 + pre[left]);
-            pre[right + 1] = Math.max(pre[right], right - left + 1);
+            res = Math.max(res, (right - left + 1) + f[left]);
+            f[right + 1] = Math.max(f[right], right - left + 1);
             right++;
         }
         return res;
