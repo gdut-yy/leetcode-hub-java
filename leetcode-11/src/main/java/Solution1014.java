@@ -1,12 +1,14 @@
 public class Solution1014 {
     public int maxScoreSightseeingPair(int[] values) {
-        int maxI = 0;
-        int maxIj = 0;
-        for (int j = 1; j < values.length; j++) {
-            maxI = Math.max(maxI, values[j - 1] + j - 1);
-            maxIj = Math.max(maxIj, maxI + values[j] - j);
+        int n = values.length;
+        // f[i] 表示 [0, i) 的 (values[i] + i) 最大值
+        int[] f = new int[n + 1];
+        int max = 0;
+        for (int i = 0; i < n; i++) {
+            max = Math.max(max, f[i] + values[i] - i);
+            f[i + 1] = Math.max(f[i], values[i] + i);
         }
-        return maxIj;
+        return max;
     }
 }
 /*
@@ -22,6 +24,7 @@ https://leetcode.cn/problems/best-sightseeing-pair/
 2 <= values.length <= 5 * 10^4
 1 <= values[i] <= 1000
 
+双指针 动态规划
 由于 用例 数值较大，需要将时间复杂度由 O(n^2) 优化到 O(n)
 当 i < j 时：
 f(i,j) = values[i] + values[j] + i - j == (values[i] + i) + (values[j] - j)

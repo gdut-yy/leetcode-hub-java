@@ -1,26 +1,19 @@
 public class SolutionLCP68 {
-    private static final int MAX_N = (int) (1e5 + 5);
     private static final int MOD = (int) (1e9 + 7);
 
     public int beautifulBouquet(int[] flowers, int cnt) {
-        int len = flowers.length;
-
-        // 双指针
-        int left = 0;
-        int right = 0;
-        int[] cntArr = new int[MAX_N];
+        int n = flowers.length;
+        int[] cntArr = new int[100001];
+        int l = 0, r = 0;
         long res = 0;
-        while (right < len) {
-            // 右指针右移
-            cntArr[flowers[right]]++;
-            right++;
-
-            res = (res + (right - left)) % MOD;
-            while (right < len && cntArr[flowers[right]] == cnt) {
-                // 左指针右移
-                cntArr[flowers[left]]--;
-                left++;
+        while (r < n) {
+            cntArr[flowers[r]]++;
+            while (cntArr[flowers[r]] > cnt) {
+                cntArr[flowers[l]]--;
+                l++;
             }
+            res = (res + (r - l + 1)) % MOD;
+            r++;
         }
         return (int) res;
     }
@@ -42,5 +35,5 @@ LCCUP'22 力扣杯秋季编程大赛战队赛 T3。
 1 <= flowers[i] <= 10^5
 1 <= cnt <= 10^5
 
-双指针
+双指针 滑动窗口
  */

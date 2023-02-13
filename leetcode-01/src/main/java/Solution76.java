@@ -16,27 +16,26 @@ public class Solution76 {
         }
 
         Map<Character, Integer> sMap = new HashMap<>();
-        int left = 0, right = 0;
+        int l = 0, r = 0;
         int ansLen = n + 1;
         int ansL = 0;
-        while (right < n) {
-            char ch = s.charAt(right);
+        while (r < n) {
+            char ch = s.charAt(r);
             sMap.put(ch, sMap.getOrDefault(ch, 0) + 1);
             while (check(sMap)) {
-                if (ansLen > right - left + 1) {
-                    ansLen = right - left + 1;
-                    ansL = left;
+                if (ansLen > r - l + 1) {
+                    ansLen = r - l + 1;
+                    ansL = l;
                 }
-                char rm = s.charAt(left);
+                char rm = s.charAt(l);
                 sMap.put(rm, sMap.get(rm) - 1);
-                left++;
+                l++;
             }
-            right++;
+            r++;
         }
         return (ansLen == n + 1) ? "" : s.substring(ansL, ansL + ansLen);
     }
 
-    // sMap 是否完全覆盖 tMap
     private boolean check(Map<Character, Integer> sMap) {
         for (Map.Entry<Character, Integer> entry : tMap.entrySet()) {
             char ch = entry.getKey();

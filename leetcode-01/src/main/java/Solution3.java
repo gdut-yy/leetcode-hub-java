@@ -3,25 +3,26 @@ import java.util.Map;
 
 public class Solution3 {
     public int lengthOfLongestSubstring(String s) {
-        Map<Character, Integer> sCntMap = new HashMap<>();
-        int ans = 0;
-        // 双指针-滑动窗口
-        int left = 0;
-        int right = 0;
-        while (right < s.length()) {
-            // 右指针右移
-            char addCh = s.charAt(right);
-            sCntMap.put(addCh, sCntMap.getOrDefault(addCh, 0) + 1);
-            right++;
-            // 左指针右移
-            while (sCntMap.getOrDefault(addCh, 0) > 1) {
-                char rmCh = s.charAt(left);
-                sCntMap.put(rmCh, sCntMap.getOrDefault(rmCh, 0) - 1);
-                left++;
+        int n = s.length();
+        char[] chars = s.toCharArray();
+        Map<Character, Integer> cntMap = new HashMap<>();
+        int l = 0, r = 0;
+        int max = 0;
+        while (r < n) {
+            cntMap.put(chars[r], cntMap.getOrDefault(chars[r], 0) + 1);
+            while (cntMap.get(chars[r]) > 1) {
+                int cnt = cntMap.get(chars[l]);
+                if (cnt == 1) {
+                    cntMap.remove(chars[l]);
+                } else {
+                    cntMap.put(chars[l], cnt - 1);
+                }
+                l++;
             }
-            ans = Math.max(ans, right - left);
+            max = Math.max(max, r - l + 1);
+            r++;
         }
-        return ans;
+        return max;
     }
 }
 /*
