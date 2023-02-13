@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6304Tests {
-    private final Solution6304 solution6304 = new Solution6304();
+public class Solution2554Tests {
+    private final Solution2554 solution2554 = new Solution2554();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6304Tests {
         int n = 5;
         int maxSum = 6;
         int expected = 2;
-        Assertions.assertEquals(expected, solution6304.maxCount(banned, n, maxSum));
+        Assertions.assertEquals(expected, solution2554.maxCount(banned, n, maxSum));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6304Tests {
         int n = 8;
         int maxSum = 1;
         int expected = 0;
-        Assertions.assertEquals(expected, solution6304.maxCount(banned, n, maxSum));
+        Assertions.assertEquals(expected, solution2554.maxCount(banned, n, maxSum));
     }
 
     @Test
@@ -28,6 +28,6 @@ public class Solution6304Tests {
         int n = 7;
         int maxSum = 50;
         int expected = 7;
-        Assertions.assertEquals(expected, solution6304.maxCount(banned, n, maxSum));
+        Assertions.assertEquals(expected, solution2554.maxCount(banned, n, maxSum));
     }
 }

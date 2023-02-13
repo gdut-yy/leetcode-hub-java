@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Solution6303 {
+public class Solution2553 {
     public int[] separateDigits(int[] nums) {
         int len = nums.length;
         List<Integer> list = new ArrayList<>();
@@ -19,7 +19,7 @@ public class Solution6303 {
     }
 }
 /*
-6303. 分割数组中数字的数位
+2553. 分割数组中数字的数位
 https://leetcode.cn/problems/separate-the-digits-in-an-array/
 
 第 97 场双周赛 T1。

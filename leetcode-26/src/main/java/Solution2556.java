@@ -1,4 +1,4 @@
-public class Solution6305 {
+public class Solution2556 {
     private int[][] grid;
     private int M;
     private int N;
@@ -21,7 +21,7 @@ public class Solution6305 {
     }
 }
 /*
-6305. 二进制矩阵中翻转最多一次使路径不连通
+2556. 二进制矩阵中翻转最多一次使路径不连通
 https://leetcode.cn/problems/disconnect-path-in-a-binary-matrix-by-at-most-one-flip/
 
 第 97 场双周赛 T4。

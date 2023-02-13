@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6348 {
+public class Solution2558 {
     public long pickGifts(int[] gifts, int k) {
         long sum = 0;
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
@@ -19,7 +19,7 @@ public class Solution6348 {
     }
 }
 /*
-6348. 从数量最多的堆取走礼物
+2558. 从数量最多的堆取走礼物
 https://leetcode.cn/problems/take-gifts-from-the-richest-pile/
 
 第 331 场周赛 T1。

@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6304 {
+public class Solution2554 {
     public int maxCount(int[] banned, int n, int maxSum) {
         Set<Integer> banSet = new HashSet<>();
         for (int x : banned) {
@@ -22,7 +22,7 @@ public class Solution6304 {
     }
 }
 /*
-6304. 从一个范围内选择最多整数 I
+2554. 从一个范围内选择最多整数 I
 https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-i/
 
 第 97 场双周赛 T2。

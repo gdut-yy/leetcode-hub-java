@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6346 {
+public class Solution2560 {
     public int minCapability(int[] nums, int k) {
         int left = Arrays.stream(nums).min().orElseThrow();
         int right = Arrays.stream(nums).max().orElseThrow();
@@ -33,7 +33,7 @@ public class Solution6346 {
     }
 }
 /*
-6346. 打家劫舍 IV
+2560. 打家劫舍 IV
 https://leetcode.cn/problems/house-robber-iv/
 
 第 331 场周赛 T3。

@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6345 {
+public class Solution2561 {
     public long minCost(int[] basket1, int[] basket2) {
         int n = basket1.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -36,7 +36,7 @@ public class Solution6345 {
     }
 }
 /*
-6345. 重排水果
+2561. 重排水果
 https://leetcode.cn/problems/rearranging-fruits/
 
 第 331 场周赛 T4。

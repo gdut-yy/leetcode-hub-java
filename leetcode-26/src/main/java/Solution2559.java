@@ -1,4 +1,4 @@
-public class Solution6347 {
+public class Solution2559 {
     public int[] vowelStrings(String[] words, int[][] queries) {
         int len = words.length;
         int[] preSum = new int[len + 1];
@@ -25,7 +25,7 @@ public class Solution6347 {
     }
 }
 /*
-6347. 统计范围内的元音字符串数
+2559. 统计范围内的元音字符串数
 https://leetcode.cn/problems/count-vowel-strings-in-ranges/
 
 第 331 场周赛 T2。

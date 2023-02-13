@@ -1,4 +1,4 @@
-public class Solution6331 {
+public class Solution2555 {
     public int maximizeWin(int[] prizePositions, int k) {
         int n = prizePositions.length;
 
@@ -19,7 +19,7 @@ public class Solution6331 {
     }
 }
 /*
-6331. 两个线段获得的最多奖品
+2555. 两个线段获得的最多奖品
 https://leetcode.cn/problems/maximize-win-from-two-segments/
 
 第 97 场双周赛 T3。
