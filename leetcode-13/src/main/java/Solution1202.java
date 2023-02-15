@@ -5,82 +5,54 @@ import java.util.PriorityQueue;
 
 public class Solution1202 {
     public String smallestStringWithSwaps(String s, List<List<Integer>> pairs) {
-        if (pairs.size() == 0) {
-            return s;
-        }
-
-        // 并查集 连接可以交换 的下标
-        int len = s.length();
-        UnionFind unionFind = new UnionFind(len);
+        int n = s.length();
+        DSU dsu = new DSU(n);
         for (List<Integer> pair : pairs) {
-            unionFind.union(pair.get(0), pair.get(1));
+            dsu.union(pair.get(0), pair.get(1));
         }
 
-        // 同一个 root 的重排序
-        Map<Integer, PriorityQueue<Character>> map = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            int root = unionFind.find(i);
-            PriorityQueue<Character> priorityQueue = map.getOrDefault(root, new PriorityQueue<>());
-            priorityQueue.add(s.charAt(i));
-            map.put(root, priorityQueue);
+        Map<Integer, PriorityQueue<Character>> faMinHeapMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int fa = dsu.find(i);
+            faMinHeapMap.computeIfAbsent(fa, key -> new PriorityQueue<>()).add(s.charAt(i));
         }
-
-        // 重组字符串 s
         StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < len; i++) {
-            int root = unionFind.find(i);
-            PriorityQueue<Character> priorityQueue = map.get(root);
-            stringBuilder.append(priorityQueue.poll());
+        for (int i = 0; i < n; i++) {
+            int fa = dsu.find(i);
+            stringBuilder.append(faMinHeapMap.get(fa).poll());
         }
         return stringBuilder.toString();
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        // 父节点数组/祖先数组
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        // 初始化
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        // 查找
+        int find(int x) {
+            // 路径压缩
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
+        // 合并
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
+            fa[rootQ] = rootP;
         }
     }
 }

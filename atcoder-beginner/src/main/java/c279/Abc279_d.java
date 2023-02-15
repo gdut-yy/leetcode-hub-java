@@ -4,33 +4,32 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Abc279_d {
+    static long a, b;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        long A = scanner.nextLong();
-        long B = scanner.nextLong();
+        a = scanner.nextLong();
+        b = scanner.nextLong();
 
-        long left = 0;
-        long right = Math.max(A, B);
-        double lans = f(A, B, right);
-        double rans = f(A, B, left);
-        while (left < right) {
-            long lmid = left + (right - left) / 3;
-            long rmid = right - (right - left) / 3;
-            lans = f(A, B, lmid);
-            rans = f(A, B, rmid);
-
-            if (lans <= rans) {
-                right = rmid - 1;
+        long l = 0, r = a / b;
+        while (r - l > 2) {
+            long m1 = (l * 2 + r) / 3;
+            long m2 = (l + r * 2) / 3;
+            if (f(m1) > f(m2)) {
+                l = m1;
             } else {
-                left = lmid + 1;
+                r = m2;
             }
         }
-        double res = Math.min(lans, rans);
+        double res = a;
+        for (long i = l; i <= r; i++) {
+            res = Math.min(res, f(i));
+        }
         System.out.printf("%.10f%n", res);
     }
 
-    private static double f(long A, long B, long k) {
-        return (double) B * k + A / Math.sqrt(k + 1);
+    private static double f(long n) {
+        return (double) b * n + (double) a / Math.sqrt(n + 1);
     }
 }
 /*
