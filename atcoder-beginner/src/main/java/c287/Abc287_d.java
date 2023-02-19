@@ -46,5 +46,7 @@ public class Abc287_d {
 D - Match or Not
 https://atcoder.jp/contests/abc287/tasks/abc287_d
 
-预处理 前后缀
+前后缀分解
+相似题目: 2565. 最少得分子序列
+https://leetcode.cn/problems/subsequence-with-the-minimum-score/
  */
