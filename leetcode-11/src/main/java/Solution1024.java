@@ -1,29 +1,29 @@
 public class Solution1024 {
     public int videoStitching(int[][] clips, int time) {
-        // 预处理每个 start 的最长范围
-        int[] maxRange = new int[time];
+        // f[i] 表示下标 starti 对应的最长 endi
+        int[] f = new int[time];
         for (int[] clip : clips) {
-            int start = clip[0];
-            if (start < time) {
-                maxRange[start] = Math.max(maxRange[start], clip[1]);
+            int l = clip[0];
+            // 防止越界
+            if (l < time) {
+                f[l] = Math.max(f[l], clip[1]);
             }
         }
 
-        // 贪心
-        int cnt = 0;
-        int pre = 0;
-        int last = 0;
+        // 能到达的最远距离下标，当前下标，步数
+        int maxR = 0, curR = 0, step = 0;
+        // [1, time) 返回所需片段的最小数目
         for (int i = 0; i < time; i++) {
-            last = Math.max(last, maxRange[i]);
-            if (i == last) {
-                return -1;
-            }
-            if (i == pre) {
-                pre = last;
-                cnt++;
+            maxR = Math.max(maxR, f[i]);
+            if (i == curR) {
+                if (i == maxR) {
+                    return -1;
+                }
+                curR = maxR;
+                step++;
             }
         }
-        return cnt;
+        return step;
     }
 }
 /*
@@ -44,4 +44,8 @@ https://leetcode.cn/problems/video-stitching/
 每次尽可能找最长的区间延申，以达到所需片段的最小
 时间复杂度 O(clips.length + time)
 空间复杂度 O(time)
+相似题目: 45. 跳跃游戏 II
+https://leetcode.cn/problems/jump-game-ii/
+1326. 灌溉花园的最少水龙头数目
+https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/
  */

@@ -29,4 +29,7 @@ n 位格雷码序列 是一个由 2^n 个整数组成的序列，其中：
 1 <= n <= 16
 
 位运算
+时间复杂度 O(2^n)
+相似题目: 1238. 循环码排列
+https://leetcode.cn/problems/circular-permutation-in-binary-representation/
  */

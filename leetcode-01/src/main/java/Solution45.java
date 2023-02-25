@@ -1,14 +1,14 @@
 public class Solution45 {
     public int jump(int[] nums) {
-        int len = nums.length;
-        int max = 0;
-        // 贪心
-        int end = 0;
-        int step = 0;
-        for (int i = 0; i < len - 1; i++) {
-            max = Math.max(max, i + nums[i]);
-            if (i == end) {
-                end = max;
+        int n = nums.length;
+
+        // 能到达的最远距离下标，当前下标，步数
+        int maxR = 0, curR = 0, step = 0;
+        // [1, n-1) 到达 nums[n - 1] 的最小跳跃次数
+        for (int i = 0; i < n - 1; i++) {
+            maxR = Math.max(maxR, i + nums[i]);
+            if (i == curR) {
+                curR = maxR;
                 step++;
             }
         }
@@ -28,4 +28,8 @@ https://leetcode.cn/problems/jump-game-ii/
 0 <= nums[i] <= 1000
 
 贪心。
+相似题目: 1024. 视频拼接
+https://leetcode.cn/problems/video-stitching/
+1326. 灌溉花园的最少水龙头数目
+https://leetcode.cn/problems/minimum-number-of-taps-to-open-to-water-a-garden/
  */

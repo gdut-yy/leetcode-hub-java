@@ -1,30 +1,22 @@
 public class Solution1247 {
     public int minimumSwap(String s1, String s2) {
-        // 两个长度相同的字符串 s1 和 s2 只含有 字符 "x" 和 "y"
-        int len = s1.length();
-        int diffLen = 0;
+        int n = s1.length();
+        int d = 0;
         int cntX = 0;
-        for (int i = 0; i < len; i++) {
-            char ch1 = s1.charAt(i);
-            char ch2 = s2.charAt(i);
-            if (ch1 != ch2) {
-                diffLen++;
-                if (ch1 == 'x') {
+        for (int i = 0; i < n; i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                d++;
+                if (s1.charAt(i) == 'x') {
                     cntX++;
                 }
             }
         }
         // 奇数个字符不同，无解
-        if (diffLen % 2 == 1) {
+        if (d % 2 == 1) {
             return -1;
         }
-        int cntY = diffLen - cntX;
-        // [xx,yy] = 1 [xy,yx] = 2
-        if (cntX % 2 == 0) {
-            return cntX / 2 + cntY / 2;
-        } else {
-            return cntX / 2 + cntY / 2 + 2;
-        }
+        // 数论向上取整法
+        return (cntX + 1) / 2 + (d - cntX + 1) / 2;
     }
 }
 /*

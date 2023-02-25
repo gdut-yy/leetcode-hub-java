@@ -7,6 +7,7 @@ public class Solution2550 {
         return (int) res;
     }
 
+    // 模下的 a^b
     private long quickPow(long a, long b) {
         long res = 1L;
         while (b > 0) {

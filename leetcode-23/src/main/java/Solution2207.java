@@ -1,34 +1,32 @@
 public class Solution2207 {
     public long maximumSubsequenceCount(String text, String pattern) {
         int len = text.length();
+        char ch0 = pattern.charAt(0);
+        char ch1 = pattern.charAt(1);
 
-        char pattern0 = pattern.charAt(0);
-        char pattern1 = pattern.charAt(1);
-
-        long cnt0 = 0;
-        long cnt1 = 0;
-        long sum = 0;
-        if (pattern0 == pattern1) {
-            // pattern[0] == pattern[1]
+        int cnt0 = 0;
+        int cnt1 = 0;
+        long sum = 0L;
+        if (ch0 == ch1) {
             for (int i = 0; i < len; i++) {
-                if (text.charAt(i) == pattern0) {
+                if (text.charAt(i) == ch0) {
                     cnt0++;
                     sum += cnt0;
                 }
             }
             return sum;
-        } else {
-            // pattern[0] != pattern[1]
-            for (int i = 0; i < len; i++) {
-                if (text.charAt(i) == pattern0) {
-                    cnt0++;
-                } else if (text.charAt(i) == pattern1) {
-                    cnt1++;
-                    sum += cnt0;
-                }
-            }
-            return sum + Math.max(cnt0, cnt1);
         }
+
+        // pattern[0] != pattern[1]
+        for (int i = 0; i < len; i++) {
+            if (text.charAt(i) == ch0) {
+                cnt0++;
+            } else if (text.charAt(i) == ch1) {
+                cnt1++;
+                sum += cnt0;
+            }
+        }
+        return sum + Math.max(cnt0, cnt1);
     }
 }
 /*

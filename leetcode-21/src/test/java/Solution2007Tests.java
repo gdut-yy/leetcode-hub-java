@@ -33,4 +33,15 @@ public class Solution2007Tests {
         Arrays.sort(actual);
         Assertions.assertArrayEquals(expected, actual);
     }
+
+    // 补充用例
+    @Test
+    public void example4() {
+        // https://leetcode.cn/submissions/detail/405847614/
+        int[] changed = {0, 0, 0, 0};
+        int[] expected = {0, 0};
+        int[] actual = solution2007.findOriginalArray(changed);
+        Arrays.sort(actual);
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }

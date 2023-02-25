@@ -27,24 +27,22 @@ public class Solution1498 {
 
             // 快速幂
             if (j - i >= 0) {
-                cnt += quickPow(2, j - i, MOD);
+                cnt += quickPow(2, j - i);
                 cnt %= MOD;
             }
         }
         return (int) cnt;
     }
 
-    private long quickPow(long a, long b, int mod) {
-        a %= mod;
-        long res = 1;
+    // 模下的 a^b
+    private long quickPow(long a, long b) {
+        long res = 1L;
         while (b > 0) {
-            if (b % 2 == 1) {
-                res *= a;
-                res %= mod;
+            if ((b & 1) == 1) {
+                res = res * a % MOD;
             }
-            a *= a;
-            a %= mod;
-            b /= 2;
+            a = a * a % MOD;
+            b >>= 1;
         }
         return res;
     }

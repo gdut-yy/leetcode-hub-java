@@ -625,5 +625,6 @@ Hierholzer 算法
 - [clist.by](https://clist.by/account/zhang-yi-yang/resource/leetcode.com/)
 - [visualgo](https://visualgo.net/zh)
 - [宫水三叶の刷题日记](https://www.acoier.com/tags/)
+- [灵茶の试炼](https://docs.qq.com/sheet/DWGFoRGVZRmxNaXFz?tab=BB08J2)
 
 （全文完）
