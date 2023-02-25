@@ -1,4 +1,4 @@
-public class Solution6364 {
+public class Solution2572 {
     private static final int[] PRIMES = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29};
     private static final int MAX_N = 30;
     private static final int MOD = (int) (1e9 + 7);
@@ -55,7 +55,7 @@ public class Solution6364 {
     }
 }
 /*
-6364. 无平方子集计数
+2572. 无平方子集计数
 https://leetcode.cn/problems/count-the-number-of-square-free-subsets/
 
 第 333 场周赛 T3。

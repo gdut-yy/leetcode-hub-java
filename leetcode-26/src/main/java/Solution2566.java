@@ -1,4 +1,4 @@
-public class Solution6359 {
+public class Solution2566 {
     public int minMaxDifference(int num) {
         int min = Integer.MAX_VALUE;
         int max = 0;
@@ -15,7 +15,7 @@ public class Solution6359 {
     }
 }
 /*
-6359. 替换一个数字后的最大差值
+2566. 替换一个数字后的最大差值
 https://leetcode.cn/problems/maximum-difference-by-remapping-a-digit/
 
 第 98 场双周赛 T1。

@@ -1,7 +1,7 @@
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6362 {
+public class Solution2570 {
     public int[][] mergeArrays(int[][] nums1, int[][] nums2) {
         TreeMap<Integer, Integer> treeMap = new TreeMap<>();
         for (int[] x : nums1) {
@@ -20,7 +20,7 @@ public class Solution6362 {
     }
 }
 /*
-6362. 合并两个二维数组 - 求和法
+2570. 合并两个二维数组 - 求和法
 https://leetcode.cn/problems/merge-two-2d-arrays-by-summing-values/
 
 第 333 场周赛 T1。

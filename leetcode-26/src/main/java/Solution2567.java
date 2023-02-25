@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6361 {
+public class Solution2567 {
     public int minimizeSum(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -12,7 +12,7 @@ public class Solution6361 {
     }
 }
 /*
-6361. 修改两个元素的最小分数
+2567. 修改两个元素的最小分数
 https://leetcode.cn/problems/minimum-score-by-changing-two-elements/
 
 第 98 场双周赛 T2。

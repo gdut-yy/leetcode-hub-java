@@ -1,4 +1,4 @@
-public class Solution6363 {
+public class Solution2573 {
     public String findTheString(int[][] lcp) {
         int n = lcp.length;
         char[] chars = new char[n];
@@ -42,7 +42,7 @@ public class Solution6363 {
     }
 }
 /*
-6363. 找出对应 LCP 矩阵的字符串
+2573. 找出对应 LCP 矩阵的字符串
 https://leetcode.cn/problems/find-the-string-with-lcp/
 
 第 333 场周赛 T4。

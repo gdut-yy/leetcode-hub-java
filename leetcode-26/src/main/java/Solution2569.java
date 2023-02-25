@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6358 {
+public class Solution2569 {
     public long[] handleQuery(int[] nums1, int[] nums2, int[][] queries) {
         long sum2 = 0L;
         for (int x : nums2) {
@@ -109,7 +109,7 @@ public class Solution6358 {
     }
 }
 /*
-6358. 更新数组后处理求和查询
+2569. 更新数组后处理求和查询
 https://leetcode.cn/problems/handling-sum-queries-after-update/
 
 第 98 场双周赛 T4。

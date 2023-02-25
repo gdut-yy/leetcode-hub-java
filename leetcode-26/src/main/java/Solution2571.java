@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class Solution6365 {
+public class Solution2571 {
     public int minOperations(int n) {
         Queue<Integer> queue = new LinkedList<>();
         queue.add(n);
@@ -31,7 +31,7 @@ public class Solution6365 {
     }
 }
 /*
-6365. 将整数减少到零需要的最少操作数
+2571. 将整数减少到零需要的最少操作数
 https://leetcode.cn/problems/minimum-operations-to-reduce-an-integer-to-0/
 
 给你一个正整数 n ，你可以执行下述操作 任意 次：

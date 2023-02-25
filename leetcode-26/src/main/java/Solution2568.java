@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6360 {
+public class Solution2568 {
     public int minImpossibleOR(int[] nums) {
         Set<Integer> set = new HashSet<>();
         for (int x : nums) {
@@ -18,7 +18,7 @@ public class Solution6360 {
     }
 }
 /*
-6360. 最小无法得到的或值
+2568. 最小无法得到的或值
 https://leetcode.cn/problems/minimum-impossible-or/
 
 给你一个下标从 0 开始的整数数组 nums 。
