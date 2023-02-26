@@ -1,34 +1,34 @@
 public class Solution2212 {
     public int[] maximumBobPoints(int numArrows, int[] aliceArrows) {
+        // 常数 12
+        int n = aliceArrows.length;
+
         int maxScore = 0;
-        int[] res = new int[12];
-
-        // 状态压缩 2^12 = 4096
-        for (int state = 0; state < (1 << 12); state++) {
-            // bob
+        int[] res = new int[n];
+        for (int mask = 0; mask < (1 << n); mask++) {
+            // bob 当前状态的分数，箭数，射箭情况
             int score = 0;
-            int arrows = numArrows;
-            int[] bobArrows = new int[12];
+            int need = 0;
+            int[] bobArrows = new int[n];
 
-            // 贪心，从分值高的开始
-            for (int k = 11; k >= 0; k--) {
-                // 第 k 位被选中
-                if (((state >> k) & 1) == 1) {
-                    int needArrows = aliceArrows[k] + 1;
-                    // can
-                    if (arrows - needArrows >= 0 && k != 0) {
-                        arrows -= needArrows;
-                        score += k;
-                        bobArrows[k] = needArrows;
-                    } else {
-                        bobArrows[k] = arrows;
-                        arrows = 0;
+            // 从分值高的开始
+            for (int k = n - 1; k >= 1; k--) {
+                if (((mask >> k) & 1) == 1) {
+                    bobArrows[k] = aliceArrows[k] + 1;
+                    need += bobArrows[k];
+                    if (need > numArrows) {
+                        // 状态不成立
+                        score = -1;
+                        break;
                     }
+                    score += k;
                 }
-                if (score >= maxScore) {
-                    maxScore = score;
-                    res = bobArrows;
-                }
+            }
+            if (maxScore < score) {
+                // 多余的箭全部射到 0 区域
+                bobArrows[0] = numArrows - need;
+                maxScore = score;
+                res = bobArrows;
             }
         }
         return res;
