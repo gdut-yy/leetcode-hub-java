@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6367 {
+public class Solution2576 {
     public int maxNumOfMarkedIndices(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -32,7 +32,7 @@ public class Solution6367 {
     }
 }
 /*
-6367. 求出最多标记下标
+2576. 求出最多标记下标
 https://leetcode.cn/problems/find-the-maximum-number-of-marked-indices/
 
 第 334 场周赛 T3。

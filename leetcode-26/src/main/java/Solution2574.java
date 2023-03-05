@@ -1,4 +1,4 @@
-public class Solution6369 {
+public class Solution2574 {
     public int[] leftRigthDifference(int[] nums) {
         int n = nums.length;
 
@@ -18,7 +18,7 @@ public class Solution6369 {
     }
 }
 /*
-6369. 左右元素和的差值
+2574. 左右元素和的差值
 https://leetcode.cn/problems/left-and-right-sum-differences/
 
 第 334 场周赛 T1。

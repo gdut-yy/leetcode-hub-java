@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6366 {
+public class Solution2577 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
     public int minimumTime(int[][] grid) {
@@ -48,7 +48,7 @@ public class Solution6366 {
     }
 }
 /*
-6366. 在网格图中访问一个格子的最少时间
+2577. 在网格图中访问一个格子的最少时间
 https://leetcode.cn/problems/minimum-time-to-visit-a-cell-in-a-grid/
 
 第 334 场周赛 T4。

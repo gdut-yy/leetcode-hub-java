@@ -1,4 +1,4 @@
-public class Solution6368 {
+public class Solution2575 {
     public int[] divisibilityArray(String word, int m) {
         int n = word.length();
 
@@ -15,7 +15,7 @@ public class Solution6368 {
     }
 }
 /*
-6368. 找出字符串的可整除数组
+2575. 找出字符串的可整除数组
 https://leetcode.cn/problems/find-the-divisibility-array-of-a-string/
 
 第 334 场周赛 T2。
