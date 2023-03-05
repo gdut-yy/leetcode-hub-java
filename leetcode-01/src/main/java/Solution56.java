@@ -65,4 +65,6 @@ intervals[i].length == 2
 0 <= starti <= endi <= 10^4
 
 排序后分三种情况合并区间即可。
+时间复杂度 O(nlogn)
+空间复杂度 O(logn)
  */
