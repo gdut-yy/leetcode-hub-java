@@ -1,0 +1,15 @@
+7
+4
+meOw
+14
+mMmeoOoWWWwwwW
+3
+mew
+7
+MmeEeUw
+4
+MEOW
+6
+MmyaVW
+5
+meowA

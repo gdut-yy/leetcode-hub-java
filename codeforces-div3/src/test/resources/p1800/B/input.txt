@@ -1,0 +1,11 @@
+5
+11 2
+aAaaBACacbE
+2 2
+ab
+4 1
+aaBB
+6 0
+abBAcC
+5 3
+cbccb
