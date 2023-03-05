@@ -1,23 +1,25 @@
 public class Solution2556 {
     private int[][] grid;
-    private int M;
-    private int N;
+    private int m;
+    private int n;
 
     public boolean isPossibleToCutPath(int[][] grid) {
         this.grid = grid;
-        M = grid.length;
-        N = grid[0].length;
-        // 下轮廓 + 任意路径
-        return !dfs(0, 0) || !dfs(0, 0);
-    }
-
-    private boolean dfs(int i, int j) {
-        if (i == M - 1 && j == N - 1) {
+        this.m = grid.length;
+        this.n = grid[0].length;
+        if (!dfs(0, 0)) {
             return true;
         }
-        grid[i][j] = 0;
-        return (i + 1 < M && grid[i + 1][j] == 1 && dfs(i + 1, j))
-                || (j + 1 < N && grid[i][j + 1] == 1 && dfs(i, j + 1));
+        return !dfs(0, 0);
+    }
+
+    private boolean dfs(int x, int y) {
+        if (x == m - 1 && y == n - 1) {
+            return true;
+        }
+        grid[x][y] = 0;
+        return x + 1 < m && grid[x + 1][y] > 0 && dfs(x + 1, y)
+                || y + 1 < n && grid[x][y + 1] > 0 && dfs(x, y + 1);
     }
 }
 /*
