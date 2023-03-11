@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Solution6312 {
+public class Solution2578 {
     public int splitNum(int num) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<>();
         while (num > 0) {
@@ -23,7 +23,7 @@ public class Solution6312 {
     }
 }
 /*
-6312. 最小和分割
+2578. 最小和分割
 https://leetcode.cn/problems/split-with-minimum-sum/
 
 第 99 场双周赛 T1。

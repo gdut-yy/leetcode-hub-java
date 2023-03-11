@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution6308 {
+public class Solution2583 {
     public long kthLargestLevelSum(TreeNode root, int k) {
         List<Long> sumList = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class Solution6308 {
     }
 }
 /*
-6308. 二叉树中的第 K 大层和
+2583. 二叉树中的第 K 大层和
 https://leetcode.cn/problems/kth-largest-sum-in-a-binary-tree/
 
 第 335 场周赛 T2。

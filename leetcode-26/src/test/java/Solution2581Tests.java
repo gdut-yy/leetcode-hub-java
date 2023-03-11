@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6314Tests {
-    private final Solution6314 solution6314 = new Solution6314();
+public class Solution2581Tests {
+    private final Solution2581 solution2581 = new Solution2581();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6314Tests {
         int[][] guesses = UtUtils.stringToInts2("[[1,3],[0,1],[1,0],[2,4]]");
         int k = 3;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6314.rootCount(edges, guesses, k));
+        Assertions.assertEquals(expected, solution2581.rootCount(edges, guesses, k));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6314Tests {
         int[][] guesses = UtUtils.stringToInts2("[[1,0],[3,4],[2,1],[3,2]]");
         int k = 1;
         int expected = 5;
-        Assertions.assertEquals(expected, solution6314.rootCount(edges, guesses, k));
+        Assertions.assertEquals(expected, solution2581.rootCount(edges, guesses, k));
     }
 
     // 补充用例
@@ -31,6 +31,6 @@ public class Solution6314Tests {
         int[][] guesses = UtUtils.stringToInts2("[[8,2],[12,3],[0,1],[16,10]]");
         int k = 2;
         int expected = 4;
-        Assertions.assertEquals(expected, solution6314.rootCount(edges, guesses, k));
+        Assertions.assertEquals(expected, solution2581.rootCount(edges, guesses, k));
     }
 }

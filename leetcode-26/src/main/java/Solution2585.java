@@ -1,4 +1,4 @@
-public class Solution6310 {
+public class Solution2585 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int waysToReachTarget(int target, int[][] types) {
@@ -17,7 +17,7 @@ public class Solution6310 {
     }
 }
 /*
-6310. 获得分数的方法数
+2585. 获得分数的方法数
 https://leetcode.cn/problems/number-of-ways-to-earn-points/
 
 第 335 场周赛 T4。

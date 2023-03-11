@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6309 {
+public class Solution2584 {
     public int findValidSplit(int[] nums) {
         int n = nums.length;
         Map<Integer, int[]> map = new HashMap<>();
@@ -59,7 +59,7 @@ public class Solution6309 {
     }
 }
 /*
-6309. 分割数组使乘积互质
+2584. 分割数组使乘积互质
 https://leetcode.cn/problems/split-the-array-to-make-coprime-products/
 
 第 335 场周赛 T3。

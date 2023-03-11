@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution6313 {
+public class Solution2580 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int countWays(int[][] ranges) {
@@ -56,7 +56,7 @@ public class Solution6313 {
     }
 }
 /*
-6313. 统计将重叠区间合并成组的方案数
+2580. 统计将重叠区间合并成组的方案数
 https://leetcode.cn/problems/count-ways-to-group-overlapping-ranges/
 
 第 99 场双周赛 T3。

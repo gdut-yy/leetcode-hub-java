@@ -1,11 +1,11 @@
-public class Solution6311 {
+public class Solution2579 {
     public long coloredCells(int n) {
         long k = n * 2L - 1;
         return (k * k + 1) / 2;
     }
 }
 /*
-6311. 统计染色格子数
+2579. 统计染色格子数
 https://leetcode.cn/problems/count-total-number-of-colored-cells/
 
 第 99 场双周赛 T2。

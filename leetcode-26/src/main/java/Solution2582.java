@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6307 {
+public class Solution2582 {
     public int passThePillow(int n, int time) {
         // 构造一个周期
         List<Integer> list = new ArrayList<>();
@@ -13,7 +13,7 @@ public class Solution6307 {
     }
 }
 /*
-6307. 递枕头
+2582. 递枕头
 https://leetcode.cn/problems/pass-the-pillow/
 
 第 335 场周赛 T1。

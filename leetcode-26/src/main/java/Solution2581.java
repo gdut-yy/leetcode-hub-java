@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution6314 {
+public class Solution2581 {
     private int k;
     private Map<Integer, List<Integer>> adj;
     private Set<Long> guessSet;
@@ -57,7 +57,7 @@ public class Solution6314 {
     }
 }
 /*
-6314. 统计可能的树根数目
+2581. 统计可能的树根数目
 https://leetcode.cn/problems/count-number-of-possible-root-nodes/
 
 第 99 场双周赛 T4。
