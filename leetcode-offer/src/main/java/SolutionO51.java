@@ -4,60 +4,62 @@ import java.util.Set;
 
 public class SolutionO51 {
     public int reversePairs(int[] nums) {
-        int len = nums.length;
+        int n = nums.length;
+        // 离散化
+        int[] yArr = getDiscrete(nums);
 
-        // 离散化 去重+排序
-//        int[] discretization = Arrays.stream(nums).distinct().sorted().toArray();
-        int[] discretization = discretization(nums);
-
-        int cnt = 0;
-        BinaryIndexedTree bit = new BinaryIndexedTree(discretization.length);
-        for (int i = len - 1; i >= 0; i--) {
-            int discretizedId = Arrays.binarySearch(discretization, nums[i]) + 1;
-            bit.update(discretizedId);
-            cnt += bit.query(discretizedId - 1);
+        int res = 0;
+        Fenwick fenwick = new Fenwick(yArr.length);
+        for (int i = n - 1; i >= 0; i--) {
+            int yId = getId(yArr, nums[i]);
+            fenwick.add(yId, 1);
+            res += fenwick.getSum(yId - 1);
         }
-        return cnt;
-    }
-
-    private int[] discretization(int[] nums) {
-        Set<Integer> hashSet = new HashSet<>();
-        for (int num : nums) {
-            hashSet.add(num);
-        }
-        int size = hashSet.size();
-        int[] res = new int[size];
-        int idx = 0;
-        for (int num : hashSet) {
-            res[idx++] = num;
-        }
-        Arrays.sort(res);
         return res;
     }
 
-    private static class BinaryIndexedTree {
+    private int[] getDiscrete(int[] xArr) {
+        Set<Integer> set = new HashSet<>();
+        for (int x : xArr) {
+            set.add(x);
+        }
+        int sz = set.size();
+        int[] yArr = new int[sz];
+        int id = 0;
+        for (Integer x : set) {
+            yArr[id++] = x;
+        }
+        Arrays.sort(yArr);
+        return yArr;
+    }
+
+    private int getId(int[] yArr, int x) {
+        return Arrays.binarySearch(yArr, x) + 1;
+    }
+
+    private static class Fenwick {
         private final int n;
         private final int[] tree;
 
-        public BinaryIndexedTree(int n) {
+        public Fenwick(int n) {
             this.n = n;
             this.tree = new int[n + 1];
         }
 
         public static int lowbit(int x) {
-            return x & (-x);
+            return x & -x;
         }
 
-        public void update(int x) {
+        public void add(int x, int k) {
             while (x <= n) {
-                ++tree[x];
+                tree[x] += k;
                 x += lowbit(x);
             }
         }
 
-        public int query(int x) {
+        public int getSum(int x) {
             int ans = 0;
-            while (x > 0) {
+            while (x >= 1) {
                 ans += tree[x];
                 x -= lowbit(x);
             }

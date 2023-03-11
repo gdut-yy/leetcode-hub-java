@@ -2,36 +2,29 @@ import java.util.Locale;
 
 public class Solution949 {
     public String largestTimeFromDigits(int[] arr) {
-        int largestMinutes = -1;
-        for (int i0 = 0; i0 < 4; i0++) {
-            for (int i1 = 0; i1 < 4; i1++) {
-                if (i1 != i0) {
-                    largestMinutes = getLargestMinutes(arr, largestMinutes, i0, i1);
+        int res = -1;
+        for (int h0 = 0; h0 < 4; h0++) {
+            for (int h1 = 0; h1 < 4; h1++) {
+                if (h1 == h0) {
+                    continue;
+                }
+                for (int m0 = 0; m0 < 4; m0++) {
+                    if (m0 == h0 || m0 == h1) {
+                        continue;
+                    }
+                    int m1 = 6 - h0 - h1 - m0;
+                    int hour = arr[h0] * 10 + arr[h1];
+                    int minute = arr[m0] * 10 + arr[m1];
+                    if (hour <= 23 && minute <= 59) {
+                        res = Math.max(res, hour * 60 + minute);
+                    }
                 }
             }
         }
-        if (largestMinutes == -1) {
+        if (res == -1) {
             return "";
         }
-        return String.format(Locale.ENGLISH, "%02d:%02d", largestMinutes / 60, largestMinutes % 60);
-    }
-
-    /**
-     * 降低 "圈复杂度"
-     */
-    private int getLargestMinutes(int[] arr, int largestMinutes, int i0, int i1) {
-        for (int i2 = 0; i2 < 4; i2++) {
-            if (i2 != i0 && i2 != i1) {
-                int i3 = 6 - i0 - i1 - i2;
-
-                int hour = arr[i0] * 10 + arr[i1];
-                int minute = arr[i2] * 10 + arr[i3];
-                if (hour <= 23 && minute <= 59) {
-                    largestMinutes = Math.max(largestMinutes, hour * 60 + minute);
-                }
-            }
-        }
-        return largestMinutes;
+        return String.format("%02d:%02d", res / 60, res % 60);
     }
 }
 /*
@@ -48,5 +41,7 @@ https://leetcode.cn/problems/largest-time-for-given-digits/
 arr.length == 4
 0 <= arr[i] <= 9
 
-暴力即可。最多 24 种情况。
+暴力。三层 for 循环。最多 24 种情况。
+时间复杂度 O(1)
+空间复杂度 O(1)
  */

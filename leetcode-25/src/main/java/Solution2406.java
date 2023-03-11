@@ -37,7 +37,7 @@ intervals[i].length == 2
 1 <= lefti <= righti <= 10^6
 
 差分数组模拟。
-相似题目：$253. 会议室 II
+相似题目: $253. 会议室 II
 https://leetcode.cn/problems/meeting-rooms-ii/
 732. 我的日程安排表 III
 https://leetcode.cn/problems/my-calendar-iii/

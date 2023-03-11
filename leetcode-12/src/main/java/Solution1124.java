@@ -42,4 +42,6 @@ https://leetcode.cn/problems/longest-well-performing-interval/
 前缀和 + 哈希
 相似题目: 题目-02. 销售出色区间
 https://leetcode.cn/contest/hhrc2022/problems/0Wx4Pc/
+面试题 17.05. 字母与数字
+https://leetcode.cn/problems/find-longest-subarray-lcci/
  */

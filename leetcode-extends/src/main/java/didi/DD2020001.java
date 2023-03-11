@@ -9,7 +9,6 @@ import java.util.StringTokenizer;
 
 public class DD2020001 {
     public static void main(String[] args) {
-//        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
         FastReader scanner = new FastReader();
         int n = scanner.nextInt();
         int m = scanner.nextInt();
@@ -27,10 +26,7 @@ public class DD2020001 {
         for (int j = 0; j < m; j++) {
             int max = 0;
             for (int i = 0; i < n; i++) {
-                if (a[i][j] > max) {
-                    max = a[i][j];
-                }
-//                max = Math.max(max, a[i][j]);
+                max = Math.max(max, a[i][j]);
             }
             sum += max;
         }
@@ -106,6 +102,6 @@ https://leetcode.cn/problems/jnXBfG/
 1 ≤ N，M ≤ 1000
 1 ≤ A(i,j) ≤ 1000
 
-贪心，注意到每名员工可以负责多个项目，但一个项目只能交由一名员工负责
+贪心，注意到每名员工可以负责多个项目，但一个项目只能交由一名员工负责。
 每个项目交由收益最高的员工负责即可。
  */

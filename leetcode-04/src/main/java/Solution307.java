@@ -1,54 +1,58 @@
 public class Solution307 {
     static class NumArray {
-        private final BIT bit;
+        private final Fenwick fenwick;
 
         public NumArray(int[] nums) {
-            bit = new BIT(nums);
+            fenwick = new Fenwick(nums);
         }
 
         public void update(int index, int val) {
-            int add = val - bit.getsum(index, index);
-            bit.add(index + 1, add);
+            int add = val - fenwick.getSum(index, index);
+            fenwick.add(index + 1, add);
         }
 
         public int sumRange(int left, int right) {
-            return bit.getsum(left, right);
+            return fenwick.getSum(left, right);
         }
 
-        private static class BIT {
-            private final int N;
+        private static class Fenwick {
+            private final int n;
             private final int[] tree;
 
-            // O(n) 建树
-            public BIT(int[] nums) {
-                this.N = nums.length;
-                this.tree = new int[N + 1];
+            public Fenwick(int n) {
+                this.n = n;
+                this.tree = new int[n + 1];
+            }
 
-                for (int i = 1; i <= N; i++) {
+            // O(n) 建树
+            public Fenwick(int[] nums) {
+                this.n = nums.length;
+                this.tree = new int[n + 1];
+                for (int i = 1; i <= n; i++) {
                     tree[i] += nums[i - 1];
                     int j = i + lowbit(i);
-                    if (j <= N) {
+                    if (j <= n) {
                         tree[j] += tree[i];
                     }
                 }
             }
 
-            public int lowbit(int x) {
-                return x & (-x);
+            int lowbit(int x) {
+                return x & -x;
             }
 
             // nums[x] add k
-            public void add(int x, int k) {
-                while (x <= N) {
+            void add(int x, int k) {
+                while (x <= n) {
                     tree[x] += k;
                     x += lowbit(x);
                 }
             }
 
             // nums [1,x] 的和
-            public int getsum(int x) {
+            int getSum(int x) {
                 int ans = 0;
-                while (x >= 1) {
+                while (x > 0) {
                     ans += tree[x];
                     x -= lowbit(x);
                 }
@@ -56,8 +60,8 @@ public class Solution307 {
             }
 
             // nums [l,r] 的和
-            public int getsum(int l, int r) {
-                return getsum(r + 1) - getsum(l);
+            int getSum(int l, int r) {
+                return getSum(r + 1) - getSum(l);
             }
         }
     }

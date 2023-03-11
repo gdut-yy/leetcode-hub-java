@@ -6,67 +6,56 @@ import java.util.Map;
 import java.util.Queue;
 
 public class Solution2101 {
-    private Map<Integer, List<Integer>> outGraph;
+    private int n;
+    private Map<Integer, List<Integer>> adj;
 
     public int maximumDetonation(int[][] bombs) {
-        int len = bombs.length;
-        outGraph = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                int[] bomb1 = bombs[i];
-                int[] bomb2 = bombs[j];
-                if (check(bomb1, bomb2)) {
-                    List<Integer> outList = outGraph.getOrDefault(i, new ArrayList<>());
-                    outList.add(j);
-                    outGraph.put(i, outList);
+        n = bombs.length;
+        adj = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                long dx = bombs[i][0] - bombs[j][0];
+                long dy = bombs[i][1] - bombs[j][1];
+                long r1 = bombs[i][2], r2 = bombs[j][2];
+                long disPow = dx * dx + dy * dy;
+                if (disPow <= r1 * r1) {
+                    // bomb1 能引爆 bomb2
+                    adj.computeIfAbsent(i, key -> new ArrayList<>()).add(j);
                 }
-                if (check(bomb2, bomb1)) {
-                    List<Integer> outList = outGraph.getOrDefault(j, new ArrayList<>());
-                    outList.add(i);
-                    outGraph.put(j, outList);
+                if (disPow <= r2 * r2) {
+                    // bomb2 能引爆 bomb1
+                    adj.computeIfAbsent(j, key -> new ArrayList<>()).add(i);
                 }
             }
         }
+
         int max = 0;
-        for (int i = 0; i < len; i++) {
-            max = Math.max(max, bfs(i, len));
+        for (int x = 0; x < n; x++) {
+            max = Math.max(max, bfs(x));
         }
         return max;
     }
 
-    private int bfs(int bomb, int len) {
+    // 引爆 x，能引爆的炸弹数目
+    private int bfs(int x) {
         Queue<Integer> queue = new LinkedList<>();
-        boolean[] visited = new boolean[len];
-        queue.add(bomb);
-        visited[bomb] = true;
+        boolean[] visited = new boolean[n];
+        queue.add(x);
+        visited[x] = true;
 
-        int cnt = 0;
+        int res = 0;
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-                cnt++;
-                for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
-                    if (!visited[next]) {
-                        visited[next] = true;
-                        queue.add(next);
-                    }
+            int u = queue.remove();
+            res++;
+
+            for (int v : adj.getOrDefault(u, new ArrayList<>())) {
+                if (!visited[v]) {
+                    visited[v] = true;
+                    queue.add(v);
                 }
             }
         }
-        return cnt;
-    }
-
-    /**
-     * bomb1 能否引爆 bomb2
-     */
-    private boolean check(int[] bomb1, int[] bomb2) {
-        long disX = bomb1[0] - bomb2[0];
-        long disY = bomb1[1] - bomb2[1];
-        long powerSum = disX * disX + disY * disY;
-        // 爆炸范围的 半径
-        long r1 = bomb1[2];
-        return powerSum <= r1 * r1;
+        return res;
     }
 }
 /*
@@ -80,8 +69,14 @@ https://leetcode.cn/problems/detonate-the-maximum-bombs/
 ri 表示爆炸范围的 半径 。
 你需要选择引爆 一个 炸弹。当这个炸弹被引爆时，所有 在它爆炸范围内的炸弹都会被引爆，这些炸弹会进一步将它们爆炸范围内的其他炸弹引爆。
 给你数组 bombs ，请你返回在引爆 一个 炸弹的前提下，最多 能引爆的炸弹数目。
+提示：
+1 <= bombs.length <= 100
+bombs[i].length == 3
+1 <= xi, yi, ri <= 10^5
 
-范围 10^2
+BFS
+O(n^2) 建图，然后枚举每个起点，O(n^2) bfs 求引爆数量，求最大值。
+（比赛时先入为主以为是无向图并查集，发现时为时已晚。。）
 时间复杂度 O(n^3)
-建有向图，然后逐个点 BFS，求最大值。（比赛时先入为主以为是无向图并查集，发现时为时已晚。。）
+空间复杂度 O(n^2)
  */

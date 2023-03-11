@@ -6,14 +6,13 @@ import java.util.Map;
 import java.util.Set;
 
 public class Solution2581 {
-    private int k;
     private Map<Integer, List<Integer>> adj;
-    private Set<Long> guessSet;
+    private Set<Long> set;
+    private int k;
     private int cnt0;
     private int res;
 
     public int rootCount(int[][] edges, int[][] guesses, int k) {
-        this.k = k;
         // 建图
         adj = new HashMap<>();
         for (int[] edge : edges) {
@@ -21,38 +20,40 @@ public class Solution2581 {
             adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
         }
         // 转化为 hashset, (long) x << 32 | y
-        guessSet = new HashSet<>();
+        set = new HashSet<>();
         for (int[] guess : guesses) {
-            guessSet.add((long) guess[0] << 32 | guess[1]);
+            set.add((long) guess[0] << 32 | guess[1]);
         }
+        this.k = k;
 
         cnt0 = 0;
-        dfs1(0, -1);
+        dfs(0, -1);
 
         res = 0;
-        dfs2(0, -1, cnt0);
+        dfs(0, -1, cnt0);
         return res;
     }
 
-    private void dfs1(int x, int fa) {
+    private void dfs(int x, int fa) {
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
-            if (y != fa) {
-                if (guessSet.contains((long) x << 32 | y)) cnt0++;
-                dfs1(y, x);
+            if (y == fa) continue;
+            if (set.contains((long) x << 32 | y)) {
+                cnt0++;
             }
+            dfs(y, x);
         }
     }
 
     // 换根 DP
-    private void dfs2(int x, int fa, int cnt) {
+    private void dfs(int x, int fa, int cnt) {
         if (cnt >= k) res++;
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
-            if (y != fa) {
-                int nextCnt = cnt;
-                if (guessSet.contains((long) x << 32 | y)) nextCnt--;
-                if (guessSet.contains((long) y << 32 | x)) nextCnt++;
-                dfs2(y, x, nextCnt);
-            }
+            if (y == fa) continue;
+            int cnty = cnt;
+            // 换根后，原来的 x->y 变为 y->x
+            if (set.contains((long) x << 32 | y)) cnty--;
+            if (set.contains((long) y << 32 | x)) cnty++;
+            dfs(y, x, cnty);
         }
     }
 }

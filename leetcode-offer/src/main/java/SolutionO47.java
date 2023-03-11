@@ -1,28 +1,27 @@
 public class SolutionO47 {
     public int maxValue(int[][] grid) {
-        if (grid == null || grid.length == 0 || grid[0].length == 0) {
-            return 0;
+        int m = grid.length;
+        int n = grid[0].length;
+
+        // f[i][j] 表示到达 grid[i][j] 礼物的最大价值
+        int[][] f = new int[m][n];
+
+        // 初始状态 第一行 + 第一列
+        f[0][0] = grid[0][0];
+        for (int i = 1; i < m; i++) {
+            f[i][0] = f[i - 1][0] + grid[i][0];
         }
-        int gridM = grid.length;
-        int gridN = grid[0].length;
-        int[][] dp = new int[gridM][gridN];
-        dp[0][0] = grid[0][0];
-        // 注意先后顺序
-        // 往下移
-        for (int i = 1; i < gridM; i++) {
-            dp[i][0] = dp[i - 1][0] + grid[i][0];
+        for (int j = 1; j < n; j++) {
+            f[0][j] = f[0][j - 1] + grid[0][j];
         }
-        // 往右移
-        for (int i = 1; i < gridN; i++) {
-            dp[0][i] = dp[0][i - 1] + grid[0][i];
-        }
-        // dp
-        for (int i = 1; i < gridM; i++) {
-            for (int j = 1; j < gridN; j++) {
-                dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]) + grid[i][j];
+
+        // 状态转移
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                f[i][j] = Math.max(f[i - 1][j], f[i][j - 1]) + grid[i][j];
             }
         }
-        return dp[gridM - 1][gridN - 1];
+        return f[m - 1][n - 1];
     }
 }
 /*

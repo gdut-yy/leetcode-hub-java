@@ -2,33 +2,30 @@ import java.util.Arrays;
 
 public class Solution825 {
     public int numFriendRequests(int[] ages) {
-        // 按年龄升序排序
+        int n = ages.length;
         Arrays.sort(ages);
-        int len = ages.length;
-        // 双指针
-        int left = 0;
-        int right = 0;
-        int res = 0;
-        // 2 包含 3，条件为真。不会发送好友请求，即
-        // age[x] < age[y] <= 0.5 * age[x] + 7
 
-        // 要使 1，2 同时不满足，即
-        // age[x] >= age[y] > 0.5 * age[x] + 7
-        // 2*age[x] >= 2*age[y] > age[x] + 14
-        // age[x] 需要 >= 15
-        for (int age : ages) {
-            if (age < 15) {
-                continue;
+        int res = 0;
+        int l = 0, r = 0;
+        for (int i = 0; i < n; i++) {
+            int age = ages[i];
+            while (l < i && !check(ages[l], age)) {
+                l++;
             }
-            while (ages[left] <= 0.5 * age + 7) {
-                left++;
+            r = Math.max(r, i);
+            while (r + 1 < n && check(ages[r + 1], age)) {
+                r++;
             }
-            while (right + 1 < len && ages[right + 1] <= age) {
-                right++;
-            }
-            res += right - left;
+            // [l, r] 满足要求，同时需要减去自身
+            res += r - l;
         }
         return res;
+    }
+
+    // 用户 x 是否会向用户 y（x != y）发送好友请求
+    private boolean check(int x, int y) {
+        // IDEA Simplify
+        return !(y <= 0.5 * x + 7) && y <= x;
     }
 }
 /*
@@ -49,5 +46,7 @@ n == ages.length
 1 <= ages[i] <= 120
 
 排序 + 双指针
+因条件 2 包含条件 3，可以省略条件 3。
 时间复杂度 O(nlogn)
+空间复杂度 O(logn)。排序需要使用的栈空间。
  */

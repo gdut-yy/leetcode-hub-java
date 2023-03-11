@@ -1,50 +1,69 @@
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Solution315 {
-    // -10^4 <= nums[i] <= 10^4
-    private static final int OFFSET = 10001;
-
     public List<Integer> countSmaller(int[] nums) {
-        int max = 0;
-        for (int num : nums) {
-            max = Math.max(max, num);
-        }
+        int n = nums.length;
+        // 离散化
+        int[] yArr = getDiscrete(nums);
 
-        int len = nums.length;
-        LinkedList<Integer> resList = new LinkedList<>();
-        BinaryIndexedTree bit = new BinaryIndexedTree(max + OFFSET);
-        for (int i = len - 1; i >= 0; i--) {
-            bit.update(nums[i] + OFFSET);
-            // 头插法
-            resList.offerFirst(bit.query(nums[i] - 1 + OFFSET));
+        Fenwick fenwick = new Fenwick(yArr.length);
+        List<Integer> resList = new ArrayList<>();
+        for (int i = n - 1; i >= 0; i--) {
+            int yId = getId(yArr, nums[i]);
+            fenwick.add(yId, 1);
+            resList.add(fenwick.getSum(yId - 1));
         }
+        Collections.reverse(resList);
         return resList;
     }
 
-    private static class BinaryIndexedTree {
+    private int[] getDiscrete(int[] xArr) {
+        Set<Integer> set = new HashSet<>();
+        for (int x : xArr) {
+            set.add(x);
+        }
+        int sz = set.size();
+        int[] yArr = new int[sz];
+        int id = 0;
+        for (Integer x : set) {
+            yArr[id++] = x;
+        }
+        Arrays.sort(yArr);
+        return yArr;
+    }
+
+    private int getId(int[] yArr, int x) {
+        return Arrays.binarySearch(yArr, x) + 1;
+    }
+
+    private static class Fenwick {
         private final int n;
         private final int[] tree;
 
-        public BinaryIndexedTree(int n) {
+        public Fenwick(int n) {
             this.n = n;
             this.tree = new int[n + 1];
         }
 
-        public static int lowbit(int x) {
-            return x & (-x);
+        public int lowbit(int x) {
+            return x & -x;
         }
 
-        public void update(int x) {
+        public void add(int x, int k) {
             while (x <= n) {
-                ++tree[x];
+                tree[x] += k;
                 x += lowbit(x);
             }
         }
 
-        public int query(int x) {
+        public int getSum(int x) {
             int ans = 0;
-            while (x > 0) {
+            while (x >= 1) {
                 ans += tree[x];
                 x -= lowbit(x);
             }

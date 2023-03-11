@@ -51,8 +51,9 @@ https://leetcode.cn/problems/minimum-number-of-refueling-stops/
 0 <= stations.length <= 500
 0 < stations[0][0] < stations[1][0] < ... < stations[stations.length-1][0] < target
 
-贪心。
+贪心。在确保每个位置都能到达的前提下，选择最大加油量的加油站加油。
 时间复杂度 O(nlogn)
+空间复杂度 O(n)
 相似题目: LCP 30. 魔塔游戏
 https://leetcode.cn/problems/p0NxJO/
  */

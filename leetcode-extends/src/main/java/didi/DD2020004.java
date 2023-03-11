@@ -22,6 +22,7 @@ public class DD2020004 {
         // 我们为垃圾袋标了号，分别是 1-n
         DSU dsu = new DSU(n * 2 + 1);
         for (int i = 0; i < m; i++) {
+            // 如果 a b 已经分开两辆垃圾车
             if (dsu.find(a[i]) == dsu.find(b[i])) {
                 res--;
             }
@@ -32,10 +33,8 @@ public class DD2020004 {
     }
 
     private static class DSU {
-        // 父节点数组/祖先数组
         int[] fa;
 
-        // 初始化
         public DSU(int n) {
             fa = new int[n];
             for (int i = 0; i < n; i++) {
@@ -43,7 +42,6 @@ public class DD2020004 {
             }
         }
 
-        // 查找
         int find(int x) {
             // 路径压缩
             if (x != fa[x]) {
@@ -52,7 +50,6 @@ public class DD2020004 {
             return fa[x];
         }
 
-        // 合并
         void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
