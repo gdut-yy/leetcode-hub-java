@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,6 +70,113 @@ public class SolutionLCP32 {
 
         return ans;
     }
+
+    private static final int N = (int) 1e9;
+
+    // TLE
+    public int processTasks2(int[][] tasks) {
+        Arrays.sort(tasks, Comparator.comparingInt(o -> o[1]));
+
+        DynamicSegTreeUpd dynamicSegTreeUpd = new DynamicSegTreeUpd();
+        for (int[] task : tasks) {
+            int l = task[0], r = task[1], period = task[2];
+            int sum = (int) dynamicSegTreeUpd.getSum(l, r);
+            period -= sum;
+            if (period > 0) {
+                // r - l1 + 1 - sum(l1, r) = period
+                // l1 = r + 1 - sum(l1, r) - period
+                int left = l;
+                int right = r;
+                while (left < right) {
+                    int mid = left + (right - left) / 2;
+                    // 边界二分 F, F,..., F, [T, T,..., T]
+                    // ----------------------^
+                    if ((r - mid + 1) - dynamicSegTreeUpd.getSum(mid, r) <= period) {
+                        right = mid;
+                    } else {
+                        left = mid + 1;
+                    }
+                }
+
+                int l1 = left;
+                dynamicSegTreeUpd.update(l1, r, 1);
+            }
+        }
+        return (int) dynamicSegTreeUpd.getSum(0, N);
+    }
+
+    static class DynamicSegTreeUpd {
+        private static final int N = Integer.MAX_VALUE;
+        private final Node root = new Node();
+
+        private static class Node {
+            Node ls, rs;
+            long sum, lazy;
+        }
+
+        // 区间 [l,r] 置为 val
+        public void update(int l, int r, int val) {
+            this.update(l, r, val, 0, N, root);
+        }
+
+        // 区间 [l,r] 求和
+        public long getSum(int l, int r) {
+            return this.getSum(l, r, 0, N, root);
+        }
+
+        private void update(int l, int r, int val, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                node.sum = (t - s + 1L) * val;
+                node.lazy = val;
+                return;
+            }
+            int mid = s + (t - s) / 2;
+            pushDown(node, s, t, mid);
+            if (l <= mid) {
+                update(l, r, val, s, mid, node.ls);
+            }
+            if (r > mid) {
+                update(l, r, val, mid + 1, t, node.rs);
+            }
+            pushUp(node);
+        }
+
+        private long getSum(int l, int r, int s, int t, Node node) {
+            if (l <= s && t <= r) {
+                return node.sum;
+            }
+            int mid = s + (t - s) / 2;
+            pushDown(node, s, t, mid);
+            long sum = 0;
+            if (l <= mid) {
+                sum = getSum(l, r, s, mid, node.ls);
+            }
+            if (r > mid) {
+                sum += getSum(l, r, mid + 1, t, node.rs);
+            }
+            return sum;
+        }
+
+        private void pushDown(Node node, int s, int t, int mid) {
+            if (node.ls == null) {
+                node.ls = new Node();
+            }
+            if (node.rs == null) {
+                node.rs = new Node();
+            }
+            if (node.lazy > 0) {
+                node.ls.sum = node.lazy * (mid - s + 1L);
+                node.rs.sum = node.lazy * (t - mid);
+                node.ls.lazy = node.lazy;
+                node.rs.lazy = node.lazy;
+                node.lazy = 0;
+            }
+        }
+
+        private void pushUp(Node node) {
+            node.sum = node.ls.sum + node.rs.sum;
+        }
+    }
 }
 /*
 LCP 32. 批量处理任务
@@ -82,4 +191,6 @@ https://leetcode.cn/problems/t3fKg1/
 tasks[i].length == 3
 0 <= tasks[i][0] <= tasks[i][1] <= 10^9
 1 <= tasks[i][2] <= tasks[i][1]-tasks[i][0] + 1
+
+相似题目:
  */

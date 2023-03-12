@@ -1,8 +1,9 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeSet;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Solution327 {
+    // 424ms
     public int countRangeSum(int[] nums, int lower, int upper) {
         int n = nums.length;
         long[] preSum = new long[n + 1];
@@ -11,27 +12,38 @@ public class Solution327 {
         }
 
         // 离散化
-        TreeSet<Long> set = new TreeSet<>();
+        long[] yArr = getDiscrete(lower, upper, preSum);
+
+        int res = 0;
+        Fenwick fenwick = new Fenwick(yArr.length);
+        for (long x : preSum) {
+            int l = getId(yArr, x - upper) - 1;
+            int r = getId(yArr, x - lower) - 1;
+            res += fenwick.getSum(r + 1) - fenwick.getSum(l);
+            fenwick.add(getId(yArr, x), 1);
+        }
+        return res;
+    }
+
+    private long[] getDiscrete(int lower, int upper, long[] preSum) {
+        Set<Long> set = new HashSet<>();
         for (long x : preSum) {
             set.add(x);
             set.add(x - lower);
             set.add(x - upper);
         }
-        Map<Long, Integer> map = new HashMap<>();
+        int sz = set.size();
+        long[] yArr = new long[sz];
         int id = 0;
-        for (Long x : set) {
-            map.put(x, id++);
+        for (long x : set) {
+            yArr[id++] = x;
         }
+        Arrays.sort(yArr);
+        return yArr;
+    }
 
-        int res = 0;
-        Fenwick fenwick = new Fenwick(map.size());
-        for (long x : preSum) {
-            int l = map.get(x - upper);
-            int r = map.get(x - lower);
-            res += fenwick.getSum(r + 1) - fenwick.getSum(l);
-            fenwick.add(map.get(x) + 1, 1);
-        }
-        return res;
+    private int getId(long[] yArr, long x) {
+        return Arrays.binarySearch(yArr, x) + 1;
     }
 
     private static class Fenwick {

@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 import java.util.TreeSet;
 
 public class Solution218 {
+    // 28ms
     public List<List<Integer>> getSkyline(int[][] buildings) {
         // 按高度由低到高排序
         Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
@@ -137,33 +138,19 @@ public class Solution218 {
         }
     }
 
+    // 15ms
     public List<List<Integer>> getSkyline2(int[][] buildings) {
         Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
-
         // 离散化
-        TreeSet<Integer> treeSet = new TreeSet<>();
-        for (int[] building : buildings) {
-            treeSet.add(building[0]);
-            treeSet.add(building[1]);
-        }
-        int idx = 1;
-        List<Integer> list = new ArrayList<>();
-        Map<Integer, Integer> idxMap = new HashMap<>();
-        while (!treeSet.isEmpty()) {
-            int originIdx = treeSet.pollFirst();
-            idxMap.put(originIdx, idx++);
-            list.add(originIdx);
-        }
+        int[] yArr = getDiscrete(buildings);
 
-        // 坐标点数
-        int N = idxMap.size();
-
+        int N = yArr.length;
         // 线段树
         SegmentTree segmentTree = new SegmentTree(N);
         for (int[] building : buildings) {
-            int left = idxMap.get(building[0]);
+            int left = getId(yArr, building[0]);
             // 左闭右开
-            int right = idxMap.get(building[1]) - 1;
+            int right = getId(yArr, building[1]) - 1;
             segmentTree.update(left, right, building[2], 1, N, 1);
         }
 
@@ -173,11 +160,31 @@ public class Solution218 {
         for (int i = 1; i <= N; i++) {
             int height = segmentTree.getMax(i, i, 1, N, 1);
             if (height != pre) {
-                resList.add(List.of(list.get(i - 1), height));
+                resList.add(List.of(yArr[i - 1], height));
                 pre = height;
             }
         }
         return resList;
+    }
+
+    private int[] getDiscrete(int[][] buildings) {
+        Set<Integer> set = new HashSet<>();
+        for (int[] x : buildings) {
+            set.add(x[0]);
+            set.add(x[1]);
+        }
+        int sz = set.size();
+        int[] yArr = new int[sz];
+        int id = 0;
+        for (Integer x : set) {
+            yArr[id++] = x;
+        }
+        Arrays.sort(yArr);
+        return yArr;
+    }
+
+    private int getId(int[] yArr, int x) {
+        return Arrays.binarySearch(yArr, x) + 1;
     }
 
     private static class SegmentTree {
