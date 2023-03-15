@@ -22,39 +22,9 @@
         <module>codeforces-extends</module>
 
         <!-- leetcode -->
-        <module>jacoco-aggregate-report</module>
-        <module>leetcode-01</module>
-        <module>leetcode-02</module>
-        <module>leetcode-03</module>
-        <module>leetcode-04</module>
-        <module>leetcode-05</module>
-        <module>leetcode-06</module>
-        <module>leetcode-07</module>
-        <module>leetcode-08</module>
-        <module>leetcode-09</module>
-        <module>leetcode-10</module>
-        <module>leetcode-11</module>
-        <module>leetcode-12</module>
-        <module>leetcode-13</module>
-        <module>leetcode-14</module>
-        <module>leetcode-15</module>
-        <module>leetcode-16</module>
-        <module>leetcode-17</module>
-        <module>leetcode-18</module>
-        <module>leetcode-19</module>
-        <module>leetcode-20</module>
-        <module>leetcode-21</module>
-        <module>leetcode-22</module>
-        <module>leetcode-23</module>
-        <module>leetcode-24</module>
-        <module>leetcode-25</module>
-        <module>leetcode-26</module>
+        <module>leetcode</module>
 
-        <module>leetcode-core</module>
-        <module>leetcode-extends</module>
-        <module>leetcode-interview</module>
-        <module>leetcode-lcp</module>
-        <module>leetcode-offer</module>
+        <module>jacoco-aggregate-report</module>
     </modules>
     <packaging>pom</packaging>
 

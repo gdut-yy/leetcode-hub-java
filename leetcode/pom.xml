@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.devyy</groupId>
+        <artifactId>leetcode-hub-java</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>leetcode</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>leetcode-01</module>
+        <module>leetcode-02</module>
+        <module>leetcode-03</module>
+        <module>leetcode-04</module>
+        <module>leetcode-05</module>
+        <module>leetcode-06</module>
+        <module>leetcode-07</module>
+        <module>leetcode-08</module>
+        <module>leetcode-09</module>
+        <module>leetcode-10</module>
+        <module>leetcode-11</module>
+        <module>leetcode-12</module>
+        <module>leetcode-13</module>
+        <module>leetcode-14</module>
+        <module>leetcode-15</module>
+        <module>leetcode-16</module>
+        <module>leetcode-17</module>
+        <module>leetcode-18</module>
+        <module>leetcode-19</module>
+        <module>leetcode-20</module>
+        <module>leetcode-21</module>
+        <module>leetcode-22</module>
+        <module>leetcode-23</module>
+        <module>leetcode-24</module>
+        <module>leetcode-25</module>
+        <module>leetcode-26</module>
+
+        <module>leetcode-core</module>
+        <module>leetcode-extends</module>
+        <module>leetcode-interview</module>
+        <module>leetcode-lcp</module>
+        <module>leetcode-offer</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>
