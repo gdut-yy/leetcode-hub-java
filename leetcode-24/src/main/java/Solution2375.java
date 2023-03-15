@@ -4,20 +4,20 @@ public class Solution2375 {
 
         char[] chars = new char[n + 1];
         char num = '1';
-        int idx = 0;
-        while (idx < n) {
-            if (idx > 0 && pattern.charAt(idx) == 'I') {
-                idx++;
+        int i = 0;
+        while (i < n) {
+            if (i > 0 && pattern.charAt(i) == 'I') {
+                i++;
             }
-            while (idx < n && pattern.charAt(idx) == 'I') {
-                chars[idx] = num++;
-                idx++;
+            while (i < n && pattern.charAt(i) == 'I') {
+                chars[i] = num++;
+                i++;
             }
-            int i0 = idx;
-            while (idx < n && pattern.charAt(idx) == 'D') {
-                idx++;
+            int i0 = i;
+            while (i < n && pattern.charAt(i) == 'D') {
+                i++;
             }
-            for (int j = idx; j >= i0; j--) {
+            for (int j = i; j >= i0; j--) {
                 chars[j] = num++;
             }
         }

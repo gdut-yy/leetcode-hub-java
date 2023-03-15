@@ -5,31 +5,24 @@ import java.util.Set;
 
 public class Solution1615 {
     public int maximalNetworkRank(int n, int[][] roads) {
-        // 预处理
-        Map<Integer, Set<String>> graph = new HashMap<>();
+        Map<Integer, Set<Integer>> adj = new HashMap<>();
         for (int[] road : roads) {
-            int from = road[0];
-            int to = road[1];
-            String roadStr = from + ":" + to;
-
-            Set<String> outSet = graph.getOrDefault(from, new HashSet<>());
-            outSet.add(roadStr);
-            graph.put(from, outSet);
-
-            Set<String> inSet = graph.getOrDefault(to, new HashSet<>());
-            inSet.add(roadStr);
-            graph.put(to, inSet);
+            adj.computeIfAbsent(road[0], key -> new HashSet<>()).add(road[1]);
+            adj.computeIfAbsent(road[1], key -> new HashSet<>()).add(road[0]);
         }
 
-        // 枚举
         int max = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                // 副本
-                Set<String> set1 = new HashSet<>(graph.getOrDefault(i, new HashSet<>()));
-                Set<String> set2 = graph.getOrDefault(j, new HashSet<>());
-                set1.addAll(set2);
-                max = Math.max(max, set1.size());
+                if (i == j) continue;
+
+                Set<Integer> setI = adj.getOrDefault(i, new HashSet<>());
+                Set<Integer> setJ = adj.getOrDefault(j, new HashSet<>());
+                if (setI.contains(j)) {
+                    max = Math.max(max, setI.size() + setJ.size() - 1);
+                } else {
+                    max = Math.max(max, setI.size() + setJ.size());
+                }
             }
         }
         return max;
@@ -52,4 +45,5 @@ ai != bi
 每对城市之间 最多只有一条 道路相连
 
 建图后枚举。
+时间复杂度 O(n^2)
  */

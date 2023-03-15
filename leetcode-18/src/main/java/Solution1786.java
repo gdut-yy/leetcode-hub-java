@@ -7,48 +7,49 @@ import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Solution1786 {
+    private static final int MOD = (int) (1e9 + 7);
+    private int n;
+    private Map<Integer, List<int[]>> adj;
+    private long[] memo;
+
     public int countRestrictedPaths(int n, int[][] edges) {
+        this.n = n;
         // 建图
-        Map<Integer, List<int[]>> graph = new HashMap<>();
+        adj = new HashMap<>();
         for (int[] edge : edges) {
-            int u = edge[0];
-            int v = edge[1];
-            int w = edge[2];
-            graph.computeIfAbsent(u, key -> new ArrayList<>()).add(new int[]{v, w});
-            graph.computeIfAbsent(v, key -> new ArrayList<>()).add(new int[]{u, w});
+            int u = edge[0], v = edge[1], w = edge[2];
+            adj.computeIfAbsent(u, key -> new ArrayList<>()).add(new int[]{v, w});
+            adj.computeIfAbsent(v, key -> new ArrayList<>()).add(new int[]{u, w});
         }
 
         // 图中有 n 个节点，并按从 1 到 n 给节点编号
         // 用 distanceToLastNode(x) 表示节点 n 和 x 之间路径的最短距离
-        int[] distanceToLastNode = dijkstra(n + 1, graph, n);
+        int[] distanceToLastNode = dijkstra(n);
 
-        long[] memo = new long[n + 1];
+        memo = new long[n + 1];
         Arrays.fill(memo, -1);
-        return (int) dfs(n, graph, distanceToLastNode, 1, memo);
+        return (int) dfs(distanceToLastNode, 1);
     }
 
-    private long dfs(int n, Map<Integer, List<int[]>> graph, int[] distanceToLastNode, int cur, long[] memo) {
-        if (memo[cur] != -1) {
-            return memo[cur];
-        }
-        if (cur == n) {
-            return 1;
-        }
-        long cnt = 0;
-        for (int[] tuple : graph.getOrDefault(cur, new ArrayList<>())) {
+    private long dfs(int[] distanceToLastNode, int cur) {
+        if (cur == n) return 1;
+        if (memo[cur] != -1) return memo[cur];
+
+        long res = 0L;
+        for (int[] tuple : adj.getOrDefault(cur, new ArrayList<>())) {
             int next = tuple[0];
             if (distanceToLastNode[next] < distanceToLastNode[cur]) {
-                cnt += dfs(n, graph, distanceToLastNode, next, memo);
-                cnt %= 1000000007;
+                res += dfs(distanceToLastNode, next);
+                res %= MOD;
             }
         }
-        memo[cur] = cnt;
-        return cnt;
+        memo[cur] = res;
+        return res;
     }
 
-    private int[] dijkstra(int n, Map<Integer, List<int[]>> graph, int src) {
-        boolean[] visited = new boolean[n];
-        int[] dist = new int[n];
+    private int[] dijkstra(int src) {
+        boolean[] visited = new boolean[n + 1];
+        int[] dist = new int[n + 1];
         Arrays.fill(dist, Integer.MAX_VALUE);
 
         // 优先队列优化
@@ -64,7 +65,7 @@ public class Solution1786 {
                 continue;
             }
             visited[cur] = true;
-            for (int[] tuple : graph.getOrDefault(cur, new ArrayList<>())) {
+            for (int[] tuple : adj.getOrDefault(cur, new ArrayList<>())) {
                 int next = tuple[0];
                 int weight = tuple[1];
                 if (dist[next] > dist[cur] + weight) {

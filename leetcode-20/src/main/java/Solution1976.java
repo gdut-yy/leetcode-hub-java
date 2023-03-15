@@ -10,7 +10,7 @@ import java.util.Queue;
 
 public class Solution1976 {
     private static final long INF = (long) (1e9 * 200);
-    private static final long MOD = 1000000007;
+    private static final long MOD = (long) (1e9 + 7);
 
     public int countPaths(int n, int[][] roads) {
         // step1: 求出 0 点到其他点最短路

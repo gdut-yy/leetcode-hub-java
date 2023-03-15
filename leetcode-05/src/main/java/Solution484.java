@@ -36,5 +36,8 @@ https://leetcode.cn/problems/find-permutation/
 1 <= s.length <= 10^5
 s[i] 只会包含字符 'D' 和 'I'。
 
-贪心，数组翻转
+贪心，数组翻转。
+时间复杂度 O(n)
+相似题目: 2375. 根据模式串构造最小数字
+https://leetcode.cn/problems/construct-smallest-number-from-di-string/
  */
