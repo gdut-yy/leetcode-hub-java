@@ -14,7 +14,7 @@
         <module>atcoder-regular</module>
 
         <!-- codeforces -->
-        <module>codeforces-core</module>
+        <module>algo-core</module>
         <module>codeforces-div1</module>
         <module>codeforces-div2</module>
         <module>codeforces-div3</module>

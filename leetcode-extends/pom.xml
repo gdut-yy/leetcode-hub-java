@@ -24,7 +24,7 @@
         </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
-            <artifactId>codeforces-core</artifactId>
+            <artifactId>algo-core</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
