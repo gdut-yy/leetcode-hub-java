@@ -1,4 +1,4 @@
-public class Solution6315 {
+public class Solution2586 {
     public int vowelStrings(String[] words, int left, int right) {
         int res = 0;
         for (int i = left; i <= right; i++) {
@@ -17,7 +17,7 @@ public class Solution6315 {
     }
 }
 /*
-6315. 统计范围内的元音字符串数
+2586. 统计范围内的元音字符串数
 https://leetcode.cn/problems/count-the-number-of-vowel-strings-in-range/
 
 第 336 场周赛 T1。

@@ -1,4 +1,4 @@
-public class Solution6317 {
+public class Solution2588 {
     public long beautifulSubarrays(int[] nums) {
         long res = 0L;
         int sumMod2Mask = 0;
@@ -13,7 +13,7 @@ public class Solution6317 {
     }
 }
 /*
-6317. 统计美丽子数组数目
+2588. 统计美丽子数组数目
 https://leetcode.cn/problems/count-the-number-of-beautiful-subarrays/
 
 第 336 场周赛 T3。

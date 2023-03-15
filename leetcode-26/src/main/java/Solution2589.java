@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Solution6318 {
+public class Solution2589 {
     public int findMinimumTime(int[][] tasks) {
         Arrays.sort(tasks, Comparator.comparingInt(o -> o[1]));
         boolean[] isRun = new boolean[2001];
@@ -31,7 +31,7 @@ public class Solution6318 {
     }
 }
 /*
-6318. 完成所有任务的最少时间
+2589. 完成所有任务的最少时间
 https://leetcode.cn/problems/minimum-time-to-complete-all-tasks/
 
 第 336 场周赛 T4。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6316 {
+public class Solution2587 {
     public int maxScore(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -17,7 +17,7 @@ public class Solution6316 {
     }
 }
 /*
-6316. 重排数组以得到最大前缀分数
+2587. 重排数组以得到最大前缀分数
 https://leetcode.cn/problems/rearrange-array-to-maximize-prefix-score/
 
 第 336 场周赛 T2。
