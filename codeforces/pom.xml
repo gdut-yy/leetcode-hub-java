@@ -2,25 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>leetcode-hub-java</artifactId>
         <groupId>com.devyy</groupId>
+        <artifactId>leetcode-hub-java</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
+    <artifactId>codeforces</artifactId>
+    <packaging>pom</packaging>
 
-    <artifactId>codeforces-extends</artifactId>
+    <modules>
+        <module>codeforces-div1</module>
+        <module>codeforces-div2</module>
+        <module>codeforces-div3</module>
+        <module>codeforces-div4</module>
+        <module>codeforces-extends</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.devyy</groupId>
-            <artifactId>algo-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
 </project>

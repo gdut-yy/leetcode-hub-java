@@ -49,7 +49,7 @@ mvn clean verify -s settings.xml
 python countSolutions.py
 ```
 
-![](./ut-coverage-report-2022.png)
+![](./README/ut-coverage-report-2022.png)
 
 ## UT、TDD
 
