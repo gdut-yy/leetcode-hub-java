@@ -1,0 +1,16 @@
+5
+3
+cab
+cab
+1
+a
+b
+6
+abbabc
+bbaacb
+10
+bcaabababc
+cbbababaac
+2
+ba
+ab
