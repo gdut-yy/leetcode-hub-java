@@ -13,8 +13,7 @@
         <module>jacoco-aggregate-report</module>
 
         <!-- atcoder -->
-        <module>atcoder-beginner</module>
-        <module>atcoder-regular</module>
+        <module>atcoder</module>
         <!-- codeforces -->
         <module>codeforces</module>
         <!-- leetcode -->
