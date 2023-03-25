@@ -6,31 +6,35 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution90 {
+    private int[] nums;
+    private LinkedList<Integer> subset;
+    private List<List<Integer>> subsetList;
+
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         Arrays.sort(nums);
-        List<List<Integer>> resList = new ArrayList<>();
-        if (nums.length == 0) {
-            return resList;
-        }
-        helper(nums, 0, new LinkedList<>(), resList);
-        return resList;
+        this.nums = nums;
+        subset = new LinkedList<>();
+        subsetList = new ArrayList<>();
+        dfs(0);
+        return subsetList;
     }
 
-    private void helper(int[] nums, int idx, LinkedList<Integer> subset, List<List<Integer>> resList) {
-        if (idx == nums.length) {
-            // 副本
-            resList.add(new ArrayList<>(subset));
-        } else if (idx < nums.length) {
-            helper(nums, getNext(nums, idx), subset, resList);
-            subset.addLast(nums[idx]);
-            helper(nums, idx + 1, subset, resList);
-            subset.removeLast();
+    private void dfs(int i) {
+        if (i == nums.length) {
+            subsetList.add(new ArrayList<>(subset));
+            return;
         }
+        // 不选
+        dfs(getNext(i));
+        // 选
+        subset.add(nums[i]);
+        dfs(i + 1);
+        subset.removeLast();
     }
 
-    private int getNext(int[] nums, int idx) {
-        int next = idx;
-        while (next < nums.length && nums[next] == nums[idx]) {
+    private int getNext(int i) {
+        int next = i;
+        while (next < nums.length && nums[next] == nums[i]) {
             next++;
         }
         return next;

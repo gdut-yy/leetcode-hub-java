@@ -3,25 +3,29 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution78 {
+    private int[] nums;
+    private LinkedList<Integer> subset;
+    private List<List<Integer>> subsetList;
+
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> resList = new ArrayList<>();
-        if (nums.length == 0) {
-            return resList;
-        }
-        helper(nums, 0, new LinkedList<>(), resList);
-        return resList;
+        this.nums = nums;
+        subset = new LinkedList<>();
+        subsetList = new ArrayList<>();
+        dfs(0);
+        return subsetList;
     }
 
-    private void helper(int[] nums, int idx, LinkedList<Integer> subset, List<List<Integer>> resList) {
-        if (idx == nums.length) {
-            // 副本
-            resList.add(new ArrayList<>(subset));
-        } else if (idx < nums.length) {
-            helper(nums, idx + 1, subset, resList);
-            subset.add(nums[idx]);
-            helper(nums, idx + 1, subset, resList);
-            subset.removeLast();
+    private void dfs(int i) {
+        if (i == nums.length) {
+            subsetList.add(new ArrayList<>(subset));
+            return;
         }
+        // 不选
+        dfs(i + 1);
+        // 选
+        subset.add(nums[i]);
+        dfs(i + 1);
+        subset.removeLast();
     }
 
     // 状态压缩
