@@ -44,6 +44,18 @@ public class Solution2439 {
         }
         return (int) res;
     }
+
+    // O(n) 解法
+    public int minimizeArrayValue3(int[] nums) {
+        long sum = 0;
+        int max = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            // 数论向上取整法
+            max = (int) Math.max(max, (sum + i) / (i + 1));
+        }
+        return max;
+    }
 }
 /*
 2439. 最小化数组中的最大值
@@ -62,5 +74,5 @@ n == nums.length
 2 <= n <= 10^5
 0 <= nums[i] <= 10^9
 
-二分。想象有一个推土机，从右推到左，最后是否有剩余的土
+二分。想象有一个推土机，从右推到左，最后是否有剩余的土。
  */

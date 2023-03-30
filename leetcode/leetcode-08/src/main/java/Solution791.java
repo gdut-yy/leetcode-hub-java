@@ -5,25 +5,26 @@ import java.util.Map;
 
 public class Solution791 {
     public String customSortString(String order, String s) {
-        int len = s.length();
-        // 预处理
-        Map<Character, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            map.computeIfAbsent(s.charAt(i), key -> new ArrayList<>()).add(i);
+        int n = s.length();
+        char[] cs = s.toCharArray();
+
+        Map<Character, List<Integer>> chIdsMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            chIdsMap.computeIfAbsent(cs[i], key -> new ArrayList<>()).add(i);
         }
 
         StringBuilder stringBuilder = new StringBuilder();
-        boolean[] used = new boolean[len];
+        boolean[] used = new boolean[n];
         for (char ch : order.toCharArray()) {
-            for (int id : map.getOrDefault(ch, new ArrayList<>())) {
+            for (int id : chIdsMap.getOrDefault(ch, new ArrayList<>())) {
                 used[id] = true;
-                stringBuilder.append(s.charAt(id));
+                stringBuilder.append(cs[id]);
             }
         }
-        // 不是按顺序出现的，所以它可以在返回的字符串中的任何位置。
-        for (int i = 0; i < len; i++) {
+        // 加上 order 没有的字符
+        for (int i = 0; i < n; i++) {
             if (!used[i]) {
-                stringBuilder.append(s.charAt(i));
+                stringBuilder.append(cs[i]);
             }
         }
         return stringBuilder.toString();

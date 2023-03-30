@@ -10,6 +10,7 @@ public class Solution2439Tests {
         int expected = 5;
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue(nums));
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue2(nums));
+        Assertions.assertEquals(expected, solution2439.minimizeArrayValue3(nums));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution2439Tests {
         int expected = 10;
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue(nums));
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue2(nums));
+        Assertions.assertEquals(expected, solution2439.minimizeArrayValue3(nums));
     }
 
     // 补充用例
@@ -29,5 +31,6 @@ public class Solution2439Tests {
         int expected = 536251085;
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue(nums));
         Assertions.assertEquals(expected, solution2439.minimizeArrayValue2(nums));
+        Assertions.assertEquals(expected, solution2439.minimizeArrayValue3(nums));
     }
 }

@@ -5,13 +5,12 @@ public class Solution469 {
         int n = points.size();
         long pre = 0;
         for (int i = 0; i < n; i++) {
-            long x1 = points.get((i + 1) % n).get(0) - points.get(i).get(0);
-            long y1 = points.get((i + 1) % n).get(1) - points.get(i).get(1);
-
-            long x2 = points.get((i + 2) % n).get(0) - points.get((i + 1) % n).get(0);
-            long y2 = points.get((i + 2) % n).get(1) - points.get((i + 1) % n).get(1);
-
-            long crossProduct = x1 * y2 - x2 * y1;
+//            long x1 = points.get((i + 1) % n).get(0) - points.get(i).get(0);
+//            long y1 = points.get((i + 1) % n).get(1) - points.get(i).get(1);
+//            long x2 = points.get((i + 2) % n).get(0) - points.get((i + 1) % n).get(0);
+//            long y2 = points.get((i + 2) % n).get(1) - points.get((i + 1) % n).get(1);
+//            long crossProduct = x1 * y2 - x2 * y1;
+            long crossProduct = crossProduct(points.get(i), points.get((i + 1) % n), points.get((i + 2) % n));
             if (crossProduct != 0) {
                 if (crossProduct * pre < 0) {
                     return false;
@@ -20,6 +19,15 @@ public class Solution469 {
             }
         }
         return true;
+    }
+
+    // 叉乘
+    private long crossProduct(List<Integer> p, List<Integer> q, List<Integer> r) {
+        long x1 = q.get(0) - p.get(0);
+        long y1 = q.get(1) - p.get(1);
+        long x2 = r.get(0) - q.get(0);
+        long y2 = r.get(1) - q.get(1);
+        return x1 * y2 - x2 * y1;
     }
 }
 /*
@@ -36,6 +44,8 @@ points[i].length == 2
 所有点都 不同
 
 二维几何。
-叉乘 顶点凹凸性法
+叉乘。顶点凹凸性法
 https://blog.csdn.net/houyichaochao/article/details/81141893
+相似题目: 587. 安装栅栏
+https://leetcode.cn/problems/erect-the-fence/
  */

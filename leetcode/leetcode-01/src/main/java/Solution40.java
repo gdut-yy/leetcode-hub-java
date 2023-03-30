@@ -4,28 +4,41 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution40 {
+    private int[] candidates;
+    private int target;
+    private LinkedList<Integer> combination;
+    private List<List<Integer>> combinationList;
+
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         Arrays.sort(candidates);
-        List<List<Integer>> resList = new ArrayList<>();
-        helper(candidates, target, 0, new LinkedList<>(), resList);
-        return resList;
+        this.candidates = candidates;
+        this.target = target;
+        combination = new LinkedList<>();
+        combinationList = new ArrayList<>();
+
+        dfs(0, 0);
+        return combinationList;
     }
 
-    private void helper(int[] candidates, int target, int i,
-                        LinkedList<Integer> combination, List<List<Integer>> resList) {
-        if (target == 0) {
-            resList.add(new ArrayList<>(combination));
-        } else if (target > 0 && i < candidates.length) {
-            helper(candidates, target, getNext(candidates, i), combination, resList);
-            combination.addLast(candidates[i]);
-            helper(candidates, target - candidates[i], i + 1, combination, resList);
-            combination.removeLast();
+    private void dfs(int i, int sum) {
+        if (sum == target) {
+            combinationList.add(new ArrayList<>(combination));
+            return;
         }
+        if (i == candidates.length || sum > target) {
+            return;
+        }
+        // 不选
+        dfs(getNext(i), sum);
+        // 选
+        combination.add(candidates[i]);
+        dfs(i + 1, sum + candidates[i]);
+        combination.removeLast();
     }
 
-    private int getNext(int[] candidates, int idx) {
-        int next = idx;
-        while (next < candidates.length && candidates[next] == candidates[idx]) {
+    private int getNext(int i) {
+        int next = i;
+        while (next < candidates.length && candidates[next] == candidates[i]) {
             next++;
         }
         return next;

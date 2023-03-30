@@ -7,38 +7,34 @@ import java.util.Queue;
 
 public class Solution207 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        // 拓扑排序
         Map<Integer, List<Integer>> adj = new HashMap<>();
-        int[] inDegrees = new int[numCourses];
-
-        // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
+        int[] inDeg = new int[numCourses];
         for (int[] prerequisite : prerequisites) {
-            int from = prerequisite[1];
-            int to = prerequisite[0];
-            adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
-            inDegrees[to]++;
+            int ai = prerequisite[1];
+            int bi = prerequisite[0];
+            // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
+            adj.computeIfAbsent(ai, key -> new ArrayList<>()).add(bi);
+            inDeg[bi]++;
         }
 
-        // 入度为 0 进队列。记为 0 到 numCourses - 1
+        // 拓扑排序
         Queue<Integer> queue = new LinkedList<>();
-        for (int i = 0; i < numCourses; i++) {
-            if (inDegrees[i] == 0) {
-                queue.add(i);
+        for (int id = 0; id < numCourses; id++) {
+            if (inDeg[id] == 0) {
+                queue.add(id);
             }
         }
         List<Integer> resList = new ArrayList<>();
         while (!queue.isEmpty()) {
             int cur = queue.remove();
             resList.add(cur);
-
             for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
-                inDegrees[next]--;
-                if (inDegrees[next] == 0) {
+                inDeg[next]--;
+                if (inDeg[next] == 0) {
                     queue.add(next);
                 }
             }
         }
-        // 如果不可能完成所有课程，返回 一个空数组 。
         return resList.size() == numCourses;
     }
 }
