@@ -14,6 +14,8 @@ public class Abc280_e {
     }
 
     private static String solve(int n, int p) {
+        // x = 1 - x*p/100
+        // ans += x
         long inv = inv(100, MOD);
         long x = 1, ans = 1;
         for (int i = 0; i < n - 1; i++) {
@@ -49,5 +51,28 @@ public class Abc280_e {
 E - Critical Hit
 https://atcoder.jp/contests/abc280/tasks/abc280_e
 
+题目大意：
+有一个初始耐力为 N 的怪物。
+高桥反复攻击怪物，而怪物的耐力保持 1 或更高。
+高桥的攻击使怪物的耐力减少 2(概率为 P/100)和 1(概率为 1 - P/100)。
+在怪物的耐力变为 0 或更少之前，求出攻击次数的模 998244353 的期望值。
+
+概率 DP。
 exgcd 求逆元
+======
+
+Input
+3 10
+Output
+229596204
+
+Input
+5 100
+Output
+3
+
+Input
+280 59
+Output
+567484387
  */
