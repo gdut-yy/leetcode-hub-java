@@ -55,7 +55,7 @@ public class CF1702G2 {
             adj.computeIfAbsent(uv[i][1], key -> new ArrayList<>()).add(uv[i][0]);
         }
         // 预处理
-        precalc(0, 0);
+        pretreatment(0, 0);
 
         List<String> resList = new ArrayList<>();
         for (int qi = 0; qi < q; qi++) {
@@ -95,7 +95,7 @@ public class CF1702G2 {
         return resList;
     }
 
-    private static void precalc(int v, int p) {
+    private static void pretreatment(int v, int p) {
         d[v] = d[p] + 1;
         up[v][0] = p;
         for (int i = 1; i <= sz; ++i) {
@@ -105,7 +105,7 @@ public class CF1702G2 {
             if (u == p) {
                 continue;
             }
-            precalc(u, v);
+            pretreatment(u, v);
         }
     }
 
