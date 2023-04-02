@@ -10,6 +10,7 @@ public class Solution2367Tests {
         int diff = 3;
         int expected = 2;
         Assertions.assertEquals(expected, solution2367.arithmeticTriplets(nums, diff));
+        Assertions.assertEquals(expected, solution2367.arithmeticTriplets2(nums, diff));
     }
 
     @Test
@@ -18,5 +19,6 @@ public class Solution2367Tests {
         int diff = 3;
         int expected = 2;
         Assertions.assertEquals(expected, solution2367.arithmeticTriplets(nums, diff));
+        Assertions.assertEquals(expected, solution2367.arithmeticTriplets2(nums, diff));
     }
 }

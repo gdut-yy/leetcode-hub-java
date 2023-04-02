@@ -7,13 +7,15 @@ import java.util.Map;
 import java.util.Set;
 
 public class Solution140 {
+    private String s;
     private Set<String> wordDictSet;
+    private Map<Integer, List<List<String>>> memoMap;
 
     public List<String> wordBreak(String s, List<String> wordDict) {
+        this.s = s;
         wordDictSet = new HashSet<>(wordDict);
-
-        Map<Integer, List<List<String>>> memoMap = new HashMap<>();
-        List<List<String>> wordBreaks = backtrack(s, 0, memoMap);
+        memoMap = new HashMap<>();
+        List<List<String>> wordBreaks = dfs(0);
 
         // => List<String>
         List<String> resList = new ArrayList<>();
@@ -23,26 +25,27 @@ public class Solution140 {
         return resList;
     }
 
-    private List<List<String>> backtrack(String s, int idx, Map<Integer, List<List<String>>> memoMap) {
-        if (!memoMap.containsKey(idx)) {
-            List<List<String>> wordBreaks = new ArrayList<>();
-            if (idx == s.length()) {
-                wordBreaks.add(new ArrayList<>());
-            }
+    private List<List<String>> dfs(int idx) {
+        if (memoMap.containsKey(idx)) {
+            return memoMap.get(idx);
+        }
 
-            for (int i = idx + 1; i <= s.length(); i++) {
-                String word = s.substring(idx, i);
-                if (wordDictSet.contains(word)) {
-                    List<List<String>> newWordBreaks = backtrack(s, i, memoMap);
-                    for (List<String> newWordBreak : newWordBreaks) {
-                        LinkedList<String> wordBreak = new LinkedList<>(newWordBreak);
-                        wordBreak.offerFirst(word);
-                        wordBreaks.add(wordBreak);
-                    }
+        List<List<String>> wordBreaks = new ArrayList<>();
+        if (idx == s.length()) {
+            wordBreaks.add(new ArrayList<>());
+        }
+        for (int i = idx + 1; i <= s.length(); i++) {
+            String word = s.substring(idx, i);
+            if (wordDictSet.contains(word)) {
+                List<List<String>> newWordBreaks = dfs(i);
+                for (List<String> newWordBreak : newWordBreaks) {
+                    LinkedList<String> wordBreak = new LinkedList<>(newWordBreak);
+                    wordBreak.addFirst(word);
+                    wordBreaks.add(wordBreak);
                 }
             }
-            memoMap.put(idx, wordBreaks);
         }
+        memoMap.put(idx, wordBreaks);
         return memoMap.get(idx);
     }
 }

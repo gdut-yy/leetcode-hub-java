@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -7,149 +8,68 @@ import java.util.Queue;
 
 public class Solution864 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-    private static final int INF = Integer.MAX_VALUE;
-    private int M;
-    private int N;
 
     public int shortestPathAllKeys(String[] grid) {
-        this.M = grid.length;
-        this.N = grid[0].length();
-
-        // location : the points of interest
-        Map<Character, int[]> location = new HashMap<>();
-        for (int i = 0; i < M; ++i) {
-            for (int j = 0; j < N; ++j) {
+        int M = grid.length;
+        int N = grid[0].length();
+        // 起点坐标，钥匙数量
+        int sx = 0, sy = 0, cntKey = 0;
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                // grid[i][j] 只含有 '.', '#', '@', 'a'-'f' 以及 'A'-'F'
                 char ch = grid[i].charAt(j);
-                if (ch != '.' && ch != '#') {
-                    location.put(ch, new int[]{i, j});
+                if (ch == '@') {
+                    sx = i;
+                    sy = j;
+                } else if (Character.isLowerCase(ch)) {
+                    // 钥匙
+                    cntKey++;
                 }
             }
         }
 
-        int targetState = (1 << (location.size() / 2)) - 1;
-        Map<Character, Map<Character, Integer>> dists = new HashMap<>();
-        for (char place : location.keySet()) {
-            dists.put(place, bfsFrom(grid, place, location));
+        // x, y, mask
+        Queue<int[]> queue = new LinkedList<>();
+        queue.add(new int[]{sx, sy, 0});
+        int[][][] dist = new int[M][N][1 << cntKey];
+        for (int i = 0; i < M; i++) {
+            for (int j = 0; j < N; j++) {
+                Arrays.fill(dist[i][j], Integer.MAX_VALUE);
+            }
         }
-
-        // Dijkstra
-        PriorityQueue<ANode> minHeap = new PriorityQueue<>(Comparator.comparingInt(a -> a.dist));
-        minHeap.add(new ANode(new Node('@', 0), 0));
-        Map<Node, Integer> finalDist = new HashMap<>();
-        finalDist.put(new Node('@', 0), 0);
-
-        while (!minHeap.isEmpty()) {
-            ANode anode = minHeap.poll();
-            Node node = anode.node;
-            int d = anode.dist;
-            if (finalDist.getOrDefault(node, INF) < d) {
-                continue;
-            }
-            if (node.state == targetState) {
-                return d;
+        dist[sx][sy][0] = 0;
+        // 获得所有钥匙
+        int FULL = (1 << cntKey) - 1;
+        while (!queue.isEmpty()) {
+            int[] tuple = queue.remove();
+            int cx = tuple[0], cy = tuple[1], cmask = tuple[2];
+            int step = dist[cx][cy][cmask];
+            if (cmask == FULL) {
+                return step;
             }
 
-            for (char destination : dists.get(node.place).keySet()) {
-                int d2 = dists.get(node.place).get(destination);
-                int state2 = node.state;
-                if (Character.isLowerCase(destination)) {
-                    // key
-                    state2 |= (1 << (destination - 'a'));
-                }
-                if (Character.isUpperCase(destination)) {
-                    // lock
-                    if ((node.state & (1 << (destination - 'A'))) == 0) {
-                        // no key
-                        continue;
+            for (int[] dir : DIRECTIONS) {
+                int nx = cx + dir[0];
+                int ny = cy + dir[1];
+                if (nx >= 0 && nx < M && ny >= 0 && ny < N) {
+                    char ch = grid[nx].charAt(ny);
+                    if (ch == '#') continue;
+                    // 锁 且 未开
+                    if (Character.isUpperCase(ch)) {
+                        if ((cmask >> (ch - 'A') & 1) == 0) continue;
                     }
-                }
-                if (d + d2 < finalDist.getOrDefault(new Node(destination, state2), INF)) {
-                    finalDist.put(new Node(destination, state2), d + d2);
-                    minHeap.add(new ANode(new Node(destination, state2), d + d2));
+                    int nmask = cmask;
+                    if (Character.isLowerCase(ch)) {
+                        nmask |= 1 << (ch - 'a');
+                    }
+                    if (dist[nx][ny][nmask] > step + 1) {
+                        dist[nx][ny][nmask] = step + 1;
+                        queue.add(new int[]{nx, ny, nmask});
+                    }
                 }
             }
         }
         return -1;
-    }
-
-    private Map<Character, Integer> bfsFrom(String[] grid, char source, Map<Character, int[]> location) {
-        int sr = location.get(source)[0];
-        int sc = location.get(source)[1];
-        boolean[][] seen = new boolean[M][N];
-        seen[sr][sc] = true;
-        int curDepth = 0;
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{sr, sc});
-        queue.add(null);
-        Map<Character, Integer> dist = new HashMap<>();
-
-        while (!queue.isEmpty()) {
-            int[] p = queue.poll();
-            if (p == null) {
-                curDepth++;
-                if (!queue.isEmpty()) {
-                    queue.add(null);
-                }
-                continue;
-            }
-
-            int curM = p[0];
-            int curN = p[1];
-            if (grid[curM].charAt(curN) != source && grid[curM].charAt(curN) != '.') {
-                dist.put(grid[curM].charAt(curN), curDepth);
-                // Stop walking from here if we reach a point of interest
-                continue;
-            }
-
-            for (int[] dir : DIRECTIONS) {
-                int nextM = curM + dir[0];
-                int nextN = curN + dir[1];
-                if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !seen[nextM][nextN]) {
-                    if (grid[nextM].charAt(nextN) != '#') {
-                        queue.add(new int[]{nextM, nextN});
-                        seen[nextM][nextN] = true;
-                    }
-                }
-            }
-        }
-        return dist;
-    }
-
-    private static class ANode {
-        Node node;
-        int dist;
-
-        ANode(Node n, int d) {
-            node = n;
-            dist = d;
-        }
-    }
-
-    private static class Node {
-        char place;
-        int state;
-
-        Node(char p, int s) {
-            place = p;
-            state = s;
-        }
-
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) {
-                return true;
-            }
-            if (!(o instanceof Node)) {
-                return false;
-            }
-            Node other = (Node) o;
-            return (place == other.place && state == other.state);
-        }
-
-        @Override
-        public int hashCode() {
-            return 256 * state + place;
-        }
     }
 }
 /*
@@ -176,6 +96,8 @@ grid[i][j] 只含有 '.', '#', '@', 'a'-'f' 以及 'A'-'F'
 每个钥匙都对应一个 不同 的字母
 每个钥匙正好打开一个对应的锁
 
+状态压缩 + BFS
+时间复杂度 O(mn*2^k)
 方法一: 暴力+枚举 因为钥匙的数目范围不超过 6，可以枚举每种钥匙组合。时间复杂度 O(m*n*A*A!) 理论上界 3,888,000
 方法二: 关键点+dijkstra
 官方题解: https://leetcode.cn/problems/shortest-path-to-get-all-keys/solution/huo-qu-suo-you-yao-chi-de-zui-duan-lu-jing-by-leet/

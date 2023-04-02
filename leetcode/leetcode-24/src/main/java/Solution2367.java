@@ -1,3 +1,6 @@
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution2367 {
     public int arithmeticTriplets(int[] nums, int diff) {
         int len = nums.length;
@@ -14,6 +17,19 @@ public class Solution2367 {
             }
         }
         return cnt;
+    }
+
+    // O(n)
+    public int arithmeticTriplets2(int[] nums, int diff) {
+        int res = 0;
+        Set<Integer> set = new HashSet<>();
+        for (int num : nums) {
+            if (set.contains(num - diff) && set.contains(num - diff - diff)) {
+                res++;
+            }
+            set.add(num);
+        }
+        return res;
     }
 }
 /*

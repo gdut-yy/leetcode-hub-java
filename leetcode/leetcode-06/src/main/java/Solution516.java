@@ -29,7 +29,7 @@ https://leetcode.cn/problems/longest-palindromic-subsequence/
 1 <= s.length <= 1000
 s 仅由小写英文字母组成
 
-动态规划。
+区间 DP
 时间复杂度 O(n^2)
 空间复杂度 O(n^2)
  */
