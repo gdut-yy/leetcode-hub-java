@@ -2,19 +2,23 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution695 {
+    public static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    private int[][] grid;
     private int M;
     private int N;
+    private boolean[][] visited;
 
     public int maxAreaOfIsland(int[][] grid) {
+        this.grid = grid;
         this.M = grid.length;
         this.N = grid[0].length;
+        visited = new boolean[M][N];
 
-        boolean[][] visited = new boolean[M][N];
         int max = 0;
         for (int i = 0; i < M; i++) {
             for (int j = 0; j < N; j++) {
                 if (grid[i][j] == 1) {
-                    int area = getArea(grid, visited, i, j);
+                    int area = getArea(i, j);
                     max = Math.max(max, area);
                 }
             }
@@ -22,12 +26,10 @@ public class Solution695 {
         return max;
     }
 
-    private int getArea(int[][] grid, boolean[][] visited, int i, int j) {
-        // BFS
+    private int getArea(int i, int j) {
         Queue<int[]> queue = new LinkedList<>();
         queue.add(new int[]{i, j});
         visited[i][j] = true;
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         int area = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
@@ -35,7 +37,7 @@ public class Solution695 {
                 int[] cur = queue.remove();
                 area++;
 
-                for (int[] dir : directions) {
+                for (int[] dir : DIRECTIONS) {
                     int nextM = cur[0] + dir[0];
                     int nextN = cur[1] + dir[1];
                     if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N

@@ -7,17 +7,14 @@ public class Solution1161 {
         queue.add(root);
 
         int maxSum = Integer.MIN_VALUE;
-        int maxLevel = 1;
-        int sum = 0;
-        int level = 0;
+        int level = 0, maxLevel = 1;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            sum = 0;
+            int sum = 0;
             level++;
             for (int i = 0; i < size; i++) {
                 TreeNode cur = queue.remove();
                 sum += cur.val;
-
                 if (cur.left != null) {
                     queue.add(cur.left);
                 }
@@ -26,7 +23,7 @@ public class Solution1161 {
                 }
             }
             // update
-            if (sum > maxSum) {
+            if (maxSum < sum) {
                 maxSum = sum;
                 maxLevel = level;
             }

@@ -4,21 +4,21 @@ import java.util.Set;
 
 public class Solution139 {
     public boolean wordBreak(String s, List<String> wordDict) {
-        int len = s.length();
-        Set<String> hashSet = new HashSet<>(wordDict);
+        int n = s.length();
+        Set<String> set = new HashSet<>(wordDict);
 
-        boolean[] dp = new boolean[len + 1];
-        dp[0] = true;
-        // 状态转移 dp[0,j-1] && dp[j,i-1]
-        for (int i = 1; i <= len; i++) {
+        boolean[] f = new boolean[n + 1];
+        f[0] = true;
+        // 状态转移 f[0,j-1] && f[j,i-1]
+        for (int i = 1; i <= n; i++) {
             for (int j = 0; j < i; j++) {
-                if (dp[j] && hashSet.contains(s.substring(j, i))) {
-                    dp[i] = true;
+                if (f[j] && set.contains(s.substring(j, i))) {
+                    f[i] = true;
                     break;
                 }
             }
         }
-        return dp[len];
+        return f[n];
     }
 }
 /*
