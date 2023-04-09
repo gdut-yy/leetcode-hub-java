@@ -1,4 +1,4 @@
-public class Solution6327 {
+public class Solution2605 {
     public int minNumber(int[] nums1, int[] nums2) {
         int mask1 = 0;
         int mask2 = 0;
@@ -19,7 +19,7 @@ public class Solution6327 {
     }
 }
 /*
-6327. 从两个数字数组里生成最小数字
+2605. 从两个数字数组里生成最小数字
 https://leetcode.cn/problems/form-smallest-number-from-two-digit-arrays/
 
 第 101 场双周赛 T1。

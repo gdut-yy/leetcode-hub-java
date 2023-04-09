@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6330 {
+public class Solution2608 {
     private int n;
     private Map<Integer, List<Integer>> adj;
 
@@ -53,7 +53,7 @@ public class Solution6330 {
     }
 }
 /*
-6330. 图中的最短环
+2608. 图中的最短环
 https://leetcode.cn/problems/shortest-cycle-in-a-graph/
 
 第 101 场双周赛 T4。

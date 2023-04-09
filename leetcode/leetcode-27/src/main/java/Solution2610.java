@@ -3,7 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution6363 {
+public class Solution2610 {
     public List<List<Integer>> findMatrix(int[] nums) {
         int n = nums.length;
         int[] cnt = new int[n + 1];
@@ -36,7 +36,7 @@ public class Solution6363 {
     }
 }
 /*
-6363. 转换二维数组
+2610. 转换二维数组
 https://leetcode.cn/problems/convert-an-array-into-a-2d-array-with-conditions/
 
 第 339 场周赛 T2。

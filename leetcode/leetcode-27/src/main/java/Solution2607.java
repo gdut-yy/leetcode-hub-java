@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6329 {
+public class Solution2607 {
     public long makeSubKSumEqual(int[] arr, int k) {
         int n = arr.length;
 
@@ -37,7 +37,7 @@ public class Solution6329 {
     }
 }
 /*
-6329. 使子数组元素和相等
+2607. 使子数组元素和相等
 https://leetcode.cn/problems/make-k-subarray-sums-equal/
 
 第 101 场双周赛 T3。

@@ -4,14 +4,14 @@ import org.junit.jupiter.api.Test;
 import java.util.Collections;
 import java.util.List;
 
-public class Solution6363Tests {
-    private final Solution6363 solution6363 = new Solution6363();
+public class Solution2610Tests {
+    private final Solution2610 solution2610 = new Solution2610();
 
     @Test
     public void example1() {
         int[] nums = {1, 3, 4, 1, 2, 3, 1};
         List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[1,3,4,2],[1,3],[1]]");
-        List<List<Integer>> actual = solution6363.findMatrix(nums);
+        List<List<Integer>> actual = solution2610.findMatrix(nums);
         check(expected, actual);
     }
 
@@ -19,7 +19,7 @@ public class Solution6363Tests {
     public void example2() {
         int[] nums = {1, 2, 3, 4};
         List<List<Integer>> expected = UtUtils.stringToIntegerList2("[[4,3,2,1]]");
-        List<List<Integer>> actual = solution6363.findMatrix(nums);
+        List<List<Integer>> actual = solution2610.findMatrix(nums);
         check(expected, actual);
     }
 

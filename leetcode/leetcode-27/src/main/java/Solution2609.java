@@ -1,4 +1,4 @@
-public class Solution6362 {
+public class Solution2609 {
     public int findTheLongestBalancedSubstring(String s) {
         int n = s.length();
         for (int i = n / 2; i >= 0; i--) {
@@ -28,7 +28,7 @@ public class Solution6362 {
     }
 }
 /*
-6362. 最长平衡子字符串
+2609. 最长平衡子字符串
 https://leetcode.cn/problems/find-the-longest-balanced-substring-of-a-binary-string/
 
 第 339 场周赛 T1。

@@ -7,7 +7,7 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class Solution6365 {
+public class Solution2612 {
     public int[] minReverseOperations(int n, int p, int[] banned, int k) {
         Set<Integer> bannedSet = new HashSet<>();
         for (int x : banned) {
@@ -54,7 +54,7 @@ public class Solution6365 {
     }
 }
 /*
-6365. 最少翻转操作数
+2612. 最少翻转操作数
 https://leetcode.cn/problems/minimum-reverse-operations/
 
 第 339 场周赛 T4。

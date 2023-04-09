@@ -1,4 +1,4 @@
-public class Solution6328 {
+public class Solution2606 {
     public int maximumCostSubstring(String s, String chars, int[] vals) {
         // 预处理
         int[] chVal = new int[26];
@@ -25,7 +25,7 @@ public class Solution6328 {
     }
 }
 /*
-6328. 找到最大开销的子字符串
+2606. 找到最大开销的子字符串
 https://leetcode.cn/problems/find-the-substring-with-maximum-cost/
 
 第 101 场双周赛 T2。

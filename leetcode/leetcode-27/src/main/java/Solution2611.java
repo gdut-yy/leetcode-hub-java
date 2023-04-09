@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6364 {
+public class Solution2611 {
     public int miceAndCheese(int[] reward1, int[] reward2, int k) {
         int n = reward1.length;
         List<Node> list = new ArrayList<>();
@@ -33,7 +33,7 @@ public class Solution6364 {
     }
 }
 /*
-6364. 老鼠和奶酪
+2611. 老鼠和奶酪
 https://leetcode.cn/problems/mice-and-cheese/
 
 第 339 场周赛 T3。
