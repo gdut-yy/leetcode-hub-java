@@ -46,6 +46,8 @@ edges[i][0] != edges[i][1]
 edges 会形成一棵无向树
 
 树形 DP
-相似题目: 2246. 相邻字符不同的最长路径
+相似题目: 543. 二叉树的直径
+https://leetcode.cn/problems/diameter-of-binary-tree/
+2246. 相邻字符不同的最长路径
 https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/
  */

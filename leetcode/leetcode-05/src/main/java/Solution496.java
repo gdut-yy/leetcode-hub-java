@@ -65,4 +65,6 @@ nums1 中的所有整数同样出现在 nums2 中
 单调栈模板题。
 将 nums1 看作查询数组。先求出 nums2 各个值的结果，存放在 HashMap 中，时间复杂度 O(n)
 然后遍历 nums1 得到结果，时间复杂度 O(n)
+相似题目: 1019. 链表中的下一个更大节点
+https://leetcode.cn/problems/next-greater-node-in-linked-list/
  */

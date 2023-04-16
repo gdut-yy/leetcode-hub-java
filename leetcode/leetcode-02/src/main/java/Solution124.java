@@ -1,20 +1,20 @@
 public class Solution124 {
-    private int max = Integer.MIN_VALUE;
+    private int max;
 
     public int maxPathSum(TreeNode root) {
+        max = Integer.MIN_VALUE;
         dfs(root);
         return max;
     }
 
-    private int dfs(TreeNode root) {
-        if (root == null) {
+    private int dfs(TreeNode node) {
+        if (node == null) {
             return 0;
         }
-        int left = Math.max(dfs(root.left), 0);
-        int right = Math.max(dfs(root.right), 0);
-        int pathSum = root.val + left + right;
-        max = Math.max(max, pathSum);
-        return root.val + Math.max(left, right);
+        int left = Math.max(0, dfs(node.left));
+        int right = Math.max(0, dfs(node.right));
+        max = Math.max(max, left + right + node.val);
+        return Math.max(left, right) + node.val;
     }
 }
 /*
@@ -27,7 +27,6 @@ https://leetcode.cn/problems/binary-tree-maximum-path-sum/
 提示：
 树中节点数目范围是 [1, 3 * 10^4]
 -1000 <= Node.val <= 1000
-
 输入：root = [-10,9,20,null,null,15,7]
 输出：42
 解释：最优路径是 15 -> 20 -> 7 ，路径和为 15 + 20 + 7 = 42
@@ -37,5 +36,9 @@ https://leetcode.cn/problems/binary-tree-maximum-path-sum/
    /  \
   15   7
 15 + 20 + 7 = 42
-后序遍历
+
+树形 DP
+时间复杂度 O(n)
+相似题目: 543. 二叉树的直径
+https://leetcode.cn/problems/diameter-of-binary-tree/
  */

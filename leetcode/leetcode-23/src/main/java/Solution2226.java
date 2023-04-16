@@ -30,11 +30,9 @@ public class Solution2226 {
 
     private boolean checkMid(int[] candies, long k, int mid) {
         // 贪心，从最大开始
-        int idx = candies.length - 1;
-        while (k > 0 && idx >= 0) {
-            int cnt = candies[idx] / mid;
+        for (int i = candies.length - 1; i >= 0 && k > 0; i--) {
+            int cnt = candies[i] / mid;
             k -= cnt;
-            idx--;
         }
         return k <= 0;
     }

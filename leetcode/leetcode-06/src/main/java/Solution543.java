@@ -1,19 +1,19 @@
 public class Solution543 {
-    private int max = 1;
+    private int max;
 
     public int diameterOfBinaryTree(TreeNode root) {
-        max = 1;
+        max = 0;
         dfs(root);
-        return max - 1;
+        return max;
     }
 
-    private int dfs(TreeNode root) {
-        if (root == null) {
-            return 0;
+    private int dfs(TreeNode node) {
+        if (node == null) {
+            return -1;
         }
-        int left = dfs(root.left);
-        int right = dfs(root.right);
-        max = Math.max(max, left + right + 1);
+        int left = dfs(node.left);
+        int right = dfs(node.right);
+        max = Math.max(max, left + right + 2);
         return Math.max(left, right) + 1;
     }
 }
@@ -32,7 +32,9 @@ https://leetcode.cn/problems/diameter-of-binary-tree/
 返回 3, 它的长度是路径 [4,2,1,3] 或者 [5,2,1,3]。
 注意：两结点之间的路径长度是以它们之间边的数目表示。
 
-dfs
-相似题目: $1522. N 叉树的直径
+树形 DP
+相似题目: 124. 二叉树中的最大路径和
+https://leetcode.cn/problems/binary-tree-maximum-path-sum/
+$1522. N 叉树的直径
 https://leetcode.cn/problems/diameter-of-n-ary-tree/
  */

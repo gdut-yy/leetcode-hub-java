@@ -6,7 +6,7 @@ import java.util.Map;
 public class Solution2246 {
     private String s;
     private Map<Integer, List<Integer>> adj;
-    private int ans;
+    private int max;
 
     public int longestPath(int[] parent, String s) {
         this.s = s;
@@ -14,25 +14,23 @@ public class Solution2246 {
         for (int i = 1; i < parent.length; i++) {
             adj.computeIfAbsent(parent[i], key -> new ArrayList<>()).add(i);
         }
-        ans = 0;
+        max = 0;
 
         dfs(0, -1);
-        return ans + 1;
+        return max + 1;
     }
 
     private int dfs(int x, int fa) {
-        int maxLen = 0;
+        int xLen = 0;
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
-            if (y == fa) {
-                continue;
-            }
-            int len = dfs(y, x);
-            if (s.charAt(y) != s.charAt(x)) {
-                ans = Math.max(ans, maxLen + len);
-                maxLen = Math.max(maxLen, len);
+            if (y == fa) continue;
+            int yLen = dfs(y, x) + 1;
+            if (s.charAt(x) != s.charAt(y)) {
+                max = Math.max(max, xLen + yLen);
+                xLen = Math.max(xLen, yLen);
             }
         }
-        return maxLen + 1;
+        return xLen;
     }
 }
 /*
@@ -56,6 +54,10 @@ s 仅由小写英文字母组成
 树形 DP
 时间复杂度 O(n)
 如果用 时间复杂度 O(n^2) 的 BFS/DFS 会 TLE
-相似题目: $1245. 树的直径
+相似题目: 124. 二叉树中的最大路径和
+https://leetcode.cn/problems/binary-tree-maximum-path-sum/
+543. 二叉树的直径
+https://leetcode.cn/problems/diameter-of-binary-tree/
+$1245. 树的直径
 https://leetcode.cn/problems/tree-diameter/
  */
