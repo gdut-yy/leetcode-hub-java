@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution6361 {
+public class Solution2614 {
     private static final int MAX_N = (int) 4e6 + 1;
     private static Set<Integer> primeSet;
 
@@ -41,7 +41,7 @@ public class Solution6361 {
     }
 }
 /*
-6361. 对角线上的质数
+2614. 对角线上的质数
 https://leetcode.cn/problems/prime-in-diagonal/
 
 第 340 场周赛 T1。

@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6360 {
+public class Solution2615 {
     public long[] distance(int[] nums) {
         int n = nums.length;
         Map<Integer, List<Integer>> idxListMap = new HashMap<>();
@@ -33,7 +33,7 @@ public class Solution6360 {
     }
 }
 /*
-6360. 等值距离和
+2615. 等值距离和
 https://leetcode.cn/problems/sum-of-distances/
 
 第 340 场周赛 T2。

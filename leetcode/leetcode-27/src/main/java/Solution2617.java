@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.TreeSet;
 
-public class Solution6353 {
+public class Solution2617 {
     public int minimumVisitedCells(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -56,7 +56,7 @@ public class Solution6353 {
     }
 }
 /*
-6353. 网格图中最少访问的格子数
+2617. 网格图中最少访问的格子数
 https://leetcode.cn/problems/minimum-number-of-visited-cells-in-a-grid/
 
 第 340 场周赛 T4。

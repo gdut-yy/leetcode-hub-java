@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6359 {
+public class Solution2616 {
     public int minimizeMax(int[] nums, int p) {
         Arrays.sort(nums);
         int max = 0;
@@ -35,7 +35,7 @@ public class Solution6359 {
     }
 }
 /*
-6359. 最小化数对的最大差值
+2616. 最小化数对的最大差值
 https://leetcode.cn/problems/minimize-the-maximum-difference-of-pairs/
 
 第 340 场周赛 T3。
