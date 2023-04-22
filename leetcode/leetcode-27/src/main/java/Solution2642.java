@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution6336 {
+public class Solution2642 {
     static class Graph {
         private final int n;
         private static final int INF = Integer.MAX_VALUE;
@@ -111,7 +111,7 @@ public class Solution6336 {
     }
 }
 /*
-6336. 设计可以求最短路径的图类
+2642. 设计可以求最短路径的图类
 https://leetcode.cn/problems/design-graph-with-shortest-path-calculator/
 
 第 102 场双周赛 T4。

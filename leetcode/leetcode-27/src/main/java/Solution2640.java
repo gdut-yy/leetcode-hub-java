@@ -1,4 +1,4 @@
-public class Solution6334 {
+public class Solution2640 {
     public long[] findPrefixScore(int[] nums) {
         int n = nums.length;
         long[] conver = getConver(nums, n);
@@ -22,7 +22,7 @@ public class Solution6334 {
     }
 }
 /*
-6334. 一个数组所有前缀的分数
+2640. 一个数组所有前缀的分数
 https://leetcode.cn/problems/find-the-score-of-all-prefixes-of-an-array/
 
 第 102 场双周赛 T2。

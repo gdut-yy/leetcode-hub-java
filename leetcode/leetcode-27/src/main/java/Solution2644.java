@@ -1,4 +1,4 @@
-public class Solution6350 {
+public class Solution2644 {
     public int maxDivScore(int[] nums, int[] divisors) {
         int maxScore = 0;
         int minDivisor = divisors[0];
@@ -21,7 +21,7 @@ public class Solution6350 {
     }
 }
 /*
-6350. 找出可整除性得分最大的整数
+2644. 找出可整除性得分最大的整数
 https://leetcode.cn/problems/find-the-maximum-divisibility-score/
 
 第 341 场周赛 T2。

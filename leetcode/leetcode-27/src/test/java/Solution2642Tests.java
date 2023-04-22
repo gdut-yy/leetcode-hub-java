@@ -1,11 +1,11 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6336Tests {
+public class Solution2642Tests {
     @Test
     public void example1() {
         int[][] edges = UtUtils.stringToInts2("[[0, 2, 5], [0, 1, 2], [1, 2, 1], [3, 0, 3]]");
-        Solution6336.Graph g = new Solution6336.Graph(4, edges);
+        Solution2642.Graph g = new Solution2642.Graph(4, edges);
 
         // 返回 6 。从 3 到 2 的最短路径如第一幅图所示：3 -> 0 -> 1 -> 2 ，总代价为 3 + 2 + 1 = 6 。
         Assertions.assertEquals(6, g.shortestPath(3, 2));
@@ -23,7 +23,7 @@ public class Solution6336Tests {
     @Test
     public void example2() {
         int[][] edges = UtUtils.stringToInts2("[[0, 2, 5], [0, 1, 2], [1, 2, 1], [3, 0, 3]]");
-        Solution6336.Graph2 g = new Solution6336.Graph2(4, edges);
+        Solution2642.Graph2 g = new Solution2642.Graph2(4, edges);
 
         // 返回 6 。从 3 到 2 的最短路径如第一幅图所示：3 -> 0 -> 1 -> 2 ，总代价为 3 + 2 + 1 = 6 。
         Assertions.assertEquals(6, g.shortestPath(3, 2));

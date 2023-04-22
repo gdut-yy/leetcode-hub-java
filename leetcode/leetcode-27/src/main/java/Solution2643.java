@@ -1,4 +1,4 @@
-public class Solution6376 {
+public class Solution2643 {
     public int[] rowAndMaximumOnes(int[][] mat) {
         int m = mat.length;
         int n = mat[0].length;
@@ -20,7 +20,7 @@ public class Solution6376 {
     }
 }
 /*
-6376. 一最多的行
+2643. 一最多的行
 https://leetcode.cn/problems/row-with-maximum-ones/
 
 第 341 场周赛 T1。

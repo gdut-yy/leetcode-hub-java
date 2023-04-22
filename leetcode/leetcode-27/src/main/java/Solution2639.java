@@ -1,4 +1,4 @@
-public class Solution6333 {
+public class Solution2639 {
     public int[] findColumnWidth(int[][] grid) {
         int n = grid[0].length;
 
@@ -15,7 +15,7 @@ public class Solution6333 {
     }
 }
 /*
-6333. 查询网格图中每一列的宽度
+2639. 查询网格图中每一列的宽度
 https://leetcode.cn/problems/find-the-width-of-columns-of-a-grid/
 
 第 102 场双周赛 T1。

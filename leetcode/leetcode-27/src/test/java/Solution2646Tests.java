@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6378Tests {
-    private final Solution6378 solution6378 = new Solution6378();
+public class Solution2646Tests {
+    private final Solution2646 solution2646 = new Solution2646();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution6378Tests {
         int[] price = {2, 2, 10, 6};
         int[][] trips = UtUtils.stringToInts2("[[0,3],[2,1],[2,3]]");
         int expected = 23;
-        Assertions.assertEquals(expected, solution6378.minimumTotalPrice(n, edges, price, trips));
+        Assertions.assertEquals(expected, solution2646.minimumTotalPrice(n, edges, price, trips));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class Solution6378Tests {
         int[] price = {2, 2};
         int[][] trips = UtUtils.stringToInts2("[[0,0]]");
         int expected = 1;
-        Assertions.assertEquals(expected, solution6378.minimumTotalPrice(n, edges, price, trips));
+        Assertions.assertEquals(expected, solution2646.minimumTotalPrice(n, edges, price, trips));
     }
 
     // 补充用例
@@ -34,7 +34,7 @@ public class Solution6378Tests {
         int[] price = {2, 820, 460, 262, 598, 192, 758, 922, 266, 628, 74, 720, 614, 304, 716, 764, 110, 328, 344, 160, 884, 80, 154, 424, 858, 466, 602, 114, 432, 140, 726, 438, 774, 346, 944, 596, 974, 552, 536, 564, 938, 888, 376, 980, 502, 196, 80, 870, 1000, 998};
         int[][] trips = UtUtils.stringToInts2("[[9,9]]");
         int expected = 314;
-        Assertions.assertEquals(expected, solution6378.minimumTotalPrice(n, edges, price, trips));
-        Assertions.assertEquals(expected, solution6378.minimumTotalPrice2(n, edges, price, trips));
+        Assertions.assertEquals(expected, solution2646.minimumTotalPrice(n, edges, price, trips));
+        Assertions.assertEquals(expected, solution2646.minimumTotalPrice2(n, edges, price, trips));
     }
 }

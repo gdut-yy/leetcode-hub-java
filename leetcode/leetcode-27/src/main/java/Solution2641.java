@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class Solution6335 {
+public class Solution2641 {
     public TreeNode replaceValueInTree(TreeNode root) {
         root.val = 0;
 
@@ -41,7 +41,7 @@ public class Solution6335 {
     }
 }
 /*
-6335. 二叉树的堂兄弟节点 II
+2641. 二叉树的堂兄弟节点 II
 https://leetcode.cn/problems/cousins-in-binary-tree-ii/
 
 第 102 场双周赛 T3。

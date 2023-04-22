@@ -1,4 +1,4 @@
-public class Solution6375 {
+public class Solution2645 {
     // 枚举
     public int addMinimum(String word) {
         int n = word.length();
@@ -25,7 +25,7 @@ public class Solution6375 {
     }
 }
 /*
-6375. 构造有效字符串的最少插入数
+2645. 构造有效字符串的最少插入数
 https://leetcode.cn/problems/minimum-additions-to-make-valid-string/
 
 第 341 场周赛 T3。

@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
-public class Solution6378 {
+public class Solution2646 {
     private int[] price;
     private Map<Integer, List<Integer>> adj;
     private int[] cnt;
@@ -151,7 +151,7 @@ public class Solution6378 {
     }
 }
 /*
-6378. 最小化旅行的价格总和
+2646. 最小化旅行的价格总和
 https://leetcode.cn/problems/minimize-the-total-price-of-the-trips/
 
 第 341 场周赛 T4。
