@@ -1,62 +1,33 @@
-import java.util.Arrays;
-
 public class Solution2257 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int countUnguarded(int m, int n, int[][] guards, int[][] walls) {
-        char[][] grid = new char[m][n];
-        // 初始状态 置为未被保卫
-        for (char[] chars : grid) {
-            Arrays.fill(chars, 'F');
+        boolean[][] guardsOrWalls = new boolean[m][n];
+        for (int[] x : guards) {
+            guardsOrWalls[x[0]][x[1]] = true;
         }
-        // 警卫
-        for (int[] guard : guards) {
-            grid[guard[0]][guard[1]] = 'G';
-        }
-        // 墙
-        for (int[] wall : walls) {
-            grid[wall[0]][wall[1]] = 'W';
+        for (int[] x : walls) {
+            guardsOrWalls[x[0]][x[1]] = true;
         }
 
-        // 模拟
+        // guarded[i][j] = false 表示未被监控
+        boolean[][] guarded = new boolean[m][n];
+        int res = m * n - guards.length - walls.length;
         for (int[] guard : guards) {
-            mock(m, n, grid, guard[0], guard[1]);
-        }
-
-        int cnt = 0;
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                if (grid[i][j] == 'F') {
-                    cnt++;
+            for (int[] dir : DIRECTIONS) {
+                int nx = guard[0] + dir[0];
+                int ny = guard[1] + dir[1];
+                while (nx >= 0 && nx < m && ny >= 0 && ny < n && !guardsOrWalls[nx][ny]) {
+                    if (!guarded[nx][ny]) {
+                        guarded[nx][ny] = true;
+                        res--;
+                    }
+                    nx += dir[0];
+                    ny += dir[1];
                 }
             }
         }
-        return cnt;
-    }
-
-    private void mock(int m, int n, char[][] grid, int guardX, int guardY) {
-        // up
-        for (int i = guardX - 1; i >= 0 && grid[i][guardY] != 'W' && grid[i][guardY] != 'G'; i--) {
-            if (grid[i][guardY] == 'F') {
-                grid[i][guardY] = 'T';
-            }
-        }
-        // down
-        for (int i = guardX + 1; i < m && grid[i][guardY] != 'W' && grid[i][guardY] != 'G'; i++) {
-            if (grid[i][guardY] == 'F') {
-                grid[i][guardY] = 'T';
-            }
-        }
-        // left
-        for (int j = guardY - 1; j >= 0 && grid[guardX][j] != 'W' && grid[guardX][j] != 'G'; j--) {
-            if (grid[guardX][j] == 'F') {
-                grid[guardX][j] = 'T';
-            }
-        }
-        // right
-        for (int j = guardY + 1; j < n && grid[guardX][j] != 'W' && grid[guardX][j] != 'G'; j++) {
-            if (grid[guardX][j] == 'F') {
-                grid[guardX][j] = 'T';
-            }
-        }
+        return res;
     }
 }
 /*

@@ -3,12 +3,13 @@ import java.util.Calendar;
 
 public class Solution1185 {
     private static final String[] WEEK = {"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"};
-    private static final String[] WEEK2 = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     public String dayOfTheWeek(int day, int month, int year) {
         LocalDate localDate = LocalDate.of(year, month, day);
         return WEEK[localDate.getDayOfWeek().getValue() - 1];
     }
+
+    private static final String[] WEEK2 = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
 
     public String dayOfTheWeek2(int day, int month, int year) {
         Calendar calendar = Calendar.getInstance();

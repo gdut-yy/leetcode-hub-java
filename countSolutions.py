@@ -11,7 +11,7 @@ print(between.days, 'days')
 cnt_lc_solutions = 0
 cnt_lc_tests = 0
 cwd = os.getcwd()
-exclude_paths = ['atcoder', 'codeforces', 'leetcode-core',
+exclude_paths = ['atcoder', 'codeforces', 'algo-core',
                  'leetcode-extends', 'leetcode-lcp']
 for dirpath, dirnames, filenames in os.walk(cwd):
     ok = True

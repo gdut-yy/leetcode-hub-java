@@ -11,6 +11,7 @@ public class Solution2209Tests {
         int carpetLen = 2;
         int expected = 2;
         Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles2(floor, numCarpets, carpetLen));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class Solution2209Tests {
         int carpetLen = 3;
         int expected = 0;
         Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles2(floor, numCarpets, carpetLen));
     }
 
     // 补充用例
@@ -31,6 +33,7 @@ public class Solution2209Tests {
         int carpetLen = 5;
         int expected = 0;
         Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles2(floor, numCarpets, carpetLen));
     }
 
     @Test
@@ -41,5 +44,6 @@ public class Solution2209Tests {
         int carpetLen = 3;
         int expected = 0;
         Assertions.assertEquals(expected, solution2209.minimumWhiteTiles(floor, numCarpets, carpetLen));
+        Assertions.assertEquals(expected, solution2209.minimumWhiteTiles2(floor, numCarpets, carpetLen));
     }
 }

@@ -5,15 +5,15 @@ public class Solution2555 {
         // f[i] 表示 [0, i) 线段长度 <= k 的最多奖品数
         int[] f = new int[n + 1];
 
-        int left = 0, right = 0;
+        int l = 0, r = 0;
         int res = 0;
-        while (right < n) {
-            while (prizePositions[right] - prizePositions[left] > k) {
-                left++;
+        while (r < n) {
+            while (prizePositions[r] - prizePositions[l] > k) {
+                l++;
             }
-            res = Math.max(res, (right - left + 1) + f[left]);
-            f[right + 1] = Math.max(f[right], right - left + 1);
-            right++;
+            res = Math.max(res, (r - l + 1) + f[l]);
+            f[r + 1] = Math.max(f[r], r - l + 1);
+            r++;
         }
         return res;
     }

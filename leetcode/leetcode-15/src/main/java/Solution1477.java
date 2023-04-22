@@ -6,22 +6,22 @@ public class Solution1477 {
         int[] f = new int[n + 1];
         f[0] = n + 1;
 
-        int left = 0, right = 0;
+        int l = 0, r = 0;
         int sum = 0;
         int min = n + 1;
-        while (right < n) {
-            sum += arr[right];
+        while (r < n) {
+            sum += arr[r];
             while (sum > target) {
-                sum -= arr[left];
-                left++;
+                sum -= arr[l];
+                l++;
             }
             if (sum == target) {
-                min = Math.min(min, (right - left + 1) + f[left]);
-                f[right + 1] = Math.min(f[right], right - left + 1);
+                min = Math.min(min, (r - l + 1) + f[l]);
+                f[r + 1] = Math.min(f[r], r - l + 1);
             } else {
-                f[right + 1] = f[right];
+                f[r + 1] = f[r];
             }
-            right++;
+            r++;
         }
         return (min == n + 1) ? -1 : min;
     }

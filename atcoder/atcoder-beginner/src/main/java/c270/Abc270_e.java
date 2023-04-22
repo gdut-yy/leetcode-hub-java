@@ -20,7 +20,7 @@ public class Abc270_e {
         System.out.println(solve(n, k, a));
     }
 
-    // 方法一
+    // 方法一 https://atcoder.jp/contests/abc270/editorial/4883
     private static String solve(int n, long k, long[] a) {
         long left = 0;
         long right = (long) 1e12;

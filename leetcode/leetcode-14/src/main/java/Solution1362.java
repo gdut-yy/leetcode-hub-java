@@ -30,7 +30,7 @@ https://leetcode.cn/problems/closest-divisors/
 提示：
 1 <= num <= 10^9
 
-[1, sqrt(num)] 之间的因素是连续的，（sqrt(num), INF) 之间的因素是不连续的
+[1, sqrt(num)] 之间的因素是连续的，(sqrt(num), INF) 之间的因素是不连续的
 时间复杂度 O(√n)
 空间复杂度 O(1)
  */

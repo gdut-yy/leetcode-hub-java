@@ -51,25 +51,25 @@ public class Solution2271 {
 
     // 树状数组
     public int maximumWhiteTiles3(int[][] tiles, int carpetLen) {
-        BIT bit = new BIT(MAX_LEN);
+        Fenwick fenwick = new Fenwick(MAX_LEN);
         for (int[] tile : tiles) {
-            bit.add(tile[0], tile[1], 1);
+            fenwick.add(tile[0], tile[1], 1);
         }
 
         int max = 0;
         for (int[] tile : tiles) {
-            max = Math.max(max, bit.getsum(tile[0], Math.min(MAX_LEN, tile[0] + carpetLen - 1)));
+            max = Math.max(max, fenwick.getsum(tile[0], Math.min(MAX_LEN, tile[0] + carpetLen - 1)));
         }
         return max;
     }
 
-    private static class BIT {
+    private static class Fenwick {
         private final int N;
         private final Map<Integer, Integer> t1;
         private final Map<Integer, Integer> t2;
 
         // O(n) 建树
-        public BIT(int n) {
+        public Fenwick(int n) {
             N = n + 1;
             t1 = new HashMap<>();
             t2 = new HashMap<>();

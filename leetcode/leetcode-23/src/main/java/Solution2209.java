@@ -1,5 +1,25 @@
 public class Solution2209 {
     public int minimumWhiteTiles(String floor, int numCarpets, int carpetLen) {
+        int m = floor.length();
+        if (numCarpets * carpetLen >= m) {
+            return 0;
+        }
+
+        // f[i][j] 表示用 i 条地毯覆盖前 j 块板砖时，没被覆盖的白色砖块的最少数目。
+        int[][] f = new int[numCarpets + 1][m];
+        f[0][0] = floor.charAt(0) == '1' ? 1 : 0;
+        for (int j = 1; j < m; j++) {
+            f[0][j] = f[0][j - 1] + (floor.charAt(j) == '1' ? 1 : 0);
+        }
+        for (int i = 1; i <= numCarpets; i++) {
+            for (int j = carpetLen * i; j < m; j++) {
+                f[i][j] = Math.min(f[i][j - 1] + (floor.charAt(j) == '1' ? 1 : 0), f[i - 1][j - carpetLen]);
+            }
+        }
+        return f[numCarpets][m - 1];
+    }
+
+    public int minimumWhiteTiles2(String floor, int numCarpets, int carpetLen) {
         int len = floor.length();
         char[] chars = floor.toCharArray();
 
@@ -9,10 +29,10 @@ public class Solution2209 {
         }
 
         // 树状数组
-        BinaryIndexedTree bit = new BinaryIndexedTree(len);
+        Fenwick fenwick = new Fenwick(len);
         for (int i = 0; i < len; i++) {
             if (chars[i] == '1') {
-                bit.update(i + 1);
+                fenwick.update(i + 1);
             }
         }
 
@@ -21,7 +41,7 @@ public class Solution2209 {
             int max = 0;
             int maxIdx = 0;
             for (int i = 0; i + carpetLen <= len; i++) {
-                int count1 = bit.query(i + carpetLen) - bit.query(i);
+                int count1 = fenwick.query(i + carpetLen) - fenwick.query(i);
                 if (count1 > max) {
                     max = count1;
                     maxIdx = i;
@@ -30,19 +50,19 @@ public class Solution2209 {
             for (int i = maxIdx; i < maxIdx + carpetLen && i < len; i++) {
                 if (chars[i] == '1') {
                     chars[i] = '0';
-                    bit.update(i + 1, -1);
+                    fenwick.update(i + 1, -1);
                 }
             }
             numCarpets--;
         }
-        return bit.query(len);
+        return fenwick.query(len);
     }
 
-    private static class BinaryIndexedTree {
+    private static class Fenwick {
         int n;
         int[] tree;
 
-        public BinaryIndexedTree(int n) {
+        public Fenwick(int n) {
             this.n = n;
             this.tree = new int[n + 1];
         }
@@ -95,4 +115,11 @@ floor[i] 要么是 '0' ，要么是 '1' 。
 贪心，但直接贪心是错误的，比赛时被卡用例 2697 / 2698 个通过测试用例，痛失 AK，加一个剪枝判断就 AC 了。
 树状树状找出最长连续的 白色砖块，并覆盖地毯，重复 numCarpets 操作
 时间复杂度 O(n^2 * logn)
+动态规划
+时间复杂度 O(nm)。其中 n = numCarpets, m = floor.length()
+空间复杂度 O(nm)。
+相似题目: C. George and Job
+https://codeforces.com/contest/467/problem/C
+E. Two Platforms
+https://codeforces.com/contest/1409/problem/E
  */

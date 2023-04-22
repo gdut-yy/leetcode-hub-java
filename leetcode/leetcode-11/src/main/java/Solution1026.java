@@ -1,21 +1,22 @@
 public class Solution1026 {
-    private int ans = Integer.MIN_VALUE;
+    private int ans;
 
     public int maxAncestorDiff(TreeNode root) {
+        ans = 0;
         dfs(root, root.val, root.val);
         return ans;
     }
 
-    private void dfs(TreeNode root, int min, int max) {
-        if (root == null) {
+    private void dfs(TreeNode node, int min, int max) {
+        if (node == null) {
             return;
         }
-        min = Math.min(min, root.val);
-        max = Math.max(max, root.val);
-        ans = Math.max(ans, max - min);
+        min = Math.min(min, node.val);
+        max = Math.max(max, node.val);
+        ans = Math.max(ans, Math.max(node.val - min, max - node.val));
 
-        dfs(root.left, min, max);
-        dfs(root.right, min, max);
+        dfs(node.left, min, max);
+        dfs(node.right, min, max);
     }
 }
 /*
