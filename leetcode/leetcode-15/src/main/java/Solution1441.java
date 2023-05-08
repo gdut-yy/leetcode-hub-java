@@ -20,7 +20,7 @@ public class Solution1441 {
 1441. 用栈操作构建数组
 https://leetcode.cn/problems/build-an-array-with-stack-operations/
 
-给你一个数组 target 和一个整数 n。每次迭代，需要从  list = { 1 , 2 , 3 ..., n } 中依次读取一个数字。
+给你一个数组 target 和一个整数 n。每次迭代，需要从 list = { 1 , 2 , 3 ..., n } 中依次读取一个数字。
 请使用下述操作来构建目标数组 target ：
 - "Push"：从 list 中读取一个新元素， 并将其推入数组中。
 - "Pop"：删除数组中的最后一个元素。
