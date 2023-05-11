@@ -55,6 +55,30 @@ public class Arc074_d {
 D - 3N Numbers
 https://atcoder.jp/contests/arc074/tasks/arc074_b
 
-2163. 删除元素后和的最小差值
+題目大意：
+设 N 为正整数。
+有一个长度为 3N 的数字序列，a =(a1,a2,...,a3N)。Snuke 通过从 a 中移除 N 个元素而不改变剩余元素的顺序，构建了一个长度为 2N a' 的新序列。在这里，a' 的分数定义为:(a' 前半部分的元素之和) − (a' 后半部分的元素之和)。
+找出 a' 的最大可能得分。
+
+相似題目: 2163. 删除元素后和的最小差值
 https://leetcode.cn/problems/minimum-difference-in-sums-after-removal-of-elements/
+======
+
+Input
+2
+3 1 4 1 5 9
+Output
+1
+
+Input
+1
+1 2 3
+Output
+-1
+
+Input
+3
+8 2 2 7 4 6 5 3 8
+Output
+5
  */

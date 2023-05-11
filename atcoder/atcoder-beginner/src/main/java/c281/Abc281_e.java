@@ -58,7 +58,6 @@ public class Abc281_e {
                 minTreeSet.remove(rmId);
             }
 
-
             // 再新增
             sum += A[i];
             maxTreeSet.add(i);
@@ -81,5 +80,31 @@ public class Abc281_e {
 E - Least Elements
 https://atcoder.jp/contests/abc281/tasks/abc281_e
 
+题目大意：
+给定长度为 N 的整数序列 A=(A1,...,AN)，以及整数 M 和 K。
+对于每一个 i = 1,...,N−M+1，求解如下独立问题。
+求 M 个整数 A[i],A[i+1],...,A[i+M-1] 的排序表中前 K 个值的和，按升序排列。
+
 双堆 + 滑动窗口
+相似題目: D - 3N Numbers
+https://atcoder.jp/contests/arc074/tasks/arc074_b
+======
+
+Input
+2
+3 1 4 1 5 9
+Output
+1
+
+Input
+1
+1 2 3
+Output
+-1
+
+Input
+3
+8 2 2 7 4 6 5 3 8
+Output
+5
  */
