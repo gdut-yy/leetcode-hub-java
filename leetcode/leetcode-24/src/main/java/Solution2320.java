@@ -1,16 +1,17 @@
 public class Solution2320 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int countHousePlacements(int n) {
         if (n == 1) {
             return 4;
         }
-        int mod = 1000000007;
         long[] f = new long[n + 1];
         f[0] = 1;
         f[1] = 2;
         for (int i = 2; i <= n; i++) {
-            f[i] = (f[i - 1] + f[i - 2]) % mod;
+            f[i] = (f[i - 1] + f[i - 2]) % MOD;
         }
-        return (int) (f[n] * f[n] % mod);
+        return (int) (f[n] * f[n] % MOD);
     }
 }
 /*
@@ -26,7 +27,10 @@ https://leetcode.cn/problems/count-number-of-ways-to-place-houses/
 1 <= n <= 10^4
 
 动态规划。
+状态定义：f[i] 表示前 i 各地块的放置方案数
+状态转移：f[i] = f[i-1] + f[i-2]
+初始状态：f[0] = 1, f[1] = 2
 与双周赛 T4 类似。
-相似题目: 6107. 不同骰子序列的数目
+相似题目: 2318. 不同骰子序列的数目
 https://leetcode.cn/problems/number-of-distinct-roll-sequences/
  */

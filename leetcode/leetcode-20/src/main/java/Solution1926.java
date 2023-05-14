@@ -1,40 +1,37 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution1926 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int nearestExit(char[][] maze, int[] entrance) {
-        int M = maze.length;
-        int N = maze[0].length;
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int m = maze.length;
+        int n = maze[0].length;
 
-        // BFS
-        maze[entrance[0]][entrance[1]] = '+';
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] visited = new boolean[m][n];
         queue.add(new int[]{entrance[0], entrance[1], 0});
-
+        // entrance 格子 不算 出口。
+        maze[entrance[0]][entrance[1]] = '+';
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
+                int[] tuple = queue.remove();
+                int cx = tuple[0], cy = tuple[1], cstep = tuple[2];
+                if ((cx == 0 || cx == m - 1 || cy == 0 || cy == n - 1) && maze[cx][cy] == '.') {
+                    return cstep;
+                }
 
-                for (int[] dir : directions) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    int step = cur[2] + 1;
-                    // 新坐标合法且不为墙
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && maze[nextM][nextN] == '.') {
-                        // 新坐标为出口，返回距离作为答案
-                        if (nextM == 0 || nextN == 0 || nextM == M - 1 || nextN == N - 1) {
-                            return step;
-                        }
-                        // 新坐标为空格子且不为出口，修改为墙并加入队列
-                        maze[nextM][nextN] = '+';
-                        queue.add(new int[]{nextM, nextN, step});
+                for (int[] dir : DIRECTIONS) {
+                    int nx = cx + dir[0];
+                    int ny = cy + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && !visited[nx][ny] && maze[nx][ny] == '.') {
+                        visited[nx][ny] = true;
+                        queue.add(new int[]{nx, ny, cstep + 1});
                     }
                 }
             }
         }
-        // 不存在到出口的路径，返回 -1
         return -1;
     }
 }
