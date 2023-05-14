@@ -1,10 +1,10 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6417Tests {
+public class Solution2671Tests {
     @Test
     public void example1() {
-        Solution6417.FrequencyTracker frequencyTracker = new Solution6417.FrequencyTracker();
+        Solution2671.FrequencyTracker frequencyTracker = new Solution2671.FrequencyTracker();
 
         // 数据结构现在包含 [3]
         frequencyTracker.add(3);
@@ -18,7 +18,7 @@ public class Solution6417Tests {
 
     @Test
     public void example2() {
-        Solution6417.FrequencyTracker frequencyTracker = new Solution6417.FrequencyTracker();
+        Solution2671.FrequencyTracker frequencyTracker = new Solution2671.FrequencyTracker();
 
         // 数据结构现在包含 [1]
         frequencyTracker.add(1);
@@ -32,7 +32,7 @@ public class Solution6417Tests {
 
     @Test
     public void example3() {
-        Solution6417.FrequencyTracker frequencyTracker = new Solution6417.FrequencyTracker();
+        Solution2671.FrequencyTracker frequencyTracker = new Solution2671.FrequencyTracker();
 
         // 返回 false ，因为数据结构为空
         frequencyTracker.hasFrequency(2);

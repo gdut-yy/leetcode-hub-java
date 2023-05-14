@@ -1,4 +1,4 @@
-public class Solution6418 {
+public class Solution2672 {
     public int[] colorTheArray(int n, int[][] queries) {
         int[] nums = new int[n];
 
@@ -31,7 +31,7 @@ public class Solution6418 {
     }
 }
 /*
-6418. 有相同颜色的相邻元素数目
+2672. 有相同颜色的相邻元素数目
 https://leetcode.cn/problems/number-of-adjacent-elements-with-the-same-color/
 
 第 344 场周赛 T3。

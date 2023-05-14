@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class Solution6417 {
+public class Solution2671 {
     static class FrequencyTracker {
         private final Map<Integer, Integer> cntMap;
         private final Map<Integer, Set<Integer>> freqMap;
@@ -40,7 +40,7 @@ public class Solution6417 {
     }
 }
 /*
-6417. 频率跟踪器
+2671. 频率跟踪器
 https://leetcode.cn/problems/frequency-tracker/
 
 第 344 场周赛 T2。

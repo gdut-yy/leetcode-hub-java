@@ -1,4 +1,4 @@
-public class Solution6419 {
+public class Solution2673 {
     public int minIncrements(int n, int[] cost) {
         // 累加到叶子节点
         for (int i = 2; i <= n; i++) {
@@ -15,7 +15,7 @@ public class Solution6419 {
     }
 }
 /*
-6419. 使二叉树所有路径值相等的最小代价
+2673. 使二叉树所有路径值相等的最小代价
 https://leetcode.cn/problems/make-costs-of-paths-equal-in-a-binary-tree/
 
 第 344 场周赛 T4。

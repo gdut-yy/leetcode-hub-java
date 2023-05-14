@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6416 {
+public class Solution2670 {
     public int[] distinctDifferenceArray(int[] nums) {
         int n = nums.length;
 
@@ -28,7 +28,7 @@ public class Solution6416 {
     }
 }
 /*
-6416. 找出不同元素数目差数组
+2670. 找出不同元素数目差数组
 https://leetcode.cn/problems/find-the-distinct-difference-array/
 
 第 344 场周赛 T1。
