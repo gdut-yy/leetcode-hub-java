@@ -30,4 +30,5 @@ https://leetcode.cn/problems/sum-of-subarray-ranges/
 范围 10^3
 时间复杂度 O(n^2)
 固定左端点暴力枚举最大元素和最小元素（比赛时想到全排列去了，一直想不出 O(n^2) 的方法，直到 0:58:49 才靠肌肉记忆写出此解，大脑才醒悟过来。）
+TODO 补充 O(n) 做法
  */

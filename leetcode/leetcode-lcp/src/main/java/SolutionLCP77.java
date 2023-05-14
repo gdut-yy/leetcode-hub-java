@@ -1,5 +1,5 @@
 public class SolutionLCP77 {
-    private static final int MAX_N = (int) (1e5 + 5);
+    private static final int MAX_N = (int) (1e4 + 5);
 
     public int runeReserve(int[] runes) {
         int[] cnt = new int[MAX_N];

@@ -33,20 +33,6 @@ public class Solution341 {
             return iterator.hasNext();
         }
     }
-
-    public interface NestedInteger {
-
-        // @return true if this NestedInteger holds a single integer, rather than a nested list.
-        boolean isInteger();
-
-        // @return the single integer that this NestedInteger holds, if it holds a single integer
-        // Return null if this NestedInteger holds a nested list
-        Integer getInteger();
-
-        // @return the nested list that this NestedInteger holds, if it holds a nested list
-        // Return empty list if this NestedInteger holds a single integer
-        List<NestedInteger> getList();
-    }
 }
 /*
 341. 扁平化嵌套列表迭代器
@@ -69,5 +55,10 @@ return res
 1 <= nestedList.length <= 500
 嵌套列表中的整数值在范围 [-10^6, 10^6] 内
 
-UT 写法比较复杂
+相似题目: $339. 嵌套列表权重和
+https://leetcode.cn/problems/nested-list-weight-sum/
+$364. 加权嵌套序列和 II
+https://leetcode.cn/problems/nested-list-weight-sum-ii/
+385. 迷你语法分析器
+https://leetcode.cn/problems/mini-parser/
  */

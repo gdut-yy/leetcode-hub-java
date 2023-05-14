@@ -2,15 +2,16 @@ public class SolutionLCP78 {
     public int rampartDefensiveLine(int[][] rampart) {
         int n = rampart.length;
 
-        int left = 1;
-        int right = Integer.MAX_VALUE;
+        // [1, n-2] 个城墙中，能膨胀的最小值（即为二分答案的上界）
+        int min = Integer.MAX_VALUE;
         for (int i = 1; i < n - 1; i++) {
-            int d1 = rampart[i][0] - rampart[i - 1][1];
-            int d2 = rampart[i + 1][0] - rampart[i][1];
-            right = Math.min(right, d1 + d2);
+            int l = rampart[i][0] - rampart[i - 1][1];
+            int r = rampart[i + 1][0] - rampart[i][1];
+            min = Math.min(min, l + r);
         }
-        right++;
 
+        int left = 1;
+        int right = min + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
@@ -24,13 +25,16 @@ public class SolutionLCP78 {
         return left - 1;
     }
 
+    // 时间复杂度 O(n) 校验能否膨胀 mid 个长度
     private boolean checkMid(int[][] rampart, int mid) {
         int n = rampart.length;
-        int pre = rampart[0][1];
+        // 上一个城墙膨胀的右端点
+        int last = rampart[0][1];
         for (int i = 1; i < n - 1; i++) {
-            int d1 = rampart[i][0] - pre;
-            pre = rampart[i][1] + Math.max(0, mid - d1);
-            if (pre > rampart[i + 1][0]) {
+            int l = rampart[i][0] - last;
+            // Math.max(0, mid - l) 为右侧膨胀距离，注意非负
+            last = rampart[i][1] + Math.max(0, mid - l);
+            if (last > rampart[i + 1][0]) {
                 return false;
             }
         }

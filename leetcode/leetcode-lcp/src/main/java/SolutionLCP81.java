@@ -7,14 +7,10 @@ public class SolutionLCP81 {
         for (int[] op : operations) {
             int type = op[0], x = op[1], y = op[2];
             if (type == 1) {
-                for (int i : arr) {
-                    y = nand(y, i);
-                }
+                for (int ai : arr) y = nand(y, ai);
                 // 偶数次
                 if ((x & 1) == 0) {
-                    for (int i : arr) {
-                        y = nand(y, i);
-                    }
+                    for (int ai : arr) y = nand(y, ai);
                 }
                 res ^= y;
             } else {

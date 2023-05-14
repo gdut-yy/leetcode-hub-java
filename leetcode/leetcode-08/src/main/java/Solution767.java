@@ -63,4 +63,6 @@ https://leetcode.cn/problems/reorganize-string/
 s 只包含小写字母
 
 贪心。频次 TOP1 TOP2 的交替着放
+相似题目: 1054. 距离相等的条形码
+https://leetcode.cn/problems/distant-barcodes/
  */

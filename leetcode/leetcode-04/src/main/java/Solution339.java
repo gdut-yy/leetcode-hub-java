@@ -16,31 +16,6 @@ public class Solution339 {
         }
         return sum;
     }
-
-    public interface NestedInteger {
-//        // Constructor initializes an empty nested list.
-//        public NestedInteger();
-//
-//        // Constructor initializes a single integer.
-//        public NestedInteger(int value);
-
-        // @return true if this NestedInteger holds a single integer, rather than a nested list.
-        public boolean isInteger();
-
-        // @return the single integer that this NestedInteger holds, if it holds a single integer
-        // Return null if this NestedInteger holds a nested list
-        public Integer getInteger();
-
-        // Set this NestedInteger to hold a single integer.
-        public void setInteger(int value);
-
-        // Set this NestedInteger to hold a nested list and adds a nested integer to it.
-        public void add(NestedInteger ni);
-
-        // @return the nested list that this NestedInteger holds, if it holds a nested list
-        // Return empty list if this NestedInteger holds a single integer
-        public List<NestedInteger> getList();
-    }
 }
 /*
 $339. 嵌套列表权重和
@@ -53,4 +28,11 @@ https://leetcode.cn/problems/nested-list-weight-sum/
 1 <= nestedList.length <= 50
 嵌套列表中整数的值在范围 [-100, 100] 内
 任何整数的最大 深度 都小于或等于 50
+
+相似题目: 341. 扁平化嵌套列表迭代器
+https://leetcode.cn/problems/flatten-nested-list-iterator/
+$364. 加权嵌套序列和 II
+https://leetcode.cn/problems/nested-list-weight-sum-ii/
+385. 迷你语法分析器
+https://leetcode.cn/problems/mini-parser/
  */
