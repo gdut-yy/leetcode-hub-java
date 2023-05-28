@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Solution6367 {
+public class Solution2679 {
     public int matrixSum(int[][] nums) {
         int m = nums.length;
         int n = nums[0].length;
@@ -29,7 +29,7 @@ public class Solution6367 {
     }
 }
 /*
-6367. 矩阵中的和
+2679. 矩阵中的和
 https://leetcode.cn/problems/sum-in-a-matrix/
 
 第 104 场双周赛 T2。

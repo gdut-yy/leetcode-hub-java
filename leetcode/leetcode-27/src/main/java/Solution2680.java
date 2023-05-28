@@ -1,4 +1,4 @@
-public class Solution6369 {
+public class Solution2680 {
     public long maximumOr(int[] nums, int k) {
         int n = nums.length;
 
@@ -19,7 +19,7 @@ public class Solution6369 {
     }
 }
 /*
-6369. 最大或值
+2680. 最大或值
 https://leetcode.cn/problems/maximum-or/
 
 第 104 场双周赛 T3。

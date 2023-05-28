@@ -1,4 +1,4 @@
-public class Solution6431 {
+public class Solution2683 {
     public boolean doesValidArrayExist(int[] derived) {
         int n = derived.length;
         int[] ori = new int[n];
@@ -21,7 +21,7 @@ public class Solution6431 {
     }
 }
 /*
-6431. 相邻值的按位异或
+2683. 相邻值的按位异或
 https://leetcode.cn/problems/neighboring-bitwise-xor/
 
 第 345 场周赛 T2。

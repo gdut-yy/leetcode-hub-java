@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution6430 {
+public class Solution2682 {
     public int[] circularGameLosers(int n, int k) {
         Set<Integer> set = new HashSet<>();
         int base = 1;
@@ -24,7 +24,7 @@ public class Solution6430 {
     }
 }
 /*
-6430. 找出转圈游戏输家
+2682. 找出转圈游戏输家
 https://leetcode.cn/problems/find-the-losers-of-the-circular-game/
 
 第 345 场周赛 T1。

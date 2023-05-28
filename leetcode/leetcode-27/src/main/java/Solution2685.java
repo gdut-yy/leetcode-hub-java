@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6432 {
+public class Solution2685 {
     private Map<Integer, List<Integer>> adj;
     private boolean[] vis;
     private int cntV, cntE;
@@ -42,7 +42,7 @@ public class Solution6432 {
     }
 }
 /*
-6432. 统计完全连通分量的数量
+2685. 统计完全连通分量的数量
 https://leetcode.cn/problems/count-the-number-of-complete-components/
 
 第 345 场周赛 T4。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6423 {
+public class Solution2681 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int sumOfPower(int[] nums) {
@@ -21,7 +21,7 @@ public class Solution6423 {
     }
 }
 /*
-6423. 英雄的力量
+2681. 英雄的力量
 https://leetcode.cn/problems/power-of-heroes/
 
 第 104 场双周赛 T4。

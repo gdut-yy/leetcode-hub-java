@@ -2,7 +2,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Queue;
 
-public class Solution6433 {
+public class Solution2684 {
     // BFS
     public int maxMoves(int[][] grid) {
         int m = grid.length;
@@ -76,7 +76,7 @@ public class Solution6433 {
     }
 }
 /*
-6433. 矩阵中移动的最大次数
+2684. 矩阵中移动的最大次数
 https://leetcode.cn/problems/maximum-number-of-moves-in-a-grid/
 
 第 345 场周赛 T3。

@@ -1,4 +1,4 @@
-public class Solution6366 {
+public class Solution2678 {
     public int countSeniors(String[] details) {
         int ans = 0;
         for (String s : details) {
@@ -11,7 +11,7 @@ public class Solution6366 {
     }
 }
 /*
-6366. 老人的数目
+2678. 老人的数目
 https://leetcode.cn/problems/number-of-senior-citizens/
 
 第 104 场双周赛 T1。
