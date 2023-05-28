@@ -1,37 +1,38 @@
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution1091 {
+    private static final int[][] DIRECTIONS8 = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
+
     public int shortestPathBinaryMatrix(int[][] grid) {
         if (grid[0][0] != 0) {
             return -1;
         }
-        int M = grid.length;
-        int N = grid[0].length;
-        // 8 个方向
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
 
-        Queue<int[]> queue = new LinkedList<>();
-        boolean[][] visited = new boolean[M][N];
+        int m = grid.length;
+        int n = grid[0].length;
+
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] vis = new boolean[m][n];
         // m n step
         queue.add(new int[]{0, 0, 1});
-        visited[0][0] = true;
-
+        vis[0][0] = true;
         while (!queue.isEmpty()) {
-            int[] cur = queue.remove();
-            // 右下角 单元格
-            if (cur[0] == M - 1 && cur[1] == N - 1) {
-                return cur[2];
+            int[] tuple = queue.remove();
+            int cx = tuple[0], cy = tuple[1], cstep = tuple[2];
+            if (cx == m - 1 && cy == n - 1) {
+                return cstep;
             }
 
-            for (int[] dir : directions) {
-                int nextM = cur[0] + dir[0];
-                int nextN = cur[1] + dir[1];
-                int nextStep = cur[2] + 1;
-                if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N
-                        && grid[nextM][nextN] == 0 && !visited[nextM][nextN]) {
-                    visited[nextM][nextN] = true;
-                    queue.add(new int[]{nextM, nextN, nextStep});
+            for (int[] dir : DIRECTIONS8) {
+                int nx = cx + dir[0];
+                int ny = cy + dir[1];
+                int nstep = cstep + 1;
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n
+                        && grid[nx][ny] == 0 && !vis[nx][ny]) {
+                    vis[nx][ny] = true;
+                    queue.add(new int[]{nx, ny, nstep});
                 }
             }
         }

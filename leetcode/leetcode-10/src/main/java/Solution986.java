@@ -3,28 +3,23 @@ import java.util.List;
 
 public class Solution986 {
     public int[][] intervalIntersection(int[][] firstList, int[][] secondList) {
-        int idx1 = 0;
-        int idx2 = 0;
+        int n = firstList.length, m = secondList.length;
+        int i = 0, j = 0;
         List<int[]> resList = new ArrayList<>();
-        while (idx1 < firstList.length && idx2 < secondList.length) {
-            int begin = Math.max(firstList[idx1][0], secondList[idx2][0]);
-            int end = Math.min(firstList[idx1][1], secondList[idx2][1]);
-            if (begin <= end) {
-                resList.add(new int[]{begin, end});
+        while (i < n && j < m) {
+            int l = Math.max(firstList[i][0], secondList[j][0]);
+            int r = Math.min(firstList[i][1], secondList[j][1]);
+            if (l <= r) {
+                resList.add(new int[]{l, r});
             }
-            if (firstList[idx1][1] < secondList[idx2][1]) {
-                idx1++;
+            if (firstList[i][1] < secondList[j][1]) {
+                i++;
             } else {
-                idx2++;
+                j++;
             }
         }
-        // List<int[]> => int[][]
-        int resLen = resList.size();
-        int[][] res = new int[resLen][2];
-        for (int i = 0; i < resLen; i++) {
-            res[i] = resList.get(i);
-        }
-        return res;
+
+        return resList.toArray(int[][]::new);
     }
 }
 /*

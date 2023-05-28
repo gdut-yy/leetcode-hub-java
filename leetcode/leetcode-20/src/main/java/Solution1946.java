@@ -1,22 +1,26 @@
 public class Solution1946 {
     public String maximumNumber(String num, int[] change) {
-        // 双指针
-        int left = 0;
-        for (int i = 0; i < num.length(); i++) {
-            int cur = num.charAt(i) - '0';
-            if (change[cur] > cur) {
-                left = i;
-                break;
+        int n = num.length();
+        char[] cs = num.toCharArray();
+        // 状态机
+        int state = 0;
+        for (int i = 0; i < n; i++) {
+            char cur = cs[i];
+            char nxt = (char) (change[cur - '0'] + '0');
+            if (cur == nxt) continue;
+            if (cur < nxt) {
+                if (state == 0 || state == 1) {
+                    cs[i] = nxt;
+                    state = 1;
+                }
+            } else {
+                // 子字符串 而非 子序列，只能用一次
+                if (state == 1) {
+                    state = 2;
+                }
             }
         }
-        StringBuilder stringBuilder = new StringBuilder(num.substring(0, left));
-        int right = left;
-        while (right < num.length() && change[num.charAt(right) - '0'] >= num.charAt(right) - '0') {
-            stringBuilder.append(change[num.charAt(right) - '0']);
-            right++;
-        }
-        stringBuilder.append(num.substring(right));
-        return stringBuilder.toString();
+        return new String(cs);
     }
 }
 /*
@@ -36,6 +40,6 @@ num 仅由数字 0-9 组成
 change.length == 10
 0 <= change[d] <= 9
 
-双指针。其实单指针亦可。
-先找到 change 数组中开始大于 num[i] 的下标，然后取一个区间进行替换即是可能得到的最大整数
+状态机。子串问题，设子串部分为 state == 1，子串部分之前为 state == 0，之后为 state == 2
+时间复杂度 O(n)
  */

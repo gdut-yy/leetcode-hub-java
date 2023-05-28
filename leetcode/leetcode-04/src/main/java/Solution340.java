@@ -8,27 +8,26 @@ public class Solution340 {
             return 0;
         }
         // 双指针
-        int left = 0;
-        int right = 0;
-        int maxLen = 1;
+        int l = 0, r = 0;
+        int maxL = 1;
         // key: 窗口最右边字符 value: 对应下标
-        Map<Character, Integer> rightIdxMap = new HashMap<>();
-        while (right < n) {
-            if (rightIdxMap.size() < k + 1) {
-                rightIdxMap.put(s.charAt(right), right);
-                right++;
+        Map<Character, Integer> rIdxMap = new HashMap<>();
+        while (r < n) {
+            if (rIdxMap.size() < k + 1) {
+                rIdxMap.put(s.charAt(r), r);
+                r++;
             }
-            if (rightIdxMap.size() == k + 1) {
+            if (rIdxMap.size() == k + 1) {
                 int minIdx = Integer.MAX_VALUE;
-                for (int idx : rightIdxMap.values()) {
+                for (int idx : rIdxMap.values()) {
                     minIdx = Math.min(minIdx, idx);
                 }
-                rightIdxMap.remove(s.charAt(minIdx));
-                left = minIdx + 1;
+                rIdxMap.remove(s.charAt(minIdx));
+                l = minIdx + 1;
             }
-            maxLen = Math.max(maxLen, right - left);
+            maxL = Math.max(maxL, r - l);
         }
-        return maxLen;
+        return maxL;
     }
 }
 /*

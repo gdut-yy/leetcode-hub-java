@@ -1,33 +1,28 @@
-import java.util.Set;
-
 public class Solution246 {
     public boolean isStrobogrammatic(String num) {
-        int left = 0;
-        int right = num.length() - 1;
-        // 无法组成中心对称数的数字
-        Set<Integer> hashSet = Set.of(2, 3, 4, 5, 7);
-        while (left <= right) {
-            int leftNum = num.charAt(left) - '0';
-            int rightNum = num.charAt(right) - '0';
-            if (hashSet.contains(leftNum) || hashSet.contains(rightNum)) {
+        int l = 0, r = num.length() - 1;
+        while (l <= r) {
+            int x = num.charAt(l) - '0';
+            int y = num.charAt(r) - '0';
+            // 无法组成中心对称数的数字 2,3,4,5,7
+            if (is23457(x) || is23457(y)) {
                 return false;
             }
-            if (leftNum == 0 && rightNum != 0) {
+            if ((x == 0 && y != 0)
+                    || (x == 1 && y != 1)
+                    || (x == 6 && y != 9)
+                    || (x == 8 && y != 8)
+                    || (x == 9 && y != 6)) {
                 return false;
             }
-            if (leftNum == 1 && rightNum != 1) {
-                return false;
-            }
-            if (leftNum == 8 && rightNum != 8) {
-                return false;
-            }
-            if ((leftNum == 6 && rightNum != 9) || (leftNum == 9 && rightNum != 6)) {
-                return false;
-            }
-            left++;
-            right--;
+            l++;
+            r--;
         }
         return true;
+    }
+
+    private boolean is23457(int num) {
+        return num == 2 || num == 3 || num == 4 || num == 5 || num == 7;
     }
 }
 /*

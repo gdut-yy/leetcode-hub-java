@@ -46,4 +46,6 @@ https://leetcode.cn/problems/find-and-replace-pattern/
 
 哈希表
 时间复杂度 O(nm)
+相似题目: $1153. 字符串转化
+https://leetcode.cn/problems/string-transforms-into-another-string/
  */

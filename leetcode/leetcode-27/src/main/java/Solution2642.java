@@ -5,7 +5,7 @@ import java.util.PriorityQueue;
 public class Solution2642 {
     static class Graph {
         private final int n;
-        private static final int INF = Integer.MAX_VALUE;
+        private static final int INF = (int) 1e9;
         private final int[][] adj;
 
         public Graph(int n, int[][] edges) {
@@ -26,11 +26,37 @@ public class Solution2642 {
         }
 
         public int shortestPath(int node1, int node2) {
-            int[] dist = dijkstra(node1);
+            int[] dist = dijkstra_n2(node1);
             return dist[node2] == INF ? -1 : dist[node2];
         }
 
-        private int[] dijkstra(int node1) {
+        // 暴力 O(n^2)
+        private int[] dijkstra_n2(int source) {
+            int[] dist = new int[n];
+            Arrays.fill(dist, INF);
+            dist[source] = 0;
+            boolean[] vis = new boolean[n];
+            for (int i = 0; i < n; i++) {
+                int x = 0, mind = INF;
+                for (int j = 0; j < n; j++) {
+                    if (!vis[j] && dist[j] < mind) {
+                        x = j;
+                        mind = dist[x];
+                    }
+                }
+                vis[x] = true;
+                for (int y = 0; y < n; y++) {
+                    if (x != y && adj[x][y] != INF) {
+                        if (dist[y] > dist[x] + adj[x][y]) {
+                            dist[y] = dist[x] + adj[x][y];
+                        }
+                    }
+                }
+            }
+            return dist;
+        }
+
+        private int[] dijkstra_mlogm(int node1) {
             int[] dist = new int[n];
             boolean[] visited = new boolean[n];
             Arrays.fill(dist, INF);
