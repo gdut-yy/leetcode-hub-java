@@ -16,5 +16,6 @@ public class UtCoverageCorrectionTest {
         Solution1969.main(null);
         Solution2048.main(null);
         Solution2081.main(null);
+        Solution2698.main(null);
     }
 }

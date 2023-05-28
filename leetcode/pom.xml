@@ -39,6 +39,7 @@
         <module>leetcode-25</module>
         <module>leetcode-26</module>
         <module>leetcode-27</module>
+        <module>leetcode-28</module>
 
         <module>leetcode-core</module>
         <module>leetcode-extends</module>
