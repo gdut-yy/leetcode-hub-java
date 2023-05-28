@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2150Tests {
@@ -13,8 +12,8 @@ public class Solution2150Tests {
         int[] nums = {10, 6, 5, 8};
         List<Integer> expected = Arrays.asList(10, 8);
         List<Integer> actual = solution2150.findLonely(nums);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution2150Tests {
         int[] nums = {1, 3, 5, 3};
         List<Integer> expected = Arrays.asList(1, 5);
         List<Integer> actual = solution2150.findLonely(nums);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

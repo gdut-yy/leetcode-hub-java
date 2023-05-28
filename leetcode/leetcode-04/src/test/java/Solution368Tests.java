@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Solution368Tests {
@@ -13,7 +12,7 @@ public class Solution368Tests {
         // [1,3] 也会被视为正确答案。
         List<Integer> expected = List.of(1, 2);
         List<Integer> actual = solution368.largestDivisibleSubset(nums);
-        Collections.sort(actual);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -22,7 +21,7 @@ public class Solution368Tests {
         int[] nums = {1, 2, 4, 8};
         List<Integer> expected = List.of(1, 2, 4, 8);
         List<Integer> actual = solution368.largestDivisibleSubset(nums);
-        Collections.sort(actual);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

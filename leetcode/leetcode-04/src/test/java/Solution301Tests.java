@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution301Tests {
@@ -13,8 +12,8 @@ public class Solution301Tests {
         String s = "()())()";
         List<String> expected = new ArrayList<>(List.of("(())()", "()()()"));
         List<String> actual = solution301.removeInvalidParentheses(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution301Tests {
         String s = "(a)())()";
         List<String> expected = new ArrayList<>(List.of("(a())()", "(a)()()"));
         List<String> actual = solution301.removeInvalidParentheses(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -33,8 +32,8 @@ public class Solution301Tests {
         String s = ")(";
         List<String> expected = new ArrayList<>(List.of(""));
         List<String> actual = solution301.removeInvalidParentheses(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

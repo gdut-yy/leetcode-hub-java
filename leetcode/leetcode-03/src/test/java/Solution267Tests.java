@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution267Tests {
@@ -13,8 +12,8 @@ public class Solution267Tests {
         String s = "aabb";
         List<String> expected = Arrays.asList("abba", "baab");
         List<String> actual = solution267.generatePalindromes(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution267Tests {
         String s = "abc";
         List<String> expected = Arrays.asList();
         List<String> actual = solution267.generatePalindromes(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

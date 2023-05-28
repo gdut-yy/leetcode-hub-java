@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2115Tests {
@@ -18,8 +17,8 @@ public class Solution2115Tests {
         String[] supplies = {"yeast", "flour", "corn"};
         List<String> expected = Arrays.asList("bread");
         List<String> actual = solution2115.findAllRecipes(recipes, ingredients, supplies);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -32,8 +31,8 @@ public class Solution2115Tests {
         String[] supplies = {"yeast", "flour", "meat"};
         List<String> expected = Arrays.asList("bread", "sandwich");
         List<String> actual = solution2115.findAllRecipes(recipes, ingredients, supplies);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -46,8 +45,8 @@ public class Solution2115Tests {
         String[] supplies = {"yeast", "flour", "meat"};
         List<String> expected = Arrays.asList("bread", "sandwich", "burger");
         List<String> actual = solution2115.findAllRecipes(recipes, ingredients, supplies);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -60,8 +59,8 @@ public class Solution2115Tests {
         String[] supplies = {"yeast"};
         List<String> expected = new ArrayList<>();
         List<String> actual = solution2115.findAllRecipes(recipes, ingredients, supplies);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

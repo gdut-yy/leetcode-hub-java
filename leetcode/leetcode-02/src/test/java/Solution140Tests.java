@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution140Tests {
@@ -15,8 +14,8 @@ public class Solution140Tests {
         List<String> wordDict = List.of("cat", "cats", "and", "sand", "dog");
         List<String> expected = Arrays.asList("cats and dog", "cat sand dog");
         List<String> actual = solution140.wordBreak(s, wordDict);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -26,8 +25,8 @@ public class Solution140Tests {
         List<String> wordDict = List.of("apple", "pen", "applepen", "pine", "pineapple");
         List<String> expected = Arrays.asList("pine apple pen apple", "pineapple pen apple", "pine applepen apple");
         List<String> actual = solution140.wordBreak(s, wordDict);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -37,8 +36,8 @@ public class Solution140Tests {
         List<String> wordDict = List.of("cats", "dog", "sand", "and", "cat");
         List<String> expected = new ArrayList<>();
         List<String> actual = solution140.wordBreak(s, wordDict);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

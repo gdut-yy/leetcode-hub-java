@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution1233Tests {
@@ -13,8 +12,8 @@ public class Solution1233Tests {
         String[] folder = {"/a", "/a/b", "/c/d", "/c/d/e", "/c/f"};
         List<String> expected = Arrays.asList("/a", "/c/d", "/c/f");
         List<String> actual = solution1233.removeSubfolders(folder);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution1233Tests {
         String[] folder = {"/a", "/a/b/c", "/a/b/d"};
         List<String> expected = Arrays.asList("/a");
         List<String> actual = solution1233.removeSubfolders(folder);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -33,8 +32,8 @@ public class Solution1233Tests {
         String[] folder = {"/a/b/c", "/a/b/ca", "/a/b/d"};
         List<String> expected = Arrays.asList("/a/b/c", "/a/b/ca", "/a/b/d");
         List<String> actual = solution1233.removeSubfolders(folder);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

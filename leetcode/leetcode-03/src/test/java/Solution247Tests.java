@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution247Tests {
@@ -13,8 +12,8 @@ public class Solution247Tests {
         int n = 2;
         List<String> expected = new ArrayList<>(List.of("11", "69", "88", "96"));
         List<String> actual = solution247.findStrobogrammatic(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,8 +23,8 @@ public class Solution247Tests {
         int n = 1;
         List<String> expected = new ArrayList<>(List.of("0", "1", "8"));
         List<String> actual = solution247.findStrobogrammatic(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -34,8 +33,8 @@ public class Solution247Tests {
         int n = 3;
         List<String> expected = new ArrayList<>(List.of("101", "808", "609", "906", "111", "818", "619", "916", "181", "888", "689", "986"));
         List<String> actual = solution247.findStrobogrammatic(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

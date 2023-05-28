@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2178Tests {
@@ -13,8 +12,8 @@ public class Solution2178Tests {
         long finalSum = 12;
         List<Long> expected = Arrays.asList(2L, 4L, 6L);
         List<Long> actual = solution2178.maximumEvenSplit(finalSum);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution2178Tests {
         long finalSum = 7;
         List<Long> expected = Arrays.asList();
         List<Long> actual = solution2178.maximumEvenSplit(finalSum);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -36,8 +35,8 @@ public class Solution2178Tests {
         //[10,2,4,12] ，[6,2,4,16] 等等也都是可行的解。
         List<Long> expected = Arrays.asList(2L, 4L, 6L, 16L);
         List<Long> actual = solution2178.maximumEvenSplit(finalSum);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

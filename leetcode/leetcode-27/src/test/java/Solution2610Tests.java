@@ -24,8 +24,8 @@ public class Solution2610Tests {
     }
 
     private void check(List<List<Integer>> a, List<List<Integer>> b) {
-        for (List<Integer> list : a) Collections.sort(list);
-        for (List<Integer> list : b) Collections.sort(list);
+        for (List<Integer> list : a) list.sort(null);
+        for (List<Integer> list : b) list.sort(null);
         a.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         b.sort(UtUtils.INTEGER_LIST_COMPARATOR);
         Assertions.assertEquals(a, b);

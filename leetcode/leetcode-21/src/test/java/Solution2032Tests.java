@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2032Tests {
@@ -16,8 +15,8 @@ public class Solution2032Tests {
         int[] nums3 = {3};
         List<Integer> expected = Arrays.asList(3, 2);
         List<Integer> actual = solution2032.twoOutOfThree(nums1, nums2, nums3);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -28,8 +27,8 @@ public class Solution2032Tests {
         int[] nums3 = {1, 2};
         List<Integer> expected = Arrays.asList(2, 3, 1);
         List<Integer> actual = solution2032.twoOutOfThree(nums1, nums2, nums3);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -40,8 +39,8 @@ public class Solution2032Tests {
         int[] nums3 = {5};
         List<Integer> expected = new ArrayList<>();
         List<Integer> actual = solution2032.twoOutOfThree(nums1, nums2, nums3);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

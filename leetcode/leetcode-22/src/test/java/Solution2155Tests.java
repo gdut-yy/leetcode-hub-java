@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2155Tests {
@@ -13,7 +12,8 @@ public class Solution2155Tests {
         int[] nums = {0, 0, 1, 0};
         List<Integer> expected = Arrays.asList(2, 4);
         List<Integer> actual = solution2155.maxScoreIndices(nums);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -22,7 +22,8 @@ public class Solution2155Tests {
         int[] nums = {0, 0, 0};
         List<Integer> expected = Arrays.asList(3);
         List<Integer> actual = solution2155.maxScoreIndices(nums);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -31,7 +32,8 @@ public class Solution2155Tests {
         int[] nums = {1, 1};
         List<Integer> expected = Arrays.asList(0);
         List<Integer> actual = solution2155.maxScoreIndices(nums);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

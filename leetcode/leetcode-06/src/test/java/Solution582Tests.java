@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution582Tests {
@@ -15,8 +14,8 @@ public class Solution582Tests {
         int kill = 5;
         List<Integer> expected = new ArrayList<>(List.of(5, 10));
         List<Integer> actual = solution582.killProcess(pid, ppid, kill);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -27,8 +26,8 @@ public class Solution582Tests {
         int kill = 1;
         List<Integer> expected = new ArrayList<>(List.of(1));
         List<Integer> actual = solution582.killProcess(pid, ppid, kill);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

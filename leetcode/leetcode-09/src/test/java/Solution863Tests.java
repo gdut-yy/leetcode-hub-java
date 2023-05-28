@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution863Tests {
@@ -15,8 +14,8 @@ public class Solution863Tests {
         int k = 2;
         List<Integer> expected = new ArrayList<>(List.of(7, 4, 1));
         List<Integer> actual = solution863.distanceK(root, target, k);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -27,8 +26,8 @@ public class Solution863Tests {
         int k = 3;
         List<Integer> expected = new ArrayList<>();
         List<Integer> actual = solution863.distanceK(root, target, k);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

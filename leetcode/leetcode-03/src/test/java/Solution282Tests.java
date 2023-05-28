@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution282Tests {
@@ -14,8 +13,8 @@ public class Solution282Tests {
         int target = 6;
         List<String> expected = new ArrayList<>(List.of("1+2+3", "1*2*3"));
         List<String> actual = solution282.addOperators(num, target);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -25,8 +24,8 @@ public class Solution282Tests {
         int target = 8;
         List<String> expected = new ArrayList<>(List.of("2*3+2", "2+3*2"));
         List<String> actual = solution282.addOperators(num, target);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -36,8 +35,8 @@ public class Solution282Tests {
         int target = 9191;
         List<String> expected = new ArrayList<>();
         List<String> actual = solution282.addOperators(num, target);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

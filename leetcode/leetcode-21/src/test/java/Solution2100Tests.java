@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution2100Tests {
@@ -15,7 +14,8 @@ public class Solution2100Tests {
         // 返回的日子可以 任意 顺序排列。
         List<Integer> expected = Arrays.asList(2, 3);
         List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -25,7 +25,8 @@ public class Solution2100Tests {
         int time = 0;
         List<Integer> expected = Arrays.asList(0, 1, 2, 3, 4);
         List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -35,7 +36,8 @@ public class Solution2100Tests {
         int time = 2;
         List<Integer> expected = Arrays.asList();
         List<Integer> actual = solution2100.goodDaysToRobBank(security, time);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

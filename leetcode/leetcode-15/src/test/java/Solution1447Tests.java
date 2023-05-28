@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution1447Tests {
@@ -13,8 +12,8 @@ public class Solution1447Tests {
         int n = 2;
         List<String> expected = Arrays.asList("1/2");
         List<String> actual = solution1447.simplifiedFractions(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution1447Tests {
         int n = 3;
         List<String> expected = Arrays.asList("1/2", "1/3", "2/3");
         List<String> actual = solution1447.simplifiedFractions(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -33,8 +32,8 @@ public class Solution1447Tests {
         int n = 4;
         List<String> expected = Arrays.asList("1/2", "1/3", "1/4", "2/3", "3/4");
         List<String> actual = solution1447.simplifiedFractions(n);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 

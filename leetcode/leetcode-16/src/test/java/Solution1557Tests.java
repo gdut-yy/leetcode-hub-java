@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution1557Tests {
@@ -14,7 +13,8 @@ public class Solution1557Tests {
         List<List<Integer>> edges = UtUtils.stringToIntegerList2("[[0,1],[0,2],[2,5],[3,4],[4,2]]");
         List<Integer> expected = Arrays.asList(0, 3);
         List<Integer> actual = solution1557.findSmallestSetOfVertices(n, edges);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -24,7 +24,8 @@ public class Solution1557Tests {
         List<List<Integer>> edges = UtUtils.stringToIntegerList2("[[0,1],[2,1],[3,1],[1,4],[2,4]]");
         List<Integer> expected = Arrays.asList(0, 2, 3);
         List<Integer> actual = solution1557.findSmallestSetOfVertices(n, edges);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

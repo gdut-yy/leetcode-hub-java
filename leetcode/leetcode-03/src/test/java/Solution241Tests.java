@@ -1,7 +1,6 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 
 public class Solution241Tests {
@@ -12,7 +11,7 @@ public class Solution241Tests {
         String expression = "2-1-1";
         List<Integer> expected = List.of(0, 2);
         List<Integer> actual = solution241.diffWaysToCompute(expression);
-        Collections.sort(actual);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -21,7 +20,7 @@ public class Solution241Tests {
         String expression = "2*3-4*5";
         List<Integer> expected = List.of(-34, -14, -10, -10, 10);
         List<Integer> actual = solution241.diffWaysToCompute(expression);
-        Collections.sort(actual);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

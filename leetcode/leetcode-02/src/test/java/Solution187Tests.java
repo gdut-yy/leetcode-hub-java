@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution187Tests {
@@ -13,8 +12,8 @@ public class Solution187Tests {
         String s = "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT";
         List<String> expected = new ArrayList<>(List.of("AAAAACCCCC", "CCCCCAAAAA"));
         List<String> actual = solution187.findRepeatedDnaSequences(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -23,8 +22,8 @@ public class Solution187Tests {
         String s = "AAAAAAAAAAAAA";
         List<String> expected = new ArrayList<>(List.of("AAAAAAAAAA"));
         List<String> actual = solution187.findRepeatedDnaSequences(s);
-        Collections.sort(expected);
-        Collections.sort(actual);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }

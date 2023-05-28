@@ -3,7 +3,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class Solution30Tests {
@@ -15,8 +14,8 @@ public class Solution30Tests {
         String[] words = {"foo", "bar"};
         List<Integer> expected = Arrays.asList(0, 9);
         List<Integer> actual = solution30.findSubstring(s, words);
-        Collections.sort(actual);
-        Collections.sort(expected);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -26,8 +25,8 @@ public class Solution30Tests {
         String[] words = {"word", "good", "best", "word"};
         List<Integer> expected = new ArrayList<>();
         List<Integer> actual = solution30.findSubstring(s, words);
-        Collections.sort(actual);
-        Collections.sort(expected);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 
@@ -37,8 +36,8 @@ public class Solution30Tests {
         String[] words = {"bar", "foo", "the"};
         List<Integer> expected = Arrays.asList(6, 9, 12);
         List<Integer> actual = solution30.findSubstring(s, words);
-        Collections.sort(actual);
-        Collections.sort(expected);
+        expected.sort(null);
+        actual.sort(null);
         Assertions.assertEquals(expected, actual);
     }
 }
