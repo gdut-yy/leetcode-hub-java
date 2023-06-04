@@ -1,10 +1,10 @@
-public class Solution6457 {
+public class Solution2710 {
     public String removeTrailingZeros(String num) {
         return num.replaceAll("0+$", "");
     }
 }
 /*
-6457. 移除字符串中的尾随零
+2710. 移除字符串中的尾随零
 https://leetcode.cn/problems/remove-trailing-zeros-from-a-string/
 
 第 347 场周赛 T1。

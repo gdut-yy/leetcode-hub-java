@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6395 {
+public class Solution2706 {
     public int buyChoco(int[] prices, int money) {
         Arrays.sort(prices);
         int ans = money - prices[0] - prices[1];
@@ -8,7 +8,7 @@ public class Solution6395 {
     }
 }
 /*
-6395. 购买两块巧克力
+2706. 购买两块巧克力
 https://leetcode.cn/problems/buy-two-chocolates/
 
 第 105 场双周赛 T1。

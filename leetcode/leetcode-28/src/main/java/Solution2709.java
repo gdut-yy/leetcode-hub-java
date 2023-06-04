@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6464 {
+public class Solution2709 {
     public boolean canTraverseAllPairs(int[] nums) {
         int n = nums.length;
 
@@ -65,7 +65,7 @@ public class Solution6464 {
     }
 }
 /*
-6464. 最大公约数遍历
+2709. 最大公约数遍历
 https://leetcode.cn/problems/greatest-common-divisor-traversal/
 
 第 105 场双周赛 T4。

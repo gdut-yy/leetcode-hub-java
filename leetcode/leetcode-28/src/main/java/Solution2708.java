@@ -1,4 +1,4 @@
-public class Solution6393 {
+public class Solution2708 {
     public long maxStrength(int[] nums) {
         int n = nums.length;
         // 不能初始化为 0
@@ -28,7 +28,7 @@ public class Solution6393 {
     }
 }
 /*
-6393. 一个小组的最大实力值
+2708. 一个小组的最大实力值
 https://leetcode.cn/problems/maximum-strength-of-a-group/
 
 第 105 场双周赛 T3。

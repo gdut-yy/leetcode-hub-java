@@ -1,4 +1,4 @@
-public class Solution6455 {
+public class Solution2712 {
     public long minimumCost(String s) {
         int n = s.length();
         long ans = 0L;
@@ -11,7 +11,7 @@ public class Solution6455 {
     }
 }
 /*
-6455. 使所有字符相等的最小成本
+2712. 使所有字符相等的最小成本
 https://leetcode.cn/problems/minimum-cost-to-make-all-characters-equal/
 
 第 347 场周赛 T3。

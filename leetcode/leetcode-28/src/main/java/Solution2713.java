@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6456 {
+public class Solution2713 {
     private int[][] mat;
     private int[][] memo;
     private List<TreeMap<Integer, List<int[]>>> rowValMaps, colValMaps;
@@ -101,7 +101,7 @@ public class Solution6456 {
     }
 }
 /*
-6456. 矩阵中严格递增的单元格数
+2713. 矩阵中严格递增的单元格数
 https://leetcode.cn/problems/maximum-strictly-increasing-cells-in-a-matrix/
 
 第 347 场周赛 T4。

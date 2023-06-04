@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6394 {
+public class Solution2707 {
     private int n;
     private Map<Integer, List<Integer>> lrs;
     private int[] memo;
@@ -55,7 +55,7 @@ public class Solution6394 {
     }
 }
 /*
-6394. 字符串中的额外字符
+2707. 字符串中的额外字符
 https://leetcode.cn/problems/extra-characters-in-a-string/
 
 第 105 场双周赛 T2。
