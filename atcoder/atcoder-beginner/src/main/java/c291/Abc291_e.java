@@ -77,5 +77,38 @@ public class Abc291_e {
 E - Find Permutation
 https://atcoder.jp/contests/abc291/tasks/abc291_e
 
-唯一拓扑序
+题目大意：
+存在一个长度为 N 的序列 a = (a1,...,aN)，它是 1,...,N 的排列。
+虽然你不知道 A，但你知道对于 M 对整数(xi, yi)， Axi < Ayi。
+A 可以唯一确定吗？如果可能，找到 A。
+
+唯一拓扑序。
+======
+
+Input 1
+3 2
+3 1
+2 3
+Output 1
+Yes
+3 1 2
+
+Input 2
+3 2
+3 1
+3 2
+Output 2
+No
+
+Input 3
+4 6
+1 2
+1 2
+2 3
+2 3
+3 4
+3 4
+Output 3
+Yes
+1 2 3 4
  */

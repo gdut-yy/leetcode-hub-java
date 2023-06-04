@@ -46,7 +46,47 @@ public class Abc287_d {
 D - Match or Not
 https://atcoder.jp/contests/abc287/tasks/abc287_d
 
+题目大意：
+给出由小写英文字母和?组成的字符串 S 和 T。这里，|S|>|T| 成立(对于字符串 X，|X| 表示 X 的长度)。
+两个满足 |X|=|Y| 的字符串 X 和 Y 当且仅当:
+- 一个可以通过替换 X 等于 Y ?在 X 和 Y 中独立使用任何英文字母。
+对每个 x=0,1，…，|T|，求解如下问题:
+- 设 S '为长度为 |T| 的字符串，由 S 的前 x 个字符与后(|T|−x)个字符串联而得，且不改变顺序。如果 S '和 T 匹配，打印 Yes，否则打印 No。
+
 前后缀分解
 相似题目: 2565. 最少得分子序列
 https://leetcode.cn/problems/subsequence-with-the-minimum-score/
+======
+
+Input 1
+a?c
+b?
+Output 1
+Yes
+No
+No
+
+Input 2
+atcoder
+?????
+Output 2
+Yes
+Yes
+Yes
+Yes
+Yes
+Yes
+
+Input 3
+beginner
+contest
+Output 3
+No
+No
+No
+No
+No
+No
+No
+No
  */

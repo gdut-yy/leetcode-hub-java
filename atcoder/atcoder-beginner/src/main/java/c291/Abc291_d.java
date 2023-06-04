@@ -19,10 +19,13 @@ public class Abc291_d {
             a[i] = scanner.nextInt();
             b[i] = scanner.nextInt();
         }
+        System.out.println(solve());
+    }
 
+    private static String solve() {
         memo = new HashMap<>();
         int res = dfs(0, -1);
-        System.out.println(res);
+        return String.valueOf(res);
     }
 
     private static int dfs(int i, int fa) {
@@ -47,5 +50,41 @@ public class Abc291_d {
 D - Flip Cards
 https://atcoder.jp/contests/abc291/tasks/abc291_d
 
-记忆化搜索
+题目大意：
+N 张从 1 到 N 的卡片排成一行。对于每个 i(1≤i<N)，纸牌 i 与纸牌(i+1)相邻。卡片 i 的正面写着 A i，背面写着 B i。最初，所有的牌都是正面朝上的。
+考虑从 N 张牌中选择 0 张或更多张牌。在选择翻转牌的 2n 种方法中，求出下列方法的模 998244353 的个数:
+- 当被选中的牌被翻转时，对于每一对相邻的牌，写在它们正面上的整数是不同的。
+
+记忆化搜索。
+======
+
+Input 1
+3
+1 2
+4 2
+3 4
+Output 1
+4
+
+Input 2
+4
+1 5
+2 6
+3 7
+4 8
+Output 2
+16
+
+Input 3
+8
+877914575 602436426
+861648772 623690081
+476190629 262703497
+971407775 628894325
+822804784 450968417
+161735902 822804784
+161735902 822804784
+822804784 161735902
+Output 3
+48
  */

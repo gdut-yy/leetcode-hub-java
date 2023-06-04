@@ -1,10 +1,10 @@
 package c287;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -18,9 +18,8 @@ public class Abc287_c {
         int m = scanner.nextInt();
         int[][] edges = new int[m][2];
         for (int i = 0; i < m; i++) {
-            int u = scanner.nextInt() - 1;
-            int v = scanner.nextInt() - 1;
-            edges[i] = new int[]{u, v};
+            edges[i][0] = scanner.nextInt();
+            edges[i][1] = scanner.nextInt();
         }
         System.out.println(solve(n, m, edges));
     }
@@ -31,10 +30,11 @@ public class Abc287_c {
         }
         Map<Integer, List<Integer>> adj = new HashMap<>();
         for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+            int x = edge[0] - 1, y = edge[1] - 1;
+            adj.computeIfAbsent(x, key -> new ArrayList<>()).add(y);
+            adj.computeIfAbsent(y, key -> new ArrayList<>()).add(x);
         }
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
             int deg = adj.getOrDefault(i, new ArrayList<>()).size();
             if (deg > 2 || deg == 0) {
@@ -50,11 +50,11 @@ public class Abc287_c {
         queue.remove();
         Set<Integer> permutation = new HashSet<>();
         while (!queue.isEmpty()) {
-            int u = queue.remove();
-            permutation.add(u);
-            for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-                if (!permutation.contains(v)) {
-                    queue.add(v);
+            int x = queue.remove();
+            permutation.add(x);
+            for (int y : adj.getOrDefault(x, new ArrayList<>())) {
+                if (!permutation.contains(y)) {
+                    queue.add(y);
                 }
             }
         }
@@ -65,5 +65,37 @@ public class Abc287_c {
 C - Path Graph
 https://atcoder.jp/contests/abc287/tasks/abc287_c
 
+题目大意：
+给你一个简单的无向图，有 N 个顶点和 M 条边。顶点编号为 1、2、…、N，边编号为 1、2、…、M。
+边 i(i=1,2，…，M)连接顶点 ui 和 vi。
+确定此图是否为路径图。
+> 当且仅当存在一个序列(v1, v2，…，v N)，该序列是(1,2，…，N)的置换，且满足以下条件时，称有 N 个顶点的图为路径图:
+> 对于所有 i=1,2，…，N-1，存在一条连接顶点 vi 和 vi+1 的边。
+> 如果整数 i 和 j 满足 1≤i,j≤N 且 |i−j|≥2，则不存在连接顶点 vi 和 vj 的边。
+
 拓扑排序
+======
+
+Input 1
+4 3
+1 3
+4 2
+3 2
+Output 1
+Yes
+
+Input 2
+2 0
+Output 2
+No
+
+Input 3
+5 5
+1 2
+2 3
+3 4
+4 5
+5 1
+Output 3
+No
  */

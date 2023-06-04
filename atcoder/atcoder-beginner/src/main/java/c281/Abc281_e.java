@@ -1,79 +1,83 @@
 package c281;
 
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.TreeSet;
+import java.util.stream.Collectors;
 
 public class Abc281_e {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int N = scanner.nextInt();
-        int M = scanner.nextInt();
-        int K = scanner.nextInt();
-        int[] A = new int[N];
-        for (int i = 0; i < N; i++) {
-            A[i] = scanner.nextInt();
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int k = scanner.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
         }
+        System.out.println(solve(n, m, k, a));
+    }
 
+    private static String solve(int n, int m, int k, int[] a) {
         // 堆顶最大 保留 k 个
         TreeSet<Integer> maxTreeSet = new TreeSet<>((o1, o2) -> {
-            if (A[o1] == A[o2]) {
+            if (a[o1] == a[o2]) {
                 return Integer.compare(o1, o2);
             }
-            return Integer.compare(A[o2], A[o1]);
+            return Integer.compare(a[o2], a[o1]);
         });
         // 堆顶最小
         TreeSet<Integer> minTreeSet = new TreeSet<>((o1, o2) -> {
-            if (A[o1] == A[o2]) {
+            if (a[o1] == a[o2]) {
                 return Integer.compare(o1, o2);
             }
-            return Integer.compare(A[o1], A[o2]);
+            return Integer.compare(a[o1], a[o2]);
         });
 
-        List<String> resList = new ArrayList<>();
+        long[] ans = new long[n - m + 1];
         long sum = 0L;
 
         // 前 M 取 K 个
-        for (int i = 0; i < M; i++) {
-            sum += A[i];
+        for (int i = 0; i < m; i++) {
+            sum += a[i];
             maxTreeSet.add(i);
         }
-        while (maxTreeSet.size() > K) {
+        while (maxTreeSet.size() > k) {
             int maxId = maxTreeSet.pollFirst();
-            sum -= A[maxId];
+            sum -= a[maxId];
             minTreeSet.add(maxId);
         }
-        resList.add(String.valueOf(sum));
+        ans[0] = sum;
 
         // 滑动窗口
-        for (int i = M; i < N; i++) {
+        for (int i = m; i < n; i++) {
             // 先移除
-            int rmId = i - M;
+            int rmId = i - m;
             if (maxTreeSet.contains(rmId)) {
                 maxTreeSet.remove(rmId);
-                sum -= A[rmId];
+                sum -= a[rmId];
             } else {
                 minTreeSet.remove(rmId);
             }
 
             // 再新增
-            sum += A[i];
+            sum += a[i];
             maxTreeSet.add(i);
             if (!minTreeSet.isEmpty()) {
                 int minId = minTreeSet.pollFirst();
-                sum += A[minId];
+                sum += a[minId];
                 maxTreeSet.add(minId);
             }
-            while (maxTreeSet.size() > K) {
+            while (maxTreeSet.size() > k) {
                 int maxId = maxTreeSet.pollFirst();
-                sum -= A[maxId];
+                sum -= a[maxId];
                 minTreeSet.add(maxId);
             }
-            resList.add(String.valueOf(sum));
+            ans[i - m + 1] = sum;
         }
-        System.out.println(String.join(" ", resList));
+
+        return Arrays.stream(ans).mapToObj(String::valueOf).collect(Collectors.joining(" "));
     }
 }
 /*
@@ -90,21 +94,15 @@ https://atcoder.jp/contests/abc281/tasks/abc281_e
 https://atcoder.jp/contests/arc074/tasks/arc074_b
 ======
 
-Input
-2
+Input 1
+6 4 3
 3 1 4 1 5 9
-Output
-1
+Output 1
+5 6 10
 
-Input
-1
-1 2 3
-Output
--1
-
-Input
-3
-8 2 2 7 4 6 5 3 8
-Output
-5
+Input 2
+10 6 3
+12 2 17 11 19 8 4 3 6 20
+Output 2
+21 14 15 13 13
  */

@@ -158,12 +158,28 @@ public class Abc285_f {
 F - Substring of Sorted String
 https://atcoder.jp/contests/abc285/tasks/abc285_f
 
+题目大意：
 给定一个长度为N的字符串S，由小写英文字母组成，并进行Q次查询。按顺序处理查询。每个查询是以下两种类型之一:
 1 x c: 将S的第x个字符替换为字符c。
 2 l r: 设T为将S中的字符按升序排序得到的字符串。
 如果由S的第l到第r个字符组成的字符串是T的子字符串，则打印Yes;否则，请打印No。
 
+26 个 树状数组 解决战斗
 树状数组 + Fast I/O
 线段树会 TLE。。
 不用 Fast I/O 也会 TLE
+======
+
+Input 1
+6
+abcdcf
+4
+2 1 3
+2 2 6
+1 5 e
+2 2 6
+Output 1
+Yes
+No
+Yes
  */

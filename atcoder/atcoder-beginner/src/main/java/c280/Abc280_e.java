@@ -25,16 +25,16 @@ public class Abc280_e {
         return String.valueOf(ans);
     }
 
-    static long inv(long a, long b) {
+    private static long inv(long a, long b) {
         x = 0;
         y = 0;
         exgcd(a, b);
         return (x + b) % b;
     }
 
-    static long x, y;
+    private static long x, y;
 
-    static long exgcd(long a, long b) {
+    private static long exgcd(long a, long b) {
         if (b == 0) {
             x = 1;
             y = 0;
