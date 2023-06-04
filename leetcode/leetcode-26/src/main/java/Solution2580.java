@@ -67,7 +67,7 @@ https://leetcode.cn/problems/count-ways-to-group-overlapping-ranges/
 - 两个有 交集 的区间必须在 同一个 组内。
 如果两个区间有至少 一个 公共整数，那么这两个区间是 有交集 的。
 - 比方说，区间 [1, 3] 和 [2, 5] 有交集，因为 2 和 3 在两个区间中都被包含。
-请你返回将 ranges 划分成两个组的 总方案数 。由于答案可能很大，将它对 109 + 7 取余 后返回。
+请你返回将 ranges 划分成两个组的 总方案数 。由于答案可能很大，将它对 10^9 + 7 取余 后返回。
 提示：
 1 <= ranges.length <= 10^5
 ranges[i].length == 2
