@@ -27,6 +27,12 @@
             <artifactId>atcoder-regular</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-17</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
             <artifactId>codeforces-div1</artifactId>
