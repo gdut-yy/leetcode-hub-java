@@ -13,11 +13,11 @@
 
     <modules>
         <module>codeforces-17</module>
+        <module>codeforces-18</module>
+        <module>codeforces-19</module>
         <module>codeforces-div1</module>
         <module>codeforces-div2</module>
         <module>codeforces-div3</module>
-        <module>codeforces-div4</module>
-        <module>codeforces-extends</module>
     </modules>
 
     <properties>

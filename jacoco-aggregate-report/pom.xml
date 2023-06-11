@@ -35,6 +35,16 @@
         </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
+            <artifactId>codeforces-18</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-19</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
             <artifactId>codeforces-div1</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
@@ -46,16 +56,6 @@
         <dependency>
             <groupId>com.devyy</groupId>
             <artifactId>codeforces-div3</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.devyy</groupId>
-            <artifactId>codeforces-div4</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.devyy</groupId>
-            <artifactId>codeforces-extends</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
