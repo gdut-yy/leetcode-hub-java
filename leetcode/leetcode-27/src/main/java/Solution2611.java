@@ -1,35 +1,25 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution2611 {
     public int miceAndCheese(int[] reward1, int[] reward2, int k) {
         int n = reward1.length;
-        List<Node> list = new ArrayList<>();
+        Integer[] ids = new Integer[n];
         for (int i = 0; i < n; i++) {
-            list.add(new Node(i, reward1[i], reward2[i]));
+            ids[i] = i;
         }
-        list.sort((o1, o2) -> Integer.compare(o2.r1 - o2.r2, o1.r1 - o1.r2));
 
-        int res = 0;
+        // reward1[i] - reward2[i] 大到小排取前 k 个
+        Arrays.sort(ids, Comparator.comparingInt(o -> reward2[o] - reward1[o]));
+
+        int ans = 0;
         for (int i = 0; i < k; i++) {
-            res += list.get(i).r1;
+            ans += reward1[ids[i]];
         }
         for (int i = k; i < n; i++) {
-            res += list.get(i).r2;
+            ans += reward2[ids[i]];
         }
-        return res;
-    }
-
-    private static class Node {
-        int i;
-        int r1;
-        int r2;
-
-        public Node(int i, int r1, int r2) {
-            this.i = i;
-            this.r1 = r1;
-            this.r2 = r2;
-        }
+        return ans;
     }
 }
 /*

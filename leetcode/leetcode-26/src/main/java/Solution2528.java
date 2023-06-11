@@ -1,24 +1,22 @@
 public class Solution2528 {
-    private int r;
-    private int k;
-    private int len;
+    private int r, k, n;
 
     public long maxPower(int[] stations, int r, int k) {
         this.r = r;
         this.k = k;
-        this.len = stations.length;
+        this.n = stations.length;
 
         // 前缀和
-        long[] preSum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
+        long[] preSum = new long[n + 1];
+        for (int i = 0; i < n; i++) {
             preSum[i + 1] = preSum[i] + stations[i];
         }
 
         // 初始电量
-        long[] init = new long[len];
-        for (int i = 0; i < len; i++) {
+        long[] init = new long[n];
+        for (int i = 0; i < n; i++) {
             int l1 = Math.max(0, i - r);
-            int r1 = Math.min(len - 1, i + r);
+            int r1 = Math.min(n - 1, i + r);
             init[i] = preSum[r1 + 1] - preSum[l1];
         }
 
@@ -39,10 +37,10 @@ public class Solution2528 {
 
     // 最小供电站数目的最大值能否达到 mid
     private boolean checkMid(long[] init, long mid) {
-        long[] diff = new long[len];
+        long[] diff = new long[n];
         long sumD = 0;
         long need = 0;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < n; i++) {
             sumD += diff[i];
             long delta = mid - init[i] - sumD;
             if (delta > 0) {
@@ -51,7 +49,7 @@ public class Solution2528 {
                     return false;
                 }
                 sumD += delta;
-                if (i + r + r + 1 < len) {
+                if (i + r + r + 1 < n) {
                     diff[i + r + r + 1] -= delta;
                 }
             }
@@ -61,15 +59,15 @@ public class Solution2528 {
 
     // TLE
     public long maxPower2(int[] stations, int r, int k) {
-        len = stations.length;
+        n = stations.length;
 
-        SegmentTreeAdd dynamicSegTreeAdd = new SegmentTreeAdd(len);
-        for (int i = 0; i < len; i++) {
+        SegmentTreeAdd dynamicSegTreeAdd = new SegmentTreeAdd(n);
+        for (int i = 0; i < n; i++) {
             int l1 = Math.max(0, i - r) + 1;
-            int r1 = Math.min(len - 1, i + r) + 1;
+            int r1 = Math.min(n - 1, i + r) + 1;
             dynamicSegTreeAdd.add(l1, r1, stations[i]);
         }
-        long min = dynamicSegTreeAdd.getMin(1, len);
+        long min = dynamicSegTreeAdd.getMin(1, n);
 
         // logk
         long left = min + 1;
@@ -90,14 +88,14 @@ public class Solution2528 {
     // nlogn
     // 最小供电站数目的最大值能否达到 mid
     private boolean checkMid(int[] stations, int r, int k, long mid) {
-        SegmentTreeAdd dynamicSegTreeAdd = new SegmentTreeAdd(len);
-        for (int i = 0; i < len; i++) {
+        SegmentTreeAdd dynamicSegTreeAdd = new SegmentTreeAdd(n);
+        for (int i = 0; i < n; i++) {
             int l1 = Math.max(0, i - r) + 1;
-            int r1 = Math.min(len - 1, i + r) + 1;
+            int r1 = Math.min(n - 1, i + r) + 1;
             dynamicSegTreeAdd.add(l1, r1, stations[i]);
         }
 
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < n; i++) {
             if (k == 0) {
                 break;
             }
@@ -107,10 +105,10 @@ public class Solution2528 {
                 int add = (int) Math.min(k, diff);
                 k -= add;
                 int l1 = i + 1;
-                int r1 = Math.min(len - 1, i + r + r) + 1;
+                int r1 = Math.min(n - 1, i + r + r) + 1;
                 dynamicSegTreeAdd.add(l1, r1, add);
 
-                long min = dynamicSegTreeAdd.getMin(1, len);
+                long min = dynamicSegTreeAdd.getMin(1, n);
                 if (min >= mid) {
                     return true;
                 }

@@ -1,12 +1,12 @@
 public class Solution1574 {
     public int findLengthOfShortestSubarray(int[] arr) {
-        int len = arr.length;
+        int n = arr.length;
 
         // 预处理 否则 TLE
-        boolean[] asc = new boolean[len];
-        asc[len - 1] = true;
+        boolean[] asc = new boolean[n];
+        asc[n - 1] = true;
         // 右到左
-        for (int i = len - 2; i >= 0; i--) {
+        for (int i = n - 2; i >= 0; i--) {
             if (arr[i] <= arr[i + 1]) {
                 asc[i] = true;
             } else {
@@ -14,9 +14,9 @@ public class Solution1574 {
             }
         }
 
-        int min = len;
+        int min = n;
         // i=-1 左侧一个都不取
-        for (int i = -1; i < len - 1; i++) {
+        for (int i = -1; i < n - 1; i++) {
             // [0,i] 段非递增，结束循环
             if (i - 1 >= 0 && arr[i - 1] > arr[i]) {
                 break;
@@ -24,7 +24,7 @@ public class Solution1574 {
 
             // 固定 i，[i+1,n-1] 二分找 minJ
             int left = i + 1;
-            int right = len;
+            int right = n;
             while (left < right) {
                 int mid = left + (right - left) / 2;
                 // 边界二分 F, F,..., F, [T, T,..., T]
