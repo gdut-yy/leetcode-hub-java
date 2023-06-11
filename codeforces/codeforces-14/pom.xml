@@ -5,21 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.devyy</groupId>
-        <artifactId>leetcode-hub-java</artifactId>
+        <artifactId>codeforces</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-    <artifactId>codeforces</artifactId>
-    <packaging>pom</packaging>
 
-    <modules>
-        <module>codeforces-14</module>
-        <module>codeforces-15</module>
-        <module>codeforces-16</module>
-        <module>codeforces-17</module>
-        <module>codeforces-18</module>
-        <module>codeforces-19</module>
-        <module>codeforces-div1</module>
-    </modules>
+    <artifactId>codeforces-14</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -27,4 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>algo-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>

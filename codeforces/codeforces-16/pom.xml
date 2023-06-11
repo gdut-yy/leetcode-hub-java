@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>codeforces-div3</artifactId>
+    <artifactId>codeforces-16</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
