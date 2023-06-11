@@ -3,12 +3,12 @@ import java.util.Deque;
 
 public class Solution456 {
     public boolean find132pattern(int[] nums) {
-        int len = nums.length;
+        int n = nums.length;
         Deque<Integer> stack = new ArrayDeque<>();
         // 右往左
-        stack.push(nums[len - 1]);
+        stack.push(nums[n - 1]);
         int max = Integer.MIN_VALUE;
-        for (int i = len - 2; i >= 0; i--) {
+        for (int i = n - 2; i >= 0; i--) {
             if (nums[i] < max) {
                 return true;
             }
