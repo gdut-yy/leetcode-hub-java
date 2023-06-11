@@ -2,21 +2,20 @@ public class Solution1946 {
     public String maximumNumber(String num, int[] change) {
         int n = num.length();
         char[] cs = num.toCharArray();
-        // 状态机
-        int state = 0;
+        // 状态机 flag = 0,1,2
+        int flag = 0;
         for (int i = 0; i < n; i++) {
-            char cur = cs[i];
-            char nxt = (char) (change[cur - '0'] + '0');
-            if (cur == nxt) continue;
-            if (cur < nxt) {
-                if (state == 0 || state == 1) {
-                    cs[i] = nxt;
-                    state = 1;
+            char next = (char) (change[cs[i] - '0'] + '0');
+            if (flag == 0) {
+                if (cs[i] < next) {
+                    cs[i] = next;
+                    flag = 1;
                 }
-            } else {
-                // 子字符串 而非 子序列，只能用一次
-                if (state == 1) {
-                    state = 2;
+            } else if (flag == 1) {
+                if (cs[i] <= next) {
+                    cs[i] = next;
+                } else {
+                    flag = 2;
                 }
             }
         }

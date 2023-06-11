@@ -70,6 +70,7 @@ rectangles[i].length == points[j].length == 2
 所有 rectangles 互不相同 。
 所有 points 互不相同 。
 
+二维偏序问题。
 注意到 hi, yj 取值范围只有 100，可以直接枚举。对于每个 hi，二分找出边界后再求和即可。
 相似题目: 34. 在排序数组中查找元素的第一个和最后一个位置
 https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
