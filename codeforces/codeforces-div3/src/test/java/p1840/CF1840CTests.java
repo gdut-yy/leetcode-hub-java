@@ -1,21 +1,19 @@
-package p1807;
+package p1840;
 
 import base.AbstractOjTests;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class CF1807ETests extends AbstractOjTests {
-    public CF1807ETests() {
-        super("/p1807/E/");
+public class CF1840CTests extends AbstractOjTests {
+    public CF1840CTests() {
+        super("/p1840/C/");
     }
 
     @Test
-    @Disabled("交互题")
     public void example1() throws IOException {
         super.doSetSystemInOut();
-        CF1807E.main(null);
+        CF1840C.main(null);
         super.doAssertion();
     }
 }

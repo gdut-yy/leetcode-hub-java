@@ -2,7 +2,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-@Disabled
 public class Solution1782Tests {
     private final Solution1782 solution1782 = new Solution1782();
 
