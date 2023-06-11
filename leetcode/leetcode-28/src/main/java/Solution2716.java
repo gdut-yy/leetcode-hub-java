@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6462 {
+public class Solution2716 {
     public int minimizedStringLength(String s) {
         Set<Character> set = new HashSet<>();
         for (char ch : s.toCharArray()) {
@@ -11,7 +11,7 @@ public class Solution6462 {
     }
 }
 /*
-6462. 最小化字符串长度
+2716. 最小化字符串长度
 https://leetcode.cn/problems/minimize-string-length/
 
 第 348 场周赛 T1。

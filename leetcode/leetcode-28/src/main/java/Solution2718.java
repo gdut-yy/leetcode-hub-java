@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6472 {
+public class Solution2718 {
     public long matrixSumQueries(int n, int[][] queries) {
         Set<Integer> rows = new HashSet<>();
         Set<Integer> cols = new HashSet<>();
@@ -23,7 +23,7 @@ public class Solution6472 {
     }
 }
 /*
-6472. 查询后矩阵的和
+2718. 查询后矩阵的和
 https://leetcode.cn/problems/sum-of-matrix-after-queries/
 
 第 348 场周赛 T3。

@@ -1,4 +1,4 @@
-public class Solution6424 {
+public class Solution2717 {
     public int semiOrderedPermutation(int[] nums) {
         int n = nums.length;
         int minIdx = 0, maxIdx = 0;
@@ -12,7 +12,7 @@ public class Solution6424 {
     }
 }
 /*
-6424. 半有序排列
+2717. 半有序排列
 https://leetcode.cn/problems/semi-ordered-permutation/
 
 第 348 场周赛 T2。

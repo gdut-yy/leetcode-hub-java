@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class Solution6396 {
+public class Solution2719 {
     private static final int MOD = (int) (1e9 + 7);
     private int min_sum, max_sum;
 
@@ -51,7 +51,7 @@ public class Solution6396 {
     }
 }
 /*
-6396. 统计整数数目
+2719. 统计整数数目
 https://leetcode.cn/problems/count-of-integers/
 
 第 348 场周赛 T4。
