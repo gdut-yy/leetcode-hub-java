@@ -5,7 +5,7 @@ import java.util.Deque;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution6473 {
+public class Solution2736 {
     public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] queries) {
         int n = nums1.length;
         int q = queries.length;
@@ -51,7 +51,7 @@ public class Solution6473 {
     }
 }
 /*
-6473. 最大和查询
+2736. 最大和查询
 https://leetcode.cn/problems/maximum-sum-queries/
 
 第 349 场周赛 T4。

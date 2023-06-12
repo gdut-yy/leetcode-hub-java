@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6426Tests {
-    private final Solution6426 solution6426 = new Solution6426();
+public class Solution2731Tests {
+    private final Solution2731 solution2731 = new Solution2731();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6426Tests {
         String s = "RLL";
         int d = 3;
         int expected = 8;
-        Assertions.assertEquals(expected, solution6426.sumDistance(nums, s, d));
+        Assertions.assertEquals(expected, solution2731.sumDistance(nums, s, d));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6426Tests {
         String s = "RL";
         int d = 2;
         int expected = 5;
-        Assertions.assertEquals(expected, solution6426.sumDistance(nums, s, d));
+        Assertions.assertEquals(expected, solution2731.sumDistance(nums, s, d));
     }
 }

@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6463 {
+public class Solution2732 {
     public List<Integer> goodSubsetofBinaryMatrix(int[][] grid) {
         int m = grid.length;
         int n = grid[0].length;
@@ -47,7 +47,7 @@ public class Solution6463 {
     }
 }
 /*
-6463. 找到矩阵中的好子集
+2732. 找到矩阵中的好子集
 https://leetcode.cn/problems/find-a-good-subset-of-the-matrix/
 
 第 106 场双周赛 T4。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6426 {
+public class Solution2731 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int sumDistance(int[] nums, String s, int d) {
@@ -20,7 +20,7 @@ public class Solution6426 {
     }
 }
 /*
-6426. 移动机器人
+2731. 移动机器人
 https://leetcode.cn/problems/movement-of-robots/
 
 第 106 场双周赛 T3。

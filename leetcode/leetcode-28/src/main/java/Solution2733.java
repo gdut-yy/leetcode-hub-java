@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6470 {
+public class Solution2733 {
     public int findNonMinOrMax(int[] nums) {
         int min = Arrays.stream(nums).min().orElseThrow();
         int max = Arrays.stream(nums).max().orElseThrow();
@@ -13,7 +13,7 @@ public class Solution6470 {
     }
 }
 /*
-6470. 既不是最小值也不是最大值
+2733. 既不是最小值也不是最大值
 https://leetcode.cn/problems/neither-minimum-nor-maximum/
 
 第 349 场周赛 T1。

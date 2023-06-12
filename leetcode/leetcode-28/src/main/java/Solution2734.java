@@ -1,4 +1,4 @@
-public class Solution6465 {
+public class Solution2734 {
     public String smallestString(String s) {
         int n = s.length();
         char[] cs = s.toCharArray();
@@ -26,7 +26,7 @@ public class Solution6465 {
     }
 }
 /*
-6465. 执行子串操作后的字典序最小字符串
+2734. 执行子串操作后的字典序最小字符串
 https://leetcode.cn/problems/lexicographically-smallest-string-after-substring-operation/
 
 第 349 场周赛 T2。

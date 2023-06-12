@@ -1,4 +1,4 @@
-public class Solution6449 {
+public class Solution2735 {
     public long minCost(int[] nums, int x) {
         int n = nums.length;
 
@@ -26,7 +26,7 @@ public class Solution6449 {
     }
 }
 /*
-6449. 收集巧克力
+2735. 收集巧克力
 https://leetcode.cn/problems/collecting-chocolates/
 
 第 349 场周赛 T3。

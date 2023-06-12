@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6461 {
+public class Solution2729 {
     public boolean isFascinating(int n) {
         String s = String.valueOf(n) + (n * 2) + (n * 3);
         int[] cnt = new int[10];
@@ -12,7 +12,7 @@ public class Solution6461 {
     }
 }
 /*
-6461. 判断一个数是否迷人
+2729. 判断一个数是否迷人
 https://leetcode.cn/problems/check-if-the-number-is-fascinating/
 
 第 106 场双周赛 T1。
