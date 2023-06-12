@@ -1,22 +1,22 @@
 public class Solution516 {
     public int longestPalindromeSubseq(String s) {
         int n = s.length();
-
-        // dp[i][j] 表示字符串 s 的下标范围 [i,j] 内的最长回文子序列的长度。
-        int[][] dp = new int[n][n];
-        for (int i = n - 1; i >= 0; i--) {
-            dp[i][i] = 1;
-            char c1 = s.charAt(i);
-            for (int j = i + 1; j < n; j++) {
-                char c2 = s.charAt(j);
-                if (c1 == c2) {
-                    dp[i][j] = dp[i + 1][j - 1] + 2;
+        if (n == 1) return 1;
+        char[] cs = s.toCharArray();
+        // f[i][j] 表示 [i,j] 区间最长回文子序列的长度
+        int[][] f = new int[n][n];
+        for (int span = 2; span <= n; span++) {
+            for (int i = 0; i + span - 1 < n; i++) {
+                f[i][i] = 1;
+                int j = i + span - 1;
+                if (cs[i] == cs[j]) {
+                    f[i][j] = f[i + 1][j - 1] + 2;
                 } else {
-                    dp[i][j] = Math.max(dp[i + 1][j], dp[i][j - 1]);
+                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n - 1];
     }
 }
 /*
@@ -32,4 +32,10 @@ s 仅由小写英文字母组成
 区间 DP
 时间复杂度 O(n^2)
 空间复杂度 O(n^2)
+相似题目: $1216. 验证回文字符串 III
+https://leetcode.cn/problems/valid-palindrome-iii/
+1312. 让字符串成为回文串的最少插入次数
+https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/
+$1682. 最长回文子序列 II
+https://leetcode.cn/problems/longest-palindromic-subsequence-ii/
  */

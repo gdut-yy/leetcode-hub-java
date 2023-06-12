@@ -1,20 +1,19 @@
 public class Solution1312 {
     public int minInsertions(String s) {
         int n = s.length();
-
-        // dp[i][j] 表示对于 s[i,j] 最少添加的字符数量，使得 s[i,j] 变为回文串
-        int[][] dp = new int[n][n];
-        // span = j-i+1
+        char[] cs = s.toCharArray();
+        // f[i][j] 表示 [i,j] 区间最少添加字符的数量，使 [i,j] 变为回文串
+        int[][] f = new int[n][n];
         for (int span = 2; span <= n; span++) {
-            for (int i = 0; i <= n - span; i++) {
+            for (int i = 0; i + span - 1 < n; i++) {
                 int j = i + span - 1;
-                dp[i][j] = Math.min(dp[i + 1][j], dp[i][j - 1]) + 1;
-                if (s.charAt(i) == s.charAt(j)) {
-                    dp[i][j] = Math.min(dp[i][j], dp[i + 1][j - 1]);
+                f[i][j] = Math.min(f[i + 1][j], f[i][j - 1]) + 1;
+                if (cs[i] == cs[j]) {
+                    f[i][j] = Math.min(f[i][j], f[i + 1][j - 1]);
                 }
             }
         }
-        return dp[0][n - 1];
+        return f[0][n - 1];
     }
 }
 /*
@@ -29,7 +28,12 @@ https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome
 s 中所有字符都是小写字母。
 
 区间 DP
-官方题解 https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/solution/rang-zi-fu-chuan-cheng-wei-hui-wen-chuan-de-zui--2/
 时间复杂度 O(n^2)
 空间复杂度 O(n^2)
+相似题目: 516. 最长回文子序列
+https://leetcode.cn/problems/longest-palindromic-subsequence/
+$1216. 验证回文字符串 III
+https://leetcode.cn/problems/valid-palindrome-iii/
+$1682. 最长回文子序列 II
+https://leetcode.cn/problems/longest-palindromic-subsequence-ii/
  */

@@ -17,4 +17,12 @@ public class Solution516Tests {
         int expected = 2;
         Assertions.assertEquals(expected, solution516.longestPalindromeSubseq(s));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        String s = "a";
+        int expected = 1;
+        Assertions.assertEquals(expected, solution516.longestPalindromeSubseq(s));
+    }
 }
