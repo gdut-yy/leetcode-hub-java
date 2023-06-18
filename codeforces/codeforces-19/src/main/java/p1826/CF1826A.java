@@ -44,9 +44,7 @@ public class CF1826A {
     }
 }
 /*
-https://www.bilibili.com/video/BV1aM4y1b7L9/
-
-Codeforces Round 870 (Div. 2)
+Codeforces Round 870 (Div. 2) https://www.bilibili.com/video/BV1aM4y1b7L9/
 A. Trust Nobody
 https://codeforces.com/contest/1826/problem/A
 

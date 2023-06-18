@@ -25,9 +25,7 @@ public class CF1833A {
     }
 }
 /*
-https://www.bilibili.com/video/BV1VV4y167b6/
-
-Codeforces Round 874 (Div. 3)
+Codeforces Round 874 (Div. 3) https://www.bilibili.com/video/BV1VV4y167b6/
 A. Musical Puzzle
 https://codeforces.com/contest/1833/problem/A
 

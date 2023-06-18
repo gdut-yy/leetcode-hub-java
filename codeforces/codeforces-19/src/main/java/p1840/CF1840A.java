@@ -30,9 +30,7 @@ public class CF1840A {
     }
 }
 /*
-https://www.bilibili.com/video/BV1jP411B7Zg/
-
-Codeforces Round 878 (Div. 3)
+Codeforces Round 878 (Div. 3) https://www.bilibili.com/video/BV1jP411B7Zg/
 A. Cipher Shifer
 https://codeforces.com/contest/1840/problem/A
 

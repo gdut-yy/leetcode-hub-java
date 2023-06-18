@@ -28,9 +28,7 @@ public class CF1734A {
     }
 }
 /*
-https://www.bilibili.com/video/BV1zY4y1N7rS/
-
-Codeforces Round 822 (Div. 2)
+Codeforces Round 822 (Div. 2) https://www.bilibili.com/video/BV1zY4y1N7rS/
 A. Select Three Sticks
 https://codeforces.com/contest/1734/problem/A
 

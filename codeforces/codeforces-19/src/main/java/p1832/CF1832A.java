@@ -34,9 +34,7 @@ public class CF1832A {
     }
 }
 /*
-https://www.bilibili.com/video/BV16o4y1V7oo/
-
-Educational Codeforces Round 148 (Rated for Div. 2)
+Educational Codeforces Round 148 (Rated for Div. 2) https://www.bilibili.com/video/BV16o4y1V7oo/
 A. New Palindrome
 https://codeforces.com/contest/1832/problem/A
 
