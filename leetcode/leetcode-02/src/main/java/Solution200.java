@@ -1,39 +1,23 @@
 public class Solution200 {
+    public static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int numIslands(char[][] grid) {
-        int M = grid.length;
-        int N = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
 
-        // 岛屿数目
-        int cnt = 0;
-        for (char[] chars : grid) {
-            for (char aChar : chars) {
-                if (aChar == '1') {
-                    cnt++;
-                }
-            }
-        }
-
-        DSU dsu = new DSU(M * N);
-        dsu.sz = cnt;
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        DSU dsu = new DSU(m * n);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (grid[i][j] == '1') {
-                    int p = i * N + j;
-                    // up
-                    if (i - 1 >= 0 && grid[i - 1][j] == '1') {
-                        dsu.union(p, p - N);
-                    }
-                    // down
-                    if (i + 1 < M && grid[i + 1][j] == '1') {
-                        dsu.union(p, p + N);
-                    }
-                    // left
-                    if (j - 1 >= 0 && grid[i][j - 1] == '1') {
-                        dsu.union(p, p - 1);
-                    }
-                    // right
-                    if (j + 1 < N && grid[i][j + 1] == '1') {
-                        dsu.union(p, p + 1);
+                    dsu.sz++;
+
+                    for (int[] dir : DIRECTIONS) {
+                        int nx = i + dir[0];
+                        int ny = j + dir[1];
+                        if (nx >= 0 && nx < m && ny >= 0 && ny < n
+                                && grid[nx][ny] == '1') {
+                            dsu.union(i * n + j, nx * n + ny);
+                        }
                     }
                 }
             }
@@ -84,9 +68,8 @@ n == grid[i].length
 grid[i][j] 的值为 '0' 或 '1'
 
 并查集。将所有陆地连起来，联通分量即为岛屿数量。
-时间复杂度 O(mn x α(mn))
+时间复杂度 O(mn * log(mn))
 空间复杂度 O(mn) 并查集需要使用的空间。
-其中 m 和 n 分别为行数和列数。注意当使用路径压缩（见 find 函数）和按秩合并（见数组 rank）实现并查集时，
-单次操作的时间复杂度为 α(mn)，其中 α(x) 为反阿克曼函数，当自变量 x 的值在人类可观测的范围内（宇宙中粒子的数量）时，
-函数 α(x) 的值不会超过 5，因此也可以看成是常数时间复杂度。
+相似题目: 1254. 统计封闭岛屿的数目
+https://leetcode.cn/problems/number-of-closed-islands/
  */
