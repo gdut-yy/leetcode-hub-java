@@ -48,6 +48,7 @@ public class CF1714E {
 E. Add Modulo 10
 https://codeforces.com/contest/1714/problem/E
 
+灵茶の试炼 2023-05-15
 题目大意：
 给定整数 n 和长为 n 的数组 ai，每次操作可以将一个数 ai 置换成 ai + ai %10，判断是否可以通过若干次操作使数组所有元素相等。
 
