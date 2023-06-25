@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6890 {
+public class Solution2740 {
     public int findValueOfPartition(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -12,7 +12,7 @@ public class Solution6890 {
     }
 }
 /*
-6890. 找出分区值
+2740. 找出分区值
 https://leetcode.cn/problems/find-the-value-of-the-partition/
 
 第 350 场周赛 T2。

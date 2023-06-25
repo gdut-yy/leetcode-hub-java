@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6893 {
+public class Solution2741 {
     private static final int MOD = (int) (1e9 + 7);
     private Map<Integer, List<Integer>> adj;
     private long[][] memo;
@@ -57,7 +57,7 @@ public class Solution6893 {
     }
 }
 /*
-6893. 特别的排列
+2741. 特别的排列
 https://leetcode.cn/problems/special-permutations/
 
 第 350 场周赛 T3。

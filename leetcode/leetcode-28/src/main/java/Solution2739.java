@@ -1,4 +1,4 @@
-public class Solution6901 {
+public class Solution2739 {
     public int distanceTraveled(int mainTank, int additionalTank) {
         int ans = 0;
         while (mainTank >= 5) {
@@ -13,7 +13,7 @@ public class Solution6901 {
     }
 }
 /*
-6901. 总行驶距离
+2739. 总行驶距离
 https://leetcode.cn/problems/total-distance-traveled/
 
 第 350 场周赛 T1。

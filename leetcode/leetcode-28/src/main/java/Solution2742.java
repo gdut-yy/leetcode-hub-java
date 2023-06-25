@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6447 {
+public class Solution2742 {
     private static final int INF = (int) 1e9;
 
     public int paintWalls(int[] cost, int[] time) {
@@ -24,7 +24,7 @@ public class Solution6447 {
     }
 }
 /*
-6447. 给墙壁刷油漆
+2742. 给墙壁刷油漆
 https://leetcode.cn/problems/painting-the-walls/
 
 第 350 场周赛 T4。
