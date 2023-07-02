@@ -1,26 +1,28 @@
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution1162 {
+    private static final int[][] DIRECTIONS = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int maxDistance(int[][] grid) {
-        int M = grid.length;
-        int N = grid[0].length;
-        int[][] directions = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+        int m = grid.length;
+        int n = grid[0].length;
 
         // BFS
-        Queue<int[]> queue = new LinkedList<>();
-        boolean[][] visited = new boolean[M][N];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] vis = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1) {
-                    visited[i][j] = true;
+                    vis[i][j] = true;
                     queue.add(new int[]{i, j});
                 }
             }
         }
 
         // 如果网格上只有陆地或者海洋，请返回 -1。
-        if (queue.size() == 0 || queue.size() == M * N) {
+        if (queue.size() == 0 || queue.size() == m * n) {
             return -1;
         }
 
@@ -32,12 +34,12 @@ public class Solution1162 {
                 int[] cur = queue.remove();
                 max = Math.max(max, distance);
 
-                for (int[] dir : directions) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !visited[nextM][nextN]) {
-                        visited[nextM][nextN] = true;
-                        queue.add(new int[]{nextM, nextN});
+                for (int[] dir : DIRECTIONS) {
+                    int nx = cur[0] + dir[0];
+                    int ny = cur[1] + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && !vis[nx][ny]) {
+                        vis[nx][ny] = true;
+                        queue.add(new int[]{nx, ny});
                     }
                 }
             }

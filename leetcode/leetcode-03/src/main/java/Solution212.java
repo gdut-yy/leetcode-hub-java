@@ -5,46 +5,46 @@ import java.util.Set;
 
 public class Solution212 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-    private int M;
-    private int N;
+    private char[][] board;
+    private int m, n;
+    private Set<String> set;
 
     public List<String> findWords(char[][] board, String[] words) {
-        M = board.length;
-        N = board[0].length;
-
+        this.board = board;
+        m = board.length;
+        n = board[0].length;
         Trie trie = new Trie();
         for (String word : words) {
             trie.insert(word);
         }
-
-        Set<String> resSet = new HashSet<>();
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                dfs(board, trie, i, j, resSet);
+        set = new HashSet<>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                dfs(trie, i, j);
             }
         }
-        return new ArrayList<>(resSet);
+        return new ArrayList<>(set);
     }
 
-    private void dfs(char[][] board, Trie trie, int i, int j, Set<String> resSet) {
-        char ch = board[i][j];
+    private void dfs(Trie trie, int x, int y) {
+        char ch = board[x][y];
         if (trie.children[ch - 'a'] == null) {
             return;
         }
         trie = trie.children[ch - 'a'];
-        if (!"".equals(trie.word)) {
-            resSet.add(trie.word);
+        if (trie.word != null) {
+            set.add(trie.word);
         }
         // ascii码序 排在 'z' 后的一个字符是 '{'
-        board[i][j] = '{';
+        board[x][y] = '{';
         for (int[] dir : DIRECTIONS) {
-            int nextI = i + dir[0];
-            int nextJ = j + dir[1];
-            if (nextI >= 0 && nextI < M && nextJ >= 0 && nextJ < N) {
-                dfs(board, trie, nextI, nextJ, resSet);
+            int nx = x + dir[0];
+            int ny = y + dir[1];
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                dfs(trie, nx, ny);
             }
         }
-        board[i][j] = ch;
+        board[x][y] = ch;
     }
 
     private static class Trie {
@@ -52,8 +52,8 @@ public class Solution212 {
         String word;
 
         public Trie() {
+            // 'a'~'z' + '{'
             children = new Trie[27];
-            word = "";
         }
 
         public void insert(String word) {

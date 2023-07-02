@@ -25,6 +25,7 @@ public class CF1610E {
             cnt++;
             if (i == n - 1 || a[i] != a[i + 1]) {
                 for (int j = i + 1; j < n; ) {
+                    // j += 1 + sort.SearchInts(a[j+1:], a[j]*2-x)
                     j += 1 + searchInts(a, j + 1, n, a[j] * 2 - a[i]);
                     cnt++;
                 }

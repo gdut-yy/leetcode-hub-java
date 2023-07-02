@@ -28,4 +28,6 @@ https://leetcode.cn/problems/minimum-operations-to-make-the-integer-zero/
 
 二进制
 减去 2^i 相当于移除二进制 bit 为 1 的值。
+相似题目: C. p-binary
+https://codeforces.com/contest/1247/problem/C
  */

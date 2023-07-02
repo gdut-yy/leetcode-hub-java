@@ -1,40 +1,55 @@
 import java.util.Arrays;
 
 public class Solution952 {
-    public int largestComponentSize(int[] nums) {
-        int max = Arrays.stream(nums).max().orElseThrow();
+    private static final int MAX_N = (int) (1e5 + 5);
 
-        DSU dsu = new DSU(max + 1);
-        for (int num : nums) {
-            dsu.sz[num] = 1;
-        }
-        for (int num : nums) {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    dsu.union(num, i);
-                    dsu.union(num, num / i);
+    public int largestComponentSize(int[] nums) {
+        int n = nums.length;
+
+        int mx = Arrays.stream(nums).max().orElseThrow();
+        // 埃氏筛 预处理 最小质因子
+        int[] lpf = new int[mx + 1];
+        for (int i = 2; i <= mx; i++) {
+            if (lpf[i] == 0) {
+                for (int j = i; j <= mx; j += i) {
+                    if (lpf[j] == 0) {
+                        lpf[j] = i;
+                    }
                 }
             }
         }
 
-        return Arrays.stream(dsu.sz).max().orElseThrow();
+        DSU dsu = new DSU(n + mx + 1);
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            while (x > 1) {
+                int p = lpf[x];
+                for (x /= p; lpf[x] == p; x /= p) {
+                }
+                dsu.union(i, n + p);
+            }
+        }
+
+        int[] cnt = new int[MAX_N];
+        for (int i = 0; i < n; i++) {
+            int fa = dsu.find(i);
+            cnt[fa]++;
+        }
+        return Arrays.stream(cnt).max().orElseThrow();
     }
 
     private static class DSU {
         int[] fa;
-        int[] sz;
 
         public DSU(int n) {
-            int N = n + 1;
-            fa = new int[N];
-            sz = new int[N];
-            for (int i = 0; i < N; i++) {
+            fa = new int[n];
+            for (int i = 0; i < n; i++) {
                 fa[i] = i;
-//                sz[i] = 1;
             }
         }
 
         int find(int x) {
+            // 路径压缩
             if (x != fa[x]) {
                 fa[x] = find(fa[x]);
             }
@@ -47,14 +62,7 @@ public class Solution952 {
             if (rootP == rootQ) {
                 return;
             }
-            // 合并到较小的节点
-            if (rootP < rootQ) {
-                fa[rootQ] = rootP;
-                sz[rootP] += sz[rootQ];
-            } else {
-                fa[rootP] = rootQ;
-                sz[rootQ] += sz[rootP];
-            }
+            fa[rootQ] = rootP;
         }
     }
 }

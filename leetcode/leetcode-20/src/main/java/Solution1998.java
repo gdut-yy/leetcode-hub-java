@@ -7,42 +7,53 @@ import java.util.Map;
 
 public class Solution1998 {
     public boolean gcdSort(int[] nums) {
-        int max = Arrays.stream(nums).max().orElseThrow();
+        int n = nums.length;
 
-        DSU dsu = new DSU(max + 1);
-        for (int num : nums) {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    dsu.union(num, i);
-                    dsu.union(num, num / i);
+        int mx = Arrays.stream(nums).max().orElseThrow();
+        // 埃氏筛 预处理 最小质因子
+        int[] lpf = new int[mx + 1];
+        for (int i = 2; i <= mx; i++) {
+            if (lpf[i] == 0) {
+                for (int j = i; j <= mx; j += i) {
+                    if (lpf[j] == 0) {
+                        lpf[j] = i;
+                    }
                 }
             }
         }
 
-        int len = nums.length;
-        Map<Integer, List<Integer>> groupIdsMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            int fa = dsu.find(nums[i]);
-            groupIdsMap.computeIfAbsent(fa, key -> new ArrayList<>()).add(i);
+        DSU dsu = new DSU(n + mx + 1);
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            while (x > 1) {
+                int p = lpf[x];
+                for (x /= p; lpf[x] == p; x /= p) {
+                }
+                dsu.union(n + p, i);
+            }
         }
 
         // 分组排序
-        for (List<Integer> ids : groupIdsMap.values()) {
-            List<Integer> valList = new ArrayList<>();
-            for (int id : ids) {
-                valList.add(nums[id]);
+        Map<Integer, List<Integer>> groupsId = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int p = dsu.find(i) - n;
+            groupsId.computeIfAbsent(p, key -> new ArrayList<>()).add(i);
+        }
+        for (List<Integer> ids : groupsId.values()) {
+            List<Integer> vals = new ArrayList<>(ids.size());
+            for (Integer id : ids) {
+                vals.add(nums[id]);
             }
-            Collections.sort(valList);
+            vals.sort(null);
             int i = 0;
-            for (int id : ids) {
-                nums[id] = valList.get(i++);
+            for (Integer id : ids) {
+                nums[id] = vals.get(i++);
             }
         }
 
-        for (int i = 1; i < len; i++) {
-            if (nums[i - 1] > nums[i]) {
-                return false;
-            }
+        // 判断数组是否有序
+        for (int i = 1; i < n; i++) {
+            if (nums[i - 1] > nums[i]) return false;
         }
         return true;
     }
@@ -51,14 +62,14 @@ public class Solution1998 {
         int[] fa;
 
         public DSU(int n) {
-            int N = n + 1;
-            fa = new int[N];
-            for (int i = 0; i < N; i++) {
+            fa = new int[n];
+            for (int i = 0; i < n; i++) {
                 fa[i] = i;
             }
         }
 
         int find(int x) {
+            // 路径压缩
             if (x != fa[x]) {
                 fa[x] = find(fa[x]);
             }
@@ -71,12 +82,7 @@ public class Solution1998 {
             if (rootP == rootQ) {
                 return;
             }
-            // 合并到较小的节点
-            if (rootP < rootQ) {
-                fa[rootQ] = rootP;
-            } else {
-                fa[rootP] = rootQ;
-            }
+            fa[rootQ] = rootP;
         }
     }
 }
@@ -96,4 +102,6 @@ https://leetcode.cn/problems/gcd-sort-of-an-array/
 并查集连公因数，同一连通块分组排序，再判断
 相似题目: 952. 按公因数计算最大组件大小
 https://leetcode.cn/problems/largest-component-size-by-common-factor/
+2709. 最大公约数遍历
+https://leetcode.cn/problems/greatest-common-divisor-traversal/
  */

@@ -4,44 +4,51 @@ public class Solution2709 {
     public boolean canTraverseAllPairs(int[] nums) {
         int n = nums.length;
 
-        // 特判
-        if (n == 1) return true;
-        int min = Arrays.stream(nums).min().orElseThrow();
-        if (min == 1) return false;
-
-        int max = Arrays.stream(nums).max().orElseThrow();
-        DSU dsu = new DSU(max);
-        for (int num : nums) {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    dsu.union(num, i);
-                    dsu.union(num, num / i);
+        int mx = Arrays.stream(nums).max().orElseThrow();
+        // 埃氏筛 预处理 最小质因子
+        int[] lpf = new int[mx + 1];
+        for (int i = 2; i <= mx; i++) {
+            if (lpf[i] == 0) {
+                for (int j = i; j <= mx; j += i) {
+                    if (lpf[j] == 0) {
+                        lpf[j] = i;
+                    }
                 }
             }
         }
 
-        int root = dsu.find(nums[0]);
-        for (int i = 1; i < n; i++) {
-            if (dsu.find(nums[i]) == root) continue;
-            return false;
+        // O(n + U/logU) 个点, O(nlogU) 条边
+        DSU dsu = new DSU(n + mx + 1);
+        for (int i = 0; i < n; i++) {
+            int x = nums[i];
+            while (x > 1) {
+                int p = lpf[x];
+                for (x /= p; lpf[x] == p; x /= p) {
+                }
+                dsu.union(i, n + p);
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (dsu.find(i) != dsu.find(0)) {
+                return false;
+            }
         }
         return true;
     }
 
     private static class DSU {
         int[] fa;
-        int sz;
 
         public DSU(int n) {
-            int N = n + 1;
-            fa = new int[N];
-            for (int i = 0; i < N; i++) {
+            fa = new int[n];
+            for (int i = 0; i < n; i++) {
                 fa[i] = i;
             }
-            sz = n;
         }
 
         int find(int x) {
+            // 路径压缩
             if (x != fa[x]) {
                 fa[x] = find(fa[x]);
             }
@@ -54,13 +61,7 @@ public class Solution2709 {
             if (rootP == rootQ) {
                 return;
             }
-            // 合并到较小的节点
-            if (rootP < rootQ) {
-                fa[rootQ] = rootP;
-            } else {
-                fa[rootP] = rootQ;
-            }
-            sz--;
+            fa[rootQ] = rootP;
         }
     }
 }

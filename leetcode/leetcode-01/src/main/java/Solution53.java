@@ -33,52 +33,94 @@ public class Solution53 {
         return max;
     }
 
-    // 线段树 时间复杂度 O(n)
     public int maxSubArray3(int[] nums) {
-        SegmentTree segmentTree = new SegmentTree(nums);
-        return (int) segmentTree.query(0, nums.length - 1).maxSum;
+        DynamicMaxSubarraySum segmentTree = new DynamicMaxSubarraySum(nums);
+        return segmentTree.query(1, nums.length);
     }
 
-    private static class SegmentTree {
+    private static class DynamicMaxSubarraySum {
         private static class Node {
-            // lSum 表示 [l,r] 内以 l 为左端点的最大子段和
-            long lSum;
-            // rSum 表示 [l,r] 内以 r 为右端点的最大子段和
-            long rSum;
-            // maxSum 表示 [l,r] 内的最大子段和
-            long maxSum;
-            // itSum 表示 [l,r] 的区间和
-            long itSum;
+            // 分别表示 [l,r] 区间：前缀最大子段和，后缀最大子段和，最大子段和，区间和
+            int maxL, maxR, maxSum, sum;
 
-            public Node(long lSum, long rSum, long maxSum, long itSum) {
-                this.lSum = lSum;
-                this.rSum = rSum;
+            public Node(int maxL, int maxR, int maxSum, int sum) {
+                this.maxL = maxL;
+                this.maxR = maxR;
                 this.maxSum = maxSum;
-                this.itSum = itSum;
+                this.sum = sum;
             }
         }
 
-        private final int[] a;
+        private static final int INF = (int) 1e9;
+        private final int[] nums;
+        private final int N;
+        private final Node[] tree;
 
-        public SegmentTree(int[] nums) {
-            a = nums;
+        // nums[pos] 修改为 val
+        public void modify(int pos, int val) {
+            modify(1, N, 1, pos, val);
         }
 
-        private Node pushUp(Node a, Node b) {
-            long lSum = Math.max(a.lSum, a.itSum + b.lSum);
-            long rSum = Math.max(b.rSum, b.itSum + a.rSum);
-            long maxSum = Math.max(Math.max(a.maxSum, b.maxSum), a.rSum + b.lSum);
-            long itSum = a.itSum + b.itSum;
-            return new Node(lSum, rSum, maxSum, itSum);
+        // 查询 [l,r] 区间最大子段和
+        public int query(int l, int r) {
+            return query(1, N, 1, l, r).maxSum;
         }
 
-        private Node query(int s, int t) {
+        public DynamicMaxSubarraySum(int[] nums) {
+            this.nums = nums;
+            N = nums.length;
+            tree = new Node[4 * N];
+            for (int i = 0; i < 4 * N; i++) {
+                tree[i] = new Node(0, 0, 0, 0);
+            }
+            build(1, N, 1);
+        }
+
+        private void build(int s, int t, int p) {
             if (s == t) {
-                return new Node(a[s], a[s], a[s], a[s]);
+                int val = nums[s - 1];
+                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
+                return;
             }
             int mid = s + (t - s) / 2;
-            Node lSub = query(s, mid);
-            Node rSub = query(mid + 1, t);
+            build(s, mid, p * 2);
+            build(mid + 1, t, p * 2 + 1);
+            tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
+        }
+
+        private Node pushUp(Node l, Node r) {
+            int maxL = Math.max(l.maxL, l.sum + r.maxL);
+            int maxR = Math.max(r.maxR, r.sum + l.maxR);
+            // max(l.maxSum, r.maxSum, l.maxR + r.maxL)
+            int maxSum = Math.max(Math.max(l.maxSum, r.maxSum), l.maxR + r.maxL);
+            int sum = l.sum + r.sum;
+            return new Node(maxL, maxR, maxSum, sum);
+        }
+
+        private void modify(int s, int t, int p, int pos, int val) {
+            if (s > pos || t < pos) {
+                return;
+            }
+            if (s == pos && t == pos) {
+                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
+                return;
+            }
+            int mid = s + (t - s) / 2;
+            modify(s, mid, p * 2, pos, val);
+            modify(mid + 1, t, p * 2 + 1, pos, val);
+            tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
+        }
+
+        private Node query(int s, int t, int p, int l, int r) {
+            if (s > r || t < l) {
+                return new Node(-INF, -INF, -INF, 0);
+            }
+            if (l <= s && t <= r) {
+                return tree[p];
+            }
+            int mid = s + (t - s) / 2;
+            Node lSub = query(s, mid, p * 2, l, r);
+            Node rSub = query(mid + 1, t, p * 2 + 1, l, r);
             return pushUp(lSub, rSub);
         }
     }
@@ -96,13 +138,13 @@ https://leetcode.cn/problems/maximum-subarray/
 
 动态规划
 时间复杂度 O(n)
-空间复杂度 O(1)
-也可以使用线段树，参考官方题解:
-https://leetcode.cn/problems/maximum-subarray/solution/zui-da-zi-xu-he-by-leetcode-solution/
+线段树 时间复杂度 O(nlogn)
 相似题目: 152. 乘积最大子数组
 https://leetcode.cn/problems/maximum-product-subarray/
 918. 环形子数组的最大和
 https://leetcode.cn/problems/maximum-sum-circular-subarray/
 $1746. 经过一次操作后的最大子数组和
 https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
+H. Gambling
+https://codeforces.com/contest/1692/problem/H
  */

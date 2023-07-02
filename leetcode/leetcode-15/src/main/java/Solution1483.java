@@ -1,36 +1,36 @@
 public class Solution1483 {
     static class TreeAncestor {
-        private final int[][] dp;
-        private final int maxIteration;
+        // pa[x][i] 表示节点 x 的 2^i 个祖先节点，若不存在，用 -1 表示
+        private final int[][] pa;
 
         public TreeAncestor(int n, int[] parent) {
-            // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/Integer.html#numberOfLeadingZeros(int)
-            // ceil(log2(x)) = 32 - numberOfLeadingZeros(x - 1)
-            maxIteration = 32 - Integer.numberOfLeadingZeros(n - 1);
-
-            dp = new int[n][maxIteration];
+            // n 的二进制长度
+            int m = 32 - Integer.numberOfLeadingZeros(n);
+            pa = new int[n][m];
             for (int i = 0; i < n; i++) {
-                dp[i][0] = parent[i];
+                pa[i][0] = parent[i];
             }
 
-            for (int i = 0; i < n; i++) {
-                for (int j = 1; j < maxIteration; ++j) {
-                    dp[i][j] = (dp[i][j - 1] == -1) ? -1 : dp[dp[i][j - 1]][j - 1];
+            for (int x = 0; x < n; x++) {
+                for (int i = 0; i + 1 < m; i++) {
+                    int fa = pa[x][i];
+                    pa[x][i + 1] = fa < 0 ? -1 : pa[fa][i];
                 }
             }
         }
 
         public int getKthAncestor(int node, int k) {
-            if (node == -1 || k == 0) {
-                return node;
+            // k 的二进制长度
+            int m = 32 - Integer.numberOfLeadingZeros(k);
+            for (int i = 0; i < m; i++) {
+                if ((k >> i & 1) == 1) {
+                    node = pa[node][i];
+                    if (node < 0) {
+                        break;
+                    }
+                }
             }
-            // 计算最高一位对应的是哪一位，由于这个结果一定是 2 的幂，因此直接使用 Integer.numberOfTrailingZero 来计算结尾有几个 0，也就是到底是几次方
-            int highestBit = Integer.highestOneBit(k);
-            int power = Integer.numberOfTrailingZeros(highestBit);
-            if (power >= maxIteration) {
-                return -1;
-            }
-            return getKthAncestor(dp[node][power], k & (~highestBit));
+            return node;
         }
     }
 }
@@ -51,4 +51,12 @@ parent[0] == -1 表示编号为 0 的节点是根节点。
 至多查询 5 * 10^4 次
 
 倍增法求 LCA
+相似题目: C. Duff in the Army
+https://codeforces.com/contest/587/problem/C
+E. Minimum spanning tree for each edge
+https://codeforces.com/contest/609/problem/E
+F. Drivers Dissatisfaction
+https://codeforces.com/contest/733/problem/F
+E. The Number Games
+https://codeforces.com/contest/980/problem/E
  */

@@ -10,7 +10,7 @@ public class CF1826C {
         while (t-- > 0) {
             int n = scanner.nextInt();
             int m = scanner.nextInt();
-            System.out.println(solve(n, m));
+            System.out.println(solve1(n, m));
         }
     }
 
@@ -29,6 +29,27 @@ public class CF1826C {
             }
         }
         return "YES";
+    }
+
+    private static final int mx = (int) 1e6;
+    private static int[] lpf;
+
+    private static String solve1(int n, int m) {
+        if (lpf == null) {
+            // 埃氏筛 预处理 最小质因子
+            lpf = new int[mx + 1];
+            for (int i = 2; i <= mx; i++) {
+                if (lpf[i] == 0) {
+                    for (int j = i; j <= mx; j += i) {
+                        if (lpf[j] == 0) {
+                            lpf[j] = i;
+                        }
+                    }
+                }
+            }
+        }
+
+        return n == 1 || lpf[n] > m ? "YES" : "NO";
     }
 }
 /*

@@ -41,8 +41,8 @@ public class CF1843F2 {
     private static String solve() {
         List<Integer> a = new ArrayList<>();
         a.add(1);
-        List<Integer> dep = new ArrayList<>();
-        dep.add(0);
+        List<Integer> depth = new ArrayList<>();
+        depth.add(0);
         List<int[]> pa = new ArrayList<>();
         pa.add(new int[K]);
         List<Info[]> lifts = new ArrayList<>();
@@ -58,7 +58,7 @@ public class CF1843F2 {
             pa.add(paArr);
 
             a.add(x);
-            dep.add(dep.get(v) + 1);
+            depth.add(depth.get(v) + 1);
 
             Info[] infos = new Info[K];
             infos[0] = new Info(x);
@@ -80,14 +80,14 @@ public class CF1843F2 {
             Info L = new Info(0);
             Info R = new Info(0);
             // 假设 depth[x]≤depth[y]（否则交换两点）
-            if (dep.get(u) > dep.get(v)) {
+            if (depth.get(u) > depth.get(v)) {
                 int tmp = u;
                 u = v;
                 v = tmp;
             }
             // 我们可以先把更靠下的 y 更新为 y 的第 depth[y]-depth[x] 个祖先节点，这样 x 和 y 就处在同一深度了。
             for (int i = K - 1; i >= 0; i--) {
-                if (dep.get(v) - dep.get(u) >= 1 << i) {
+                if (depth.get(v) - depth.get(u) >= 1 << i) {
                     R = Info.merge(lifts.get(v)[i], R);
                     v = pa.get(v)[i];
                 }

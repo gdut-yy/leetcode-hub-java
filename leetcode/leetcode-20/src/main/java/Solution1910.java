@@ -1,10 +1,9 @@
 public class Solution1910 {
     public String removeOccurrences(String s, String part) {
-        if (s.contains(part)) {
-            return removeOccurrences(s.replace(part, ""), part);
-        } else {
-            return s;
+        while (s.contains(part)) {
+            s = s.replaceFirst(part, "");
         }
+        return s;
     }
 }
 /*
@@ -22,5 +21,6 @@ https://leetcode.cn/problems/remove-all-occurrences-of-a-substring/
 1 <= part.length <= 1000
 s 和 part 只包小写英文字母。
 
+库函数 模拟。
 删除完的字符串作为新的入参，递归迭代到不在出现为止。注意 String#replace、String#replaceAll、String#replaceFirst 的区别。
  */
