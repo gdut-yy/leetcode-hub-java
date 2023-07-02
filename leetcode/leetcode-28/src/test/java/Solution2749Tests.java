@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6471Tests {
-    private final Solution6471 solution6471 = new Solution6471();
+public class Solution2749Tests {
+    private final Solution2749 solution2749 = new Solution2749();
 
     @Test
     public void example1() {
         int num1 = 3;
         int num2 = -2;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6471.makeTheIntegerZero(num1, num2));
+        Assertions.assertEquals(expected, solution2749.makeTheIntegerZero(num1, num2));
     }
 
     @Test
@@ -17,7 +17,7 @@ public class Solution6471Tests {
         int num1 = 5;
         int num2 = 7;
         int expected = -1;
-        Assertions.assertEquals(expected, solution6471.makeTheIntegerZero(num1, num2));
+        Assertions.assertEquals(expected, solution2749.makeTheIntegerZero(num1, num2));
     }
 
     // 补充用例
@@ -28,7 +28,7 @@ public class Solution6471Tests {
         int num1 = 16245;
         int num2 = -88727;
         int expected = 12;
-        Assertions.assertEquals(expected, solution6471.makeTheIntegerZero(num1, num2));
+        Assertions.assertEquals(expected, solution2749.makeTheIntegerZero(num1, num2));
     }
 
     @Test
@@ -38,6 +38,6 @@ public class Solution6471Tests {
         int num1 = 85;
         int num2 = 42;
         int expected = -1;
-        Assertions.assertEquals(expected, solution6471.makeTheIntegerZero(num1, num2));
+        Assertions.assertEquals(expected, solution2749.makeTheIntegerZero(num1, num2));
     }
 }

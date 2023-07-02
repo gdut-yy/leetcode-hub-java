@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6895Tests {
-    private final Solution6895 solution6895 = new Solution6895();
+public class Solution2745Tests {
+    private final Solution2745 solution2745 = new Solution2745();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6895Tests {
         int y = 5;
         int z = 1;
         int expected = 12;
-        Assertions.assertEquals(expected, solution6895.longestString(x, y, z));
+        Assertions.assertEquals(expected, solution2745.longestString(x, y, z));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6895Tests {
         int y = 2;
         int z = 2;
         int expected = 14;
-        Assertions.assertEquals(expected, solution6895.longestString(x, y, z));
+        Assertions.assertEquals(expected, solution2745.longestString(x, y, z));
     }
 }

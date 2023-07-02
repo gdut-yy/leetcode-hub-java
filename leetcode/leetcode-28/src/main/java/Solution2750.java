@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6910 {
+public class Solution2750 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int numberOfGoodSubarraySplits(int[] nums) {
@@ -24,7 +24,7 @@ public class Solution6910 {
     }
 }
 /*
-6910. 将数组划分成若干好子数组的方式
+2750. 将数组划分成若干好子数组的方式
 https://leetcode.cn/problems/ways-to-split-array-into-good-subarrays/
 
 第 351 场周赛 T3。

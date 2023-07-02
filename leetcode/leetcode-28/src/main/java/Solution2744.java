@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6892 {
+public class Solution2744 {
     public int maximumNumberOfStringPairs(String[] words) {
         Map<String, Integer> cntMap = new HashMap<>();
         int ans = 0;
@@ -19,7 +19,7 @@ public class Solution6892 {
     }
 }
 /*
-6892. 最大字符串配对数目
+2744. 最大字符串配对数目
 https://leetcode.cn/problems/find-maximum-number-of-string-pairs/
 
 第 107 场双周赛 T1。

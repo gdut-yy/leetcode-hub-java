@@ -1,4 +1,4 @@
-public class Solution6471 {
+public class Solution2749 {
     public int makeTheIntegerZero(int num1, int num2) {
         long delta = num1;
         // https://www.wolframalpha.com/input?i=solve+equation
@@ -13,7 +13,7 @@ public class Solution6471 {
     }
 }
 /*
-6471. 得到整数零需要执行的最少操作数
+2749. 得到整数零需要执行的最少操作数
 https://leetcode.cn/problems/minimum-operations-to-make-the-integer-zero/
 
 第 351 场周赛 T2。

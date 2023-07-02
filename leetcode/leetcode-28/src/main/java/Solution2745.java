@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6895 {
+public class Solution2745 {
     private int[][][][] memo;
 
     public int longestString(int x, int y, int z) {
@@ -41,7 +41,7 @@ public class Solution6895 {
     }
 }
 /*
-6895. 构造最长的新字符串
+2745. 构造最长的新字符串
 https://leetcode.cn/problems/construct-the-longest-new-string/
 
 第 107 场双周赛 T2。

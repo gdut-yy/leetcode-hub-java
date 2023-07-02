@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Solution6891 {
+public class Solution2751 {
     public List<Integer> survivedRobotsHealths(int[] positions, int[] healths, String directions) {
         int n = positions.length;
         Node[] nodes = new Node[n];
@@ -61,7 +61,7 @@ public class Solution6891 {
     }
 }
 /*
-6891. 机器人碰撞
+2751. 机器人碰撞
 https://leetcode.cn/problems/robot-collisions/
 
 第 351 场周赛 T4。

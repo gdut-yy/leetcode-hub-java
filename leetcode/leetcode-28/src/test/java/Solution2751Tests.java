@@ -3,8 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Solution6891Tests {
-    private final Solution6891 solution6891 = new Solution6891();
+public class Solution2751Tests {
+    private final Solution2751 solution2751 = new Solution2751();
 
     @Test
     public void example1() {
@@ -12,7 +12,7 @@ public class Solution6891Tests {
         int[] healths = {2, 17, 9, 15, 10};
         String directions = "RRRRR";
         List<Integer> expected = List.of(2, 17, 9, 15, 10);
-        Assertions.assertEquals(expected, solution6891.survivedRobotsHealths(positions, healths, directions));
+        Assertions.assertEquals(expected, solution2751.survivedRobotsHealths(positions, healths, directions));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class Solution6891Tests {
         int[] healths = {10, 10, 15, 12};
         String directions = "RLRL";
         List<Integer> expected = List.of(14);
-        Assertions.assertEquals(expected, solution6891.survivedRobotsHealths(positions, healths, directions));
+        Assertions.assertEquals(expected, solution2751.survivedRobotsHealths(positions, healths, directions));
     }
 
     @Test
@@ -30,6 +30,6 @@ public class Solution6891Tests {
         int[] healths = {10, 10, 11, 11};
         String directions = "RLRL";
         List<Integer> expected = List.of();
-        Assertions.assertEquals(expected, solution6891.survivedRobotsHealths(positions, healths, directions));
+        Assertions.assertEquals(expected, solution2751.survivedRobotsHealths(positions, healths, directions));
     }
 }
