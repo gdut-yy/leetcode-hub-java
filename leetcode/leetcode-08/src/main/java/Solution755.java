@@ -20,6 +20,27 @@ public class Solution755 {
         }
         return heights;
     }
+
+    public int[] pourWater2(int[] heights, int volume, int k) {
+        while (volume-- > 0) {
+            label:
+            {
+                for (int d = -1; d <= 1; d += 2) {
+                    int i = k, best = k;
+                    while (0 <= i + d && i + d < heights.length && heights[i + d] <= heights[i]) {
+                        if (heights[i + d] < heights[i]) best = i + d;
+                        i += d;
+                    }
+                    if (heights[best] < heights[k]) {
+                        heights[best]++;
+                        break label;
+                    }
+                }
+                heights[k]++;
+            }
+        }
+        return heights;
+    }
 }
 /*
 $755. 倒水

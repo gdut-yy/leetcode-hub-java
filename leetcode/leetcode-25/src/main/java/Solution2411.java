@@ -2,91 +2,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution2411 {
-    private static final int MAX_N = 31;
-
     public int[] smallestSubarrays(int[] nums) {
         int n = nums.length;
-
-        int[][] bitCnt = new int[n][MAX_N];
-        for (int i = 0; i < n; i++) {
-            for (int k = 0; k < MAX_N; k++) {
-                if (((nums[i] >> k) & 1) == 1) {
-                    bitCnt[i][k]++;
-                }
-            }
-        }
-
-        int[][] preSum = new int[n + 1][MAX_N];
-        for (int i = 0; i < n; i++) {
-            for (int k = 0; k < MAX_N; k++) {
-                preSum[i + 1][k] = preSum[i][k] + bitCnt[i][k];
-            }
-        }
-
-        int[] res = new int[n];
-        for (int i = 0; i < n; i++) {
-            // [i, n-1] 最大按位或
-            int max = 0;
-            for (int k = 0; k < MAX_N; k++) {
-                if (preSum[n][k] - preSum[i][k] > 0) {
-                    max++;
-                }
-            }
-
-            // 二分
-            int left = i;
-            int right = n;
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T]
-                // ----------------------^
-                if (checkMid(preSum, i, max, mid)) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            res[i] = left - i + 1;
-        }
-        return res;
-    }
-
-    // FFFTTT
-    private boolean checkMid(int[][] preSum, int i, int max, int mid) {
-        int cnt = 0;
-        for (int k = 0; k < MAX_N; k++) {
-            if (preSum[mid + 1][k] - preSum[i][k] > 0) {
-                cnt++;
-            }
-        }
-        return cnt == max;
-    }
-
-    // 时间复杂度 O(n*logmax(nuns))
-    // 空间复杂度 O(logmax(nuns))
-    public int[] smallestSubarrays2(int[] nums) {
-        int n = nums.length;
-
-        int[] res = new int[n];
+        int[] ans = new int[n];
+        // 存 tuple: 按位或的值 + 对应子数组右端点的最小值
         List<int[]> ors = new ArrayList<>();
         for (int i = n - 1; i >= 0; i--) {
             int num = nums[i];
             ors.add(new int[]{0, i});
             int k = 0;
-            for (int[] or : ors) {
-                or[0] |= num;
-                if (ors.get(k)[0] == or[0]) {
-                    ors.get(k)[1] = or[1];
+            for (int[] p : ors) {
+                // 都或上 num
+                p[0] |= num;
+                // 去重/合并 取最小下标
+                if (ors.get(k)[0] == p[0]) {
+                    ors.get(k)[1] = p[1];
                 } else {
                     k++;
-                    ors.set(k, or);
+                    ors.set(k, p);
                 }
             }
-            // https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or/solution/by-endlesscheng-zai1/1759818
+            // del ors[k+1:]
             ors.subList(k + 1, ors.size()).clear();
-            res[i] = ors.get(0)[1] - i + 1;
+            ans[i] = ors.get(0)[1] - i + 1;
         }
-        return res;
+        return ans;
     }
 }
 /*
@@ -112,4 +52,6 @@ n == nums.length
 https://leetcode.cn/problems/bitwise-ors-of-subarrays/
 1521. 找到最接近目标值的函数值
 https://leetcode.cn/problems/find-a-value-of-a-mysterious-function-closest-to-target/
+2654. 使数组所有元素变成 1 的最少操作次数
+https://leetcode.cn/problems/minimum-number-of-operations-to-make-all-array-elements-equal-to-1/
  */

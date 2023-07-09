@@ -9,7 +9,6 @@ public class Solution2411Tests {
         int[] nums = {1, 0, 2, 1, 3};
         int[] expected = {3, 3, 2, 2, 1};
         Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays(nums));
-        Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays2(nums));
     }
 
     @Test
@@ -17,7 +16,6 @@ public class Solution2411Tests {
         int[] nums = {1, 2};
         int[] expected = {2, 1};
         Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays(nums));
-        Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays2(nums));
     }
 
     // 补充用例
@@ -27,6 +25,5 @@ public class Solution2411Tests {
         int[] nums = UtUtils.loadingInts("solution2411-example3-input.txt", 0);
         int[] expected = UtUtils.loadingInts("solution2411-example3-output.txt", 0);
         Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays(nums));
-        Assertions.assertArrayEquals(expected, solution2411.smallestSubarrays2(nums));
     }
 }

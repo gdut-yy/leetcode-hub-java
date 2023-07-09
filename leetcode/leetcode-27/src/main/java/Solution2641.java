@@ -56,4 +56,6 @@ https://leetcode.cn/problems/cousins-in-binary-tree-ii/
 
 层序遍历。先算出下一层的和，再减去堂兄弟节点的和。
 时间复杂度 O(n)
+相似题目: 2411. 按位或最大的最小子数组长度
+https://leetcode.cn/problems/smallest-subarrays-with-maximum-bitwise-or/
  */

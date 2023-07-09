@@ -1,17 +1,17 @@
 public class Solution487 {
     public int findMaxConsecutiveOnes(int[] nums) {
         int n = nums.length;
-        int left = 0;
-        int leftSum = 0;
-        int rightSum = 0;
-        int ans = 0;
-        for (int right = 0; right < n; right++) {
-            rightSum += 1 - nums[right];
-            while (leftSum < rightSum - 1) {
-                leftSum += 1 - nums[left];
-                left++;
+
+        int l = 0, r = 0;
+        int delta = 0, ans = 0;
+        while (r < n) {
+            delta += 1 ^ nums[r];
+            while (delta > 1) {
+                delta -= 1 ^ nums[l];
+                l++;
             }
-            ans = Math.max(ans, right - left + 1);
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
         return ans;
     }
@@ -26,6 +26,7 @@ https://leetcode.cn/problems/max-consecutive-ones-ii/
 nums[i] 不是 0 就是 1.
 进阶：如果输入的数字是作为 无限流 逐个输入如何处理？换句话说，内存不能存储下所有从流中输入的数字。您可以有效地解决吗？
 
+双指针
 相似题目: 485. 最大连续 1 的个数
 https://leetcode.cn/problems/max-consecutive-ones/
 1004. 最大连续1的个数 III

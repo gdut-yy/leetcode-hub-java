@@ -28,7 +28,7 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        
+
         <dependency>
             <groupId>com.devyy</groupId>
             <artifactId>codeforces-08</artifactId>

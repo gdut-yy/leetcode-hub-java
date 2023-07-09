@@ -1,25 +1,17 @@
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Solution1521 {
     public int closestToTarget(int[] arr, int target) {
-        Set<Integer> andSet = new HashSet<>();
-        Set<Integer> ansSet = new HashSet<>();
+        Set<Integer> ans = new HashSet<>();
+        Set<Integer> ors = new HashSet<>();
         for (int x : arr) {
-            Set<Integer> andSet2 = new HashSet<>();
-            for (Integer or : andSet) {
-                andSet2.add(or & x);
-            }
-            andSet2.add(x);
-            andSet = andSet2;
-            ansSet.addAll(andSet);
+            ors = ors.stream().map(o -> o & x).collect(Collectors.toSet());
+            ors.add(x);
+            ans.addAll(ors);
         }
-
-        int min = Integer.MAX_VALUE;
-        for (int ans : ansSet) {
-            min = Math.min(min, Math.abs(ans - target));
-        }
-        return min;
+        return ans.stream().map(o -> Math.abs(o - target)).min(Integer::compareTo).orElseThrow();
     }
 }
 /*

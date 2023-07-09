@@ -1,82 +1,98 @@
 import java.util.Objects;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Solution2653 {
     public int[] getSubarrayBeauty(int[] nums, int k, int x) {
         int n = nums.length;
+        int[] ans = new int[n - k + 1];
 
-        // 第一个子数组是 [1, -1, -3] ，第二小的数是负数 -1 。
-        // 维护 k-(x-1) 个数
-        TreeSet<Node> minHeap = new TreeSet<>((o1, o2) -> {
-            if (o1.val == o2.val) {
-                return Integer.compare(o1.id, o2.id);
-            }
-            return Integer.compare(o1.val, o2.val);
-        });
-        // 维护 x-1 个数
-        TreeSet<Node> maxHeap = new TreeSet<>((o1, o2) -> {
-            if (o1.val == o2.val) {
-                return Integer.compare(o1.id, o2.id);
-            }
-            return Integer.compare(o2.val, o1.val);
-        });
-
-        // 滑动窗口
-        // [0, k-1]
+        // 转换成从 0 开始的下标
+        x--;
+        // 第x小 等价于 第k-x大
+        MultiSets multiSets = new MultiSets(k, k - x);
         for (int i = 0; i < k; i++) {
-            minHeap.add(new Node(i, nums[i]));
+            multiSets.add(nums[i]);
         }
-        for (int i = 0; i < x - 1; i++) {
-            Node top = minHeap.pollFirst();
-            maxHeap.add(top);
-        }
-        int[] res = new int[n - k + 1];
-        res[0] = Math.min(minHeap.first().val, 0);
+        ans[0] = Math.min(0, multiSets.xMap.firstKey());
 
-        // [k, n-1]
         for (int i = k; i < n; i++) {
-            Node rm = new Node(i - k, nums[i - k]);
-            if (maxHeap.contains(rm)) {
-                maxHeap.remove(rm);
-            } else {
-                minHeap.remove(rm);
-            }
+            multiSets.add(nums[i]);
+            multiSets.del(nums[i - k]);
 
-            Node add = new Node(i, nums[i]);
-            minHeap.add(add);
-            if (!maxHeap.isEmpty()) {
-                Node top = maxHeap.pollFirst();
-                minHeap.add(top);
-            }
-            while (minHeap.size() > k - x + 1) {
-                Node top = minHeap.pollFirst();
-                maxHeap.add(top);
-            }
-            res[i - k + 1] = Math.min(minHeap.first().val, 0);
+            ans[i - k + 1] = Math.min(0, multiSets.xMap.firstKey());
         }
-        return res;
+        return ans;
     }
 
-    private static class Node {
-        int id;
-        int val;
+    private static class MultiSets {
+        int n, k;
+        TreeMap<Integer, Integer> xMap, yMap;
+        int xsz, ysz;
 
-        public Node(int id, int val) {
-            this.id = id;
-            this.val = val;
+        // n:窗口大小, k:第 k 大
+        public MultiSets(int n, int k) {
+            this.n = n;
+            this.k = k;
+            this.xMap = new TreeMap<>();
+            this.yMap = new TreeMap<>();
+            this.xsz = 0;
+            this.ysz = 0;
         }
 
-        @Override
-        public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
-            Node node = (Node) o;
-            return id == node.id && val == node.val;
+        private void add(int v) {
+            yInsertV(v);
+            balance();
         }
 
-        @Override
-        public int hashCode() {
-            return Objects.hash(id, val);
+        private void del(int v) {
+            if (xMap.containsKey(v)) {
+                xEraseV(v);
+            } else {
+                yEraseV(v);
+            }
+            balance();
+        }
+
+        private void balance() {
+            if (xsz + ysz < n) return;
+            while (xsz < k) {
+                int iy = yMap.lastKey();
+                yEraseV(iy);
+                xInsertV(iy);
+            }
+            if (xsz == 0 || ysz == 0) return;
+            while (true) {
+                int ix = xMap.firstKey();
+                int iy = yMap.lastKey();
+                if (ix >= iy) break;
+                xEraseV(ix);
+                yEraseV(iy);
+                xInsertV(iy);
+                yInsertV(ix);
+            }
+        }
+
+        private void xInsertV(int v) {
+            xMap.put(v, xMap.getOrDefault(v, 0) + 1);
+            xsz++;
+        }
+
+        private void yInsertV(int v) {
+            yMap.put(v, yMap.getOrDefault(v, 0) + 1);
+            ysz++;
+        }
+
+        private void xEraseV(int v) {
+            xMap.put(v, xMap.getOrDefault(v, 0) - 1);
+            if (xMap.get(v) == 0) xMap.remove(v);
+            xsz--;
+        }
+
+        private void yEraseV(int v) {
+            yMap.put(v, yMap.getOrDefault(v, 0) - 1);
+            if (yMap.get(v) == 0) yMap.remove(v);
+            ysz--;
         }
     }
 }
