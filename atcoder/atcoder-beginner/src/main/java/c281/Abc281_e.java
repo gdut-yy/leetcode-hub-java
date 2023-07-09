@@ -3,81 +3,119 @@ package c281;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.TreeSet;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 public class Abc281_e {
+    static int n, m, k;
+    static int[] a;
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
-        int k = scanner.nextInt();
-        int[] a = new int[n];
+        n = scanner.nextInt();
+        m = scanner.nextInt();
+        k = scanner.nextInt();
+        a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, m, k, a));
+        System.out.println(solve());
     }
 
-    private static String solve(int n, int m, int k, int[] a) {
-        // 堆顶最大 保留 k 个
-        TreeSet<Integer> maxTreeSet = new TreeSet<>((o1, o2) -> {
-            if (a[o1] == a[o2]) {
-                return Integer.compare(o1, o2);
-            }
-            return Integer.compare(a[o2], a[o1]);
-        });
-        // 堆顶最小
-        TreeSet<Integer> minTreeSet = new TreeSet<>((o1, o2) -> {
-            if (a[o1] == a[o2]) {
-                return Integer.compare(o1, o2);
-            }
-            return Integer.compare(a[o1], a[o2]);
-        });
-
+    private static String solve() {
         long[] ans = new long[n - m + 1];
-        long sum = 0L;
 
-        // 前 M 取 K 个
+        // 前k小的和 等价于 总和减去前m-k大的和
+        MultiSets multiSets = new MultiSets(m, m - k);
         for (int i = 0; i < m; i++) {
-            sum += a[i];
-            maxTreeSet.add(i);
+            multiSets.add(a[i]);
         }
-        while (maxTreeSet.size() > k) {
-            int maxId = maxTreeSet.pollFirst();
-            sum -= a[maxId];
-            minTreeSet.add(maxId);
-        }
-        ans[0] = sum;
+        ans[0] = multiSets.tot - multiSets.sumX;
 
-        // 滑动窗口
         for (int i = m; i < n; i++) {
-            // 先移除
-            int rmId = i - m;
-            if (maxTreeSet.contains(rmId)) {
-                maxTreeSet.remove(rmId);
-                sum -= a[rmId];
-            } else {
-                minTreeSet.remove(rmId);
-            }
+            multiSets.add(a[i]);
+            multiSets.del(a[i - m]);
 
-            // 再新增
-            sum += a[i];
-            maxTreeSet.add(i);
-            if (!minTreeSet.isEmpty()) {
-                int minId = minTreeSet.pollFirst();
-                sum += a[minId];
-                maxTreeSet.add(minId);
-            }
-            while (maxTreeSet.size() > k) {
-                int maxId = maxTreeSet.pollFirst();
-                sum -= a[maxId];
-                minTreeSet.add(maxId);
-            }
-            ans[i - m + 1] = sum;
+            ans[i - m + 1] = multiSets.tot - multiSets.sumX;
+        }
+        return Arrays.stream(ans).mapToObj(String::valueOf).collect(Collectors.joining(" "));
+    }
+
+    private static class MultiSets {
+        int n, k;
+        TreeMap<Integer, Integer> xMap, yMap;
+        int xsz, ysz;
+        long sumX, tot;
+
+        // n:窗口大小, k:第 k 大
+        public MultiSets(int n, int k) {
+            this.n = n;
+            this.k = k;
+            this.xMap = new TreeMap<>();
+            this.yMap = new TreeMap<>();
+            this.xsz = 0;
+            this.ysz = 0;
+            sumX = 0;
         }
 
-        return Arrays.stream(ans).mapToObj(String::valueOf).collect(Collectors.joining(" "));
+        private void add(int v) {
+            yInsertV(v);
+            balance();
+            tot += v;
+        }
+
+        private void del(int v) {
+            if (xMap.containsKey(v)) {
+                xEraseV(v);
+            } else {
+                yEraseV(v);
+            }
+            balance();
+            tot -= v;
+        }
+
+        private void balance() {
+            if (xsz + ysz < n) return;
+            while (xsz < k) {
+                int iy = yMap.lastKey();
+                yEraseV(iy);
+                xInsertV(iy);
+            }
+            if (xsz == 0 || ysz == 0) return;
+            while (true) {
+                int ix = xMap.firstKey();
+                int iy = yMap.lastKey();
+                if (ix >= iy) break;
+                xEraseV(ix);
+                yEraseV(iy);
+                xInsertV(iy);
+                yInsertV(ix);
+            }
+        }
+
+        private void xInsertV(int v) {
+            xMap.put(v, xMap.getOrDefault(v, 0) + 1);
+            xsz++;
+            sumX += v;
+        }
+
+        private void yInsertV(int v) {
+            yMap.put(v, yMap.getOrDefault(v, 0) + 1);
+            ysz++;
+        }
+
+        private void xEraseV(int v) {
+            xMap.put(v, xMap.getOrDefault(v, 0) - 1);
+            if (xMap.get(v) == 0) xMap.remove(v);
+            xsz--;
+            sumX -= v;
+        }
+
+        private void yEraseV(int v) {
+            yMap.put(v, yMap.getOrDefault(v, 0) - 1);
+            if (yMap.get(v) == 0) yMap.remove(v);
+            ysz--;
+        }
     }
 }
 /*
@@ -92,6 +130,8 @@ https://atcoder.jp/contests/abc281/tasks/abc281_e
 双堆 + 滑动窗口
 相似題目: D - 3N Numbers
 https://atcoder.jp/contests/arc074/tasks/arc074_b
+E - Best Performances
+https://atcoder.jp/contests/abc306/tasks/abc306_e
 ======
 
 Input 1

@@ -90,6 +90,7 @@ public class CF1837F {
             return Integer.compare(o1[0], o2[0]);
         });
         for (int i = 0; i < n; i++) {
+            // a[i] = lower_bound(xs.begin(), xs.end(), make_pair(a[i], i)) - xs.begin();
             a[i] = lowerBound(xs, new int[]{a[i], i});
         }
         lstpr = new int[n];
