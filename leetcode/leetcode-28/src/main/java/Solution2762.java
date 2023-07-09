@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Solution6911 {
+public class Solution2762 {
     public long continuousSubarrays(int[] nums) {
         int n = nums.length;
 
@@ -38,7 +38,7 @@ public class Solution6911 {
     }
 }
 /*
-6911. 不间断子数组
+2762. 不间断子数组
 https://leetcode.cn/problems/continuous-subarrays/
 
 第 352 场周赛 T3。

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution6916 {
+public class Solution2761 {
     public List<List<Integer>> findPrimePairs(int n) {
         // 线性筛
         List<Integer> primes = new ArrayList<>();
@@ -35,7 +35,7 @@ public class Solution6916 {
     }
 }
 /*
-6916. 和等于目标值的质数对
+2761. 和等于目标值的质数对
 https://leetcode.cn/problems/prime-pairs-with-target-sum/
 
 第 352 场周赛 T2。

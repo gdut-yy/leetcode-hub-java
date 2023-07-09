@@ -1,4 +1,4 @@
-public class Solution6909 {
+public class Solution2760 {
     public int longestAlternatingSubarray(int[] nums, int threshold) {
         int n = nums.length;
         int ans = 0;
@@ -26,7 +26,7 @@ public class Solution6909 {
     }
 }
 /*
-6909. 最长奇偶子数组
+2760. 最长奇偶子数组
 https://leetcode.cn/problems/longest-even-odd-subarray-with-threshold/
 
 第 352 场周赛 T1。

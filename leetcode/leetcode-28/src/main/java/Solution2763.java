@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6894 {
+public class Solution2763 {
     public int sumImbalanceNumbers(int[] nums) {
         int n = nums.length;
 
@@ -28,7 +28,7 @@ public class Solution6894 {
     }
 }
 /*
-6894. 所有子数组中不平衡数字之和
+2763. 所有子数组中不平衡数字之和
 https://leetcode.cn/problems/sum-of-imbalance-numbers-of-all-subarrays/
 
 第 352 场周赛 T4。
