@@ -1,78 +1,34 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Solution792 {
-    private Map<Character, List<Integer>> idxListMap;
-
     public int numMatchingSubseq(String s, String[] words) {
-        idxListMap = new HashMap<>();
-        for (int i = 0; i < s.length(); i++) {
-            idxListMap.computeIfAbsent(s.charAt(i), key -> new ArrayList<>()).add(i);
+        int n = s.length();
+
+        // 子序列自动机
+        int[] pos = new int[26];
+        Arrays.fill(pos, -1);
+        int[][] nxt = new int[n + 1][26];
+//        nxt[n] = pos.clone();
+        System.arraycopy(pos, 0, nxt[n], 0, 26);
+        for (int i = n - 1; i >= 0; i--) {
+            pos[s.charAt(i) - 'a'] = i;
+//            nxt[i] = pos.clone();
+            System.arraycopy(pos, 0, nxt[i], 0, 26);
         }
 
-        int res = 0;
+        int ans = words.length;
         for (String word : words) {
-            if (check2(s, word)) {
-                res++;
-            }
-        }
-        return res;
-    }
-
-    private boolean check2(String s, String word) {
-        int p = -1;
-        int q = 0;
-        while (p < s.length() && q < word.length()) {
-            if (!idxListMap.containsKey(word.charAt(q))) {
-                return false;
-            }
-            List<Integer> idxList = idxListMap.get(word.charAt(q));
-            int left = 0;
-            int right = idxList.size();
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T]
-                // ----------------------^
-                if (idxList.get(mid) > p) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
+            int pre = 0;
+            for (int j = 0; j < word.length(); j++) {
+                pre = nxt[pre][word.charAt(j) - 'a'];
+                if (pre < 0) {
+                    ans--;
+                    break;
                 }
-            }
-            if (left >= idxList.size()) {
-                return false;
-            }
-            p = idxList.get(left);
-            q++;
-        }
-        return q == word.length();
-    }
-
-    // 暴力，TLE
-    public int numMatchingSubseq2(String s, String[] words) {
-        int res = 0;
-        for (String word : words) {
-            if (check(s, word)) {
-                res++;
+                pre++;
             }
         }
-        return res;
-    }
-
-    private boolean check(String s, String word) {
-        int p = 0;
-        int q = 0;
-        while (p < s.length() && q < word.length()) {
-            if (s.charAt(p) == word.charAt(q)) {
-                p++;
-                q++;
-            } else {
-                p++;
-            }
-        }
-        return q == word.length();
+        return ans;
     }
 }
 /*

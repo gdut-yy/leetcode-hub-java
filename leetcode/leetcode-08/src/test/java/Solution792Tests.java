@@ -10,7 +10,6 @@ public class Solution792Tests {
         String[] words = {"a", "bb", "acd", "ace"};
         int expected = 3;
         Assertions.assertEquals(expected, solution792.numMatchingSubseq(s, words));
-        Assertions.assertEquals(expected, solution792.numMatchingSubseq2(s, words));
     }
 
     @Test
@@ -19,7 +18,6 @@ public class Solution792Tests {
         String[] words = {"ahjpjau", "ja", "ahbwzgqnuk", "tnmlanowax"};
         int expected = 2;
         Assertions.assertEquals(expected, solution792.numMatchingSubseq(s, words));
-        Assertions.assertEquals(expected, solution792.numMatchingSubseq2(s, words));
     }
 
     // 补充用例
@@ -32,6 +30,16 @@ public class Solution792Tests {
         String[] words = UtUtils.loadingStrings(fileName, 1);
         int expected = 2500;
         Assertions.assertEquals(expected, solution792.numMatchingSubseq(s, words));
-//        Assertions.assertEquals(expected, solution792.numMatchingSubseq2(s, words));
+    }
+
+    @Test
+    public void example4() {
+        // https://leetcode.cn/submissions/detail/447409143/
+        // wa 57
+        String fileName = "solution792-example4-input.txt";
+        String s = UtUtils.loadingString(fileName, 0);
+        String[] words = UtUtils.loadingStrings(fileName, 1);
+        int expected = 52;
+        Assertions.assertEquals(expected, solution792.numMatchingSubseq(s, words));
     }
 }

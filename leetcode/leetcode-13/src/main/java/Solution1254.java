@@ -83,13 +83,13 @@ public class Solution1254 {
             return fa[x];
         }
 
-        void union(int x, int y) {
-            int xFa = find(x);
-            int yFa = find(y);
-            if (xFa == yFa) {
+        void union(int p, int q) {
+            int rootP = find(p);
+            int rootQ = find(q);
+            if (rootP == rootQ) {
                 return;
             }
-            fa[yFa] = xFa;
+            fa[rootQ] = rootP;
             sz--;
         }
     }
