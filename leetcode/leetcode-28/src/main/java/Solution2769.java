@@ -1,10 +1,10 @@
-public class Solution6451 {
+public class Solution2769 {
     public int theMaximumAchievableX(int num, int t) {
         return num + t + t;
     }
 }
 /*
-6451. 找出最大的可达成数字
+2769. 找出最大的可达成数字
 https://leetcode.cn/problems/find-the-maximum-achievable-number/
 
 第 353 场周赛 T1。

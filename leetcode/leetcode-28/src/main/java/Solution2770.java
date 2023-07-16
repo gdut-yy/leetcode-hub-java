@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6899 {
+public class Solution2770 {
     private int[] nums;
     private int target;
     private int n;
@@ -36,7 +36,7 @@ public class Solution6899 {
     }
 }
 /*
-6899. 达到末尾下标所需的最大跳跃次数
+2770. 达到末尾下标所需的最大跳跃次数
 https://leetcode.cn/problems/maximum-number-of-jumps-to-reach-the-last-index/
 
 第 353 场周赛 T2。

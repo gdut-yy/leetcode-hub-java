@@ -3,7 +3,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution6469 {
+public class Solution2766 {
     public List<Integer> relocateMarbles(int[] nums, int[] moveFrom, int[] moveTo) {
         Set<Integer> set = new HashSet<>();
         for (int x : nums) set.add(x);
@@ -20,7 +20,7 @@ public class Solution6469 {
     }
 }
 /*
-6469. 重新放置石块
+2766. 重新放置石块
 https://leetcode.cn/problems/relocate-marbles/
 
 第 108 场双周赛 T2。

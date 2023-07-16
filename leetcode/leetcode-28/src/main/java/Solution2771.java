@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6912 {
+public class Solution2771 {
     private int[] nums1;
     private int[] nums2;
     private int n;
@@ -46,7 +46,7 @@ public class Solution6912 {
     }
 }
 /*
-6912. 构造最长非递减子数组
+2771. 构造最长非递减子数组
 https://leetcode.cn/problems/longest-non-decreasing-subarray-from-two-arrays/
 
 第 353 场周赛 T3。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6923 {
+public class Solution2767 {
     private static final String[] TABLE = {
             "1",
             "101",
@@ -43,7 +43,7 @@ public class Solution6923 {
     }
 }
 /*
-6923. 将字符串分割为最少的美丽子字符串
+2767. 将字符串分割为最少的美丽子字符串
 https://leetcode.cn/problems/partition-string-into-minimum-beautiful-substrings/
 
 第 108 场双周赛 T3。

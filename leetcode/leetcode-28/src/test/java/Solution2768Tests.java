@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6928Tests {
-    private final Solution6928 solution6928 = new Solution6928();
+public class Solution2768Tests {
+    private final Solution2768 solution2768 = new Solution2768();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6928Tests {
         int n = 3;
         int[][] coordinates = UtUtils.stringToInts2("[[0,0]]");
         long[] expected = {3, 1, 0, 0, 0};
-        Assertions.assertArrayEquals(expected, solution6928.countBlackBlocks(m, n, coordinates));
+        Assertions.assertArrayEquals(expected, solution2768.countBlackBlocks(m, n, coordinates));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6928Tests {
         int n = 3;
         int[][] coordinates = UtUtils.stringToInts2("[[0,0],[1,1],[0,2]]");
         long[] expected = {0, 2, 2, 0, 0};
-        Assertions.assertArrayEquals(expected, solution6928.countBlackBlocks(m, n, coordinates));
+        Assertions.assertArrayEquals(expected, solution2768.countBlackBlocks(m, n, coordinates));
     }
 }

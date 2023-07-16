@@ -1,4 +1,4 @@
-public class Solution6919 {
+public class Solution2772 {
     // 2528
     public boolean checkArray(int[] nums, int k) {
         int n = nums.length;
@@ -16,7 +16,7 @@ public class Solution6919 {
     }
 }
 /*
-6919. 使数组中的所有元素都等于零
+2772. 使数组中的所有元素都等于零
 https://leetcode.cn/problems/apply-operations-to-make-all-array-elements-equal-to-zero/
 
 第 353 场周赛 T4。

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution6928 {
+public class Solution2768 {
     public long[] countBlackBlocks(int m, int n, int[][] coordinates) {
         Map<Long, Integer> cntMap = new HashMap<>();
         for (int[] p : coordinates) {
@@ -28,7 +28,7 @@ public class Solution6928 {
     }
 }
 /*
-6928. 黑格子的数目
+2768. 黑格子的数目
 https://leetcode.cn/problems/number-of-black-blocks/
 
 第 108 场双周赛 T4。
