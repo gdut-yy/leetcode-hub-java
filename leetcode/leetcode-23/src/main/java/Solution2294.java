@@ -2,18 +2,18 @@ import java.util.Arrays;
 
 public class Solution2294 {
     public int partitionArray(int[] nums, int k) {
-        int len = nums.length;
+        int n = nums.length;
         Arrays.sort(nums);
 
         int cnt = 0;
         int pre = nums[0];
         int idx = 0;
-        while (idx < len) {
-            while (idx < len && nums[idx] - pre <= k) {
+        while (idx < n) {
+            while (idx < n && nums[idx] - pre <= k) {
                 idx++;
             }
             cnt++;
-            if (idx < len) {
+            if (idx < n) {
                 pre = nums[idx];
             }
         }

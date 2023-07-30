@@ -1,6 +1,4 @@
-import java.util.Objects;
 import java.util.TreeMap;
-import java.util.TreeSet;
 
 public class Solution2653 {
     public int[] getSubarrayBeauty(int[] nums, int k, int x) {

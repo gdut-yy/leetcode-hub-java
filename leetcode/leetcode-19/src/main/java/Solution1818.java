@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Solution1818 {
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
 
     public int minAbsoluteSumDiff(int[] nums1, int[] nums2) {
         int n = nums1.length;

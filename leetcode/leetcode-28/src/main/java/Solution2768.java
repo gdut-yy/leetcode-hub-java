@@ -6,10 +6,10 @@ public class Solution2768 {
         Map<Long, Integer> cntMap = new HashMap<>();
         for (int[] p : coordinates) {
             int x = p[0], y = p[1];
-            // 以左下角表示受影响的矩形，(x,y) 会影响到 (x-1,y-1), (x-1,y), (x,y-1), (x,y)
+            // 以左上角表示受影响的矩形，(x,y) 会影响到 (x-1,y-1), (x-1,y), (x,y-1), (x,y)
             for (int nx = x - 1; nx <= x; nx++) {
                 for (int ny = y - 1; ny <= y; ny++) {
-                    // 注意要取到右下角
+                    // 注意要取到左上角
                     if (nx >= 0 && nx < m - 1 && ny >= 0 && ny < n - 1) {
                         long key = (long) nx << 32 | ny;
                         cntMap.put(key, cntMap.getOrDefault(key, 0) + 1);

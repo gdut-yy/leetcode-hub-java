@@ -1,61 +1,51 @@
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution2050 {
     public int minimumTime(int n, int[][] relations, int[] time) {
         // 拓扑排序
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
+        Map<Integer, List<Integer>> g = new HashMap<>();
+        Map<Integer, List<Integer>> rg = new HashMap<>();
         // 二维整数数组 relations ，其中 relations[j] = [prevCoursej, nextCoursej] ，
         // 表示课程 prevCoursej 必须在课程 nextCoursej 之前 完成（先修课的关系）。
-        // 入度数组
-        int[] inDegrees = new int[n + 1];
+        int[] inDeg = new int[n + 1];
         for (int[] relation : relations) {
-            int pre = relation[0];
-            int cur = relation[1];
-            inDegrees[cur]++;
-
-            Set<Integer> outSet = outGraph.getOrDefault(pre, new HashSet<>());
-            outSet.add(cur);
-            outGraph.put(pre, outSet);
-
-            Set<Integer> inSet = inGraph.getOrDefault(cur, new HashSet<>());
-            inSet.add(pre);
-            inGraph.put(cur, inSet);
+            int prev = relation[0];
+            int next = relation[1];
+            inDeg[next]++;
+            g.computeIfAbsent(prev, key -> new ArrayList<>()).add(next);
+            rg.computeIfAbsent(next, key -> new ArrayList<>()).add(prev);
         }
 
-        // 入度为 0 进队列
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         // 有 n 节课，课程编号从 1 到 n
-        for (int i = 1; i <= n; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
-                queue.add(i);
+        for (int x = 1; x <= n; x++) {
+            if (inDeg[x] == 0) {
+                queue.add(x);
             }
         }
-        // 动态规划 状态定义：
         // dp[i] 表示完成第 i 门课程需要花费的最少月份数
         int[] dp = new int[n + 1];
 
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-                // 状态转移
+                int x = queue.remove();
                 // dp[i] = time[i-1] + max(dp[pre])
                 int maxPre = 0;
-                for (int pre : inGraph.getOrDefault(cur, new HashSet<>())) {
+                for (int pre : rg.getOrDefault(x, new ArrayList<>())) {
                     maxPre = Math.max(maxPre, dp[pre]);
                 }
-                dp[cur] = time[cur - 1] + maxPre;
+                dp[x] = time[x - 1] + maxPre;
 
-                for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                    inDegrees[next]--;
-                    if (inDegrees[next] == 0) {
+                for (int next : g.getOrDefault(x, new ArrayList<>())) {
+                    inDeg[next]--;
+                    if (inDeg[next] == 0) {
                         queue.add(next);
                     }
                 }
@@ -86,7 +76,6 @@ https://leetcode.cn/problems/parallel-courses-iii/
 [[2,7],[2,6],[3,6],[4,6],[7,6],[2,1],[3,1],[4,1],[6,1],[7,1],[3,8],[5,8],[7,8],[1,9],[2,9],[6,9],[7,9]]
 [9,5,9,5,8,7,7,8,4]
 32
-
 相似题目: 851. 喧闹和富有
 https://leetcode.cn/problems/loud-and-rich/
  */

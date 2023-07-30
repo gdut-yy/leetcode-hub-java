@@ -42,6 +42,60 @@ public class Solution421 {
             children = new TrieNode[2];
         }
     }
+
+    public int findMaximumXOR2(int[] nums) {
+        int n = nums.length;
+        Trie trie = new Trie(n, 32);
+        for (int x : nums) {
+            trie.insert(x);
+        }
+
+        int ans = 0;
+        for (int x : nums) {
+            ans = Math.max(ans, trie.query(x));
+        }
+        return ans;
+    }
+
+    // 0-1 Trie
+    // 2^31
+    private static class Trie {
+        int[][] dict;
+        int nextIdx, m;
+
+        // n:长度 m:2^m
+        public Trie(int n, int m) {
+            this.dict = new int[2][n * m + 2];
+            this.nextIdx = 1;
+            this.m = m;
+        }
+
+        public void insert(int x) {
+            int idx = 0;
+            for (int k = m - 1; k >= 0; k--) {
+                int pos = x >> k & 1;
+                if (dict[pos][idx] == 0) {
+                    dict[pos][idx] = nextIdx++;
+                }
+                idx = dict[pos][idx];
+            }
+        }
+
+        public int query(int x) {
+            int res = 0;
+            int idx = 0;
+            for (int k = m - 1; k >= 0; k--) {
+                int pos = x >> k & 1;
+                if (dict[1 - pos][idx] != 0) {
+                    res |= 1 << k;
+                    idx = dict[1 - pos][idx];
+                } else {
+                    idx = dict[pos][idx];
+                }
+            }
+            return res;
+        }
+    }
 }
 /*
 421. 数组中两个数的最大异或值
@@ -53,6 +107,6 @@ https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/
 0 <= nums[i] <= 2^31 - 1
 
 一般解法 时间复杂度为 O(n^2)
-前缀树。
+0-1 Trie
 时间复杂度 O(n)
  */

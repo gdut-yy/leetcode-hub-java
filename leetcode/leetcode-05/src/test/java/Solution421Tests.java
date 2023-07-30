@@ -9,6 +9,7 @@ public class Solution421Tests {
         int[] nums = {3, 10, 5, 25, 2, 8};
         int expected = 28;
         Assertions.assertEquals(expected, solution421.findMaximumXOR(nums));
+        Assertions.assertEquals(expected, solution421.findMaximumXOR2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution421Tests {
         int[] nums = {0};
         int expected = 0;
         Assertions.assertEquals(expected, solution421.findMaximumXOR(nums));
+        Assertions.assertEquals(expected, solution421.findMaximumXOR2(nums));
     }
 
     @Test
@@ -23,6 +25,7 @@ public class Solution421Tests {
         int[] nums = {2, 4};
         int expected = 6;
         Assertions.assertEquals(expected, solution421.findMaximumXOR(nums));
+        Assertions.assertEquals(expected, solution421.findMaximumXOR2(nums));
     }
 
     @Test
@@ -30,6 +33,7 @@ public class Solution421Tests {
         int[] nums = {8, 10, 2};
         int expected = 10;
         Assertions.assertEquals(expected, solution421.findMaximumXOR(nums));
+        Assertions.assertEquals(expected, solution421.findMaximumXOR2(nums));
     }
 
     @Test
@@ -37,5 +41,6 @@ public class Solution421Tests {
         int[] nums = {14, 70, 53, 83, 49, 91, 36, 80, 92, 51, 66, 70};
         int expected = 127;
         Assertions.assertEquals(expected, solution421.findMaximumXOR(nums));
+        Assertions.assertEquals(expected, solution421.findMaximumXOR2(nums));
     }
 }
