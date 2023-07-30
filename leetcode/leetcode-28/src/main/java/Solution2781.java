@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution6924 {
+public class Solution2781 {
     public int longestValidSubstring(String word, List<String> forbidden) {
         int n = word.length();
         Set<String> forbidSet = new HashSet<>(forbidden);
@@ -24,7 +24,7 @@ public class Solution6924 {
     }
 }
 /*
-6924. 最长合法子字符串的长度
+2781. 最长合法子字符串的长度
 https://leetcode.cn/problems/length-of-the-longest-valid-substring/
 
 第 354 场周赛 T4。

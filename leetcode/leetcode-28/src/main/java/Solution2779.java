@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution6929 {
+public class Solution2779 {
     public int maximumBeauty(int[] nums, int k) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -18,7 +18,7 @@ public class Solution6929 {
     }
 }
 /*
-6929. 数组的最大美丽值
+2779. 数组的最大美丽值
 https://leetcode.cn/problems/maximum-beauty-of-an-array-after-applying-operation/
 
 第 354 场周赛 T2。

@@ -1,4 +1,4 @@
-public class Solution6889 {
+public class Solution2778 {
     public int sumOfSquares(int[] nums) {
         int n = nums.length;
         int ans = 0;
@@ -11,7 +11,7 @@ public class Solution6889 {
     }
 }
 /*
-6889. 特殊元素平方和
+2778. 特殊元素平方和
 https://leetcode.cn/problems/sum-of-squares-of-special-elements/
 
 第 354 场周赛 T1。

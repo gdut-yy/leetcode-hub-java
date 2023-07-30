@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6927 {
+public class Solution2780 {
     public int minimumIndex(List<Integer> nums) {
         // 找出支配元素 x, 数据保证它含有一个支配元素
         Map<Integer, Integer> cntMap = new HashMap<>();
@@ -39,7 +39,7 @@ public class Solution6927 {
     }
 }
 /*
-6927. 合法分割的最小下标
+2780. 合法分割的最小下标
 https://leetcode.cn/problems/minimum-index-of-a-valid-split/
 
 第 354 场周赛 T3。

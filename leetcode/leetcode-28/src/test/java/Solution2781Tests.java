@@ -3,15 +3,15 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Solution6924Tests {
-    private final Solution6924 solution6924 = new Solution6924();
+public class Solution2781Tests {
+    private final Solution2781 solution2781 = new Solution2781();
 
     @Test
     public void example1() {
         String word = "cbaaaabc";
         List<String> forbidden = List.of("aaa", "cb");
         int expected = 4;
-        Assertions.assertEquals(expected, solution6924.longestValidSubstring(word, forbidden));
+        Assertions.assertEquals(expected, solution2781.longestValidSubstring(word, forbidden));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution6924Tests {
         String word = "leetcode";
         List<String> forbidden = List.of("de", "le", "e");
         int expected = 4;
-        Assertions.assertEquals(expected, solution6924.longestValidSubstring(word, forbidden));
+        Assertions.assertEquals(expected, solution2781.longestValidSubstring(word, forbidden));
     }
 }
