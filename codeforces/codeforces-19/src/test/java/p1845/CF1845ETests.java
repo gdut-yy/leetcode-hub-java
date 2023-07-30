@@ -2,7 +2,6 @@ package p1845;
 
 import base.AbstractOjTests;
 import org.junit.jupiter.api.Test;
-import p1826.CF1826E;
 
 import java.io.IOException;
 

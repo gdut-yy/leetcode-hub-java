@@ -1,5 +1,3 @@
-import java.util.Locale;
-
 public class Solution949 {
     public String largestTimeFromDigits(int[] arr) {
         int res = -1;

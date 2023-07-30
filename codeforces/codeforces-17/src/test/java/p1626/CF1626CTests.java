@@ -2,7 +2,6 @@ package p1626;
 
 import base.AbstractOjTests;
 import org.junit.jupiter.api.Test;
-import p1613.CF1613D;
 
 import java.io.IOException;
 

@@ -1,6 +1,4 @@
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Solution567 {
     public boolean checkInclusion(String s1, String s2) {

@@ -1,8 +1,6 @@
 package p1800;
 
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class CF1800B {

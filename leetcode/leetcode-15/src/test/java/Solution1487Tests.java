@@ -1,8 +1,5 @@
-import com.alibaba.fastjson.JSON;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 public class Solution1487Tests {
     private final Solution1487 solution1487 = new Solution1487();

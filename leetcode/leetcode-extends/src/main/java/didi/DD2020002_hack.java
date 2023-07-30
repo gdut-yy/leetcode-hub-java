@@ -6,8 +6,6 @@ import java.io.InputStreamReader;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.Scanner;
 
 public class DD2020002_hack {
     public static void main(String[] args) throws IOException {

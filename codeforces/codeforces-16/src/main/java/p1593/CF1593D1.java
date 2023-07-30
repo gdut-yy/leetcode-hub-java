@@ -5,7 +5,6 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class CF1593D1 {
     public static void main(String[] args) throws IOException {

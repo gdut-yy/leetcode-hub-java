@@ -1,7 +1,6 @@
 package c148;
 
 import base.AbstractOjTests;
-import c145.Arc145_a;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
