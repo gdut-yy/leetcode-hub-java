@@ -12,6 +12,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>codeforces-01</module>
+        <module>codeforces-02</module>
+        <module>codeforces-03</module>
+        <module>codeforces-04</module>
+        <module>codeforces-05</module>
+        <module>codeforces-06</module>
+        <module>codeforces-07</module>
         <module>codeforces-08</module>
         <module>codeforces-09</module>
         <module>codeforces-10</module>
@@ -24,7 +31,6 @@
         <module>codeforces-17</module>
         <module>codeforces-18</module>
         <module>codeforces-19</module>
-        <module>codeforces-div1</module>
     </modules>
 
     <properties>
