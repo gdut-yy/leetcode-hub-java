@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.Arrays;
 
-public class Solution6957 {
+public class Solution2801 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int countSteppingNumbers(String low, String high) {
@@ -51,7 +51,7 @@ public class Solution6957 {
     }
 }
 /*
-6957. 统计范围内的步进数字数目
+2801. 统计范围内的步进数字数目
 https://leetcode.cn/problems/count-stepping-numbers-in-range/
 
 第 356 场周赛 T4。

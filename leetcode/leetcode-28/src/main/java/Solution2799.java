@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6900 {
+public class Solution2799 {
     public int countCompleteSubarrays(int[] nums) {
         int n = nums.length;
 
@@ -39,7 +39,7 @@ public class Solution6900 {
     }
 }
 /*
-6900. 统计完全子数组的数目
+2799. 统计完全子数组的数目
 https://leetcode.cn/problems/count-complete-subarrays-in-an-array/
 
 第 356 场周赛 T2。

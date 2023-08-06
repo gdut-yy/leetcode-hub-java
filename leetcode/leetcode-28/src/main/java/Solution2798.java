@@ -1,4 +1,4 @@
-public class Solution6917 {
+public class Solution2798 {
     public int numberOfEmployeesWhoMetTarget(int[] hours, int target) {
         int ans = 0;
         for (int x : hours) {
@@ -10,7 +10,7 @@ public class Solution6917 {
     }
 }
 /*
-6917. 满足目标工作时长的员工数目
+2798. 满足目标工作时长的员工数目
 https://leetcode.cn/problems/number-of-employees-who-met-the-target/
 
 第 356 场周赛 T1。

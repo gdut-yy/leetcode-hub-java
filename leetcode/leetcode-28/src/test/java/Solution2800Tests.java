@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution6918Tests {
-    private final Solution6918 solution6918 = new Solution6918();
+public class Solution2800Tests {
+    private final Solution2800 solution2800 = new Solution2800();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution6918Tests {
         String b = "bca";
         String c = "aaa";
         String expected = "aaabca";
-        Assertions.assertEquals(expected, solution6918.minimumString(a, b, c));
+        Assertions.assertEquals(expected, solution2800.minimumString(a, b, c));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution6918Tests {
         String b = "ba";
         String c = "aba";
         String expected = "aba";
-        Assertions.assertEquals(expected, solution6918.minimumString(a, b, c));
+        Assertions.assertEquals(expected, solution2800.minimumString(a, b, c));
     }
 
     // 补充用例
@@ -31,6 +31,6 @@ public class Solution6918Tests {
         String b = "a";
         String c = "b";
         String expected = "cab";
-        Assertions.assertEquals(expected, solution6918.minimumString(a, b, c));
+        Assertions.assertEquals(expected, solution2800.minimumString(a, b, c));
     }
 }

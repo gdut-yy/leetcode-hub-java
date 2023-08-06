@@ -1,4 +1,4 @@
-public class Solution6918 {
+public class Solution2800 {
     private static final int[][] PERMS = {{0, 1, 2}, {0, 2, 1}, {1, 0, 2}, {1, 2, 0}, {2, 0, 1}, {2, 1, 0}};
 
     public String minimumString(String a, String b, String c) {
@@ -27,7 +27,7 @@ public class Solution6918 {
     }
 }
 /*
-6918. 包含三个字符串的最短字符串
+2800. 包含三个字符串的最短字符串
 https://leetcode.cn/problems/shortest-string-that-contains-three-strings/
 
 第 356 场周赛 T3。
