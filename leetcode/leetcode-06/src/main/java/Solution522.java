@@ -25,18 +25,16 @@ public class Solution522 {
         return true;
     }
 
-    // O(n)
-    // solution392 s 是否为 t 的子序列
     private boolean isSubsequence(String s, String t) {
-        int idx = -1;
-        for (char ch : s.toCharArray()) {
-            // jdk indexOf
-            idx = t.indexOf(ch, idx + 1);
-            if (idx == -1) {
-                return false;
+        int n = s.length(), m = t.length();
+        int i = 0, j = 0;
+        while (i < n && j < m) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
             }
+            j++;
         }
-        return true;
+        return i == n;
     }
 }
 /*

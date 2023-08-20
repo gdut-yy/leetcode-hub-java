@@ -1,14 +1,14 @@
 public class Solution392 {
     public boolean isSubsequence(String s, String t) {
-        int curIndex = -1;
-        for (char ch : s.toCharArray()) {
-            // jdk indexOf
-            curIndex = t.indexOf(ch, curIndex + 1);
-            if (curIndex == -1) {
-                return false;
+        int n = s.length(), m = t.length();
+        int i = 0, j = 0;
+        while (i < n && j < m) {
+            if (s.charAt(i) == t.charAt(j)) {
+                i++;
             }
+            j++;
         }
-        return true;
+        return i == n;
     }
 }
 /*

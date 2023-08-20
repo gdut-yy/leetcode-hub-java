@@ -5,13 +5,12 @@ public class Solution300 {
      * 空间复杂度 O(n)
      */
     public int lengthOfLIS(int[] nums) {
-        int len = nums.length;
-
+        int n = nums.length;
         // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
-        int[] dp = new int[len];
+        int[] dp = new int[n];
         dp[0] = 1;
         int max = 1;
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             dp[i] = 1;
             for (int j = 0; j < i; j++) {
                 // 严格递增
@@ -30,13 +29,12 @@ public class Solution300 {
      * 空间复杂度 O(n)
      */
     public int lengthOfLIS2(int[] nums) {
-        int len = nums.length;
-
+        int n = nums.length;
         // ascend[idx] 表示长度为 idx 的最长上升子序列的末尾元素的最小值，用 idx 记录目前最长上升子序列的长度
-        int[] ascend = new int[len + 1];
+        int[] ascend = new int[n + 1];
         int idx = 1;
         ascend[idx] = nums[0];
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             // 严格递增
             if (nums[i] > ascend[idx]) {
                 idx++;
