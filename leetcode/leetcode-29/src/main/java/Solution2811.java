@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution6953 {
+public class Solution2811 {
     public boolean canSplitArray(List<Integer> nums, int m) {
         int n = nums.size();
         // 注意特判
@@ -14,7 +14,7 @@ public class Solution6953 {
     }
 }
 /*
-6953. 判断是否能拆分数组
+2811. 判断是否能拆分数组
 https://leetcode.cn/problems/check-if-it-is-possible-to-split-array/
 
 第 357 场周赛 T2。

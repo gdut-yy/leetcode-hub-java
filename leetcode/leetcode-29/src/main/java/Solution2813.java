@@ -4,7 +4,7 @@ import java.util.Deque;
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6932 {
+public class Solution2813 {
     public long findMaximumElegance(int[][] items, int k) {
         Arrays.sort(items, (o1, o2) -> Integer.compare(o2[0], o1[0]));
 
@@ -35,7 +35,7 @@ public class Solution6932 {
     }
 }
 /*
-6932. 子序列最大优雅度
+2813. 子序列最大优雅度
 https://leetcode.cn/problems/maximum-elegance-of-a-k-length-subsequence/
 
 第 357 场周赛 T4。

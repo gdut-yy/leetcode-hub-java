@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution6951 {
+public class Solution2812 {
     private List<List<Integer>> grid;
     private int m, n;
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
@@ -173,7 +173,7 @@ public class Solution6951 {
     }
 }
 /*
-6951. 找出最安全路径
+2812. 找出最安全路径
 https://leetcode.cn/problems/find-the-safest-path-in-a-grid/
 
 第 357 场周赛 T3。

@@ -1,4 +1,4 @@
-public class Solution6925 {
+public class Solution2810 {
     public String finalString(String s) {
         StringBuilder ans = new StringBuilder();
         for (char ch : s.toCharArray()) {
@@ -12,7 +12,7 @@ public class Solution6925 {
     }
 }
 /*
-6925. 故障键盘
+2810. 故障键盘
 https://leetcode.cn/problems/faulty-keyboard/
 
 第 357 场周赛 T1。

@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution6987 {
+public class Solution2809 {
     public int minimumTime(List<Integer> nums1, List<Integer> nums2, int x) {
         int n = nums1.size();
         Integer[] ids = new Integer[n];
@@ -29,7 +29,7 @@ public class Solution6987 {
     }
 }
 /*
-6987. 使数组和小于等于 x 的最少时间
+2809. 使数组和小于等于 x 的最少时间
 https://leetcode.cn/problems/minimum-time-to-make-array-sum-at-most-x/
 
 第 110 场双周赛 T4。

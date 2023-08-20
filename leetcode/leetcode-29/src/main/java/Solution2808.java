@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6956 {
+public class Solution2808 {
     public int minimumSeconds(List<Integer> nums) {
         int n = nums.size();
         Map<Integer, List<Integer>> posMap = new HashMap<>();
@@ -28,7 +28,7 @@ public class Solution6956 {
     }
 }
 /*
-6956. 使循环数组所有元素相等的最少秒数
+2808. 使循环数组所有元素相等的最少秒数
 https://leetcode.cn/problems/minimum-seconds-to-equalize-a-circular-array/
 
 第 110 场双周赛 T3。

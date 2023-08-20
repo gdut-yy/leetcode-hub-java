@@ -3,8 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Solution6987Tests {
-    private final Solution6987 solution6987 = new Solution6987();
+public class Solution2809Tests {
+    private final Solution2809 solution2809 = new Solution2809();
 
     @Test
     public void example1() {
@@ -12,7 +12,7 @@ public class Solution6987Tests {
         List<Integer> nums2 = List.of(1, 2, 3);
         int x = 4;
         int expected = 3;
-        Assertions.assertEquals(expected, solution6987.minimumTime(nums1, nums2, x));
+        Assertions.assertEquals(expected, solution2809.minimumTime(nums1, nums2, x));
     }
 
     @Test
@@ -21,6 +21,6 @@ public class Solution6987Tests {
         List<Integer> nums2 = List.of(3, 3, 3);
         int x = 4;
         int expected = -1;
-        Assertions.assertEquals(expected, solution6987.minimumTime(nums1, nums2, x));
+        Assertions.assertEquals(expected, solution2809.minimumTime(nums1, nums2, x));
     }
 }

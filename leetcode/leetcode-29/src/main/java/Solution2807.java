@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution6940 {
+public class Solution2807 {
     public ListNode insertGreatestCommonDivisors(ListNode head) {
         List<Integer> list = new ArrayList<>();
         while (head != null) {
@@ -30,7 +30,7 @@ public class Solution6940 {
     }
 }
 /*
-6940. 在链表中插入最大公约数
+2807. 在链表中插入最大公约数
 https://leetcode.cn/problems/insert-greatest-common-divisors-in-linked-list/
 
 第 110 场双周赛 T2。

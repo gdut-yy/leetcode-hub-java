@@ -1,4 +1,4 @@
-public class Solution6990 {
+public class Solution2806 {
     public int accountBalanceAfterPurchase(int purchaseAmount) {
         int roundedAmount = 0;
         int delta = 100;
@@ -12,7 +12,7 @@ public class Solution6990 {
     }
 }
 /*
-6990. 取整购买后的账户余额
+2806. 取整购买后的账户余额
 https://leetcode.cn/problems/account-balance-after-rounded-purchase/
 
 第 110 场双周赛 T1。
