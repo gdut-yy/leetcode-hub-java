@@ -67,4 +67,8 @@ https://leetcode.cn/problems/number-of-beautiful-integers-in-the-range/
 数位 DP
 时间复杂度 O(n^2·k·D)。其中 n = log(high)，D = 10
 空间复杂度 O(n^2·k)
+相似题目: 2719. 统计整数数目
+https://leetcode.cn/problems/count-of-integers/
+2801. 统计范围内的步进数字数目
+https://leetcode.cn/problems/count-stepping-numbers-in-range/
  */
