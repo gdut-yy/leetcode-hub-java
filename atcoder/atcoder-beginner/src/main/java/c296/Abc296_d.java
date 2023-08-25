@@ -34,6 +34,7 @@ public class Abc296_d {
 D - M<=ab
 https://atcoder.jp/contests/abc296/tasks/abc296_d
 
+灵茶の试炼 2023-08-22
 题目大意：
 给定正整数 N 和 m，找出满足下面两个条件的最小正整数 X，如果没有这样的整数，则输出 −1。
 - X 可以表示为 1 到 N 之间的两个整数 a 和 b 的乘积。这里，a 和 b 可能是一样的。

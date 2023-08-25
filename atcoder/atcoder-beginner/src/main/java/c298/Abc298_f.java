@@ -63,6 +63,7 @@ public class Abc298_f {
 F - Rook Score
 https://atcoder.jp/contests/abc298/tasks/abc298_f
 
+灵茶の试炼 2023-08-24
 题目大意：
 我们有一个 1e9 行 1e9 列的网格。设(i,j)表示从上到下第 i 行和从左到第 j 列的正方形。
 对于 i=1,2,...,N，一个正整数 xi 写在(ri, ci)上。在另外 10 个 18−N 个方格上，写 0。

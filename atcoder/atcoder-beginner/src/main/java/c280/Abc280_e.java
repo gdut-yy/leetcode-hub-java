@@ -51,6 +51,7 @@ public class Abc280_e {
 E - Critical Hit
 https://atcoder.jp/contests/abc280/tasks/abc280_e
 
+灵茶の试炼 2023-08-07
 题目大意：
 有一个初始耐力为 N 的怪物。
 高桥反复攻击怪物，而怪物的耐力保持 1 或更高。

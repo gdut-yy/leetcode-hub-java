@@ -33,6 +33,7 @@ public class CF1811E {
 E. Living Sequence
 https://codeforces.com/contest/1811/problem/E
 
+灵茶の试炼 2023-08-01
 题目大意：
 在日本，数字 4 读起来像死亡，所以鲍勃决定建立一个现场序列。
 活数列 a 包含所有不包含数字 4 的自然数。=[1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12 日,13 日,15 日,16 日…]。

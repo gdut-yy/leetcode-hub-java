@@ -48,6 +48,7 @@ public class Abc298_d {
 D - Writing a Numeral
 https://atcoder.jp/contests/abc298/tasks/abc298_d
 
+灵茶の试炼 2023-08-21
 题目大意：
 我们有一个字符串 S，最初 S= 1。
 按下列格式处理 Q 查询。

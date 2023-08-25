@@ -35,8 +35,8 @@ public class CF1238E {
         for (int s = 0; s < 1 << m; s++) {
             int i = Integer.bitCount(s);
             // for cus, lb := len(f)-1^s, 0; cus > 0; cus ^= lb {
-            for (int cus = (1 << m) - 1 ^ s, lb = 0; cus > 0; cus ^= lb) {
-                lb = Integer.lowestOneBit(cus);
+            for (int cus = f.length - 1 ^ s, lb = 0; cus > 0; cus ^= lb) {
+                lb = cus & -cus;
                 int ns = s | lb;
                 int p = Integer.numberOfTrailingZeros(lb);
                 int sum = 0;

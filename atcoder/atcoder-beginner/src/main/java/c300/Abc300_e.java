@@ -55,6 +55,7 @@ public class Abc300_e {
 E - Dice Product 3
 https://atcoder.jp/contests/abc300/tasks/abc300_e
 
+灵茶の试炼 2023-08-23
 题目大意：
 你有一个整数 1 和一个骰子，显示 1 到 6(包括 6)之间的整数的概率相等。
 当整数严格小于 N 时，重复以下操作:
