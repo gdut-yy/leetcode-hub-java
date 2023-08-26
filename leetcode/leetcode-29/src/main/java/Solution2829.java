@@ -1,7 +1,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class Solution6450 {
+public class Solution2829 {
     // O(n)
     public int minimumSum(int n, int k) {
         Set<Integer> set = new HashSet<>();
@@ -27,7 +27,7 @@ public class Solution6450 {
     }
 }
 /*
-6450. k-avoiding 数组的最小总和
+2829. k-avoiding 数组的最小总和
 https://leetcode.cn/problems/determine-the-minimum-sum-of-a-k-avoiding-array/
 
 第 359 场周赛 T2。

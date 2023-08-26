@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution7006 {
+public class Solution2830 {
     public int maximizeTheProfit(int n, List<List<Integer>> offers) {
         // 右端点排序
         offers.sort(Comparator.comparingInt(o -> o.get(1)));
@@ -119,7 +119,7 @@ public class Solution7006 {
     }
 }
 /*
-7006. 销售利润最大化
+2830. 销售利润最大化
 https://leetcode.cn/problems/maximize-the-profit-as-the-salesman/
 
 第 359 场周赛 T3。

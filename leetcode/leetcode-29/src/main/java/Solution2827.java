@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution8013 {
+public class Solution2827 {
     private int k;
 
     public int numberOfBeautifulIntegers(int low, int high, int k) {
@@ -50,7 +50,7 @@ public class Solution8013 {
     }
 }
 /*
-8013. 范围中美丽整数的数目
+2827. 范围中美丽整数的数目
 https://leetcode.cn/problems/number-of-beautiful-integers-in-the-range/
 
 第 111 场双周赛 T4。

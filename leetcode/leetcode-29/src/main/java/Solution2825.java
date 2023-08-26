@@ -1,4 +1,4 @@
-public class Solution8014 {
+public class Solution2825 {
     public boolean canMakeSubsequence(String str1, String str2) {
         char[] s = str1.toCharArray();
         char[] t = str2.toCharArray();
@@ -17,7 +17,7 @@ public class Solution8014 {
     }
 }
 /*
-8014. 循环增长使字符串子序列等于另一个字符串
+2825. 循环增长使字符串子序列等于另一个字符串
 https://leetcode.cn/problems/make-string-a-subsequence-using-cyclic-increments/
 
 第 111 场双周赛 T2。

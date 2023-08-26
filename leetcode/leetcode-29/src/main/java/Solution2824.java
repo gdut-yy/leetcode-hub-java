@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution6954 {
+public class Solution2824 {
     // O(n^2)
     public int countPairs(List<Integer> nums, int target) {
         int n = nums.size();
@@ -34,7 +34,7 @@ public class Solution6954 {
     }
 }
 /*
-6954. 统计和小于目标的下标对数目
+2824. 统计和小于目标的下标对数目
 https://leetcode.cn/problems/count-pairs-whose-sum-is-less-than-target/
 
 第 111 场双周赛 T1。

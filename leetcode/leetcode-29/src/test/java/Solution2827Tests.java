@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution8013Tests {
-    private final Solution8013 solution8013 = new Solution8013();
+public class Solution2827Tests {
+    private final Solution2827 solution2827 = new Solution2827();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution8013Tests {
         int high = 20;
         int k = 3;
         int expected = 2;
-        Assertions.assertEquals(expected, solution8013.numberOfBeautifulIntegers(low, high, k));
+        Assertions.assertEquals(expected, solution2827.numberOfBeautifulIntegers(low, high, k));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution8013Tests {
         int high = 10;
         int k = 1;
         int expected = 1;
-        Assertions.assertEquals(expected, solution8013.numberOfBeautifulIntegers(low, high, k));
+        Assertions.assertEquals(expected, solution2827.numberOfBeautifulIntegers(low, high, k));
     }
 
     @Test
@@ -28,6 +28,6 @@ public class Solution8013Tests {
         int high = 5;
         int k = 2;
         int expected = 0;
-        Assertions.assertEquals(expected, solution8013.numberOfBeautifulIntegers(low, high, k));
+        Assertions.assertEquals(expected, solution2827.numberOfBeautifulIntegers(low, high, k));
     }
 }

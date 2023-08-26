@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution6941 {
+public class Solution2826 {
     public int minimumOperations(List<Integer> nums) {
         int n = nums.size();
         // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
@@ -20,7 +20,7 @@ public class Solution6941 {
     }
 }
 /*
-6941. 将三个组排序
+2826. 将三个组排序
 https://leetcode.cn/problems/sorting-three-groups/
 
 第 111 场双周赛 T3。

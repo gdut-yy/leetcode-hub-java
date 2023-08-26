@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution7004 {
+public class Solution2828 {
     public boolean isAcronym(List<String> words, String s) {
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : words) {
@@ -10,7 +10,7 @@ public class Solution7004 {
     }
 }
 /*
-7004. 判别首字母缩略词
+2828. 判别首字母缩略词
 https://leetcode.cn/problems/check-if-a-string-is-an-acronym-of-words/
 
 第 359 场周赛 T1。

@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6467 {
+public class Solution2831 {
     private static final int MX = (int) (1e5 + 1);
 
     public int longestEqualSubarray(List<Integer> nums, int k) {
@@ -93,7 +93,7 @@ public class Solution6467 {
     }
 }
 /*
-6467. 找出最长等值子数组
+2831. 找出最长等值子数组
 https://leetcode.cn/problems/find-the-longest-equal-subarray/
 
 第 359 场周赛 T4。
