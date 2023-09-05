@@ -1,0 +1,22 @@
+5
+1 4
+vika
+3 3
+bad
+car
+pet
+4 4
+vvvv
+iiii
+kkkk
+aaaa
+4 4
+vkak
+iiai
+avvk
+viaa
+4 7
+vbickda
+vbickda
+vbickda
+vbickda

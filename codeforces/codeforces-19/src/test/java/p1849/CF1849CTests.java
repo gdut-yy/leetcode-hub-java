@@ -1,0 +1,19 @@
+package p1849;
+
+import base.AbstractOjTests;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+public class CF1849CTests extends AbstractOjTests {
+    public CF1849CTests() {
+        super("/p1849/C/");
+    }
+
+    @Test
+    public void example1() throws IOException {
+        super.doSetSystemInOut();
+        CF1849C.main(null);
+        super.doAssertion();
+    }
+}
