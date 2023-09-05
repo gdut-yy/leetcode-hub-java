@@ -99,7 +99,7 @@ n == grid[i].length
 
 主要思路，枚举每个单元格上下左右四个方向贡献的零。
 比赛时一开始看错了数据范围，发现会狠狠的爆 long，换 BigInteger 会 TLE。
-乘积末尾零问题可以转化为 求 质因子 22 的个数和质因子 55 的个数的较小值 问题
+乘积末尾零问题可以转化为 求 质因子 2 的个数和质因子 5 的个数的较小值 问题
 相似题目: 172. 阶乘后的零
 https://leetcode.cn/problems/factorial-trailing-zeroes/
  */

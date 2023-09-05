@@ -3,26 +3,26 @@ import java.util.Set;
 
 public class Solution2261 {
     public int countDistinct(int[] nums, int k, int p) {
-        int len = nums.length;
+        int n = nums.length;
 
-        Set<String> hashSet = new HashSet<>();
-        for (int i = 0; i < len; i++) {
+        Set<String> set = new HashSet<>();
+        for (int i = 0; i < n; i++) {
             // 子数组中有 cnt 个可被 p 整除的元素
             int cnt = 0;
             StringBuilder stringBuilder = new StringBuilder();
-            for (int j = i; j < len; j++) {
+            for (int j = i; j < n; j++) {
                 if (nums[j] % p == 0) {
                     cnt++;
                 }
                 if (cnt <= k) {
                     stringBuilder.append(nums[j]).append(",");
-                    hashSet.add(stringBuilder.toString());
+                    set.add(stringBuilder.toString());
                 } else {
                     break;
                 }
             }
         }
-        return hashSet.size();
+        return set.size();
     }
 }
 /*

@@ -1,36 +1,27 @@
 public class Solution777 {
     public boolean canTransform(String start, String end) {
-        int len = start.length();
+        char[] s = start.toCharArray();
+        char[] t = end.toCharArray();
 
-        // 双指针
-        int p1 = 0;
-        int p2 = 0;
-        while (p1 < len && p2 < len) {
-            while (p1 < len && start.charAt(p1) == 'X') {
-                p1++;
-            }
-            while (p2 < len && end.charAt(p2) == 'X') {
-                p2++;
-            }
-            if (p1 < len && p2 < len) {
-                if (start.charAt(p1) != end.charAt(p2)) {
+        int i = 0, j = 0, n = s.length;
+        while (i < n && j < n) {
+            while (i < n && s[i] == 'X') i++;
+            while (j < n && t[j] == 'X') j++;
+            if (i < n && j < n) {
+                if (s[i] != t[j]) {
                     return false;
                 } else {
-                    if ((start.charAt(p1) == 'L' && p1 < p2) || start.charAt(p1) == 'R' && p1 > p2) {
+                    if ((s[i] == 'L' && i < j) || (s[i] == 'R' && i > j)) {
                         return false;
                     }
-                    p1++;
-                    p2++;
+                    i++;
+                    j++;
                 }
             }
         }
-        while (p1 < len && start.charAt(p1) == 'X') {
-            p1++;
-        }
-        while (p2 < len && end.charAt(p2) == 'X') {
-            p2++;
-        }
-        return p1 == len && p2 == len;
+        while (i < n && s[i] == 'X') i++;
+        while (j < n && t[j] == 'X') j++;
+        return i == n && j == n;
     }
 }
 /*
@@ -43,6 +34,7 @@ https://leetcode.cn/problems/swap-adjacent-in-lr-string/
 1 <= len(start) = len(end) <= 10000。
 start和end中的字符串仅限于'L', 'R'和'X'。
 
+双指针
 相似题目: 2337. 移动片段得到字符串
 https://leetcode.cn/problems/move-pieces-to-obtain-a-string/
  */

@@ -1,13 +1,13 @@
 public class Solution2425 {
     public int xorAllNums(int[] nums1, int[] nums2) {
-        int len1 = nums1.length;
-        int len2 = nums2.length;
+        int n = nums1.length;
+        int m = nums2.length;
 
-        if (len1 % 2 == 1 && len2 % 2 == 1) {
+        if (n % 2 == 1 && m % 2 == 1) {
             return xorAllNums(nums2) ^ xorAllNums(nums1);
-        } else if (len1 % 2 == 1) {
+        } else if (n % 2 == 1) {
             return xorAllNums(nums2);
-        } else if (len2 % 2 == 1) {
+        } else if (m % 2 == 1) {
             return xorAllNums(nums1);
         } else {
             return 0;

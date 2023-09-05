@@ -1,7 +1,7 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -26,7 +26,8 @@ public class Solution2608 {
     }
 
     private int bfs(int start) {
-        Queue<int[]> queue = new LinkedList<>();
+        int ans = Integer.MAX_VALUE;
+        Queue<int[]> queue = new ArrayDeque<>();
         queue.add(new int[]{start, -1});
         int[] dis = new int[n];
         Arrays.fill(dis, -1);
@@ -43,13 +44,13 @@ public class Solution2608 {
                 } else {
                     // 第二次遇到
                     if (y != fa) {
-                        return dis[x] + dis[y] + 1;
+                        ans = Math.min(ans, dis[x] + dis[y] + 1);
                     }
                 }
             }
         }
         // 无环
-        return n + 1;
+        return ans;
     }
 }
 /*

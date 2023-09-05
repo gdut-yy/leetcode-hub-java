@@ -1,61 +1,51 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.Arrays;
 
 public class Solution2584 {
+    private static final int MAX_N = (int) (1e6 + 5);
+
     public int findValidSplit(int[] nums) {
         int n = nums.length;
-        Map<Integer, int[]> map = new HashMap<>();
+        // left[p] 表示质数 p 首次出现的下标
+        int[] left = new int[MAX_N];
+        Arrays.fill(left, -1);
+        // right[i] 表示左端点为 i 的区间的右端点的最大值
+        int[] right = new int[n];
+
         for (int i = 0; i < n; i++) {
-            List<Integer> factorPrime = getFactorPrime(nums[i]);
-            for (int x : factorPrime) {
-                if (!map.containsKey(x)) {
-                    map.put(x, new int[]{i, i});
+            int x = nums[i];
+            for (int d = 2; d * d <= x; d++) {
+                if (x % d == 0) {
+                    if (left[d] == -1) {
+                        // 第一次遇到质数 d
+                        left[d] = i;
+                    } else {
+                        // 记录左端点对应的右端点的最大值
+                        right[left[d]] = i;
+                    }
+                    // for (x /= d; x % d == 0; x /= d) ;
+                    x /= d;
+                    while (x % d == 0) {
+                        x /= d;
+                    }
+                }
+            }
+            if (x > 1) {
+                if (left[x] == -1) {
+                    left[x] = i;
                 } else {
-                    map.get(x)[1] = i;
+                    right[left[x]] = i;
                 }
             }
         }
 
-        // f[i] 表示下标 starti 对应的最长 endi
-        int[] f = new int[n];
-        for (Map.Entry<Integer, int[]> entry : map.entrySet()) {
-            int[] val = entry.getValue();
-            f[val[0]] = val[1];
-        }
-
-        // 能到达的最远距离下标，当前下标
-        int maxR = 0, curR = 0;
-        // [1, time) 返回所需片段的最小数目
-        for (int i = 0; i < n - 1; i++) {
-            maxR = Math.max(maxR, f[i]);
-            if (i == curR) {
-                if (i == maxR) {
-                    return i;
-                }
-                curR = maxR;
+        int maxR = 0;
+        for (int i = 0; i < n; i++) {
+            if (i > maxR) {
+                return maxR;
             }
+            maxR = Math.max(maxR, right[i]);
         }
         return -1;
-    }
-
-    private static List<Integer> getFactorPrime(int num) {
-        List<Integer> resList = new ArrayList<>();
-        for (int i = 2; i * i <= num; i++) {
-            // 如果 i 能够整除 N，说明 i 为 N 的一个质因子。
-            if (num % i == 0) {
-                while (num % i == 0) {
-                    num /= i;
-                }
-                resList.add(i);
-            }
-        }
-        // 说明再经过操作之后 N 留下了一个素数
-        if (num != 1) {
-            resList.add(num);
-        }
-        return resList;
     }
 }
 /*

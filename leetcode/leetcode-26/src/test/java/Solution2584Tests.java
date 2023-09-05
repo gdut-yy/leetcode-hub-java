@@ -17,4 +17,13 @@ public class Solution2584Tests {
         int expected = -1;
         Assertions.assertEquals(expected, solution2584.findValidSplit(nums));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/problems/split-the-array-to-make-coprime-products/submissions/462157477/
+        int[] nums = {35, 83, 53, 58, 70, 85, 5};
+        int expected = -1;
+        Assertions.assertEquals(expected, solution2584.findValidSplit(nums));
+    }
 }

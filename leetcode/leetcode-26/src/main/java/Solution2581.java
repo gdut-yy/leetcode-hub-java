@@ -30,7 +30,7 @@ public class Solution2581 {
         dfs(0, -1);
 
         res = 0;
-        dfs(0, -1, cnt0);
+        reroot(0, -1, cnt0);
         return res;
     }
 
@@ -45,7 +45,7 @@ public class Solution2581 {
     }
 
     // 换根 DP
-    private void dfs(int x, int fa, int cnt) {
+    private void reroot(int x, int fa, int cnt) {
         if (cnt >= k) res++;
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
             if (y == fa) continue;
@@ -53,7 +53,7 @@ public class Solution2581 {
             // 换根后，原来的 x->y 变为 y->x
             if (set.contains((long) x << 32 | y)) cnty--;
             if (set.contains((long) y << 32 | x)) cnty++;
-            dfs(y, x, cnty);
+            reroot(y, x, cnty);
         }
     }
 }

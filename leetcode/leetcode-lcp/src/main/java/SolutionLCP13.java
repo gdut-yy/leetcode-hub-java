@@ -1,22 +1,21 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
 public class SolutionLCP13 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-    private int M;
-    private int N;
+    private int m, n;
     private char[][] chars;
-    private int[] start;
-    private int[] target;
+    private int sx, sy, tx, ty;
 
     public int minimalSteps(String[] maze) {
-        M = maze.length;
-        N = maze[0].length();
-        chars = new char[M][N];
-        for (int i = 0; i < M; i++) {
+        m = maze.length;
+        n = maze[0].length();
+
+        chars = new char[m][n];
+        for (int i = 0; i < m; i++) {
             chars[i] = maze[i].toCharArray();
         }
 
@@ -25,13 +24,15 @@ public class SolutionLCP13 {
         // 石头 'O'
         List<int[]> oList = new ArrayList<>();
 
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 char ch = chars[i][j];
                 if (ch == 'S') {
-                    start = new int[]{i, j};
+                    sx = i;
+                    sy = j;
                 } else if (ch == 'T') {
-                    target = new int[]{i, j};
+                    tx = i;
+                    ty = j;
                 } else if (ch == 'M') {
                     mList.add(new int[]{i, j});
                 } else if (ch == 'O') {
@@ -41,10 +42,10 @@ public class SolutionLCP13 {
         }
 
         // 起点到其他点距离，-1 表示无法抵达
-        int[][] startDist = bfs(start);
+        int[][] startDist = bfs(sx, sy);
         // 特判：没有机关 S->T
         if (mList.isEmpty()) {
-            return startDist[target[0]][target[1]];
+            return startDist[tx][ty];
         }
 
         // 机关数量
@@ -63,10 +64,10 @@ public class SolutionLCP13 {
         for (int i = 0; i < mSize; i++) {
             // 第 i 个机关
             int[] mi = mList.get(i);
-            int[][] miDist = bfs(mi);
+            int[][] miDist = bfs(mi[0], mi[1]);
             dd[i] = miDist;
             // (S-O-M)
-            dist[i][mSize + 1] = miDist[target[0]][target[1]];
+            dist[i][mSize + 1] = miDist[tx][ty];
         }
         for (int i = 0; i < mSize; i++) {
             int som = -1;
@@ -140,30 +141,32 @@ public class SolutionLCP13 {
     }
 
     // 从某个点到其他可通行点的步数
-    private int[][] bfs(int[] point) {
-        int[][] dist = new int[M][N];
-        for (int i = 0; i < M; i++) {
+    private int[][] bfs(int x, int y) {
+        int[][] dist = new int[m][n];
+        for (int i = 0; i < m; i++) {
             Arrays.fill(dist[i], -1);
         }
 
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{point[0], point[1]});
-        boolean[][] visited = new boolean[M][N];
-        visited[point[0]][point[1]] = true;
+        Queue<int[]> queue = new ArrayDeque<>();
+        queue.add(new int[]{x, y});
+        boolean[][] vis = new boolean[m][n];
+        vis[x][y] = true;
 
         int step = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
-                dist[cur[0]][cur[1]] = step;
+                int[] tuple = queue.remove();
+                int cx = tuple[0], cy = tuple[1];
+                dist[cx][cy] = step;
 
                 for (int[] dir : DIRECTIONS) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && chars[nextM][nextN] != '#' && !visited[nextM][nextN]) {
-                        visited[nextM][nextN] = true;
-                        queue.add(new int[]{nextM, nextN});
+                    int nx = cx + dir[0];
+                    int ny = cy + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n
+                            && !vis[nx][ny] && chars[nx][ny] != '#') {
+                        vis[nx][ny] = true;
+                        queue.add(new int[]{nx, ny});
                     }
                 }
             }

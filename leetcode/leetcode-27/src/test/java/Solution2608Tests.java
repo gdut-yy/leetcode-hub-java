@@ -19,4 +19,14 @@ public class Solution2608Tests {
         int expected = -1;
         Assertions.assertEquals(expected, solution2608.findShortestCycle(n, edges));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/problems/shortest-cycle-in-a-graph/submissions/462154445/
+        int n = 6;
+        int[][] edges = UtUtils.stringToInts2("[[4,2],[5,1],[5,0],[0,3],[5,2],[1,4],[1,3],[3,4]]");
+        int expected = 3;
+        Assertions.assertEquals(expected, solution2608.findShortestCycle(n, edges));
+    }
 }

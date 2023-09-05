@@ -11,13 +11,13 @@ public class Solution2609 {
     }
 
     // 时间复杂度 O(n) 空间复杂度 O(1) 解法
-    public int findTheLongestBalancedSubstring2(String S) {
-        char[] s = S.toCharArray();
-        int ans = 0, pre = 0, cur = 0, n = s.length;
+    public int findTheLongestBalancedSubstring2(String s) {
+        char[] cs = s.toCharArray();
+        int ans = 0, pre = 0, cur = 0, n = cs.length;
         for (int i = 0; i < n; i++) {
             ++cur;
-            if (i == n - 1 || s[i] != s[i + 1]) {
-                if (s[i] == '1') {
+            if (i == n - 1 || cs[i] != cs[i + 1]) {
+                if (cs[i] == '1') {
                     ans = Math.max(ans, Math.min(pre, cur) * 2);
                 }
                 pre = cur;

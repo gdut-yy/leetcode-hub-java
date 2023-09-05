@@ -1,22 +1,24 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Solution2146 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public List<List<Integer>> highestRankedKItems(int[][] grid, int[] pricing, int[] start, int k) {
-        int M = grid.length;
-        int N = grid[0].length;
-        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+        int m = grid.length;
+        int n = grid[0].length;
+
         int min = pricing[0];
         int max = pricing[1];
 
         // BFS
-        Queue<int[]> queue = new LinkedList<>();
-        boolean[][] visited = new boolean[M][N];
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] vis = new boolean[m][n];
         queue.add(start);
-        visited[start[0]][start[1]] = true;
+        vis[start[0]][start[1]] = true;
 
         // row col step
         PriorityQueue<List<Integer>> priorityQueue = new PriorityQueue<>((o1, o2) -> {
@@ -45,21 +47,20 @@ public class Solution2146 {
             int size = queue.size();
             step++;
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
-                int curM = cur[0];
-                int curN = cur[1];
+                int[] tuple = queue.remove();
+                int cx = tuple[0], cy = tuple[1];
                 // 只考虑在给定范围之内的价格
-                if (grid[curM][curN] >= min && grid[curM][curN] <= max) {
-                    priorityQueue.add(List.of(curM, curN, step));
+                if (grid[cx][cy] >= min && grid[cx][cy] <= max) {
+                    priorityQueue.add(List.of(cx, cy, step));
                 }
 
-                for (int[] dir : directions) {
-                    int nextM = curM + dir[0];
-                    int nextN = curN + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && grid[nextM][nextN] != 0
-                            && !visited[nextM][nextN]) {
-                        visited[nextM][nextN] = true;
-                        queue.add(new int[]{nextM, nextN});
+                for (int[] dir : DIRECTIONS) {
+                    int nx = cx + dir[0];
+                    int ny = cy + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && grid[nx][ny] != 0
+                            && !vis[nx][ny]) {
+                        vis[nx][ny] = true;
+                        queue.add(new int[]{nx, ny});
                     }
                 }
             }

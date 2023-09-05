@@ -1,121 +1,72 @@
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class Solution1992 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int[][] findFarmland(int[][] land) {
-        if (land.length == 0 || land[0].length == 0) {
-            return new int[][]{};
-        }
-        int landM = land.length;
-        int landN = land[0].length;
-        // 并查集
-        UnionFind unionFind = new UnionFind(land);
-        for (int m = 0; m < landM; m++) {
-            for (int n = 0; n < landN; n++) {
-                if (land[m][n] == 1) {
-                    // up
-                    if (m - 1 >= 0 && land[m - 1][n] == 1) {
-                        unionFind.union(m * landN + n, (m - 1) * landN + n);
-                    }
-                    // down
-                    if (m + 1 < landM && land[m + 1][n] == 1) {
-                        unionFind.union(m * landN + n, (m + 1) * landN + n);
-                    }
-                    // left
-                    if (n - 1 >= 0 && land[m][n - 1] == 1) {
-                        unionFind.union(m * landN + n, m * landN + n - 1);
-                    }
-                    // right
-                    if (n + 1 < landN && land[m][n + 1] == 1) {
-                        unionFind.union(m * landN + n, m * landN + n + 1);
+        int m = land.length;
+        int n = land[0].length;
+
+        DSU dsu = new DSU(m * n);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (land[i][j] == 1) {
+                    for (int[] dir : DIRECTIONS) {
+                        int nx = i + dir[0];
+                        int ny = j + dir[1];
+                        if (nx >= 0 && nx < m && ny >= 0 && ny < n && land[nx][ny] == 1) {
+                            dsu.union(i * n + j, nx * n + ny);
+                        }
                     }
                 }
             }
         }
-        // parent 值相等为同一个农场组
-        int[] parent = unionFind.parent;
-        Map<Integer, List<Integer>> cntMap = new HashMap<>();
-        for (int i = 0; i < parent.length; i++) {
-            if (parent[i] != -1) {
-                List<Integer> list = cntMap.getOrDefault(parent[i], new ArrayList<>());
-                list.add(i);
-                cntMap.put(parent[i], list);
+
+        Map<Integer, List<int[]>> groupsMap = new HashMap<>();
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (land[i][j] == 1) {
+                    int pa = dsu.fa[i * n + j];
+                    groupsMap.computeIfAbsent(pa, key -> new ArrayList<>()).add(new int[]{i, j});
+                }
             }
         }
         List<int[]> resList = new ArrayList<>();
-        for (Map.Entry<Integer, List<Integer>> entry : cntMap.entrySet()) {
-            List<Integer> list = entry.getValue();
-            int min = list.get(0);
-            int max = list.get(list.size() - 1);
-            resList.add(new int[]{min / landN, min % landN, max / landN, max % landN});
+        for (List<int[]> list : groupsMap.values()) {
+            int[] x1y1 = list.get(0);
+            int[] x2y2 = list.get(list.size() - 1);
+            resList.add(new int[]{x1y1[0], x1y1[1], x2y2[0], x2y2[1]});
         }
-        int[][] res = new int[resList.size()][4];
-        for (int i = 0; i < res.length; i++) {
-            res[i] = resList.get(i);
-        }
-        return res;
+        return resList.toArray(int[][]::new);
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    private static class DSU {
+        int[] fa;
 
-        public UnionFind(int[][] grid) {
-            int gridM = grid.length;
-            int gridN = grid[0].length;
-            parent = new int[gridM * gridN];
-            Arrays.fill(parent, -1);
-            rank = new int[gridM * gridN];
-            count = 0;
-            for (int i = 0; i < gridM; i++) {
-                for (int j = 0; j < gridN; j++) {
-                    if (grid[i][j] == 1) {
-                        parent[i * gridN + j] = i * gridN + j;
-                        count++;
-                    }
-                    rank[i * gridN + j] = 0;
-                }
+        public DSU(int n) {
+            fa = new int[n];
+            for (int i = 0; i < n; i++) {
+                fa[i] = i;
             }
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        int find(int x) {
+            if (x != fa[x]) {
+                fa[x] = find(fa[x]);
             }
-            return ret;
+            return fa[x];
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
-        public void union(int p, int q) {
+        void union(int p, int q) {
             int rootP = find(p);
             int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+            if (rootP == rootQ) {
+                return;
             }
+            fa[rootQ] = rootP;
         }
     }
 }

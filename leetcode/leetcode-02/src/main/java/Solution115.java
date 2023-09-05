@@ -1,20 +1,22 @@
 public class Solution115 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int numDistinct(String s, String t) {
-        int sLen = s.length();
-        int tLen = t.length();
-        int[][] dp = new int[sLen + 1][tLen + 1];
-        dp[0][0] = 1;
-        for (int i = 0; i < s.length(); i++) {
-            dp[i + 1][0] = 1;
-            for (int j = 0; j <= i && j < tLen; j++) {
+        int n = s.length();
+        int m = t.length();
+        long[][] f = new long[n + 1][m + 1];
+        f[0][0] = 1;
+        for (int i = 0; i < n; i++) {
+            f[i + 1][0] = 1;
+            for (int j = 0; j <= i && j < m; j++) {
                 if (s.charAt(i) == t.charAt(j)) {
-                    dp[i + 1][j + 1] = dp[i][j] + dp[i][j + 1];
+                    f[i + 1][j + 1] = (f[i][j] + f[i][j + 1]) % MOD;
                 } else {
-                    dp[i + 1][j + 1] = dp[i][j + 1];
+                    f[i + 1][j + 1] = f[i][j + 1];
                 }
             }
         }
-        return dp[sLen][tLen];
+        return (int) f[n][m];
     }
 }
 /*

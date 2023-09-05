@@ -1,70 +1,27 @@
-import java.util.ArrayList;
-import java.util.List;
-
 public class Solution2337 {
     public boolean canChange(String start, String target) {
-        int n = start.length();
+        char[] s = start.toCharArray();
+        char[] t = target.toCharArray();
 
-        List<Integer> startIdxListL = new ArrayList<>();
-        List<Integer> startIdxListR = new ArrayList<>();
-        List<Integer> targetIdxListL = new ArrayList<>();
-        List<Integer> targetIdxListR = new ArrayList<>();
-        // 统计每个 L 左边 R 的个数
-        List<Integer> startCntRList = new ArrayList<>();
-        List<Integer> targetCntRList = new ArrayList<>();
-
-        int startCntR = 0;
-        int targetCntR = 0;
-        for (int i = 0; i < n; i++) {
-            if (start.charAt(i) == 'L') {
-                startIdxListL.add(i);
-                startCntRList.add(startCntR);
-            } else if (start.charAt(i) == 'R') {
-                startCntR++;
-                startIdxListR.add(i);
-            }
-
-            if (target.charAt(i) == 'L') {
-                targetIdxListL.add(i);
-                targetCntRList.add(targetCntR);
-            } else if (target.charAt(i) == 'R') {
-                targetCntR++;
-                targetIdxListR.add(i);
+        int i = 0, j = 0, n = s.length;
+        while (i < n && j < n) {
+            while (i < n && s[i] == '_') i++;
+            while (j < n && t[j] == '_') j++;
+            if (i < n && j < n) {
+                if (s[i] != t[j]) {
+                    return false;
+                } else {
+                    if ((s[i] == 'L' && i < j) || (s[i] == 'R' && i > j)) {
+                        return false;
+                    }
+                    i++;
+                    j++;
+                }
             }
         }
-
-        // L、R 个数不等
-        if (startIdxListL.size() != targetIdxListL.size() || startIdxListR.size() != targetIdxListR.size()) {
-            return false;
-        }
-        // L 右移
-        int sizeL = startIdxListL.size();
-        for (int i = 0; i < sizeL; i++) {
-            int idx1 = startIdxListL.get(i);
-            int idx2 = targetIdxListL.get(i);
-            if (idx1 < idx2) {
-                return false;
-            }
-        }
-        // R 左移
-        int sizeR = startIdxListR.size();
-        for (int i = 0; i < sizeR; i++) {
-            int idx1 = startIdxListR.get(i);
-            int idx2 = targetIdxListR.get(i);
-            if (idx1 > idx2) {
-                return false;
-            }
-        }
-        // R 右移越过 L
-        int size = startCntRList.size();
-        for (int i = 0; i < size; i++) {
-            int cnt1 = startCntRList.get(i);
-            int cnt2 = targetCntRList.get(i);
-            if (cnt1 != cnt2) {
-                return false;
-            }
-        }
-        return true;
+        while (i < n && s[i] == '_') i++;
+        while (j < n && t[j] == '_') j++;
+        return i == n && j == n;
     }
 }
 /*

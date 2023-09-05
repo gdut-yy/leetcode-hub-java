@@ -19,4 +19,15 @@ public class Solution115Tests {
         int expected = 5;
         Assertions.assertEquals(expected, solution115.numDistinct(s, t));
     }
+
+    // 补充用例
+    @Test
+    public void example3() {
+        // https://leetcode.cn/problems/distinct-subsequences/submissions/461787470/
+        // https://github.com/LeetCode-Feedback/LeetCode-Feedback/issues?q=is%3Aissue+115.+Distinct+Subsequences+is%3Aopen
+        String s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        String t = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+        int expected = 654905827;
+        Assertions.assertEquals(expected, solution115.numDistinct(s, t));
+    }
 }

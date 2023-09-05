@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution2596 {
@@ -7,10 +7,10 @@ public class Solution2596 {
     public boolean checkValidGrid(int[][] grid) {
         int n = grid.length;
 
-        Queue<int[]> queue = new LinkedList<>();
+        Queue<int[]> queue = new ArrayDeque<>();
         queue.add(new int[]{0, 0});
-        boolean[][] visited = new boolean[n][n];
-        visited[0][0] = true;
+        boolean[][] vis = new boolean[n][n];
+        vis[0][0] = true;
         while (!queue.isEmpty()) {
             int[] cur = queue.remove();
             int cx = cur[0];
@@ -19,8 +19,8 @@ public class Solution2596 {
                 int nx = cx + dir[0];
                 int ny = cy + dir[1];
                 if (nx >= 0 && nx < n && ny >= 0 && ny < n
-                        && !visited[nx][ny] && grid[nx][ny] == grid[cx][cy] + 1) {
-                    visited[nx][ny] = true;
+                        && !vis[nx][ny] && grid[nx][ny] == grid[cx][cy] + 1) {
+                    vis[nx][ny] = true;
                     queue.add(new int[]{nx, ny});
                 }
             }
@@ -31,7 +31,7 @@ public class Solution2596 {
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (!visited[i][j]) {
+                if (!vis[i][j]) {
                     return false;
                 }
             }
