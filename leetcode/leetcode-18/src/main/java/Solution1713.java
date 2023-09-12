@@ -5,48 +5,33 @@ import java.util.Map;
 
 public class Solution1713 {
     public int minOperations(int[] target, int[] arr) {
-        int len = target.length;
+        int n = target.length;
         // 预处理下标
-        Map<Integer, Integer> idxMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            idxMap.put(target[i], i);
+        Map<Integer, Integer> posMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            posMap.put(target[i], i);
         }
 
-        List<Integer> ascend = new ArrayList<>();
-        for (int ar : arr) {
-            if (idxMap.containsKey(ar)) {
-                int idx = idxMap.get(ar);
-
-                int it = binarySearchLeftBound(ascend, idx);
-                if (it != ascend.size()) {
-                    ascend.set(it, idx);
-                } else {
-                    ascend.add(idx);
-                }
+        List<Integer> a = new ArrayList<>();
+        for (int ai : arr) {
+            if (posMap.containsKey(ai)) {
+                Integer x = posMap.get(ai);
+                int j = searchInts(a, x);
+                if (j == a.size()) a.add(x);
+                else a.set(j, x);
             }
         }
-        return len - ascend.size();
+        return n - a.size();
     }
 
-    private int binarySearchLeftBound(List<Integer> ascend, int idx) {
-        int size = ascend.size();
-        if (size == 0 || ascend.get(size - 1) < idx) {
-            return size;
+    private int searchInts(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) >= key) r = m;
+            else l = m + 1;
         }
-        // LIS solution 300
-        int left = 0;
-        int right = size - 1;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T]
-            // ----------------------^
-            if (ascend.get(mid) >= idx) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
+        return l;
     }
 }
 /*

@@ -1,12 +1,10 @@
 import java.util.Arrays;
 
 public class Solution1397 {
-    private static final long MOD = 1000000007;
-    private char[] s1c;
-    private char[] s2c;
-    private char[] evilc;
+    private static final long MOD = (long) (1e9 + 7);
+    private char[] s1c, s2c, evilc;
     private long[][] dp;
-    private int[] next;
+    private int[] pi;
 
     public int findGoodStrings(int n, String s1, String s2, String evil) {
         this.s1c = s1.toCharArray();
@@ -18,7 +16,7 @@ public class Solution1397 {
         for (int i = 0; i < n; i++) {
             Arrays.fill(dp[i], -1);
         }
-        this.next = getNext(evil);
+        this.pi = prefix_function(evilc);
 
         return (int) f(0, 0, true, true);
     }
@@ -49,28 +47,23 @@ public class Solution1397 {
         return res;
     }
 
-    // KMP
     private int getNextStats(int stats, char ch) {
         while (stats != 0 && evilc[stats] != ch) {
-            stats = next[stats - 1];
+            stats = pi[stats - 1];
         }
         return (evilc[stats] == ch) ? stats + 1 : 0;
     }
 
-    // KMP 前缀函数
-    // https://oi-wiki.org/string/kmp/
-    private int[] getNext(String s) {
-        int[] next = new int[s.length()];
-        for (int i = 1, j = 0; i < s.length(); i++) {
-            while (j > 0 && s.charAt(i) != s.charAt(j)) {
-                j = next[j - 1];
-            }
-            if (s.charAt(i) == s.charAt(j)) {
-                j++;
-            }
-            next[i] = j;
+    private int[] prefix_function(char[] s) {
+        int n = s.length;
+        int[] pi = new int[n];
+        for (int i = 1; i < n; i++) {
+            int j = pi[i - 1];
+            while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+            if (s[i] == s[j]) j++;
+            pi[i] = j;
         }
-        return next;
+        return pi;
     }
 }
 /*

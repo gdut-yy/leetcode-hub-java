@@ -15,32 +15,24 @@ public class Solution2111 {
         return len - cnt;
     }
 
-    private int lengthOfLIS(List<Integer> nums) {
-        int len = nums.size();
-        int[] ascend = new int[len + 1];
-        int idx = 1;
-        ascend[idx] = nums.get(0);
-        for (int i = 1; i < len; i++) {
-            // a <= b
-            if (nums.get(i) >= ascend[idx]) {
-                idx++;
-                ascend[idx] = nums.get(i);
-            } else {
-                int left = 1;
-                int right = idx;
-                while (left < right) {
-                    int mid = left + (right - left) / 2;
-                    // a <= b
-                    if (ascend[mid] > nums.get(i)) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
-                    }
-                }
-                ascend[left] = nums.get(i);
-            }
+    public int lengthOfLIS(List<Integer> nums) {
+        List<Integer> a = new ArrayList<>();
+        for (int x : nums) {
+            int j = searchInts(a, x);
+            if (j == a.size()) a.add(x);
+            else a.set(j, x);
         }
-        return idx;
+        return a.size();
+    }
+
+    private int searchInts(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) > key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*

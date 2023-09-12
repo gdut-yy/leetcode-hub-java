@@ -1,34 +1,30 @@
-import java.util.Arrays;
-
 public class Solution214 {
     public String shortestPalindrome(String s) {
         int n = s.length();
+        // s 的反序
+        String rev = new StringBuilder(s).reverse().toString();
+        char[] txt = rev.toCharArray();
+        char[] pat = s.toCharArray();
 
-        int[] fail = new int[n];
-        Arrays.fill(fail, -1);
+        int[] pi = prefix_function(pat);
+        int j = 0;
+        for (int i = 0; i < n; i++) {
+            while (j > 0 && txt[i] != pat[j]) j = pi[j - 1];
+            if (txt[i] == pat[j]) j++;
+        }
+        return rev + s.substring(j);
+    }
 
+    private int[] prefix_function(char[] s) {
+        int n = s.length;
+        int[] pi = new int[n];
         for (int i = 1; i < n; i++) {
-            int j = fail[i - 1];
-            while (j != -1 && s.charAt(j + 1) != s.charAt(i)) {
-                j = fail[j];
-            }
-            if (s.charAt(j + 1) == s.charAt(i)) {
-                fail[i] = j + 1;
-            }
+            int j = pi[i - 1];
+            while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+            if (s[i] == s[j]) j++;
+            pi[i] = j;
         }
-        int best = -1;
-        for (int i = n - 1; i >= 0; i--) {
-            while (best != -1 && s.charAt(best + 1) != s.charAt(i)) {
-                best = fail[best];
-            }
-            if (s.charAt(best + 1) == s.charAt(i)) {
-                best++;
-            }
-        }
-        String add = (best == n - 1) ? "" : s.substring(best + 1);
-        StringBuilder stringBuilder = new StringBuilder(add).reverse();
-        stringBuilder.append(s);
-        return stringBuilder.toString();
+        return pi;
     }
 }
 /*

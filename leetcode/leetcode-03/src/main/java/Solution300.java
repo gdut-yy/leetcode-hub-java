@@ -1,9 +1,10 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution300 {
-    /**
-     * 动态规划法
-     * 时间复杂度 O(n^2)
-     * 空间复杂度 O(n)
-     */
+    // 动态规划
+    // 时间复杂度 O(n^2)
+    // 空间复杂度 O(n)
     public int lengthOfLIS(int[] nums) {
         int n = nums.length;
         // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
@@ -23,44 +24,30 @@ public class Solution300 {
         return max;
     }
 
-    /**
-     * 贪心 + 二分查找
-     * 时间复杂度 O(nlogn)
-     * 空间复杂度 O(n)
-     */
+    // 贪心 + 二分查找
+    // 时间复杂度 O(nlogn)
+    // 空间复杂度 O(n)
     public int lengthOfLIS2(int[] nums) {
-        int n = nums.length;
-        // ascend[idx] 表示长度为 idx 的最长上升子序列的末尾元素的最小值，用 idx 记录目前最长上升子序列的长度
-        int[] ascend = new int[n + 1];
-        int idx = 1;
-        ascend[idx] = nums[0];
-        for (int i = 1; i < n; i++) {
-            // 严格递增
-            if (nums[i] > ascend[idx]) {
-                idx++;
-                ascend[idx] = nums[i];
-            } else {
-                int left = 1;
-                int right = idx;
-                // 如果找不到说明所有的数都比 nums[i] 大，此时要更新 d[1]，所以这里将 pos 设为 0
-                while (left < right) {
-                    int mid = left + (right - left) / 2;
-                    // 边界二分 F, F,..., F, [T, T,..., T]
-                    // ----------------------^
-                    // 严格递增
-                    // !(nums[i] > ascend[idx])
-                    if (!(nums[i] > ascend[mid])) {
-                        right = mid;
-                    } else {
-                        left = mid + 1;
-                    }
-                }
-                ascend[left] = nums[i];
-            }
+        List<Integer> a = new ArrayList<>();
+        for (int x : nums) {
+            int j = searchInts(a, x);
+            if (j == a.size()) a.add(x);
+            else a.set(j, x);
         }
-        return idx;
+        return a.size();
     }
 
+    private int searchInts(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
+    }
+
+    // 线段树
     public int lengthOfLIS3(int[] nums) {
         int offset = 10000;
         for (int i = 0; i < nums.length; i++) {

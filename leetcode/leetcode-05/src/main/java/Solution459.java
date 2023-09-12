@@ -23,6 +23,35 @@ public class Solution459 {
         }
         return true;
     }
+
+    // KMP
+    public boolean repeatedSubstringPattern2(String s) {
+        int n = s.length();
+        char[] txt = (s.substring(1) + s.substring(0, n - 1)).toCharArray();
+        char[] pat = s.toCharArray();
+
+        int[] pi = prefix_function(pat);
+        for (int i = 0, j = 0; i < txt.length; i++) {
+            while (j > 0 && txt[i] != pat[j]) j = pi[j - 1];
+            if (txt[i] == pat[j]) j++;
+            if (j == n) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int[] prefix_function(char[] s) {
+        int n = s.length;
+        int[] pi = new int[n];
+        for (int i = 1; i < n; i++) {
+            int j = pi[i - 1];
+            while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+            if (s[i] == s[j]) j++;
+            pi[i] = j;
+        }
+        return pi;
+    }
 }
 /*
 459. 重复的子字符串
@@ -34,4 +63,5 @@ https://leetcode.cn/problems/repeated-substring-pattern/
 s 由小写英文字母组成
 
 枚举，重复的子字符串长度要能整除字符串长度，然后截取判等即可。
+or KMP
  */

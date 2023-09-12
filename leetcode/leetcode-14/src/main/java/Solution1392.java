@@ -1,25 +1,25 @@
 public class Solution1392 {
-    // KMP next 数组
-    // 时间复杂度 O(n)
-    // 空间复杂度 O(n)
+    // KMP 前缀函数
     public String longestPrefix(String s) {
         int n = s.length();
-        int[] next = new int[n];
+        int[] pi = prefix_function(s.toCharArray());
+        return s.substring(0, pi[n - 1]);
+    }
+
+    private int[] prefix_function(char[] s) {
+        int n = s.length;
+        int[] pi = new int[n];
         for (int i = 1; i < n; i++) {
-            int j = next[i - 1];
-            while (j > 0 && s.charAt(i) != s.charAt(j)) {
-                j = next[j - 1];
-            }
-            if (s.charAt(i) == s.charAt(j)) {
-                j++;
-            }
-            next[i] = j;
+            int j = pi[i - 1];
+            while (j > 0 && s[i] != s[j]) j = pi[j - 1];
+            if (s[i] == s[j]) j++;
+            pi[i] = j;
         }
-        return s.substring(0, next[n - 1]);
+        return pi;
     }
 
     private static final int BASE = 26;
-    private static final long MOD = 1000000007;
+    private static final long MOD = (long) (1e9 + 7);
 
     // Rabin-Karp 字符串哈希
     // 时间复杂度 O(n)
