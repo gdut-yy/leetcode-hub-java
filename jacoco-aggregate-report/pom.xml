@@ -24,6 +24,16 @@
         </dependency>
         <dependency>
             <groupId>com.devyy</groupId>
+            <artifactId>atcoder-beginner-03-D</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>atcoder-beginner-04-A</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
             <artifactId>atcoder-regular</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
