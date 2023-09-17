@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class CF1848BTests extends AbstractOjTests {
     public CF1848BTests() {
-        super("/p1848/A/");
+        super("/p1848/B/");
     }
 
     @Test
     public void example1() throws IOException {
         super.doSetSystemInOut();
-        CF1848A.main(null);
+        CF1848B.main(null);
         super.doAssertion();
     }
 }

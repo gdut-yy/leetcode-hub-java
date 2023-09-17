@@ -66,6 +66,7 @@ public class Abc294_e {
 E - 2xN Grid
 https://atcoder.jp/contests/abc294/tasks/abc294_e
 
+灵茶の试炼 2023-08-29
 题目大意：
 我们有一个 2 行 L 列的网格。设(i,j)表示自上起第 i 行(i∈{1,2})和自左起第 j 列(1≤j≤L)处的正方形。(i,j)上面写着整数 xi,j。
 求满足 x1j = x2j 的整数个数。

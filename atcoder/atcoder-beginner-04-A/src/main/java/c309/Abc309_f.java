@@ -157,6 +157,7 @@ public class Abc309_f {
 F - Box in Box
 https://atcoder.jp/contests/abc309/tasks/abc309_f
 
+灵茶の试炼 2023-09-07
 题目大意：
 有 N 个盒子。第 i 个盒子的形状为长方体，其高为 hi，宽为 wi，深为 di。
 确定是否有两个盒子，其中一个的高度、宽度和深度在必要时旋转后严格大于另一个。

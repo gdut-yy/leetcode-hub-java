@@ -59,6 +59,7 @@ public class Abc300_f {
 F - More Holidays
 https://atcoder.jp/contests/abc300/tasks/abc300_f
 
+灵茶の试炼 2023-08-31
 题目大意：
 给定一个长度为 N 的字符串 S，由 0 和 x，以及整数 M 和 K 组成。
 S 保证包含至少一个 x。

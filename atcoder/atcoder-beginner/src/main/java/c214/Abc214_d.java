@@ -73,7 +73,7 @@ https://atcoder.jp/contests/abc214/submissions/44395458
 这启发我们得到下面的做法：
 按照边权从小到大遍历这些边，一边遍历一边用并查集 merge 这些边，同时维护每个点所在的点集大小。
 （merge 前）上面说的 a 就是 x 所在点集的大小，b 就是 y 所在点集的大小。
-相似题目：2421. 好路径的数目
+相似题目: 2421. 好路径的数目
 https://leetcode.cn/problems/number-of-good-paths/
 F. Imbalance Value of a Tree
 https://codeforces.com/contest/915/problem/F

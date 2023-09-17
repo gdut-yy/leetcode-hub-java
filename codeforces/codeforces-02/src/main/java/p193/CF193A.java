@@ -87,7 +87,7 @@ https://codeforces.com/contest/193/submission/215507875
 如果角落没有 #，一定存在一个边上的 # 至多有两个 . 邻居，所以也至多操作 2 次。
 那么只需要判断能否操作 1 次使图不连通。
 代码写的是 O(n^2m^2) 的暴力，可以用 Tarjan 割点做到 O(nm)。
-相似题目：2556. 二进制矩阵中翻转最多一次使路径不连通
+相似题目: 2556. 二进制矩阵中翻转最多一次使路径不连通
 https://leetcode.cn/problems/disconnect-path-in-a-binary-matrix-by-at-most-one-flip/
 ======
 

@@ -15,7 +15,7 @@ public class CF1826FTests extends AbstractOjTests {
     @Disabled("交互题")
     public void example1() throws IOException {
         super.doSetSystemInOut();
-        CF1826A.main(null);
+        CF1826F.main(null);
         super.doAssertion();
     }
 }
