@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution100040 {
+public class Solution2860 {
     public int countWays(List<Integer> nums) {
         int n = nums.size();
         nums.sort(null);
@@ -31,7 +31,7 @@ public class Solution100040 {
     }
 }
 /*
-100040. 让所有学生保持开心的分组方法数
+2860. 让所有学生保持开心的分组方法数
 https://leetcode.cn/problems/happy-students/
 
 第 363 场周赛 T2。

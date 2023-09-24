@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution100031 {
+public class Solution2859 {
     public int sumIndicesWithKSetBits(List<Integer> nums, int k) {
         int n = nums.size();
         int ans = 0;
@@ -13,7 +13,7 @@ public class Solution100031 {
     }
 }
 /*
-100031. 计算 K 置位下标对应元素的和
+2859. 计算 K 置位下标对应元素的和
 https://leetcode.cn/problems/sum-of-values-at-indices-with-k-set-bits/
 
 第 363 场周赛 T1。

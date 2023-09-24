@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100041 {
+public class Solution2858 {
     private List<int[]>[] g;
     private int tot;
     private int[] ans;
@@ -43,7 +43,7 @@ public class Solution100041 {
     }
 }
 /*
-100041. 可以到达每一个节点的最少边反转次数
+2858. 可以到达每一个节点的最少边反转次数
 https://leetcode.cn/problems/minimum-edge-reversals-so-every-node-is-reachable/
 
 第 113 场双周赛 T4。

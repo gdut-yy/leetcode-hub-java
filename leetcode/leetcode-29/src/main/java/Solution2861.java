@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution100033 {
+public class Solution2861 {
     private int n, k, budget;
     private List<Integer> comp, stock, cost;
 
@@ -46,7 +46,7 @@ public class Solution100033 {
     }
 }
 /*
-100033. 最大合金数
+2861. 最大合金数
 https://leetcode.cn/problems/maximum-number-of-alloys/
 
 第 363 场周赛 T3。

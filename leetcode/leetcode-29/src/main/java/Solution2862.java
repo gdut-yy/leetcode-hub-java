@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution8041 {
+public class Solution2862 {
     public long maximumSum(List<Integer> nums) {
         int n = nums.size();
         long ans = 0;
@@ -16,7 +16,7 @@ public class Solution8041 {
     }
 }
 /*
-8041. 完全子集的最大元素和
+2862. 完全子集的最大元素和
 https://leetcode.cn/problems/maximum-element-sum-of-a-complete-subset-of-indices/
 
 第 363 场周赛 T4。

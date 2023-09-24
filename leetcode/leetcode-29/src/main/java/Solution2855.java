@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Solution8039 {
+public class Solution2855 {
     public int minimumRightShifts(List<Integer> nums) {
         int n = nums.size();
         int min = Integer.MAX_VALUE;
@@ -21,7 +21,7 @@ public class Solution8039 {
     }
 }
 /*
-8039. 使数组成为递增数组的最少右移次数
+2855. 使数组成为递增数组的最少右移次数
 https://leetcode.cn/problems/minimum-right-shifts-to-sort-the-array/
 
 第 113 场双周赛 T1。

@@ -2,7 +2,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution6988 {
+public class Solution2857 {
     public int countPairs(List<List<Integer>> coordinates, int k) {
         int ans = 0;
         Map<Long, Integer> map = new HashMap<>();
@@ -22,7 +22,7 @@ public class Solution6988 {
     }
 }
 /*
-6988. 统计距离为 k 的点对
+2857. 统计距离为 k 的点对
 https://leetcode.cn/problems/count-pairs-of-points-with-distance-k/
 
 第 113 场双周赛 T3。
