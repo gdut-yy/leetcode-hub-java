@@ -59,7 +59,7 @@ https://codeforces.com/contest/1650/problem/D
 6: 5 6 1 4 3 2
 6: 2 5 6 1 4 3
 6: 3 2 5 6 1 4
-=======
+======
 
 input
 3

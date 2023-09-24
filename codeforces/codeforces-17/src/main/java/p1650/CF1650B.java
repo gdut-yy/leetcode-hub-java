@@ -36,7 +36,7 @@ https://codeforces.com/contest/1650/problem/B
 给定整数 li,ri,ai，求 li 到 ri 范围内的 floor(x/a) + x%a 最大值
 
 贪心，优先考虑余数，x%a 最大可取到 a-1，再考虑 floor(x/a)
-=======
+======
 
 input
 5

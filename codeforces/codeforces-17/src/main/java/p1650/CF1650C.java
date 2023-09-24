@@ -73,7 +73,7 @@ https://codeforces.com/contest/1650/problem/C
 首行给定整数 n 和 m，后面 m 行给整数 xi 和 wi，分别为坐标和权重，要求找出 n 组线段，使权重总和最小
 
 贪心，输出最小 2n 个点，双指针进行配对即可。
-=======
+======
 
 input
 3
