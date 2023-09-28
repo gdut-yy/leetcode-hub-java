@@ -1,6 +1,6 @@
 # leetcode-hub-java
 
-基于 `jdk17` + `maven3.8` + `junit5` + `jacoco` 的 leetcode 练习仓库。
+基于 `jdk21` + `maven3.9` + `junit5` + `jacoco` 的 leetcode 练习仓库。
 
 `@since` 2021.07.05
 
@@ -24,25 +24,25 @@
 
 ```sh
 $ java -version
-openjdk version "17.0.1" 2021-10-19
-OpenJDK Runtime Environment (build 17.0.1+12-39)
-OpenJDK 64-Bit Server VM (build 17.0.1+12-39, mixed mode, sharing)
+openjdk 21 2023-09-19
+OpenJDK Runtime Environment (build 21+35-2513)
+OpenJDK 64-Bit Server VM (build 21+35-2513, mixed mode, sharing)
 
 $ mvn -v
-Apache Maven 3.8.5 (3599d3414f046de2324203b78ddcf9b5e4388aa0)
-Maven home: D:\programs\apache-maven-3.8.5
-Java version: 17.0.1, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-17.0.1
-Default locale: zh_CN, platform encoding: GBK
-OS name: "windows 10", version: "10.0", arch: "amd64", family: "windows"
+Apache Maven 3.9.4 (dfbb324ad4a7c8fb0bf182e6d91b0ae20e3d2dd9)
+Maven home: D:\programs\apache-maven-3.9.4
+Java version: 21, vendor: Oracle Corporation, runtime: C:\Program Files\Java\jdk-21
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 
-IntelliJ IDEA 2022.1.2 (Community Edition)
-Build #IC-221.5787.30, built on June 1, 2022
+IntelliJ IDEA 2023.2.2 (Community Edition)
+Build #IC-232.9921.47, built on September 13, 2023
 ```
 
 ## Command 命令行
 
 ```sh
-# 运行 UT、统计覆盖率（jdk17）：
+# 运行 UT、统计覆盖率（jdk21）：
 mvn clean verify -s settings.xml
 
 # 统计做题进度（python3）：
@@ -146,35 +146,6 @@ junit5 常用断言：
 - [1969. 数组元素的最小非零乘积](https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/)
 - [2048. 下一个更大的数值平衡数](https://leetcode.cn/problems/next-greater-numerically-balanced-number/)
 
-### 前缀和/差分数组
-
-[模板代码](./leetcode-core/src/main/java/template/PrefixSum.java)
-
-- `前缀和`：O(n) 预处理；O(1) 得到 nums [i,j] 的累加和。
-- `差分数组`：O(1) nums [i,j] 增加 inc；O(n) 求出原数组。
-
-前缀和
-
-- [303. 区域和检索 - 数组不可变](https://leetcode.cn/problems/range-sum-query-immutable/)
-
-差分数组
-
-- [845. 数组中的最长山脉](https://leetcode.cn/problems/longest-mountain-in-array/) “反向差分”
-- [1094. 拼车](https://leetcode.cn/problems/car-pooling/) 区间加减
-- [1109. 航班预订统计](https://leetcode.cn/problems/corporate-flight-bookings/) 区间加减
-- [1854. 人口最多的年份](https://leetcode.cn/problems/maximum-population-year/) 区间加减
-
-### 二维前缀和/二维差分
-
-[模板代码](./leetcode-core/src/main/java/template/PrefixSum2d.java)
-
-- `二维前缀和`：O(n) 预处理；O(1) 得到 matrix [row1,col1] 到 [row2,col2] 的累加和。
-- `二维差分`：O(1) matrix [row1,col1] 到 [row2,col2] 全部增加 inc；O(n) 求出原数组。
-
-二维前缀和
-
-- [304. 二维区域和检索 - 矩阵不可变](https://leetcode.cn/problems/range-sum-query-2d-immutable/)
-
 ### 线段树
 
 - [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem/) 离散化，区间修改，区间最值
@@ -203,15 +174,6 @@ junit5 常用断言：
 - [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
 - [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
 - [1137. 第 N 个泰波那契数](https://leetcode.cn/problems/n-th-tribonacci-number/)
-
-### 二分查找
-
-[模板代码](./leetcode-core/src/main/java/template/BinarySearch.java)
-
-二分/边界二分
-
-- [704. 二分查找](https://leetcode.cn/problems/binary-search/)
-- [34. 在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)
 
 ### 双指针
 
@@ -258,48 +220,6 @@ junit5 常用断言：
 - [485. 最大连续 1 的个数](https://leetcode.cn/problems/max-consecutive-ones/)
 - [$487. 最大连续 1 的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/)
 - [1004. 最大连续 1 的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/)
-
-### 广度优先搜索 BFS
-
-```java
-public int bfs(char[][] maze, int[] entrance) {
-    int mazeM = maze.length;
-    int mazeN = maze[0].length;
-    int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-    maze[entrance[0]][entrance[1]] = '+';
-    Queue<int[]> queue = new LinkedList<>();
-    queue.add(new int[]{entrance[0], entrance[1], 0});
-
-    while (!queue.isEmpty()) {
-        int size = queue.size();
-        for (int i = 0; i < size; i++) {
-            int[] cur = queue.remove();
-
-            for (int[] dir : direction) {
-                int nextM = cur[0] + dir[0];
-                int nextN = cur[1] + dir[1];
-                int step = cur[2] + 1;
-                if (nextM >= 0 && nextM < mazeM && nextN >= 0 && nextN < mazeN && maze[nextM][nextN] == '.') {
-                    if (nextM == 0 || nextN == 0 || nextM == mazeM - 1 || nextN == mazeN - 1) {
-                        return step;
-                    }
-                    maze[nextM][nextN] = '+';
-                    queue.add(new int[]{nextM, nextN, step});
-                }
-            }
-        }
-    }
-    return -1;
-}
-```
-
-- [1293. 网格中的最短路径](https://leetcode.cn/problems/shortest-path-in-a-grid-with-obstacles-elimination/)
-- [1926. 迷宫中离入口最近的出口](https://leetcode.cn/problems/nearest-exit-from-entrance-in-maze/submissions/)
-
-### 深度优先搜索 DFS（回溯算法）
-
-- [46. 全排列](https://leetcode.cn/problems/permutations/)
-- [51. N 皇后](https://leetcode.cn/problems/n-queens/)
 
 ### 0-1 BFS
 
@@ -440,25 +360,6 @@ System.out.println(Arrays.toString(stack2.stream().mapToInt(i -> i).toArray()));
 - [1944. 队列中可以看到的人数](https://leetcode.cn/problems/number-of-visible-people-in-a-queue/)
 
 ### 状态压缩 DP
-
-```java
-public List<List<Integer>> subsets(int[] nums) {
-    List<List<Integer>> resList = new ArrayList<>();
-    int len = nums.length;
-    // 状态压缩 dp
-    for (int state = 0; state < (1 << len); state++) {
-        List<Integer> curList = new ArrayList<>();
-        for (int k = 0; k < len; k++) {
-            // 第 k 位被选中
-            if (((state >> k) & 1) == 1) {
-                curList.add(nums[k]);
-            }
-        }
-        resList.add(curList);
-    }
-    return resList;
-}
-```
 
 - [78. 子集](https://leetcode.cn/problems/subsets/)
 - [90. 子集 II](https://leetcode.cn/problems/subsets-ii/)
