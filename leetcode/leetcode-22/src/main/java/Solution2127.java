@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -6,9 +7,9 @@ public class Solution2127 {
     public int maximumInvitations(int[] favorite) {
         int n = favorite.length;
         // 统计入度，便于进行拓扑排序
-        int[] inDegrees = new int[n];
+        int[] inDeg = new int[n];
         for (int fav : favorite) {
-            inDegrees[fav]++;
+            inDeg[fav]++;
         }
 
         boolean[] used = new boolean[n];
@@ -16,21 +17,21 @@ public class Solution2127 {
         int[] dp = new int[n];
         Arrays.fill(dp, 1);
         // 入度为 0 进队列
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
-            if (inDegrees[i] == 0) {
+            if (inDeg[i] == 0) {
                 queue.add(i);
             }
         }
         while (!queue.isEmpty()) {
-            int cur = queue.remove();
-            used[cur] = true;
-            int next = favorite[cur];
+            int x = queue.remove();
+            used[x] = true;
+            int y = favorite[x];
             // 状态转移
-            dp[next] = Math.max(dp[next], dp[cur] + 1);
-            inDegrees[next]--;
-            if (inDegrees[next] == 0) {
-                queue.add(next);
+            dp[y] = Math.max(dp[y], dp[x] + 1);
+            inDeg[y]--;
+            if (inDeg[y] == 0) {
+                queue.add(y);
             }
         }
 
@@ -76,7 +77,7 @@ n == favorite.length
 0 <= favorite[i] <= n - 1
 favorite[i] != i
 
-基环内向树。
+内向基环树
 拓扑排序 + 动态规划
 时间复杂度 O(n)
 空间复杂度 O(n)

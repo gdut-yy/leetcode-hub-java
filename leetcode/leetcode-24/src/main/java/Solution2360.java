@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -9,15 +9,15 @@ public class Solution2360 {
         int n = edges.length;
 
         // 拓扑排序 分离出环
-        int[] inDegrees = new int[n];
+        int[] inDeg = new int[n];
         for (int i = 0; i < n; i++) {
             if (edges[i] != -1) {
-                inDegrees[edges[i]]++;
+                inDeg[edges[i]]++;
             }
         }
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
-            if (inDegrees[i] == 0) {
+            if (inDeg[i] == 0) {
                 queue.add(i);
             }
         }
@@ -26,14 +26,14 @@ public class Solution2360 {
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-                nodeSet.remove(cur);
+                int x = queue.remove();
+                nodeSet.remove(x);
 
-                int next = edges[cur];
-                if (next != -1) {
-                    inDegrees[next]--;
-                    if (inDegrees[next] == 0) {
-                        queue.add(next);
+                int y = edges[x];
+                if (y != -1) {
+                    inDeg[y]--;
+                    if (inDeg[y] == 0) {
+                        queue.add(y);
                     }
                 }
             }
@@ -46,12 +46,12 @@ public class Solution2360 {
 
         // solution565
         int max = 0;
-        boolean[] visited = new boolean[n];
+        boolean[] vis = new boolean[n];
         for (int i : nodeSet) {
             // 环长
             int cnt = 0;
-            while (!visited[i]) {
-                visited[i] = true;
+            while (!vis[i]) {
+                vis[i] = true;
                 i = edges[i];
                 cnt++;
             }

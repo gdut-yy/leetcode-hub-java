@@ -53,7 +53,7 @@ n == edges.length
 edges[i] != i
 0 <= node1, node2 < n
 
-基环树。
+内向基环树
 分别计算从 node1、node2 出发到各点的距离。再遍历得出结果。
 时间复杂度 O(n)
 比赛时候当成普通图跑 dijkstra 计算出距离，也能 AC。

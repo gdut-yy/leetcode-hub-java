@@ -52,4 +52,7 @@ https://leetcode.cn/problems/maximize-value-of-function-in-a-ball-passing-game/
 1 <= k <= 10^10
 
 树上倍增
+时间复杂度 O(nlogk) 其中 n = receiver.size()
+空间复杂度 O(nlogk)
+内向基环树 可以做到 O(n)？
  */
