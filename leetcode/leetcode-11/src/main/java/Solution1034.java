@@ -1,40 +1,44 @@
+import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Solution1034 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int[][] colorBorder(int[][] grid, int row, int col, int color) {
-        int M = grid.length;
-        int N = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
 
         int originColor = grid[row][col];
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         // BFS
-        Queue<int[]> queue = new LinkedList<>();
-        boolean[][] visited = new boolean[M][N];
+        Queue<int[]> queue = new ArrayDeque<>();
+        boolean[][] vis = new boolean[m][n];
         queue.add(new int[]{row, col});
-        visited[row][col] = true;
+        vis[row][col] = true;
 
         while (!queue.isEmpty()) {
             int size = queue.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
+                int[] tuple = queue.remove();
                 // 连通分量的边界
-                if (grid[cur[0]][cur[1]] == originColor
-                        && (cur[0] == 0 || cur[1] == 0 || cur[0] == M - 1 || cur[1] == N - 1)) {
-                    grid[cur[0]][cur[1]] = color;
+                int cx = tuple[0];
+                int cy = tuple[1];
+                if (grid[cx][cy] == originColor
+                        && (cx == 0 || cy == 0 || cx == m - 1 || cy == n - 1)) {
+                    grid[cx][cy] = color;
                 }
 
-                for (int[] dir : direction) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !visited[nextM][nextN]) {
+                for (int[] dir : DIRECTIONS) {
+                    int nx = cx + dir[0];
+                    int ny = cy + dir[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && !vis[nx][ny]) {
                         // 连通分量的边界
-                        if (grid[nextM][nextN] != originColor) {
-                            grid[cur[0]][cur[1]] = color;
+                        if (grid[nx][ny] != originColor) {
+                            grid[cx][cy] = color;
                         }
-                        if (grid[nextM][nextN] == originColor) {
-                            visited[nextM][nextN] = true;
-                            queue.add(new int[]{nextM, nextN});
+                        if (grid[nx][ny] == originColor) {
+                            vis[nx][ny] = true;
+                            queue.add(new int[]{nx, ny});
                         }
                     }
                 }

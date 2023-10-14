@@ -3,20 +3,13 @@ import java.util.Map;
 
 public class Solution1 {
     public int[] twoSum(int[] nums, int target) {
-        int len = nums.length;
-
-        // 预处理下标
-        Map<Integer, Integer> idxMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            idxMap.put(nums[i], i);
-        }
-
-        for (int i = 0; i < len; i++) {
-            int another = target - nums[i];
-            // 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。
-            if (idxMap.containsKey(another) && idxMap.get(another) != i) {
-                return new int[]{i, idxMap.get(another)};
+        int n = nums.length;
+        Map<Integer, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            if (map.containsKey(target - nums[i])) {
+                return new int[]{map.get(target - nums[i]), i};
             }
+            map.put(nums[i], i);
         }
         return new int[0];
     }

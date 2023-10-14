@@ -20,25 +20,25 @@ public class Solution834 {
         dp = new int[n];
         ans = new int[n];
 
-        dfs1(0, -1);
-        dfs2(0, -1);
+        dfs(0, -1);
+        reroot(0, -1);
         return ans;
     }
 
-    private void dfs1(int u, int fa) {
+    private void dfs(int u, int fa) {
         sz[u] = 1;
         dp[u] = 0;
         for (int v : adj.getOrDefault(u, new ArrayList<>())) {
             if (v == fa) {
                 continue;
             }
-            dfs1(v, u);
+            dfs(v, u);
             dp[u] += dp[v] + sz[v];
             sz[u] += sz[v];
         }
     }
 
-    private void dfs2(int u, int fa) {
+    private void reroot(int u, int fa) {
         ans[u] = dp[u];
         for (int v : adj.getOrDefault(u, new ArrayList<>())) {
             if (v == fa) {
@@ -53,7 +53,7 @@ public class Solution834 {
             dp[v] += dp[u] + sz[u];
             sz[v] += sz[u];
 
-            dfs2(v, u);
+            reroot(v, u);
 
             dp[u] = pu;
             dp[v] = pv;

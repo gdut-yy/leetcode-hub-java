@@ -16,7 +16,7 @@ public class Solution1713 {
         for (int ai : arr) {
             if (posMap.containsKey(ai)) {
                 Integer x = posMap.get(ai);
-                int j = searchInts(a, x);
+                int j = lowerBound(a, x);
                 if (j == a.size()) a.add(x);
                 else a.set(j, x);
             }
@@ -24,7 +24,7 @@ public class Solution1713 {
         return n - a.size();
     }
 
-    private int searchInts(List<Integer> a, int key) {
+    private int lowerBound(List<Integer> a, int key) {
         int l = 0, r = a.size();
         while (l < r) {
             int m = l + (r - l) / 2;

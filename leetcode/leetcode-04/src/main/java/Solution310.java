@@ -73,8 +73,8 @@ public class Solution310 {
         // p 数组记录下取得 f1[u] 时 u 的子节点 j 为何值。
         p = new int[n];
 
-        dfs1(0, -1);
-        dfs2(0, -1);
+        dfs(0, -1);
+        reroot(0, -1);
         List<Integer> ans = new ArrayList<>();
         int min = n;
         for (int i = 0; i < n; i++) {
@@ -90,12 +90,12 @@ public class Solution310 {
         return ans;
     }
 
-    private int dfs1(int u, int fa) {
+    private int dfs(int u, int fa) {
         for (int v : adj.getOrDefault(u, new ArrayList<>())) {
             if (v == fa) {
                 continue;
             }
-            int sub = dfs1(v, u) + 1;
+            int sub = dfs(v, u) + 1;
             if (sub > f1[u]) {
                 f2[u] = f1[u];
                 f1[u] = sub;
@@ -107,7 +107,7 @@ public class Solution310 {
         return f1[u];
     }
 
-    private void dfs2(int u, int fa) {
+    private void reroot(int u, int fa) {
         for (int v : adj.getOrDefault(u, new ArrayList<>())) {
             if (v == fa) {
                 continue;
@@ -118,7 +118,7 @@ public class Solution310 {
                 g[v] = Math.max(g[v], f2[u] + 1);
             }
             g[v] = Math.max(g[v], g[u] + 1);
-            dfs2(v, u);
+            reroot(v, u);
         }
     }
 }

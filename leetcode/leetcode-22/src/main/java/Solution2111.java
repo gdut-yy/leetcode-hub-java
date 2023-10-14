@@ -18,14 +18,14 @@ public class Solution2111 {
     public int lengthOfLIS(List<Integer> nums) {
         List<Integer> a = new ArrayList<>();
         for (int x : nums) {
-            int j = searchInts(a, x);
+            int j = upperBound(a, x);
             if (j == a.size()) a.add(x);
             else a.set(j, x);
         }
         return a.size();
     }
 
-    private int searchInts(List<Integer> a, int key) {
+    private int upperBound(List<Integer> a, int key) {
         int l = 0, r = a.size();
         while (l < r) {
             int m = l + (r - l) / 2;

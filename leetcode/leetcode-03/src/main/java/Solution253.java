@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class Solution253 {
     public int minMeetingRooms(int[][] intervals) {
@@ -28,6 +31,22 @@ public class Solution253 {
             max = Math.max(max, cnt);
         }
         return max;
+    }
+
+    // 待测
+    public int minMeetingRooms2(int[][] intervals) {
+        List<int[]> a = new ArrayList<>();
+        for (int[] p : intervals) {
+            a.add(new int[]{p[0], 1});
+            a.add(new int[]{p[1], -1});
+        }
+        a.sort(Comparator.comparingInt(o -> o[0]));
+        int ans = 0, cnt = 0;
+        for (int[] p : a) {
+            cnt += p[1];
+            ans = Math.max(ans, cnt);
+        }
+        return ans;
     }
 }
 /*

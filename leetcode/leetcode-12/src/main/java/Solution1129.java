@@ -1,75 +1,51 @@
+import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
 public class Solution1129 {
     public int[] shortestAlternatingPaths(int n, int[][] redEdges, int[][] blueEdges) {
-        // 预处理 图
-        Map<Integer, Set<Integer>> redGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> blueGraph = new HashMap<>();
-        for (int[] redEdge : redEdges) {
-            Set<Integer> outSet = redGraph.getOrDefault(redEdge[0], new HashSet<>());
-            outSet.add(redEdge[1]);
-            redGraph.put(redEdge[0], outSet);
+        // 0:红色 1:蓝色
+        List<Integer>[][] graphs = new List[2][n];
+        Arrays.setAll(graphs[0], e -> new ArrayList<>());
+        Arrays.setAll(graphs[1], e -> new ArrayList<>());
+        for (int[] e : redEdges) {
+            graphs[0][e[0]].add(e[1]);
         }
-        for (int[] blueEdge : blueEdges) {
-            Set<Integer> outSet = blueGraph.getOrDefault(blueEdge[0], new HashSet<>());
-            outSet.add(blueEdge[1]);
-            blueGraph.put(blueEdge[0], outSet);
+        for (int[] e : blueEdges) {
+            graphs[1][e[0]].add(e[1]);
         }
 
-        // BFS
-        Queue<int[]> queue = new LinkedList<>();
-        // 0:红色 1:蓝色
+        Queue<int[]> queue = new ArrayDeque<>();
         queue.add(new int[]{0, 0});
         queue.add(new int[]{0, 1});
+        boolean[][] vis = new boolean[2][n];
 
-        boolean[] redVisited = new boolean[n];
-        boolean[] blueVisited = new boolean[n];
-
-        int[] res = new int[n];
-        Arrays.fill(res, -1);
-        res[0] = 0;
-        int distance = 0;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        ans[0] = 0;
+        int dist = 0;
         while (!queue.isEmpty()) {
             int size = queue.size();
-            distance++;
-
+            dist++;
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
-                int node = cur[0];
-                int color = cur[1];
-
-                if (color == 0) {
-                    for (int next : blueGraph.getOrDefault(node, new HashSet<>())) {
-                        if (blueVisited[next]) {
-                            continue;
-                        }
-                        blueVisited[next] = true;
-                        if (res[next] == -1) {
-                            res[next] = distance;
-                        }
-                        queue.add(new int[]{next, 1});
-                    }
-                } else {
-                    for (int next : redGraph.getOrDefault(node, new HashSet<>())) {
-                        if (redVisited[next]) {
-                            continue;
-                        }
-                        redVisited[next] = true;
-                        if (res[next] == -1) {
-                            res[next] = distance;
-                        }
-                        queue.add(new int[]{next, 0});
-                    }
+                int[] tuple = queue.remove();
+                int x = tuple[0], color = tuple[1];
+                for (Integer y : graphs[color ^ 1][x]) {
+                    if (vis[color ^ 1][y]) continue;
+                    vis[color ^ 1][y] = true;
+                    if (ans[y] == -1) ans[y] = dist;
+                    queue.add(new int[]{y, color ^ 1});
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

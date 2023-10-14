@@ -1,5 +1,5 @@
 public class Solution878 {
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
 
     public int nthMagicalNumber(int n, int a, int b) {
         int lcm = a / getGCD(a, b) * b;
@@ -20,10 +20,7 @@ public class Solution878 {
     }
 
     private int getGCD(int num1, int num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+        return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
     }
 }
 /*

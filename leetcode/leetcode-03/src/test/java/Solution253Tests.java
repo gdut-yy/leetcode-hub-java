@@ -9,6 +9,7 @@ public class Solution253Tests {
         int[][] intervals = UtUtils.stringToInts2("[[0,30],[5,10],[15,20]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution253.minMeetingRooms(intervals));
+        Assertions.assertEquals(expected, solution253.minMeetingRooms2(intervals));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution253Tests {
         int[][] intervals = UtUtils.stringToInts2("[[7,10],[2,4]]");
         int expected = 1;
         Assertions.assertEquals(expected, solution253.minMeetingRooms(intervals));
+        Assertions.assertEquals(expected, solution253.minMeetingRooms2(intervals));
     }
 }

@@ -5,34 +5,27 @@ public class Solution34 {
         if (Arrays.binarySearch(nums, target) < 0) {
             return new int[]{-1, -1};
         }
+        return new int[]{lowerBound(nums, target), upperBound(nums, target) - 1};
+    }
 
-        // 二分
-        // 左边界
-        int left = 0;
-        int right = nums.length;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] >= target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+    private int lowerBound(int[] a, int key) {
+        int l = 0, r = a.length;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a[m] >= key) r = m;
+            else l = m + 1;
         }
-        int leftIdx = left;
+        return l;
+    }
 
-        // 右边界
-        left = 0;
-        right = nums.length;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            if (nums[mid] > target) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
+    private int upperBound(int[] a, int key) {
+        int l = 0, r = a.length;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a[m] > key) r = m;
+            else l = m + 1;
         }
-        int rightIdx = left - 1;
-        return new int[]{leftIdx, rightIdx};
+        return l;
     }
 }
 /*

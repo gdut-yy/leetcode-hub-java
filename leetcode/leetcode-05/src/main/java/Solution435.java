@@ -1,25 +1,21 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution435 {
     public int eraseOverlapIntervals(int[][] intervals) {
-        int len = intervals.length;
-
-        Arrays.sort(intervals, (o1, o2) -> {
-            if (o1[1] == o2[1]) {
-                return Integer.compare(o1[0], o2[0]);
-            }
-            return Integer.compare(o1[1], o2[1]);
-        });
+        int n = intervals.length;
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[1]));
 
         int cnt = 1;
-        int right = intervals[0][1];
-        for (int i = 1; i < len; i++) {
-            if (intervals[i][0] >= right) {
-                right = intervals[i][1];
+        int preR = intervals[0][1];
+        for (int i = 1; i < n; i++) {
+            int l = intervals[i][0], r = intervals[i][1];
+            if (l >= preR) {
                 cnt++;
+                preR = r;
             }
         }
-        return len - cnt;
+        return n - cnt;
     }
 }
 /*

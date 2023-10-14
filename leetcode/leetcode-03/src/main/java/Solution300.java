@@ -30,14 +30,14 @@ public class Solution300 {
     public int lengthOfLIS2(int[] nums) {
         List<Integer> a = new ArrayList<>();
         for (int x : nums) {
-            int j = searchInts(a, x);
+            int j = lowerBound(a, x);
             if (j == a.size()) a.add(x);
             else a.set(j, x);
         }
         return a.size();
     }
 
-    private int searchInts(List<Integer> a, int key) {
+    private int lowerBound(List<Integer> a, int key) {
         int l = 0, r = a.size();
         while (l < r) {
             int m = l + (r - l) / 2;

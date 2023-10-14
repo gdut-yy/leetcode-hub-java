@@ -1,56 +1,41 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Solution2316 {
+    private List<Integer>[] g;
+    private boolean[] vis;
+    private long cntV;
+
     public long countPairs(int n, int[][] edges) {
-        UnionFind unionFind = new UnionFind(n);
-        for (int[] edge : edges) {
-            unionFind.union(edge[0], edge[1]);
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] e : edges) {
+            int x = e[0], y = e[1];
+            g[x].add(y);
+            g[y].add(x);
         }
-        long res = 0;
+
+        vis = new boolean[n];
+        long ans = 0;
+        long tot = 0;
         for (int i = 0; i < n; i++) {
-            int root = unionFind.find(i);
-            res += n - 1 - unionFind.count[root];
+            if (!vis[i]) {
+                cntV = 0;
+                dfs(i);
+                ans += cntV * tot;
+                tot += cntV;
+            }
         }
-        // 去重
-        return res / 2;
+        return ans;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // (可选) 连通分量
-        int[] count;
-
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            count = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-            }
-        }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rootP < rootQ) {
-                    parent[rootQ] = rootP;
-                    count[rootP] += count[rootQ] + 1;
-                } else {
-                    parent[rootP] = rootQ;
-                    count[rootQ] += count[rootP] + 1;
-                }
+    private void dfs(int x) {
+        vis[x] = true;
+        cntV++;
+        for (Integer y : g[x]) {
+            if (!vis[y]) {
+                dfs(y);
             }
         }
     }

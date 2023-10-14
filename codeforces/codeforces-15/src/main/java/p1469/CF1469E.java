@@ -26,7 +26,7 @@ public class CF1469E {
             boolean[] has = new boolean[1 << k];
             int mask = (1 << (k - 1)) - 1;
             // 注意 java.lang.NumberFormatException: For input string: "" under radix 2
-            int x =(k - 1 > 0) ? Integer.parseInt(s.substring(0, k - 1), 2) : 0;
+            int x = (k - 1 > 0) ? Integer.parseInt(s.substring(0, k - 1), 2) : 0;
             for (char c : s.substring(k - 1).toCharArray()) {
                 x = x << 1 | (c & 1);
                 has[x] = true;

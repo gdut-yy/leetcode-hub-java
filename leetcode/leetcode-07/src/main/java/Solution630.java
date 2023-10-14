@@ -6,7 +6,6 @@ public class Solution630 {
     public int scheduleCourse(int[][] courses) {
         // 先按 lastDay 升序排序
         Arrays.sort(courses, Comparator.comparingInt(o -> o[1]));
-        System.out.println(Arrays.deepToString(courses));
 
         int curDuration = 0;
         // 优先队列 按 duration 降序排列
@@ -21,7 +20,7 @@ public class Solution630 {
                 curDuration += course[0];
                 maxHeap.add(course);
             } else {
-                if (maxHeap.size() > 0) {
+                if (!maxHeap.isEmpty()) {
                     int[] peek = maxHeap.peek();
                     // 贪心。
                     // 看当前的课程能否与已选 duration 最长的课程交换，注意当前的课程 duration 需小于已选 duration 最长的课程

@@ -1,56 +1,21 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Solution56 {
     public int[][] merge(int[][] intervals) {
-        // start 升序 end 降序
-        Arrays.sort(intervals, (o1, o2) -> {
-            if (o1[0] == o2[0]) {
-                return Integer.compare(o2[1], o1[1]);
-            }
-            return Integer.compare(o1[0], o2[0]);
-        });
-
-        int left = intervals[0][0];
-        int right = intervals[0][1];
-        List<int[]> resList = new ArrayList<>();
-        for (int i = 1; i < intervals.length; i++) {
-            int[] interval = intervals[i];
-            // case1:
-            // left-------------------------right
-            // -----interval[0]-interval[1]
-            if (left <= interval[0] && right >= interval[1]) {
-                // 无需处理 忽略即可
-                continue;
-            }
-            // case2:
-            // left-------------right
-            // -----interval[0]-------interval[1]
-            if (right >= interval[0] && right <= interval[1]) {
-                // 合并处理
-                right = interval[1];
-                continue;
-            }
-            // case3:
-            // left-right
-            // -----------interval[0]-interval[1]
-            if (right < interval[0]) {
-                // left right 已再无合并可能，添加进 list
-                resList.add(new int[]{left, right});
-                left = interval[0];
-                right = interval[1];
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+        List<int[]> ans = new ArrayList<>();
+        for (int[] p : intervals) {
+            int l = p[0], r = p[1];
+            if (!ans.isEmpty() && l <= ans.get(ans.size() - 1)[1]) {
+                ans.get(ans.size() - 1)[1] = Math.max(ans.get(ans.size() - 1)[1], r);
+            } else {
+                ans.add(new int[]{l, r});
             }
         }
-        // 添加最后一组 list
-        resList.add(new int[]{left, right});
-
-        int len = resList.size();
-        int[][] res = new int[len][];
-        for (int i = 0; i < len; i++) {
-            res[i] = resList.get(i);
-        }
-        return res;
+        return ans.toArray(int[][]::new);
     }
 }
 /*
@@ -64,7 +29,7 @@ https://leetcode.cn/problems/merge-intervals/
 intervals[i].length == 2
 0 <= starti <= endi <= 10^4
 
-排序后分三种情况合并区间即可。
+按左端点升序排序
 时间复杂度 O(nlogn)
-空间复杂度 O(logn)
+空间复杂度 O(n)
  */

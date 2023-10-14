@@ -1,22 +1,26 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Solution2826 {
     public int minimumOperations(List<Integer> nums) {
         int n = nums.size();
-        // 定义 dp[i] 为包含第 i 个元素的最长上升子序列长度
-        int[] dp = new int[n];
-        dp[0] = 1;
-        int max = 1;
-        for (int i = 1; i < n; i++) {
-            dp[i] = 1;
-            for (int j = 0; j < i; j++) {
-                if (nums.get(i) >= nums.get(j)) {
-                    dp[i] = Math.max(dp[i], dp[j] + 1);
-                }
-            }
-            max = Math.max(max, dp[i]);
+        List<Integer> a = new ArrayList<>();
+        for (int x : nums) {
+            int j = upperBound(a, x);
+            if (j == a.size()) a.add(x);
+            else a.set(j, x);
         }
-        return n - max;
+        return n - a.size();
+    }
+
+    private int upperBound(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) > key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*

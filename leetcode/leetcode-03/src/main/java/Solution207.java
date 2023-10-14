@@ -1,6 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -18,7 +18,7 @@ public class Solution207 {
         }
 
         // 拓扑排序
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int id = 0; id < numCourses; id++) {
             if (inDeg[id] == 0) {
                 queue.add(id);
@@ -26,12 +26,12 @@ public class Solution207 {
         }
         List<Integer> resList = new ArrayList<>();
         while (!queue.isEmpty()) {
-            int cur = queue.remove();
-            resList.add(cur);
-            for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
-                inDeg[next]--;
-                if (inDeg[next] == 0) {
-                    queue.add(next);
+            int x = queue.remove();
+            resList.add(x);
+            for (int y : adj.getOrDefault(x, new ArrayList<>())) {
+                inDeg[y]--;
+                if (inDeg[y] == 0) {
+                    queue.add(y);
                 }
             }
         }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 
 public class Solution2580 {
@@ -11,35 +12,18 @@ public class Solution2580 {
         return (int) quickPow(2, k);
     }
 
-    private int merge(int[][] intervals) {
-        // start 升序 end 降序
-        Arrays.sort(intervals, (o1, o2) -> {
-            if (o1[0] == o2[0]) {
-                return Integer.compare(o2[1], o1[1]);
-            }
-            return Integer.compare(o1[0], o2[0]);
-        });
-
-        int left = intervals[0][0];
-        int right = intervals[0][1];
-        List<int[]> resList = new ArrayList<>();
-        for (int i = 1; i < intervals.length; i++) {
-            int[] interval = intervals[i];
-            if (left <= interval[0] && right >= interval[1]) {
-                continue;
-            }
-            if (right >= interval[0] && right <= interval[1]) {
-                right = interval[1];
-                continue;
-            }
-            if (right < interval[0]) {
-                resList.add(new int[]{left, right});
-                left = interval[0];
-                right = interval[1];
+    public int merge(int[][] intervals) {
+        Arrays.sort(intervals, Comparator.comparingInt(o -> o[0]));
+        List<int[]> ans = new ArrayList<>();
+        for (int[] p : intervals) {
+            int l = p[0], r = p[1];
+            if (!ans.isEmpty() && l <= ans.get(ans.size() - 1)[1]) {
+                ans.get(ans.size() - 1)[1] = Math.max(ans.get(ans.size() - 1)[1], r);
+            } else {
+                ans.add(new int[]{l, r});
             }
         }
-        resList.add(new int[]{left, right});
-        return resList.size();
+        return ans.size();
     }
 
     // 模下的 a^b

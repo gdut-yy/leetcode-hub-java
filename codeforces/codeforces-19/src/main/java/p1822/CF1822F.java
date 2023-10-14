@@ -44,8 +44,8 @@ public class CF1822F {
         p = new int[n + 1];
         dist = new long[n + 1];
         dist[0] = -1;
-        dfs1(1, 0);
-        dfs2(1, 0);
+        dfs(1, 0);
+        reroot(1, 0);
 
         long max = 0L;
         for (int x = 1; x <= n; x++) {
@@ -55,11 +55,11 @@ public class CF1822F {
         return String.valueOf(max);
     }
 
-    private static int dfs1(int x, int fa) {
+    private static int dfs(int x, int fa) {
         dist[x] = dist[fa] + 1;
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
             if (y == fa) continue;
-            int sub = dfs1(y, x) + 1;
+            int sub = dfs(y, x) + 1;
             if (sub > f1[x]) {
                 f2[x] = f1[x];
                 f1[x] = sub;
@@ -71,7 +71,7 @@ public class CF1822F {
         return f1[x];
     }
 
-    private static void dfs2(int x, int fa) {
+    private static void reroot(int x, int fa) {
         for (int y : adj.getOrDefault(x, new ArrayList<>())) {
             if (y == fa) continue;
             if (p[x] != y) {
@@ -80,7 +80,7 @@ public class CF1822F {
                 g[y] = Math.max(g[y], f2[x] + 1);
             }
             g[y] = Math.max(g[y], g[x] + 1);
-            dfs2(y, x);
+            reroot(y, x);
         }
     }
 }

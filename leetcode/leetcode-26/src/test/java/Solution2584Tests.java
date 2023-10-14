@@ -9,6 +9,7 @@ public class Solution2584Tests {
         int[] nums = {4, 7, 8, 15, 3, 5};
         int expected = 2;
         Assertions.assertEquals(expected, solution2584.findValidSplit(nums));
+        Assertions.assertEquals(expected, solution2584.findValidSplit2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution2584Tests {
         int[] nums = {4, 7, 15, 8, 3, 5};
         int expected = -1;
         Assertions.assertEquals(expected, solution2584.findValidSplit(nums));
+        Assertions.assertEquals(expected, solution2584.findValidSplit2(nums));
     }
 
     // 补充用例
@@ -25,5 +27,6 @@ public class Solution2584Tests {
         int[] nums = {35, 83, 53, 58, 70, 85, 5};
         int expected = -1;
         Assertions.assertEquals(expected, solution2584.findValidSplit(nums));
+        Assertions.assertEquals(expected, solution2584.findValidSplit2(nums));
     }
 }

@@ -1,6 +1,6 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -9,32 +9,32 @@ public class Solution210 {
     public int[] findOrder(int numCourses, int[][] prerequisites) {
         // 拓扑排序
         Map<Integer, List<Integer>> adj = new HashMap<>();
-        int[] inDegrees = new int[numCourses];
+        int[] inDeg = new int[numCourses];
 
         // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
         for (int[] prerequisite : prerequisites) {
             int from = prerequisite[1];
             int to = prerequisite[0];
             adj.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
-            inDegrees[to]++;
+            inDeg[to]++;
         }
 
         // 入度为 0 进队列。记为 0 到 numCourses - 1
-        Queue<Integer> queue = new LinkedList<>();
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < numCourses; i++) {
-            if (inDegrees[i] == 0) {
+            if (inDeg[i] == 0) {
                 queue.add(i);
             }
         }
         List<Integer> resList = new ArrayList<>();
         while (!queue.isEmpty()) {
-            int cur = queue.remove();
-            resList.add(cur);
+            int x = queue.remove();
+            resList.add(x);
 
-            for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
-                inDegrees[next]--;
-                if (inDegrees[next] == 0) {
-                    queue.add(next);
+            for (int y : adj.getOrDefault(x, new ArrayList<>())) {
+                inDeg[y]--;
+                if (inDeg[y] == 0) {
+                    queue.add(y);
                 }
             }
         }

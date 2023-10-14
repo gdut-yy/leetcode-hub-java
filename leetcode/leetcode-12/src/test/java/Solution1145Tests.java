@@ -11,4 +11,12 @@ public class Solution1145Tests {
         int x = 3;
         Assertions.assertTrue(solution1145.btreeGameWinningMove(root, n, x));
     }
+
+    @Test
+    public void example2() {
+        TreeNode root = TreeNode.buildTreeNode("[1,2,3]");
+        int n = 3;
+        int x = 1;
+        Assertions.assertFalse(solution1145.btreeGameWinningMove(root, n, x));
+    }
 }

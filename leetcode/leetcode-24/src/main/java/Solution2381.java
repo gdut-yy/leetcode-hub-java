@@ -1,9 +1,9 @@
 public class Solution2381 {
     public String shiftingLetters(String s, int[][] shifts) {
-        int len = s.length();
+        int n = s.length();
 
         // 差分
-        int[] diff = new int[len + 1];
+        int[] diff = new int[n + 1];
         for (int[] shift : shifts) {
             int i = shift[0];
             int j = shift[1];
@@ -13,17 +13,17 @@ public class Solution2381 {
             diff[j + 1] -= inc;
         }
         // 原数组
-        int[] res = new int[len];
+        int[] res = new int[n];
         res[0] = diff[0];
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             res[i] = res[i - 1] + diff[i];
         }
 
-        char[] chars = s.toCharArray();
-        for (int i = 0; i < len; i++) {
-            chars[i] = (char) ((((chars[i] - 'a') + res[i]) % 26 + 26) % 26 + 'a');
+        char[] cs = s.toCharArray();
+        for (int i = 0; i < n; i++) {
+            cs[i] = (char) ((((cs[i] - 'a') + res[i]) % 26 + 26) % 26 + 'a');
         }
-        return new String(chars);
+        return new String(cs);
     }
 }
 /*

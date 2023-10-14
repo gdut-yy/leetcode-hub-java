@@ -15,14 +15,14 @@ public class Solution354 {
         List<Integer> a = new ArrayList<>();
         for (int[] e : envelopes) {
             int x = e[1];
-            int j = searchInts(a, x);
+            int j = lowerBound(a, x);
             if (j == a.size()) a.add(x);
             else a.set(j, x);
         }
         return a.size();
     }
 
-    private int searchInts(List<Integer> a, int key) {
+    private int lowerBound(List<Integer> a, int key) {
         int l = 0, r = a.size();
         while (l < r) {
             int m = l + (r - l) / 2;

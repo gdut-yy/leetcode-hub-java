@@ -4,16 +4,16 @@ public class Solution940 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int distinctSubseqII(String s) {
-        int len = s.length();
+        int n = s.length();
 
         // f[i][j] 表示用 s 的前 i 个字符组成以 j 结尾的不同非空子序列的个数
-        long[][] f = new long[len][26];
+        long[][] f = new long[n][26];
         f[0][s.charAt(0) - 'a'] = 1;
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             f[i] = f[i - 1].clone();
             f[i][s.charAt(i) - 'a'] = (Arrays.stream(f[i - 1]).sum() + 1) % MOD;
         }
-        return (int) (Arrays.stream(f[len - 1]).sum() % MOD);
+        return (int) (Arrays.stream(f[n - 1]).sum() % MOD);
     }
 }
 /*

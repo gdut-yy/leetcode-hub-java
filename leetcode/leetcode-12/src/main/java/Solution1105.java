@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 public class Solution1105 {
     public int minHeightShelves(int[][] books, int shelfWidth) {
-        int len = books.length;
+        int n = books.length;
 
         // f[i] 表示放置前 i 本书所需要的书架最小高度
-        int[] f = new int[len + 1];
+        int[] f = new int[n + 1];
         Arrays.fill(f, Integer.MAX_VALUE);
         f[0] = 0;
-        for (int i = 1; i <= len; i++) {
+        for (int i = 1; i <= n; i++) {
             int width = 0;
             int h = 0;
             for (int j = i; j > 0; j--) {
@@ -20,7 +20,7 @@ public class Solution1105 {
                 f[i] = Math.min(f[i], f[j - 1] + h);
             }
         }
-        return f[len];
+        return f[n];
     }
 }
 /*
