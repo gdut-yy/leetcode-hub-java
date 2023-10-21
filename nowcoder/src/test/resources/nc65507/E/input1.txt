@@ -1,0 +1,6 @@
+5
+fire 3
+thunder 2
+ice 5
+fire 4
+thunder 3

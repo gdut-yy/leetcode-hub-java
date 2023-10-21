@@ -13,6 +13,6 @@ https://leetcode.cn/problems/maximum-value-of-an-ordered-triplet-i/description/
 3 <= nums.length <= 100
 1 <= nums[i] <= 10^6
 
-同 2874. 有序三元组中的最大值 II
+同: 2874. 有序三元组中的最大值 II
 https://leetcode.cn/problems/maximum-value-of-an-ordered-triplet-ii/description/
  */

@@ -286,6 +286,11 @@
             <artifactId>leetcode-29</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>leetcode-30</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <dependency>
             <groupId>com.devyy</groupId>
@@ -305,6 +310,13 @@
         <dependency>
             <groupId>com.devyy</groupId>
             <artifactId>leetcode-offer</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>nowcoder</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

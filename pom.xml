@@ -12,12 +12,10 @@
         <module>algo-core</module>
         <module>jacoco-aggregate-report</module>
 
-        <!-- atcoder -->
         <module>atcoder</module>
-        <!-- codeforces -->
         <module>codeforces</module>
-        <!-- leetcode -->
         <module>leetcode</module>
+        <module>nowcoder</module>
     </modules>
     <packaging>pom</packaging>
 
