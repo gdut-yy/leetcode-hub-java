@@ -44,4 +44,6 @@ https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-give
 s 只包含大写英文字符
 
 分别计算每个字符的贡献
+相似题目: 2262. 字符串的总引力
+https://leetcode.cn/problems/total-appeal-of-a-string/
  */

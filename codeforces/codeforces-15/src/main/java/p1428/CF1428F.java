@@ -53,7 +53,7 @@ https://codeforces.com/contest/1428/submission/203608811
 如果 s[i] 是 1，考察 last[ones]。右端点为 i，左端点大于 last[ones] 的子串的 f 值都增加了 1，所以 sum 增加了 i-last[ones]。
 如果 s[i] 是 0，那么连续 1 中断了，在此时去更新 last[1], last[2], last[3], ..., last[ones]。为什么 s[i]=1 的时候不更新？那样时间复杂度是 O(n^2) 的，在 s[i]=0 时更新是均摊 O(1)。
 相似题目: 2262. 字符串的总引力
-https://leetcode.cn/contest/weekly-contest-291/problems/total-appeal-of-a-string/
+https://leetcode.cn/problems/total-appeal-of-a-string/
 ======
 
 input

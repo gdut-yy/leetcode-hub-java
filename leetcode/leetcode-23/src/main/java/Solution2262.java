@@ -24,7 +24,7 @@ public class Solution2262 {
 }
 /*
 2262. 字符串的总引力
-https://leetcode.cn/contest/weekly-contest-291/problems/total-appeal-of-a-string/
+https://leetcode.cn/problems/total-appeal-of-a-string/
 
 第 291 场周赛 T4。
 
@@ -40,4 +40,6 @@ s 由小写英文字母组成
 对于这种题型和数据范围，可以 AC 的时间复杂度一般为 O(nlogn) 或 O(n)，尝试先按字典序来个排序，发现总引力会变化，说明总引力跟顺序有关，排除排序的方向。
 考虑是否存在 O(n) 的解法。单独观察每个字符对总引力的贡献。发现跟前一个相同字符的位置有关。
 时间复杂度: O(n)
+相似题目: 828. 统计子串中的唯一字符
+https://leetcode.cn/problems/count-unique-characters-of-all-substrings-of-a-given-string/
  */
