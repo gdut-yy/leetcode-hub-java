@@ -7,11 +7,23 @@ public class Solution2585 {
         f[0] = 1L;
 
         for (int[] type : types) {
-            for (int j = target; j >= type[1]; j--) {
-                for (int k = 1; k <= type[0] && k * type[1] <= j; k++) {
-                    f[j] = (f[j] + f[j - k * type[1]]) % MOD;
+            int x = type[1], c = type[0];
+//            for (int j = target; j >= x; j--) {
+//                for (int k = 1; k <= c && k * x <= j; k++) {
+//                    f[j] = (f[j] + f[j - k * x]) % MOD;
+//                }
+//            }
+
+            long[] newF = f.clone();
+            for (int j = x; j <= target; j++) {
+                newF[j] += newF[j - x];
+                newF[j] %= MOD;
+                if (j >= (c + 1) * x) {
+                    newF[j] -= f[j - (c + 1) * x];
+                    newF[j] = (newF[j] % MOD + MOD) % MOD;
                 }
             }
+            f = newF;
         }
         return (int) f[target];
     }
