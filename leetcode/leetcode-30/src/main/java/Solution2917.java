@@ -1,4 +1,4 @@
-public class Solution100111 {
+public class Solution2917 {
     public int findKOr(int[] nums, int k) {
         int[] cnt = new int[32];
         for (int num : nums) {
@@ -18,7 +18,7 @@ public class Solution100111 {
     }
 }
 /*
-100111. 找出数组中的 K-or 值
+2917. 找出数组中的 K-or 值
 https://leetcode.cn/problems/find-the-k-or-of-an-array/
 
 第 369 场周赛 T1。

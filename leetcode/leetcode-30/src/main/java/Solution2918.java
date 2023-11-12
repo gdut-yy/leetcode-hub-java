@@ -1,4 +1,4 @@
-public class Solution100102 {
+public class Solution2918 {
     public long minSum(int[] nums1, int[] nums2) {
         long s1 = 0, s2 = 0, c0_1 = 0, c0_2 = 0;
         for (int x : nums1) {
@@ -22,7 +22,7 @@ public class Solution100102 {
     }
 }
 /*
-100102. 数组的最小相等和
+2918. 数组的最小相等和
 https://leetcode.cn/problems/minimum-equal-sum-of-two-arrays-after-replacing-zeros/
 
 第 369 场周赛 T2。

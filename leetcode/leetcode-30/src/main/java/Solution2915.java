@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100042 {
+public class Solution2915 {
     private static final int INF = (int) 1e9;
 
     public int lengthOfLongestSubsequence(List<Integer> nums, int target) {
@@ -20,7 +20,7 @@ public class Solution100042 {
     }
 }
 /*
-100042. 和为目标值的最长子序列的长度
+2915. 和为目标值的最长子序列的长度
 https://leetcode.cn/problems/length-of-the-longest-subsequence-that-sums-to-target/
 
 第 116 场双周赛 T3。

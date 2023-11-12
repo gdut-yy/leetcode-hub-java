@@ -2,7 +2,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution100094 {
+public class Solution2913 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int sumCounts(List<Integer> nums) {
@@ -21,7 +21,7 @@ public class Solution100094 {
     }
 }
 /*
-100094. 子数组不同元素数目的平方和 I
+2913. 子数组不同元素数目的平方和 I
 https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-i/
 
 第 116 场双周赛 T1。

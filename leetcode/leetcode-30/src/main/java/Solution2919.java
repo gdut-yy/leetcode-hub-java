@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100107 {
+public class Solution2919 {
     private int[] nums;
     private int n, k;
     private long[] memo;
@@ -27,7 +27,7 @@ public class Solution100107 {
     }
 }
 /*
-100107. 使数组变美的最小增量运算数
+2919. 使数组变美的最小增量运算数
 https://leetcode.cn/problems/minimum-increment-operations-to-make-array-beautiful/
 
 第 369 场周赛 T3。

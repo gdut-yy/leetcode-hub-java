@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100108 {
+public class Solution2920 {
     private int[] coins;
     private int k;
     private List<Integer>[] g;
@@ -87,7 +87,7 @@ public class Solution100108 {
     }
 }
 /*
-100108. 收集所有金币可获得的最大积分
+2920. 收集所有金币可获得的最大积分
 https://leetcode.cn/problems/maximum-points-after-collecting-coins-from-all-nodes/
 
 第 369 场周赛 T4。

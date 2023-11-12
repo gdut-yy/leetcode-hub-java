@@ -1,4 +1,4 @@
-public class Solution100104 {
+public class Solution2914 {
     public int minChanges(String s) {
         int n = s.length();
         int ans = 0;
@@ -11,7 +11,7 @@ public class Solution100104 {
     }
 }
 /*
-100104. 使二进制字符串变美丽的最少修改次数
+2914. 使二进制字符串变美丽的最少修改次数
 https://leetcode.cn/problems/minimum-number-of-changes-to-make-binary-string-beautiful/
 
 第 116 场双周赛 T2。

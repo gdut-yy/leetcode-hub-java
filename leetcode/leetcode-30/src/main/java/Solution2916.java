@@ -1,4 +1,4 @@
-public class Solution100074 {
+public class Solution2916 {
     private static final int MOD = (int) (1e9 + 7);
     private static final int MAX_N = (int) (1e5 + 5);
 
@@ -179,7 +179,7 @@ public class Solution100074 {
     }
 }
 /*
-100074. 子数组不同元素数目的平方和 II
+2916. 子数组不同元素数目的平方和 II
 https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-ii/
 
 第 116 场双周赛 T4。
