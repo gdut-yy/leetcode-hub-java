@@ -199,7 +199,7 @@ https://www.luogu.com.cn/problem/P1972
 https://codeforces.com/gym/104459/problem/F
 https://atcoder.jp/contests/abc256/tasks/abc256_f
 ---
-相似题目: 100094. 子数组不同元素数目的平方和 I
+相似题目: 2913. 子数组不同元素数目的平方和 I
 https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-i/
 2262. 字符串的总引力
 https://leetcode.cn/problems/total-appeal-of-a-string/

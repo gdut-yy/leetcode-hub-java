@@ -90,6 +90,6 @@ nums 长度为 1 的 子序列 是平衡的。
 
 权值线段树（区间加法线段树）
 时间复杂度 O(nlogn)
-相似题目: 2916. 子数组不同元素数目的平方和 II
-https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-ii/
+相似题目: 2407. 最长递增子序列 II
+https://leetcode.cn/problems/longest-increasing-subsequence-ii/
  */

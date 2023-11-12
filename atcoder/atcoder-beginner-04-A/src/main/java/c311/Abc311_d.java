@@ -73,6 +73,7 @@ public class Abc311_d {
 D - Grid Ice Floor
 https://atcoder.jp/contests/abc311/tasks/abc311_d
 
+灵茶の试炼 2023-10-09
 题目大意：
 有一个 N×M 网格和一个站在上面的玩家。
 设(i,j)表示这个网格从上到下第 i 行和从左到第 j 列的正方形。

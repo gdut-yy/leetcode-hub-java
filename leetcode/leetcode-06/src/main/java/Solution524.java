@@ -2,25 +2,22 @@ import java.util.List;
 
 public class Solution524 {
     public String findLongestWord(String s, List<String> dictionary) {
-        String res = "";
+        String ans = "";
         for (String t : dictionary) {
-            // 双指针 判断 每个 t 是否为 s 的一个子序列
-            int p1 = 0;
-            int p2 = 0;
-            while (p1 < s.length() && p2 < t.length()) {
-                if (s.charAt(p1) == t.charAt(p2)) {
-                    p2++;
-                }
-                p1++;
-            }
-            if (p2 == t.length()) {
-                // 遇到长度更长 或者 相同长度但字典序更小 时更新 res
-                if (t.length() > res.length() || (t.length() == res.length() && t.compareTo(res) < 0)) {
-                    res = t;
+            // t 是否为 s 的一个子序列
+            int i = 0, j = 0;
+            while (i < t.length() && j < s.length()) {
+                if (t.charAt(i) == s.charAt(j)) i++;
+                j++;
+                if (i == t.length()) {
+                    if (t.length() > ans.length()
+                            || t.length() == ans.length() && t.compareTo(ans) < 0) {
+                        ans = t;
+                    }
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

@@ -1,26 +1,34 @@
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution436 {
     public int[] findRightInterval(int[][] intervals) {
-        int len = intervals.length;
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for (int i = 0; i < len; i++) {
-            int start = intervals[i][0];
-            treeMap.put(start, i);
+        int n = intervals.length;
+        int[][] rightIdx = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            rightIdx[i] = new int[]{intervals[i][0], i};
         }
+        Arrays.sort(rightIdx, Comparator.comparingInt(o -> o[0]));
 
-        int[] res = new int[len];
-        for (int i = 0; i < len; i++) {
-            int end = intervals[i][1];
-            Map.Entry<Integer, Integer> ceilingEntry = treeMap.ceilingEntry(end);
-            if (ceilingEntry != null) {
-                res[i] = ceilingEntry.getValue();
-            } else {
-                res[i] = -1;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        for (int i = 0; i < n; i++) {
+            int j = lowerBound(rightIdx, intervals[i][1]);
+            if (j < n) {
+                ans[i] = rightIdx[j][1];
             }
         }
-        return res;
+        return ans;
+    }
+
+    private int lowerBound(int[][] a, int key) {
+        int l = 0, r = a.length;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a[m][0] >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*
@@ -36,6 +44,6 @@ intervals[i].length == 2
 -10^6 <= starti <= endi <= 10^6
 每个间隔的起点都 不相同
 
-利用 TreeMap#ceilingEntry() 找出下一个右区间。
+排序 + 二分查找
 时间复杂度 O(nlogn)
  */

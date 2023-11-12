@@ -7,39 +7,35 @@ public class Solution464 {
 
     public boolean canIWin(int maxChoosableInteger, int desiredTotal) {
         // 特判，sum < desiredTotal 时，两人都无法获胜
-        int sum = (1 + maxChoosableInteger) * (maxChoosableInteger) / 2;
-        if (sum < desiredTotal) {
+        if ((1 + maxChoosableInteger) * (maxChoosableInteger) / 2 < desiredTotal) {
             return false;
         }
-
         this.maxChoosableInteger = maxChoosableInteger;
         this.desiredTotal = desiredTotal;
         this.memo = new int[1 << maxChoosableInteger];
         Arrays.fill(memo, -1);
-        return f(0, 0) == 1;
+        return dfs(0, 0) == 1;
     }
 
     // f(mask, total) 选择状态为 mask 时，和为 total，先出手的玩家是否能稳赢
-    private int f(int mask, int total) {
+    private int dfs(int mask, int total) {
         if (memo[mask] != -1) {
             return memo[mask];
         }
-
         int res = 0;
         for (int k = 0; k < maxChoosableInteger; k++) {
-            if (((mask >> k) & 1) == 0) {
+            if ((mask >> k & 1) == 0) {
                 if (k + 1 + total >= desiredTotal) {
                     res = 1;
                     break;
                 }
-                if (f(mask | (1 << k), total + k + 1) == 0) {
+                if (dfs(mask | (1 << k), total + k + 1) == 0) {
                     res = 1;
                     break;
                 }
             }
         }
-        memo[mask] = res;
-        return res;
+        return memo[mask] = res;
     }
 }
 /*

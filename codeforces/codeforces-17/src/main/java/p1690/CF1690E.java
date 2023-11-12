@@ -49,6 +49,7 @@ public class CF1690E {
 E. Price Maximization
 https://codeforces.com/contest/1690/problem/E
 
+灵茶の试炼 2023-10-10
 题目大意：
 给定整数 n,k 和长度为 n 的数组 a，n 为偶数，将 a 分为 n/2 组，每组包含 2 个 a，记和为 s，求所有 sum/k 的最大和。
 

@@ -47,7 +47,10 @@ public class Solution2719 {
             ans += f(i + 1, sum + d, isLimit && d == up, true);
             ans %= MOD;
         }
-        return dp[i][sum] = ans;
+        if (!isLimit && isNum) {
+            dp[i][sum] = ans;
+        }
+        return ans;
     }
 }
 /*

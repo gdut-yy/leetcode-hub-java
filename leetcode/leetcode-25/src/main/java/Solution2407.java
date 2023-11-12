@@ -1,90 +1,72 @@
 public class Solution2407 {
-    private static final int N = 100000;
+    private static final int N = (int) 1e5;
 
     public int lengthOfLIS(int[] nums, int k) {
-        DynamicSegTree dynamicSegTree = new DynamicSegTree();
-        for (int num : nums) {
-            int max = dynamicSegTree.getMax(num - k, num - 1);
-            dynamicSegTree.update(num, num, max + 1);
+        DynamicSegTree seg = new DynamicSegTree();
+        for (int x : nums) {
+            int max = seg.getMax(x - k, x - 1);
+            seg.update(x, x, max + 1);
         }
-        return dynamicSegTree.getMax(1, N);
+        return seg.getMax(1, N);
     }
 
     private static class DynamicSegTree {
-        private static class Node {
-            // 左子树
-            Node ls;
-            // 右子树
-            Node rs;
-            // 区间最大值
-            int max;
-            // 懒标记
-            int lazy;
+        static class Node {
+            Node ls, rs;
+            int max, lazy;
         }
 
-        private final Node root = new Node();
+        final Node root = new Node();
 
         // 区间更新 [l,r] 置为 val
         void update(int l, int r, int val) {
-            this.update(l, r, val, 0, N, root);
+            this.update(root, 0, N, l, r, val);
         }
 
         // 区间查询 [l,r] 最大值
         int getMax(int l, int r) {
-            return this.getMax(l, r, 0, N, root);
+            return this.getMax(root, 0, N, l, r);
         }
 
-        private void update(int l, int r, int val, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                node.max = val;
-                node.lazy = val;
+        void update(Node p, int l, int r, int ql, int qr, int val) {
+            if (ql <= l && r <= qr) {
+                p.max = val;
+                p.lazy = val;
                 return;
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node);
-            if (l <= mid) {
-                update(l, r, val, s, mid, node.ls);
-            }
-            if (r > mid) {
-                update(l, r, val, mid + 1, t, node.rs);
-            }
-            pushUp(node);
+            pushDown(p);
+            int mid = l + (r - l) / 2;
+            if (ql <= mid) update(p.ls, l, mid, ql, qr, val);
+            if (qr > mid) update(p.rs, mid + 1, r, ql, qr, val);
+            pushUp(p);
         }
 
-        private int getMax(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.max;
+        int getMax(Node p, int l, int r, int ql, int qr) {
+            if (ql <= l && r <= qr) {
+                return p.max;
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node);
+            pushDown(p);
+            int mid = l + (r - l) / 2;
             int max = 0;
-            if (l <= mid) {
-                max = Math.max(max, getMax(l, r, s, mid, node.ls));
-            }
-            if (r > mid) {
-                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-            }
+            if (ql <= mid) max = Math.max(max, getMax(p.ls, l, mid, ql, qr));
+            if (qr > mid) max = Math.max(max, getMax(p.rs, mid + 1, r, ql, qr));
             return max;
         }
 
-        private void pushDown(Node node) {
-            if (node.ls == null) {
-                node.ls = new Node();
-            }
-            if (node.rs == null) {
-                node.rs = new Node();
-            }
-            if (node.lazy > 0) {
-                node.ls.max = node.lazy;
-                node.rs.max = node.lazy;
-                node.ls.lazy = node.lazy;
-                node.rs.lazy = node.lazy;
-                node.lazy = 0;
+        void pushDown(Node p) {
+            if (p.ls == null) p.ls = new Node();
+            if (p.rs == null) p.rs = new Node();
+            if (p.lazy > 0) {
+                p.ls.max = p.lazy;
+                p.rs.max = p.lazy;
+                p.ls.lazy = p.lazy;
+                p.rs.lazy = p.lazy;
+                p.lazy = 0;
             }
         }
 
-        private void pushUp(Node node) {
-            node.max = Math.max(node.ls.max, node.rs.max);
+        void pushUp(Node p) {
+            p.max = Math.max(p.ls.max, p.rs.max);
         }
     }
 }
@@ -107,4 +89,6 @@ https://leetcode.cn/problems/longest-increasing-subsequence-ii/
 LIS 的线段树做法，比赛时只会 O(nlogn) 的 贪心+二分 的解法。然后发现单调栈无法处理这个 k。。
 相似题目: 300. 最长递增子序列
 https://leetcode.cn/problems/longest-increasing-subsequence/
+2926. 平衡子序列的最大和
+https://leetcode.cn/problems/maximum-balanced-subsequence-sum/description/
  */

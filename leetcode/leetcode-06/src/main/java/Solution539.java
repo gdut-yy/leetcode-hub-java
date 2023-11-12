@@ -1,41 +1,23 @@
-import java.util.BitSet;
+import java.util.Arrays;
 import java.util.List;
 
 public class Solution539 {
     public int findMinDifference(List<String> timePoints) {
-        if (timePoints.size() > 1440) {
-            return 0;
+        int n = timePoints.size();
+        int[] minutes = new int[n];
+        for (int i = 0; i < n; i++) {
+            minutes[i] = getMin(timePoints.get(i));
         }
-        BitSet bitSet = new BitSet(1440);
-        for (String timePoint : timePoints) {
-            String[] times = timePoint.split(":");
-            int minute = Integer.parseInt(times[0]) * 60 + Integer.parseInt(times[1]);
-            if (bitSet.get(minute)) {
-                return 0;
-            }
-            bitSet.set(minute, true);
+        Arrays.sort(minutes);
+        int ans = 1440 - minutes[n - 1] + minutes[0];
+        for (int i = 1; i < n; i++) {
+            ans = Math.min(ans, minutes[i] - minutes[i - 1]);
         }
-        return getMinDiff(bitSet);
+        return ans;
     }
 
-    private int getMinDiff(BitSet bitSet) {
-        int bitSetLen = 1440;
-        int minDiff = bitSetLen - 1;
-        int prev = -1;
-        int first = bitSetLen - 1;
-        int last = -1;
-        for (int i = 0; i < bitSetLen; i++) {
-            if (bitSet.get(i)) {
-                if (prev >= 0) {
-                    minDiff = Math.min(i - prev, minDiff);
-                }
-                prev = i;
-                first = Math.min(i, first);
-                last = Math.max(i, last);
-            }
-        }
-        minDiff = Math.min(first + bitSetLen - last, minDiff);
-        return minDiff;
+    private int getMin(String s) {
+        return Integer.parseInt(s.substring(0, 2)) * 60 + Integer.parseInt(s.substring(3, 5));
     }
 }
 /*

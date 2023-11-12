@@ -1,24 +1,16 @@
 public class Solution837 {
     public double new21Game(int n, int k, int maxPts) {
-        if (k == 0) {
-            return 1.0;
-        }
-        // dp[x] 表示从得分为 x 的情况开始游戏并且获胜的概率，目标是求 dp[0] 的值。
+        // dp[x] 为她手上牌面为x时，能获胜的概率
         double[] dp = new double[k + maxPts];
-        for (int i = k; i <= n && i < k + maxPts; i++) {
-            dp[i] = 1.0;
+        double s = 0;
+        for (int i = k; i < k + maxPts; i++) {
+            dp[i] = (i <= n) ? 1 : 0;
+            s += dp[i];
         }
 
-//        for (int i = k - 1; i >= 0; i--) {
-//            for (int j = 1; j <= maxPts; j++) {
-//                dp[i] += dp[i + j] / maxPts;
-//            }
-//        }
-
-        // 优化
-        dp[k - 1] = 1.0 * Math.min(n - k + 1, maxPts) / maxPts;
-        for (int i = k - 2; i >= 0; i--) {
-            dp[i] = dp[i + 1] - (dp[i + maxPts + 1] - dp[i + 1]) / maxPts;
+        for (int i = k - 1; i >= 0; i--) {
+            dp[i] = s / maxPts;
+            s = s - dp[i + maxPts] + dp[i];
         }
         return dp[0];
     }
@@ -38,5 +30,6 @@ https://leetcode.cn/problems/new-21-game/
 1 <= maxPts <= 10^4
 
 动态规划
+https://leetcode.cn/problems/new-21-game/solutions/273085/huan-you-bi-zhe-geng-jian-dan-de-ti-jie-ma-tian-ge/
 时间复杂度 O(min(n, k+maxPts))
  */

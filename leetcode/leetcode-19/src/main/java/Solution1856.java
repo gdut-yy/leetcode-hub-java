@@ -3,37 +3,30 @@ import java.util.Arrays;
 import java.util.Deque;
 
 public class Solution1856 {
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
 
     public int maxSumMinProduct(int[] nums) {
         int n = nums.length;
 
-        // step1: 求左侧第一个 "严格小于" arr[i] 的下标，如没有则为 -1
-        Deque<Integer> stack1 = new ArrayDeque<>();
-        int[] left = new int[n];
+        // step1: 求左侧第一个 "严格小于" arr[i] 的下标，如没有则为 0
+        Deque<Integer> st = new ArrayDeque<>();
+        st.push(-1); // 哨兵
+        int[] posL = new int[n];
         for (int i = 0; i < n; i++) {
-            while (!stack1.isEmpty() && nums[i] <= nums[stack1.peek()]) {
-                stack1.pop();
-            }
-            if (!stack1.isEmpty()) {
-                left[i] = stack1.peek() + 1;
-            }
-            stack1.push(i);
+            while (st.size() > 1 && nums[i] <= nums[st.peek()]) st.pop();
+            posL[i] = st.peek() + 1;
+            st.push(i);
         }
 
-        // step2: 求右侧第一个 "小于等于" arr[i] 的下标，如没有则为 n
-        Deque<Integer> stack2 = new ArrayDeque<>();
-        int[] right = new int[n];
-        Arrays.fill(right, n - 1);
+        // step2: 求右侧第一个 "小于等于" arr[i] 的下标，如没有则为 n-1
+        st.clear();
+        st.push(n); // 哨兵
+        int[] posR = new int[n];
+        Arrays.fill(posR, n - 1);
         for (int i = n - 1; i >= 0; i--) {
-            // <= 为避免重复计算
-            while (!stack2.isEmpty() && nums[i] < nums[stack2.peek()]) {
-                stack2.pop();
-            }
-            if (!stack2.isEmpty()) {
-                right[i] = stack2.peek() - 1;
-            }
-            stack2.push(i);
+            while (st.size() > 1 && nums[i] < nums[st.peek()]) st.pop();
+            posR[i] = st.peek() - 1;
+            st.push(i);
         }
 
         // 前缀和
@@ -42,12 +35,12 @@ public class Solution1856 {
             preSum[i + 1] = preSum[i] + nums[i];
         }
 
-        long max = 0;
+        long ans = 0;
         for (int i = 0; i < n; i++) {
-            long product = (preSum[right[i] + 1] - preSum[left[i]]) * nums[i];
-            max = Math.max(max, product);
+            long product = (preSum[posR[i] + 1] - preSum[posL[i]]) * nums[i];
+            ans = Math.max(ans, product);
         }
-        return (int) (max % MOD);
+        return (int) (ans % MOD);
     }
 }
 /*
@@ -65,4 +58,8 @@ https://leetcode.cn/problems/maximum-subarray-min-product/
 
 单调栈 + 贪心
 时间复杂度 O(n)
+相似题目: 1793. 好子数组的最大分数
+https://leetcode.cn/problems/maximum-score-of-a-good-subarray/
+2281. 巫师的总力量和
+https://leetcode.cn/problems/sum-of-total-strength-of-wizards/
  */
