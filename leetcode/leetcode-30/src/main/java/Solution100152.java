@@ -28,6 +28,6 @@ https://leetcode.cn/problems/remove-adjacent-almost-equal-characters/description
 1 <= word.length <= 100
 word 只包含小写英文字母。
 
-分组循环。
+分组循环。答案为每个分组的长度 / 2 的和。
 时间复杂度 O(n)
  */

@@ -18,6 +18,6 @@ https://leetcode.cn/problems/find-indices-with-index-and-value-difference-i/desc
 0 <= indexDifference <= 100
 0 <= valueDifference <= 50
 
-同: 100101. 找出满足差值条件的下标 II
+2905. 找出满足差值条件的下标 II
 https://leetcode.cn/problems/find-indices-with-index-and-value-difference-ii/description/
  */
