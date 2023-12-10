@@ -1,4 +1,4 @@
-public class Solution100125 {
+public class Solution2928 {
     public int distributeCandies(int n, int limit) {
         int ans = 0;
         for (int a = 0; a <= Math.min(n, limit); a++) {
@@ -13,7 +13,7 @@ public class Solution100125 {
     }
 }
 /*
-100125. 给小朋友们分糖果 I
+2928. 给小朋友们分糖果 I
 https://leetcode.cn/problems/distribute-candies-among-children-i/description/
 
 第 117 场双周赛 T1。

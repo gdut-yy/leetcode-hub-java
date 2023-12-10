@@ -1,7 +1,7 @@
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
-public class Solution100043 {
+public class Solution2931 {
     public long maxSpending(int[][] values) {
         int m = values.length;
         int n = values[0].length;
@@ -33,7 +33,7 @@ public class Solution100043 {
     }
 }
 /*
-100043. 购买物品的最大开销
+2931. 购买物品的最大开销
 https://leetcode.cn/problems/maximum-spending-after-buying-items/description/
 
 第 117 场双周赛 T4。

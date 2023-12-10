@@ -1,4 +1,4 @@
-public class Solution100127 {
+public class Solution2929 {
     // 时间复杂度 O(1)
     public long distributeCandies2(int n, int limit) {
         long k1 = n - (limit + 1);
@@ -15,7 +15,7 @@ public class Solution100127 {
     }
 }
 /*
-100127. 给小朋友们分糖果 II
+2929. 给小朋友们分糖果 II
 https://leetcode.cn/problems/distribute-candies-among-children-ii/description/
 
 第 117 场双周赛 T2。

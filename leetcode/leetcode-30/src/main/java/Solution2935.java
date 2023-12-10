@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100124 {
+public class Solution2935 {
     public int maximumStrongPairXor(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -67,7 +67,7 @@ public class Solution100124 {
     }
 }
 /*
-100124. 找出强数对的最大异或值 II
+2935. 找出强数对的最大异或值 II
 https://leetcode.cn/problems/maximum-strong-pair-xor-ii/description/
 
 第 371 场周赛 T4。

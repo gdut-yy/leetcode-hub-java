@@ -1,15 +1,15 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution100127Tests {
-    private final Solution100127 solution100127 = new Solution100127();
+public class Solution2929Tests {
+    private final Solution2929 solution2929 = new Solution2929();
 
     @Test
     public void example1() {
         int n = 5;
         int limit = 2;
         long expected = 3;
-        Assertions.assertEquals(expected, solution100127.distributeCandies2(n, limit));
+        Assertions.assertEquals(expected, solution2929.distributeCandies2(n, limit));
     }
 
     @Test
@@ -17,6 +17,6 @@ public class Solution100127Tests {
         int n = 3;
         int limit = 3;
         long expected = 10;
-        Assertions.assertEquals(expected, solution100127.distributeCandies2(n, limit));
+        Assertions.assertEquals(expected, solution2929.distributeCandies2(n, limit));
     }
 }

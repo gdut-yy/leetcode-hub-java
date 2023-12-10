@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100126 {
+public class Solution2930 {
     private static final int MOD = (int) (1e9 + 7);
     private long[][][][] memo;
 
@@ -55,7 +55,7 @@ public class Solution100126 {
     }
 }
 /*
-100126. 重新排列后包含指定子字符串的字符串数目
+2930. 重新排列后包含指定子字符串的字符串数目
 https://leetcode.cn/problems/number-of-strings-which-can-be-rearranged-to-contain-substring/description/
 
 第 117 场双周赛 T3。

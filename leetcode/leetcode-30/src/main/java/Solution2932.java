@@ -1,4 +1,4 @@
-public class Solution100120 {
+public class Solution2932 {
     public int maximumStrongPairXor(int[] nums) {
         int n = nums.length;
         int ans = 0;
@@ -13,7 +13,7 @@ public class Solution100120 {
     }
 }
 /*
-100120. 找出强数对的最大异或值 I
+2932. 找出强数对的最大异或值 I
 https://leetcode.cn/problems/maximum-strong-pair-xor-i/description/
 
 第 371 场周赛 T1。

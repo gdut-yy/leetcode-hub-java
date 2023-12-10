@@ -1,4 +1,4 @@
-public class Solution100117 {
+public class Solution2934 {
     public int minOperations(int[] nums1, int[] nums2) {
         int n = nums1.length;
         int ans1 = getAns(nums1, nums2);
@@ -22,7 +22,7 @@ public class Solution100117 {
     }
 }
 /*
-100117. 最大化数组末位元素的最少操作次数
+2934. 最大化数组末位元素的最少操作次数
 https://leetcode.cn/problems/minimum-operations-to-maximize-last-elements-in-arrays/description/
 
 第 371 场周赛 T3。

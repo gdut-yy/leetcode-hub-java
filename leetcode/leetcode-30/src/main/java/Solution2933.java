@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100128 {
+public class Solution2933 {
     public List<String> findHighAccessEmployees(List<List<String>> access_times) {
         Map<String, List<Integer>> empTimes = new HashMap<>();
         for (List<String> accessTime : access_times) {
@@ -30,7 +30,7 @@ public class Solution100128 {
     }
 }
 /*
-100128. 高访问员工
+2933. 高访问员工
 https://leetcode.cn/problems/high-access-employees/description/
 
 第 371 场周赛 T2。
