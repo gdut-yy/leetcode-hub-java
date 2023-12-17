@@ -4,25 +4,21 @@ import java.util.Map;
 public class Solution3 {
     public int lengthOfLongestSubstring(String s) {
         int n = s.length();
-        char[] chars = s.toCharArray();
+        char[] cs = s.toCharArray();
         Map<Character, Integer> cntMap = new HashMap<>();
         int l = 0, r = 0;
-        int max = 0;
+        int ans = 0;
         while (r < n) {
-            cntMap.put(chars[r], cntMap.getOrDefault(chars[r], 0) + 1);
-            while (cntMap.get(chars[r]) > 1) {
-                int cnt = cntMap.get(chars[l]);
-                if (cnt == 1) {
-                    cntMap.remove(chars[l]);
-                } else {
-                    cntMap.put(chars[l], cnt - 1);
-                }
+            cntMap.put(cs[r], cntMap.getOrDefault(cs[r], 0) + 1);
+
+            while (cntMap.get(cs[r]) > 1) {
+                cntMap.put(cs[l], cntMap.get(cs[l]) - 1);
                 l++;
             }
-            max = Math.max(max, r - l + 1);
+            ans = Math.max(ans, r - l + 1);
             r++;
         }
-        return max;
+        return ans;
     }
 }
 /*
@@ -35,4 +31,5 @@ https://leetcode.cn/problems/longest-substring-without-repeating-characters/
 s 由英文字母、数字、符号和空格组成
 
 双指针 滑动窗口
+时间复杂度 O(n)
  */

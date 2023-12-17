@@ -70,6 +70,45 @@ public class Solution1334 {
         }
         return dist;
     }
+
+    private static final int INF = (int) 1e9;
+
+    public int findTheCity2(int n, int[][] edges, int distanceThreshold) {
+        int[][] adj = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(adj[i], INF);
+            adj[i][i] = 0;
+        }
+        for (int[] p : edges) {
+            int u = p[0], v = p[1], wt = p[2];
+            adj[u][v] = adj[v][u] = wt;
+        }
+
+        // Floyd
+        for (int k = 0; k < n; k++) {
+            for (int i = 0; i < n; i++) {
+                for (int j = 0; j < n; j++) {
+                    adj[i][j] = Math.min(adj[i][j], adj[i][k] + adj[k][j]);
+                }
+            }
+        }
+
+        int ans = 0;
+        int minCnt = n;
+        for (int i = 0; i < n; i++) {
+            int cnt = 0;
+            for (int j = 0; j < n; j++) {
+                if (i != j && adj[i][j] <= distanceThreshold) {
+                    cnt++;
+                }
+            }
+            if (minCnt >= cnt) {
+                minCnt = cnt;
+                ans = i;
+            }
+        }
+        return ans;
+    }
 }
 /*
 1334. 阈值距离内邻居最少的城市

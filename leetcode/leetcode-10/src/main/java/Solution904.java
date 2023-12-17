@@ -6,9 +6,10 @@ public class Solution904 {
         int n = fruits.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
         int l = 0, r = 0;
-        int max = 0;
+        int ans = 0;
         while (r < n) {
             cntMap.put(fruits[r], cntMap.getOrDefault(fruits[r], 0) + 1);
+
             while (cntMap.size() > 2) {
                 int cnt = cntMap.get(fruits[l]);
                 if (cnt == 1) {
@@ -18,10 +19,10 @@ public class Solution904 {
                 }
                 l++;
             }
-            max = Math.max(max, r - l + 1);
+            ans = Math.max(ans, r - l + 1);
             r++;
         }
-        return max;
+        return ans;
     }
 }
 /*
@@ -39,4 +40,5 @@ https://leetcode.cn/problems/fruit-into-baskets/
 0 <= fruits[i] < fruits.length
 
 双指针 滑动窗口
+时间复杂度 O(n)
  */

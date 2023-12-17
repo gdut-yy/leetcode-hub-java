@@ -11,4 +11,12 @@ public class Solution974Tests {
         int expected = 7;
         Assertions.assertEquals(expected, solution974.subarraysDivByK(nums, k));
     }
+
+    @Test
+    public void example2() {
+        int[] nums = {5};
+        int k = 9;
+        int expected = 0;
+        Assertions.assertEquals(expected, solution974.subarraysDivByK(nums, k));
+    }
 }

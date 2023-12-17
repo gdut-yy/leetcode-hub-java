@@ -2,20 +2,16 @@ public class Solution974 {
     public int subarraysDivByK(int[] nums, int k) {
         // 模 k 下的前缀和
         int sumMod = 0;
-
+        int ans = 0;
         // 前缀和 频次
         int[] modCnt = new int[k];
         modCnt[0] = 1;
         for (int num : nums) {
             sumMod = ((sumMod + num) % k + k) % k;
+            ans += modCnt[sumMod];
             modCnt[sumMod]++;
         }
-
-        int res = 0;
-        for (int x : modCnt) {
-            res += x * (x - 1) / 2;
-        }
-        return res;
+        return ans;
     }
 }
 /*

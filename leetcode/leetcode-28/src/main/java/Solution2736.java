@@ -1,19 +1,22 @@
-import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Deque;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
 
 public class Solution2736 {
     public int[] maximumSumQueries(int[] nums1, int[] nums2, int[][] queries) {
         int n = nums1.length;
         int q = queries.length;
+        int[] ans = new int[q];
+        Arrays.fill(ans, -1);
 
         // 按 x 升序排序 nums1, nums2
-        Integer[] ids = new Integer[n];
-        for (int i = 0; i < n; i++) ids[i] = i;
-        Arrays.sort(ids, Comparator.comparingInt(o -> nums1[o]));
+        int[][] zip = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            zip[i][0] = nums1[i];
+            zip[i][1] = nums2[i];
+        }
+        Arrays.sort(zip, Comparator.comparingInt(o -> o[0]));
 
         // 按 x 降序排序 queries
         for (int i = 0; i < q; i++) {
@@ -21,33 +24,37 @@ public class Solution2736 {
         }
         Arrays.sort(queries, (o1, o2) -> Integer.compare(o2[0], o1[0]));
 
-        int[] ans = new int[q];
-        Arrays.fill(ans, -1);
-        Deque<int[]> stack = new ArrayDeque<>();
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        int idx = n - 1;
-        for (int[] query : queries) {
-            int x = query[0], y = query[1], qId = query[2];
-            while (idx >= 0 && nums1[ids[idx]] >= x) {
-                int ax = nums1[ids[idx]], ay = nums2[ids[idx]];
+        List<int[]> st = new ArrayList<>();
+        int i = n - 1;
+        for (int[] p : queries) {
+            int x = p[0], y = p[1], qi = p[2];
+            for (; i >= 0 && zip[i][0] >= x; i--) {
+                int ax = zip[i][0], ay = zip[i][1];
                 // ay >= stack.peek()[0]
-                while (!stack.isEmpty() && stack.peek()[1] <= ax + ay) {
-                    int[] pop = stack.pop();
-                    treeMap.remove(pop[0]);
+                while (!st.isEmpty() && st.get(st.size() - 1)[1] <= ax + ay) {
+                    st.remove(st.size() - 1);
                 }
-                if (stack.isEmpty() || stack.peek()[0] < ay) {
-                    stack.push(new int[]{ay, ax + ay});
-                    treeMap.put(ay, ax + ay);
+                if (st.isEmpty() || st.get(st.size() - 1)[0] < ay) {
+                    st.add(new int[]{ay, ax + ay});
                 }
-                idx--;
             }
             // 单调栈上二分
-            Map.Entry<Integer, Integer> entry = treeMap.ceilingEntry(y);
-            if (entry != null) {
-                ans[qId] = entry.getValue();
+            int j = lowerBound(st, y);
+            if (j < st.size()) {
+                ans[qi] = st.get(j)[1];
             }
         }
         return ans;
+    }
+
+    private int lowerBound(List<int[]> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m)[0] >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*
@@ -75,4 +82,6 @@ yi == queries[i][2]
 时间复杂度 O(n + qlogn)
 相似题目: 2250. 统计包含每个点的矩形数目
 https://leetcode.cn/problems/count-number-of-rectangles-containing-each-point/
+2940. 找到 Alice 和 Bob 可以相遇的建筑
+https://leetcode.cn/problems/find-building-where-alice-and-bob-can-meet/description/
  */
