@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100137 {
+public class Solution2962 {
     public long countSubarrays(int[] nums, int k) {
         int n = nums.length;
         int mx = Arrays.stream(nums).max().orElseThrow();
@@ -21,7 +21,7 @@ public class Solution100137 {
     }
 }
 /*
-100137. 统计最大元素出现至少 K 次的子数组
+2962. 统计最大元素出现至少 K 次的子数组
 https://leetcode.cn/problems/count-subarrays-where-max-element-appears-at-least-k-times/description/
 
 第 375 场周赛 T3。

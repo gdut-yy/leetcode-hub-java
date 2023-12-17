@@ -1,4 +1,4 @@
-public class Solution100143 {
+public class Solution2960 {
     public int countTestedDevices(int[] batteryPercentages) {
         int n = batteryPercentages.length;
         int ans = 0;
@@ -14,7 +14,7 @@ public class Solution100143 {
     }
 }
 /*
-100143. 统计已测试设备
+2960. 统计已测试设备
 https://leetcode.cn/problems/count-tested-devices-after-test-operations/description/
 
 第 375 场周赛 T1。

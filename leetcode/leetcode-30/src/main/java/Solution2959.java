@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100140 {
+public class Solution2959 {
     private static final int INF = (int) 1e9;
 
     public int numberOfSets(int n, int maxDistance, int[][] roads) {
@@ -52,7 +52,7 @@ public class Solution100140 {
     }
 }
 /*
-100140. 关闭分部的可行集合数目
+2959. 关闭分部的可行集合数目
 https://leetcode.cn/problems/number-of-possible-sets-of-closing-branches/description/
 
 第 119 场双周赛 T4。

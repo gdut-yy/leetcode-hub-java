@@ -1,4 +1,4 @@
-public class Solution100152 {
+public class Solution2957 {
     public int removeAlmostEqualCharacters(String word) {
         int n = word.length();
         char[] s = word.toCharArray();
@@ -15,7 +15,7 @@ public class Solution100152 {
     }
 }
 /*
-100152. 消除相邻近似相等字符
+2957. 消除相邻近似相等字符
 https://leetcode.cn/problems/remove-adjacent-almost-equal-characters/description/
 
 第 119 场双周赛 T2。

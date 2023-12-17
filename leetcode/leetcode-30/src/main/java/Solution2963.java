@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100136 {
+public class Solution2963 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int numberOfGoodPartitions(int[] nums) {
@@ -51,7 +51,7 @@ public class Solution100136 {
     }
 }
 /*
-100136. 统计好分割方案的数目
+2963. 统计好分割方案的数目
 https://leetcode.cn/problems/count-the-number-of-good-partitions/description/
 
 第 375 场周赛 T4。

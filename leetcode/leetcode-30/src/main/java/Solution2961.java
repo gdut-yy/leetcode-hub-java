@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100155 {
+public class Solution2961 {
     public List<Integer> getGoodIndices(int[][] variables, int target) {
         int n = variables.length;
         List<Integer> ans = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Solution100155 {
     }
 }
 /*
-100155. 双模幂运算
+2961. 双模幂运算
 https://leetcode.cn/problems/double-modular-exponentiation/description/
 
 第 375 场周赛 T2。

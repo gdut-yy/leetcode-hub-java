@@ -1,6 +1,6 @@
 import java.util.BitSet;
 
-public class Solution100130 {
+public class Solution2956 {
     public int[] findIntersectionValues(int[] nums1, int[] nums2) {
         int[] ans = new int[2];
         BitSet set1 = new BitSet(101);
@@ -13,7 +13,7 @@ public class Solution100130 {
     }
 }
 /*
-100130. 找到两个数组中的公共元素
+2956. 找到两个数组中的公共元素
 https://leetcode.cn/problems/find-common-elements-between-two-arrays/description/
 
 第 119 场双周赛 T1。
