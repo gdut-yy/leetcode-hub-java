@@ -1,6 +1,6 @@
-# leetcode-hub-java
+# algo-hub-java
 
-基于 `jdk21` + `maven3.9` + `junit5` + `jacoco` 的 leetcode 练习仓库。
+基于 `jdk21` + `maven3.9` + `junit5` + `jacoco` 的 leetcode + codeforces + atcoder + nowcoder 练习仓库。
 
 `@since` 2021.07.05
 
@@ -8,7 +8,15 @@
 
 ~~（拼搏 300 天，我要完成 1000 道 leetcode 题！（Day269 (2022.03.30) 已完成 1001 题）~~
 
-（Day545 (2022.12.31) 已完成 1665 题）
+~~（Day545 (2022.12.31) 已完成 1665 题）~~
+
+Day911 (2024.01.01) 已完成：
+
+- leetcode: 2251 题
+- codeforces: 559 题
+- atcoder: 290 题
+
+---
 
 - `atcoder-*` 存放 atcoder 题目。
 - `codeforces-*` 存放 codeforces 题目。
@@ -18,6 +26,7 @@
 - `leetcode-interview` 存放 《程序员面试金典》 题目。
 - `leetcode-lcp` 存放 力扣杯 题目。
 - `leetcode-offer` 存放 《剑指 Offer》 题目。
+- `nowcoder-*` 存放 牛客 题目。
 - `数据库`题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
 
 ## 环境信息
@@ -49,7 +58,7 @@ mvn clean verify -s settings.xml
 python countSolutions.py
 ```
 
-![](./README/ut-coverage-report-2022.png)
+![](./README/ut-coverage-report-2023.png)
 
 ## UT、TDD
 
@@ -520,7 +529,7 @@ Hierholzer 算法
 - ~~[哈工大 OJ](http://acm.hit.edu.cn/)~~
 - [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
-- [leetcode-rating-predictor](https://lcpredictor.onrender.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)
+- ~~[leetcode-rating-predictor](https://lcpredictor.onrender.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)~~
 - [lccn.lbao.site](https://lccn.lbao.site/)
 - [zerotrac-leetcode_problem_rating](https://zerotrac.github.io/leetcode_problem_rating/)
 - [clist.by](https://clist.by/account/zhang-yi-yang/resource/leetcode.com/)
