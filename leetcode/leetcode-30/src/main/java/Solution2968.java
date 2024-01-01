@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100123 {
+public class Solution2968 {
     public int maxFrequencyScore(int[] nums, long k) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -35,7 +35,7 @@ public class Solution100123 {
     }
 }
 /*
-100123. 执行操作使频率分数最大
+2968. 执行操作使频率分数最大
 https://leetcode.cn/problems/apply-operations-to-maximize-frequency-score/description/
 
 第 376 场周赛 T4。

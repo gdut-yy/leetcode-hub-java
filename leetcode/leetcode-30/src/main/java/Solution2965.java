@@ -1,4 +1,4 @@
-public class Solution100149 {
+public class Solution2965 {
     public int[] findMissingAndRepeatedValues(int[][] grid) {
         int n = grid.length;
         int n2 = n * n;
@@ -20,7 +20,7 @@ public class Solution100149 {
     }
 }
 /*
-100149. 找出缺失和重复的数字
+2965. 找出缺失和重复的数字
 https://leetcode.cn/problems/find-missing-and-repeated-values/description/
 
 第 376 场周赛 T1。

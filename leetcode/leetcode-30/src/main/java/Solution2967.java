@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100151 {
+public class Solution2967 {
     static List<Long> pal;
 
     static {
@@ -65,7 +65,7 @@ public class Solution100151 {
     }
 }
 /*
-100151. 使数组成为等数数组的最小代价
+2967. 使数组成为等数数组的最小代价
 https://leetcode.cn/problems/minimum-cost-to-make-array-equalindromic/description/
 
 第 376 场周赛 T3。

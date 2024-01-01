@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100161 {
+public class Solution2966 {
     public int[][] divideArray(int[] nums, int k) {
         int n = nums.length;
         Arrays.sort(nums);
@@ -17,7 +17,7 @@ public class Solution100161 {
     }
 }
 /*
-100161. 划分数组并满足最大差限制
+2966. 划分数组并满足最大差限制
 https://leetcode.cn/problems/divide-array-into-arrays-with-max-difference/description/
 
 第 376 场周赛 T2。
