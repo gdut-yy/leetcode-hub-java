@@ -12,8 +12,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 public abstract class AbstractOjTests {
-    private static final String DEFAULT_INPUT = "input.txt";
-    private static final String DEFAULT_OUTPUT = "output.txt";
     protected static final String INPUT1 = "input1.txt";
     protected static final String OUTPUT1 = "output1.txt";
     protected static final String INPUT2 = "input2.txt";
@@ -54,6 +52,8 @@ public abstract class AbstractOjTests {
     protected static final String OUTPUT19 = "output19.txt";
     protected static final String INPUT20 = "input20.txt";
     protected static final String OUTPUT20 = "output20.txt";
+    private static final String DEFAULT_INPUT = INPUT1;
+    private static final String DEFAULT_OUTPUT = OUTPUT1;
 
     private final String path;
     private final ByteArrayOutputStream byteArrayOutputStream;
