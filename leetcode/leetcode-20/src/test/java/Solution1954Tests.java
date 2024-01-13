@@ -9,6 +9,7 @@ public class Solution1954Tests {
         long neededApples = 1;
         long expected = 8;
         Assertions.assertEquals(expected, solution1954.minimumPerimeter(neededApples));
+        Assertions.assertEquals(expected, solution1954.minimumPerimeter2(neededApples));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution1954Tests {
         long neededApples = 13;
         long expected = 16;
         Assertions.assertEquals(expected, solution1954.minimumPerimeter(neededApples));
+        Assertions.assertEquals(expected, solution1954.minimumPerimeter2(neededApples));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution1954Tests {
         long neededApples = 1000000000;
         long expected = 5040;
         Assertions.assertEquals(expected, solution1954.minimumPerimeter(neededApples));
+        Assertions.assertEquals(expected, solution1954.minimumPerimeter2(neededApples));
     }
 }

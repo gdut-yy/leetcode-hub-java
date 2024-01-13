@@ -1,9 +1,6 @@
 public class Solution53 {
-    /**
-     * 动态规划
-     * 时间复杂度 O(n)
-     * 空间复杂度 O(n)
-     */
+    // 动态规划
+    // 时间复杂度 O(n)
     public int maxSubArray(int[] nums) {
         int len = nums.length;
         // dp[i] 代表以第 i 个数结尾的「连续子数组的最大和」
@@ -18,110 +15,131 @@ public class Solution53 {
         return max;
     }
 
-    /**
-     * 动态规划（状态压缩）
-     * 时间复杂度 O(n)
-     * 空间复杂度 O(1)
-     */
-    public int maxSubArray2(int[] nums) {
-        int dp = nums[0];
-        int max = nums[0];
-        for (int i = 1; i < nums.length; i++) {
-            dp = nums[i] + Math.max(dp, 0);
-            max = Math.max(max, dp);
+    static class V2 {
+        // 动态规划（状态压缩）
+        // 时间复杂度 O(n)
+        // 空间复杂度 O(1)
+        public int maxSubArray(int[] nums) {
+            int dp = nums[0];
+            int max = nums[0];
+            for (int i = 1; i < nums.length; i++) {
+                dp = nums[i] + Math.max(dp, 0);
+                max = Math.max(max, dp);
+            }
+            return max;
         }
-        return max;
     }
 
-    public int maxSubArray3(int[] nums) {
-        DynamicMaxSubarraySum segmentTree = new DynamicMaxSubarraySum(nums);
-        return segmentTree.query(1, nums.length);
+    static class V3 {
+        public int maxSubArray(int[] nums) {
+            DynamicMaxSubarraySum segmentTree = new DynamicMaxSubarraySum(nums);
+            return segmentTree.query(1, nums.length);
+        }
+
+        static class DynamicMaxSubarraySum {
+            private static class Node {
+                // 分别表示 [l,r] 区间：前缀最大子段和，后缀最大子段和，最大子段和，区间和
+                int maxL, maxR, maxSum, sum;
+
+                public Node(int maxL, int maxR, int maxSum, int sum) {
+                    this.maxL = maxL;
+                    this.maxR = maxR;
+                    this.maxSum = maxSum;
+                    this.sum = sum;
+                }
+            }
+
+            private static final int INF = (int) 1e9;
+            private final int[] nums;
+            private final int N;
+            private final Node[] tree;
+
+            // nums[pos] 修改为 val
+            public void modify(int pos, int val) {
+                modify(1, N, 1, pos, val);
+            }
+
+            // 查询 [l,r] 区间最大子段和
+            public int query(int l, int r) {
+                return query(1, N, 1, l, r).maxSum;
+            }
+
+            public DynamicMaxSubarraySum(int[] nums) {
+                this.nums = nums;
+                N = nums.length;
+                tree = new Node[4 * N];
+                for (int i = 0; i < 4 * N; i++) {
+                    tree[i] = new Node(0, 0, 0, 0);
+                }
+                build(1, N, 1);
+            }
+
+            private void build(int s, int t, int p) {
+                if (s == t) {
+                    int val = nums[s - 1];
+                    tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
+                    return;
+                }
+                int mid = s + (t - s) / 2;
+                build(s, mid, p * 2);
+                build(mid + 1, t, p * 2 + 1);
+                tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
+            }
+
+            private Node pushUp(Node l, Node r) {
+                int maxL = Math.max(l.maxL, l.sum + r.maxL);
+                int maxR = Math.max(r.maxR, r.sum + l.maxR);
+                // max(l.maxSum, r.maxSum, l.maxR + r.maxL)
+                int maxSum = Math.max(Math.max(l.maxSum, r.maxSum), l.maxR + r.maxL);
+                int sum = l.sum + r.sum;
+                return new Node(maxL, maxR, maxSum, sum);
+            }
+
+            private void modify(int s, int t, int p, int pos, int val) {
+                if (s > pos || t < pos) {
+                    return;
+                }
+                if (s == pos && t == pos) {
+                    tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
+                    return;
+                }
+                int mid = s + (t - s) / 2;
+                modify(s, mid, p * 2, pos, val);
+                modify(mid + 1, t, p * 2 + 1, pos, val);
+                tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
+            }
+
+            private Node query(int s, int t, int p, int l, int r) {
+                if (s > r || t < l) {
+                    return new Node(-INF, -INF, -INF, 0);
+                }
+                if (l <= s && t <= r) {
+                    return tree[p];
+                }
+                int mid = s + (t - s) / 2;
+                Node lSub = query(s, mid, p * 2, l, r);
+                Node rSub = query(mid + 1, t, p * 2 + 1, l, r);
+                return pushUp(lSub, rSub);
+            }
+        }
     }
 
-    private static class DynamicMaxSubarraySum {
-        private static class Node {
-            // 分别表示 [l,r] 区间：前缀最大子段和，后缀最大子段和，最大子段和，区间和
-            int maxL, maxR, maxSum, sum;
-
-            public Node(int maxL, int maxR, int maxSum, int sum) {
-                this.maxL = maxL;
-                this.maxR = maxR;
-                this.maxSum = maxSum;
-                this.sum = sum;
+    static class V4 {
+        // TLE 调和级数 理论是 O(nlogn)
+        public int maxSubArray(int[] nums) {
+            int n = nums.length;
+            int[] ps = new int[n + 1];
+            for (int i = 0; i < n; i++) {
+                ps[i + 1] = ps[i] + nums[i];
             }
-        }
 
-        private static final int INF = (int) 1e9;
-        private final int[] nums;
-        private final int N;
-        private final Node[] tree;
-
-        // nums[pos] 修改为 val
-        public void modify(int pos, int val) {
-            modify(1, N, 1, pos, val);
-        }
-
-        // 查询 [l,r] 区间最大子段和
-        public int query(int l, int r) {
-            return query(1, N, 1, l, r).maxSum;
-        }
-
-        public DynamicMaxSubarraySum(int[] nums) {
-            this.nums = nums;
-            N = nums.length;
-            tree = new Node[4 * N];
-            for (int i = 0; i < 4 * N; i++) {
-                tree[i] = new Node(0, 0, 0, 0);
+            int ans = Integer.MIN_VALUE;
+            for (int span = 1; span <= n; span++) {
+                for (int i = 0; i + span <= n; i++) {
+                    ans = Math.max(ans, ps[i + span] - ps[i]);
+                }
             }
-            build(1, N, 1);
-        }
-
-        private void build(int s, int t, int p) {
-            if (s == t) {
-                int val = nums[s - 1];
-                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
-                return;
-            }
-            int mid = s + (t - s) / 2;
-            build(s, mid, p * 2);
-            build(mid + 1, t, p * 2 + 1);
-            tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
-        }
-
-        private Node pushUp(Node l, Node r) {
-            int maxL = Math.max(l.maxL, l.sum + r.maxL);
-            int maxR = Math.max(r.maxR, r.sum + l.maxR);
-            // max(l.maxSum, r.maxSum, l.maxR + r.maxL)
-            int maxSum = Math.max(Math.max(l.maxSum, r.maxSum), l.maxR + r.maxL);
-            int sum = l.sum + r.sum;
-            return new Node(maxL, maxR, maxSum, sum);
-        }
-
-        private void modify(int s, int t, int p, int pos, int val) {
-            if (s > pos || t < pos) {
-                return;
-            }
-            if (s == pos && t == pos) {
-                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
-                return;
-            }
-            int mid = s + (t - s) / 2;
-            modify(s, mid, p * 2, pos, val);
-            modify(mid + 1, t, p * 2 + 1, pos, val);
-            tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
-        }
-
-        private Node query(int s, int t, int p, int l, int r) {
-            if (s > r || t < l) {
-                return new Node(-INF, -INF, -INF, 0);
-            }
-            if (l <= s && t <= r) {
-                return tree[p];
-            }
-            int mid = s + (t - s) / 2;
-            Node lSub = query(s, mid, p * 2, l, r);
-            Node rSub = query(mid + 1, t, p * 2 + 1, l, r);
-            return pushUp(lSub, rSub);
+            return ans;
         }
     }
 }

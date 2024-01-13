@@ -1,57 +1,37 @@
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
 public class Solution1466 {
+    private List<int[]>[] g;
+
     public int minReorder(int n, int[][] connections) {
-        // 无向图
-        Map<Integer, Set<Integer>> unDirGraph = new HashMap<>();
-        // 有向图
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        for (int[] connection : connections) {
-            int from = connection[0];
-            int to = connection[1];
-
-            Set<Integer> outSet = unDirGraph.getOrDefault(from, new HashSet<>());
-            outSet.add(to);
-            unDirGraph.put(from, outSet);
-
-            Set<Integer> inSet = unDirGraph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            unDirGraph.put(to, inSet);
-
-            Set<Integer> outSet2 = outGraph.getOrDefault(from, new HashSet<>());
-            outSet2.add(to);
-            outGraph.put(from, outSet2);
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : connections) {
+            int x = p[0], y = p[1];
+            // 因为从 0 开始遍历，所以正向边记为 1，反向边记为 0
+            g[x].add(new int[]{y, 1});
+            g[y].add(new int[]{x, 0});
         }
+        return dfs(0, -1);
+    }
 
-        Queue<Integer> queue = new LinkedList<>();
-        Set<Integer> visitedSet = new HashSet<>();
-        queue.add(0);
-        visitedSet.add(0);
-
-        // BFS
-        int cnt = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-
-                for (int next : unDirGraph.getOrDefault(cur, new HashSet<>())) {
-                    if (!visitedSet.contains(next)) {
-                        visitedSet.add(next);
-                        if (!outGraph.getOrDefault(next, new HashSet<>()).contains(cur)) {
-                            cnt++;
-                        }
-                        queue.add(next);
-                    }
-                }
+    private int dfs(int x, int fa) {
+        int res = 0;
+        for (int[] p : g[x]) {
+            int y = p[0], wt = p[1];
+            if (y != fa) {
+                res += wt + dfs(y, x);
             }
         }
-        return cnt;
+        return res;
     }
 }
 /*
@@ -70,6 +50,7 @@ connections[i].length == 2
 0 <= connections[i][0], connections[i][1] <= n-1
 connections[i][0] != connections[i][1]
 
-本题限制条件是 n-1 条路线，即在两座不同城市之间旅行只有唯一一条路线可供选择。形状类似链表。
-因此复杂度大大降低。建图从 0 开始 BFS 计数需要逆向的边即可。
+DFS。
+因为从 0 开始遍历，所以正向边记为 1，反向边记为 0
+时间复杂度 O(n)
  */

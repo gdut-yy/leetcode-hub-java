@@ -1,29 +1,33 @@
+import java.util.Arrays;
+
 public class Solution2217 {
     public long[] kthPalindrome(int[] queries, int intLength) {
-        // “回文根” 长度
-        int rootLen = (intLength + 1) / 2;
-        int rootMin = (int) Math.pow(10, rootLen - 1);
-        int rootMax = rootMin * 10 - 1;
+        int L = (intLength + 1) / 2;
+        int low = (int) Math.pow(10, L - 1);
+        int high = (int) Math.pow(10, L);
 
-        int len = queries.length;
-        long[] res = new long[len];
-        for (int i = 0; i < len; i++) {
-            int newGen = rootMin + queries[i] - 1;
-            if (newGen <= rootMax) {
-                String newGenStr = String.valueOf(newGen);
-                if (rootLen * 2 > intLength) {
-                    String pre = newGenStr.substring(0, rootLen - 1);
-                    String suf = new StringBuilder(newGenStr).reverse().toString();
-                    res[i] = Long.parseLong(pre + suf);
+        int q = queries.length;
+        long[] ans = new long[q];
+        Arrays.fill(ans, -1);
+        for (int i = 0; i < q; i++) {
+            int root = low + queries[i] - 1;
+            if (root < high) {
+                long p = root;
+                if (L * 2 > intLength) {
+                    // Check for odd-length palindromes
+                    for (long x = p / 10; x > 0; x /= 10) {
+                        p = p * 10 + x % 10;
+                    }
                 } else {
-                    String suf = new StringBuilder(newGenStr).reverse().toString();
-                    res[i] = Long.parseLong(newGenStr + suf);
+                    // Check for even-length palindromes
+                    for (long x = p; x > 0; x /= 10) {
+                        p = p * 10 + x % 10;
+                    }
                 }
-            } else {
-                res[i] = -1;
+                ans[i] = p;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

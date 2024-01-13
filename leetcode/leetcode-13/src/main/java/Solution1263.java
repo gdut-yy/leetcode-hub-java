@@ -1,24 +1,17 @@
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.Queue;
 
 public class Solution1263 {
     private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-    private char[][] grid;
-    private int M, N;
-    // 分别表示人、箱子的位置坐标
-    private int sx, sy, bx, by;
-    // 人可以到达的地方
-    private boolean[][] pos;
 
     public int minPushBox(char[][] grid) {
-        this.grid = grid;
-        M = grid.length;
-        N = grid[0].length;
-
-        // step1: 找坐标
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int sx = 0, sy = 0, bx = 0, by = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 'S') {
                     sx = i;
                     sy = j;
@@ -28,98 +21,46 @@ public class Solution1263 {
                 }
             }
         }
-        if (grid[bx][by] == 'T') {
-            return 0;
+
+        Deque<int[]> dq = new ArrayDeque<>();
+        dq.add(new int[]{sx * n + sy, bx * n + by});
+        int[][] dist = new int[m * n][m * n];
+        for (int i = 0; i < m * n; i++) {
+            Arrays.fill(dist[i], Integer.MAX_VALUE);
         }
+        dist[sx * n + sy][bx * n + by] = 0;
 
-        // step2: 计算初始时人可以到达的地方
-        pos = new boolean[M][N];
-        dfs(sx, sy, bx, by);
-
-        // step3: 计算初始时箱子可以到达的地方
-        Queue<int[]> queue = new ArrayDeque<>();
-        // 保存推箱子的位置和从那个方向被推过来
-        boolean[][][] visited = new boolean[M][N][4];
-        for (int k = 0; k < 4; k++) {
-            int[] dir = DIRECTIONS[k];
-            // 箱子将被推去的新位置
-            int nbx = bx + dir[0];
-            int nby = by + dir[1];
-            // 推箱子时人的位置
-            int nx = bx - dir[0];
-            int ny = by - dir[1];
-
-            if (nbx < 0 || nbx >= M || nby < 0 || nby >= N
-                    || nx < 0 || nx >= M || ny < 0 || ny >= N) {
-                continue;
-            }
-            if (!pos[nx][ny] || grid[nbx][nby] == '#' || visited[nbx][nby][k]) {
-                continue;
-            }
-            visited[nbx][nby][k] = true;
-            if (grid[nbx][nby] == 'T') {
-                return 1;
-            }
-            // 保存的是箱子的位置，以及人推完箱子后所处的位置
-            queue.add(new int[]{nbx, nby, bx, by});
-        }
-
-        // step4: 开始BFS
-        int step = 1;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int[] tuple = queue.remove();
-                // 根据上一次推完箱子的情况计算人当前可以到达的所有地方
-                for (boolean[] po : pos) {
-                    Arrays.fill(po, false);
-                }
-                dfs(tuple[2], tuple[3], tuple[0], tuple[1]);
-                // 计算现在箱子可以到达的地方
-                for (int k = 0; k < 4; k++) {
-                    int[] dir = DIRECTIONS[k];
-                    // 箱子将被推去的新位置
-                    int nbx = tuple[0] + dir[0];
-                    int nby = tuple[1] + dir[1];
-                    // 推箱子时人的位置
-                    int nx = tuple[0] - dir[0];
-                    int ny = tuple[1] - dir[1];
-
-                    if (nbx < 0 || nbx >= M || nby < 0 || nby >= N
-                            || nx < 0 || nx >= M || ny < 0 || ny >= N) {
-                        continue;
-                    }
-                    if (!pos[nx][ny] || grid[nbx][nby] == '#' || visited[nbx][nby][k]) {
-                        continue;
-                    }
-                    visited[nbx][nby][k] = true;
-                    if (grid[nbx][nby] == 'T') {
-                        return step + 1;
-                    }
-                    queue.add(new int[]{nbx, nby, tuple[0], tuple[1]});
+        while (!dq.isEmpty()) {
+            int[] p = dq.removeFirst();
+            int s1 = p[0], b1 = p[1];
+            int sx1 = s1 / n, sy1 = s1 % n;
+            int bx1 = b1 / n, by1 = b1 % n;
+            // 箱子已被推到目标处
+            if (grid[bx1][by1] == 'T') return dist[s1][b1];
+            for (int[] dir : DIRECTIONS) {
+                int sx2 = sx1 + dir[0], sy2 = sy1 + dir[1], s2 = sx2 * n + sy2;
+                // 玩家位置不合法
+                if (notOk(grid, sx2, sy2)) continue;
+                // 推动箱子
+                if (sx2 == bx1 && sy2 == by1) {
+                    int bx2 = bx1 + dir[0], by2 = by1 + dir[1], b2 = bx2 * n + by2;
+                    // 箱子位置不合法 或 状态已访问
+                    if (notOk(grid, bx2, by2) || dist[s2][b2] <= dist[s1][b1] + 1) continue;
+                    dist[s2][b2] = dist[s1][b1] + 1;
+                    dq.addLast(new int[]{s2, b2});
+                } else {
+                    // 状态已访问
+                    if (dist[s2][b1] <= dist[s1][b1]) continue;
+                    dist[s2][b1] = dist[s1][b1];
+                    dq.addFirst(new int[]{s2, b1});
                 }
             }
-            step++;
         }
         return -1;
     }
 
-    // 使用 DFS 计算人可以到达的所有位置
-    // cx, cy：人 bx, by：箱子
-    public void dfs(int cx, int cy, int bx, int by) {
-        pos[cx][cy] = true;
-        for (int[] dir : DIRECTIONS) {
-            int nx = cx + dir[0];
-            int ny = cy + dir[1];
-            if (nx < 0 || nx >= M || ny < 0 || ny >= N) {
-                continue;
-            }
-            if (grid[nx][ny] == '#' || nx == bx && ny == by || pos[nx][ny]) {
-                continue;
-            }
-            pos[nx][ny] = true;
-            dfs(nx, ny, bx, by);
-        }
+    private boolean notOk(char[][] grid, int x, int y) {
+        return x < 0 || x >= grid.length || y < 0 || y >= grid[0].length || grid[x][y] == '#';
     }
 }
 /*
@@ -143,6 +84,7 @@ n == grid[i].length
 grid 仅包含字符 '.', '#',  'S' , 'T', 以及 'B'。
 grid 中 'S', 'B' 和 'T' 各只能出现一个。
 
-BFS https://leetcode.cn/problems/minimum-moves-to-move-a-box-to-their-target-location/solution/java-jian-dan-yi-dong-bfs-by-merickbao-2-eefj/
-可用 0-1 BFS？
+0-1 BFS
+时间复杂度 O(m^2 * n*2)
+空间复杂度 O(m^2 * n*2)
  */

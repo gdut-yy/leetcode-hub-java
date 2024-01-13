@@ -3,31 +3,25 @@ import java.util.List;
 
 public class Solution1462 {
     public List<Boolean> checkIfPrerequisite(int numCourses, int[][] prerequisites, int[][] queries) {
-        // 邻接矩阵 true:可达 false:不可达
-        boolean[][] adj = new boolean[numCourses][numCourses];
-        for (int[] prerequisite : prerequisites) {
-            int from = prerequisite[0];
-            int to = prerequisite[1];
-            adj[from][to] = true;
+        boolean[][] g = new boolean[numCourses][numCourses];
+        for (int[] p : prerequisites) {
+            int x = p[0], y = p[1];
+            g[x][y] = true;
         }
-
-        // floyd
-        for (int p = 0; p < numCourses; p++) {
+        // Floyd
+        for (int k = 0; k < numCourses; k++) {
             for (int i = 0; i < numCourses; i++) {
                 for (int j = 0; j < numCourses; j++) {
-                    adj[i][j] = adj[i][j] || adj[i][p] && adj[p][j];
+                    g[i][j] |= g[i][k] && g[k][j];
                 }
             }
         }
-
-        // 10^4 次查询
-        List<Boolean> resList = new ArrayList<>();
-        for (int[] query : queries) {
-            int from = query[0];
-            int to = query[1];
-            resList.add(adj[from][to]);
+        List<Boolean> ans = new ArrayList<>();
+        for (int[] p : queries) {
+            int x = p[0], y = p[1];
+            ans.add(g[x][y]);
         }
-        return resList;
+        return ans;
     }
 }
 /*

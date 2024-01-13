@@ -5,24 +5,22 @@ public class Solution866 {
             int high = (int) Math.pow(10, L);
             // Check for odd-length palindromes
             for (int root = low; root < high; root++) {
-                StringBuilder sb = new StringBuilder(String.valueOf(root));
-                for (int k = L - 2; k >= 0; k--) {
-                    sb.append(sb.charAt(k));
+                int p = root;
+                for (int x = root / 10; x > 0; x /= 10) {
+                    p = p * 10 + x % 10;
                 }
-                int x = Integer.parseInt(sb.toString());
-                if (x >= n && isPrime(x)) {
-                    return x;
+                if (p >= n && isPrime(p)) {
+                    return p;
                 }
             }
             // Check for even-length palindromes
             for (int root = low; root < high; root++) {
-                StringBuilder sb = new StringBuilder(Integer.toString(root));
-                for (int k = L - 1; k >= 0; k--) {
-                    sb.append(sb.charAt(k));
+                int p = root;
+                for (int x = root; x > 0; x /= 10) {
+                    p = p * 10 + x % 10;
                 }
-                int x = Integer.parseInt(sb.toString());
-                if (x >= n && isPrime(x)) {
-                    return x;
+                if (p >= n && isPrime(p)) {
+                    return p;
                 }
             }
         }
