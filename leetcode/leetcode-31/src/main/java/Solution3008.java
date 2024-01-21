@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100207 {
+public class Solution3008 {
     public List<Integer> beautifulIndices(String s, String a, String b, int k) {
         char[] txt = s.toCharArray();
         char[] patA = a.toCharArray();
@@ -59,7 +59,7 @@ public class Solution100207 {
     }
 }
 /*
-100207. 找出数组中的美丽下标 II
+3008. 找出数组中的美丽下标 II
 https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii/description/
 
 第 380 场周赛 T4。

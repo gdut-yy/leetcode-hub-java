@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100162 {
+public class Solution3005 {
     public int maxFrequencyElements(int[] nums) {
         int[] cnt = new int[105];
         for (int v : nums) {
@@ -15,7 +15,7 @@ public class Solution100162 {
     }
 }
 /*
-100162. 最大频率元素计数
+3005. 最大频率元素计数
 https://leetcode.cn/problems/count-elements-with-maximum-frequency/description/
 
 第 380 场周赛 T1。

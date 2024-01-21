@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100160 {
+public class Solution3007 {
     private int x;
 
     public long findMaximumNumber(long k, int x) {
@@ -60,7 +60,7 @@ public class Solution100160 {
     }
 }
 /*
-100160. 价值和小于等于 K 的最大数字
+3007. 价值和小于等于 K 的最大数字
 https://leetcode.cn/problems/maximum-number-that-sum-of-the-prices-is-less-than-or-equal-to-k/description/
 
 第 380 场周赛 T3。

@@ -1,7 +1,7 @@
-public class Solution100165 {
+public class Solution3006 {
 }
 /*
-100165. 找出数组中的美丽下标 I
+3006. 找出数组中的美丽下标 I
 https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-i/description/
 
 第 380 场周赛 T2。
@@ -20,6 +20,6 @@ https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-i/descrip
 1 <= a.length, b.length <= 10
 s、a、和 b 只包含小写英文字母。
 
-同: 100207. 找出数组中的美丽下标 II
+同: 3008. 找出数组中的美丽下标 II
 https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii/description/
  */

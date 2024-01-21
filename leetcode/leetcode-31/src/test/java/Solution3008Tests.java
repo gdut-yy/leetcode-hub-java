@@ -3,8 +3,8 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class Solution100207Tests {
-    private final Solution100207 solution100207 = new Solution100207();
+public class Solution3008Tests {
+    private final Solution3008 solution3008 = new Solution3008();
 
     @Test
     public void example1() {
@@ -13,7 +13,7 @@ public class Solution100207Tests {
         String b = "squirrel";
         int k = 15;
         List<Integer> expected = List.of(16, 33);
-        Assertions.assertEquals(expected, solution100207.beautifulIndices(s, a, b, k));
+        Assertions.assertEquals(expected, solution3008.beautifulIndices(s, a, b, k));
     }
 
     @Test
@@ -23,6 +23,6 @@ public class Solution100207Tests {
         String b = "a";
         int k = 4;
         List<Integer> expected = List.of(0);
-        Assertions.assertEquals(expected, solution100207.beautifulIndices(s, a, b, k));
+        Assertions.assertEquals(expected, solution3008.beautifulIndices(s, a, b, k));
     }
 }
