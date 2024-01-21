@@ -36,6 +36,47 @@ public class Solution1648 {
         }
         return (int) sum;
     }
+
+    static class V2 {
+        private static final int MOD = (int) (1e9 + 7);
+
+        public int maxProfit(int[] inventory, int orders) {
+            long tot = 0;
+            for (int v : inventory) {
+                tot += f(v);
+            }
+            long remain = tot;
+
+            reverseSort(inventory);
+            for (int i = 0; ; i++) {
+                int j = i + 1;
+                long v = inventory[i], c = j * (v - (j == inventory.length ? 0 : inventory[j]));
+                remain -= f(v);
+                if (c < orders) {
+                    orders -= c;
+                    continue;
+                }
+                v -= orders / j;
+                remain += (orders % j) * f(v - 1) + (j - orders % j) * f(v);
+                long ans = (tot - remain) % MOD;
+                return (int) ans;
+            }
+        }
+
+        // 等差数列求和 (首项+末项)*项数/2
+        private long f(long x) {
+            return x * (x + 1) / 2;
+        }
+
+        private void reverseSort(int[] nums) {
+            Arrays.sort(nums);
+            for (int l = 0, r = nums.length - 1; l < r; l++, r--) {
+                int tmp = nums[l];
+                nums[l] = nums[r];
+                nums[r] = tmp;
+            }
+        }
+    }
 }
 /*
 1648. 销售价值减少的颜色球

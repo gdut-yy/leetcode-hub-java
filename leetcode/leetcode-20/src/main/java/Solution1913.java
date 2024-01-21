@@ -22,4 +22,5 @@ https://leetcode.cn/problems/maximum-product-difference-between-two-pairs/
 1 <= nums[i] <= 10^4
 
 数组排序后，最大两个数乘积减去最小两个数乘积即可。
+梦开始的地方：首次参加周赛。
  */

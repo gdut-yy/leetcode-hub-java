@@ -3,49 +3,46 @@ import java.util.Arrays;
 public class Solution2333 {
     public long minSumSquareDiff(int[] nums1, int[] nums2, int k1, int k2) {
         int n = nums1.length;
-
-        long k = k1 + k2;
-
-        long[] abs = new long[n + 1];
+        int[] a = new int[n + 1];
         for (int i = 0; i < n; i++) {
-            abs[i + 1] = Math.abs(nums1[i] - nums2[i]);
+            a[i] = Math.abs(nums1[i] - nums2[i]);
         }
-        Arrays.sort(abs);
 
-        for (int i = n; i >= 0; i--) {
-            if (abs[i] == abs[n] && i != 0) {
+        long ans = 0, sum = 0, k = k1 + k2;
+        for (long v : a) {
+            sum += v;
+            ans += v * v;
+        }
+        // 所有 a[i] 均可为 0
+        if (sum <= k) return 0;
+
+//        Arrays.sort(a);
+//        for (int i = n; ; i--) {
+//            int j = n - i + 1;
+//            long v = a[i], c = j * (v - a[i - 1]);
+        reverseSort(a);
+        for (int i = 0; ; i++) {
+            int j = i + 1;
+            long v = a[i], c = j * (v - a[i + 1]);
+            ans -= v * v;
+            if (c < k) {
+                k -= c;
                 continue;
             }
-            // 宽
-            long width = n - i;
-            long maxHeight = abs[n] - abs[i];
-
-            // 可消耗掉的高度
-            long costHeight = Math.min(maxHeight, k / width);
-            if (costHeight > 0) {
-                // 消耗掉的总数
-                k -= costHeight * width;
-                for (int j = i + 1; j <= n; j++) {
-                    abs[j] -= costHeight;
-                }
-            }
-            if (abs[i + 1] > 0) {
-                // 处理余数
-                if (k / width < 1) {
-                    for (int j = 0; j < k; j++) {
-                        abs[n - j]--;
-                    }
-                    break;
-                }
-
-            }
+            v -= k / j;
+            // 有 k%j 个元素可以减少 k/(i+1) + 1
+            // 有 j - k%j 个元素可以减少 k/(i+1)
+            return ans + (k % j) * (v - 1) * (v - 1) + (j - k % j) * v * v;
         }
+    }
 
-        long res = 0;
-        for (long ab : abs) {
-            res += ab * ab;
+    private void reverseSort(int[] nums) {
+        Arrays.sort(nums);
+        for (int l = 0, r = nums.length - 1; l < r; l++, r--) {
+            int tmp = nums[l];
+            nums[l] = nums[r];
+            nums[r] = tmp;
         }
-        return res;
     }
 }
 /*

@@ -76,6 +76,8 @@ public class Solution1993 {
 1993. 树上的操作
 https://leetcode.cn/problems/operations-on-tree/
 
+第 60 场双周赛 T3。
+
 给你一棵 n 个节点的树，编号从 0 到 n - 1 ，以父节点数组 parent 的形式给出，其中 parent[i] 是第 i 个节点的父节点。
 树的根节点为 0 号节点，所以 parent[0] = -1 ，因为它没有父节点。你想要设计一个数据结构实现树里面对节点的加锁，解锁和升级操作。
 数据结构需要支持如下函数：

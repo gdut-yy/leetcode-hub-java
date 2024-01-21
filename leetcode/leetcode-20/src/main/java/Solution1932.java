@@ -51,6 +51,8 @@ public class Solution1932 {
 1932. 合并多棵二叉搜索树
 https://leetcode.cn/problems/merge-bsts-to-create-single-bst/
 
+第 249 场周赛 T4。
+
 给你 n 个 二叉搜索树的根节点 ，存储在数组 trees 中（下标从 0 开始），对应 n 棵不同的二叉搜索树。trees 中的每棵二叉搜索树 最多有 3 个节点 ，且不存在值相同的两个根节点。在一步操作中，将会完成下述步骤：
 - 选择两个 不同的 下标 i 和 j ，要求满足在 trees[i] 中的某个 叶节点 的值等于 trees[j] 的 根节点的值 。
 - 用 trees[j] 替换 trees[i] 中的那个叶节点。

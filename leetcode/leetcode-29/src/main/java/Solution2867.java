@@ -65,6 +65,8 @@ public class Solution2867 {
 2867. 统计树中的合法路径数目
 https://leetcode.cn/problems/count-valid-paths-in-a-tree/
 
+第 364 场周赛 T4。
+
 给你一棵 n 个节点的无向树，节点编号为 1 到 n 。给你一个整数 n 和一个长度为 n - 1 的二维整数数组 edges ，其中 edges[i] = [ui, vi] 表示节点 ui 和 vi 在树中有一条边。
 请你返回树中的 合法路径数目 。
 如果在节点 a 到节点 b 之间 恰好有一个 节点的编号是质数，那么我们称路径 (a, b) 是 合法的 。

@@ -71,6 +71,8 @@ public class Solution2019 {
 2019. 解出数学表达式的学生分数
 https://leetcode.cn/problems/the-score-of-students-solving-math-expression/
 
+第 260 场周赛 T4。
+
 给你一个字符串 s ，它 只 包含数字 0-9 ，加法运算符 '+' 和乘法运算符 '*' ，这个字符串表示一个 合法 的只含有 个位数数字 的数学表达式（比方说 3+5*2）。有 n 位小学生将计算这个数学表达式，并遵循如下 运算顺序 ：
 1.按照 从左到右 的顺序计算 乘法 ，然后
 2.按照 从左到右 的顺序计算 加法 。
