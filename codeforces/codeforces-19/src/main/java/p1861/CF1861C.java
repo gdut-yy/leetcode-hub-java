@@ -50,6 +50,7 @@ public class CF1861C {
 C. Queries for the Array
 https://codeforces.com/contest/1861/problem/C
 
+灵茶の试炼 2023-11-15
 题目大意：
 Monocarp 有一个由整数组成的数组。最初，这个数组是空的。
 Monocarp 对这个数组执行了三种类型的查询:

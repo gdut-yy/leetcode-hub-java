@@ -34,6 +34,7 @@ public class CF1790E {
 E. Vlad and a Pair of Numbers
 https://codeforces.com/contest/1790/problem/E
 
+灵茶の试炼 2024-01-01
 题目大意：
 给定整数 x。x = a ^ b = (a+b)/2
 

@@ -51,6 +51,7 @@ public class CF1861D {
 D. Sorting By Multiplication
 https://codeforces.com/contest/1861/problem/D
 
+灵茶の试炼 2023-12-14
 题目大意：
 给定一个长度为 n 的数组 a，由正整数组成。
 您可以对该数组执行以下操作任意次数(可能为零):
