@@ -7,244 +7,207 @@ import java.util.Set;
 import java.util.TreeSet;
 
 public class Solution218 {
-    // 28ms
-    public List<List<Integer>> getSkyline(int[][] buildings) {
-        // 按高度由低到高排序
-        Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
+    static class V1 {
+        // 28ms
+        public List<List<Integer>> getSkyline(int[][] buildings) {
+            // 按高度由低到高排序
+            Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
 
-        DynamicSegTreeUpd dynamicSegTreeUpd = new DynamicSegTreeUpd();
-        for (int[] building : buildings) {
-            int left = building[0];
-            int right = building[1] - 1;
-            dynamicSegTreeUpd.update(left, right, building[2]);
+            DynamicSegTreeUpd seg = new DynamicSegTreeUpd();
+            for (int[] building : buildings) {
+                int left = building[0];
+                int right = building[1] - 1;
+                seg.update(left, right, building[2]);
+            }
+
+            // 将端点排序
+            TreeSet<Integer> idxTreeSet = new TreeSet<>();
+            for (int[] building : buildings) {
+                idxTreeSet.add(building[0]);
+                idxTreeSet.add(building[1]);
+            }
+
+            // 查询左端点最值
+            List<List<Integer>> resList = new ArrayList<>();
+            int pre = 0;
+            while (!idxTreeSet.isEmpty()) {
+                int idx = idxTreeSet.pollFirst();
+                int height = (int) seg.getMax(idx, idx);
+                if (height != pre) {
+                    resList.add(List.of(idx, height));
+                    pre = height;
+                }
+            }
+            return resList;
         }
 
-        // 将端点排序
-        TreeSet<Integer> idxTreeSet = new TreeSet<>();
-        for (int[] building : buildings) {
-            idxTreeSet.add(building[0]);
-            idxTreeSet.add(building[1]);
-        }
+        private static class DynamicSegTreeUpd {
+            static class Node {
+                Node ls, rs;
+                long max, lazy;
+            }
 
-        // 查询左端点最值
-        List<List<Integer>> resList = new ArrayList<>();
-        int pre = 0;
-        while (!idxTreeSet.isEmpty()) {
-            int idx = idxTreeSet.pollFirst();
-            int height = (int) dynamicSegTreeUpd.getMax(idx, idx);
-            if (height != pre) {
-                resList.add(List.of(idx, height));
-                pre = height;
-            }
-        }
-        return resList;
-    }
+            static final int N = Integer.MAX_VALUE;
+            final Node root = new Node();
 
-    private static class DynamicSegTreeUpd {
-        private static class Node {
-            Node ls, rs;
-            long sum, max, lazy;
-        }
+            void update(int ql, int qr, int val) {
+                this.update(root, 0, N, ql, qr, val);
+            }
 
-        private static final int N = Integer.MAX_VALUE;
-        private final Node root = new Node();
+            void update(Node p, int l, int r, int ql, int qr, int val) {
+                if (ql <= l && r <= qr) {
+                    p.max = val;
+                    p.lazy = val;
+                    return;
+                }
+                int mid = l + (r - l) / 2;
+                pushDown(p);
+                if (ql <= mid) update(p.ls, l, mid, ql, qr, val);
+                if (qr > mid) update(p.rs, mid + 1, r, ql, qr, val);
+                pushUp(p);
+            }
 
-        // 区间 [l,r] 置为 val
-        public void update(int l, int r, int val) {
-            this.update(l, r, val, 0, N, root);
-        }
+            long getMax(int ql, int qr) {
+                return this.getMax(root, 0, N, ql, qr);
+            }
 
-        // 区间 [l,r] 求和
-        public long getSum(int l, int r) {
-            return this.getSum(l, r, 0, N, root);
-        }
+            long getMax(Node p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
+                    return p.max;
+                }
+                pushDown(p);
+                int mid = l + (r - l) / 2;
+                long max = 0;
+                if (ql <= mid) max = getMax(p.ls, l, mid, ql, qr);
+                if (qr > mid) max = Math.max(max, getMax(p.rs, mid + 1, r, ql, qr));
+                return max;
+            }
 
-        // 区间 [l,r] 最大值
-        public long getMax(int l, int r) {
-            return this.getMax(l, r, 0, N, root);
-        }
+            void pushDown(Node p) {
+                if (p.ls == null) p.ls = new Node();
+                if (p.rs == null) p.rs = new Node();
+                if (p.lazy != 0) {
+                    p.ls.max = p.lazy;
+                    p.rs.max = p.lazy;
+                    p.ls.lazy = p.lazy;
+                    p.rs.lazy = p.lazy;
+                    p.lazy = 0;
+                }
+            }
 
-        private void update(int l, int r, int val, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                node.sum = (t - s + 1L) * val;
-                node.max = val;
-                node.lazy = val;
-                return;
+            void pushUp(Node node) {
+                node.max = Math.max(node.ls.max, node.rs.max);
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            if (l <= mid) {
-                update(l, r, val, s, mid, node.ls);
-            }
-            if (r > mid) {
-                update(l, r, val, mid + 1, t, node.rs);
-            }
-            pushUp(node);
-        }
-
-        private long getSum(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.sum;
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long sum = 0;
-            if (l <= mid) {
-                sum = getSum(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                sum += getSum(l, r, mid + 1, t, node.rs);
-            }
-            return sum;
-        }
-
-        private long getMax(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.max;
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long max = 0;
-            if (l <= mid) {
-                max = getMax(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-            }
-            return max;
-        }
-
-        private void pushDown(Node node, int s, int t, int mid) {
-            if (node.ls == null) {
-                node.ls = new Node();
-            }
-            if (node.rs == null) {
-                node.rs = new Node();
-            }
-            if (node.lazy > 0) {
-                node.ls.sum = node.lazy * (mid - s + 1L);
-                node.rs.sum = node.lazy * (t - mid);
-                node.ls.max = node.lazy;
-                node.rs.max = node.lazy;
-                node.ls.lazy = node.lazy;
-                node.rs.lazy = node.lazy;
-                node.lazy = 0;
-            }
-        }
-
-        private void pushUp(Node node) {
-            node.sum = node.ls.sum + node.rs.sum;
-            node.max = Math.max(node.ls.max, node.rs.max);
         }
     }
 
-    // 15ms
-    public List<List<Integer>> getSkyline2(int[][] buildings) {
-        Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
-        // 离散化
-        int[] yArr = getDiscrete(buildings);
+    static class V2 {
+        // 15ms
+        public List<List<Integer>> getSkyline(int[][] buildings) {
+            Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
+            // 离散化
+            int[] yArr = getDiscrete(buildings);
 
-        int N = yArr.length;
-        // 线段树
-        SegmentTree segmentTree = new SegmentTree(N);
-        for (int[] building : buildings) {
-            int left = getId(yArr, building[0]);
-            // 左闭右开
-            int right = getId(yArr, building[1]) - 1;
-            segmentTree.update(left, right, building[2], 1, N, 1);
+            int N = yArr.length;
+            // 线段树
+            SegmentTree seg = new SegmentTree(N);
+            for (int[] building : buildings) {
+                int left = getId(yArr, building[0]);
+                // 左闭右开
+                int right = getId(yArr, building[1]) - 1;
+                seg.update(left, right, building[2]);
+            }
+
+            // 查询左端点最值
+            List<List<Integer>> resList = new ArrayList<>();
+            int pre = 0;
+            for (int i = 1; i <= N; i++) {
+                int height = (int) seg.getMax(i, i);
+                if (height != pre) {
+                    resList.add(List.of(yArr[i - 1], height));
+                    pre = height;
+                }
+            }
+            return resList;
         }
 
-        // 查询左端点最值
-        List<List<Integer>> resList = new ArrayList<>();
-        int pre = 0;
-        for (int i = 1; i <= N; i++) {
-            int height = segmentTree.getMax(i, i, 1, N, 1);
-            if (height != pre) {
-                resList.add(List.of(yArr[i - 1], height));
-                pre = height;
+        private int[] getDiscrete(int[][] buildings) {
+            Set<Integer> set = new HashSet<>();
+            for (int[] x : buildings) {
+                set.add(x[0]);
+                set.add(x[1]);
             }
-        }
-        return resList;
-    }
-
-    private int[] getDiscrete(int[][] buildings) {
-        Set<Integer> set = new HashSet<>();
-        for (int[] x : buildings) {
-            set.add(x[0]);
-            set.add(x[1]);
-        }
-        int sz = set.size();
-        int[] yArr = new int[sz];
-        int id = 0;
-        for (Integer x : set) {
-            yArr[id++] = x;
-        }
-        Arrays.sort(yArr);
-        return yArr;
-    }
-
-    private int getId(int[] yArr, int x) {
-        return Arrays.binarySearch(yArr, x) + 1;
-    }
-
-    private static class SegmentTree {
-        private final int[] max;
-        private final int[] lazy;
-
-        public SegmentTree(int n) {
-            this.max = new int[4 * n];
-            this.lazy = new int[4 * n];
+            int sz = set.size();
+            int[] yArr = new int[sz];
+            int id = 0;
+            for (Integer x : set) {
+                yArr[id++] = x;
+            }
+            Arrays.sort(yArr);
+            return yArr;
         }
 
-        // 区间修改，将 [l,r] 置为 val
-        // 函数入口: update(l, r, val, 1, n, 1)
-        public void update(int l, int r, int val, int s, int t, int p) {
-            if (l <= s && t <= r) {
-                max[p] = val;
-                lazy[p] = val;
-                return;
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(p);
-            if (l <= mid) {
-                update(l, r, val, s, mid, p * 2);
-            }
-            if (r > mid) {
-                update(l, r, val, mid + 1, t, p * 2 + 1);
-            }
-            pushUp(p);
+        private int getId(int[] yArr, int x) {
+            return Arrays.binarySearch(yArr, x) + 1;
         }
 
-        // 区间查询，求 [l,r] 范围最大值
-        // 函数入口: getMax(l, r, 1, n, 1)
-        public int getMax(int l, int r, int s, int t, int p) {
-            if (l <= s && t <= r) {
-                return max[p];
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(p);
-            int maxn = 0;
-            if (l <= mid) {
-                maxn = Math.max(maxn, getMax(l, r, s, mid, p * 2));
-            }
-            if (r > mid) {
-                maxn = Math.max(maxn, getMax(l, r, mid + 1, t, p * 2 + 1));
-            }
-            return maxn;
-        }
+        private static class SegmentTree {
+            int n;
+            long[] tree;
+            long[] lazy;
 
-        private void pushDown(int p) {
-            if (lazy[p] > 0) {
-                max[p * 2] = lazy[p];
-                max[p * 2 + 1] = lazy[p];
-                lazy[p * 2] = lazy[p];
-                lazy[p * 2 + 1] = lazy[p];
-                lazy[p] = 0;
+            public SegmentTree(int n) {
+                this.n = n;
+                this.tree = new long[4 * n];
+                this.lazy = new long[4 * n];
             }
-        }
 
-        private void pushUp(int p) {
-            max[p] = Math.max(max[p * 2], max[p * 2 + 1]);
+            void update(int ql, int qr, int val) {
+                update(1, 1, n, ql, qr, val);
+            }
+
+            void update(int p, int l, int r, int ql, int qr, int val) {
+                if (ql <= l && r <= qr) {
+                    tree[p] = val;
+                    lazy[p] = val;
+                    return;
+                }
+                pushDown(p);
+                int mid = l + (r - l) / 2;
+                if (ql <= mid) update(p << 1, l, mid, ql, qr, val);
+                if (qr > mid) update(p << 1 | 1, mid + 1, r, ql, qr, val);
+                pushUp(p);
+            }
+
+            long getMax(int ql, int qr) {
+                return getMax(1, 1, n, ql, qr);
+            }
+
+            long getMax(int p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
+                    return tree[p];
+                }
+                pushDown(p);
+                int mid = l + (r - l) / 2;
+                long max = 0;
+                if (ql <= mid) max = Math.max(max, getMax(p << 1, l, mid, ql, qr));
+                if (qr > mid) max = Math.max(max, getMax(p << 1 | 1, mid + 1, r, ql, qr));
+                return max;
+            }
+
+            void pushDown(int p) {
+                if (lazy[p] > 0) {
+                    tree[p << 1] = lazy[p];
+                    tree[p << 1 | 1] = lazy[p];
+                    lazy[p << 1] = lazy[p];
+                    lazy[p << 1 | 1] = lazy[p];
+                    lazy[p] = 0;
+                }
+            }
+
+            void pushUp(int p) {
+                tree[p] = Math.max(tree[p << 1], tree[p << 1 | 1]);
+            }
         }
     }
 }
@@ -268,7 +231,7 @@ https://leetcode.cn/problems/the-skyline-problem/
 1 <= heighti <= 2^31 - 1
 buildings 按 lefti 非递减排序
 
-离散化线段树。
+动态开点线段树 or 离散化 + 线段树
 时间复杂度 O(nlogn)
 相似题目: 699. 掉落的方块
 https://leetcode.cn/problems/falling-squares/

@@ -1,112 +1,91 @@
 public class Solution715 {
+    // 135ms
     static class RangeModule {
-        private final DynamicSegTree dynamicSegTree;
+        private final DynamicSegTree seg;
 
         public RangeModule() {
-            dynamicSegTree = new DynamicSegTree();
+            seg = new DynamicSegTree();
         }
 
         public void addRange(int left, int right) {
             // 半开区间 [left, right)
-            dynamicSegTree.update(left, right - 1, 1);
+            seg.update(left, right - 1, 1);
         }
 
         public boolean queryRange(int left, int right) {
             // 半开区间 [left, right)
-            return dynamicSegTree.getSum(left, right - 1) == (right - left);
+            return seg.getSum(left, right - 1) == (right - left);
         }
 
         public void removeRange(int left, int right) {
             // 半开区间 [left, right)
-            dynamicSegTree.update(left, right - 1, -1);
+            seg.update(left, right - 1, -1);
         }
 
         // 动态开点线段树
         private static class DynamicSegTree {
-            private static class Node {
-                // 左子树
-                Node ls;
-                // 右子树
-                Node rs;
-                // 区间和
-                int sum;
-                // 懒标记
-                int lazy;
+            static class Node {
+                Node ls, rs;
+                int sum, lazy;
             }
 
-            private static final int N = (int) 1e9;
-            private final Node root = new Node();
+            static final int N = (int) 1e9;
+            final Node root = new Node();
 
-            // 区间更新 [l,r] 置为 val
-            void update(int l, int r, int val) {
-                this.update(l, r, val, 1, N, root);
+            void update(int ql, int qr, int val) {
+                this.update(root, 1, N, ql, qr, val);
             }
 
-            // 区间查询 [l,r] 的和
-            int getSum(int l, int r) {
-                return this.getSum(l, r, 1, N, root);
-            }
-
-            private void update(int l, int r, int val, int s, int t, Node node) {
-                int len = t - s + 1;
-                if (l <= s && t <= r) {
-                    node.sum = (val == 1) ? len : 0;
-                    node.lazy = val;
+            void update(Node p, int l, int r, int ql, int qr, int val) {
+                int len = r - l + 1;
+                if (ql <= l && r <= qr) {
+                    p.sum = (val == 1) ? len : 0;
+                    p.lazy = val;
                     return;
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(node, len);
-                if (l <= mid) {
-                    update(l, r, val, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    update(l, r, val, mid + 1, t, node.rs);
-                }
-                pushUp(node);
+                pushDown(p, len);
+                int mid = l + (r - l) / 2;
+                if (ql <= mid) update(p.ls, l, mid, ql, qr, val);
+                if (qr > mid) update(p.rs, mid + 1, r, ql, qr, val);
+                pushUp(p);
             }
 
-            private int getSum(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.sum;
+            int getSum(int ql, int qr) {
+                return this.getSum(root, 1, N, ql, qr);
+            }
+
+            int getSum(Node p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
+                    return p.sum;
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(node, t - s + 1);
+                pushDown(p, r - l + 1);
+                int mid = l + (r - l) / 2;
                 int sum = 0;
-                if (l <= mid) {
-                    sum = getSum(l, r, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    sum += getSum(l, r, mid + 1, t, node.rs);
-                }
+                if (ql <= mid) sum = getSum(p.ls, l, mid, ql, qr);
+                if (qr > mid) sum += getSum(p.rs, mid + 1, r, ql, qr);
                 return sum;
             }
 
-            private void pushDown(Node node, int len) {
-                if (node.ls == null) {
-                    node.ls = new Node();
-                }
-                if (node.rs == null) {
-                    node.rs = new Node();
-                }
-                if (node.lazy == 0) {
-                    return;
-                }
+            void pushDown(Node p, int len) {
+                if (p.ls == null) p.ls = new Node();
+                if (p.rs == null) p.rs = new Node();
+                if (p.lazy == 0) return;
                 // 当 add = -1 代表 removeRange 懒标记，当 add = 1 则代表 addRange 懒标记。
-                int add = node.lazy;
+                int add = p.lazy;
                 if (add == -1) {
-                    node.ls.sum = 0;
-                    node.rs.sum = 0;
+                    p.ls.sum = 0;
+                    p.rs.sum = 0;
                 } else {
-                    node.ls.sum = len - len / 2;
-                    node.rs.sum = len / 2;
+                    p.ls.sum = len - len / 2;
+                    p.rs.sum = len / 2;
                 }
-                node.ls.lazy = add;
-                node.rs.lazy = add;
-                node.lazy = 0;
+                p.ls.lazy = add;
+                p.rs.lazy = add;
+                p.lazy = 0;
             }
 
-            private void pushUp(Node node) {
-                node.sum = node.ls.sum + node.rs.sum;
+            void pushUp(Node p) {
+                p.sum = p.ls.sum + p.rs.sum;
             }
         }
     }

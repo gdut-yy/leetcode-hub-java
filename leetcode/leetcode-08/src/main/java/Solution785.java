@@ -4,13 +4,13 @@ import java.util.Queue;
 
 public class Solution785 {
     public boolean isBipartite(int[][] graph) {
-        int size = graph.length;
+        int n = graph.length;
 
-        int[] colors = new int[size];
+        int[] colors = new int[n];
         // -1:未染色 0:红色 1:蓝色
         Arrays.fill(colors, -1);
 
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < n; i++) {
             if (colors[i] == -1) {
                 if (!setColor(graph, colors, i)) {
                     return false;
@@ -21,21 +21,20 @@ public class Solution785 {
     }
 
     private boolean setColor(int[][] graph, int[] colors, int i) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(i);
+        Queue<Integer> q = new LinkedList<>();
+        q.add(i);
         colors[i] = 0;
 
-        while (!queue.isEmpty()) {
-            int cur = queue.remove();
-
-            for (int next : graph[cur]) {
-                if (colors[next] != -1) {
-                    if (colors[next] == colors[cur]) {
+        while (!q.isEmpty()) {
+            int x = q.remove();
+            for (int y : graph[x]) {
+                if (colors[y] != -1) {
+                    if (colors[y] == colors[x]) {
                         return false;
                     }
                 } else {
-                    colors[next] = 1 ^ colors[cur];
-                    queue.add(next);
+                    colors[y] = 1 ^ colors[x];
+                    q.add(y);
                 }
             }
         }

@@ -9,7 +9,6 @@ public class Solution2916Tests {
         int[] nums = {1, 2, 1};
         int expected = 15;
         Assertions.assertEquals(expected, solution2916.sumCounts(nums));
-        Assertions.assertEquals(expected, solution2916.sumCounts2(nums));
     }
 
     @Test
@@ -17,6 +16,5 @@ public class Solution2916Tests {
         int[] nums = {2, 2};
         int expected = 3;
         Assertions.assertEquals(expected, solution2916.sumCounts(nums));
-        Assertions.assertEquals(expected, solution2916.sumCounts2(nums));
     }
 }

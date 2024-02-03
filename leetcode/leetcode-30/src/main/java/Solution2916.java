@@ -93,90 +93,6 @@ public class Solution2916 {
             return sum;
         }
     }
-
-    // 动态开点线段树
-    public int sumCounts2(int[] nums) {
-        int n = nums.length;
-        long ans = 0;
-        int[] last = new int[MAX_N];
-        DynamicSegTree seg = new DynamicSegTree();
-        for (int i = 1; i <= n; i++) {
-            int old = last[nums[i - 1]];
-            seg.add1(old + 1, i);
-            last[nums[i - 1]] = i;
-            // 答案就是 [1, i] 这段区间的 sum2 之和
-            ans = (ans + seg.getSum2(1, i)) % MOD;
-        }
-        return (int) ans;
-    }
-
-    private static class DynamicSegTree {
-        static class Node {
-            Node ls, rs;
-            long sum1, sum2, lazy;
-        }
-
-        static final int N = (int) 1e9;
-        final Node root = new Node();
-
-        void add1(int ql, int qr) {
-            add1(root, 0, N, ql, qr);
-        }
-
-        long getSum2(int ql, int qr) {
-            return getSum2(root, 0, N, ql, qr);
-        }
-
-        void formula(Node p, int l, int r, long k) {
-            int len = r - l + 1;
-            p.sum2 = (p.sum2 + 2 * k * p.sum1 + k * k % MOD * len) % MOD;
-            p.sum1 = (p.sum1 + k * len) % MOD;
-        }
-
-        void pushDown(Node p, int l, int r) {
-            if (p.ls == null) p.ls = new Node();
-            if (p.rs == null) p.rs = new Node();
-            if (p.lazy > 0) {
-                int mid = l + (r - l) / 2;
-                p.ls.lazy += p.lazy;
-                formula(p.ls, l, mid, p.lazy);
-                p.rs.lazy += p.lazy;
-                formula(p.rs, mid + 1, r, p.lazy);
-                p.lazy = 0;
-            }
-        }
-
-        // 区间加 1
-        void add1(Node p, int l, int r, int ql, int qr) {
-            if (ql <= l && r <= qr) {
-                formula(p, l, r, 1);
-                p.lazy++;
-                return;
-            }
-            pushDown(p, l, r);
-            int mid = l + (r - l) / 2;
-            if (ql <= mid) add1(p.ls, l, mid, ql, qr);
-            if (qr > mid) add1(p.rs, mid + 1, r, ql, qr);
-            pushUp(p);
-        }
-
-        void pushUp(Node p) {
-            p.sum1 = (p.ls.sum1 + p.rs.sum1) % MOD;
-            p.sum2 = (p.ls.sum2 + p.rs.sum2) % MOD;
-        }
-
-        long getSum2(Node p, int l, int r, int ql, int qr) {
-            if (ql <= l && r <= qr) {
-                return p.sum2;
-            }
-            pushDown(p, l, r);
-            int mid = l + (r - l) / 2;
-            long sum = 0;
-            if (ql <= mid) sum = getSum2(p.ls, l, mid, ql, qr) % MOD;
-            if (qr > mid) sum = (sum + getSum2(p.rs, mid + 1, r, ql, qr)) % MOD;
-            return sum;
-        }
-    }
 }
 /*
 2916. 子数组不同元素数目的平方和 II
@@ -190,11 +106,15 @@ https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-ii/
 请你返回 nums 中所有子数组的 不同计数 的 平方 和。
 由于答案可能会很大，请你将它对 10^9 + 7 取余 后返回。
 子数组指的是一个数组里面一段连续 非空 的元素序列。
+提示：
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^5
 
 数学 & 线段树
 时间复杂度 O(nlogn)
 参考:
 https://leetcode.cn/circle/discuss/SwnhNk/
+https://leetcode.cn/problems/subarrays-distinct-element-sum-of-squares-ii/solutions/2503065/shu-xue-xian-duan-shu-fen-bu-zou-xiang-j-pdy5/
 https://www.luogu.com.cn/problem/P1972
 https://codeforces.com/gym/104459/problem/F
 https://atcoder.jp/contests/abc256/tasks/abc256_f

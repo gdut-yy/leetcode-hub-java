@@ -11,223 +11,76 @@ public class Solution699 {
         int highest = 0;
         List<Integer> resList = new ArrayList<>();
         // 线段树
-        DynamicSegTreeUpd dynamicSegTreeUpd = new DynamicSegTreeUpd();
+        DynamicSegTreeUpd seg = new DynamicSegTreeUpd();
         for (int[] position : positions) {
             // 左闭右开
             int left = position[0];
             int right = position[0] + position[1] - 1;
 
-            int newHeight = (int) (dynamicSegTreeUpd.getMax(left, right) + position[1]);
+            int newHeight = (int) (seg.getMax(left, right) + position[1]);
             highest = Math.max(highest, newHeight);
-            dynamicSegTreeUpd.update(left, right, newHeight);
+            seg.update(left, right, newHeight);
             resList.add(highest);
         }
         return resList;
     }
 
-    // 动态开点线段树
     private static class DynamicSegTreeUpd {
-        private static final int N = Integer.MAX_VALUE;
-        private final Node root = new Node();
-
-        private static class Node {
+        static class Node {
             Node ls, rs;
-            long sum, max, lazy;
+            long max, lazy;
         }
 
-        // 区间 [l,r] 置为 val
-        public void update(int l, int r, int val) {
-            this.update(l, r, val, 0, N, root);
+        static final int N = Integer.MAX_VALUE;
+        final Node root = new Node();
+
+        void update(int ql, int qr, int val) {
+            this.update(root, 0, N, ql, qr, val);
         }
 
-        // 区间 [l,r] 求和
-        public long getSum(int l, int r) {
-            return this.getSum(l, r, 0, N, root);
-        }
-
-        // 区间 [l,r] 最大值
-        public long getMax(int l, int r) {
-            return this.getMax(l, r, 0, N, root);
-        }
-
-        private void update(int l, int r, int val, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                node.sum = (t - s + 1L) * val;
-                node.max = val;
-                node.lazy = val;
+        void update(Node p, int l, int r, int ql, int qr, int val) {
+            if (ql <= l && r <= qr) {
+                p.max = val;
+                p.lazy = val;
                 return;
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            if (l <= mid) {
-                update(l, r, val, s, mid, node.ls);
-            }
-            if (r > mid) {
-                update(l, r, val, mid + 1, t, node.rs);
-            }
-            pushUp(node);
-        }
-
-        private long getSum(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.sum;
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long sum = 0;
-            if (l <= mid) {
-                sum = getSum(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                sum += getSum(l, r, mid + 1, t, node.rs);
-            }
-            return sum;
-        }
-
-        private long getMax(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.max;
-            }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long max = 0;
-            if (l <= mid) {
-                max = getMax(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-            }
-            return max;
-        }
-
-        private void pushDown(Node node, int s, int t, int mid) {
-            if (node.ls == null) {
-                node.ls = new Node();
-            }
-            if (node.rs == null) {
-                node.rs = new Node();
-            }
-            if (node.lazy > 0) {
-                node.ls.sum = node.lazy * (mid - s + 1L);
-                node.rs.sum = node.lazy * (t - mid);
-                node.ls.max = node.lazy;
-                node.rs.max = node.lazy;
-                node.ls.lazy = node.lazy;
-                node.rs.lazy = node.lazy;
-                node.lazy = 0;
-            }
-        }
-
-        private void pushUp(Node node) {
-            node.sum = node.ls.sum + node.rs.sum;
-            node.max = Math.max(node.ls.max, node.rs.max);
-        }
-    }
-
-    // 13ms
-    public List<Integer> fallingSquares2(int[][] positions) {
-        // 离散化
-        int[] yArr = getDiscrete(positions);
-
-        // 坐标点数
-        int N = yArr.length;
-        // 目前所有已经落稳的 方块堆叠的最高高度 。
-        int highest = 0;
-        List<Integer> resList = new ArrayList<>();
-        // 线段树
-        SegmentTree segmentTree = new SegmentTree(N);
-        for (int[] position : positions) {
-            int left = getId(yArr, position[0]);
-            // 左闭右开
-            int right = getId(yArr, position[0] + position[1]) - 1;
-            int height = segmentTree.getMax(left, right, 1, N, 1);
-
-            int newHeight = height + position[1];
-            highest = Math.max(highest, newHeight);
-            segmentTree.update(left, right, newHeight, 1, N, 1);
-            resList.add(highest);
-        }
-        return resList;
-    }
-
-    private int[] getDiscrete(int[][] positions) {
-        Set<Integer> set = new HashSet<>();
-        for (int[] x : positions) {
-            set.add(x[0]);
-            set.add(x[0] + x[1]);
-        }
-        int sz = set.size();
-        int[] yArr = new int[sz];
-        int id = 0;
-        for (Integer x : set) {
-            yArr[id++] = x;
-        }
-        Arrays.sort(yArr);
-        return yArr;
-    }
-
-    private int getId(int[] yArr, int x) {
-        return Arrays.binarySearch(yArr, x) + 1;
-    }
-
-    private static class SegmentTree {
-        private final int[] max;
-        private final int[] lazy;
-
-        public SegmentTree(int n) {
-            this.max = new int[4 * n];
-            this.lazy = new int[4 * n];
-        }
-
-        // 区间修改，将 [l,r] 置为 val
-        // 函数入口: update(l, r, val, 1, n, 1)
-        public void update(int l, int r, int val, int s, int t, int p) {
-            if (l <= s && t <= r) {
-                max[p] = val;
-                lazy[p] = val;
-                return;
-            }
-            int mid = s + (t - s) / 2;
+            int mid = l + (r - l) / 2;
             pushDown(p);
-            if (l <= mid) {
-                update(l, r, val, s, mid, p * 2);
-            }
-            if (r > mid) {
-                update(l, r, val, mid + 1, t, p * 2 + 1);
-            }
+            if (ql <= mid) update(p.ls, l, mid, ql, qr, val);
+            if (qr > mid) update(p.rs, mid + 1, r, ql, qr, val);
             pushUp(p);
         }
 
-        // 区间查询，求 [l,r] 范围最大值
-        // 函数入口: getMax(l, r, 1, n, 1)
-        public int getMax(int l, int r, int s, int t, int p) {
-            if (l <= s && t <= r) {
-                return max[p];
+        long getMax(int ql, int qr) {
+            return this.getMax(root, 0, N, ql, qr);
+        }
+
+        long getMax(Node p, int l, int r, int ql, int qr) {
+            if (ql <= l && r <= qr) {
+                return p.max;
             }
-            int mid = s + (t - s) / 2;
             pushDown(p);
-            int max = 0;
-            if (l <= mid) {
-                max = Math.max(max, getMax(l, r, s, mid, p * 2));
-            }
-            if (r > mid) {
-                max = Math.max(max, getMax(l, r, mid + 1, t, p * 2 + 1));
-            }
+            int mid = l + (r - l) / 2;
+            long max = 0;
+            if (ql <= mid) max = getMax(p.ls, l, mid, ql, qr);
+            if (qr > mid) max = Math.max(max, getMax(p.rs, mid + 1, r, ql, qr));
             return max;
         }
 
-        private void pushDown(int p) {
-            if (lazy[p] > 0) {
-                max[p * 2] = lazy[p];
-                max[p * 2 + 1] = lazy[p];
-                lazy[p * 2] = lazy[p];
-                lazy[p * 2 + 1] = lazy[p];
-                lazy[p] = 0;
+        void pushDown(Node p) {
+            if (p.ls == null) p.ls = new Node();
+            if (p.rs == null) p.rs = new Node();
+            if (p.lazy != 0) {
+                p.ls.max = p.lazy;
+                p.rs.max = p.lazy;
+                p.ls.lazy = p.lazy;
+                p.rs.lazy = p.lazy;
+                p.lazy = 0;
             }
         }
 
-        private void pushUp(int p) {
-            max[p] = Math.max(max[p * 2], max[p * 2 + 1]);
+        void pushUp(Node node) {
+            node.max = Math.max(node.ls.max, node.rs.max);
         }
     }
 }

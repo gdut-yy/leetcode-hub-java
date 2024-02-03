@@ -1,6 +1,7 @@
 import java.util.PriorityQueue;
 
 public class Solution2182 {
+    // 42ms
     public String repeatLimitedString(String s, int repeatLimit) {
         // 统计频次
         int[] cntArr = new int[26];
@@ -24,7 +25,7 @@ public class Solution2182 {
             if (top1.cnt <= 0) {
                 break;
             }
-            char lastCh = stringBuilder.length() > 0 ? stringBuilder.charAt(stringBuilder.length() - 1) : '?';
+            char lastCh = !stringBuilder.isEmpty() ? stringBuilder.charAt(stringBuilder.length() - 1) : '?';
             if (top1.ch != lastCh) {
                 int maxLen = Math.min(top1.cnt, repeatLimit);
                 top1.cnt -= maxLen;
@@ -59,6 +60,37 @@ public class Solution2182 {
             this.str = str;
             this.cnt = cnt;
         }
+    }
+
+    // 19ms
+    public String repeatLimitedString2(String s, int repeatLimit) {
+        final int N = 26;
+        int[] cnt = new int[N];
+        for (char c : s.toCharArray()) {
+            cnt[c - 'a']++;
+        }
+
+        StringBuilder ans = new StringBuilder();
+        int rep = 0;
+        int i = N - 1, j = N - 2;
+        while (i >= 0 && j >= 0) {
+            // 有 i 选 i，i 超了选 j
+            if (cnt[i] == 0) {
+                rep = 0;
+                i--;
+            } else if (rep < repeatLimit) {
+                cnt[i]--;
+                ans.append((char) (i + 'a'));
+                rep++;
+            } else if (j >= i || cnt[j] == 0) {
+                j--;
+            } else {
+                cnt[j]--;
+                ans.append((char) (j + 'a'));
+                rep = 0;
+            }
+        }
+        return ans.toString();
     }
 }
 /*

@@ -66,243 +66,93 @@ public class Solution307 {
         }
     }
 
-    // 线段树
+    // 108ms
     static class NumArray2 {
-        private final SegmentTree segmentTree;
+        private final SegTreeUpd seg;
 
         public NumArray2(int[] nums) {
-            segmentTree = new SegmentTree(nums);
+            seg = new SegTreeUpd(nums);
         }
 
         public void update(int index, int val) {
-            segmentTree.update(index + 1, index + 1, val);
+            seg.update(index + 1, index + 1, val);
         }
 
         public int sumRange(int left, int right) {
-            return segmentTree.getSum(left + 1, right + 1);
+            return seg.getSum(left + 1, right + 1);
         }
 
-        private static class SegmentTree {
-            private final int N;
-            private final int[] nums;
-            private final int[] tree;
-            private final int[] lazy;
+        static class SegTreeUpd {
+            int n;
+            int[] tree, lazy;
+            int[] nums;
 
-            public SegmentTree(int[] nums) {
-                this.N = nums.length;
+            public SegTreeUpd(int[] nums) {
+                this.n = nums.length;
+                this.tree = new int[4 * n];
+                this.lazy = new int[4 * n];
+
                 this.nums = nums;
-                tree = new int[N * 4];
-                lazy = new int[N * 4];
-                build(1, N, 1);
+                build(1, 1, n);
             }
 
-            private void build(int s, int t, int p) {
-                // 对 [s,t] 区间建立线段树,当前根的编号为 p
-                if (s == t) {
-                    tree[p] = nums[s - 1];
+            void build(int p, int l, int r) {
+                if (l == r) {
+                    tree[p] = nums[l - 1];
                     return;
                 }
-                int mid = s + (t - s) / 2;
-                build(s, mid, p * 2);
-                build(mid + 1, t, p * 2 + 1);
-                // 递归对左右区间建树
+                int mid = l + (r - l) / 2;
+                build(p << 1, l, mid);
+                build(p << 1 | 1, mid + 1, r);
                 pushUp(p);
             }
 
-            // [l,r] 范围置为 c
-            private void update(int l, int r, int val, int s, int t, int p) {
-                if (l <= s && t <= r) {
-                    tree[p] = (t - s + 1) * val;
+            void update(int ql, int qr, int val) {
+                update(1, 1, n, ql, qr, val);
+            }
+
+            void update(int p, int l, int r, int ql, int qr, int val) {
+                if (ql <= l && r <= qr) {
+                    tree[p] = val * (r - l + 1);
                     lazy[p] = val;
                     return;
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(s, t, p, mid);
-                if (l <= mid) {
-                    update(l, r, val, s, mid, p * 2);
-                }
-                if (r > mid) {
-                    update(l, r, val, mid + 1, t, p * 2 + 1);
-                }
+                pushDown(p, l, r);
+                int mid = l + (r - l) / 2;
+                if (ql <= mid) update(p << 1, l, mid, ql, qr, val);
+                if (qr > mid) update(p << 1 | 1, mid + 1, r, ql, qr, val);
                 pushUp(p);
             }
 
-            // [l,r] 范围求和
-            private int getSum(int l, int r, int s, int t, int p) {
-                if (l <= s && t <= r) {
+            int getSum(int ql, int qr) {
+                return getSum(1, 1, n, ql, qr);
+            }
+
+            int getSum(int p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
                     return tree[p];
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(s, t, p, mid);
+                pushDown(p, l, r);
+                int mid = l + (r - l) / 2;
                 int sum = 0;
-                if (l <= mid) {
-                    sum = getSum(l, r, s, mid, p * 2);
-                }
-                if (r > mid) {
-                    sum += getSum(l, r, mid + 1, t, p * 2 + 1);
-                }
+                if (ql <= mid) sum += getSum(p << 1, l, mid, ql, qr);
+                if (qr > mid) sum += getSum(p << 1 | 1, mid + 1, r, ql, qr);
                 return sum;
             }
 
-            private void pushDown(int s, int t, int p, int mid) {
-                if (lazy[p] > 0) {
-                    tree[p * 2] = lazy[p] * (mid - s + 1);
-                    tree[p * 2 + 1] = lazy[p] * (t - mid);
-                    lazy[p * 2] = lazy[p];
-                    lazy[p * 2 + 1] = lazy[p];
+            void pushDown(int p, int l, int r) {
+                if (lazy[p] != 0) {
+                    int mid = l + (r - l) / 2;
+                    tree[p << 1] = lazy[p] * (mid - l + 1);
+                    tree[p << 1 | 1] = lazy[p] * (r - mid);
+                    lazy[p << 1] = lazy[p];
+                    lazy[p << 1 | 1] = lazy[p];
                     lazy[p] = 0;
                 }
             }
 
-            private void pushUp(int p) {
-                tree[p] = tree[p * 2] + tree[p * 2 + 1];
-            }
-
-            void update(int l, int r, int val) {
-                update(l, r, val, 1, N, 1);
-            }
-
-            int getSum(int l, int r) {
-                return getSum(l, r, 1, N, 1);
-            }
-        }
-    }
-
-    static class NumArray3 {
-        private final DynamicSegTreeUpd dynamicSegTreeUpd;
-
-        public NumArray3(int[] nums) {
-            dynamicSegTreeUpd = new DynamicSegTreeUpd();
-            dynamicSegTreeUpd.nums = nums;
-            dynamicSegTreeUpd.build();
-        }
-
-        public void update(int index, int val) {
-            dynamicSegTreeUpd.update(index + 1, index + 1, val);
-        }
-
-        public int sumRange(int left, int right) {
-            return (int) dynamicSegTreeUpd.getSum(left + 1, right + 1);
-        }
-
-        static class DynamicSegTreeUpd {
-            int N;
-            int[] nums;
-            private final Node root = new Node();
-
-            private static class Node {
-                Node ls, rs;
-                long sum, max, lazy;
-            }
-
-            private void build() {
-                N = nums.length;
-                build(1, N, root);
-            }
-
-            private void build(int s, int t, Node node) {
-                if (s == t) {
-                    node.sum = nums[s - 1];
-                    return;
-                }
-                if (node.ls == null) {
-                    node.ls = new Node();
-                }
-                if (node.rs == null) {
-                    node.rs = new Node();
-                }
-                int mid = s + (t - s) / 2;
-                build(s, mid, node.ls);
-                build(mid + 1, t, node.rs);
-                pushUp(node);
-            }
-
-            // 区间 [l,r] 置为 val
-            public void update(int l, int r, int val) {
-                this.update(l, r, val, 1, N, root);
-            }
-
-            // 区间 [l,r] 求和
-            public long getSum(int l, int r) {
-                return this.getSum(l, r, 1, N, root);
-            }
-
-            // 区间 [l,r] 最大值
-            public long getMax(int l, int r) {
-                return this.getMax(l, r, 1, N, root);
-            }
-
-            private void update(int l, int r, int val, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    node.sum = (t - s + 1L) * val;
-                    node.max = val;
-                    node.lazy = val;
-                    return;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                if (l <= mid) {
-                    update(l, r, val, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    update(l, r, val, mid + 1, t, node.rs);
-                }
-                pushUp(node);
-            }
-
-            private long getSum(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.sum;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                long sum = 0;
-                if (l <= mid) {
-                    sum = getSum(l, r, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    sum += getSum(l, r, mid + 1, t, node.rs);
-                }
-                return sum;
-            }
-
-            private long getMax(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.max;
-                }
-                int mid = s + (t - s) / 2;
-                pushDown(node, s, t, mid);
-                long max = 0;
-                if (l <= mid) {
-                    max = getMax(l, r, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-                }
-                return max;
-            }
-
-            private void pushDown(Node node, int s, int t, int mid) {
-                if (node.ls == null) {
-                    node.ls = new Node();
-                }
-                if (node.rs == null) {
-                    node.rs = new Node();
-                }
-                if (node.lazy > 0) {
-                    node.ls.sum = node.lazy * (mid - s + 1L);
-                    node.rs.sum = node.lazy * (t - mid);
-                    node.ls.max = node.lazy;
-                    node.rs.max = node.lazy;
-                    node.ls.lazy = node.lazy;
-                    node.rs.lazy = node.lazy;
-                    node.lazy = 0;
-                }
-            }
-
-            private void pushUp(Node node) {
-                node.sum = node.ls.sum + node.rs.sum;
-                node.max = Math.max(node.ls.max, node.rs.max);
+            void pushUp(int p) {
+                tree[p] = tree[p << 1] + tree[p << 1 | 1];
             }
         }
     }

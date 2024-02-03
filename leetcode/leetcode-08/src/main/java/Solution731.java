@@ -1,97 +1,77 @@
 public class Solution731 {
+    // 43ms
     static class MyCalendarTwo {
-        private final DynamicSegTree dynamicSegTree;
+        private final DynamicSegTreeAdd seg;
 
         public MyCalendarTwo() {
-            dynamicSegTree = new DynamicSegTree();
+            seg = new DynamicSegTreeAdd();
         }
 
         public boolean book(int start, int end) {
-            int max = dynamicSegTree.getMax(start, end - 1);
+            int max = seg.getMax(start, end - 1);
             if (max >= 2) {
                 return false;
             }
-            dynamicSegTree.update(start, end - 1, 1);
+            seg.update(start, end - 1, 1);
             return true;
         }
 
-        // 动态开点线段树
-        private static class DynamicSegTree {
-            private static class Node {
-                // 左子树
-                Node ls;
-                // 右子树
-                Node rs;
-                // 区间最大值
-                int max;
-                // 懒标记
-                int lazy;
+        private static class DynamicSegTreeAdd {
+            static class Node {
+                Node ls, rs;
+                int max, lazy;
             }
 
-            private static final int N = (int) 1e9;
-            private final Node root = new Node();
+            static final int N = (int) 1e9;
+            final Node root = new Node();
 
-            // 区间更新 [l,r] 加上 val
-            void update(int l, int r, int val) {
-                this.update(l, r, val, 0, N, root);
+            void update(int ql, int qr, int val) {
+                this.update(root, 0, N, ql, qr, val);
             }
 
-            // 区间查询 [l,r] 最大值
-            int getMax(int l, int r) {
-                return this.getMax(l, r, 0, N, root);
-            }
-
-            private void update(int l, int r, int val, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    node.max += val;
-                    node.lazy += val;
+            void update(Node p, int l, int r, int ql, int qr, int val) {
+                if (ql <= l && r <= qr) {
+                    p.max += val;
+                    p.lazy += val;
                     return;
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(node);
-                if (l <= mid) {
-                    update(l, r, val, s, mid, node.ls);
-                }
-                if (r > mid) {
-                    update(l, r, val, mid + 1, t, node.rs);
-                }
-                pushUp(node);
+                int mid = l + (r - l) / 2;
+                pushDown(p);
+                if (ql <= mid) update(p.ls, l, mid, ql, qr, val);
+                if (qr > mid) update(p.rs, mid + 1, r, ql, qr, val);
+                pushUp(p);
             }
 
-            private int getMax(int l, int r, int s, int t, Node node) {
-                if (l <= s && t <= r) {
-                    return node.max;
+            int getMax(int ql, int qr) {
+                return this.getMax(root, 0, N, ql, qr);
+            }
+
+            int getMax(Node p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
+                    return p.max;
                 }
-                int mid = s + (t - s) / 2;
-                pushDown(node);
+                pushDown(p);
+                int mid = l + (r - l) / 2;
                 int max = 0;
-                if (l <= mid) {
-                    max = Math.max(max, getMax(l, r, s, mid, node.ls));
-                }
-                if (r > mid) {
-                    max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-                }
+                if (ql <= mid) max = Math.max(max, getMax(p.ls, l, mid, ql, qr));
+                if (qr > mid) max = Math.max(max, getMax(p.rs, mid + 1, r, ql, qr));
                 return max;
             }
 
-            private void pushDown(Node node) {
-                if (node.ls == null) {
-                    node.ls = new Node();
-                }
-                if (node.rs == null) {
-                    node.rs = new Node();
-                }
-                if (node.lazy > 0) {
-                    node.ls.max += node.lazy;
-                    node.rs.max += node.lazy;
-                    node.ls.lazy += node.lazy;
-                    node.rs.lazy += node.lazy;
-                    node.lazy = 0;
+            void pushDown(Node p) {
+                if (p.ls == null) p.ls = new Node();
+                if (p.rs == null) p.rs = new Node();
+                if (p.lazy != 0) {
+                    p.ls.max += p.lazy;
+                    p.rs.max += p.lazy;
+                    p.ls.lazy += p.lazy;
+                    p.rs.lazy += p.lazy;
+                    p.lazy = 0;
                 }
             }
 
-            private void pushUp(Node node) {
-                node.max = Math.max(node.ls.max, node.rs.max);
+            void pushUp(Node p) {
+                p.max = Math.max(p.ls.max, p.rs.max);
             }
         }
     }

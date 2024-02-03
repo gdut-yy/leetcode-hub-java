@@ -1,68 +1,59 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 public class Solution2493 {
     private int n;
-    private Map<Integer, List<Integer>> adj;
+    private List<Integer>[] g;
+    private int[] colors;
 
     public int magnificentSets(int n, int[][] edges) {
         this.n = n;
-        // 建图
-        this.adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : edges) {
+            int x = p[0] - 1, y = p[1] - 1;
+            g[x].add(y);
+            g[y].add(x);
         }
-
         // 不满足二分图
-        if (!isBipartite()) {
-            return -1;
-        }
+        if (!isBipartite()) return -1;
 
-        DSU dsu = new DSU(n + 1);
-        for (int[] edge : edges) {
-            dsu.union(edge[0], edge[1]);
+        DSU dsu = new DSU(n);
+        for (int[] p : edges) {
+            int x = p[0] - 1, y = p[1] - 1;
+            dsu.union(x, y);
         }
-        int[] depth = new int[n + 1];
-        Arrays.fill(depth, 1);
-        for (int i = 1; i <= n; i++) {
-            depth[i] = getDepthByRoot(i);
-        }
-        Map<Integer, Integer> faMap = new HashMap<>();
-        for (int i = 1; i <= n; i++) {
+        int[] maxDepth = new int[n];
+        for (int i = 0; i < n; i++) {
             int fa = dsu.find(i);
-            faMap.put(fa, Math.max(depth[i], faMap.getOrDefault(fa, 0)));
+            maxDepth[fa] = Math.max(maxDepth[fa], countDepth(i));
         }
-        return faMap.values().stream().mapToInt(i -> i).sum();
+        return Arrays.stream(maxDepth).sum();
     }
 
-    // 以 root 为根时深度/高度
-    private int getDepthByRoot(int root) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(root);
-        boolean[] visited = new boolean[n + 1];
-        visited[root] = true;
-        int cnt = 0;
-        while (!queue.isEmpty()) {
-            cnt++;
-            int size = queue.size();
-            for (int k = 0; k < size; k++) {
-                int u = queue.remove();
-
-                for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-                    if (!visited[v]) {
-                        visited[v] = true;
-                        queue.add(v);
+    private int countDepth(int st) {
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(st);
+        boolean[] vis = new boolean[n];
+        vis[st] = true;
+        int depth = 0;
+        while (!q.isEmpty()) {
+            depth++;
+            int sz = q.size();
+            while (sz-- > 0) {
+                int x = q.remove();
+                for (int y : g[x]) {
+                    if (!vis[y]) {
+                        vis[y] = true;
+                        q.add(y);
                     }
                 }
             }
         }
-        return cnt;
+        return depth;
     }
 
     private static class DSU {
@@ -98,12 +89,12 @@ public class Solution2493 {
     }
 
     private boolean isBipartite() {
-        int[] colors = new int[n + 1];
+        colors = new int[n];
         // -1:未染色 0:红色 1:蓝色
         Arrays.fill(colors, -1);
-        for (int i = 1; i <= n; i++) {
+        for (int i = 0; i < n; i++) {
             if (colors[i] == -1) {
-                if (!setColor(adj, colors, i)) {
+                if (!setColor(i)) {
                     return false;
                 }
             }
@@ -111,22 +102,20 @@ public class Solution2493 {
         return true;
     }
 
-    private boolean setColor(Map<Integer, List<Integer>> adj, int[] colors, int i) {
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(i);
+    private boolean setColor(int i) {
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(i);
         colors[i] = 0;
-
-        while (!queue.isEmpty()) {
-            int cur = queue.remove();
-
-            for (int next : adj.getOrDefault(cur, new ArrayList<>())) {
-                if (colors[next] != -1) {
-                    if (colors[next] == colors[cur]) {
+        while (!q.isEmpty()) {
+            int x = q.remove();
+            for (int y : g[x]) {
+                if (colors[y] != -1) {
+                    if (colors[y] == colors[x]) {
                         return false;
                     }
                 } else {
-                    colors[next] = 1 ^ colors[cur];
-                    queue.add(next);
+                    colors[y] = 1 ^ colors[x];
+                    q.add(y);
                 }
             }
         }

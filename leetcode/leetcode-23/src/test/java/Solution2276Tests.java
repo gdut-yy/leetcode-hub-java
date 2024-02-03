@@ -13,7 +13,7 @@ public class Solution2276Tests {
     @Test
     public void example1() {
         // 用一个区间空集初始化对象
-        Solution2276.CountIntervals2 countIntervals = new Solution2276.CountIntervals2();
+        Solution2276.CountIntervals countIntervals = new Solution2276.CountIntervals();
         // 将 [2, 3] 添加到区间集合中
         countIntervals.add(2, 3);
         // 将 [7, 10] 添加到区间集合中

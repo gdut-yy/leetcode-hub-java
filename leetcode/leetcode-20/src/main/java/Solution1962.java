@@ -5,20 +5,20 @@ public class Solution1962 {
     public int minStoneSum(int[] piles, int k) {
         // 大顶堆
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-        for (int pile : piles) {
-            maxHeap.add(pile);
+        for (int v : piles) {
+            maxHeap.add(v);
         }
         while (!maxHeap.isEmpty() && k > 0) {
-            int curMax = maxHeap.poll();
-            int newVal = curMax - (int) Math.floor(curMax >> 1);
-            maxHeap.add(newVal);
+            int x = maxHeap.poll();
+            maxHeap.add(x - x / 2);
             k--;
         }
-        int res = 0;
+
+        int ans = 0;
         while (!maxHeap.isEmpty()) {
-            res += maxHeap.poll();
+            ans += maxHeap.poll();
         }
-        return res;
+        return ans;
     }
 }
 /*
