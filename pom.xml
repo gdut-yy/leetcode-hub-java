@@ -16,6 +16,7 @@
         <module>codeforces</module>
         <module>leetcode</module>
         <module>nowcoder</module>
+        <module>lanqiao</module>
     </modules>
     <packaging>pom</packaging>
 
