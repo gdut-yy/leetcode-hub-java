@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100164 {
+public class Solution3012 {
     public int minimumArrayLength(int[] nums) {
         int mn = Arrays.stream(nums).min().orElseThrow();
         int c = 0;
@@ -14,7 +14,7 @@ public class Solution100164 {
     }
 }
 /*
-100164. 通过操作使数组长度最小
+3012. 通过操作使数组长度最小
 https://leetcode.cn/problems/minimize-length-of-array-using-operations/description/
 
 第 122 场双周赛 T3。

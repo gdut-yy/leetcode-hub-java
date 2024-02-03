@@ -1,6 +1,6 @@
 import java.util.TreeMap;
 
-public class Solution100178 {
+public class Solution3013 {
     public long minimumCost(int[] nums, int k, int dist) {
         int n = nums.length;
         // 窗口大小 m，前 k-1 小的和，等价于 总和减去前 m-(k-1) 大的和
@@ -97,7 +97,7 @@ public class Solution100178 {
     }
 }
 /*
-100178. 将数组分成最小总代价的子数组 II
+3013. 将数组分成最小总代价的子数组 II
 https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-ii/description/
 
 第 122 场双周赛 T4。

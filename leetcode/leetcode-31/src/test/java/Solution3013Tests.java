@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution100178Tests {
-    private final Solution100178 solution100178 = new Solution100178();
+public class Solution3013Tests {
+    private final Solution3013 solution3013 = new Solution3013();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution100178Tests {
         int k = 3;
         int dist = 3;
         long expected = 5;
-        Assertions.assertEquals(expected, solution100178.minimumCost(nums, k, dist));
+        Assertions.assertEquals(expected, solution3013.minimumCost(nums, k, dist));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution100178Tests {
         int k = 4;
         int dist = 3;
         long expected = 15;
-        Assertions.assertEquals(expected, solution100178.minimumCost(nums, k, dist));
+        Assertions.assertEquals(expected, solution3013.minimumCost(nums, k, dist));
     }
 
     @Test
@@ -28,6 +28,6 @@ public class Solution100178Tests {
         int k = 3;
         int dist = 1;
         long expected = 36;
-        Assertions.assertEquals(expected, solution100178.minimumCost(nums, k, dist));
+        Assertions.assertEquals(expected, solution3013.minimumCost(nums, k, dist));
     }
 }

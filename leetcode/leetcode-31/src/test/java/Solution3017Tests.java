@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution100213Tests {
-    private final Solution100213 solution100213 = new Solution100213();
+public class Solution3017Tests {
+    private final Solution3017 solution3017 = new Solution3017();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution100213Tests {
         int x = 1;
         int y = 3;
         long[] expected = {6, 0, 0};
-        Assertions.assertArrayEquals(expected, solution100213.countOfPairs(n, x, y));
+        Assertions.assertArrayEquals(expected, solution3017.countOfPairs(n, x, y));
     }
 
     @Test
@@ -19,7 +19,7 @@ public class Solution100213Tests {
         int x = 2;
         int y = 4;
         long[] expected = {10, 8, 2, 0, 0};
-        Assertions.assertArrayEquals(expected, solution100213.countOfPairs(n, x, y));
+        Assertions.assertArrayEquals(expected, solution3017.countOfPairs(n, x, y));
     }
 
     @Test
@@ -28,6 +28,6 @@ public class Solution100213Tests {
         int x = 1;
         int y = 1;
         long[] expected = {6, 4, 2, 0};
-        Assertions.assertArrayEquals(expected, solution100213.countOfPairs(n, x, y));
+        Assertions.assertArrayEquals(expected, solution3017.countOfPairs(n, x, y));
     }
 }

@@ -1,7 +1,7 @@
-public class Solution100191 {
+public class Solution3014 {
 }
 /*
-100191. 输入单词需要的最少按键次数 I
+3014. 输入单词需要的最少按键次数 I
 https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-i/description/
 
 第 381 场周赛 T1。
@@ -16,6 +16,6 @@ https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-i/description
 word 仅由小写英文字母组成。
 word 中的所有字母互不相同。
 
-同: 100192. 输入单词需要的最少按键次数 II
+同: 3016. 输入单词需要的最少按键次数 II
 https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-ii/description/
  */

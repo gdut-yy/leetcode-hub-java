@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100192 {
+public class Solution3016 {
     public int minimumPushes(String word) {
         int[] cnt = new int[26];
         for (char c : word.toCharArray()) {
@@ -24,7 +24,7 @@ public class Solution100192 {
     }
 }
 /*
-100192. 输入单词需要的最少按键次数 II
+3016. 输入单词需要的最少按键次数 II
 https://leetcode.cn/problems/minimum-number-of-pushes-to-type-word-ii/description/
 
 第 381 场周赛 T3。

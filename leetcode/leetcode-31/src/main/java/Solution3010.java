@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100181 {
+public class Solution3010 {
     public int minimumCost(int[] nums) {
         int n = nums.length;
         Arrays.sort(nums, 1, n);
@@ -8,7 +8,7 @@ public class Solution100181 {
     }
 }
 /*
-100181. 将数组分成最小总代价的子数组 I
+3010. 将数组分成最小总代价的子数组 I
 https://leetcode.cn/problems/divide-an-array-into-subarrays-with-minimum-cost-i/description/
 
 第 122 场双周赛 T1。

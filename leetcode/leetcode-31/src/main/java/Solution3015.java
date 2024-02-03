@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 
-public class Solution100188 {
+public class Solution3015 {
     private static final int INF = (int) 1e9;
 
     // Floyd
@@ -82,7 +82,7 @@ public class Solution100188 {
     }
 }
 /*
-100188. 按距离统计房屋对数目 I
+3015. 按距离统计房屋对数目 I
 https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-i/description/
 
 第 381 场周赛 T2。

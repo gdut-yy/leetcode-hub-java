@@ -1,4 +1,4 @@
-public class Solution100213 {
+public class Solution3017 {
     private int[] diff;
 
     // https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii/solutions/2613373/yong-che-xiao-de-fang-shi-si-kao-pythonj-o253
@@ -47,7 +47,7 @@ public class Solution100213 {
     }
 }
 /*
-100213. 按距离统计房屋对数目 II
+3017. 按距离统计房屋对数目 II
 https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii/description/
 
 第 381 场周赛 T4。
@@ -63,5 +63,4 @@ https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii
 
 分类讨论 + 差分数组
 时间复杂度 O(n)
-
  */
