@@ -25,26 +25,30 @@ public class Solution2223 {
      */
     public long sumScores2(String s) {
         int n = s.length();
-
-        int[] z = new int[n];
-        for (int i = 1, l = 0, r = 0; i < n; ++i) {
-            if (i <= r && z[i - l] < r - i + 1) {
-                z[i] = z[i - l];
-            } else {
-                z[i] = Math.max(0, r - i + 1);
-                while (i + z[i] < n && s.charAt(z[i]) == s.charAt(i + z[i])) ++z[i];
-            }
-            if (i + z[i] - 1 > r) {
-                l = i;
-                r = i + z[i] - 1;
-            }
-        }
+        int[] z = z_function(n, s.toCharArray());
 
         long cnt = n;
         for (int i : z) {
             cnt += i;
         }
         return cnt;
+    }
+
+    private int[] z_function(int n, char[] s) {
+        int[] z = new int[n];
+        for (int i = 1, l = 0, r = 0; i < n; ++i) {
+            if (i <= r && z[i - l] < r - i + 1) {
+                z[i] = z[i - l];
+            } else {
+                z[i] = Math.max(0, r - i + 1);
+                while (i + z[i] < n && s[z[i]] == s[i + z[i]]) ++z[i];
+            }
+            if (i + z[i] - 1 > r) {
+                l = i;
+                r = i + z[i] - 1;
+            }
+        }
+        return z;
     }
 }
 /*
