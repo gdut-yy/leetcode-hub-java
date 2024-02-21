@@ -1,4 +1,4 @@
-public class Solution100214 {
+public class Solution3028 {
     public int returnToBoundaryCount(int[] nums) {
         int s = 0;
         int ans = 0;
@@ -10,7 +10,7 @@ public class Solution100214 {
     }
 }
 /*
-100214. 边界上的蚂蚁
+3028. 边界上的蚂蚁
 https://leetcode.cn/problems/ant-on-the-boundary/description/
 
 第 383 场周赛 T1。

@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100222 {
+public class Solution3024 {
     public String triangleType(int[] nums) {
         Arrays.sort(nums);
         if (nums[0] + nums[1] <= nums[2]) return "none";
@@ -10,8 +10,8 @@ public class Solution100222 {
     }
 }
 /*
-100222. 三角形类型 II
-https://leetcode.cn/problems/type-of-triangle-ii/
+3024. 三角形类型
+https://leetcode.cn/problems/type-of-triangle/description/
 
 第 123 场双周赛 T1。
 

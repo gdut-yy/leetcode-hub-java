@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100189 {
+public class Solution3030 {
     public int[][] resultGrid(int[][] image, int threshold) {
         int m = image.length;
         int n = image[0].length;
@@ -59,7 +59,7 @@ public class Solution100189 {
     }
 }
 /*
-100189. 找出网格的区域平均强度
+3030. 找出网格的区域平均强度
 https://leetcode.cn/problems/find-the-grid-of-region-average/description/
 
 第 383 场周赛 T3。

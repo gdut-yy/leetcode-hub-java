@@ -1,11 +1,20 @@
-public class Solution100194 {
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
+public class Solution3027 {
     private int[][] ps2d;
 
     public int numberOfPairs(int[][] points) {
-        int n = 50 + 5;
-        int m = 50 + 5;
+        int[] xArr = getDiscrete(points, 0);
+        int[] yArr = getDiscrete(points, 1);
+
+        int n = xArr.length + 5;
+        int m = yArr.length + 5;
         int[][] a = new int[n][m];
         for (int[] p : points) {
+            p[0] = getId(xArr, p[0]);
+            p[1] = getId(yArr, p[1]);
             a[p[0]][p[1]]++;
         }
 
@@ -36,12 +45,28 @@ public class Solution100194 {
     private int sumRegion(int x1, int y1, int x2, int y2) {
         return ps2d[x2 + 1][y2 + 1] - ps2d[x2 + 1][y1] - ps2d[x1][y2 + 1] + ps2d[x1][y1];
     }
+
+    // x:type=0, y:type=1
+    private int[] getDiscrete(int[][] points, int type) {
+        Set<Integer> set = new HashSet<>();
+        for (int[] p : points) set.add(p[type]);
+        int sz = set.size();
+        int[] arr = new int[sz];
+        int id = 0;
+        for (Integer x : set) arr[id++] = x;
+        Arrays.sort(arr);
+        return arr;
+    }
+
+    private int getId(int[] arr, int x) {
+        return Arrays.binarySearch(arr, x) + 1;
+    }
 }
 /*
-100194. 人员站位的方案数 I
-https://leetcode.cn/problems/find-the-number-of-ways-to-place-people-i/
+3027. 人员站位的方案数 II
+https://leetcode.cn/problems/find-the-number-of-ways-to-place-people-ii/
 
-第 123 场双周赛 T2。
+第 123 场双周赛 T4。
 
 给你一个  n x 2 的二维数组 points ，它表示二维平面上的一些点坐标，其中 points[i] = [xi, yi] 。
 我们定义 x 轴的正方向为 右 （x 轴递增的方向），x 轴的负方向为 左 （x 轴递减的方向）。类似的，我们定义 y 轴的正方向为 上 （y 轴递增的方向），y 轴的负方向为 下 （y 轴递减的方向）。
@@ -51,11 +76,11 @@ https://leetcode.cn/problems/find-the-number-of-ways-to-place-people-i/
 - 图一中，liupengsay 在 (3, 3) 且小羊肖恩在 (1, 1) ，liupengsay 的位置不是左上角且小羊肖恩的位置不是右下角。
 - 图二中，liupengsay 在 (1, 3) 且小羊肖恩在 (1, 1) ，小羊肖恩的位置不是在围栏的右下角。
 提示：
-2 <= n <= 50
+2 <= n <= 1000
 points[i].length == 2
-0 <= points[i][0], points[i][1] <= 50
+-10^9 <= points[i][0], points[i][1] <= 10^9
 points[i] 点对两两不同。
 
-二维前缀和。
+离散化 + 二维前缀和。观察到 值域放大到 1e9，但是 n <= 1000，在 T2 上加个离散化处理即可。
 时间复杂度 O(n^2)
  */

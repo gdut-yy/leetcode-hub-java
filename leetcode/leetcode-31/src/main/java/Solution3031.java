@@ -1,4 +1,4 @@
-public class Solution100203 {
+public class Solution3031 {
     public int minimumTimeToInitialState(String word, int k) {
         int n = word.length();
         int[] z = z_function(n, word.toCharArray());
@@ -29,7 +29,7 @@ public class Solution100203 {
     }
 }
 /*
-100203. 将单词恢复初始状态所需的最短时间 II
+3031. 将单词恢复初始状态所需的最短时间 II
 https://leetcode.cn/problems/minimum-time-to-revert-word-to-initial-state-ii/description/
 
 第 383 场周赛 T4。

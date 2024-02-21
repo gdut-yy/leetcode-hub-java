@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100183 {
+public class Solution3026 {
     public long maximumSubarraySum(int[] nums, int k) {
         int n = nums.length;
         long[] ps = new long[n + 1];
@@ -65,7 +65,7 @@ public class Solution100183 {
     }
 }
 /*
-100183. 最大好子数组和
+3026. 最大好子数组和
 https://leetcode.cn/problems/maximum-good-subarray-sum/
 
 第 123 场双周赛 T3。

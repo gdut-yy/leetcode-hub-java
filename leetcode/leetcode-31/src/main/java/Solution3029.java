@@ -1,7 +1,7 @@
-public class Solution100204 {
+public class Solution3029 {
 }
 /*
-100204. 将单词恢复初始状态所需的最短时间 I
+3029. 将单词恢复初始状态所需的最短时间 I
 https://leetcode.cn/problems/minimum-time-to-revert-word-to-initial-state-i/description/
 
 第 383 场周赛 T2。
@@ -17,6 +17,6 @@ https://leetcode.cn/problems/minimum-time-to-revert-word-to-initial-state-i/desc
 1 <= k <= word.length
 word仅由小写英文字母组成。
 
-同: 100203. 将单词恢复初始状态所需的最短时间 II
+同: 3031. 将单词恢复初始状态所需的最短时间 II
 https://leetcode.cn/problems/minimum-time-to-revert-word-to-initial-state-ii/description/
  */
