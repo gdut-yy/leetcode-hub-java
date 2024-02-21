@@ -91,4 +91,6 @@ s 和 t 都只包含小写英文字母。
 KMP + 组合数学 + 矩阵快速幂。严重超纲
 相似题目: B. Word Cut
 https://codeforces.com/contest/176/problem/B
+3036. 匹配模式数组的子数组数目 II
+https://leetcode.cn/problems/number-of-subarrays-that-match-a-pattern-ii/description/
  */
