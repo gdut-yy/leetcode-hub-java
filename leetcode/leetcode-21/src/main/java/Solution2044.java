@@ -1,47 +1,29 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.TreeMap;
-
 public class Solution2044 {
+    private int[] nums;
+    private int maxOr, ans;
+
     public int countMaxOrSubsets(int[] nums) {
-        List<List<Integer>> subsets = subsets(nums);
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for (List<Integer> subset : subsets) {
-            if (subset.size() > 0) {
-                int res = subset.get(0);
-                for (int i = 1; i < subset.size(); i++) {
-                    res |= subset.get(i);
-                }
-                if (treeMap.containsKey(res)) {
-                    treeMap.put(res, treeMap.get(res) + 1);
-                } else {
-                    treeMap.put(res, 1);
-                }
+        this.nums = nums;
+        maxOr = 0;
+        ans = 0;
+        dfs(0, 0);
+        return ans;
+    }
+
+    private void dfs(int i, int orVal) {
+        if (i == nums.length) {
+            if (maxOr < orVal) {
+                maxOr = orVal;
+                ans = 1;
+            } else if (orVal == maxOr) {
+                ans++;
             }
+            return;
         }
-        return treeMap.lastEntry().getValue();
-    }
-
-    private List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> resList = new ArrayList<>();
-        if (nums.length == 0) {
-            return resList;
-        }
-        helper(nums, 0, new LinkedList<>(), resList);
-        return resList;
-    }
-
-    private void helper(int[] nums, int idx, LinkedList<Integer> subset, List<List<Integer>> resList) {
-        if (idx == nums.length) {
-            // 副本
-            resList.add(new ArrayList<>(subset));
-        } else if (idx < nums.length) {
-            helper(nums, idx + 1, subset, resList);
-            subset.add(nums[idx]);
-            helper(nums, idx + 1, subset, resList);
-            subset.removeLast();
-        }
+        // 不选
+        dfs(i + 1, orVal);
+        // 选
+        dfs(i + 1, orVal | nums[i]);
     }
 }
 /*
@@ -55,7 +37,8 @@ https://leetcode.cn/problems/count-number-of-maximum-bitwise-or-subsets/
 对数组 a 执行 按位或 ，结果等于 a[0] OR a[1] OR ... OR a[a.length - 1]（下标从 0 开始）。
 
 1 <= nums.length <= 16
-考虑 时间复杂度 O(2^n) 的枚举子集。
+回溯。如果用二进制枚举的话，时间复杂度会多一个 O(n)。
+时间复杂度 O(2^n)
 相似题目: 78. 子集
 https://leetcode.cn/problems/subsets/
  */

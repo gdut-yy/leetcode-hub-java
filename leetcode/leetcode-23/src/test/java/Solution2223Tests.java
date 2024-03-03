@@ -26,12 +26,4 @@ public class Solution2223Tests {
         int expected = 80001;
         Assertions.assertEquals(expected, solution2223.sumScores(s));
     }
-
-    @Test
-    public void example3_2() {
-        // 132 / 143 个通过测试用例
-        String s = UtUtils.loadingString("solution2223-example3-input.txt", 0);
-        int expected = 80001;
-        Assertions.assertEquals(expected, solution2223.sumScores2(s));
-    }
 }

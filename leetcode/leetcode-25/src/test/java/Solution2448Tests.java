@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution2448Tests {
     private final Solution2448 solution2448 = new Solution2448();
+    private final Solution2448.V2 solution2448_v2 = new Solution2448.V2();
 
     @Test
     public void example1() {
@@ -10,6 +11,7 @@ public class Solution2448Tests {
         int[] cost = {2, 3, 1, 14};
         long expected = 8;
         Assertions.assertEquals(expected, solution2448.minCost(nums, cost));
+        Assertions.assertEquals(expected, solution2448_v2.minCost(nums, cost));
     }
 
     @Test
@@ -18,6 +20,7 @@ public class Solution2448Tests {
         int[] cost = {4, 2, 8, 1, 3};
         long expected = 0;
         Assertions.assertEquals(expected, solution2448.minCost(nums, cost));
+        Assertions.assertEquals(expected, solution2448_v2.minCost(nums, cost));
     }
 
     // 补充用例
@@ -28,5 +31,6 @@ public class Solution2448Tests {
         int[] cost = {724182, 447415, 723725, 902336, 600863, 287644, 13836, 665183, 448859, 917248, 397790, 898215, 790754, 320604, 468575, 825614};
         long expected = 1907611126748L;
         Assertions.assertEquals(expected, solution2448.minCost(nums, cost));
+        Assertions.assertEquals(expected, solution2448_v2.minCost(nums, cost));
     }
 }

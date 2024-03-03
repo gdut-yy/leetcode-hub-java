@@ -14,6 +14,11 @@ public class Abc279_d {
     }
 
     private static String solve() {
+        double ans = ternarySearch_u();
+        return String.format("%.10f%n", ans);
+    }
+
+    private static double ternarySearch_u() {
         long l = 0, r = a / b;
         while (r - l > 2) {
             long m1 = (l * 2 + r) / 3;
@@ -24,11 +29,11 @@ public class Abc279_d {
                 r = m2;
             }
         }
-        double res = a;
-        for (long i = l; i <= r; i++) {
+        double res = f(l);
+        for (long i = l + 1; i <= r; i++) {
             res = Math.min(res, f(i));
         }
-        return String.format("%.10f%n", res);
+        return res;
     }
 
     private static double f(long n) {

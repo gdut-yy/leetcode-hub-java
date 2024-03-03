@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class Solution2448 {
     private int[] nums;
@@ -7,36 +8,63 @@ public class Solution2448 {
     public long minCost(int[] nums, int[] cost) {
         this.nums = nums;
         this.cost = cost;
-
         int min = Arrays.stream(nums).min().orElseThrow();
         int max = Arrays.stream(nums).max().orElseThrow();
-
-        int left = min;
-        int right = max;
-        long lans = f(right);
-        long rans = f(left);
-        while (left < right) {
-            int lmid = left + (right - left) / 3;
-            int rmid = right - (right - left) / 3;
-            lans = f(lmid);
-            rans = f(rmid);
-
-            if (lans <= rans) {
-                right = rmid - 1;
-            } else {
-                left = lmid + 1;
-            }
-        }
-        return Math.min(lans, rans);
+        return ternarySearch_u(min, max);
     }
 
-    // 使 nums 中所有元素 相等 且值为 mid 时的开销
-    private long f(int mid) {
-        long res = 0L;
-        for (int i = 0; i < nums.length; i++) {
-            res += (long) Math.abs(nums[i] - mid) * cost[i];
+    private long ternarySearch_u(int mn, int mx) {
+        long l = mn, r = mx;
+        while (r - l > 2) {
+            long m1 = (l * 2 + r) / 3;
+            long m2 = (l + r * 2) / 3;
+            if (f(m1) > f(m2)) {
+                l = m1;
+            } else {
+                r = m2;
+            }
+        }
+        long res = f(l);
+        for (long i = l + 1; i <= r; i++) {
+            res = Math.min(res, f(i));
         }
         return res;
+    }
+
+    private long f(long mid) {
+        long res = 0;
+        for (int i = 0; i < nums.length; i++) {
+            res += Math.abs(nums[i] - mid) * cost[i];
+        }
+        return res;
+    }
+
+    static class V2 {
+        public long minCost(int[] nums, int[] cost) {
+            int n = nums.length;
+            Integer[] ids = new Integer[n];
+            for (int i = 0; i < n; i++) ids[i] = i;
+            Arrays.sort(ids, Comparator.comparingInt(o -> nums[o]));
+
+            long sumCost = 0;
+            for (int c : cost) {
+                sumCost += c;
+            }
+
+            long ans = 0;
+            long s = 0, mid = (sumCost + 1) / 2;
+            for (Integer id : ids) {
+                s += cost[id];
+                if (s >= mid) {
+                    // 把所有数变成 nums[id]
+                    for (Integer j : ids) {
+                        ans += (long) Math.abs(nums[j] - nums[id]) * cost[j];
+                    }
+                    break;
+                }
+            }
+            return ans;
+        }
     }
 }
 /*

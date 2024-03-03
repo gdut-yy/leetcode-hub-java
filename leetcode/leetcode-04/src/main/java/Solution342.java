@@ -1,28 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 public class Solution342 {
     public boolean isPowerOfFour(int n) {
         int[] nums = {1, 4, 16, 64, 256, 1024, 4096, 16384, 65536, 262144, 1048576, 4194304, 16777216, 67108864,
                 268435456, 1073741824};
-        Set<Integer> hashSet = Arrays.stream(nums).boxed().collect(Collectors.toSet());
-        return hashSet.contains(n);
+        return Arrays.binarySearch(nums, n) >= 0;
     }
 
     // 打表
     public static void main(String[] args) {
         List<Long> list = new ArrayList<>();
-        long ans = 1L;
-        while (true) {
-            if (ans <= Integer.MAX_VALUE) {
-                list.add(ans);
-            } else {
-                break;
-            }
-            ans *= 4;
+        for (long i = 1; i <= Integer.MAX_VALUE; i *= 4) {
+            list.add(i);
         }
         System.out.println(list);
     }

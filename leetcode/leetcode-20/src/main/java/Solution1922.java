@@ -1,31 +1,30 @@
 import java.util.Arrays;
 
 public class Solution1922 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int countGoodNumbers(long n) {
-        int mod = 1000000007;
         long pow = n / 2;
         if (n % 2 == 1L) {
             // 奇数
-            return (int) (5 * fastPower(20, pow, mod) % mod);
+            return (int) (5 * quickPow(20, pow) % MOD);
         } else {
             // 偶数
-            return (int) (fastPower(20, pow, mod) % mod);
+            return (int) (quickPow(20, pow) % MOD);
         }
     }
 
-    private long fastPower(long x, long pow, int mod) {
-        x %= mod;
-        long ans = 1;
-        while (pow > 0) {
-            if (pow % 2 == 1) {
-                ans *= x;
-                ans %= mod;
+    // 模下的 a^b
+    private long quickPow(long a, long b) {
+        long res = 1L;
+        while (b > 0) {
+            if ((b & 1) == 1) {
+                res = res * a % MOD;
             }
-            x *= x;
-            x %= mod;
-            pow /= 2;
+            a = a * a % MOD;
+            b >>= 1;
         }
-        return ans;
+        return res;
     }
 
     // 打表

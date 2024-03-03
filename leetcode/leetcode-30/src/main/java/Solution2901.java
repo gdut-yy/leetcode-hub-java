@@ -7,15 +7,15 @@ public class Solution2901 {
     // 序列 DP
     // 1、子序列 + 不考虑相邻元素：选或不选。代表：0-1 背包
     // 2、子序列 + 考虑相邻元素：枚举选哪个。代表：LIS
-    public List<String> getWordsInLongestSubsequence(int n, String[] words, int[] groups) {
+    public List<String> getWordsInLongestSubsequence(String[] words, int[] groups) {
+        int n = words.length;
         int[] f = new int[n];
-        f[0] = 1;
         // 记录转移来源
         int[] from = new int[n];
         Arrays.fill(from, -1);
 
-        int maxI = n - 1;
-        for (int i = 1; i < n; i++) {
+        int maxI = 0;
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j < i; j++) {
                 if (f[i] < f[j] && groups[j] != groups[i] && hammingEq1(words[j], words[i])) {
                     f[i] = f[j];
@@ -46,6 +46,7 @@ public class Solution2901 {
         for (int i = 0; i < x.length(); i++) {
             if (x.charAt(i) != y.charAt(i)) {
                 cnt++;
+                if (cnt > 1) return false;
             }
         }
         return cnt == 1;
@@ -75,4 +76,6 @@ words[i] 只包含小写英文字母。
 序列 DP 记录转移来源
 时间复杂度 O(n^2)
 空间复杂度 O(n)
+相似题目: 368. 最大整除子集
+https://leetcode.cn/problems/largest-divisible-subset/
  */

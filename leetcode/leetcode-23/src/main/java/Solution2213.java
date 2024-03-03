@@ -1,25 +1,28 @@
+import java.util.Arrays;
+
 public class Solution2213 {
+    // 120ms
     public int[] longestRepeating(String s, String queryCharacters, int[] queryIndices) {
-        char[] chars = s.toCharArray();
+        char[] cs = s.toCharArray();
         int n = s.length();
         int k = queryCharacters.length();
 
         int[] res = new int[k];
-        SegmentTree segmentTree = new SegmentTree(chars);
+        SegmentTree seg = new SegmentTree(cs);
         for (int i = 0; i < k; i++) {
             int idx = queryIndices[i];
-            segmentTree.chars[idx] = queryCharacters.charAt(i);
-            segmentTree.update(1, n, 1, idx + 1);
-            res[i] = segmentTree.tree[1].max;
+            seg.cs[idx] = queryCharacters.charAt(i);
+            seg.update(1, 1, n, idx + 1);
+            res[i] = seg.tree[1].max;
         }
         return res;
     }
 
     private static class SegmentTree {
-        private static class Node {
-            int pre;
-            int suf;
-            int max;
+        Node[] tree;
+
+        static class Node {
+            int pre, suf, max;
 
             public Node(int pre, int suf, int max) {
                 this.pre = pre;
@@ -28,63 +31,61 @@ public class Solution2213 {
             }
         }
 
-        private final Node[] tree;
-        private final char[] chars;
+        char[] cs;
 
-        public SegmentTree(char[] chars) {
-            int N = chars.length;
-            this.chars = chars;
-            tree = new Node[4 * N];
-            for (int i = 0; i < 4 * N; i++) {
-                tree[i] = new Node(0, 0, 0);
-            }
-            build(1, N, 1);
+        public SegmentTree(char[] cs) {
+            int n = cs.length;
+            this.cs = cs;
+            tree = new Node[4 * n];
+            Arrays.setAll(tree, e -> new Node(0, 0, 0));
+
+            build(1, 1, n);
         }
 
-        private void build(int s, int t, int p) {
-            if (s == t) {
+        void build(int p, int l, int r) {
+            if (l == r) {
                 tree[p].pre = 1;
                 tree[p].suf = 1;
                 tree[p].max = 1;
                 return;
             }
-            int mid = s + (t - s) / 2;
-            build(s, mid, p * 2);
-            build(mid + 1, t, p * 2 + 1);
-            maintain(s, t, p);
+            int mid = l + (r - l) / 2;
+            build(p << 1, l, mid);
+            build(p << 1 | 1, mid + 1, r);
+            maintain(l, r, p);
         }
 
-        private void maintain(int s, int t, int p) {
-            Node lNode = tree[p * 2];
-            Node rNode = tree[p * 2 + 1];
+        private void maintain(int l, int r, int p) {
+            Node ls = tree[p << 1];
+            Node rs = tree[p << 1 | 1];
 
-            tree[p].pre = lNode.pre;
-            tree[p].suf = rNode.suf;
-            tree[p].max = Math.max(lNode.max, rNode.max);
-            int mid = s + (t - s) / 2;
+            tree[p].pre = ls.pre;
+            tree[p].suf = rs.suf;
+            tree[p].max = Math.max(ls.max, rs.max);
+            int mid = l + (r - l) / 2;
             // 中间字符相同，可以合并
-            if (chars[mid - 1] == chars[mid]) {
-                if (lNode.suf == mid - s + 1) {
-                    tree[p].pre += rNode.pre;
+            if (cs[mid - 1] == cs[mid]) {
+                if (ls.suf == mid - l + 1) {
+                    tree[p].pre += rs.pre;
                 }
-                if (rNode.suf == t - mid) {
-                    tree[p].suf += lNode.suf;
+                if (rs.suf == r - mid) {
+                    tree[p].suf += ls.suf;
                 }
-                tree[p].max = Math.max(tree[p].max, lNode.suf + rNode.pre);
+                tree[p].max = Math.max(tree[p].max, ls.suf + rs.pre);
             }
         }
 
-        private void update(int s, int t, int p, int i) {
-            if (s == t) {
+        private void update(int p, int l, int r, int i) {
+            if (l == r) {
                 return;
             }
-            int mid = s + (t - s) / 2;
+            int mid = l + (r - l) / 2;
             if (i <= mid) {
-                update(s, mid, p * 2, i);
+                update(p << 1, l, mid, i);
             } else {
-                update(mid + 1, t, p * 2 + 1, i);
+                update(p << 1 | 1, mid + 1, r, i);
             }
-            maintain(s, t, p);
+            maintain(l, r, p);
         }
     }
 }

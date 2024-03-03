@@ -1,47 +1,47 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class SolutionO13 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int movingCount(int m, int n, int k) {
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
-        Queue<int[]> queue = new LinkedList<>();
-        queue.add(new int[]{0, 0});
+        Queue<int[]> q = new ArrayDeque<>();
+        q.add(new int[]{0, 0});
+        boolean[][] vis = new boolean[m][n];
+        vis[0][0] = true;
+        int ans = 1;
 
-        boolean[][] visited = new boolean[m][n];
-        visited[0][0] = true;
-        int cnt = 1;
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        while (!q.isEmpty()) {
+            int size = q.size();
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
-                for (int[] dir : direction) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < m && nextN >= 0 && nextN < n && !visited[nextM][nextN]
-                            && numSum(nextM) + numSum(nextN) <= k) {
-                        visited[nextM][nextN] = true;
-                        queue.add(new int[]{nextM, nextN});
-                        cnt++;
+                int[] cur = q.remove();
+                for (int[] d : DIRECTIONS) {
+                    int nx = cur[0] + d[0];
+                    int ny = cur[1] + d[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n && !vis[nx][ny]
+                            && digitSum(nx) + digitSum(ny) <= k) {
+                        vis[nx][ny] = true;
+                        q.add(new int[]{nx, ny});
+                        ans++;
                     }
                 }
             }
         }
-        return cnt;
+        return ans;
     }
 
-    private static int numSum(int num) {
-        int cnt = 0;
-        while (num > 0) {
-            cnt += num % 10;
-            num /= 10;
+    private static int digitSum(int x) {
+        int res = 0;
+        while (x > 0) {
+            res += x % 10;
+            x /= 10;
         }
-        return cnt;
+        return res;
     }
 }
 /*
 剑指 Offer 13. 机器人的运动范围
-https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
+https://leetcode.cn/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/description/
 
 地上有一个m行n列的方格，从坐标 [0,0] 到坐标 [m-1,n-1] 。一个机器人从坐标 [0, 0] 的格子开始移动，
 它每次可以向左、右、上、下移动一格（不能移动到方格外），也不能进入行坐标和列坐标的数位之和大于k的格子。

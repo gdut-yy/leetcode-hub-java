@@ -102,6 +102,7 @@ public class CF1831E {
 E. Hyperregular Bracket Strings
 https://codeforces.com/contest/1831/problem/E
 
+灵茶の试炼 2024-01-19
 题目大意：
 给定 n 和 k 个整数区间。第 i 个区间为[li,ri]，其中 1≤li≤ri≤n。
 我们称长度为 n 的正则括号序列†，‡为超正则序列，如果对于每一个 i 满足 1≤i≤k，子串 slisli+1…sri 也是正则括号序列。

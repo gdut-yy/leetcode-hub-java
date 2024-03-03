@@ -1,110 +1,106 @@
+import java.util.Arrays;
+
 public class Solution2382 {
-    private static final long INF = 100000L * 1000000000L + 10L;
+    private static final long INF = (long) (1e5 * 1e9 + 10);
 
+    // 137ms
     public long[] maximumSegmentSum(int[] nums, int[] removeQueries) {
-        SegmentTree segmentTree = new SegmentTree(nums.length);
-        for (int i = 0; i < nums.length; i++) {
-            segmentTree.modify(i + 1, nums[i]);
-        }
+        int n = nums.length;
+        MaxSubArraySegTree seg = new MaxSubArraySegTree(nums);
 
-        int len = removeQueries.length;
-        long[] res = new long[len];
-        for (int i = 0; i < len - 1; i++) {
-            segmentTree.modify(removeQueries[i] + 1, -INF);
-            res[i] = segmentTree.query().maxSum;
+        int q = removeQueries.length;
+        long[] ans = new long[q];
+        for (int i = 0; i < q - 1; i++) {
+            seg.modify(removeQueries[i] + 1, -INF);
+            ans[i] = seg.query(1, n);
         }
-        return res;
+        return ans;
     }
 
-    private static class SegmentTree {
-        private static class Node {
-            // lSum 表示 [l,r] 内以 l 为左端点的最大子段和
-            long lSum;
-            // rSum 表示 [l,r] 内以 r 为右端点的最大子段和
-            long rSum;
-            // maxSum 表示 [l,r] 内的最大子段和
-            long maxSum;
-            // itSum 表示 [l,r] 的区间和
-            long itSum;
+    static class MaxSubArraySegTree {
+        Node[] tree;
+        static final int INF = (int) 1e9;
 
-            public Node(long lSum, long rSum, long maxSum, long itSum) {
-                this.lSum = lSum;
-                this.rSum = rSum;
+        static class Node {
+            // 分别表示 [l,r] 区间：前缀最大子段和，后缀最大子段和，最大子段和，区间和
+            long maxL, maxR, maxSum, sum;
+
+            public Node(long maxL, long maxR, long maxSum, long sum) {
+                this.maxL = maxL;
+                this.maxR = maxR;
                 this.maxSum = maxSum;
-                this.itSum = itSum;
+                this.sum = sum;
             }
         }
 
-        private final int N;
-        private final Node[] tree;
+        int[] nums;
+        int n;
 
-        public SegmentTree(int n) {
-            N = n;
-            tree = new Node[4 * N];
-            for (int i = 0; i < 4 * N; i++) {
-                tree[i] = new Node(0, 0, 0, 0);
-            }
-            build(1, N, 1);
+        public MaxSubArraySegTree(int[] nums) {
+            this.nums = nums;
+            this.n = nums.length;
+            tree = new Node[4 * n];
+            Arrays.setAll(tree, e -> new Node(0, 0, 0, 0));
+
+            build(1, 1, n);
         }
 
-        private void build(int s, int t, int p) {
-            if (s == t) {
-                tree[p].lSum = -1;
-                tree[p].rSum = -1;
-                tree[p].maxSum = -1;
-                tree[p].itSum = -1;
+        void build(int p, int l, int r) {
+            if (l == r) {
+                int val = nums[l - 1];
+                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
                 return;
             }
-            int mid = s + (t - s) / 2;
-            build(s, mid, p * 2);
-            build(mid + 1, t, p * 2 + 1);
+            int mid = l + (r - l) / 2;
+            build(p << 1, l, mid);
+            build(p << 1 | 1, mid + 1, r);
+            tree[p] = pushUp(tree[p << 1], tree[p << 1 | 1]);
+        }
+
+        // nums[pos] 修改为 val
+        void modify(int pos, long val) {
+            modify(1, 1, n, pos, val);
+        }
+
+        void modify(int p, int l, int r, int pos, long val) {
+            if (l > pos || r < pos) {
+                return;
+            }
+            if (l == pos && r == pos) {
+                tree[p].maxL = tree[p].maxR = tree[p].maxSum = tree[p].sum = val;
+                return;
+            }
+            int mid = l + (r - l) / 2;
+            modify(p << 1, l, mid, pos, val);
+            modify(p << 1 | 1, mid + 1, r, pos, val);
             tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
         }
 
-        private Node pushUp(Node a, Node b) {
-            long lSum = Math.max(a.lSum, a.itSum + b.lSum);
-            long rSum = Math.max(b.rSum, b.itSum + a.rSum);
-            long maxSum = Math.max(Math.max(a.maxSum, b.maxSum), a.rSum + b.lSum);
-            long itSum = a.itSum + b.itSum;
-            return new Node(lSum, rSum, maxSum, itSum);
+        // 查询 [l,r] 区间最大子段和
+        long query(int ql, int qr) {
+            return query(1, 1, n, ql, qr).maxSum;
         }
 
-        private void modify(int s, int t, int p, int pos, long val) {
-            if (s > pos || t < pos) {
-                return;
+        Node query(int p, int l, int r, int ql, int qr) {
+            if (l > qr || r < ql) {
+                return new Node(-INF, -INF, -INF, 0);
             }
-            if (s == pos && t == pos) {
-                tree[p].lSum = val;
-                tree[p].rSum = val;
-                tree[p].maxSum = val;
-                tree[p].itSum = val;
-                return;
-            }
-            int mid = s + (t - s) / 2;
-            modify(s, mid, p * 2, pos, val);
-            modify(mid + 1, t, p * 2 + 1, pos, val);
-            tree[p] = pushUp(tree[p * 2], tree[p * 2 + 1]);
-        }
-
-        private Node query(int s, int t, int p, int l, int r) {
-            if (s > r || t < l) {
-                return new Node(0, 0, 0, 0);
-            }
-            if (s >= l && t <= r) {
+            if (ql <= l && r <= qr) {
                 return tree[p];
             }
-            int mid = s + (t - s) / 2;
-            Node lSub = query(s, mid, p * 2, l, r);
-            Node rSub = query(mid + 1, t, p * 2 + 1, l, r);
-            return pushUp(lSub, rSub);
+            int mid = l + (r - l) / 2;
+            Node ls = query(p << 1, l, mid, ql, qr);
+            Node rs = query(p << 1 | 1, mid + 1, r, ql, qr);
+            return pushUp(ls, rs);
         }
 
-        private void modify(int pos, long val) {
-            modify(1, N, 1, pos, val);
-        }
-
-        private Node query() {
-            return query(1, N, 1, 1, N);
+        Node pushUp(Node ls, Node rs) {
+            long maxL = Math.max(ls.maxL, ls.sum + rs.maxL);
+            long maxR = Math.max(rs.maxR, rs.sum + ls.maxR);
+            // max(l.maxSum, r.maxSum, l.maxR + r.maxL)
+            long maxSum = Math.max(Math.max(ls.maxSum, rs.maxSum), ls.maxR + rs.maxL);
+            long sum = ls.sum + rs.sum;
+            return new Node(maxL, maxR, maxSum, sum);
         }
     }
 }

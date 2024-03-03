@@ -49,19 +49,25 @@ public class CF292E {
 
     static class SegmentTree {
         int n;
-        int[] tree_l, tree_r, tree_d;
+        Node[] t;
+
+        static class Node {
+            int l, r, d;
+
+            public Node(int l, int r, int d) {
+                this.l = l;
+                this.r = r;
+                this.d = d;
+            }
+        }
 
         public SegmentTree(int n) {
             this.n = n;
-            this.tree_l = new int[4 * n];
-            this.tree_r = new int[4 * n];
-            this.tree_d = new int[4 * n];
+            this.t = new Node[4 * n];
         }
 
         void build(int p, int l, int r) {
-            tree_l[p] = l;
-            tree_r[p] = r;
-            tree_d[p] = INF;
+            t[p] = new Node(l, r, INF);
             if (l == r) {
                 return;
             }
@@ -71,25 +77,25 @@ public class CF292E {
         }
 
         void update(int p, int l, int r, int d) {
-            if (l <= tree_l[p] && tree_r[p] <= r) {
-                tree_d[p] = d;
+            if (l <= t[p].l && t[p].r <= r) {
+                t[p].d = d;
                 return;
             }
-            if (tree_d[p] != INF) {
-                tree_d[p << 1] = tree_d[p];
-                tree_d[p << 1 | 1] = tree_d[p];
-                tree_d[p] = INF;
+            if (t[p].d != INF) {
+                t[p << 1].d = t[p].d;
+                t[p << 1 | 1].d = t[p].d;
+                t[p].d = INF;
             }
-            int mid = (tree_l[p] + tree_r[p]) >> 1;
+            int mid = (t[p].l + t[p].r) >> 1;
             if (l <= mid) update(p << 1, l, r, d);
             if (r > mid) update(p << 1 | 1, l, r, d);
         }
 
         int query(int p, int i) {
-            if (tree_d[p] != INF || tree_l[p] == tree_r[p]) {
-                return tree_d[p];
+            if (t[p].d != INF || t[p].l == t[p].r) {
+                return t[p].d;
             }
-            int mid = (tree_l[p] + tree_r[p]) >> 1;
+            int mid = (t[p].l + t[p].r) >> 1;
             if (i <= mid) return query(p << 1, i);
             return query(p << 1 | 1, i);
         }

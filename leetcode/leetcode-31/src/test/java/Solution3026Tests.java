@@ -10,6 +10,7 @@ public class Solution3026Tests {
         int k = 1;
         long expected = 11;
         Assertions.assertEquals(expected, solution3026.maximumSubarraySum(nums, k));
+        Assertions.assertEquals(expected, solution3026.maximumSubarraySum2(nums, k));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution3026Tests {
         int k = 3;
         long expected = 11;
         Assertions.assertEquals(expected, solution3026.maximumSubarraySum(nums, k));
+        Assertions.assertEquals(expected, solution3026.maximumSubarraySum2(nums, k));
     }
 
     @Test
@@ -26,5 +28,6 @@ public class Solution3026Tests {
         int k = 2;
         long expected = -6;
         Assertions.assertEquals(expected, solution3026.maximumSubarraySum(nums, k));
+        Assertions.assertEquals(expected, solution3026.maximumSubarraySum2(nums, k));
     }
 }

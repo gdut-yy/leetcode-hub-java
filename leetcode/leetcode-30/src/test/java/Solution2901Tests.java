@@ -14,7 +14,7 @@ public class Solution2901Tests {
 //        List<String> expected = List.of("bab", "cab");
         // 另一个可行的答案是 [words[0],words[1]] = ["bab","dab"] 。
         List<String> expected = List.of("bab", "dab");
-        Assertions.assertEquals(expected, solution2901.getWordsInLongestSubsequence(n, words, groups));
+        Assertions.assertEquals(expected, solution2901.getWordsInLongestSubsequence(words, groups));
     }
 
     @Test
@@ -23,6 +23,6 @@ public class Solution2901Tests {
         String[] words = {"a", "b", "c", "d"};
         int[] groups = {1, 2, 3, 4};
         List<String> expected = List.of("a", "b", "c", "d");
-        Assertions.assertEquals(expected, solution2901.getWordsInLongestSubsequence(n, words, groups));
+        Assertions.assertEquals(expected, solution2901.getWordsInLongestSubsequence(words, groups));
     }
 }

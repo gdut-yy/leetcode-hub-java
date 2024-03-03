@@ -37,69 +37,48 @@ public class Solution2081 {
         double maxMemory = Runtime.getRuntime().maxMemory();
         System.out.println("totalMemory: " + totalMemory / (double) 1024 / 2024 + "MB");
         System.out.println("maxMemory: " + maxMemory / (double) 1024 / 2024 + "MB");
-        acceptedTable();
+        print();
     }
 
-    private static void acceptedTable() {
-        List<List<String>> dpList = new ArrayList<>();
-
-        // 长度为 0
-        List<String> len0List = new ArrayList<>();
-        len0List.add("");
-        dpList.add(len0List);
-
-        // 长度为 1
-        // 0,1,2,3,4,5,6,7,8,9
-        List<String> len1List = new ArrayList<>();
-        for (int digital = 0; digital <= 9; digital++) {
-            len1List.add(String.valueOf(digital));
+    static void print() {
+        List<Long> pal = new ArrayList<>();
+        for (int L = 1; L <= 6; L++) {
+            int low = (int) Math.pow(10, L - 1);
+            int high = (int) Math.pow(10, L);
+            // Check for odd-length palindromes
+            for (int root = low; root < high; root++) {
+                long p = root;
+                for (int x = root / 10; x > 0; x /= 10) {
+                    p = p * 10 + x % 10;
+                }
+                pal.add(p);
+            }
+            // Check for even-length palindromes
+            for (int root = low; root < high; root++) {
+                long p = root;
+                for (int x = root; x > 0; x /= 10) {
+                    p = p * 10 + x % 10;
+                }
+                pal.add(p);
+            }
         }
-        dpList.add(len1List);
 
-        // 长度 2 到 len
-//        for (int len = 2; len <= 16; len++) {
-        for (int len = 2; len <= 11; len++) {
-            // 长度-2 的 List
-            List<String> preList = dpList.get(len - 2);
-            List<String> curList = new ArrayList<>();
-            for (int j = 0; j <= 9; j++) {
-                for (String middle : preList) {
-                    curList.add(j + middle + j);
+        for (int k = 2; k <= 9; k++) {
+            int id = 1;
+            System.out.println(k + " 进制");
+            for (Long base10 : pal) {
+                String baseK = Long.toString(base10, k);
+                if (isPal(baseK)) {
+                    System.out.println(id++ + ":" + base10 + ":" + baseK);
+                    if (id > 30) break;
                 }
             }
-            dpList.add(curList);
-        }
-//        System.out.println(dpList);
-        for (int k = 2; k <= 9; k++) {
-            int cnt = 0;
-            System.out.println(k + " 进制");
-            printTable(dpList, k, cnt);
             System.out.println();
         }
     }
 
-    private static void printTable(List<List<String>> dpList, int k, int cnt) {
-        for (int i = 1; i < dpList.size(); i++) {
-            for (String decString : dpList.get(i)) {
-                long num = Long.parseLong(decString);
-                if (decString.charAt(0) != '0') {
-                    String kString = Long.toString(num, k);
-                    if (check(kString)) {
-                        cnt++;
-                        System.out.println(cnt + ":" + decString + ":" + kString);
-//                        if (cnt >= 50) {
-                        if (cnt >= 30) {
-                            return;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private static boolean check(String string) {
-        String reverseString = new StringBuilder(string).reverse().toString();
-        return string.equals(reverseString);
+    private static boolean isPal(String s) {
+        return new StringBuilder(s).reverse().toString().equals(s);
     }
 }
 /*

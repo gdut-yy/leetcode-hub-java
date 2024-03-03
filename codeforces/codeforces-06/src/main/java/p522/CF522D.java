@@ -68,19 +68,25 @@ public class CF522D {
 
     static class SegmentTree {
         int n;
-        int[] tree_l, tree_r, tree_val;
+        Node[] t;
+
+        static class Node {
+            int l, r, val;
+
+            public Node(int l, int r, int val) {
+                this.l = l;
+                this.r = r;
+                this.val = val;
+            }
+        }
 
         public SegmentTree(int n) {
             this.n = n;
-            this.tree_l = new int[4 * n];
-            this.tree_r = new int[4 * n];
-            this.tree_val = new int[4 * n];
+            this.t = new Node[4 * n];
         }
 
         void build(int p, int l, int r) {
-            tree_l[p] = l;
-            tree_r[p] = r;
-            tree_val[p] = INF;
+            t[p] = new Node(l, r, INF);
             if (l == r) {
                 return;
             }
@@ -90,21 +96,22 @@ public class CF522D {
         }
 
         void update(int p, int i, int val) {
-            if (tree_l[p] == tree_r[p]) {
-                tree_val[p] = val;
+            if (t[p].l == t[p].r) {
+                t[p].val = val;
                 return;
             }
-            int mid = (tree_l[p] + tree_r[p]) >> 1;
+            int mid = (t[p].l + t[p].r) >> 1;
             if (i <= mid) update(p << 1, i, val);
             else update(p << 1 | 1, i, val);
-            tree_val[p] = Math.min(tree_val[p << 1], tree_val[p << 1 | 1]);
+            t[p].val = Math.min(t[p << 1].val, t[p << 1 | 1].val);
         }
 
         int query(int p, int l, int r) {
-            if (l <= tree_l[p] && tree_r[p] <= r) {
-                return tree_val[p];
+            if (l <= t[p].l && t[p].r <= r) {
+                return t[p].val;
             }
-            int mid = (tree_l[p] + tree_r[p]) >> 1;
+            int mid = (t[p].l + t[p].r) >> 1;
+            // 这个地方是反的 ？
             if (r <= mid) return query(p << 1, l, r);
             if (l > mid) return query(p << 1 | 1, l, r);
             return Math.min(query(p << 1, l, r), query(p << 1 | 1, l, r));

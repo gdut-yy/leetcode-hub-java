@@ -1,53 +1,50 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.IntStream;
 
 public class Solution2421 {
     public int numberOfGoodPaths(int[] vals, int[][] edges) {
         int n = vals.length;
 
-        // 建图
-        Map<Integer, List<Integer>> adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        List<Integer>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : edges) {
+            g[p[0]].add(p[1]);
+            g[p[1]].add(p[0]);
         }
 
-        Integer[] ids = IntStream.range(0, n).boxed().toArray(Integer[]::new);
+        Integer[] ids = new Integer[n];
+        for (int i = 0; i < n; i++) ids[i] = i;
         Arrays.sort(ids, Comparator.comparingInt(o -> vals[o]));
 
         // 并查集
         DSU dsu = new DSU(n);
         int res = 0;
-        for (int u : ids) {
-            int uVal = vals[u];
-            int uFa = dsu.find(u);
+        for (int x : ids) {
+            int xVal = vals[x];
+            int xFa = dsu.find(x);
 
-            for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-                int vFa = dsu.find(v);
-                if (vFa == uFa || vals[vFa] > uVal) {
+            for (int y : g[x]) {
+                y = dsu.find(y);
+                int yVal = vals[y];
+                if (y == xFa || yVal > xVal) {
                     continue;
                 }
-                if (vals[vFa] == uVal) {
-                    res += dsu.sz[uFa] * dsu.sz[vFa];
-                    dsu.sz[uFa] += dsu.sz[vFa];
+                if (yVal == xVal) {
+                    res += dsu.sz[xFa] * dsu.sz[y];
+                    dsu.sz[xFa] += dsu.sz[y];
                 }
-                dsu.fa[vFa] = uFa;
+                dsu.fa[y] = xFa;
             }
         }
         return res + n;
     }
 
     private static class DSU {
-        // 父节点数组/祖先数组
         int[] fa;
         int[] sz;
 
-        // 初始化
         public DSU(int n) {
             fa = new int[n];
             for (int i = 0; i < n; i++) {
@@ -57,9 +54,7 @@ public class Solution2421 {
             Arrays.fill(sz, 1);
         }
 
-        // 查找
         int find(int x) {
-            // 路径压缩
             if (x != fa[x]) {
                 fa[x] = find(fa[x]);
             }

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class Solution368 {
@@ -7,40 +8,33 @@ public class Solution368 {
         int n = nums.length;
         Arrays.sort(nums);
 
-        // 定义 g[i] 为记录 f[i] 是由哪个下标的状态转移而来，如果 f[i]=f[j]+1, 则有 g[i]=j。
-        int[] f = new int[n], g = new int[n];
+        // f[i] 表示 num[0,i] 最大的整除子集长度
+        int[] f = new int[n];
+        int[] from = new int[n];
+        Arrays.fill(from, -1);
+        int maxI = 0;
         for (int i = 0; i < n; i++) {
-            // 至少包含自身一个数，因此起始长度为 1，由自身转移而来
-            int len = 1, pre = i;
-            // 如果能接在更长的序列后面，则更新「最大长度」&「从何转移而来」 找出 g[i] 的最大值
             for (int j = 0; j < i; j++) {
                 if (nums[i] % nums[j] == 0) {
-                    // 如果能接在更长的序列后面，则更新「最大长度」&「从何转移而来」
-                    if (len < f[j] + 1) {
-                        len = f[j] + 1;
-                        pre = j;
+                    if (f[i] < f[j]) {
+                        f[i] = f[j];
+                        from[i] = j;
                     }
                 }
             }
-            // 记录「最终长度」&「从何转移而来」
-            f[i] = len;
-            g[i] = pre;
-        }
-
-        // 遍历所有的 f[i]，取得「最大长度」和「对应下标」
-        int max = 0, maxId = 0;
-        for (int i = 0; i < n; i++) {
-            if (max < f[i]) {
-                max = f[i];
-                maxId = i;
+            f[i]++;
+            if (f[i] > f[maxI]) {
+                maxI = i;
             }
         }
-        List<Integer> resList = new ArrayList<>();
-        while (resList.size() != max) {
-            resList.add(nums[maxId]);
-            maxId = g[maxId];
+
+        List<Integer> ans = new ArrayList<>();
+        while (maxI != -1) {
+            ans.add(nums[maxI]);
+            maxI = from[maxI];
         }
-        return resList;
+        Collections.reverse(ans);
+        return ans;
     }
 }
 /*
@@ -59,4 +53,6 @@ nums 中的所有整数 互不相同
 序列 DP + 记录转移关系 倒推答案
 https://leetcode.cn/problems/largest-divisible-subset/solution/gong-shui-san-xie-noxiang-xin-ke-xue-xi-0a3jc/
 时间复杂度 O(n^2)
+相似题目: 2901. 最长相邻不相等子序列 II
+https://leetcode.cn/problems/longest-unequal-adjacent-groups-subsequence-ii/description/
  */

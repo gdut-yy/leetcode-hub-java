@@ -1,58 +1,46 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution2115 {
     public List<String> findAllRecipes(String[] recipes, List<List<String>> ingredients, String[] supplies) {
-        Map<String, Set<String>> outGraph = new HashMap<>();
-        Map<String, Set<String>> inGraph = new HashMap<>();
-        // n == recipes.length == ingredients.length
+        Map<String, List<String>> g = new HashMap<>();
+        Map<String, Integer> inDeg = new HashMap<>();
         int n = recipes.length;
         for (int i = 0; i < n; i++) {
-            List<String> froms = ingredients.get(i);
-            String to = recipes[i];
-
-            for (String from : froms) {
-                Set<String> outSet = outGraph.getOrDefault(from, new HashSet<>());
-                outSet.add(to);
-                outGraph.put(from, outSet);
+            List<String> xList = ingredients.get(i);
+            String y = recipes[i];
+            for (String x : xList) {
+                g.computeIfAbsent(x, e -> new ArrayList<>()).add(y);
             }
-
-            Set<String> inSet = inGraph.getOrDefault(to, new HashSet<>());
-            inSet.addAll(froms);
-            inGraph.put(to, inSet);
+            inDeg.put(y, inDeg.getOrDefault(y, 0) + xList.size());
         }
 
         // 拓扑排序
-        // 原材料 进队列
-        Queue<String> queue = new LinkedList<>(Arrays.asList(supplies));
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                String cur = queue.remove();
-                for (String next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                    inGraph.get(next).remove(cur);
-                    if (inGraph.get(next).size() == 0) {
-                        queue.add(next);
+        Queue<String> q = new ArrayDeque<>(List.of(supplies));
+        while (!q.isEmpty()) {
+            int sz = q.size();
+            for (int i = 0; i < sz; i++) {
+                String x = q.remove();
+                for (String y : g.getOrDefault(x, new ArrayList<>())) {
+                    inDeg.put(y, inDeg.get(y) - 1);
+                    if (inDeg.get(y) == 0) {
+                        q.add(y);
                     }
                 }
             }
         }
-
         // 入度为 0 的菜才能做出来
-        List<String> resList = new ArrayList<>();
-        for (String recipe : recipes) {
-            if (inGraph.getOrDefault(recipe, new HashSet<>()).size() == 0) {
-                resList.add(recipe);
+        List<String> ans = new ArrayList<>();
+        for (String v : recipes) {
+            if (inDeg.get(v) == 0) {
+                ans.add(v);
             }
         }
-        return resList;
+        return ans;
     }
 }
 /*
@@ -68,4 +56,6 @@ https://leetcode.cn/problems/find-all-possible-recipes-from-given-supplies/
 注意两道菜在它们的原材料中可能互相包含。
 
 拓扑排序。入度为 0 的菜才能做出来。
+时间复杂度 O(dn + m)。其中 m = supplies.length, d = max(recipe[i].length)
+空间复杂度 O(dn + m)。
  */

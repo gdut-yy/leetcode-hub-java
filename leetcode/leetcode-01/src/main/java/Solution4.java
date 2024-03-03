@@ -1,65 +1,37 @@
 public class Solution4 {
-    // 时间复杂度 O(m+n)
     public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int[] mergeSortedArray = mergeSortedArrays(nums1, nums2);
-        int len = mergeSortedArray.length;
-        if (len % 2 == 1) {
-            return mergeSortedArray[len / 2];
-        } else {
-            return (mergeSortedArray[len / 2 - 1] + mergeSortedArray[len / 2]) / 2.0;
-        }
+        int[] merged = merge(nums1, nums2);
+        int n = merged.length;
+        if (n % 2 == 1) return merged[n / 2];
+        return (merged[n / 2 - 1] + merged[n / 2]) / 2.0;
     }
 
     // 合并两个有序数组
-    private int[] mergeSortedArrays(int[] nums1, int[] nums2) {
-        int len1 = nums1.length;
-        int len2 = nums2.length;
-        if (len1 == 0) {
-            return nums2;
+    private int[] merge(int[] a, int[] b) {
+        int i = 0, n = a.length;
+        int j = 0, m = b.length;
+        int[] res = new int[n + m];
+        int id = 0;
+        while (i < n && j < m) {
+            if (a[i] <= b[j]) res[id++] = a[i++];
+            else res[id++] = b[j++];
         }
-        if (len2 == 0) {
-            return nums1;
-        }
-        int[] res = new int[len1 + len2];
-        // 双指针
-        int p1 = 0;
-        int p2 = 0;
-        int i = 0;
-        while (p1 < len1 && p2 < len2) {
-            if (nums1[p1] <= nums2[p2]) {
-                res[i] = nums1[p1];
-                p1++;
-            } else {
-                res[i] = nums2[p2];
-                p2++;
-            }
-            i++;
-        }
-        while (p1 < len1) {
-            res[i] = nums1[p1];
-            p1++;
-            i++;
-        }
-        while (p2 < len2) {
-            res[i] = nums2[p2];
-            p2++;
-            i++;
-        }
+        while (i < n) res[id++] = a[i++];
+        while (j < m) res[id++] = b[j++];
         return res;
     }
 
-    private int len1;
-    private int len2;
+    private int n, m;
 
     // 时间复杂度 O(log(m+n))
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
-        len1 = nums1.length;
-        len2 = nums2.length;
-        int totalLen = len1 + len2;
-        if (totalLen % 2 == 1) {
-            return getKthElement(nums1, nums2, totalLen / 2 + 1);
+        n = nums1.length;
+        m = nums2.length;
+        int tot = n + m;
+        if (tot % 2 == 1) {
+            return getKthElement(nums1, nums2, tot / 2 + 1);
         } else {
-            return (getKthElement(nums1, nums2, totalLen / 2) + getKthElement(nums1, nums2, totalLen / 2 + 1)) / 2.0;
+            return (getKthElement(nums1, nums2, tot / 2) + getKthElement(nums1, nums2, tot / 2 + 1)) / 2.0;
         }
     }
 
@@ -72,32 +44,30 @@ public class Solution4 {
     // 如果 pivot = pivot1，那么 nums1[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums1 数组
     // 如果 pivot = pivot2，那么 nums2[0 .. k/2-1] 都不可能是第 k 小的元素。把这些元素全部 "删除"，剩下的作为新的 nums2 数组
     private int getKthElement(int[] nums1, int[] nums2, int k) {
-        int idx1 = 0;
-        int idx2 = 0;
-
+        int i = 0, j = 0;
         while (true) {
             // 边界情况
-            if (idx1 == len1) {
-                return nums2[idx2 + k - 1];
+            if (i == n) {
+                return nums2[j + k - 1];
             }
-            if (idx2 == len2) {
-                return nums1[idx1 + k - 1];
+            if (j == m) {
+                return nums1[i + k - 1];
             }
             if (k == 1) {
-                return Math.min(nums1[idx1], nums2[idx2]);
+                return Math.min(nums1[i], nums2[j]);
             }
 
             // 正常情况
             int half = k / 2;
-            int newIndex1 = Math.min(idx1 + half, len1) - 1;
-            int newIndex2 = Math.min(idx2 + half, len2) - 1;
+            int newIndex1 = Math.min(i + half, n) - 1;
+            int newIndex2 = Math.min(j + half, m) - 1;
             int pivot1 = nums1[newIndex1], pivot2 = nums2[newIndex2];
             if (pivot1 <= pivot2) {
-                k -= (newIndex1 - idx1 + 1);
-                idx1 = newIndex1 + 1;
+                k -= (newIndex1 - i + 1);
+                i = newIndex1 + 1;
             } else {
-                k -= (newIndex2 - idx2 + 1);
-                idx2 = newIndex2 + 1;
+                k -= (newIndex2 - j + 1);
+                j = newIndex2 + 1;
             }
         }
     }

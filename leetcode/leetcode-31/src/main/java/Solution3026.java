@@ -63,6 +63,25 @@ public class Solution3026 {
             this.sum = sum;
         }
     }
+
+    public long maximumSubarraySum2(int[] nums, int k) {
+        long ans = Long.MIN_VALUE;
+        long sum = 0;
+        Map<Integer, Long> mp = new HashMap<>();
+        for (int x : nums) {
+            if (mp.containsKey(x - k)) {
+                ans = Math.max(ans, sum + x - mp.get(x - k));
+            }
+            if (mp.containsKey(x + k)) {
+                ans = Math.max(ans, sum + x - mp.get(x + k));
+            }
+            if (!mp.containsKey(x) || mp.get(x) > sum) {
+                mp.put(x, sum);
+            }
+            sum += x;
+        }
+        return ans == Long.MIN_VALUE ? 0 : ans;
+    }
 }
 /*
 3026. 最大好子数组和

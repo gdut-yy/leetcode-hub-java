@@ -1,29 +1,5 @@
 public class Solution2223 {
-    /**
-     * 双指针暴力
-     * 时间复杂度 O(n^2)
-     */
     public long sumScores(String s) {
-        int n = s.length();
-
-        long res = 0;
-        for (int p = n - 1; p >= 0; p--) {
-            for (int i = 0, j = p; j < n; i++, j++) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    res++;
-                } else {
-                    break;
-                }
-            }
-        }
-        return res;
-    }
-
-    /**
-     * Z 函数（扩展 KMP）
-     * 时间复杂度 O(n)
-     */
-    public long sumScores2(String s) {
         int n = s.length();
         int[] z = z_function(n, s.toCharArray());
 
