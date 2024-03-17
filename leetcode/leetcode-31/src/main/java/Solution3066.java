@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class Solution100232 {
+public class Solution3066 {
     public int minOperations(int[] nums, int k) {
         PriorityQueue<Long> heap = new PriorityQueue<>();
         for (long v : nums) {
@@ -18,7 +18,7 @@ public class Solution100232 {
     }
 }
 /*
-100232. 超过阈值的最少操作数 II
+3066. 超过阈值的最少操作数 II
 https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-ii/description/
 
 第 125 场双周赛 T2。

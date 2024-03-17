@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100226 {
+public class Solution3067 {
     private List<int[]>[] g;
     private int signalSpeed, cnt;
 
@@ -47,7 +47,7 @@ public class Solution100226 {
     }
 }
 /*
-100226. 在带权树网络中统计可连接服务器对数目
+3067. 在带权树网络中统计可连接服务器对数目
 https://leetcode.cn/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network/description/
 
 第 125 场双周赛 T3。

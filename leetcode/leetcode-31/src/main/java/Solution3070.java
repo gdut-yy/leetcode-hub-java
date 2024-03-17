@@ -1,4 +1,4 @@
-public class Solution100237 {
+public class Solution3070 {
     public int countSubmatrices(int[][] grid, int k) {
         int n = grid.length;
         int m = grid[0].length;
@@ -17,7 +17,7 @@ public class Solution100237 {
     }
 }
 /*
-100237. 元素和小于等于 k 的子矩阵的数目
+3070. 元素和小于等于 k 的子矩阵的数目
 https://leetcode.cn/problems/count-submatrices-with-top-left-element-and-sum-less-than-k/description/
 
 第 387 场周赛 T2。

@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Solution100246 {
+public class Solution3072 {
     public int[] resultArray(int[] nums) {
         int n = nums.length;
         // 离散化
@@ -95,7 +95,7 @@ public class Solution100246 {
     }
 }
 /*
-100246. 将元素分配到两个数组中 II
+3072. 将元素分配到两个数组中 II
 https://leetcode.cn/problems/distribute-elements-into-two-arrays-ii/description/
 
 第 387 场周赛 T4。

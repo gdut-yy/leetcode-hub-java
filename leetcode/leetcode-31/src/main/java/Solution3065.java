@@ -1,4 +1,4 @@
-public class Solution100231 {
+public class Solution3065 {
     public int minOperations(int[] nums, int k) {
         int ans = 0;
         for (int v : nums) {
@@ -10,7 +10,7 @@ public class Solution100231 {
     }
 }
 /*
-100231. 超过阈值的最少操作数 I
+3065. 超过阈值的最少操作数 I
 https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-i/description/
 
 第 125 场双周赛 T1。

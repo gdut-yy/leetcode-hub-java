@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100243 {
+public class Solution3069 {
     public int[] resultArray(int[] nums) {
         int n = nums.length;
         List<Integer> a = new ArrayList<>();
@@ -20,7 +20,7 @@ public class Solution100243 {
     }
 }
 /*
-100243. 将元素分配到两个数组中 I
+3069. 将元素分配到两个数组中 I
 https://leetcode.cn/problems/distribute-elements-into-two-arrays-i/description/
 
 第 387 场周赛 T1。

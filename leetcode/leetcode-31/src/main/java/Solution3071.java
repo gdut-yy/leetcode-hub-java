@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100234 {
+public class Solution3071 {
     public int minimumOperationsToWriteY(int[][] grid) {
         int n = grid.length;
 
@@ -56,7 +56,7 @@ public class Solution100234 {
     }
 }
 /*
-100234. 在矩阵上写出字母 Y 所需的最少操作次数
+3071. 在矩阵上写出字母 Y 所需的最少操作次数
 https://leetcode.cn/problems/minimum-operations-to-write-the-letter-y-on-a-grid/description/
 
 第 387 场周赛 T3。

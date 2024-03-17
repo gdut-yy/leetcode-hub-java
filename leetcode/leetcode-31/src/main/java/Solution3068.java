@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Solution100210 {
+public class Solution3068 {
     public long maximumValueSum(int[] nums, int k, int[][] edges) {
         int n = nums.length;
 
@@ -41,7 +41,7 @@ public class Solution100210 {
     }
 }
 /*
-100210. 最大节点价值之和
+3068. 最大节点价值之和
 https://leetcode.cn/problems/find-the-maximum-sum-of-node-values/description/
 
 第 125 场双周赛 T4。
