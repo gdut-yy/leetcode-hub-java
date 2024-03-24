@@ -30,7 +30,7 @@ https://leetcode.cn/problems/partition-equal-subset-sum/
 1 <= nums[i] <= 100
 
 经典 NP 完全问题。
-动态规划。01背包。
+动态规划。0-1 背包。
 f(i,j) 表示能否从前 i 个物品中选择若干物品放满容量为 j 的背包。
 如果总共有 n 个物品，背包的容量为 t，那么 f(n,t) 就是问题的解。
 状态转移：

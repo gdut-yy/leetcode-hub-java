@@ -28,7 +28,7 @@ public class Bytedance006 {
             X += weight > 0 ? 0 : -weight;
         }
 
-        // 3. 使用01背包
+        // 3. 使用 0-1 背包
         // 观察测试用例范围这里用long
         long[] dp = new long[X + 1];
         for (int i = 0; i < n; i++) {

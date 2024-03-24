@@ -43,7 +43,7 @@ https://leetcode.cn/problems/minimum-cost-to-split-an-array/
 0 <= nums[i] < nums.length
 1 <= k <= 10^9
 
-动态规划
+划分型 DP
 f[i] = min(k + cost(j,i) + f[j-1]) j in [0,i]
 f[i+1] = min(k + cost(j,i) + f[j])
 f[i+1] 表示划分 nums 前 i 个数的最小代价

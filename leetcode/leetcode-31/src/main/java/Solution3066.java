@@ -30,11 +30,11 @@ https://leetcode.cn/problems/minimum-operations-to-exceed-threshold-value-ii/des
 - 将 min(x, y) * 2 + max(x, y) 添加到数组中的任意位置。
 注意，只有当 nums 至少包含两个元素时，你才可以执行以上操作。
 你需要使数组中的所有元素都大于或等于 k ，请你返回需要的 最少 操作次数。
-
-堆模拟。
 提示：
 2 <= nums.length <= 2 * 10^5
 1 <= nums[i] <= 10^9
 1 <= k <= 10^9
 输入保证答案一定存在，也就是说一定存在一个操作序列使数组中所有元素都大于等于 k 。
+
+堆模拟。
  */

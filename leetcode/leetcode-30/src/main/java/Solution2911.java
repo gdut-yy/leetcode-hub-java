@@ -101,6 +101,7 @@ https://leetcode.cn/problems/minimum-changes-to-make-k-semi-palindromes/descript
 1 <= k <= s.length / 2
 s 只包含小写英文字母。
 
+划分型 DP
 预处理 + 记忆化搜索
 时间复杂度 O(n^3 * logn)
 空间复杂度 O(n^2)

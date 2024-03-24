@@ -49,7 +49,7 @@ https://leetcode.cn/problems/number-of-beautiful-partitions/
 1 <= k, minLength <= s.length <= 1000
 s 每个字符都为数字 '1' 到 '9' 之一。
 
-动态规划
+划分型 DP
 1、问题中有哪些变量？
 分割的个数 k
 字符串的长度 n

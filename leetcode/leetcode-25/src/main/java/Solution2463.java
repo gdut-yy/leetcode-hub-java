@@ -149,7 +149,7 @@ factory[j].length == 2
 0 <= limitj <= robot.length
 测试数据保证所有机器人都可以被维修。
 
-动态规划。设有工厂 n 个，机器人 m 个。
+划分型 DP。设有工厂 n 个，机器人 m 个。
 关键结论（邻项交换法证明）：存在最优方案，机器人 i 被送去 ti，ti 是非单调递减的（相当于二分图的连线是不会交叉的）。
 相似题目: 2449. 使数组相似的最少操作次数
 https://leetcode.cn/problems/minimum-number-of-operations-to-make-arrays-similar/

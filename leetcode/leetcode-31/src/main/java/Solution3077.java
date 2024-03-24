@@ -10,14 +10,15 @@ public class Solution3077 {
         for (int i = 1; i <= k; i++) {
             long w = (i % 2 > 0 ? 1 : -1) * (k - i + 1);
 
-            long mx = Long.MIN_VALUE/2;
+            long mx = Long.MIN_VALUE / 2;
             f[i][i - 1] = mx;
             for (int j = i; j < n - k + i + 1; j++) {
-//                for (int L = i - 1; L <= j - 1; L++) {
-//                    mx = Math.max(mx, f[i - 1][L] + (ps[j] - ps[L]) * w);
-//                }
-                mx = Math.max(mx, f[i - 1][j - 1] - ps[j - 1] * w);
+                // for (int L = i - 1; L <= j - 1; L++) {
+                //     mx = Math.max(mx, f[i - 1][L] + (ps[j] - ps[L]) * w);
+                // }
+                // f[i][j] = Math.max(f[i][j - 1], mx);
 
+                mx = Math.max(mx, f[i - 1][j - 1] - ps[j - 1] * w);
                 f[i][j] = Math.max(f[i][j - 1], ps[j] * w + mx);
             }
         }
@@ -42,7 +43,22 @@ x 个子数组的能量值定义为 strength = sum[1] * x - sum[2] * (x - 1) + s
 1 <= n * k <= 10^6
 k 是奇数。
 
-划分型 DP。优化
+划分型 DP 不相交
+状态包含两个信息：前多少个数，划分成多少段
+1、通常来说，f[i][j] 表示前 j 个数分成 i 段，每段选一个子数组，对应的最大能量值
+    nums[0] ~ nums[j-1]
+2、不选 nums[j-1]：问题变成前 j-1 个数分成 i 段
+    f[i][j] = f[i][j-1]
+    f[i][j] = max(f[i-1][L] + (s[j]-s[L]) * w)
+        L 最大是 j-1
+        L 最小是 i-1
+O(n^2 * k) = 10^10
+f[i][j] = max(f[i][j-1], max_{L=i-1}^{j-1}  {f[i][j-1] + (s[j]-s[L]) * w_i} )
+w_i = (-1)^(i+1) * (k-i+1)
+答案 = f[k][n]
+初始值 f[0][j] = 0
+      f[i][i-1] = -inf
+      f[i][<i] = -inf
 时间复杂度 O(k(n-k))
 空间复杂度 O(n)
  */

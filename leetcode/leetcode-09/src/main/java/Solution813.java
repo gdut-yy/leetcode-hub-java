@@ -1,36 +1,34 @@
 public class Solution813 {
     public double largestSumOfAverages(int[] nums, int k) {
-        int len = nums.length;
-
-        // 前缀和
-        double[] preSum = new double[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+        int n = nums.length;
+        double[] ps = new double[n + 1];
+        for (int i = 0; i < n; i++) {
+            ps[i + 1] = ps[i] + nums[i];
         }
 
         // f[i][_k] 表示将前 i 个数分成 _k 份时可以得到的最大分数
         // f[i][_k] = max(f[j][_k-1] + avg[j+1][i]) (j < i)
         // avg[j+1][i] 表示 nums [j+1,i] 的平均值，使用前缀和预处理，avg[j+1][i] = (preSum[i+1] - preSum[j+1]) / (i-j)
-        double[][] f = new double[len][k + 1];
+        double[][] f = new double[n][k + 1];
 
         // 分成 1 个组
         // f[i][1] = avg[0][i]
-        for (int i = 0; i < len; i++) {
-            f[i][1] = (preSum[i + 1] - preSum[0]) / (i + 1);
+        for (int i = 0; i < n; i++) {
+            f[i][1] = (ps[i + 1] - ps[0]) / (i + 1);
         }
 
         // 分成 2-k 个组
         for (int _k = 2; _k <= k; _k++) {
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < n; i++) {
                 double max = f[i][0];
                 for (int j = 0; j < i; j++) {
-                    double avg = (preSum[i + 1] - preSum[j + 1]) / (i - j);
+                    double avg = (ps[i + 1] - ps[j + 1]) / (i - j);
                     max = Math.max(max, f[j][_k - 1] + avg);
                 }
                 f[i][_k] = max;
             }
         }
-        return f[len - 1][k];
+        return f[n - 1][k];
     }
 }
 /*
@@ -45,6 +43,6 @@ https://leetcode.cn/problems/largest-sum-of-averages/
 1 <= nums[i] <= 10^4
 1 <= k <= nums.length
 
-动态规划
+划分型 DP
 时间复杂度 O(k*n^2)
  */

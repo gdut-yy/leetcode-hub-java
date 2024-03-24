@@ -23,15 +23,14 @@ public class Solution2968 {
     }
 
     private long getCost(int[] nums, int l, int r, long[] ps) {
-        // 中位数下标 (l+r)/2
-        long median = nums[(l + r) / 2];
-        // 左 [l, (l+r)/2 -1], 和 ps[(l+r)/2] - ps[l], 个数 (l+r)/2 -1-l+1 = (l+r)/2 -l
-        int leftLen = (l + r) / 2 - l;
-        long leftSum = ps[(l + r) / 2] - ps[l];
-        // 右 [(l+r)/2 +1, r], 和 ps[r+1]-ps[(l+r)/2 +1], 个数 r-((l+r)/2 +1)+1
-        int rightLen = r - ((l + r) / 2 + 1) + 1;
-        long rightSum = ps[r + 1] - ps[(l + r) / 2 + 1];
-        return (median * leftLen - leftSum) + (rightSum - median * rightLen);
+        int m = (l + r) / 2;
+        long median = nums[m];
+        // [l, m-1] [m, r]
+        long l_len = m - 1 - l + 1;
+        long l_sum = ps[m] - ps[l];
+        long r_len = r - m + 1;
+        long r_sum = ps[r + 1] - ps[m];
+        return r_sum - r_len * median + l_len * median - l_sum;
     }
 }
 /*

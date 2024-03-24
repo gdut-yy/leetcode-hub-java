@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -62,29 +63,24 @@ public class Solution1947 {
     }
 
     private static class KmAlgo {
-        private final int n;
-        // 左集合对应的匹配点
-        private final int[] matchX;
-        // 右集合对应的匹配点
-        private final int[] matchY;
-        // 连接右集合的左点
-        private final int[] pre;
-        // 拜访数组 左
-        private final boolean[] visX;
-        // 拜访数组 右
-        private final boolean[] visY;
+        int n;
+        final int[] matchX; // 左集合对应的匹配点
+        final int[] matchY; // 右集合对应的匹配点
+        final int[] pre; // 连接右集合的左点
+        final boolean[] visX; // 拜访数组 左
+        final boolean[] visY; // 拜访数组 右
         // 可行顶标 给每个节点 i 分配一个权值 l(i)，对于所有边 (u,v) 满足 w(u,v) <= l(u) + l(v)。
-        private final int[] lx;
-        private final int[] ly;
-        private final int[][] graph;
-        private final int[] slack;
-        private static final int INF = Integer.MAX_VALUE;
-        private final Queue<Integer> queue;
+        final int[] lx;
+        final int[] ly;
+        final int[][] g;
+        final int[] slack;
+        static final int INF = (int) 1e9;
+        final Queue<Integer> q;
 
-        public KmAlgo(int n, int[][] graph) {
+        public KmAlgo(int n, int[][] g) {
             this.n = n;
-            this.graph = graph;
-            this.queue = new LinkedList<>();
+            this.g = g;
+            this.q = new LinkedList<>();
             this.matchX = new int[n];
             Arrays.fill(matchX, -1);
             this.matchY = new int[n];
@@ -102,7 +98,7 @@ public class Solution1947 {
             // 初始顶标
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    lx[i] = Math.max(lx[i], graph[i][j]);
+                    lx[i] = Math.max(lx[i], g[i][j]);
                 }
             }
             for (int i = 0; i < n; i++) {
@@ -114,7 +110,7 @@ public class Solution1947 {
             // custom
             int res = 0;
             for (int i = 0; i < n; i++) {
-                res += graph[i][matchX[i]];
+                res += g[i][matchX[i]];
             }
             return res;
         }
@@ -122,9 +118,8 @@ public class Solution1947 {
         private boolean check(int v) {
             visY[v] = true;
             if (matchY[v] != -1) {
-                queue.add(matchY[v]);
-                // in S
-                visX[matchY[v]] = true;
+                q.add(matchY[v]);
+                visX[matchY[v]] = true; // in S
                 return false;
             }
             // 找到新的未匹配点 更新匹配点 pre 数组记录着"非匹配边"上与之相连的点
@@ -139,15 +134,15 @@ public class Solution1947 {
         }
 
         private void bfs(int i) {
-            queue.clear();
-            queue.add(i);
+            q.clear();
+            q.add(i);
             visX[i] = true;
             while (true) {
-                while (!queue.isEmpty()) {
-                    int u = queue.remove();
+                while (!q.isEmpty()) {
+                    int u = q.remove();
                     for (int v = 0; v < n; v++) {
                         if (!visY[v]) {
-                            int delta = lx[u] + ly[v] - graph[u][v];
+                            int delta = lx[u] + ly[v] - g[u][v];
                             if (slack[v] >= delta) {
                                 pre[v] = u;
                                 if (delta > 0) {
@@ -169,16 +164,12 @@ public class Solution1947 {
                     }
                 }
                 for (int j = 0; j < n; j++) {
-                    // S
-                    if (visX[j]) {
+                    if (visX[j]) { // S
                         lx[j] -= a;
                     }
-                    // T
-                    if (visY[j]) {
+                    if (visY[j]) { // T
                         ly[j] += a;
-                    }
-                    // T'
-                    else {
+                    } else { // T'
                         slack[j] -= a;
                     }
                 }
@@ -188,6 +179,103 @@ public class Solution1947 {
                     }
                 }
             }
+        }
+    }
+
+    static class V3 {
+        public int maxCompatibilitySum(int[][] students, int[][] mentors) {
+            // m 名学生和 m 名导师，n 个问题
+            int m = students.length;
+            int n = students[0].length;
+
+            // score[i][j] 表示第 i 个学生与第 j 个老师的 兼容性评分
+            int[][] score = new int[m][m];
+            for (int i = 0; i < m; i++) {
+                for (int j = 0; j < m; j++) {
+                    for (int k = 0; k < n; k++) {
+                        if (students[i][k] == mentors[j][k]) {
+                            score[i][j] += 1;
+                        }
+                    }
+                }
+            }
+
+            // [1,m] [m+1, 2m] 2m+1 2m+2
+            S = 2 * m + 1;
+            T = 2 * m + 2;
+            tot = 1;
+            for (int i = 1; i <= m; i++) {
+                add(S, i, 1, 0);
+                add(i + m, T, 1, 0);
+                for (int j = 1; j <= m; j++) {
+                    add(i, j + m, 1, score[i - 1][j - 1]);
+                }
+            }
+            while (spfa()) update();
+            return (int) ans;
+        }
+
+        int N = 20, M = 200;
+        int[] ver = new int[M], he = new int[N], ne = new int[M], pre = new int[N], vis = new int[N];
+        long[] ed = new long[M], cost = new long[M], dis = new long[N], incf = new long[N];
+        int tot, S, T;
+        long INF = (long) 1e18;
+        long maxflow, ans;
+
+        void add(int x, int y, long z, int c) {
+            // 正向边，初始容量 z，单位费用 c
+            ver[++tot] = y;
+            ed[tot] = z;
+            cost[tot] = c;
+            ne[tot] = he[x];
+            he[x] = tot;
+            // 反向边，初始容量 0，单位费用 -c，与正向边 成对存储
+            ver[++tot] = x;
+            ed[tot] = 0;
+            cost[tot] = -c;
+            ne[tot] = he[y];
+            he[y] = tot;
+        }
+
+        boolean spfa() {
+            Queue<Integer> q = new ArrayDeque<>();
+            Arrays.fill(dis, -INF);
+            q.add(S);
+            dis[S] = 0;
+            vis[S] = 1; // SPFA 求最长路
+            incf[S] = INF; // 增广路上各边的最小剩余容量
+            while (!q.isEmpty()) {
+                int x = q.remove();
+                vis[x] = 0;
+
+                for (int i = he[x]; i != 0; i = ne[i]) {
+                    int y = ver[i];
+                    if (ed[i] == 0) continue; // 剩余容量为 0，不在残量网络中，不遍历
+
+                    if (dis[y] < dis[x] + cost[i]) {
+                        dis[y] = dis[x] + cost[i];
+                        incf[y] = Math.min(incf[x], ed[i]);
+                        pre[y] = i; // 记录前驱，便于找到最长路的实际方案
+                        if (vis[y] == 0) {
+                            vis[y] = 1;
+                            q.add(y);
+                        }
+                    }
+                }
+            }
+            return dis[T] != -INF; // 汇点不可达，已求出最大流
+        }
+
+        void update() {
+            int x = T;
+            while (x != S) {
+                int i = pre[x];
+                ed[i] -= incf[T];
+                ed[i ^ 1] += incf[T]; // 利用 成对存储 的 xor 1 技巧
+                x = ver[i ^ 1];
+            }
+            maxflow += incf[T];
+            ans += dis[T] * incf[T];
         }
     }
 }
