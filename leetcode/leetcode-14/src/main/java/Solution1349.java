@@ -8,10 +8,10 @@ public class Solution1349 {
         int n = seats[0].length;
 
         List<Integer> validity = new ArrayList<>();
-        for (int i = 0; i < m; i++) {
+        for (char[] seat : seats) {
             int mask = 0;
             for (int j = 0; j < n; j++) {
-                mask = mask * 2 + (seats[i][j] == '.' ? 1 : 0);
+                mask = mask << 1 | (seat[j] == '.' ? 1 : 0);
             }
             validity.add(mask);
         }
@@ -58,5 +58,5 @@ n == seats[i].length
 1 <= n <= 8
 
 状态压缩动态规划
-https://leetcode.com/problems/maximum-students-taking-exam/discuss/503686/a-simple-tutorial-on-this-bitmasking-problem
+https://leetcode.com/problems/maximum-students-taking-exam/solutions/503686/a-simple-tutorial-on-this-bitmasking-problem/
  */

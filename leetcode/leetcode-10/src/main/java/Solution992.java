@@ -1,39 +1,28 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution992 {
     public int subarraysWithKDistinct(int[] nums, int k) {
-        int len = nums.length;
-        Map<Integer, Integer> cntMap1 = new HashMap<>();
-        Map<Integer, Integer> cntMap2 = new HashMap<>();
-        // 双指针
-        int left1 = 0;
-        int left2 = 0;
-        int right = 0;
-        int res = 0;
-        while (right < len) {
-            cntMap1.put(nums[right], cntMap1.getOrDefault(nums[right], 0) + 1);
-            cntMap2.put(nums[right], cntMap2.getOrDefault(nums[right], 0) + 1);
-            right++;
+        int n = nums.length;
+        int[] cnt1 = new int[n + 1];
+        int[] cnt2 = new int[n + 1];
+        int sz1 = 0, sz2 = 0;
+        int l1 = 0, l2 = 0, r = 0;
+        int ans = 0;
+        while (r < n) {
+            if (++cnt1[nums[r]] == 1) sz1++;
+            if (++cnt2[nums[r]] == 1) sz2++;
 
-            while (cntMap1.size() > k) {
-                cntMap1.put(nums[left1], cntMap1.get(nums[left1]) - 1);
-                if (cntMap1.get(nums[left1]) == 0) {
-                    cntMap1.remove(nums[left1]);
-                }
-                left1++;
+            while (sz1 > k) {
+                if (--cnt1[nums[l1]] == 0) sz1--;
+                l1++;
             }
             // 第三指针
-            while (cntMap2.size() > k - 1) {
-                cntMap2.put(nums[left2], cntMap2.get(nums[left2]) - 1);
-                if (cntMap2.get(nums[left2]) == 0) {
-                    cntMap2.remove(nums[left2]);
-                }
-                left2++;
+            while (sz2 > k - 1) {
+                if (--cnt2[nums[l2]] == 0) sz2--;
+                l2++;
             }
-            res += left2 - left1;
+            ans += l2 - l1;
+            r++;
         }
-        return res;
+        return ans;
     }
 }
 /*

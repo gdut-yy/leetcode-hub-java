@@ -1,49 +1,36 @@
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 
 public class Solution1793 {
     public int maximumScore(int[] nums, int k) {
         int n = nums.length;
+        // 左侧和右侧第一个 < 和 <= nums[i] 的下标（为了去重）
+        int[] L = new int[n], R = new int[n];
 
-        // step1: 求左侧第一个 "严格小于" arr[i] 的下标，如没有则为 0
-        Deque<Integer> stack1 = new ArrayDeque<>();
-        int[] left = new int[n];
-        Arrays.fill(left, 0);
+        Deque<Integer> st = new ArrayDeque<>();
+        st.push(-1); // 哨兵
         for (int i = 0; i < n; i++) {
-            while (!stack1.isEmpty() && nums[i] <= nums[stack1.peek()]) {
-                stack1.pop();
-            }
-            if (!stack1.isEmpty()) {
-                left[i] = stack1.peek() + 1;
-            }
-            stack1.push(i);
+            while (st.size() > 1 && nums[i] <= nums[st.peek()]) st.pop();
+            L[i] = st.peek() + 1;
+            st.push(i);
         }
 
-        // step2: 求右侧第一个 "小于等于" arr[i] 的下标，如没有则为 n-1
-        Deque<Integer> stack2 = new ArrayDeque<>();
-        int[] right = new int[n];
-        Arrays.fill(right, n - 1);
+        st.clear();
+        st.push(n);
         for (int i = n - 1; i >= 0; i--) {
-            // <= 为避免重复计算
-            while (!stack2.isEmpty() && nums[i] < nums[stack2.peek()]) {
-                stack2.pop();
-            }
-            if (!stack2.isEmpty()) {
-                right[i] = stack2.peek() - 1;
-            }
-            stack2.push(i);
+            while (st.size() > 1 && nums[i] < nums[st.peek()]) st.pop();
+            R[i] = st.peek() - 1;
+            st.push(i);
         }
 
-        int max = 0;
+        int ans = 0;
         for (int i = 0; i < n; i++) {
-            int l = left[i];
-            int r = right[i];
+            int l = L[i], r = R[i];
             if (l <= k && k <= r) {
-                max = Math.max(max, nums[i] * (r - l + 1));
+                ans = Math.max(ans, nums[i] * (r - l + 1));
             }
         }
-        return max;
+        return ans;
     }
 }
 /*

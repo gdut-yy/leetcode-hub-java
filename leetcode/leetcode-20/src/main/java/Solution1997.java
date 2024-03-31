@@ -1,22 +1,22 @@
 public class Solution1997 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int firstDayBeenInAllRooms(int[] nextVisit) {
-        // dp[i][0] 表示奇数次到达 i 时需要的天数
-        // dp[i][1] 表示偶数次到达 i 时需要的天数
-        long[][] dp = new long[nextVisit.length][2];
+        int n = nextVisit.length;
+        // f[i][0/1] 表示奇/偶数次到达 i 时需要的天数
+        long[][] f = new long[n][2];
         // 第 2 次到达 0 时需要一天
-        dp[0][1] = 1;
-        int mod = 1000000007;
-        for (int i = 1; i < nextVisit.length; i++) {
+        f[0][1] = 1;
+        for (int i = 1; i < n; i++) {
             // 第 1 次到达 i 时, 得到达两次 i-1, 才能达到 i
-            dp[i][0] = (dp[i - 1][1] + 1) % mod;
-            // 第二次到达 i 是在第一次的基础上
-            // +1 到达奇数次 dp[nextVisit[i]][0], 此时想要再次到达 i, 需要先偶数次的到达 i-1
-            // + (dp[i - 1][1] - dp[nextVisit[i]][0]), 再次到达 i-1 需要的天数
-            // 再 +1 第二次到达 i
-            // 注意: 这里相减可能会出现负数, 所以加上 mod
-            dp[i][1] = (dp[i][0] + 1 + (mod + dp[i - 1][1] - dp[nextVisit[i]][0]) + 1) % mod;
+            f[i][0] = (f[i - 1][1] + 1) % MOD;
+            // 第 2 次到达 i 是在第一次的基础上
+            // +1 到达奇数次 f[nextVisit[i]][0], 此时想要再次到达 i, 需要先偶数次的到达 i-1
+            // + (f[i - 1][1] - f[nextVisit[i]][0]), 再次到达 i-1 需要的天数
+            // 再 +1 第 2 次到达 i
+            f[i][1] = (f[i][0] + 1 + (f[i - 1][1] - f[nextVisit[i]][0] + 1) + MOD) % MOD;
         }
-        return (int) dp[dp.length - 1][0];
+        return (int) f[n - 1][0];
     }
 }
 /*
@@ -37,6 +37,7 @@ n == nextVisit.length
 0 <= nextVisit[i] <= i
 
 动态规划。
+时间复杂度 O(n)
 codeforces https://codeforces.com/contest/1552/problem/F
 字节跳动2018招聘测试开发方向（第四批）附加题 https://www.nowcoder.com/test/8536903/summary
  */

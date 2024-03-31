@@ -4,18 +4,15 @@ public class Solution474 {
         // f[j][k] 表示最多有 m 个 0 和 n 个 1 的最大子集的长度
         int[][] f = new int[m + 1][n + 1];
         for (String s : strs) {
-            // 0 的个数，1 的个数
-            int cnt0 = 0;
-            for (char ch : s.toCharArray()) {
-                if (ch == '0') {
-                    cnt0++;
-                }
+            int c0 = 0, c1 = 0;
+            for (char c : s.toCharArray()) {
+                if (c == '0') c0++;
+                else c1++;
             }
-            int cnt1 = s.length() - cnt0;
 
-            for (int j = m; j >= cnt0; j--) {
-                for (int k = n; k >= cnt1; k--) {
-                    f[j][k] = Math.max(f[j][k], f[j - cnt0][k - cnt1] + 1);
+            for (int j = m; j >= c0; j--) {
+                for (int k = n; k >= c1; k--) {
+                    f[j][k] = Math.max(f[j][k], f[j - c0][k - c1] + 1);
                 }
             }
         }

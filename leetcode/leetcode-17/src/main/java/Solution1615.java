@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -5,27 +6,25 @@ import java.util.Set;
 
 public class Solution1615 {
     public int maximalNetworkRank(int n, int[][] roads) {
-        Map<Integer, Set<Integer>> adj = new HashMap<>();
-        for (int[] road : roads) {
-            adj.computeIfAbsent(road[0], key -> new HashSet<>()).add(road[1]);
-            adj.computeIfAbsent(road[1], key -> new HashSet<>()).add(road[0]);
+        Set<Integer>[] g = new HashSet[n];
+        Arrays.setAll(g, e -> new HashSet<>());
+        for (int[] p : roads) {
+            g[p[0]].add(p[1]);
+            g[p[1]].add(p[0]);
         }
 
-        int max = 0;
+        int ans = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i == j) continue;
-
-                Set<Integer> setI = adj.getOrDefault(i, new HashSet<>());
-                Set<Integer> setJ = adj.getOrDefault(j, new HashSet<>());
-                if (setI.contains(j)) {
-                    max = Math.max(max, setI.size() + setJ.size() - 1);
+                if (g[i].contains(j)) {
+                    ans = Math.max(ans, g[i].size() + g[j].size() - 1);
                 } else {
-                    max = Math.max(max, setI.size() + setJ.size());
+                    ans = Math.max(ans, g[i].size() + g[j].size());
                 }
             }
         }
-        return max;
+        return ans;
     }
 }
 /*

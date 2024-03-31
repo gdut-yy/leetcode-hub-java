@@ -1,40 +1,15 @@
 public class Solution2507 {
-    private static final int MAX_N = 100000;
-    private static int[] memo;
-
     public int smallestValue(int n) {
-        if (memo == null) {
-            memo = new int[MAX_N + 1];
-            for (int i = 2; i <= MAX_N; i++) {
-                memo[i] = i;
-                dfs(i);
-            }
-        }
-
-        while (memo[n] < n) {
-            n = memo[n];
-        }
-        return n;
-    }
-
-    private void dfs(int n) {
-        int num = n;
-        int sum = 0;
-        for (int i = 2; i * i <= num; i++) {
-            // 如果 i 能够整除 N，说明 i 为 N 的一个质因子。
-            if (num % i == 0) {
-                while (num % i == 0) {
-                    num /= i;
-                    sum += i;
+        while (true) {
+            int x = n, s = 0;
+            for (int i = 2; i * i <= x; ++i) {
+                for (; x % i == 0; x /= i) {
+                    s += i;
                 }
             }
-        }
-        // 说明再经过操作之后 N 留下了一个素数
-        if (num != 1) {
-            sum += num;
-        }
-        if (memo[n] > sum) {
-            memo[n] = sum;
+            if (x > 1) s += x;
+            if (s == n) return n;
+            n = s;
         }
     }
 }
@@ -51,5 +26,6 @@ https://leetcode.cn/problems/smallest-value-after-replacing-with-sum-of-prime-fa
 提示：
 2 <= n <= 10^5
 
-模拟 + 记忆化
+暴力。
+时间复杂度 O(sqrt(n))
  */

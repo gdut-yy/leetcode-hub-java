@@ -1,5 +1,4 @@
 import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Deque;
 
 public class Solution1856 {
@@ -7,38 +6,32 @@ public class Solution1856 {
 
     public int maxSumMinProduct(int[] nums) {
         int n = nums.length;
+        // 左侧和右侧第一个 < 和 <= nums[i] 的下标（为了去重）
+        int[] L = new int[n], R = new int[n];
 
-        // step1: 求左侧第一个 "严格小于" arr[i] 的下标，如没有则为 0
         Deque<Integer> st = new ArrayDeque<>();
         st.push(-1); // 哨兵
-        int[] posL = new int[n];
         for (int i = 0; i < n; i++) {
             while (st.size() > 1 && nums[i] <= nums[st.peek()]) st.pop();
-            posL[i] = st.peek() + 1;
+            L[i] = st.peek() + 1;
             st.push(i);
         }
 
-        // step2: 求右侧第一个 "小于等于" arr[i] 的下标，如没有则为 n-1
         st.clear();
-        st.push(n); // 哨兵
-        int[] posR = new int[n];
-        Arrays.fill(posR, n - 1);
+        st.push(n);
         for (int i = n - 1; i >= 0; i--) {
             while (st.size() > 1 && nums[i] < nums[st.peek()]) st.pop();
-            posR[i] = st.peek() - 1;
+            R[i] = st.peek() - 1;
             st.push(i);
         }
 
-        // 前缀和
-        long[] preSum = new long[n + 1];
+        long[] ps = new long[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+            ps[i + 1] = ps[i] + nums[i];
         }
-
         long ans = 0;
         for (int i = 0; i < n; i++) {
-            long product = (preSum[posR[i] + 1] - preSum[posL[i]]) * nums[i];
-            ans = Math.max(ans, product);
+            ans = Math.max(ans, (ps[R[i] + 1] - ps[L[i]]) * nums[i]);
         }
         return (int) (ans % MOD);
     }

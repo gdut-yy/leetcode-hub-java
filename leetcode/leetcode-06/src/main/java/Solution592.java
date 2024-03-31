@@ -1,36 +1,40 @@
 public class Solution592 {
     public String fractionAddition(String expression) {
-        expression = expression.replace("-", "+-");
-        if (expression.startsWith("+-")) {
-            expression = expression.substring(1);
-        }
-        String[] strs = expression.split("\\+");
-        // 分子 分母
-        long a = 0;
-        long b = 1;
-        for (String str : strs) {
-            String[] ss = str.split("/");
-            long c = Long.parseLong(ss[0]);
-            long d = (ss.length == 1) ? 1 : Long.parseLong(ss[1]);
+        int n = expression.length();
+        char[] s = expression.toCharArray();
+        long x = 0, y = 1;
+        int i = 0;
+        while (i < n) {
+            // 读取分子
+            long x1 = 0, sign = 1;
+            if (s[i] == '-' || s[i] == '+') {
+                sign = (s[i] == '-' ? -1 : 1);
+                i++;
+            }
+            while (i < n && Character.isDigit(s[i])) {
+                x1 = x1 * 10 + (s[i] - '0');
+                i++;
+            }
+            x1 *= sign;
+            i++;
 
-            // a/b + c/d = (ad+bc) / bd
-            long numerator = a * d + b * c;
-            long denominator = b * d;
-            long gcd = getGCD(numerator, denominator);
-            a = numerator / gcd;
-            b = denominator / gcd;
+            // 读取分母
+            long y1 = 0;
+            while (i < n && Character.isDigit(s[i])) {
+                y1 = y1 * 10 + (s[i] - '0');
+                i++;
+            }
+
+            x = x * y1 + x1 * y;
+            y *= y1;
         }
-        if (b < 0) {
-            return "-" + a + "/" + -b;
-        }
-        return a + "/" + b;
+        if (x == 0) return "0/1";
+        long gcd = getGCD(Math.abs(x), y);
+        return (x / gcd) + "/" + (y / gcd);
     }
 
     private long getGCD(long num1, long num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+        return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
     }
 }
 /*
@@ -46,6 +50,6 @@ https://leetcode.cn/problems/fraction-addition-and-subtraction/
 输入的分数个数范围是 [1,10]。
 最终结果的分子与分母保证是 32 位整数范围内的有效整数。
 
-分式加减，a/b + c/d = (ad+bc) / bd
-负号前补正号
+模拟。
+时间复杂度 O(n + logC)。其中 C 为化简前结果分子分母的最大值。
  */

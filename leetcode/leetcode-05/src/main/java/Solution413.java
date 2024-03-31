@@ -1,22 +1,20 @@
 public class Solution413 {
     public int numberOfArithmeticSlices(int[] nums) {
-        if (nums.length == 1) {
-            return 0;
-        }
-        int diff = nums[0] - nums[1];
-        int times = 0;
-        int res = 0;
-        // 最少 3 个数
-        for (int i = 2; i < nums.length; i++) {
-            if (nums[i - 1] - nums[i] == diff) {
-                times++;
+        int n = nums.length;
+        if (n == 1) return 0;
+        int delta = nums[1] - nums[0];
+        int ans = 0;
+        int cnt = 0;
+        for (int i = 2; i < n; i++) {
+            if (nums[i] - nums[i - 1] == delta) {
+                cnt++;
             } else {
-                diff = nums[i - 1] - nums[i];
-                times = 0;
+                delta = nums[i] - nums[i - 1];
+                cnt = 0;
             }
-            res += times;
+            ans += cnt;
         }
-        return res;
+        return ans;
     }
 }
 /*

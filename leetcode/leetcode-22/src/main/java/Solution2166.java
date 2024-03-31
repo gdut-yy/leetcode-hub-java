@@ -1,48 +1,53 @@
 public class Solution2166 {
     static class Bitset {
-        private final java.util.BitSet bitSet;
-        private final int size;
+        boolean[] s;
+        boolean flip;
+        int cnt1;
 
         public Bitset(int size) {
-            this.size = size;
-            this.bitSet = new java.util.BitSet(size);
-            this.bitSet.set(0, size, false);
+            s = new boolean[size];
+            flip = false;
+            cnt1 = 0;
         }
 
         public void fix(int idx) {
-            this.bitSet.set(idx, true);
+            if (s[idx] == flip) {
+                s[idx] ^= true;
+                cnt1++;
+            }
         }
 
         public void unfix(int idx) {
-            this.bitSet.set(idx, false);
+            if (s[idx] != flip) {
+                s[idx] ^= true;
+                cnt1--;
+            }
         }
 
         public void flip() {
-            this.bitSet.flip(0, this.size);
+            flip ^= true;
+            cnt1 = s.length - cnt1;
         }
 
         public boolean all() {
-            return this.bitSet.cardinality() == this.size;
+            return cnt1 == s.length;
         }
 
         public boolean one() {
-            return this.bitSet.cardinality() > 0;
+            return cnt1 > 0;
         }
 
         public int count() {
-            return this.bitSet.cardinality();
+            return cnt1;
         }
 
         public String toString() {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < size; i++) {
-                if (bitSet.get(i)) {
-                    stringBuilder.append(1);
-                } else {
-                    stringBuilder.append(0);
-                }
+            StringBuilder res = new StringBuilder();
+            for (boolean b : s) {
+                if (!flip) res.append(b ? 1 : 0);
+                else res.append(b ? 0 : 1);
             }
-            return stringBuilder.toString();
+            return res.toString();
         }
     }
 }
@@ -63,5 +68,5 @@ https://leetcode.cn/problems/design-bitset/
 - int count() 返回 Bitset 中值为 1 的位的 总数 。
 - String toString() 返回 Bitset 的当前组成情况。注意，在结果字符串中，第 i 个下标处的字符应该与 Bitset 中的第 i 位一致。
 
-java.util.BitSet API 调用
+模拟。核心在 flip 懒标记
  */

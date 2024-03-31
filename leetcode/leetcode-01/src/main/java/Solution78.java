@@ -1,48 +1,51 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Solution78 {
-    private int[] nums;
-    private LinkedList<Integer> subset;
-    private List<List<Integer>> subsetList;
-
-    public List<List<Integer>> subsets(int[] nums) {
-        this.nums = nums;
-        subset = new LinkedList<>();
-        subsetList = new ArrayList<>();
-        dfs(0);
-        return subsetList;
-    }
-
-    private void dfs(int i) {
-        if (i == nums.length) {
-            subsetList.add(new ArrayList<>(subset));
-            return;
-        }
-        // 不选
-        dfs(i + 1);
-        // 选
-        subset.add(nums[i]);
-        dfs(i + 1);
-        subset.removeLast();
-    }
-
-    // 状态压缩
-    public List<List<Integer>> subsets2(int[] nums) {
-        List<List<Integer>> resList = new ArrayList<>();
-        int len = nums.length;
-        for (int state = 0; state < (1 << len); state++) {
-            List<Integer> curList = new ArrayList<>();
-            for (int k = 0; k < len; k++) {
-                // 第 k 位被选中
-                if (((state >> k) & 1) == 1) {
-                    curList.add(nums[k]);
+    // 二进制枚举
+    static class V1 {
+        public List<List<Integer>> subsets(int[] nums) {
+            int n = nums.length;
+            List<List<Integer>> ans = new ArrayList<>();
+            for (int mask = 0; mask < 1 << n; mask++) {
+                List<Integer> res = new ArrayList<>();
+                for (int i = 0; i < n; i++) {
+                    if ((mask >> i & 1) == 1) {
+                        res.add(nums[i]);
+                    }
                 }
+                ans.add(res);
             }
-            resList.add(curList);
+            return ans;
         }
-        return resList;
+    }
+
+    // 回溯
+    static class V2 {
+        private int[] nums;
+        private List<Integer> res;
+        private List<List<Integer>> ans;
+
+        public List<List<Integer>> subsets(int[] nums) {
+            this.nums = nums;
+            res = new ArrayList<>();
+            ans = new ArrayList<>();
+            dfs(0);
+            return ans;
+        }
+
+        private void dfs(int i) {
+            if (i == nums.length) {
+                ans.add(new ArrayList<>(res));
+                return;
+            }
+            // 不选
+            dfs(i + 1);
+            // 选
+            res.add(nums[i]);
+            dfs(i + 1);
+            res.remove(res.size() - 1);
+        }
     }
 }
 /*

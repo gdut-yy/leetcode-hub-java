@@ -1,22 +1,50 @@
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Solution77 {
-    public List<List<Integer>> combine(int n, int k) {
-        List<List<Integer>> resList = new ArrayList<>();
-        helper(n, k, 1, new LinkedList<>(), resList);
-        return resList;
+    // 二进制枚举
+    static class V1 {
+        public List<List<Integer>> combine(int n, int k) {
+            List<List<Integer>> ans = new ArrayList<>();
+            for (int mask = 0; mask < 1 << n; mask++) {
+                if (Integer.bitCount(mask) == k) {
+                    List<Integer> res = new ArrayList<>();
+                    for (int i = 0; i < n; i++) {
+                        if ((mask >> i & 1) == 1) {
+                            res.add(i + 1);
+                        }
+                    }
+                    ans.add(res);
+                }
+            }
+            return ans;
+        }
     }
 
-    private void helper(int n, int k, int i, LinkedList<Integer> combination, List<List<Integer>> resList) {
-        if (combination.size() == k) {
-            resList.add(new ArrayList<>(combination));
-        } else if (i <= n) {
-            helper(n, k, i + 1, combination, resList);
-            combination.add(i);
-            helper(n, k, i + 1, combination, resList);
-            combination.removeLast();
+    // 回溯
+    static class V2 {
+        private int n, k;
+        private List<Integer> res;
+        private List<List<Integer>> ans;
+
+        public List<List<Integer>> combine(int n, int k) {
+            this.n = n;
+            this.k = k;
+            res = new ArrayList<>();
+            ans = new ArrayList<>();
+            dfs(1);
+            return ans;
+        }
+
+        private void dfs(int i) {
+            if (res.size() == k) {
+                ans.add(new ArrayList<>(res));
+            } else if (i <= n) {
+                dfs(i + 1);
+                res.add(i);
+                dfs(i + 1);
+                res.remove(res.size() - 1);
+            }
         }
     }
 }
