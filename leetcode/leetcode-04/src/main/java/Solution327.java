@@ -6,23 +6,23 @@ public class Solution327 {
     // 424ms
     public int countRangeSum(int[] nums, int lower, int upper) {
         int n = nums.length;
-        long[] preSum = new long[n + 1];
+        long[] ps = new long[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+            ps[i + 1] = ps[i] + nums[i];
         }
 
         // 离散化
-        long[] yArr = getDiscrete(lower, upper, preSum);
+        long[] yArr = getDiscrete(lower, upper, ps);
 
-        int res = 0;
+        int ans = 0;
         Fenwick fenwick = new Fenwick(yArr.length);
-        for (long x : preSum) {
-            int l = getId(yArr, x - upper) - 1;
-            int r = getId(yArr, x - lower) - 1;
-            res += fenwick.getSum(r + 1) - fenwick.getSum(l);
+        for (long x : ps) {
+            int l = getId(yArr, x - upper);
+            int r = getId(yArr, x - lower);
+            ans += fenwick.getSum(r) - fenwick.getSum(l - 1);
             fenwick.add(getId(yArr, x), 1);
         }
-        return res;
+        return ans;
     }
 
     private long[] getDiscrete(int lower, int upper, long[] preSum) {
@@ -46,7 +46,7 @@ public class Solution327 {
         return Arrays.binarySearch(yArr, x) + 1;
     }
 
-    private static class Fenwick {
+    static class Fenwick {
         private final int n;
         private final int[] tree;
 
@@ -91,4 +91,6 @@ https://leetcode.cn/problems/count-of-range-sum/
 离散化树状数组
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
+相似题目: 493. 翻转对
+https://leetcode.cn/problems/reverse-pairs/description/
  */
