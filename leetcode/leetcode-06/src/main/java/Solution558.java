@@ -76,4 +76,9 @@ class Node {
 提示：
 quadTree1 和 quadTree2 都是符合题目要求的四叉树，每个都代表一个 n * n 的矩阵。
 n == 2^x ，其中 0 <= x <= 9.
+
+递归。
+时间复杂度 O(n^2)
+相似题目: 427. 建立四叉树
+https://leetcode.cn/problems/construct-quad-tree/description/
  */
