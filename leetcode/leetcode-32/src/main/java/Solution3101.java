@@ -1,4 +1,4 @@
-public class Solution100266 {
+public class Solution3101 {
     public long countAlternatingSubarrays(int[] nums) {
         int n = nums.length;
         long ans = 0;
@@ -14,7 +14,7 @@ public class Solution100266 {
     }
 }
 /*
-100266. 交替子数组计数
+3101. 交替子数组计数
 https://leetcode.cn/problems/count-alternating-subarrays/description/
 
 第 391 场周赛 T3。

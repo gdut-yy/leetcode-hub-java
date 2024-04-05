@@ -1,7 +1,7 @@
-public class Solution100272 {
+public class Solution3095 {
 }
 /*
-100272. 或值至少 K 的最短子数组 I
+3095. 或值至少 K 的最短子数组 I
 https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-i/description/
 
 第 127 场双周赛 T1。
@@ -14,6 +14,6 @@ https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-i/description/
 0 <= nums[i] <= 50
 0 <= k < 64
 
-同: 100271. 或值至少为 K 的最短子数组 II
+3097. 或值至少为 K 的最短子数组 II
 https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-ii/description/
  */

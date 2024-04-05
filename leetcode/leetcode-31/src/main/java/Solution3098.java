@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Solution100218 {
+public class Solution3098 {
     private static final int MOD = (int) (1e9 + 7);
     private int[] nums;
     private Map<String, Long> memo;
@@ -67,7 +67,7 @@ public class Solution100218 {
     }
 }
 /*
-100218. 求出所有子序列的能量和
+3098. 求出所有子序列的能量和
 https://leetcode.cn/problems/find-the-sum-of-subsequence-powers/description/
 
 第 127 场双周赛 T4。

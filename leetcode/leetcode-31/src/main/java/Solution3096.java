@@ -1,4 +1,4 @@
-public class Solution100250 {
+public class Solution3096 {
     public int minimumLevels(int[] possible) {
         int n = possible.length;
         int[] ps = new int[n + 1];
@@ -15,7 +15,7 @@ public class Solution100250 {
     }
 }
 /*
-100250. 得到更多分数的最少关卡数目
+3096. 得到更多分数的最少关卡数目
 https://leetcode.cn/problems/minimum-levels-to-gain-more-points/description/
 
 第 127 场双周赛 T2。

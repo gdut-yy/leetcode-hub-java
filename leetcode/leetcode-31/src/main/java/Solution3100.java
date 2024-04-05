@@ -1,4 +1,4 @@
-public class Solution100235 {
+public class Solution3100 {
     public int maxBottlesDrunk(int numBottles, int numExchange) {
         int ans = numBottles;
         while (numBottles >= numExchange) {
@@ -11,7 +11,7 @@ public class Solution100235 {
     }
 }
 /*
-100235. 换水问题 II
+3100. 换水问题 II
 https://leetcode.cn/problems/water-bottles-ii/description/
 
 第 391 场周赛 T2。

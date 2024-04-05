@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100271 {
+public class Solution3097 {
     public int minimumSubarrayLength(int[] nums, int L) {
         int n = nums.length;
         int ans = Integer.MAX_VALUE;
@@ -32,7 +32,7 @@ public class Solution100271 {
     }
 }
 /*
-100271. 或值至少为 K 的最短子数组 II
+3097. 或值至少为 K 的最短子数组 II
 https://leetcode.cn/problems/shortest-subarray-with-or-at-least-k-ii/description/
 
 第 127 场双周赛 T3。

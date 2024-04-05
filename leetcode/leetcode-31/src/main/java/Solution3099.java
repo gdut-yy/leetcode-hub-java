@@ -1,4 +1,4 @@
-public class Solution100263 {
+public class Solution3099 {
     public int sumOfTheDigitsOfHarshadNumber(int x) {
         int digitSum = 0;
         for (int i = x; i > 0; i /= 10) {
@@ -9,7 +9,7 @@ public class Solution100263 {
     }
 }
 /*
-100263. 哈沙德数
+3099. 哈沙德数
 https://leetcode.cn/problems/harshad-number/description/
 
 第 391 场周赛 T1。

@@ -1,6 +1,6 @@
 import java.util.TreeMap;
 
-public class Solution100240 {
+public class Solution3102 {
     public int minimumDistance(int[][] points) {
         TreeMap<Integer, Integer> xs = new TreeMap<>();
         TreeMap<Integer, Integer> ys = new TreeMap<>();
@@ -28,7 +28,7 @@ public class Solution100240 {
     }
 }
 /*
-100240. 最小化曼哈顿距离
+3102. 最小化曼哈顿距离
 https://leetcode.cn/problems/minimize-manhattan-distances/description/
 
 第 391 场周赛 T4。
