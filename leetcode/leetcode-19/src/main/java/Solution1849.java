@@ -52,7 +52,10 @@ https://leetcode.cn/problems/splitting-a-string-into-descending-consecutive-valu
 s 仅由数字组成
 
 暴力 / 枚举。
+第一个数确定后，整个序列就确定了。
 时间复杂度 O(n^2)。
 相似题目: 306. 累加数
 https://leetcode.cn/problems/additive-number/description/
+842. 将数组拆分成斐波那契序列
+https://leetcode.cn/problems/split-array-into-fibonacci-sequence/description/
  */

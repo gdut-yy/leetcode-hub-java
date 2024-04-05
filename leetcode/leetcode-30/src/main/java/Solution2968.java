@@ -50,6 +50,7 @@ https://leetcode.cn/problems/apply-operations-to-maximize-frequency-score/descri
 1 <= nums[i] <= 10^9
 0 <= k <= 10^14
 
+HPC 初赛题目。
 双指针 / 滑动窗口 + 中位数 贪心。
 窗口内操作次数最小是变为中位数，当操作次数大于 k 时，收缩窗口（左指针右移），答案即为窗口最大长度。
 时间复杂度 O(nlogn)
