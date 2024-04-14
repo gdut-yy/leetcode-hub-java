@@ -51,6 +51,7 @@ public class CF1800F {
 F. Dasha and Nightmares
 https://codeforces.com/contest/1800/problem/F
 
+灵茶の试炼 2024-02-01
 题目大意：
 给定字符串 s。求 i<j 的 (i,j) 对的数量。
 - 它是由 si sj 级联得到的

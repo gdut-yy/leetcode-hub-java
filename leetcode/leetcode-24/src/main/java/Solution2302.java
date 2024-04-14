@@ -1,32 +1,46 @@
 public class Solution2302 {
     public long countSubarrays(int[] nums, long k) {
-        int len = nums.length;
-
-        // 前缀和
-        long[] preSum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+        int n = nums.length;
+        long[] ps = new long[n + 1];
+        for (int i = 0; i < n; i++) {
+            ps[i + 1] = ps[i] + nums[i];
         }
 
-        long cnt = 0L;
+        long ans = 0L;
         // 枚举每个 i
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < n; i++) {
             int left = i;
-            int right = len;
+            int right = n;
             while (left < right) {
                 int mid = left + (right - left) / 2;
                 // 边界二分 F, F,..., F, [T, T,..., T]
                 // ----------------------^
-                if ((preSum[mid + 1] - preSum[i]) * (mid - i + 1L) >= k) {
+                if ((ps[mid + 1] - ps[i]) * (mid - i + 1L) >= k) {
                     right = mid;
                 } else {
                     left = mid + 1;
                 }
             }
             // 每个 i 的贡献
-            cnt += left - i + 1;
+            ans += left - i + 1;
         }
-        return cnt - len;
+        return ans - n;
+    }
+
+    public long countSubarrays2(int[] nums, long k) {
+        int n = nums.length;
+        int l = 0, r = 0;
+        long ans = 0, sum = 0;
+        while (r < n) {
+            sum += nums[r];
+            while ((r - l + 1) * sum >= k) {
+                sum -= nums[l];
+                l++;
+            }
+            ans += r - l + 1;
+            r++;
+        }
+        return ans;
     }
 }
 /*

@@ -54,6 +54,7 @@ public class CF1822E {
 E. Making Anti-Palindromes
 https://codeforces.com/contest/1822/problem/E
 
+灵茶の试炼 2024-02-07
 题目大意：
 你会得到一个由小写英文字母组成的字符串 s。在一个操作中，您可以交换字符串 s 中的任意两个字符。
 长度为 n 的字符串 s 称为反回文，如果对于每一个 i(1≤i≤n) s[i]≠s[n-i+1]。例如，字符串"codeforces"， "string"是反回文，但字符串"abacaba", "abc", "test"不是。

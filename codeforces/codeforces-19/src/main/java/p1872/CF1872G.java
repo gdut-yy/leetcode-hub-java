@@ -67,6 +67,7 @@ public class CF1872G {
 G. Replace With Product
 https://codeforces.com/contest/1872/problem/G
 
+灵茶の试炼 2024-02-08
 题目大意：
 给定一个包含 n 个正整数的数组 a。以下操作只需要执行一次:
 - 选择 2 个整数 l 和 r(1≤l≤r≤n)，将子数组 a[l...r]替换为单个元素:子数组中所有元素的乘积(al·...·ar)。
