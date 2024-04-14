@@ -84,10 +84,8 @@ public class SolutionLCP71 {
     }
 
     private static class DSU {
-        // 父节点数组/祖先数组
         int[] fa;
 
-        // 初始化
         public DSU(int n) {
             fa = new int[n];
             for (int i = 0; i < n; i++) {
@@ -95,23 +93,18 @@ public class SolutionLCP71 {
             }
         }
 
-        // 查找
         int find(int x) {
-            // 路径压缩
             if (x != fa[x]) {
                 fa[x] = find(fa[x]);
             }
             return fa[x];
         }
 
-        // 合并
-        void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP == rootQ) {
-                return;
-            }
-            fa[rootQ] = rootP;
+        void union(int x, int y) {
+            x= find(x);
+            y= find(y);
+            if (x == y) return;
+            fa[x] = y;
         }
     }
 }
@@ -135,4 +128,6 @@ LCCUP'22 力扣杯秋季编程大赛战队赛 T6。
 shape[i][j] 仅为 'l'、'r' 或 '.'
 
 并查集。
+相似题目: 959. 由斜杠划分区域
+https://leetcode.cn/problems/regions-cut-by-slashes/description/
  */
