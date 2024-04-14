@@ -1,27 +1,25 @@
 public class Solution2375 {
     public String smallestNumber(String pattern) {
         int n = pattern.length();
+        char[] ans = new char[n + 1];
+        for (int i = 0; i < n + 1; i++) ans[i] = (char) ('1' + i);
 
-        char[] chars = new char[n + 1];
-        char num = '1';
-        int i = 0;
-        while (i < n) {
-            if (i > 0 && pattern.charAt(i) == 'I') {
-                i++;
+        for (int i = 0; i < n; i++) {
+            // 类 分组循环？
+            int st = i;
+            for (; i < n && pattern.charAt(i) == 'D'; i++) {
             }
-            while (i < n && pattern.charAt(i) == 'I') {
-                chars[i] = num++;
-                i++;
-            }
-            int i0 = i;
-            while (i < n && pattern.charAt(i) == 'D') {
-                i++;
-            }
-            for (int j = i; j >= i0; j--) {
-                chars[j] = num++;
-            }
+            reverse(ans, st, i + 1);
         }
-        return new String(chars);
+        return new String(ans);
+    }
+
+    private void reverse(char[] a, int st, int end) {
+        for (int l = st, r = end - 1; l < r; l++, r--) {
+            char tmp = a[l];
+            a[l] = a[r];
+            a[r] = tmp;
+        }
     }
 }
 /*

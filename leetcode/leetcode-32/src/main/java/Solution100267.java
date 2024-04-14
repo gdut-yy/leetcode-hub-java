@@ -66,4 +66,8 @@ coins 包含两两不同的整数。
 二进制枚举 + 二分答案 + 容斥定理
 时间复杂度 O(n*2^n * logU)。其中 logU = 64。
 有更精确的上界：O(n*2^n * log(mk) * logM)。其中 m = min(coins)，M = max(coins)。
+相似题目: 878. 第 N 个神奇数字
+https://leetcode.cn/problems/nth-magical-number/
+1201. 丑数 III
+https://leetcode.cn/problems/ugly-number-iii/
  */

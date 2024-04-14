@@ -1,69 +1,51 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 import java.util.Set;
 
 public class Solution2192 {
     public List<List<Integer>> getAncestors(int n, int[][] edges) {
-        // 预处理
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
-        for (int[] edge : edges) {
-            int from = edge[0];
-            int to = edge[1];
-
-            Set<Integer> outSet = outGraph.getOrDefault(from, new HashSet<>());
-            outSet.add(to);
-            outGraph.put(from, outSet);
-
-            Set<Integer> inSet = inGraph.getOrDefault(to, new HashSet<>());
-            inSet.add(from);
-            inGraph.put(to, inSet);
+        // 建图
+        List<Integer>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        int[] inDeg = new int[n];
+        for (int[] p : edges) {
+            int x = p[0], y = p[1];
+            g[x].add(y);
+            inDeg[y]++;
         }
 
-        Map<Integer, Set<Integer>> nodeMap = new HashMap<>();
-        // 入度为 0 进队列
-        Queue<Integer> queue = new LinkedList<>();
+        // 拓扑序
+        Queue<Integer> queue = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
-            if (inGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
+            if (inDeg[i] == 0) {
                 queue.add(i);
-                nodeMap.put(i, new HashSet<>());
             }
         }
+        Set<Integer>[] ancSet = new HashSet[n];
+        Arrays.setAll(ancSet, e -> new HashSet<>());
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-
-                for (int next : outGraph.getOrDefault(cur, new HashSet<>())) {
-                    inGraph.get(next).remove(cur);
-
-                    Set<Integer> parents = nodeMap.getOrDefault(next, new HashSet<>());
-                    parents.add(cur);
-                    parents.addAll(nodeMap.getOrDefault(cur, new HashSet<>()));
-                    nodeMap.put(next, parents);
-
-                    if (inGraph.get(next).size() == 0) {
-                        queue.add(next);
-                    }
+            int x = queue.remove();
+            for (Integer y : g[x]) {
+                // 更新子节点的祖先
+                ancSet[y].add(x);
+                ancSet[y].addAll(ancSet[x]);
+                if (--inDeg[y] == 0) {
+                    queue.add(y);
                 }
             }
         }
 
-        // DFS
-        List<List<Integer>> resList = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
-            Set<Integer> parentSet = nodeMap.get(i);
-            List<Integer> parentList = new ArrayList<>(parentSet);
-            Collections.sort(parentList);
-            resList.add(parentList);
+        List<List<Integer>> ans = new ArrayList<>();
+        for (Set<Integer> anc : ancSet) {
+            List<Integer> ancList = new ArrayList<>(anc);
+            ancList.sort(null);
+            ans.add(ancList);
         }
-        return resList;
+        return ans;
     }
 }
 /*

@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution3045 {
     public long countPrefixSuffixPairs(String[] words) {
         TrieNode root = new TrieNode();
@@ -59,6 +62,30 @@ public class Solution3045 {
         }
         return z;
     }
+
+    static class V2 {
+        public long countPrefixSuffixPairs(String[] words) {
+            TrieNode root = new TrieNode();
+            long ans = 0;
+            for (String w : words) {
+                char[] s = w.toCharArray();
+                int n = s.length;
+                TrieNode node = root;
+                for (int i = 0; i < n; i++) {
+                    String p = "" + s[i] + s[n - 1 - i];
+                    node = node.child.computeIfAbsent(p, e -> new TrieNode());
+                    ans += node.cnt;
+                }
+                node.cnt++;
+            }
+            return ans;
+        }
+
+        static class TrieNode {
+            Map<String, TrieNode> child = new HashMap<>();
+            int cnt;
+        }
+    }
 }
 /*
 3045. 统计前后缀下标对 II
@@ -77,6 +104,7 @@ https://leetcode.cn/problems/count-prefix-and-suffix-pairs-ii/description/
 words[i] 仅由小写英文字母组成。
 所有 words[i] 的长度之和不超过 5 * 10^5 。
 
-Z 函数 + 字典树
-时间复杂度 O(L)
+Z 函数 + 字典树。
+时间复杂度 O(L)。
+相似题目:
  */
