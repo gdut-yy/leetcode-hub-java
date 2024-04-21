@@ -1,4 +1,4 @@
-public class Solution1114 {
+public class Solution1144 {
     public int movesToMakeZigzag(int[] nums) {
         return Math.min(f(nums, 0), f(nums, 1));
     }

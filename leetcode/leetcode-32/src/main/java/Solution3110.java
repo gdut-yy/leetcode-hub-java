@@ -1,4 +1,4 @@
-public class Solution100270 {
+public class Solution3110 {
     public int scoreOfString(String s) {
         int n = s.length();
         int ans = 0;
@@ -9,7 +9,7 @@ public class Solution100270 {
     }
 }
 /*
-100270. 字符串的分数
+3110. 字符串的分数
 https://leetcode.cn/problems/score-of-a-string/description/
 
 第 128 场双周赛 T1。

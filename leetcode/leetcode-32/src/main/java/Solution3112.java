@@ -22,9 +22,12 @@ public class Solution3112 {
         PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
         pq.add(new int[]{0, 0});
         ans[0] = 0;
+        boolean[] vis = new boolean[n];
         while (!pq.isEmpty()) {
             int[] top = pq.remove();
             int x = top[0], t = top[1];
+            if (vis[x]) continue;
+            vis[x] = true;
 
             for (int[] p : g[x]) {
                 int y = p[0], wt = p[1];

@@ -1,7 +1,7 @@
 import java.util.Arrays;
 import java.util.Comparator;
 
-public class Solution100280 {
+public class Solution3111 {
     public int minRectanglesToCoverPoints(int[][] points, int w) {
         Arrays.sort(points, Comparator.comparingInt(o -> o[0]));
         int n = points.length;
@@ -18,7 +18,7 @@ public class Solution100280 {
     }
 }
 /*
-100280. 覆盖所有点的最少矩形数目
+3111. 覆盖所有点的最少矩形数目
 https://leetcode.cn/problems/minimum-rectangles-to-cover-points/description/
 
 第 128 场双周赛 T2。

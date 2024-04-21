@@ -1,4 +1,4 @@
-public class Solution100256 {
+public class Solution3114 {
     public String findLatestTime(String s) {
         for (int t = 720 - 1; t >= 0; t--) {
             String ans = int2hhmm(t);
@@ -22,10 +22,10 @@ public class Solution100256 {
     }
 }
 /*
-100256. 替换字符可以得到的最晚时间
+3114. 替换字符可以得到的最晚时间
 https://leetcode.cn/problems/latest-time-you-can-obtain-after-replacing-characters/description/
 
-第 392 场周赛 T1。
+第 393 场周赛 T1。
 
 给你一个字符串 s，表示一个 12 小时制的时间格式，其中一些数字（可能没有）被 "?" 替换。
 12 小时制时间格式为 "HH:MM" ，其中 HH 的取值范围为 00 至 11，MM 的取值范围为 00 至 59。最早的时间为 00:00，最晚的时间为 11:59。

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution100259 {
+public class Solution3117 {
     private static final int INF = (int) 1e9;
     private int[] nums, andValues;
     private int n, m;
@@ -42,10 +42,10 @@ public class Solution100259 {
     }
 }
 /*
-100259. 划分数组得到最小的值之和
+3117. 划分数组得到最小的值之和
 https://leetcode.cn/problems/minimum-sum-of-values-by-dividing-array/description/
 
-第 392 场周赛 T4。
+第 393 场周赛 T4。
 
 给你两个数组 nums 和 andValues，长度分别为 n 和 m。
 数组的 值 等于该数组的 最后一个 元素。

@@ -1,4 +1,4 @@
-public class Solution100265 {
+public class Solution3115 {
     public int maximumPrimeDifference(int[] nums) {
         int n = nums.length;
         int l = 0, r = 0;
@@ -28,10 +28,10 @@ public class Solution100265 {
     }
 }
 /*
-100265. 素数的最大距离
+3115. 质数的最大距离
 https://leetcode.cn/problems/maximum-prime-difference/description/
 
-第 392 场周赛 T2。
+第 393 场周赛 T2。
 
 给你一个整数数组 nums。
 返回两个（不一定不同的）素数在 nums 中 下标 的 最大距离。

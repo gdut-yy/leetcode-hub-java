@@ -1,7 +1,7 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
 
-public class Solution100273 {
+public class Solution3113 {
     public long numberOfSubarrays(int[] nums) {
         long ans = 0;
         Deque<int[]> st = new ArrayDeque<>();
@@ -21,7 +21,7 @@ public class Solution100273 {
     }
 }
 /*
-100273. 边界元素是最大值的子数组数目
+3113. 边界元素是最大值的子数组数目
 https://leetcode.cn/problems/find-the-number-of-subarrays-where-boundary-elements-are-maximum/description/
 
 第 128 场双周赛 T4。

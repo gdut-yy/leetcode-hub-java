@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100267 {
+public class Solution3116 {
     public long findKthSmallest(int[] coins, int k) {
         int n = coins.length;
         List<Long> prods = new ArrayList<>();
@@ -49,10 +49,10 @@ public class Solution100267 {
     }
 }
 /*
-100267. 单面值组合的第 K 小金额
+3116. 单面值组合的第 K 小金额
 https://leetcode.cn/problems/kth-smallest-amount-with-single-denomination-combination/description/
 
-第 392 场周赛 T3。
+第 393 场周赛 T3。
 
 给你一个整数数组 coins 表示不同面额的硬币，另给你一个整数 k 。
 你有无限量的每种面额的硬币。但是，你 不能 组合使用不同面额的硬币。
