@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100291 {
+public class Solution3121 {
     public int numberOfSpecialChars(String word) {
         int n = word.length();
         int[] upper_first = new int[26];
@@ -27,7 +27,7 @@ public class Solution100291 {
     }
 }
 /*
-100291. 统计特殊字母的数量 II
+3121. 统计特殊字母的数量 II
 https://leetcode.cn/problems/count-the-number-of-special-characters-ii/description/
 
 第 394 场周赛 T2。

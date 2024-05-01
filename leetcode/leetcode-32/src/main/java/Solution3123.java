@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-public class Solution100276 {
+public class Solution3123 {
     private static final long INF = (long) 1e18;
     private int n;
     private List<int[]>[] g;
@@ -76,7 +76,7 @@ public class Solution100276 {
     }
 }
 /*
-100276. 最短路径中的边
+3123. 最短路径中的边
 https://leetcode.cn/problems/find-edges-in-shortest-paths/description/
 
 第 394 场周赛 T4。

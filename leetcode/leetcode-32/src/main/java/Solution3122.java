@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100290 {
+public class Solution3122 {
     private int m, n;
     private List<Node[]> cntList;
     private int[][] memo;
@@ -61,7 +61,7 @@ public class Solution100290 {
     }
 }
 /*
-100290. 使矩阵满足条件的最少操作次数
+3122. 使矩阵满足条件的最少操作次数
 https://leetcode.cn/problems/minimum-number-of-operations-to-satisfy-conditions/description/
 
 第 394 场周赛 T3。

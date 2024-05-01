@@ -1,4 +1,4 @@
-public class Solution100294 {
+public class Solution3120 {
     public int numberOfSpecialChars(String word) {
         boolean[] lowercase = new boolean[26];
         boolean[] uppercase = new boolean[26];
@@ -19,7 +19,7 @@ public class Solution100294 {
     }
 }
 /*
-100294. 统计特殊字母的数量 I
+3120. 统计特殊字母的数量 I
 https://leetcode.cn/problems/count-the-number-of-special-characters-i/description/
 
 第 394 场周赛 T1。
