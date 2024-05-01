@@ -1,32 +1,19 @@
 public class Solution2024 {
     public int maxConsecutiveAnswers(String answerKey, int k) {
-        int len = answerKey.length();
-        char[] chars = answerKey.toCharArray();
-        int[] nums = new int[len];
-        for (int i = 0; i < len; i++) {
-            nums[i] = (chars[i] == 'T') ? 1 : 0;
-        }
-        int longestT = longestOnes(nums, k);
-        for (int i = 0; i < len; i++) {
-            nums[i] = (chars[i] == 'F') ? 1 : 0;
-        }
-        int longestF = longestOnes(nums, k);
-        return Math.max(longestT, longestF);
+        char[] s = answerKey.toCharArray();
+        return Math.max(maxConsecutiveChar(s, k, 'T'), maxConsecutiveChar(s, k, 'F'));
     }
 
-    private int longestOnes(int[] nums, int k) {
-        int n = nums.length;
-        int left = 0;
-        int leftSum = 0;
-        int rightSum = 0;
-        int ans = 0;
-        for (int right = 0; right < n; right++) {
-            rightSum += 1 - nums[right];
-            while (leftSum < rightSum - k) {
-                leftSum += 1 - nums[left];
-                left++;
+    private int maxConsecutiveChar(char[] s, int k, char ch) {
+        int n = s.length, l = 0, r = 0, cnt = 0, ans = 0;
+        while (r < n) {
+            if (s[r] == ch) cnt++;
+            if (cnt > k) {
+                if (s[l] == ch) cnt--;
+                l++;
             }
-            ans = Math.max(ans, right - left + 1);
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
         return ans;
     }
@@ -48,9 +35,8 @@ n == answerKey.length
 answerKey[i] 要么是 'T' ，要么是 'F'
 1 <= k <= n
 
-滑动窗口。
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
-空间复杂度 O(1)
 相似题目: 1004. 最大连续1的个数 III
 https://leetcode.cn/problems/max-consecutive-ones-iii/
  */

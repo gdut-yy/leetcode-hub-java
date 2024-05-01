@@ -1,23 +1,21 @@
+import java.util.Arrays;
+
 public class Solution1423 {
     public int maxScore(int[] cardPoints, int k) {
-        int len = cardPoints.length;
-        // 选 k 个相当于去掉 m 个
-        int m = len - k;
-
+        int n = cardPoints.length;
+        // 选 k 个最大 相当于去掉 n-k 个最小
+        k = n - k;
         int sum = 0;
-        int window = 0;
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < k; i++) {
             sum += cardPoints[i];
-            window += cardPoints[i];
         }
-
-        int min = window;
-        for (int i = m; i < len; i++) {
+        int minSum = sum;
+        for (int i = k; i < n; i++) {
+            sum -= cardPoints[i - k];
             sum += cardPoints[i];
-            window += cardPoints[i] - cardPoints[i - m];
-            min = Math.min(min, window);
+            minSum = Math.min(minSum, sum);
         }
-        return sum - min;
+        return Arrays.stream(cardPoints).sum() - minSum;
     }
 }
 /*
@@ -33,5 +31,7 @@ https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/
 1 <= cardPoints[i] <= 10^4
 1 <= k <= cardPoints.length
 
-滑动窗口。由于 "可以从行的开头或者末尾拿一张卡牌"，因此剩下部分是连续的，可以用总和减去这部分，求最大值即可。
+定长滑动窗口。
+由于 "可以从行的开头或者末尾拿一张卡牌"，因此剩下部分是连续的，可以用总和减去这部分，求最大值即可。
+时间复杂度 O(n)
  */

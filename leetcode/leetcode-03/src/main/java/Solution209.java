@@ -1,19 +1,17 @@
 public class Solution209 {
     public int minSubArrayLen(int target, int[] nums) {
-        int n = nums.length;
-        int left = 0, right = 0;
+        int n = nums.length, l = 0, r = 0, minLen = n + 1;
         int sum = 0;
-        int min = n + 1;
-        while (right < n) {
-            sum += nums[right];
+        while (r < n) {
+            sum += nums[r];
             while (sum >= target) {
-                min = Math.min(min, right - left + 1);
-                sum -= nums[left];
-                left++;
+                minLen = Math.min(minLen, r - l + 1);
+                sum -= nums[l];
+                l++;
             }
-            right++;
+            r++;
         }
-        return (min == n + 1) ? 0 : min;
+        return (minLen == n + 1) ? 0 : minLen;
     }
 }
 /*
@@ -29,6 +27,6 @@ https://leetcode.cn/problems/minimum-size-subarray-sum/
 进阶：
 如果你已经实现 O(n) 时间复杂度的解法, 请尝试设计一个 O(n log(n)) 时间复杂度的解法。
 
-双指针
+不定长滑动窗口（求最短/最小）
 时间复杂度 O(n)
  */

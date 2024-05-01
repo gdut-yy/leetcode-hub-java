@@ -10,15 +10,14 @@ public class Solution159 {
             return n;
         }
         // 双指针
-        int left = 0;
-        int right = 0;
+        int l = 0, r = 0;
         int maxLen = 2;
         // key: 窗口最右边字符 value: 对应下标
         Map<Character, Integer> rightIdxMap = new HashMap<>();
-        while (right < n) {
+        while (r < n) {
             if (rightIdxMap.size() < 3) {
-                rightIdxMap.put(s.charAt(right), right);
-                right++;
+                rightIdxMap.put(s.charAt(r), r);
+                r++;
             }
             if (rightIdxMap.size() == 3) {
                 int minIdx = Integer.MAX_VALUE;
@@ -26,9 +25,9 @@ public class Solution159 {
                     minIdx = Math.min(minIdx, idx);
                 }
                 rightIdxMap.remove(s.charAt(minIdx));
-                left = minIdx + 1;
+                l = minIdx + 1;
             }
-            maxLen = Math.max(maxLen, right - left);
+            maxLen = Math.max(maxLen, r - l);
         }
         return maxLen;
     }
@@ -42,9 +41,8 @@ https://leetcode.cn/problems/longest-substring-with-at-most-two-distinct-charact
 1 <= s.length <= 10^5
 s 由英文字母组成
 
-滑动窗口 + HashMap
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
-空间复杂度 O(1)
 相似题目: $340. 至多包含 K 个不同字符的最长子串
 https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-characters/
  */

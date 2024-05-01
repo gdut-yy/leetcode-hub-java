@@ -1,20 +1,21 @@
+import java.util.Arrays;
+
 public class Solution1151 {
     public int minSwaps(int[] data) {
-        int len = data.length;
-        int[] preSum = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + data[i];
-        }
+        int n = data.length;
+        int k = Arrays.stream(data).sum();
 
-        // 贪心
-        // 1 的个数
-        int k = preSum[len];
-        // [left, left+sum]
-        int max = 0;
-        for (int i = 0; i + k <= len; i++) {
-            max = Math.max(max, preSum[i + k] - preSum[i]);
+        int sum = 0;
+        for (int i = 0; i < k; i++) {
+            sum += data[i];
         }
-        return k - max;
+        int maxSum = sum;
+        for (int i = k; i < n; i++) {
+            sum -= data[i - k];
+            sum += data[i];
+            maxSum = Math.max(maxSum, sum);
+        }
+        return k - maxSum;
     }
 }
 /*
@@ -28,6 +29,8 @@ https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together/
 1 <= data.length <= 10^5
 0 <= data[i] <= 1
 
-贪心。假设 1 的个数为 k，固定长度为 k 的滑动窗口思想找包含最多 1 的数目，k 相减即为答案。
+定长滑动窗口。
 时间复杂度 O(n)
+相似题目: 2134. 最少交换次数来组合所有的 1 II
+https://leetcode.cn/problems/minimum-swaps-to-group-all-1s-together-ii/
  */

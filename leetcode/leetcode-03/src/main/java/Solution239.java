@@ -1,65 +1,61 @@
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Deque;
+import java.util.List;
 import java.util.TreeSet;
 
 public class Solution239 {
     // 单调队列 O(n)
-    public int[] maxSlidingWindow(int[] nums, int k) {
-        int len = nums.length;
-
-        // 前 k 个
-        Deque<Integer> deque = new ArrayDeque<>();
-        for (int i = 0; i < k; i++) {
-            while (!deque.isEmpty() && nums[i] >= nums[deque.getLast()]) {
-                deque.removeLast();
+    static class V1 {
+        public int[] maxSlidingWindow(int[] nums, int k) {
+            int n = nums.length;
+            Deque<Integer> maxDq = new ArrayDeque<>(); // maxDq.getFirst() 为区间内最大值
+            for (int i = 0; i < k; i++) {
+                while (!maxDq.isEmpty() && nums[i] >= nums[maxDq.getLast()]) maxDq.removeLast();
+                maxDq.addLast(i);
             }
-            deque.addLast(i);
+            List<Integer> ans = new ArrayList<>();
+            ans.add(nums[maxDq.getFirst()]);
+            for (int i = k; i < n; i++) {
+                while (!maxDq.isEmpty() && nums[i] >= nums[maxDq.getLast()]) maxDq.removeLast();
+                maxDq.addLast(i);
+                while (maxDq.getFirst() <= i - k) {
+                    maxDq.removeFirst();
+                }
+                ans.add(nums[maxDq.getFirst()]);
+            }
+            return ans.stream().mapToInt(Integer::intValue).toArray();
         }
-
-        int[] res = new int[len - k + 1];
-        res[0] = nums[deque.getFirst()];
-
-        // k+1 到 len
-        for (int i = k; i < len; i++) {
-            while (!deque.isEmpty() && nums[i] >= nums[deque.getLast()]) {
-                deque.removeLast();
-            }
-            deque.addLast(i);
-
-            while (deque.getFirst() <= i - k) {
-                deque.removeFirst();
-            }
-            res[i - k + 1] = nums[deque.getFirst()];
-        }
-        return res;
     }
 
     // 有序集合 O(nlogn)
-    public int[] maxSlidingWindow2(int[] nums, int k) {
-        int n = nums.length;
+    static class V2 {
+        public int[] maxSlidingWindow(int[] nums, int k) {
+            int n = nums.length;
 
-        TreeSet<Integer> maxTreeSet = new TreeSet<>((o1, o2) -> {
-            if (nums[o1] == nums[o2]) {
-                return Integer.compare(o1, o2);
+            TreeSet<Integer> maxTreeSet = new TreeSet<>((o1, o2) -> {
+                if (nums[o1] == nums[o2]) {
+                    return Integer.compare(o1, o2);
+                }
+                return Integer.compare(nums[o2], nums[o1]);
+            });
+
+            int[] res = new int[n - k + 1];
+            // [0, k-1] 前 k 个
+            for (int i = 0; i < k; i++) {
+                maxTreeSet.add(i);
             }
-            return Integer.compare(nums[o2], nums[o1]);
-        });
+            res[0] = nums[maxTreeSet.first()];
 
-        int[] res = new int[n - k + 1];
-        // [0, k-1] 前 k 个
-        for (int i = 0; i < k; i++) {
-            maxTreeSet.add(i);
+            // [k, n-1] 滑动窗口
+            for (int i = k; i < n; i++) {
+                // 先删后增
+                maxTreeSet.remove(i - k);
+                maxTreeSet.add(i);
+                res[i - k + 1] = nums[maxTreeSet.first()];
+            }
+            return res;
         }
-        res[0] = nums[maxTreeSet.first()];
-
-        // [k, n-1] 滑动窗口
-        for (int i = k; i < n; i++) {
-            // 先删后增
-            maxTreeSet.remove(i - k);
-            maxTreeSet.add(i);
-            res[i - k + 1] = nums[maxTreeSet.first()];
-        }
-        return res;
     }
 }
 /*
@@ -74,16 +70,8 @@ https://leetcode.cn/problems/sliding-window-maximum/
 -10^4 <= nums[i] <= 10^4
 1 <= k <= nums.length
 
-单调队列。
-nums [1, 3, -1, -3, 5, 3, 6, 7]
-idx  [0, 1,  2,  3, 4, 5, 6, 7]
-res      3   3   5  5  6  7
-idx0: deque:[0] 1
-idx1: deque:[1] 3
-idx2: deque:[1,2] 3,-1
-idx3: deque:[1,2,3] 3,-1,-3
-idx4: deque:[4] 5
-idx5: deque:[4,5] 5,3
-idx6: deque:[6] 6
-idx7: deque:[7] 7
+单调队列。队列存放下标
+时间复杂度 O(n)
+相似题目: 1438. 绝对差不超过限制的最长连续子数组
+https://leetcode.cn/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/
  */

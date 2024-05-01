@@ -2,44 +2,37 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution76 {
-    private Map<Character, Integer> tMap;
-
     public String minWindow(String s, String t) {
         int n = s.length();
         int m = t.length();
-        if (n < m) {
-            return "";
-        }
-        tMap = new HashMap<>();
-        for (char ch : t.toCharArray()) {
-            tMap.put(ch, tMap.getOrDefault(ch, 0) + 1);
-        }
+        if (n < m) return "";
 
         Map<Character, Integer> sMap = new HashMap<>();
+        Map<Character, Integer> tMap = new HashMap<>();
+        for (char c : t.toCharArray()) {
+            tMap.merge(c, 1, Integer::sum);
+        }
         int l = 0, r = 0;
-        int ansLen = n + 1;
-        int ansL = 0;
+        int minPos = -1;
+        int minLen = n + 1;
         while (r < n) {
-            char ch = s.charAt(r);
-            sMap.put(ch, sMap.getOrDefault(ch, 0) + 1);
-            while (check(sMap)) {
-                if (ansLen > r - l + 1) {
-                    ansLen = r - l + 1;
-                    ansL = l;
+            sMap.merge(s.charAt(r), 1, Integer::sum);
+            while (check(sMap, tMap)) {
+                if (minLen > r - l + 1) {
+                    minLen = r - l + 1;
+                    minPos = l;
                 }
-                char rm = s.charAt(l);
-                sMap.put(rm, sMap.get(rm) - 1);
+                sMap.merge(s.charAt(l), -1, Integer::sum);
                 l++;
             }
             r++;
         }
-        return (ansLen == n + 1) ? "" : s.substring(ansL, ansL + ansLen);
+        return minPos == -1 ? "" : s.substring(minPos, minPos + minLen);
     }
 
-    private boolean check(Map<Character, Integer> sMap) {
+    private boolean check(Map<Character, Integer> sMap, Map<Character, Integer> tMap) {
         for (Map.Entry<Character, Integer> entry : tMap.entrySet()) {
-            char ch = entry.getKey();
-            if (sMap.getOrDefault(ch, 0) < entry.getValue()) {
+            if (sMap.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
                 return false;
             }
         }
@@ -59,6 +52,7 @@ https://leetcode.cn/problems/minimum-window-substring/
 s 和 t 由英文字母组成
 进阶：你能设计一个在 o(n) 时间内解决此问题的算法吗？
 
-双指针 滑动窗口
+不定长滑动窗口（求最短/最小）
 这题细节较多。提交到第 10 次才通过，UT 中补充一些用例。
+时间复杂度 O(n)
  */

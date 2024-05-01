@@ -3,36 +3,36 @@ import java.util.Map;
 
 public class SolutionI1718 {
     public int[] shortestSeq(int[] big, int[] small) {
-        Map<Integer, Integer> cntMap = new HashMap<>();
+        int n = big.length;
+
+        Map<Integer, Integer> bigMap = new HashMap<>();
         Map<Integer, Integer> smallMap = new HashMap<>();
         for (int x : small) {
-            smallMap.put(x, smallMap.getOrDefault(x, 0) + 1);
+            smallMap.merge(x, 1, Integer::sum);
         }
 
-        int minLen = Integer.MAX_VALUE;
-        int[] res = new int[0];
-        int left = 0;
-        int right = 0;
-        while (right < big.length) {
-            cntMap.put(big[right], cntMap.getOrDefault(big[right], 0) + 1);
-            right++;
-
-            while (cntMapContainsSmallMap(cntMap, smallMap)) {
-                if (right - left < minLen) {
-                    minLen = right - left;
-                    res = new int[]{left, right - 1};
+        int l = 0, r = 0;
+        int minPos = -1;
+        int minLen = n + 1;
+        while (r < n) {
+            bigMap.merge(big[r], 1, Integer::sum);
+            while (check(bigMap, smallMap)) {
+                if (minLen > r - l + 1) {
+                    minLen = r - l + 1;
+                    minPos = l;
                 }
 
-                cntMap.put(big[left], cntMap.getOrDefault(big[left], 0) - 1);
-                left++;
+                bigMap.merge(big[l], -1, Integer::sum);
+                l++;
             }
+            r++;
         }
-        return res;
+        return minPos == -1 ? new int[0] : new int[]{minPos, minPos + minLen - 1};
     }
 
-    private boolean cntMapContainsSmallMap(Map<Integer, Integer> cntMap, Map<Integer, Integer> smallMap) {
+    private boolean check(Map<Integer, Integer> bigMap, Map<Integer, Integer> smallMap) {
         for (Map.Entry<Integer, Integer> entry : smallMap.entrySet()) {
-            if (cntMap.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
+            if (bigMap.getOrDefault(entry.getKey(), 0) < entry.getValue()) {
                 return false;
             }
         }
@@ -49,7 +49,8 @@ https://leetcode.cn/problems/shortest-supersequence-lcci/
 big.length <= 100000
 1 <= small.length <= 100000
 
-滑动窗口
+不定长滑动窗口（求最短/最小）
+时间复杂度 O(n)
 相似题目: 76. 最小覆盖子串
 https://leetcode.cn/problems/minimum-window-substring/
  */

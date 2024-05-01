@@ -75,7 +75,7 @@ https://leetcode.cn/problems/analyze-user-website-visit-pattern/
 3 <= username.length <= 50
 1 <= username[i].length <= 10
 timestamp.length == username.length
-1 <= timestamp[i] <= 109
+1 <= timestamp[i] <= 10^9
 website.length == username.length
 1 <= website[i].length <= 10
 username[i] 和 website[i] 都只含小写字符

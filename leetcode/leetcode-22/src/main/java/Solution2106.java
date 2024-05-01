@@ -1,53 +1,28 @@
 public class Solution2106 {
     public int maxTotalFruits(int[][] fruits, int startPos, int k) {
-        // 0 <= startPos, positioni <= 2 * 10^5
-        // 预处理前缀和
-        int maxLen = 200000 + 5;
-        int[] fruitsNums = new int[maxLen];
-        for (int[] fruit : fruits) {
-            fruitsNums[fruit[0]] = fruit[1];
-        }
-        // 1 <= amounti <= 10^4 不会爆 int
-        int[] preSum = new int[maxLen + 1];
-        for (int i = 0; i < maxLen; i++) {
-            preSum[i + 1] = preSum[i] + fruitsNums[i];
+        int n = fruits.length;
+        // 这里也可以用二分来找 st，向左走最远可以到达 fruits[st][0]
+        int st = n;
+        for (int i = 0; i < n; i++) {
+            if (fruits[i][0] >= startPos - k) {
+                st = i;
+                break;
+            }
         }
 
-        // 向右 a 步
-        // 向左 k - 2a 步
-        int max = 0;
-        for (int a = 0; a <= k; a++) {
-            int rightMax = startPos + a;
-            rightMax = Math.min(rightMax, maxLen - 1);
-            // [startPos, rightMax]
-            int rightTotal = preSum[rightMax + 1] - preSum[startPos];
-            int leftTotal = 0;
-            if (k - 2 * a > 0) {
-                int leftMax = startPos - (k - 2 * a);
-                leftMax = Math.max(0, leftMax);
-                // [leftMax, startPos)
-                leftTotal = preSum[startPos] - preSum[leftMax];
+        int l = st, r = st;
+        int sum = 0, maxSum = 0;
+        while (r < n && fruits[r][0] <= startPos + k) {
+            sum += fruits[r][1];
+            while (fruits[r][0] * 2 - fruits[l][0] - startPos > k
+                    && fruits[r][0] - fruits[l][0] * 2 + startPos > k) {
+                sum -= fruits[l][1];
+                l++;
             }
-            max = Math.max(max, rightTotal + leftTotal);
+            maxSum = Math.max(maxSum, sum);
+            r++;
         }
-
-        // 向左 a 步
-        // 向右 k - 2a 步
-        for (int a = 0; a <= k; a++) {
-            int leftMax = startPos - a;
-            leftMax = Math.max(0, leftMax);
-            // [leftMax, startPos]
-            int leftTotal = preSum[startPos + 1] - preSum[leftMax];
-            int rightTotal = 0;
-            if (k - 2 * a > 0) {
-                int rightMax = startPos + (k - 2 * a);
-                rightMax = Math.min(rightMax, maxLen - 1);
-                // (startPos, rightMax]
-                rightTotal = preSum[rightMax + 1] - preSum[startPos + 1];
-            }
-            max = Math.max(max, rightTotal + leftTotal);
-        }
-        return max;
+        return maxSum;
     }
 }
 /*
@@ -62,7 +37,6 @@ https://leetcode.cn/problems/maximum-fruits-harvested-after-at-most-k-steps/
 就记作 一步 。你总共可以走 最多 k 步。你每达到一个位置，都会摘掉全部的水果，水果也将从该位置消失（不会再生）。
 返回你可以摘到水果的 最大总数 。
 
-范围 10^5
+不定长滑动窗口（求最长/最大）。
 时间复杂度 O(n)
-前缀和 + 分别枚举向左向右步数
  */

@@ -1,86 +1,29 @@
 public class Solution2516 {
-    private int totA;
-    private int totB;
-    private int totC;
-
     public int takeCharacters(String s, int k) {
-        totA = 0;
-        totB = 0;
-        totC = 0;
-        for (char ch : s.toCharArray()) {
-            if (ch == 'a') {
-                totA++;
-            } else if (ch == 'b') {
-                totB++;
-            } else {
-                totC++;
-            }
+        int n = s.length();
+        if (k == 0) return 0;
+        int[] cnt_abc = new int[3];
+        for (int i = 0; i < n; i++) {
+            cnt_abc[s.charAt(i) - 'a']++;
         }
-        if (totA < k || totB < k || totC < k) {
-            return -1;
+        for (int i = 0; i < 3; i++) {
+            cnt_abc[i] -= k;
+            if (cnt_abc[i] < 0) return -1;
         }
 
-        int len = s.length();
-        // 最少取 3k 个，最多全取
-        int left = k * 3;
-        int right = len;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T]
-            // ----------------------^
-            if (checkMid(s, k, mid)) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        int[] cnt_window = new int[n];
+        int l = 0, r = 0, maxLen = -1;
+        while (r < n) {
+            int rIdx = s.charAt(r) - 'a';
+            cnt_window[rIdx]++;
+            while (cnt_window[rIdx] > cnt_abc[rIdx]) {
+                cnt_window[s.charAt(l) - 'a']--;
+                l++;
             }
+            maxLen = Math.max(maxLen, r - l + 1);
+            r++;
         }
-        return left;
-    }
-
-    // mid: 需要的分钟数（取走字符个数）
-    private boolean checkMid(String s, int k, int mid) {
-        // 剩余 m 个
-        int m = s.length() - mid;
-        int cntA = 0;
-        int cntB = 0;
-        int cntC = 0;
-        // 前 m 个
-        for (int i = 0; i < m; i++) {
-            if (s.charAt(i) == 'a') {
-                cntA++;
-            } else if (s.charAt(i) == 'b') {
-                cntB++;
-            } else {
-                cntC++;
-            }
-        }
-        if (totA - cntA >= k && totB - cntB >= k && totC - cntC >= k) {
-            return true;
-        }
-
-        for (int i = m; i < s.length(); i++) {
-            char addCh = s.charAt(i);
-            if (addCh == 'a') {
-                cntA++;
-            } else if (addCh == 'b') {
-                cntB++;
-            } else {
-                cntC++;
-            }
-
-            char rmCh = s.charAt(i - m);
-            if (rmCh == 'a') {
-                cntA--;
-            } else if (rmCh == 'b') {
-                cntB--;
-            } else {
-                cntC--;
-            }
-            if (totA - cntA >= k && totB - cntB >= k && totC - cntC >= k) {
-                return true;
-            }
-        }
-        return false;
+        return n - maxLen;
     }
 }
 /*
@@ -96,7 +39,8 @@ https://leetcode.cn/problems/take-k-of-each-character-from-left-and-right/
 s 仅由字母 'a'、'b'、'c' 组成
 0 <= k <= s.length
 
-二分查找。思路类似 1423
+不定长滑动窗口（求最长/最大）。
+时间复杂度 O(nlogn)
 相似题目: 1423. 可获得的最大点数
 https://leetcode.cn/problems/maximum-points-you-can-obtain-from-cards/
  */

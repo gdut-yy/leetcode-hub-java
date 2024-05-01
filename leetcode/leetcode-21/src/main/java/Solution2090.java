@@ -1,23 +1,24 @@
+import java.util.Arrays;
+
 public class Solution2090 {
     public int[] getAverages(int[] nums, int k) {
-        if (k == 0) {
-            return nums;
+        int n = nums.length;
+        int[] ans = new int[n];
+        Arrays.fill(ans, -1);
+        int span = k + k + 1;
+        if (span > n) return ans;
+
+        long sum = 0;
+        for (int i = 0; i < span; i++) {
+            sum += nums[i];
         }
-        // 前缀和
-        int len = nums.length;
-        long[] preSum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+        ans[k++] = (int) (sum / span);
+        for (int i = span; i < n; i++) {
+            sum -= nums[i - span];
+            sum += nums[i];
+            ans[k++] = (int) (sum / span);
         }
-        int[] res = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (i - k >= 0 && i + k < len) {
-                res[i] = (int) ((preSum[i + k + 1] - preSum[i - k]) / (k + k + 1));
-            } else {
-                res[i] = -1;
-            }
-        }
-        return res;
+        return ans;
     }
 }
 /*
@@ -33,5 +34,6 @@ https://leetcode.cn/problems/k-radius-subarray-averages/
 x 个元素的 平均值 是 x 个元素相加之和除以 x ，此时使用截断式 整数除法 ，即需要去掉结果的小数部分。
 例如，四个元素 2、3、1 和 5 的平均值是 (2 + 3 + 1 + 5) / 4 = 11 / 4 = 3.75，截断后得到 3 。
 
-模拟即可。
+定长滑动窗口。窗口大小为 2k+1
+时间复杂度 O(n)
  */

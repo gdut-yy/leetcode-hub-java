@@ -12,8 +12,6 @@ public class Solution2831Tests {
         int k = 3;
         int expected = 3;
         Assertions.assertEquals(expected, solution2831.longestEqualSubarray(nums, k));
-        Assertions.assertEquals(expected, solution2831.longestEqualSubarray2(nums, k));
-        Assertions.assertEquals(expected, solution2831.longestEqualSubarray3(nums, k));
     }
 
     @Test
@@ -22,7 +20,5 @@ public class Solution2831Tests {
         int k = 2;
         int expected = 4;
         Assertions.assertEquals(expected, solution2831.longestEqualSubarray(nums, k));
-        Assertions.assertEquals(expected, solution2831.longestEqualSubarray2(nums, k));
-        Assertions.assertEquals(expected, solution2831.longestEqualSubarray3(nums, k));
     }
 }

@@ -1,28 +1,22 @@
 public class Solution1052 {
     public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
-        int len = customers.length;
-
-        int res = 0;
-        int[] nums = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (grumpy[i] == 1) {
-                nums[i] = customers[i];
-            } else {
-                // 情绪稳定时的顾客总和
-                res += customers[i];
-            }
+        int n = customers.length;
+        // grumpy[i] = 0 全加到答案
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            if (grumpy[i] == 0) sum += customers[i];
         }
 
-        // 前 minutes 个
         for (int i = 0; i < minutes; i++) {
-            res += nums[i];
+            if (grumpy[i] == 1) sum += customers[i];
         }
-        int max = res;
-        for (int i = minutes; i < len; i++) {
-            res += nums[i] - nums[i - minutes];
-            max = Math.max(max, res);
+        int ans = sum;
+        for (int i = minutes; i < n; i++) {
+            if (grumpy[i - minutes] == 1) sum -= customers[i - minutes];
+            if (grumpy[i] == 1) sum += customers[i];
+            ans = Math.max(ans, sum);
         }
-        return max;
+        return ans;
     }
 }
 /*
@@ -41,5 +35,7 @@ n == customers.length == grumpy.length
 0 <= customers[i] <= 1000
 grumpy[i] == 0 or 1
 
-grumpy[i] = 0 的部分不需要考虑，求 grumpy[i] = 1 的部分固定窗口长度的最大和即可。
+定长滑动窗口。
+grumpy[i] = 0 全加到答案。grumpy[i] = 1 定长滑动窗口取最大值。
+时间复杂度 O(n)
  */

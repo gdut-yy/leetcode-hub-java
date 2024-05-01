@@ -1,25 +1,18 @@
 public class Solution2401 {
     public int longestNiceSubarray(int[] nums) {
-        int len = nums.length;
-
-        // 双指针
-        int left = 0;
-        int right = 0;
-        int max = 0;
-        // 按位或
-        int bitOr = 0;
-        while (right < len) {
-            // 处理左端点
-            while ((bitOr & nums[right]) != 0) {
-                bitOr ^= nums[left];
-                left++;
+        int n = nums.length, l = 0, r = 0, ans = 0;
+        int bitOr = 0; // 按位或
+        while (r < n) {
+            // 如果 bitOr 与新加入的 nums[r] 有交集，则不断从 bitOr 去掉 nums[l]，至多交集为空
+            while ((bitOr & nums[r]) != 0) {
+                bitOr ^= nums[l];
+                l++;
             }
-            // 右端点
-            bitOr |= nums[right];
-            max = Math.max(max, right - left + 1);
-            right++;
+            bitOr |= nums[r];
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
-        return max;
+        return ans;
     }
 }
 /*
@@ -37,6 +30,7 @@ https://leetcode.cn/problems/longest-nice-subarray/
 1 <= nums.length <= 10^5
 1 <= nums[i] <= 10^9
 
+不定长滑动窗口（求最长/最大）
 或运算 | 可以将一个状态加入到集合中
 异或运算 ^ 可以将一个状态从集合中剔除
 时间复杂度 O(n)

@@ -1,17 +1,15 @@
 public class Solution1004 {
     public int longestOnes(int[] nums, int k) {
-        int n = nums.length;
-        int left = 0;
-        int leftSum = 0;
-        int rightSum = 0;
-        int ans = 0;
-        for (int right = 0; right < n; right++) {
-            rightSum += 1 - nums[right];
-            while (leftSum < rightSum - k) {
-                leftSum += 1 - nums[left];
-                left++;
+        int n = nums.length, l = 0, r = 0, ans = 0;
+        int cnt_0 = 0; // 0 的个数
+        while (r < n) {
+            if (nums[r] == 0) cnt_0++;
+            if (cnt_0 > k) {
+                if (nums[l] == 0) cnt_0--;
+                l++;
             }
-            ans = Math.max(ans, right - left + 1);
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
         return ans;
     }
@@ -31,7 +29,8 @@ https://leetcode.cn/problems/max-consecutive-ones-iii/
 nums[i] 不是 0 就是 1
 0 <= k <= nums.length
 
-滑动窗口。
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
-空间复杂度 O(1)
+相似题目: 2024. 考试的最大困扰度
+https://leetcode.cn/problems/maximize-the-confusion-of-an-exam/
  */

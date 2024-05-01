@@ -2,29 +2,17 @@ import java.util.Arrays;
 
 public class Solution1838 {
     public int maxFrequency(int[] nums, int k) {
-        // 升序排列
         Arrays.sort(nums);
-
-        // 前缀和
-        int len = nums.length;
-        int[] preSum = new int[len + 1];
-        preSum[0] = 0;
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
-        }
-
-        // 双指针
-        int ans = 0;
-        for (int left = 0, right = 0; right < nums.length; ) {
-            int between = right - left + 1;
-            // 区间满足条件 是否可在 k 次操作后 “抹平”
-            boolean isFlat = nums[right] * between - (preSum[right + 1] - preSum[left]) <= k;
-            if (isFlat) {
-                ans = Math.max(ans, between);
-                right++;
-            } else {
-                left++;
+        int n = nums.length, l = 0, r = 0, ans = 0;
+        long sum = 0;
+        while (r < n) {
+            sum += nums[r];
+            while (sum + k < nums[r] * (r - l + 1L)) { // 无法在最多 k 次操作后“抹平”
+                sum -= nums[l];
+                l++;
             }
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
         return ans;
     }
@@ -43,5 +31,7 @@ https://leetcode.cn/problems/frequency-of-the-most-frequent-element/
 1 <= nums[i] <= 10^5
 1 <= k <= 10^5
 
-滑动窗口+前缀和。滑动窗口又名“双指针”、“尺取法” 英文为 "two pointers"
+不定长滑动窗口（求最长/最大）。
+排序后滑窗。
+时间复杂度 O(nlogn)
  */

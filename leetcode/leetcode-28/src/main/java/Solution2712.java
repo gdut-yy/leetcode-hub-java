@@ -22,7 +22,7 @@ https://leetcode.cn/problems/minimum-cost-to-make-all-characters-equal/
 返回使字符串内所有字符 相等 需要的 最小成本 。
 反转 字符意味着：如果原来的值是 '0' ，则反转后值变为 '1' ，反之亦然。
 提示：
-1 <= s.length == n <= 105
+1 <= s.length == n <= 10^5
 s[i] 为 '0' 或 '1'
 
 比赛时用了双指针找 相同的子字符串

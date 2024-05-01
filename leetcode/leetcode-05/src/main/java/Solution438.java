@@ -4,30 +4,22 @@ import java.util.List;
 public class Solution438 {
     public List<Integer> findAnagrams(String s, String p) {
         int n = s.length();
-        int m = p.length();
+        int k = p.length(); // 窗口大小
         List<Integer> ans = new ArrayList<>();
-        if (n < m) return ans;
+        if (n < k) return ans;
 
         int[] cnt_window = new int[26];
         int[] cnt_p = new int[26];
-        // [0, m-1]
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < k; i++) {
             cnt_window[s.charAt(i) - 'a']++;
             cnt_p[p.charAt(i) - 'a']++;
         }
-        if (check(cnt_window, cnt_p)) {
-            ans.add(0);
-        }
+        if (check(cnt_window, cnt_p)) ans.add(0);
 
-        // [m, n-1]
-        for (int i = m; i < n; i++) {
-            int add = s.charAt(i) - 'a';
-            int rm = s.charAt(i - m) - 'a';
-            cnt_window[add]++;
-            cnt_window[rm]--;
-            if (check(cnt_window, cnt_p)) {
-                ans.add(i - m + 1);
-            }
+        for (int i = k; i < n; i++) {
+            cnt_window[s.charAt(i - k) - 'a']--;
+            cnt_window[s.charAt(i) - 'a']++;
+            if (check(cnt_window, cnt_p)) ans.add(i - k + 1);
         }
         return ans;
     }
@@ -49,8 +41,8 @@ https://leetcode.cn/problems/find-all-anagrams-in-a-string/
 1 <= s.length, p.length <= 3 * 10^4
 s 和 p 仅包含小写字母
 
-双指针 滑动窗口。
-时间复杂度 O(26n)
+定长滑动窗口。
+时间复杂度 O(n)
 相似题目: 567. 字符串的排列
 https://leetcode.cn/problems/permutation-in-string/
  */

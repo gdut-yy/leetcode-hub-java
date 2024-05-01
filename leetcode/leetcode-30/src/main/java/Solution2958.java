@@ -3,23 +3,16 @@ import java.util.Map;
 
 public class Solution2958 {
     public int maxSubarrayLength(int[] nums, int k) {
-        int n = nums.length;
+        int n = nums.length, l = 0, r = 0, ans = 0;
         Map<Integer, Integer> cntMap = new HashMap<>();
-        int l = 0, r = 0;
-        int ans = 0;
-        // 频次超过 k 的数目
-        int gt_cnt = 0;
+        int cnt_freqGtK = 0; // 频次超过 k 的数目
         while (r < n) {
-            if (cntMap.getOrDefault(nums[r], 0) == k) gt_cnt++;
-            cntMap.put(nums[r], cntMap.getOrDefault(nums[r], 0) + 1);
-
-            while (gt_cnt > 0) {
-                cntMap.put(nums[l], cntMap.get(nums[l]) - 1);
-                if (cntMap.get(nums[l]) == k) gt_cnt--;
+            if (cntMap.merge(nums[r], 1, Integer::sum) == k + 1) cnt_freqGtK++;
+            while (cnt_freqGtK > 0) {
+                if (cntMap.merge(nums[l], -1, Integer::sum) == k) cnt_freqGtK--;
                 l++;
             }
             ans = Math.max(ans, r - l + 1);
-
             r++;
         }
         return ans;
@@ -41,6 +34,6 @@ https://leetcode.cn/problems/length-of-longest-subarray-with-at-most-k-frequency
 1 <= nums[i] <= 10^9
 1 <= k <= nums.length
 
-滑动窗口
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
  */

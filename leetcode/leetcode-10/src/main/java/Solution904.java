@@ -3,20 +3,13 @@ import java.util.Map;
 
 public class Solution904 {
     public int totalFruit(int[] fruits) {
-        int n = fruits.length;
+        int n = fruits.length, l = 0, r = 0, ans = 0;
+        int cnt_unique = 0; // 去重后的个数
         Map<Integer, Integer> cntMap = new HashMap<>();
-        int l = 0, r = 0;
-        int ans = 0;
         while (r < n) {
-            cntMap.put(fruits[r], cntMap.getOrDefault(fruits[r], 0) + 1);
-
-            while (cntMap.size() > 2) {
-                int cnt = cntMap.get(fruits[l]);
-                if (cnt == 1) {
-                    cntMap.remove(fruits[l]);
-                } else {
-                    cntMap.put(fruits[l], cnt - 1);
-                }
+            if (cntMap.merge(fruits[r], 1, Integer::sum) == 1) cnt_unique++;
+            while (cnt_unique > 2) {
+                if (cntMap.merge(fruits[l], -1, Integer::sum) == 0) cnt_unique--;
                 l++;
             }
             ans = Math.max(ans, r - l + 1);
@@ -39,6 +32,6 @@ https://leetcode.cn/problems/fruit-into-baskets/
 1 <= fruits.length <= 10^5
 0 <= fruits[i] < fruits.length
 
-双指针 滑动窗口
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
  */

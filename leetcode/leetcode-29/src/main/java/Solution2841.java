@@ -1,65 +1,29 @@
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class Solution2841 {
     public long maxSum(List<Integer> nums, int m, int k) {
         int n = nums.size();
-        TreeMap<Integer, Integer> multiSet = new TreeMap<>();
-        long sum = 0;
-        for (int i = 0; i < k; i++) {
-            insert(multiSet, nums.get(i));
-            sum += nums.get(i);
-        }
-        long ans = 0;
-        if (multiSet.size() >= m) {
-            ans = sum;
-        }
-        for (int i = k; i < n; i++) {
-            insert(multiSet, nums.get(i));
-            erase(multiSet, nums.get(i - k));
-            sum += nums.get(i) - nums.get(i - k);
-            if (multiSet.size() >= m) {
-                ans = Math.max(ans, sum);
-            }
-        }
-        return ans;
-    }
+        int[] a = nums.stream().mapToInt(Integer::intValue).toArray();
 
-    private void erase(TreeMap<Integer, Integer> map, int v) {
-        map.put(v, map.getOrDefault(v, 0) - 1);
-        if (map.get(v) == 0) map.remove(v);
-    }
-
-    private void insert(TreeMap<Integer, Integer> map, int v) {
-        map.put(v, map.getOrDefault(v, 0) + 1);
-    }
-
-    public long maxSum2(List<Integer> nums, int m, int k) {
-        int n = nums.size();
-
-        int size = 0;
-        long sum = 0;
+        int cnt_unique = 0; // 去重后的个数
+        long sum = 0, maxSum = 0;
         Map<Integer, Integer> cntMap = new HashMap<>();
         for (int i = 0; i < k; i++) {
-            int v = nums.get(i);
-            sum += v;
-            cntMap.put(v, cntMap.getOrDefault(v, 0) + 1);
-            if (cntMap.get(v) == 1) size++;
+            sum += a[i];
+            if (cntMap.merge(a[i], 1, Integer::sum) == 1) cnt_unique++;
         }
-        long ans = (size >= m) ? sum : 0;
+        if (cnt_unique >= m) maxSum = Math.max(maxSum, sum);
+
         for (int i = k; i < n; i++) {
-            int add = nums.get(i);
-            int rm = nums.get(i - k);
-            sum += add - rm;
-            cntMap.put(add, cntMap.getOrDefault(add, 0) + 1);
-            if (cntMap.get(add) == 1) size++;
-            cntMap.put(rm, cntMap.getOrDefault(rm, 0) - 1);
-            if (cntMap.get(rm) == 0) size--;
-            if (size >= m) ans = Math.max(ans, sum);
+            sum -= a[i - k];
+            sum += a[i];
+            if (cntMap.merge(a[i - k], -1, Integer::sum) == 0) cnt_unique--;
+            if (cntMap.merge(a[i], 1, Integer::sum) == 1) cnt_unique++;
+            if (cnt_unique >= m) maxSum = Math.max(maxSum, sum);
         }
-        return ans;
+        return maxSum;
     }
 }
 /*
@@ -77,5 +41,8 @@ https://leetcode.cn/problems/maximum-sum-of-almost-unique-subarray/
 1 <= m <= k <= nums.length
 1 <= nums[i] <= 10^9
 
-滑动窗口
+定长滑动窗口。
+时间复杂度 O(n)
+相似题目: 2461. 长度为 K 子数组中的最大和
+https://leetcode.cn/problems/maximum-sum-of-distinct-subarrays-with-length-k/
  */

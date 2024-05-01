@@ -1,21 +1,17 @@
 public class Solution1343 {
     public int numOfSubarrays(int[] arr, int k, int threshold) {
         int n = arr.length;
-        int res = 0;
-        int sum = 0;
+        int sum = 0, ans = 0;
         for (int i = 0; i < k; i++) {
             sum += arr[i];
         }
-        if (sum >= k * threshold) {
-            res++;
-        }
+        if (sum >= k * threshold) ans++;
         for (int i = k; i < n; i++) {
-            sum += arr[i] - arr[i - k];
-            if (sum >= k * threshold) {
-                res++;
-            }
+            sum -= arr[i - k];
+            sum += arr[i];
+            if (sum >= k * threshold) ans++;
         }
-        return res;
+        return ans;
     }
 }
 /*
@@ -30,5 +26,6 @@ https://leetcode.cn/problems/number-of-sub-arrays-of-size-k-and-average-greater-
 1 <= k <= arr.length
 0 <= threshold <= 10^4
 
-固定大小的滑动窗口
+定长滑动窗口。
+时间复杂度 O(n)
  */

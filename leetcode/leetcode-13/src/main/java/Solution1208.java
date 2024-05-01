@@ -1,19 +1,17 @@
 public class Solution1208 {
     public int equalSubstring(String s, String t, int maxCost) {
-        int n = s.length();
-        int l = 0, r = 0;
-        int sum = 0;
-        int max = 0;
+        int n = s.length(), l = 0, r = 0, ans = 0;
+        int cost = 0;
         while (r < n) {
-            sum += f(s, t, r);
-            while (sum > maxCost) {
-                sum -= f(s, t, l);
+            cost += f(s, t, r);
+            while (cost > maxCost) {
+                cost -= f(s, t, l);
                 l++;
             }
-            max = Math.max(max, r - l + 1);
+            ans = Math.max(ans, r - l + 1);
             r++;
         }
-        return max;
+        return ans;
     }
 
     private int f(String s, String t, int i) {

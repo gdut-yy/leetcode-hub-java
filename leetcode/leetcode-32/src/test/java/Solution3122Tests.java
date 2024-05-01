@@ -21,7 +21,7 @@ public class Solution3122Tests {
     @Test
     public void example3() {
         int[][] grid = UtUtils.stringToInts2("[[1],[2],[3]]");
-        int expected = 3;
+        int expected = 2;
         Assertions.assertEquals(expected, solution3122.minimumOperations(grid));
     }
 }

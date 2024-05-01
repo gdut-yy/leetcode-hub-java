@@ -27,7 +27,7 @@ public class Solution1100 {
     }
 }
 /*
-1100. 长度为 K 的无重复字符子串
+$1100. 长度为 K 的无重复字符子串
 https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/
 
 第 3 场双周赛 T2。

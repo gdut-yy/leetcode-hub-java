@@ -1,21 +1,20 @@
 public class Solution1562 {
     public int findLatestStep(int[] arr, int m) {
         int n = arr.length;
-        if (n == m) {
-            return n;
-        }
+        if (n == m) return n;
+
         int ans = -1;
-        // binary string
-        int[] binStr = new int[n + 2];
+        int[] f = new int[n + 2];
         for (int i = 0; i < n; i++) {
-            int idx = arr[i];
-            int leftLen = binStr[idx - 1];
-            int rightLen = binStr[idx + 1];
-            if (leftLen == m || rightLen == m) {
-                // 返回存在长度 恰好 为 m 的 一组 1 的最后步骤
+            int j = arr[i];
+            int spanL = f[j - 1];
+            int spanR = f[j + 1];
+            if (spanL == m || spanR == m) {
                 ans = i;
             }
-            binStr[idx - leftLen] = binStr[idx + rightLen] = leftLen + rightLen + 1;
+            // 由于合并的时候只会访问区间端点，所以合并区间的时候修改端点区间长度即可。
+            f[j - spanL] = spanL + spanR + 1;
+            f[j + spanR] = spanL + spanR + 1;
         }
         return ans;
     }

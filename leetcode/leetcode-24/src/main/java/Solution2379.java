@@ -1,26 +1,18 @@
 public class Solution2379 {
     public int minimumRecolors(String blocks, int k) {
-        int len = blocks.length();
-
-        // 预处理
-        int[] nums = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (blocks.charAt(i) == 'B') {
-                nums[i] = 1;
-            }
+        int n = blocks.length();
+        // 白块看成 1，答案即长度为 k 时，子数组和的最小值
+        int cnt_white = 0;
+        for (int i = 0; i < k; i++) {
+            if (blocks.charAt(i) == 'W') cnt_white++;
         }
-        // 前缀和
-        int[] preSum = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+        int minSum = cnt_white;
+        for (int i = k; i < n; i++) {
+            if (blocks.charAt(i - k) == 'W') cnt_white--;
+            if (blocks.charAt(i) == 'W') cnt_white++;
+            minSum = Math.min(minSum, cnt_white);
         }
-
-        // 贪心
-        int max = 0;
-        for (int i = k - 1; i < len; i++) {
-            max = Math.max(max, preSum[i + 1] - preSum[i + 1 - k]);
-        }
-        return k - max;
+        return minSum;
     }
 }
 /*
@@ -39,6 +31,6 @@ n == blocks.length
 blocks[i] 要么是 'W' ，要么是 'B' 。
 1 <= k <= n
 
-前缀和 + 贪心
+定长滑动窗口。
 时间复杂度 O(n)
  */

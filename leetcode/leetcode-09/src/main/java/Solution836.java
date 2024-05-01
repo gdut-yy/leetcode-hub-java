@@ -32,7 +32,7 @@ https://leetcode.cn/problems/rectangle-overlap/
 提示：
 rect1.length == 4
 rect2.length == 4
--109 <= rec1[i], rec2[i] <= 109
+-109 <= rec1[i], rec2[i] <= 10^9
 rec1 和 rec2 表示一个面积不为零的有效矩形
 
 需要明确的是，只在角或边接触的两个矩形不构成重叠。

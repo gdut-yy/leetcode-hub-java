@@ -1,11 +1,11 @@
 public class Solution2269 {
     public int divisorSubstrings(int num, int k) {
         String s = String.valueOf(num);
-        int len = s.length();
+        int n = s.length();
 
         int cnt = 0;
-        for (int i = 0; i < len; i++) {
-            if (i + k <= len) {
+        for (int i = 0; i < n; i++) {
+            if (i + k <= n) {
                 String subStr = s.substring(i, i + k);
                 int sub = Integer.parseInt(subStr);
                 if (sub != 0 && num % sub == 0) {

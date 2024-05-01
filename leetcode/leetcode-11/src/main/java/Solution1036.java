@@ -73,9 +73,9 @@ https://leetcode.cn/problems/escape-a-large-maze/
 提示：
 0 <= blocked.length <= 200
 blocked[i].length == 2
-0 <= xi, yi < 106
+0 <= xi, yi < 10^6
 source.length == target.length == 2
-0 <= sx, sy, tx, ty < 106
+0 <= sx, sy, tx, ty < 10^6
 source != target
 题目数据保证 source 和 target 不在封锁列表内
 

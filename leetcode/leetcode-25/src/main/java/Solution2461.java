@@ -5,49 +5,25 @@ import java.util.Set;
 
 public class Solution2461 {
     public long maximumSubarraySum(int[] nums, int k) {
-        int len = nums.length;
+        int n = nums.length;
 
-        // 前缀和
-        long[] preSum = new long[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
-        }
-
-        long max = 0L;
-
+        int cnt_unique = 0; // 去重后的个数
+        long sum = 0, maxSum = 0;
         Map<Integer, Integer> cntMap = new HashMap<>();
-        // >1
-        Set<Integer> gt1Set = new HashSet<>();
-        // 前 k 个 [0,k-1]
         for (int i = 0; i < k; i++) {
-            cntMap.put(nums[i], cntMap.getOrDefault(nums[i], 0) + 1);
-            if (cntMap.get(nums[i]) > 1) {
-                gt1Set.add(nums[i]);
-            }
+            sum += nums[i];
+            if (cntMap.merge(nums[i], 1, Integer::sum) == 1) cnt_unique++;
         }
-        if (gt1Set.isEmpty()) {
-            max = Math.max(max, preSum[k]);
+        if (cnt_unique == k) maxSum = Math.max(maxSum, sum);
+
+        for (int i = k; i < n; i++) {
+            sum -= nums[i - k];
+            sum += nums[i];
+            if (cntMap.merge(nums[i - k], -1, Integer::sum) == 0) cnt_unique--;
+            if (cntMap.merge(nums[i], 1, Integer::sum) == 1) cnt_unique++;
+            if (cnt_unique == k) maxSum = Math.max(maxSum, sum);
         }
-
-        // [i-k+1,i]
-        for (int i = k; i < len; i++) {
-            int add = nums[i];
-            cntMap.put(add, cntMap.getOrDefault(add, 0) + 1);
-            if (cntMap.get(add) > 1) {
-                gt1Set.add(add);
-            }
-
-            int del = nums[i - k];
-            cntMap.put(del, cntMap.getOrDefault(del, 0) - 1);
-            if (cntMap.get(del) <= 1) {
-                gt1Set.remove(del);
-            }
-
-            if (gt1Set.isEmpty()) {
-                max = Math.max(max, preSum[i + 1] - preSum[i - k + 1]);
-            }
-        }
-        return max;
+        return maxSum;
     }
 }
 /*
@@ -65,6 +41,8 @@ https://leetcode.cn/problems/maximum-sum-of-distinct-subarrays-with-length-k/
 1 <= k <= nums.length <= 10^5
 1 <= nums[i] <= 10^5
 
-滑动窗口。需要做到 O(1) 时间复杂度判断窗口内有无重复元素
+定长滑动窗口。
 时间复杂度 O(n)
+相似题目: 2841. 几乎唯一子数组的最大和
+https://leetcode.cn/problems/maximum-sum-of-almost-unique-subarray/
  */

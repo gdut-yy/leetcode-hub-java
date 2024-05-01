@@ -1,14 +1,16 @@
 public class Solution2730 {
     public int longestSemiRepetitiveSubstring(String s) {
-        int n = s.length();
+        int n = s.length(), l = 0, r = 0, ans = 0; // r 从 1 开始
         char[] cs = s.toCharArray();
-        int l = 0, r = 0;
-        int cnt = 0, ans = 0;
+        int same = 0;
         while (r < n) {
-            if (r > 0 && cs[r] == cs[r - 1]) cnt++;
-            while (cnt > 1) {
-                l++;
-                if (cs[l] == cs[l - 1]) cnt--;
+            if (r - 1 >= 0 && cs[r] == cs[r - 1]) same++;
+            // 注意这里不使用 while
+            if (same > 1) {
+                // 将一对相同的字符移到窗口之外。然后将 same 置为 1
+                for (l++; cs[l] != cs[l - 1]; l++) {
+                }
+                same = 1;
             }
             ans = Math.max(ans, r - l + 1);
             r++;
@@ -30,6 +32,6 @@ https://leetcode.cn/problems/find-the-longest-semi-repetitive-substring/
 1 <= s.length <= 50
 '0' <= s[i] <= '9'
 
-双指针。当然数据范围较小，可以直接暴力。
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
  */

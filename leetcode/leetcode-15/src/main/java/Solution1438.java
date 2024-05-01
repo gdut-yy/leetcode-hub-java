@@ -3,43 +3,25 @@ import java.util.Deque;
 
 public class Solution1438 {
     public int longestSubarray(int[] nums, int limit) {
-        int len = nums.length;
+        int n = nums.length, l = 0, r = 0, ans = 0;
+        Deque<Integer> maxDq = new ArrayDeque<>(); // maxDq.getFirst() 为区间内最大值
+        Deque<Integer> minDq = new ArrayDeque<>(); // minDq.getFirst() 为区间内最小值
+        while (r < n) {
+            while (!maxDq.isEmpty() && nums[r] > maxDq.getLast()) maxDq.removeLast();
+            maxDq.addLast(nums[r]);
+            while (!minDq.isEmpty() && nums[r] < minDq.getLast()) minDq.removeLast();
+            minDq.addLast(nums[r]);
 
-        Deque<Integer> deque1 = new ArrayDeque<>();
-        Deque<Integer> deque2 = new ArrayDeque<>();
-
-        int max = 0;
-        // 双指针
-        int left = 0;
-        int right = 0;
-        while (right < len) {
-            // 滑动窗口最大值
-            while (!deque1.isEmpty() && nums[right] > deque1.getLast()) {
-                deque1.removeLast();
+            while (!maxDq.isEmpty() && !minDq.isEmpty()
+                    && maxDq.getFirst() - minDq.getFirst() > limit) {
+                if (nums[l] == maxDq.getFirst()) maxDq.removeFirst();
+                if (nums[l] == minDq.getFirst()) minDq.removeFirst();
+                l++;
             }
-            deque1.addLast(nums[right]);
-            // 滑动窗口最小值
-            while (!deque2.isEmpty() && nums[right] < deque2.getLast()) {
-                deque2.removeLast();
-            }
-            deque2.addLast(nums[right]);
-
-            // 左指针右移
-            while (!deque1.isEmpty() && !deque2.isEmpty()
-                    && deque1.getFirst() - deque2.getFirst() > limit) {
-                if (nums[left] == deque1.getFirst()) {
-                    deque1.removeFirst();
-                }
-                if (nums[left] == deque2.getFirst()) {
-                    deque2.removeFirst();
-                }
-                left++;
-            }
-
-            max = Math.max(max, right - left + 1);
-            right++;
+            ans = Math.max(ans, r - l + 1);
+            r++;
         }
-        return max;
+        return ans;
     }
 }
 /*
@@ -53,7 +35,7 @@ https://leetcode.cn/problems/longest-continuous-subarray-with-absolute-diff-less
 1 <= nums[i] <= 10^9
 0 <= limit <= 10^9
 
-单调队列
+不定长滑动窗口（求最长/最大）。单调队列。队列存放元素。
 时间复杂度 O(n)
 相似题目: 239. 滑动窗口最大值
 https://leetcode.cn/problems/sliding-window-maximum/

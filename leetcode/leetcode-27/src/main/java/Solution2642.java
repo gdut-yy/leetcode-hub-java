@@ -152,7 +152,7 @@ https://leetcode.cn/problems/design-graph-with-shortest-path-calculator/
 0 <= edges.length <= n * (n - 1)
 edges[i].length == edge.length == 3
 0 <= fromi, toi, from, to, node1, node2 <= n - 1
-1 <= edgeCosti, edgeCost <= 106
+1 <= edgeCosti, edgeCost <= 10^6
 图中任何时候都不会有重边和自环。
 调用 addEdge 至多 100 次。
 调用 shortestPath 至多 100 次。

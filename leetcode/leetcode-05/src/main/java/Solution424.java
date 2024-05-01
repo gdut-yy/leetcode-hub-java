@@ -1,23 +1,21 @@
 public class Solution424 {
     public int characterReplacement(String s, int k) {
-        int[] cntArr = new int[26];
-        // 双指针
-        int left = 0;
-        int right = 0;
+        int n = s.length(), l = 0, r = 0;
+        char[] cs = s.toCharArray();
+        int[] cnt = new int[26];
         int max = 0;
-        while (right < s.length()) {
-            cntArr[s.charAt(right) - 'A']++;
-            max = Math.max(max, cntArr[s.charAt(right) - 'A']);
+        while (r < n) {
+            cnt[cs[r] - 'A']++;
+            max = Math.max(max, cnt[cs[r] - 'A']);
 
-            // 左指针右移
-            if (right - left + 1 - max > k) {
-                cntArr[s.charAt(left) - 'A']--;
-                left++;
+            if (max + k < r - l + 1) {
+                cnt[cs[l] - 'A']--;
+                l++;
             }
 
-            right++;
+            r++;
         }
-        return right - left;
+        return r - l;
     }
 }
 /*

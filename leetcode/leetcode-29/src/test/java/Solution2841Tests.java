@@ -13,7 +13,6 @@ public class Solution2841Tests {
         int k = 4;
         long expected = 18;
         Assertions.assertEquals(expected, solution2841.maxSum(nums, m, k));
-        Assertions.assertEquals(expected, solution2841.maxSum2(nums, m, k));
     }
 
     @Test
@@ -23,7 +22,6 @@ public class Solution2841Tests {
         int k = 3;
         long expected = 23;
         Assertions.assertEquals(expected, solution2841.maxSum(nums, m, k));
-        Assertions.assertEquals(expected, solution2841.maxSum2(nums, m, k));
     }
 
     @Test
@@ -33,6 +31,5 @@ public class Solution2841Tests {
         int k = 3;
         long expected = 0;
         Assertions.assertEquals(expected, solution2841.maxSum(nums, m, k));
-        Assertions.assertEquals(expected, solution2841.maxSum2(nums, m, k));
     }
 }

@@ -9,7 +9,7 @@ public class Solution340 {
         }
         // 双指针
         int l = 0, r = 0;
-        int maxL = 1;
+        int maxLen = 1;
         // key: 窗口最右边字符 value: 对应下标
         Map<Character, Integer> rIdxMap = new HashMap<>();
         while (r < n) {
@@ -25,9 +25,9 @@ public class Solution340 {
                 rIdxMap.remove(s.charAt(minIdx));
                 l = minIdx + 1;
             }
-            maxL = Math.max(maxL, r - l);
+            maxLen = Math.max(maxLen, r - l);
         }
-        return maxL;
+        return maxLen;
     }
 }
 /*
@@ -39,9 +39,8 @@ https://leetcode.cn/problems/longest-substring-with-at-most-k-distinct-character
 1 <= s.length <= 5 * 10^4
 0 <= k <= 50
 
-滑动窗口 + HashMap
+不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
-空间复杂度 O(1)
 相似題目: $159. 至多包含两个不同字符的最长子串
 https://leetcode.cn/problems/longest-substring-with-at-most-two-distinct-characters/
  */

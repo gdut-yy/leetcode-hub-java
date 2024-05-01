@@ -1,38 +1,39 @@
 public class Solution1234 {
-    public int balancedString(String s) {
-        int n = s.length();
-        int[] cntArr = new int[4];
-        for (char ch : s.toCharArray()) {
-            cntArr[id(ch)]++;
-        }
-        int part = n / 4;
-        if (check(cntArr, part)) {
-            return 0;
-        }
+    private int n;
+    private char[] s;
 
-        int min = n;
-        int l = 0, r = 0;
+    public int balancedString(String s) {
+        this.n = s.length();
+        this.s = s.toCharArray();
+        int[] cnt = new int[4];
+        for (int i = 0; i < n; i++) {
+            cnt[getId(i)]++;
+        }
+        if (check(cnt)) return 0;
+
+        int l = 0, r = 0, minLen = n;
         while (r < n) {
-            cntArr[id(s.charAt(r))]--;
-            while (check(cntArr, part)) {
-                min = Math.min(min, r - l + 1);
-                cntArr[id(s.charAt(l))]++;
+            cnt[getId(r)]--;
+            while (check(cnt)) {
+                minLen = Math.min(minLen, r - l + 1);
+                cnt[getId(l)]++;
                 l++;
             }
             r++;
         }
-        return min;
+        return minLen;
     }
 
-    private int id(char ch) {
-        if (ch == 'Q') return 0;
-        else if (ch == 'W') return 1;
-        else if (ch == 'E') return 2;
-        else return 3;
+    private int getId(int i) {
+        if (s[i] == 'Q') return 0;
+        if (s[i] == 'W') return 1;
+        if (s[i] == 'E') return 2;
+        return 3;
     }
 
-    private boolean check(int[] cntArr, int part) {
-        return cntArr[0] <= part && cntArr[1] <= part && cntArr[2] <= part && cntArr[3] <= part;
+    private boolean check(int[] cnt) {
+        int part = n / 4;
+        return cnt[0] <= part && cnt[1] <= part && cnt[2] <= part && cnt[3] <= part;
     }
 }
 /*
@@ -50,5 +51,6 @@ https://leetcode.cn/problems/replace-the-substring-for-balanced-string/
 s.length 是 4 的倍数
 s 中只含有 'Q', 'W', 'E', 'R' 四种字符
 
-双指针 滑动窗口
+不定长滑动窗口（求最短/最小）
+时间复杂度 O(n)
  */

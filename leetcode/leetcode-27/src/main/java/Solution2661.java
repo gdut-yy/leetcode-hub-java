@@ -40,8 +40,8 @@ https://leetcode.cn/problems/first-completely-painted-row-or-column/
 m == mat.length
 n = mat[i].length
 arr.length == m * n
-1 <= m, n <= 105
-1 <= m * n <= 105
+1 <= m, n <= 10^5
+1 <= m * n <= 10^5
 1 <= arr[i], mat[r][c] <= m * n
 arr 中的所有整数 互不相同
 mat 中的所有整数 互不相同
