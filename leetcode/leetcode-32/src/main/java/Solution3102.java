@@ -41,7 +41,7 @@ https://leetcode.cn/problems/minimize-manhattan-distances/description/
 points[i].length == 2
 1 <= points[i][0], points[i][1] <= 10^8
 
-曼哈顿距离转切比雪夫距离。平衡树
-https://oi-wiki.org/geometry/distance/
+曼哈顿距离转切比雪夫距离 + 平衡树。
+切比雪夫距离：https://oi-wiki.org/geometry/distance/
 时间复杂度 O(nlogn)
  */

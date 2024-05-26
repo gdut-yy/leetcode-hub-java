@@ -92,6 +92,16 @@ public class UtUtils {
         return JSON.parseArray(input, int[].class).toArray(int[][]::new);
     }
 
+    // String => long[]
+    public static long[] stringToLongs(String input) {
+        return JSON.parseArray(input, Long.class).stream().mapToLong(i -> i).toArray();
+    }
+
+    // String => long[][]
+    public static long[][] stringToLongs2(String input) {
+        return JSON.parseArray(input, long[].class).toArray(long[][]::new);
+    }
+
     // String => char[]
     public static char[] stringToChars(String input) {
         return String.join("", JSON.parseArray(input, String.class)).toCharArray();
