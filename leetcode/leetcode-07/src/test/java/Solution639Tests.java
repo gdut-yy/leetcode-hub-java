@@ -14,7 +14,7 @@ public class Solution639Tests {
     @Test
     public void example2() {
         String s = "1*";
-        int expected = 10;
+        int expected = 18;
         Assertions.assertEquals(expected, solution639.numDecodings(s));
     }
 
