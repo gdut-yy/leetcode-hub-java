@@ -93,6 +93,6 @@ p = a[:len(a)//2]
 q = a[len(a)//2:]
 f11(a) = max(f10(p) + f11(q), f11(p) + f01(q))
 递归边界 f11(a) = max(a[0], 0)
-相似题目: 300. 最长递增子序列
-https://leetcode.cn/problems/longest-increasing-subsequence/
+相似题目: P3097 [USACO13DEC] Optimal Milking G
+https://www.luogu.com.cn/problem/P3097
  */
