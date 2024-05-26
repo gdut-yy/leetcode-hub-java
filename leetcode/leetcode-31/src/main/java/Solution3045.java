@@ -106,5 +106,6 @@ words[i] 仅由小写英文字母组成。
 
 Z 函数 + 字典树。
 时间复杂度 O(L)。
-相似题目:
+相似题目: 745. 前缀和后缀搜索
+https://leetcode.cn/problems/prefix-and-suffix-search/description/
  */

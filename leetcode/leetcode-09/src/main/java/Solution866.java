@@ -65,4 +65,6 @@ https://leetcode.cn/problems/prime-palindrome/
 ...
 9989899
 100030001
+相似题目: 564. 寻找最近的回文数
+https://leetcode.cn/problems/find-the-closest-palindrome/description/
  */
