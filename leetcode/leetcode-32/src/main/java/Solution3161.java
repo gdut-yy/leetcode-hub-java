@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeSet;
 
-public class Solution100314 {
+public class Solution3161 {
     public List<Boolean> getResults(int[][] queries) {
         final int mx = (int) 5e4 + 5;
         final int offset = 1;
@@ -91,7 +91,7 @@ public class Solution100314 {
     }
 }
 /*
-100314. 物块放置查询
+3161. 物块放置查询
 https://leetcode.cn/problems/block-placement-queries/description/
 
 第 131 场双周赛 T4。

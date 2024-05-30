@@ -1,4 +1,4 @@
-public class Solution100306 {
+public class Solution3165 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int maximumSumSubsequence(int[] nums, int[][] queries) {
@@ -63,7 +63,7 @@ public class Solution100306 {
     }
 }
 /*
-100306. 不包含相邻元素的子序列的最大和
+3165. 不包含相邻元素的子序列的最大和
 https://leetcode.cn/problems/maximum-sum-of-subsequence-with-non-adjacent-elements/description/
 
 第 399 场周赛 T4。

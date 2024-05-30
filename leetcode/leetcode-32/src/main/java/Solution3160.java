@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution100313 {
+public class Solution3160 {
     public int[] queryResults(int limit, int[][] queries) {
         Map<Integer, Integer> ballColorMap = new HashMap<>();
         Map<Integer, Integer> colorCntMap = new HashMap<>();
@@ -23,7 +23,7 @@ public class Solution100313 {
     }
 }
 /*
-100313. 所有球里面不同颜色的数目
+3160. 所有球里面不同颜色的数目
 https://leetcode.cn/problems/find-the-number-of-distinct-colors-among-the-balls/description/
 
 第 131 场双周赛 T3。

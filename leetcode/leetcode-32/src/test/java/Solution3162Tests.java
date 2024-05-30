@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution100323Tests {
-    private final Solution100323 solution100323 = new Solution100323();
+public class Solution3162Tests {
+    private final Solution3162 solution3162 = new Solution3162();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution100323Tests {
         int[] nums2 = {1, 3, 4};
         int k = 1;
         int expected = 5;
-        Assertions.assertEquals(expected, solution100323.numberOfPairs(nums1, nums2, k));
+        Assertions.assertEquals(expected, solution3162.numberOfPairs(nums1, nums2, k));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution100323Tests {
         int[] nums2 = {2, 4};
         int k = 3;
         int expected = 2;
-        Assertions.assertEquals(expected, solution100323.numberOfPairs(nums1, nums2, k));
+        Assertions.assertEquals(expected, solution3162.numberOfPairs(nums1, nums2, k));
     }
 }

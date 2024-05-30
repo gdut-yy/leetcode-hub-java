@@ -1,4 +1,4 @@
-public class Solution100323 {
+public class Solution3162 {
     public int numberOfPairs(int[] nums1, int[] nums2, int k) {
         int m = nums2.length;
         for (int i = 0; i < m; i++) {
@@ -14,7 +14,7 @@ public class Solution100323 {
     }
 }
 /*
-100323. 优质数对的总数 I
+3162. 优质数对的总数 I
 https://leetcode.cn/problems/find-the-number-of-good-pairs-i/description/
 
 第 399 场周赛 T1。

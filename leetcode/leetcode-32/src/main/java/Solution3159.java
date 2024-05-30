@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100303 {
+public class Solution3159 {
     public int[] occurrencesOfElement(int[] nums, int[] queries, int x) {
         int n = nums.length;
         List<Integer> posList = new ArrayList<>();
@@ -24,7 +24,7 @@ public class Solution100303 {
     }
 }
 /*
-100303. 查询数组中元素的出现位置
+3159. 查询数组中元素的出现位置
 https://leetcode.cn/problems/find-occurrences-of-an-element-in-an-array/description/
 
 第 131 场双周赛 T2。

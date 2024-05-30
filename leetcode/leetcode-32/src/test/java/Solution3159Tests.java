@@ -1,8 +1,8 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class Solution100303Tests {
-    private final Solution100303 solution100303 = new Solution100303();
+public class Solution3159Tests {
+    private final Solution3159 solution3159 = new Solution3159();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution100303Tests {
         int[] queries = {1, 3, 2, 4};
         int x = 1;
         int[] expected = {0, -1, 2, -1};
-        Assertions.assertArrayEquals(expected, solution100303.occurrencesOfElement(nums, queries, x));
+        Assertions.assertArrayEquals(expected, solution3159.occurrencesOfElement(nums, queries, x));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution100303Tests {
         int[] queries = {10};
         int x = 5;
         int[] expected = {-1};
-        Assertions.assertArrayEquals(expected, solution100303.occurrencesOfElement(nums, queries, x));
+        Assertions.assertArrayEquals(expected, solution3159.occurrencesOfElement(nums, queries, x));
     }
 }

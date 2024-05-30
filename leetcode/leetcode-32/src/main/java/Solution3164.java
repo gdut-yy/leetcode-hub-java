@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution100321 {
+public class Solution3164 {
     // O(n * sqrt(U/k) + m)
     // 521ms
     public long numberOfPairs(int[] nums1, int[] nums2, int k) {
@@ -55,7 +55,7 @@ public class Solution100321 {
     }
 }
 /*
-100321. 优质数对的总数 II
+3164. 优质数对的总数 II
 https://leetcode.cn/problems/find-the-number-of-good-pairs-ii/description/
 
 第 399 场周赛 T3。

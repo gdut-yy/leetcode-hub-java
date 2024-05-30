@@ -1,4 +1,4 @@
-public class Solution100309 {
+public class Solution3158 {
     public int duplicateNumbersXOR(int[] nums) {
         int[] cnt = new int[55];
         for (int v : nums) {
@@ -14,7 +14,7 @@ public class Solution100309 {
     }
 }
 /*
-100309. 求出出现两次数字的 XOR 值
+3158. 求出出现两次数字的 XOR 值
 https://leetcode.cn/problems/find-the-xor-of-numbers-which-appear-twice/description/
 
 第 131 场双周赛 T1。
