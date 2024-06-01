@@ -31,5 +31,5 @@ https://leetcode.cn/problems/string-compression-iii/description/
 word 仅由小写英文字母组成。
 
 分组循环。
-时间复杂度 O(n^2)。
+时间复杂度 O(n)。
  */
