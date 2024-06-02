@@ -28,4 +28,6 @@ arr 中每个元素都 不同
 考虑数组能分成的最多块数量，直接统计符合要求的下标即可。
 时间复杂度 O(n)
 空间复杂度 O(1)
+相似题目: 768. 最多能完成排序的块 II
+https://leetcode.cn/problems/max-chunks-to-make-sorted-ii/description/
  */
