@@ -1,50 +1,51 @@
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class Solution966 {
-    private final Map<String, String> exactlyMap = new HashMap<>();
-    private final Map<String, String> lowercaseMap = new HashMap<>();
-    private final Map<String, String> vowelMap = new HashMap<>();
-
     public String[] spellchecker(String[] wordlist, String[] queries) {
-        for (String s : wordlist) {
-            exactlyMap.put(s, s);
-            String lowercase = s.toLowerCase();
-            lowercaseMap.putIfAbsent(lowercase, s);
-            String vowelString = vowelString(lowercase);
-            vowelMap.putIfAbsent(vowelString, s);
+        Set<String> exactlyMatchesSet = new HashSet<>(); // 完全匹配
+        Map<String, String> capitalizationMap = new HashMap<>(); // 大小写
+        Map<String, String> vowelErrorsMap = new HashMap<>(); // 元音错误
+        for (String word : wordlist) {
+            exactlyMatchesSet.add(word);
+            String lowerCase = word.toLowerCase();
+            capitalizationMap.putIfAbsent(lowerCase, word);
+            String ignoreVowel = ignoreVowel(lowerCase);
+            vowelErrorsMap.putIfAbsent(ignoreVowel, word);
         }
 
-        int len = queries.length;
-        String[] res = new String[len];
-        for (int i = 0; i < len; i++) {
-            String q = queries[i];
-            if (exactlyMap.containsKey(q)) {
-                res[i] = exactlyMap.get(q);
+        int q = queries.length;
+        String[] ans = new String[q];
+        Arrays.fill(ans, "");
+        for (int i = 0; i < q; i++) {
+            String word = queries[i];
+            if (exactlyMatchesSet.contains(word)) {
+                ans[i] = word;
                 continue;
             }
-            String lowercase = q.toLowerCase();
-            if (lowercaseMap.containsKey(lowercase)) {
-                res[i] = lowercaseMap.get(lowercase);
+            String lowerCase = word.toLowerCase();
+            if (capitalizationMap.containsKey(lowerCase)) {
+                ans[i] = capitalizationMap.get(lowerCase);
                 continue;
             }
-            String vowelString = vowelString(lowercase);
-            if (vowelMap.containsKey(vowelString)) {
-                res[i] = vowelMap.get(vowelString);
-                continue;
+            String ignoreVowel = ignoreVowel(lowerCase);
+            if (vowelErrorsMap.containsKey(ignoreVowel)) {
+                ans[i] = vowelErrorsMap.get(ignoreVowel);
             }
-            res[i] = "";
         }
-        return res;
+        return ans;
     }
 
-    private String vowelString(String s) {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (char ch : s.toCharArray()) {
-            boolean isVowel = (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
-            stringBuilder.append(isVowel ? "*" : ch);
+    private String ignoreVowel(String word) {
+        StringBuilder sb = new StringBuilder();
+        for (char c : word.toCharArray()) {
+            boolean isVowel = (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+            sb.append(isVowel ? "*" : c);
         }
-        return stringBuilder.toString();
+        return sb.toString();
     }
 }
 /*

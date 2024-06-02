@@ -5,53 +5,40 @@ public class Solution1801 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int getNumberOfBacklogOrders(int[][] orders) {
-        // 大根堆
+        // 价格, 数量
         PriorityQueue<int[]> buy = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0], o1[0]));
-        // 小根堆
+        // 价格, 数量（查看积压订单中价格 最低 的销售订单 sell）
         PriorityQueue<int[]> sell = new PriorityQueue<>(Comparator.comparing(o -> o[0]));
 
-        for (int[] order : orders) {
-            int price = order[0];
-            int amount = order[1];
-            if (order[2] == 0) {
-                // 0 表示这是一批采购订单 buy
+        for (int[] p : orders) {
+            int price = p[0], amount = p[1], orderType = p[2];
+            if (orderType == 0) { // 0 表示这是一批采购订单 buy
+                // 如果该销售订单 sell 的价格 低于或等于 当前采购订单 buy 的价格，则匹配并执行这两笔订单
                 while (amount > 0 && !sell.isEmpty() && sell.peek()[0] <= price) {
-                    int[] cur = sell.remove();
-                    int cnt = Math.min(cur[1], amount);
-                    cur[1] -= cnt;
-                    amount -= cnt;
-                    if (cur[1] > 0) {
-                        sell.add(cur);
-                    }
+                    int[] top = sell.remove();
+                    int match = Math.min(amount, top[1]);
+                    amount -= match;
+                    top[1] -= match;
+                    if (top[1] > 0) sell.add(top);
                 }
-                if (amount > 0) {
-                    buy.add(new int[]{price, amount});
-                }
-            } else {
-                // 1 表示这是一批销售订单 sell
+                if (amount > 0) buy.add(new int[]{price, amount});
+            } else { // 1 表示这是一批销售订单 sell
+                // 如果该采购订单 buy 的价格 高于或等于 当前销售订单 sell 的价格，则匹配并执行这两笔订单
                 while (amount > 0 && !buy.isEmpty() && buy.peek()[0] >= price) {
-                    int[] cur = buy.remove();
-                    int cnt = Math.min(cur[1], amount);
-                    cur[1] -= cnt;
-                    amount -= cnt;
-                    if (cur[1] > 0) {
-                        buy.add(cur);
-                    }
+                    int[] top = buy.remove();
+                    int match = Math.min(amount, top[1]);
+                    amount -= match;
+                    top[1] -= match;
+                    if (top[1] > 0) buy.add(top);
                 }
-                if (amount > 0) {
-                    sell.add(new int[]{price, amount});
-                }
+                if (amount > 0) sell.add(new int[]{price, amount});
             }
         }
 
-        long res = 0;
-        for (int[] tuple : buy) {
-            res = (res + tuple[1]) % MOD;
-        }
-        for (int[] tuple : sell) {
-            res = (res + tuple[1]) % MOD;
-        }
-        return (int) res;
+        long ans = 0;
+        for (int[] p : buy) ans += p[1];
+        for (int[] p : sell) ans += p[1];
+        return (int) (ans % MOD);
     }
 }
 /*

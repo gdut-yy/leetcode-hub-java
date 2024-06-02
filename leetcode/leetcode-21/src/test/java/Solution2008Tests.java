@@ -10,6 +10,7 @@ public class Solution2008Tests {
         int[][] rides = UtUtils.stringToInts2("[[2,5,4],[1,5,1]]");
         long expected = 7;
         Assertions.assertEquals(expected, solution2008.maxTaxiEarnings(n, rides));
+        Assertions.assertEquals(expected, solution2008.maxTaxiEarnings2(n, rides));
     }
 
     @Test
@@ -18,5 +19,6 @@ public class Solution2008Tests {
         int[][] rides = UtUtils.stringToInts2("[[1,6,1],[3,10,2],[10,12,3],[11,12,2],[12,15,2],[13,18,1]]");
         long expected = 20;
         Assertions.assertEquals(expected, solution2008.maxTaxiEarnings(n, rides));
+        Assertions.assertEquals(expected, solution2008.maxTaxiEarnings2(n, rides));
     }
 }

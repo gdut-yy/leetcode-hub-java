@@ -1,25 +1,18 @@
 public class Solution1358 {
-    public int numberOfSubstrings(String s) {
-        int len = s.length();
-
-        int[] cntArr = new int[3];
-        int res = 0;
-        // 双指针
-        int left = 0;
-        int right = 0;
-        while (right < len) {
-            int rIdx = s.charAt(right) - 'a';
-            cntArr[rIdx] += 1;
-            right++;
-
-            while (cntArr[0] > 0 && cntArr[1] > 0 && cntArr[2] > 0) {
-                res += len - right + 1;
-                int lIdx = s.charAt(left) - 'a';
-                cntArr[lIdx] -= 1;
-                left++;
+    public int numberOfSubstrings(String S) {
+        int n = S.length(), l = 0, r = 0, ans = 0;
+        char[] s = S.toCharArray();
+        int[] cnt = new int[3];
+        while (r < n) {
+            cnt[s[r] - 'a']++;
+            while (cnt[0] > 0 && cnt[1] > 0 && cnt[2] > 0) {
+                ans += n - r;
+                cnt[s[l] - 'a']--;
+                l++;
             }
+            r++;
         }
-        return res;
+        return ans;
     }
 }
 /*

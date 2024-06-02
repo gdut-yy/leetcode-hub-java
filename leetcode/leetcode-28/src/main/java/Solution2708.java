@@ -18,13 +18,13 @@ public class Solution2708 {
     // O(n) DP 解法
     public long maxStrength2(int[] nums) {
         int n = nums.length;
-        long max = nums[0], min = nums[0], ans = nums[0];
+        long mx = nums[0], mn = nums[0], ans = nums[0];
         for (int i = 1; i < n; i++) {
-            long _max = max;
-            max = Math.max(max, Math.max(nums[i], Math.max(max * nums[i], min * nums[i])));
-            min = Math.min(min, Math.min(nums[i], Math.min(_max * nums[i], min * nums[i])));
+            long mx0 = mx;
+            mx = Math.max(mx, Math.max(nums[i], Math.max(mx0 * nums[i], mn * nums[i])));
+            mn = Math.min(mn, Math.min(nums[i], Math.min(mx0 * nums[i], mn * nums[i])));
         }
-        return Math.max(ans, max);
+        return Math.max(ans, mx);
     }
 }
 /*

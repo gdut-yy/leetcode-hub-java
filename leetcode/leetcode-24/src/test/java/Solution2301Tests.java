@@ -2,7 +2,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution2301Tests {
-    private final Solution2301 solution2301 = new Solution2301();
+    private final Solution2301.V1 solution2301_v1 = new Solution2301.V1();
+    private final Solution2301.V2 solution2301_v2 = new Solution2301.V2();
 
     @Test
     public void example1() {
@@ -11,7 +12,8 @@ public class Solution2301Tests {
         char[][] mappings = UtUtils.stringToChars2("""
                 [["e","3"],["t","7"],["t","8"]]
                 """);
-        Assertions.assertTrue(solution2301.matchReplacement(s, sub, mappings));
+        Assertions.assertTrue(solution2301_v1.matchReplacement(s, sub, mappings));
+        Assertions.assertTrue(solution2301_v2.matchReplacement(s, sub, mappings));
     }
 
     @Test
@@ -21,7 +23,8 @@ public class Solution2301Tests {
         char[][] mappings = UtUtils.stringToChars2("""
                 [["o","0"]]
                 """);
-        Assertions.assertFalse(solution2301.matchReplacement(s, sub, mappings));
+        Assertions.assertFalse(solution2301_v1.matchReplacement(s, sub, mappings));
+        Assertions.assertFalse(solution2301_v2.matchReplacement(s, sub, mappings));
     }
 
     @Test
@@ -31,7 +34,7 @@ public class Solution2301Tests {
         char[][] mappings = UtUtils.stringToChars2("""
                 [["e","3"],["t","7"],["t","8"],["d","b"],["p","b"]]
                  """);
-        Assertions.assertTrue(solution2301.matchReplacement(s, sub, mappings));
+        Assertions.assertTrue(solution2301_v1.matchReplacement(s, sub, mappings));
+        Assertions.assertTrue(solution2301_v2.matchReplacement(s, sub, mappings));
     }
-
 }

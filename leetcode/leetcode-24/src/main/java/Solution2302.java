@@ -28,8 +28,7 @@ public class Solution2302 {
     }
 
     public long countSubarrays2(int[] nums, long k) {
-        int n = nums.length;
-        int l = 0, r = 0;
+        int n = nums.length, l = 0, r = 0;
         long ans = 0, sum = 0;
         while (r < n) {
             sum += nums[r];

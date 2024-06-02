@@ -2,25 +2,26 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Solution356 {
-    private static final long E9 = (long) 1e9;
+    private static final int INF = (int) 1e9;
 
     public boolean isReflected(int[][] points) {
-        int minX = Integer.MAX_VALUE;
-        int maxX = Integer.MIN_VALUE;
+        long offset = INF;
+        int mnX = INF;
+        int mxX = -INF;
         Set<Long> set = new HashSet<>();
-        for (int[] point : points) {
-            minX = Math.min(minX, point[0]);
-            maxX = Math.max(maxX, point[0]);
-            set.add(point[0] * E9 + point[1]);
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            mnX = Math.min(mnX, x);
+            mxX = Math.max(mxX, x);
+            set.add(x * offset + y);
         }
 
         // x = (minX + maxX) / 2 省去 / 2
-        int ansX = minX + maxX;
-        for (int[] point : points) {
-            long find = (ansX - point[0]) * E9 + point[1];
-            if (!set.contains(find)) {
-                return false;
-            }
+        int ansX = mnX + mxX;
+        for (int[] p : points) {
+            int x = p[0], y = p[1];
+            long key = (ansX - x) * offset + y;
+            if (!set.contains(key)) return false;
         }
         return true;
     }

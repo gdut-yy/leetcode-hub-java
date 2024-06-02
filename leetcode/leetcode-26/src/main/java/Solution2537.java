@@ -3,31 +3,20 @@ import java.util.Map;
 
 public class Solution2537 {
     public long countGood(int[] nums, int k) {
-        int len = nums.length;
+        int n = nums.length, l = 0, r = 0;
         Map<Integer, Integer> cntMap = new HashMap<>();
-        long sum = 0;
-        long res = 0;
-        int right = 0;
-        for (int left : nums) {
-            // 右指针右移
-            while (sum < k && right < len) {
-                // 频次是 x
-                int x = cntMap.getOrDefault(nums[right], 0);
-                cntMap.put(nums[right], x + 1);
-                right++;
-                sum += x;
+        long ans = 0;
+        int pairs = 0;
+        while (r < n) {
+            pairs += cntMap.merge(nums[r], 1, Integer::sum) - 1;
+            while (pairs - (cntMap.get(nums[l]) - 1) >= k) {
+                pairs -= cntMap.merge(nums[l], -1, Integer::sum);
+                l++;
             }
-            if (sum < k) {
-                break;
-            }
-            res += len - right + 1;
-
-            // 频次是 y
-            int y = cntMap.get(left);
-            cntMap.put(left, y - 1);
-            sum -= y - 1;
+            if (pairs >= k) ans += l + 1;
+            r++;
         }
-        return res;
+        return ans;
     }
 }
 /*

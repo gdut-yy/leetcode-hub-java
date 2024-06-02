@@ -2,17 +2,16 @@ import java.util.Arrays;
 
 public class Solution2962 {
     public long countSubarrays(int[] nums, int k) {
-        int n = nums.length;
+        int n = nums.length, l = 0, r = 0;
         int mx = Arrays.stream(nums).max().orElseThrow();
-        int l = 0, r = 0;
         long ans = 0;
         // 频次大于等于 k 的数目
-        int cnt = 0;
+        int cnt_freqGtK = 0;
         while (r < n) {
-            if (nums[r] == mx) cnt++;
-            while (cnt >= k) {
+            if (nums[r] == mx) cnt_freqGtK++;
+            while (cnt_freqGtK >= k) {
                 ans += n - r;
-                if (nums[l] == mx) cnt--;
+                if (nums[l] == mx) cnt_freqGtK--;
                 l++;
             }
             r++;

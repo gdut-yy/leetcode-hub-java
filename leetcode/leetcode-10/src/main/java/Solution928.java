@@ -1,131 +1,60 @@
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
 public class Solution928 {
-    public int minMalwareSpread(int[][] graph, int[] initial) {
-        int n = graph.length;
+    private int[][] graph;
+    private boolean[] isInitial, vis;
+    private int n, nodeId, cntV;
 
-        // 预处理，isInitial[i] == true 表示节点 i 在 initial 中
-        boolean[] isInitial = new boolean[n];
-        for (int node : initial) {
-            isInitial[node] = true;
+    public int minMalwareSpread(int[][] graph, int[] initial) {
+        this.graph = graph;
+        this.n = graph.length;
+        // 预处理，isInitial[i] = true 表示节点 i 在 initial 中
+        isInitial = new boolean[n];
+        for (int x : initial) {
+            isInitial[x] = true;
+        }
+        vis = new boolean[n];
+
+        // 逆向思维，从不在 initial 中的点 v 出发 dfs，在不经过 initial 中的点的情况下，看 v 只能被一个点感染，还是多个点感染
+        int[] cnt = new int[n];
+        for (int x = 0; x < n; x++) {
+            if (vis[x] || isInitial[x]) continue;
+            nodeId = -1;
+            cntV = 0;
+            dfs(x);
+            if (nodeId < 0) continue;
+            // 删除节点 nodeId 可以让 size 个点不被感染
+            cnt[nodeId] += cntV;
         }
 
-        // 并查集 连接 graph 中不在 initial 中的节点
-        UnionFind unionFind = new UnionFind(n);
-        for (int i = 0; i < n; i++) {
-            if (!isInitial[i]) {
-                for (int j = i + 1; j < n; j++) {
-                    if (!isInitial[j] && graph[i][j] == 1) {
-                        unionFind.union(i, j);
+        int ans = -1;
+        int maxSize = 0;
+        for (int x = 0; x < n; x++) {
+            if (maxSize < cnt[x]) {
+                maxSize = cnt[x];
+                ans = x;
+            }
+        }
+        return ans >= 0 ? ans : Arrays.stream(initial).min().orElseThrow();
+    }
+
+    private void dfs(int x) {
+        vis[x] = true;
+        cntV++;
+        for (int y = 0; y < n; y++) {
+            if (graph[x][y] == 1) {
+                if (isInitial[y]) {
+                    // 注意避免重复统计，例如上图中的 0 有两条不同路径可以遇到 1
+                    if (nodeId == y) continue;
+                    // 同 924 的状态机
+                    if (nodeId == -1) nodeId = y;
+                    else if (nodeId >= 0) nodeId = -2;
+                } else {
+                    if (!vis[y]) {
+                        dfs(y);
                     }
                 }
             }
-        }
-
-        int[] count = new int[n];
-        Map<Integer, Set<Integer>> map = new HashMap<>();
-        // 对于 initial 中的每个点 u，尝试去感染不在 initial 中的 v
-        for (int u : initial) {
-            Set<Integer> vRootSet = new HashSet<>();
-            for (int v = 0; v < n; v++) {
-                if (!isInitial[v] && graph[u][v] == 1) {
-                    vRootSet.add(unionFind.find(v));
-                }
-            }
-            map.put(u, vRootSet);
-            for (Integer vRoot : vRootSet) {
-                count[vRoot] += 1;
-            }
-        }
-
-        int res = -1;
-        int maxSize = -1;
-        for (Map.Entry<Integer, Set<Integer>> entry : map.entrySet()) {
-            int u = entry.getKey();
-            Set<Integer> vRootSet = entry.getValue();
-
-            int score = 0;
-            for (Integer vRoot : vRootSet) {
-                // 只被一个 u 感染
-                if (count[vRoot] == 1) {
-                    score += unionFind.size[vRoot];
-                }
-            }
-
-            // 能够最小化 M(initial) 的节点 || 如果有多个节点满足条件，就返回索引最小的节点。
-            if ((score > maxSize) || (score == maxSize && u < res)) {
-                maxSize = score;
-                res = u;
-            }
-        }
-        return res;
-    }
-
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
-        // 联通分量大小
-        int[] size;
-
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-            // 联通分量大小
-            size = new int[n];
-            Arrays.fill(size, 1);
-        }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                    size[rootP] += size[rootQ];
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                    size[rootQ] += size[rootP];
-                } else {
-                    parent[rootQ] = rootP;
-                    size[rootP] += size[rootQ];
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
         }
     }
 }

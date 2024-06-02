@@ -4,38 +4,63 @@ import java.util.Map;
 import java.util.Set;
 
 public class Solution2301 {
-    private Map<Character, Set<Character>> mappingsMap;
+    static class V1 {
+        private Map<Character, Set<Character>> mp;
 
-    public boolean matchReplacement(String s, String sub, char[][] mappings) {
-        int sLen = s.length();
-        int subLen = sub.length();
+        public boolean matchReplacement(String s, String sub, char[][] mappings) {
+            int sLen = s.length();
+            int subLen = sub.length();
 
-        mappingsMap = new HashMap<>();
-        for (char[] mapping : mappings) {
-            // new -> [old]
-            mappingsMap.computeIfAbsent(mapping[1], key -> new HashSet<>()).add(mapping[0]);
-        }
-
-        for (int i = 0; i + subLen <= sLen; i++) {
-            String subStr = s.substring(i, i + subLen);
-            if (check(subStr, sub)) {
-                return true;
+            mp = new HashMap<>();
+            for (char[] p : mappings) {
+                // new -> [old]
+                mp.computeIfAbsent(p[1], key -> new HashSet<>()).add(p[0]);
             }
-        }
-        return false;
-    }
 
-    private boolean check(String subStr, String sub) {
-        for (int j = 0; j < subStr.length(); j++) {
-            char newi = subStr.charAt(j);
-            char oldi = sub.charAt(j);
-            if (newi != oldi) {
-                if (!mappingsMap.containsKey(newi) || !mappingsMap.get(newi).contains(oldi)) {
-                    return false;
+            for (int i = 0; i + subLen <= sLen; i++) {
+                String subStr = s.substring(i, i + subLen);
+                if (check(subStr, sub)) {
+                    return true;
                 }
             }
+            return false;
         }
-        return true;
+
+        private boolean check(String subStr, String sub) {
+            for (int j = 0; j < subStr.length(); j++) {
+                char newi = subStr.charAt(j);
+                char oldi = sub.charAt(j);
+                if (newi != oldi) {
+                    if (!mp.containsKey(newi) || !mp.get(newi).contains(oldi)) {
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
+    static class V2 {
+        public boolean matchReplacement(String s, String sub, char[][] mappings) {
+            int n = 'z' + 1;
+            boolean[][] mp = new boolean[n][n];
+            for (char[] p : mappings) {
+                mp[p[0]][p[1]] = true;
+            }
+            for (int i = sub.length(); i <= s.length(); i++) {
+                boolean flag = false;
+                for (int j = i - sub.length(); j < i; j++) {
+                    char c = s.charAt(j);
+                    char subj = sub.charAt(j - (i - sub.length()));
+                    if (c != subj && !mp[subj][c]) {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) return true;
+            }
+            return false;
+        }
     }
 }
 /*

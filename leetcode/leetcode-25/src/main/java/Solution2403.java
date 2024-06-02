@@ -34,6 +34,7 @@ https://leetcode.cn/problems/minimum-time-to-kill-all-monsters/
 1 <= power.length <= 17
 1 <= power[i] <= 10^9
 
-状态压缩动态规划
+状态压缩动态规划。
+还可以 二分图最小权匹配。
 时间复杂度 O(n * 2^n)
  */

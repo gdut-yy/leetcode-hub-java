@@ -1,112 +1,52 @@
 import java.util.Arrays;
 
 public class Solution924 {
+    private int[][] graph;
+    private boolean[] isInitial, vis;
+    private int n, nodeId, cntV;
+
     public int minMalwareSpread(int[][] graph, int[] initial) {
-        // 由 n 个节点组成的网络
-        int n = graph.length;
+        this.graph = graph;
+        this.n = graph.length;
+        // 预处理，isInitial[i] = true 表示节点 i 在 initial 中
+        isInitial = new boolean[n];
+        for (int x : initial) {
+            isInitial[x] = true;
+        }
+        vis = new boolean[n];
 
-        // 并查集 处理 连接
-        UnionFind unionFind = new UnionFind(n);
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (graph[i][j] == 1) {
-                    unionFind.union(i, j);
-                }
+        // dfs 找只包含一个被感染节点的最大连通块
+        int ans = -1;
+        int maxSize = 0;
+        for (int x : initial) {
+            if (vis[x]) continue;
+            nodeId = -1;
+            cntV = 0;
+            dfs(x);
+            if (nodeId < 0) continue;
+            if (cntV > maxSize || cntV == maxSize && nodeId < ans) {
+                maxSize = cntV;
+                ans = nodeId;
             }
         }
-
-        // 父节点 "染色"
-        int[] count = new int[n];
-        for (int node : initial) {
-            int root = unionFind.find(node);
-            count[root] += 1;
-        }
-        int res = -1;
-        int maxSize = -1;
-        for (int node : initial) {
-            int root = unionFind.find(node);
-            // 对于 initial 中每个颜色唯一的节点，都去计算联通分量的大小
-            if (count[root] == 1) {
-                int rootSize = unionFind.size[root];
-                // 能够最小化 M(initial) 的节点 || 如果有多个节点满足条件，就返回索引最小的节点。
-                if ((rootSize > maxSize) || (rootSize == maxSize && node < res)) {
-                    maxSize = rootSize;
-                    res = node;
-                }
-            }
-        }
-
-        // 如果 initial 中没有颜色唯一的节点，直接返回 min(initial)
-        if (res == -1) {
-            res = Integer.MAX_VALUE;
-            for (int node : initial) {
-                res = Math.min(res, node);
-            }
-        }
-        return res;
+        return ans >= 0 ? ans : Arrays.stream(initial).min().orElseThrow();
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
-        // 联通分量大小
-        int[] size;
-
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
-            for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-            // 联通分量大小
-            size = new int[n];
-            Arrays.fill(size, 1);
+    private void dfs(int x) {
+        vis[x] = true;
+        cntV++;
+        if (isInitial[x]) {
+            // 状态机：初始状态为 -1
+            // 如果状态是 -1，在找到被感染的节点 x 后，状态变为 x
+            // 如果状态是非负数 x，在找到另一个被感染的节点后，状态变为 -2
+            // 如果状态已经是 -2，则不变
+            if (nodeId == -1) nodeId = x;
+            else if (nodeId >= 0) nodeId = -2;
         }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
+        for (int y = 0; y < n; y++) {
+            if (graph[x][y] == 1 && !vis[y]) {
+                dfs(y);
             }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                    size[rootP] += size[rootQ];
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                    size[rootQ] += size[rootP];
-                } else {
-                    parent[rootQ] = rootP;
-                    size[rootP] += size[rootQ];
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
         }
     }
 }

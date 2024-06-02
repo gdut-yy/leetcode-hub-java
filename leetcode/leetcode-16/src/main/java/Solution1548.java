@@ -1,17 +1,17 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Solution1548 {
     public List<Integer> mostSimilar(int n, int[][] roads, String[] names, String[] targetPath) {
         int m = targetPath.length;
 
-        Map<Integer, List<Integer>> adj = new HashMap<>();
-        for (int[] road : roads) {
-            adj.computeIfAbsent(road[0], key -> new ArrayList<>()).add(road[1]);
-            adj.computeIfAbsent(road[1], key -> new ArrayList<>()).add(road[0]);
+        List<Integer>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : roads) {
+            g[p[0]].add(p[1]);
+            g[p[1]].add(p[0]);
         }
 
         // f[i][j] 表示城市 i 对应 targetPath[j] 的路径中，编辑距离的最小值
@@ -23,7 +23,7 @@ public class Solution1548 {
             for (int i = 0; i < n; i++) {
                 // 编辑距离
                 int editDist = Integer.MAX_VALUE;
-                for (Integer city : adj.getOrDefault(i, new ArrayList<>())) {
+                for (Integer city : g[i]) {
                     editDist = Math.min(editDist, f[city][j - 1]);
                 }
                 f[i][j] = editDist + (names[i].equals(targetPath[j]) ? 0 : 1);
@@ -43,7 +43,7 @@ public class Solution1548 {
         resList.add(lastPos);
         for (int i = m - 2; i >= 0; i--) {
             minDist = Integer.MAX_VALUE;
-            for (Integer city : adj.getOrDefault(lastPos, new ArrayList<>())) {
+            for (Integer city : g[lastPos]) {
                 if (minDist > f[city][i]) {
                     minDist = f[city][i];
                     lastPos = city;

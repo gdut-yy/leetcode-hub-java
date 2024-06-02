@@ -1,6 +1,9 @@
 import java.util.Arrays;
 
 public class Solution1820 {
+    static class V1{
+
+    }
     private int[][] g;
     private int m, n, dfn;
     private int[] pa, pb, vis;

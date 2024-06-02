@@ -1,62 +1,31 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 public class Solution2391 {
+    // 计算从房子 0 到房子 i 的用时 sumT，以及一个数组 tMap 记录每辆车目前的行驶用时。
+    // 遍历结束后，tMap 中保存的就是每辆垃圾车各自的行驶用时。
     public int garbageCollection(String[] garbage, int[] travel) {
-        int len = garbage.length;
-
-        int mCnt = 0;
-        int pCnt = 0;
-        int gCnt = 0;
-        List<Integer> mList = new ArrayList<>();
-        List<Integer> pList = new ArrayList<>();
-        List<Integer> gList = new ArrayList<>();
-        for (int i = 0; i < len; i++) {
-            boolean isM = false;
-            boolean isP = false;
-            boolean isG = false;
-            for (char ch : garbage[i].toCharArray()) {
-                if (ch == 'M') {
-                    mCnt++;
-                    isM = true;
-                } else if (ch == 'P') {
-                    pCnt++;
-                    isP = true;
-                } else if (ch == 'G') {
-                    gCnt++;
-                    isG = true;
-                }
-            }
-            if (isM) {
-                mList.add(i);
-            }
-            if (isP) {
-                pList.add(i);
-            }
-            if (isG) {
-                gList.add(i);
+        int sumT = 0;
+        int[] tMap = new int[3];
+        for (int i = 1; i < garbage.length; i++) {
+            char[] s = garbage[i].toCharArray();
+            sumT += travel[i - 1];
+            for (char c : s) {
+                tMap[getId(c)] = sumT;
             }
         }
 
-        int[] preSum = new int[len];
-        for (int i = 0; i < len - 1; i++) {
-            preSum[i + 1] = preSum[i] + travel[i];
+        int ans = 0;
+        for (String s : garbage) {
+            ans += s.length();
         }
+        ans += Arrays.stream(tMap).sum();
+        return ans;
+    }
 
-        int res = 0;
-        if (mCnt > 0) {
-            int lastM = mList.get(mList.size() - 1);
-            res += preSum[lastM] + mCnt;
-        }
-        if (pCnt > 0) {
-            int lastP = pList.get(pList.size() - 1);
-            res += preSum[lastP] + pCnt;
-        }
-        if (gCnt > 0) {
-            int lastG = gList.get(gList.size() - 1);
-            res += preSum[lastG] + gCnt;
-        }
-        return res;
+    private int getId(char c) {
+        if (c == 'M') return 0;
+        if (c == 'P') return 1;
+        return 2;
     }
 }
 /*

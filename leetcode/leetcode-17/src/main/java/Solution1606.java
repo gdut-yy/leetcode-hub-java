@@ -1,49 +1,51 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 
 public class Solution1606 {
     public List<Integer> busiestServers(int k, int[] arrival, int[] load) {
-        int len = arrival.length;
-        int max = 0;
-        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
+        int n = arrival.length;
+        // 完成时间, 编号
+        PriorityQueue<int[]> busy = new PriorityQueue<>(Comparator.comparingInt(o -> o[0]));
+        // 编号, 有序集合上二分
         TreeSet<Integer> free = new TreeSet<>();
-        // 统计频次
-        Map<Integer, Integer> cntMap = new HashMap<>();
         for (int i = 0; i < k; i++) {
             free.add(i);
         }
-        for (int i = 0; i < len; i++) {
-            int start = arrival[i];
-            int end = start + load[i];
-            while (!busy.isEmpty() && busy.element()[1] <= start) {
-                free.add(busy.remove()[0]);
+
+        // 请求数
+        int[] request = new int[k];
+        for (int i = 0; i < n; i++) {
+            int startTime = arrival[i], finishTime = startTime + load[i];
+
+            while (!busy.isEmpty() && busy.peek()[0] <= startTime) {
+                int[] top = busy.remove();
+                free.add(top[1]);
             }
-            Integer ceiling = free.ceiling(i % k);
-            if (ceiling == null) {
-                ceiling = free.ceiling(0);
-            }
-            if (ceiling == null) {
-                continue;
-            }
-            free.remove(ceiling);
-            busy.add(new int[]{ceiling, end});
-            cntMap.put(ceiling, cntMap.getOrDefault(ceiling, 0) + 1);
-            max = Math.max(max, cntMap.get(ceiling));
+
+            // 如果第 (i % k) 个服务器空闲，那么对应服务器会处理该请求。否则，将请求安排给下一个空闲的服务器
+            Integer idx = free.ceiling(i % k);
+            // 必要的话可能从第 0 个服务器开始继续找下一个空闲的服务器
+            if (idx == null) idx = free.ceiling(0);
+            // 如果所有服务器都已被占据，那么该请求被舍弃（完全不处理）。
+            if (idx == null) continue;
+
+            free.remove(idx);
+            busy.add(new int[]{finishTime, idx});
+            request[idx]++;
         }
 
-        // => List<Integer>
-        List<Integer> resList = new ArrayList<>();
-        for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            if (entry.getValue() == max) {
-                resList.add(entry.getKey());
+        int maxRequest = Arrays.stream(request).max().orElseThrow();
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < k; i++) {
+            if (request[i] == maxRequest) {
+                ans.add(i);
             }
         }
-        return resList;
+        return ans;
     }
 }
 /*

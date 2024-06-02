@@ -1,5 +1,7 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
 public class Solution2008 {
     public long maxTaxiEarnings(int n, int[][] rides) {
@@ -29,6 +31,24 @@ public class Solution2008 {
             f[i] = Math.max(f[i - 1], f[last] + (ri[1] - ri[0] + ri[2]));
         }
         return f[len];
+    }
+
+    // O(n)
+    public long maxTaxiEarnings2(int n, int[][] rides) {
+        List<int[]>[] rideMp = new ArrayList[n + 1];
+        Arrays.setAll(rideMp, e -> new ArrayList<>());
+        for (int[] p : rides) {
+            rideMp[p[1]].add(p);
+        }
+
+        long[] f = new long[n + 1];
+        for (int i = 1; i <= n; i++) {
+            f[i] = f[i - 1];
+            for (int[] p : rideMp[i]) {
+                f[i] = Math.max(f[i], f[p[0]] + p[1] - p[0] + p[2]);
+            }
+        }
+        return f[n];
     }
 }
 /*
