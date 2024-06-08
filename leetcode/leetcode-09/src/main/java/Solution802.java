@@ -1,56 +1,44 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
 
 public class Solution802 {
     public List<Integer> eventualSafeNodes(int[][] graph) {
-        // 拓扑排序
-        Map<Integer, Set<Integer>> outGraph = new HashMap<>();
-        Map<Integer, Set<Integer>> inGraph = new HashMap<>();
-        // 该有向图有 n 个节点，按 0 到 n - 1 编号
         int n = graph.length;
+        int[] inDeg = new int[n];
+        List<Integer>[] rg = new ArrayList[n];
+        Arrays.setAll(rg, e -> new ArrayList<>());
         for (int i = 0; i < n; i++) {
-            int[] edges = graph[i];
-            for (int cur : edges) {
-                Set<Integer> outSet = outGraph.getOrDefault(i, new HashSet<>());
-                outSet.add(cur);
-                outGraph.put(i, outSet);
-
-                Set<Integer> inSet = inGraph.getOrDefault(cur, new HashSet<>());
-                inSet.add(i);
-                inGraph.put(cur, inSet);
+            for (int j : graph[i]) {
+                rg[j].add(i);
+                inDeg[i]++;
             }
         }
 
-        Queue<Integer> queue = new LinkedList<>();
-        // 出度为 0 是安全的
-        for (int i = 0; i < n; i++) {
-            if (outGraph.getOrDefault(i, new HashSet<>()).size() == 0) {
-                queue.add(i);
+        Queue<Integer> q = new ArrayDeque<>();
+        for (int x = 0; x < n; x++) {
+            if (inDeg[x] == 0) {
+                q.add(x);
             }
         }
-        List<Integer> resList = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        List<Integer> ans = new ArrayList<>();
+        while (!q.isEmpty()) {
+            int size = q.size();
             for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-                resList.add(cur);
-                for (int pre : inGraph.getOrDefault(cur, new HashSet<>())) {
-                    outGraph.get(pre).remove(cur);
-                    if (outGraph.get(pre).size() == 0) {
-                        queue.add(pre);
+                int x = q.remove();
+                ans.add(x);
+                for (int y : rg[x]) {
+                    if (--inDeg[y] == 0) {
+                        q.add(y);
                     }
                 }
             }
         }
-        Collections.sort(resList);
-        return resList;
+        Collections.sort(ans);
+        return ans;
     }
 }
 /*

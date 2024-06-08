@@ -89,4 +89,6 @@ grid[i][j] 是 '/'、'\'、或 ' '
 并查集。
 相似题目: LCP 71. 集水器
 https://leetcode.cn/problems/kskhHQ/
+1391. 检查网格中是否存在有效路径
+https://leetcode.cn/problems/check-if-there-is-a-valid-path-in-a-grid/description/
  */
