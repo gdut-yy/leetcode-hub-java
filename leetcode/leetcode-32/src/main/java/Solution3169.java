@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-public class Solution100311 {
+public class Solution3169 {
     public int countDays(int days, int[][] meetings) {
         DynamicSegTreeUpd_sum seg = new DynamicSegTreeUpd_sum();
         for (int[] p : meetings) {
@@ -92,7 +92,7 @@ public class Solution100311 {
     }
 }
 /*
-100311. 无需开会的工作日
+3169. 无需开会的工作日
 https://leetcode.cn/problems/count-days-without-meetings/description/
 
 第 400 场周赛 T2。

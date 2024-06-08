@@ -29,4 +29,6 @@ Winston 构造了一个如上所示的函数 func 。他有一个整数数组 ar
 集合
 相似题目: 898. 子数组按位或操作
 https://leetcode.cn/problems/bitwise-ors-of-subarrays/
+3171. 找到按位与最接近 K 的子数组
+https://leetcode.cn/problems/find-subarray-with-bitwise-and-closest-to-k/description/
  */

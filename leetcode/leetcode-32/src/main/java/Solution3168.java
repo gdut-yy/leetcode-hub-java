@@ -1,4 +1,4 @@
-public class Solution100307 {
+public class Solution3168 {
     public int minimumChairs(String s) {
         int ans = 0, sum = 0;
         for (char c : s.toCharArray()) {
@@ -10,7 +10,7 @@ public class Solution100307 {
     }
 }
 /*
-100307. 候诊室中的最少椅子数
+3168. 候诊室中的最少椅子数
 https://leetcode.cn/problems/minimum-number-of-chairs-in-a-waiting-room/description/
 
 第 400 场周赛 T1。

@@ -1,4 +1,4 @@
-public class Solution100315 {
+public class Solution3171 {
     public int minimumDifference(int[] nums, int k) {
         int n = nums.length;
         int[][] ps = new int[n + 1][31];
@@ -51,7 +51,7 @@ public class Solution100315 {
     }
 }
 /*
-100315. 找到按位与最接近 K 的子数组
+3171. 找到按位与最接近 K 的子数组
 https://leetcode.cn/problems/find-subarray-with-bitwise-and-closest-to-k/description/
 
 第 400 场周赛 T4。

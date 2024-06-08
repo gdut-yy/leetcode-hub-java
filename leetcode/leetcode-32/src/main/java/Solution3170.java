@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-public class Solution100322 {
+public class Solution3170 {
     public String clearStars(String s) {
         int n = s.length();
         PriorityQueue<Node> pq = new PriorityQueue<>((o1, o2) -> {
@@ -41,7 +41,7 @@ public class Solution100322 {
     }
 }
 /*
-100322. 删除星号以后字典序最小的字符串
+3170. 删除星号以后字典序最小的字符串
 https://leetcode.cn/problems/lexicographically-minimum-string-after-removing-stars/description/
 
 第 400 场周赛 T3。
