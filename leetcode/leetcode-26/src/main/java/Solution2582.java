@@ -28,4 +28,6 @@ n 个人站成一排，按从 1 到 n 编号。
 
 模拟。
 时间复杂度 O(n)
+相似题目: 3178. 找出 K 秒后拿着球的孩子
+https://leetcode.cn/problems/find-the-child-who-has-the-ball-after-k-seconds/description/
  */

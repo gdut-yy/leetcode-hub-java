@@ -6,7 +6,6 @@ public class Solution2786 {
     private long[][] memo;
 
     public long maxScore(int[] nums, int x) {
-        // 子序列
         this.nums = nums;
         this.x = x;
         int n = nums.length;
@@ -19,20 +18,13 @@ public class Solution2786 {
 
     // j=1 上一个选了奇数
     private long dfs(int i, int j) {
-        if (i == nums.length) {
-            return 0;
-        }
-        if (memo[i][j] != -1) {
-            return memo[i][j];
-        }
+        if (i == nums.length) return 0;
+        if (memo[i][j] != -1) return memo[i][j];
         // 不选
         long res = dfs(i + 1, j);
         // 选
-        if (nums[i] % 2 == j) {
-            res = Math.max(res, dfs(i + 1, nums[i] % 2) + nums[i]);
-        } else {
-            res = Math.max(res, dfs(i + 1, nums[i] % 2) + nums[i] - x);
-        }
+        boolean b = nums[i] % 2 != j;
+        res = Math.max(res, dfs(i + 1, nums[i] % 2) + nums[i] - (b ? x : 0));
         return memo[i][j] = res;
     }
 }
@@ -53,6 +45,6 @@ https://leetcode.cn/problems/visit-array-positions-to-maximize-score/
 2 <= nums.length <= 10^5
 1 <= nums[i], x <= 10^6
 
-记忆化搜索。选哪个。
+记忆化搜索。选或不选。
 时间复杂度 O(n)
  */

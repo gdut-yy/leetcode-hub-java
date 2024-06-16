@@ -21,4 +21,6 @@ n 是一个偶数
 
 数学。
 假设 n 枚糖共 m 种糖。Alice 最多吃到 m 种糖，同时数量不会超过 n / 2，取二者最少值即可。
+相似题目: 1103. 分糖果 II
+https://leetcode.cn/problems/distribute-candies-to-people/description/
  */

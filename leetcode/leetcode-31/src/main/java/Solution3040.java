@@ -1,12 +1,12 @@
 import java.util.Arrays;
 
 public class Solution3040 {
-    private int n;
     private int[] nums;
+    private int n;
 
     public int maxOperations(int[] nums) {
-        this.n = nums.length;
         this.nums = nums;
+        this.n = nums.length;
         int ans1 = f(nums[0] + nums[1]);
         int ans2 = f(nums[n - 2] + nums[n - 1]);
         int ans3 = f(nums[0] + nums[n - 1]);

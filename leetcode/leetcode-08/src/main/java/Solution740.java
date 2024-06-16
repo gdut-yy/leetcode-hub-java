@@ -23,6 +23,41 @@ public class Solution740 {
         }
         return dp[len - 1];
     }
+
+    // 如果值域 1e9 如何做？
+    private int[] nums, cnt, memo;
+
+    public int deleteAndEarn2(int[] nums) {
+        this.nums = nums;
+        Arrays.sort(nums);
+        cnt = new int[(int) (1e4 + 5)];
+        for (int v : nums) {
+            cnt[v]++;
+        }
+        memo = new int[nums.length];
+        Arrays.fill(memo, -1);
+        return dfs(0);
+    }
+
+    private int dfs(int i) {
+        if (i >= nums.length) return 0;
+        if (memo[i] != -1) return memo[i];
+        int res = dfs(i + 1); // 不选
+        // 选
+        int j = lowerBound(nums, nums[i] + 2);
+        res = Math.max(res, dfs(j) + nums[i] * cnt[nums[i]]);
+        return memo[i] = res;
+    }
+
+    private int lowerBound(int[] a, int key) {
+        int l = 0, r = a.length;
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a[m] >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
+    }
 }
 /*
 740. 删除并获得点数
@@ -36,5 +71,8 @@ https://leetcode.cn/problems/delete-and-earn/
 1 <= nums[i] <= 10^4
 
 先求出每个 num 出现了 cnt 次，求和 sum[num] = num * cnt
-同198题，若选取了 sum[num]，sum[num-1] 和 sum[num+1] 都不可再选取，取 rob(int[] sum) 最大值即可。
+同 198 题，若选取了 sum[num]，sum[num-1] 和 sum[num+1] 都不可再选取，取 rob(int[] sum) 最大值即可。
+如果值域 1e9 如何做？
+相似题目: 100316. 施咒的最大总伤害
+https://leetcode.cn/problems/maximum-total-damage-with-spell-casting/description/
  */
