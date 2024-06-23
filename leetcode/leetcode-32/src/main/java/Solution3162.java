@@ -28,6 +28,6 @@ https://leetcode.cn/problems/find-the-number-of-good-pairs-i/description/
 1 <= k <= 50
 
 暴力。
-相似题目: 100321. 优质数对的总数 II
+相似题目: 3164. 优质数对的总数 II
 https://leetcode.cn/problems/find-the-number-of-good-pairs-ii/description/
  */

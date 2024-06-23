@@ -27,6 +27,6 @@ https://leetcode.cn/problems/distribute-candies-among-children-i/description/
 枚举上下界。
 时间复杂度 O(n)
 与 II 题有 int 和 long 的区别
-相似题目: 100127. 给小朋友们分糖果 II
+相似题目: 2929. 给小朋友们分糖果 II
 https://leetcode.cn/problems/distribute-candies-among-children-ii/description/
  */

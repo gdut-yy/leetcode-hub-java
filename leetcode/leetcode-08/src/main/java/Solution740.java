@@ -73,6 +73,6 @@ https://leetcode.cn/problems/delete-and-earn/
 先求出每个 num 出现了 cnt 次，求和 sum[num] = num * cnt
 同 198 题，若选取了 sum[num]，sum[num-1] 和 sum[num+1] 都不可再选取，取 rob(int[] sum) 最大值即可。
 如果值域 1e9 如何做？
-相似题目: 100316. 施咒的最大总伤害
+相似题目: 3186. 施咒的最大总伤害
 https://leetcode.cn/problems/maximum-total-damage-with-spell-casting/description/
  */

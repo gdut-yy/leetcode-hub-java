@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Solution100317 {
+public class Solution3187 {
     public List<Integer> countOfPeaks(int[] nums, int[][] queries) {
         int n = nums.length;
         // 下标从 1 开始
@@ -77,7 +77,7 @@ public class Solution100317 {
     }
 }
 /*
-100317. 数组中的峰值
+3187. 数组中的峰值
 https://leetcode.cn/problems/peaks-in-array/description/
 
 第 402 场周赛 T4。

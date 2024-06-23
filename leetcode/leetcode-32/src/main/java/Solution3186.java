@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution100316 {
+public class Solution3186 {
     private int[] power;
     private Map<Integer, Integer> cnt;
     private long[] memo;
@@ -44,7 +44,7 @@ public class Solution100316 {
     }
 }
 /*
-100316. 施咒的最大总伤害
+3186. 施咒的最大总伤害
 https://leetcode.cn/problems/maximum-total-damage-with-spell-casting/description/
 
 第 402 场周赛 T3。
