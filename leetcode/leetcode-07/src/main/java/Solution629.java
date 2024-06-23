@@ -1,22 +1,41 @@
 public class Solution629 {
-    private static final int MOD = (int) (1e9 + 7);
-    private static final int MAX_N = 1005;
+    static class V1 {
+        private static final int MOD = (int) (1e9 + 7);
+        private static final int MAX_N = 1005;
 
-    public int kInversePairs(int n, int k) {
-        // f[i][j] 表示我们使用数字 [1,i] 的排列构成长度为 i 的数组，并且恰好包含 j 个逆序对的方案数
-        // f[i][j] = f[i][j−1] − f[i−1][j−i] + f[i−1][j]
-        int[] f = new int[MAX_N];
-        int[] pre = new int[MAX_N];
-        for (int i = 1; i <= n; i++) {
-            f[1] = 1;
-            for (int j = 2; j <= k + 1; j++) {
-                f[j] = (pre[j] - pre[Math.max(0, j - i)] + MOD) % MOD;
+        public int kInversePairs(int n, int k) {
+            // f[i][j] 表示我们使用数字 [1,i] 的排列构成长度为 i 的数组，并且恰好包含 j 个逆序对的方案数
+            // f[i][j] = f[i][j−1] − f[i−1][j−i] + f[i−1][j]
+            int[] f = new int[MAX_N];
+            int[] pre = new int[MAX_N];
+            for (int i = 1; i <= n; i++) {
+                f[1] = 1;
+                for (int j = 2; j <= k + 1; j++) {
+                    f[j] = (pre[j] - pre[Math.max(0, j - i)] + MOD) % MOD;
+                }
+                for (int j = 1; j <= k + 1; j++) {
+                    pre[j] = (pre[j - 1] + f[j]) % MOD;
+                }
             }
-            for (int j = 1; j <= k + 1; j++) {
-                pre[j] = (pre[j - 1] + f[j]) % MOD;
-            }
+            return f[k + 1];
         }
-        return f[k + 1];
+    }
+
+    static class V2 {
+        private static final int MOD = (int) (1e9 + 7);
+
+        public int kInversePairs(int n, int k) {
+            long[][] f = new long[n + 1][k + 1];
+            f[0][0] = 1;
+            for (int i = 1; i <= n; i++) {
+                for (int j = 0; j <= k; j++) {
+                    f[i][j] = (j - 1 >= 0 ? f[i][j - 1] : 0) - (j - i >= 0 ? f[i - 1][j - i] : 0) + f[i - 1][j];
+                    f[i][j] %= MOD;
+                }
+            }
+            long ans = (f[n][k] % MOD + MOD) % MOD;
+            return (int) ans;
+        }
     }
 }
 /*
@@ -29,8 +48,15 @@ https://leetcode.cn/problems/k-inverse-pairs-array/
 说明:
 1. n 的范围是 [1, 1000] 并且 k 的范围是 [0, 1000]。
 
-动态规划。
-https://leetcode.cn/problems/k-inverse-pairs-array/solution/dong-tai-gui-hua-qian-zhui-he-you-hua-by-28eb/
+前缀和优化 DP.
+f[i][j] 表示使用数字 1~i 的排列构成长度为 i 的数组，并且恰好包含 j 个逆序对的方案数
+f[i][j] = \sum_{k=0}^{i-1} f[i-1][j-k]
+---
+f[i][j] = f[i-1][j] + f[i-1][j-1] + ... + f[i-1][j-(i-1)]
+f[i][j-1] =           f[i-1][(j-1)] + f[i-1][(j-1)-1] + ... + f[i-1][(j-1)-(i-1)]
+---
+f[i][j-1] 到 f[i][j] 的递推式：
+f[i][j] = f[i][j-1] - f[i-1][j-i] + f[i-1][j]
 时间复杂度 O(nk)
 空间复杂度 O(k)
  */

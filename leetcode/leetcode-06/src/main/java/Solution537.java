@@ -1,9 +1,7 @@
-import java.text.MessageFormat;
-
 public class Solution537 {
     public String complexNumberMultiply(String num1, String num2) {
-        String[] complex1 = num1.split("\\+|i");
-        String[] complex2 = num2.split("\\+|i");
+        String[] complex1 = num1.split("[+i]");
+        String[] complex2 = num2.split("[+i]");
         int real1 = Integer.parseInt(complex1[0]);
         int imaginary1 = Integer.parseInt(complex1[1]);
         int real2 = Integer.parseInt(complex2[0]);
@@ -11,7 +9,7 @@ public class Solution537 {
 
         int real = real1 * real2 - imaginary1 * imaginary2;
         int imaginary = real1 * imaginary2 + imaginary1 * real2;
-        return MessageFormat.format("{0}+{1}i", String.valueOf(real), String.valueOf(imaginary));
+        return String.format("%d+%di", real, imaginary);
     }
 }
 /*
@@ -26,5 +24,6 @@ https://leetcode.cn/problems/complex-number-multiplication/
 提示：
 num1 和 num2 都是有效的复数表示。
 
-模拟
+模拟。
+时间复杂度 O(1)。
  */

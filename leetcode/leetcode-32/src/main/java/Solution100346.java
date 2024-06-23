@@ -28,5 +28,6 @@ https://leetcode.cn/problems/minimum-operations-to-make-binary-array-elements-eq
 
 奇偶性质。
 时间复杂度 O(n)。
-相似题目: 1529
+相似题目: 1529. 最少的后缀翻转次数
+https://leetcode.cn/problems/minimum-suffix-flips/description/
  */

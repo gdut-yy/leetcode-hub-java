@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution1792Tests {
     private final Solution1792 solution1792 = new Solution1792();
-    // 与标准答案误差范围在 10-5 以内的结果都会视为正确结果。
+    // 与标准答案误差范围在 10^-5 以内的结果都会视为正确结果。
     private static final double DELTA = 1e-5;
 
     @Test

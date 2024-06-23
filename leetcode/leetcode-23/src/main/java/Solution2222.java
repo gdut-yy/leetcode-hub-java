@@ -1,42 +1,32 @@
+import java.util.Arrays;
+
 public class Solution2222 {
     public long numberOfWays(String s) {
-        int len = s.length();
-
-        int[] leftRight = new int[len];
-        int[] rightLeft = new int[len];
+        int n = s.length();
+        int[] L = new int[n];
+        int[] R = new int[n];
 
         // 左到右
-        int cnt0 = 0;
-        int cnt1 = 0;
-        for (int i = 0; i < len; i++) {
-            if (s.charAt(i) == '0') {
-                cnt0++;
-                leftRight[i] = cnt1;
-            } else {
-                cnt1++;
-                leftRight[i] = cnt0;
-            }
+        int[] cnt = new int[2];
+        for (int i = 0; i < n; i++) {
+            int d = s.charAt(i) - '0';
+            cnt[d]++;
+            L[i] = cnt[d ^ 1];
         }
-
         // 右到左
-        cnt0 = 0;
-        cnt1 = 0;
-        for (int i = len - 1; i >= 0; i--) {
-            if (s.charAt(i) == '0') {
-                cnt0++;
-                rightLeft[i] = cnt1;
-            } else {
-                cnt1++;
-                rightLeft[i] = cnt0;
-            }
+        Arrays.fill(cnt, 0);
+        for (int i = n - 1; i >= 0; i--) {
+            int d = s.charAt(i) - '0';
+            cnt[d]++;
+            R[i] = cnt[d ^ 1];
         }
 
         // 统计乘积和
-        long res = 0;
-        for (int i = 0; i < len; i++) {
-            res += (long) leftRight[i] * rightLeft[i];
+        long ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans += (long) L[i] * R[i];
         }
-        return res;
+        return ans;
     }
 }
 /*
