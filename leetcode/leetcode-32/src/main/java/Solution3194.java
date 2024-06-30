@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100342 {
+public class Solution3194 {
     public double minimumAverage(int[] nums) {
         Arrays.sort(nums);
         int mn = Integer.MAX_VALUE;
@@ -11,7 +11,7 @@ public class Solution100342 {
     }
 }
 /*
-100342. 最小元素和最大元素的最小平均值
+3194. 最小元素和最大元素的最小平均值
 https://leetcode.cn/problems/minimum-average-of-smallest-and-largest-elements/description/
 
 第 403 场周赛 T1。

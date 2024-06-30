@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class Solution100333 {
+public class Solution3193 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int numberOfPermutations(int n, int[][] requirements) {
@@ -32,7 +32,7 @@ public class Solution100333 {
     }
 }
 /*
-100333. 统计逆序对的数目
+3193. 统计逆序对的数目
 https://leetcode.cn/problems/count-the-number-of-inversions/description/
 
 第 133 场双周赛 T4。

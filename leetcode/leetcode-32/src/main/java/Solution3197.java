@@ -1,4 +1,4 @@
-public class Solution100332 {
+public class Solution3197 {
     public int minimumSum(int[][] grid) {
         return Math.min(f(grid), f(rotate(grid)));
     }
@@ -68,7 +68,7 @@ public class Solution100332 {
     }
 }
 /*
-100332. 包含所有 1 的最小矩形面积 II
+3197. 包含所有 1 的最小矩形面积 II
 https://leetcode.cn/problems/find-the-minimum-area-to-cover-all-ones-ii/description/
 
 第 403 场周赛 T4。

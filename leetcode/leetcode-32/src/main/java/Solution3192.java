@@ -1,4 +1,4 @@
-public class Solution100346 {
+public class Solution3192 {
     public int minOperations(int[] nums) {
         int pre = 1;
         int ans = 0;
@@ -12,7 +12,7 @@ public class Solution100346 {
     }
 }
 /*
-100346. 使二进制数组全部等于 1 的最少操作次数 II
+3192. 使二进制数组全部等于 1 的最少操作次数 II
 https://leetcode.cn/problems/minimum-operations-to-make-binary-array-elements-equal-to-one-ii/description/
 
 第 133 场双周赛 T3。

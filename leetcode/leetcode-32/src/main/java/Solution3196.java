@@ -1,4 +1,4 @@
-public class Solution100337 {
+public class Solution3196 {
     public long maximumTotalCost(int[] nums) {
         int n = nums.length;
         // f[i] 取正，g[i] 取反
@@ -14,7 +14,7 @@ public class Solution100337 {
     }
 }
 /*
-100337. 最大化子数组的总成本
+3196. 最大化子数组的总成本
 https://leetcode.cn/problems/maximize-total-cost-of-alternating-subarrays/description/
 
 第 403 场周赛 T3。
