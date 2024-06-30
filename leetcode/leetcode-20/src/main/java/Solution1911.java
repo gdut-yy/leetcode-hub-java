@@ -6,7 +6,6 @@ public class Solution1911 {
 
     public long maxAlternatingSum(int[] nums) {
         this.nums = nums;
-
         int n = nums.length;
         memo = new long[n][2];
         for (int i = 0; i < n; i++) {
@@ -15,21 +14,12 @@ public class Solution1911 {
         return dfs(0, 0);
     }
 
-    // i:下标 j:0偶数 1奇数
+    // i:下标 j:0/1 偶数/奇数
     private long dfs(int i, int j) {
-        if (i == nums.length) {
-            return 0;
-        }
-        if (memo[i][j] != -1) {
-            return memo[i][j];
-        }
-
-        long res = dfs(i + 1, j);
-        if (j == 0) {
-            res = Math.max(res, dfs(i + 1, 1) + nums[i]);
-        } else {
-            res = Math.max(res, dfs(i + 1, 0) - nums[i]);
-        }
+        if (i == nums.length) return 0;
+        if (memo[i][j] != -1) return memo[i][j];
+        long res = dfs(i + 1, j); // 不选
+        res = Math.max(res, dfs(i + 1, j ^ 1) + (j == 0 ? nums[i] : -nums[i])); // 选
         return memo[i][j] = res;
     }
 }
@@ -47,7 +37,7 @@ https://leetcode.cn/problems/maximum-alternating-subsequence-sum/
 1 <= nums.length <= 10^5
 1 <= nums[i] <= 10^5
 
-记忆化搜索
+记忆化搜索。
 时间复杂度 O(n)
 空间复杂度 O(n)
  */

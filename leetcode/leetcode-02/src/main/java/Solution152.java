@@ -40,4 +40,6 @@ https://leetcode.cn/problems/maximum-product-subarray/solution/cheng-ji-zui-da-z
 空间复杂度 O(n)
 相似题目: 53. 最大子数组和
 https://leetcode.cn/problems/maximum-subarray/
+1594. 矩阵的最大非负积
+https://leetcode.cn/problems/maximum-non-negative-product-in-a-matrix/description/
  */

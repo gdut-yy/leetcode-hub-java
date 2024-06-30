@@ -26,7 +26,7 @@ public class Solution2031 {
 $2031. 1 比 0 多的子数组个数
 https://leetcode.cn/problems/count-subarrays-with-more-ones-than-zeros/description/
 
-给你一个只包含 0 和 1 的数组 nums，请返回 1 的数量 大于 0 的数量的子数组的个数。由于答案可能很大，请返回答案对 109 + 7 取余 的结果。
+给你一个只包含 0 和 1 的数组 nums，请返回 1 的数量 大于 0 的数量的子数组的个数。由于答案可能很大，请返回答案对 10^9 + 7 取余 的结果。
 一个 子数组 指的是原数组中连续的一个子序列。
 提示:
 1 <= nums.length <= 10^5

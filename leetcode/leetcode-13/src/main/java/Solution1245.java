@@ -1,30 +1,28 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class Solution1245 {
-    private Map<Integer, List<Integer>> adj;
+    private List<Integer>[] g;
     private int ans;
 
     public int treeDiameter(int[][] edges) {
-        adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        int n = edges.length + 1;
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : edges) {
+            g[p[0]].add(p[1]);
+            g[p[1]].add(p[0]);
         }
         ans = 0;
-
         dfs(0, -1);
         return ans;
     }
 
     private int dfs(int x, int fa) {
         int maxLen = 0;
-        for (int y : adj.getOrDefault(x, new ArrayList<>())) {
-            if (y == fa) {
-                continue;
-            }
+        for (int y : g[x]) {
+            if (y == fa) continue;
             int len = dfs(y, x);
             ans = Math.max(ans, maxLen + len);
             maxLen = Math.max(maxLen, len);

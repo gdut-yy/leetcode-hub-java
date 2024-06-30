@@ -36,7 +36,7 @@ https://leetcode.cn/problems/minimum-cost-to-equalize-array/description/
 - 从 nums 中选择下标 i 并且将 nums[i] 增加 1 ，开销为 cost1。
 - 选择 nums 中两个 不同 下标 i 和 j ，并且将 nums[i] 和 nums[j] 都 增加 1 ，开销为 cost2 。
 你的目标是使数组中所有元素都 相等 ，请你返回需要的 最小开销 之和。
-由于答案可能会很大，请你将它对 109 + 7 取余 后返回。
+由于答案可能会很大，请你将它对 10^9 + 7 取余 后返回。
 提示：
 1 <= nums.length <= 10^5
 1 <= nums[i] <= 10^6
