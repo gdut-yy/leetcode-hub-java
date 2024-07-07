@@ -108,4 +108,6 @@ n == 2^x 其中 0 <= x <= 6
 时间复杂度 O(n^2)
 相似题目: 558. 四叉树交集
 https://leetcode.cn/problems/logical-or-of-two-binary-grids-represented-as-quad-trees/description/
+1444. 切披萨的方案数
+https://leetcode.cn/problems/number-of-ways-of-cutting-a-pizza/description/
  */

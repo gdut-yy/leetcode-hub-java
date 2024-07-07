@@ -58,4 +58,6 @@ s 仅由小写英文字母组成
 DFS + 前缀和 + 按位异或性质
 相似题目: 2246. 相邻字符不同的最长路径
 https://leetcode.cn/problems/longest-path-with-different-adjacent-characters/
+1457. 二叉树中的伪回文路径
+https://leetcode.cn/problems/pseudo-palindromic-paths-in-a-binary-tree/description/
  */
