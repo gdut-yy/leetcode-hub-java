@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Solution100318 {
+public class Solution3203 {
     public int minimumDiameterAfterMerge(int[][] edges1, int[][] edges2) {
         int d1 = treeDiameter(edges1);
         int d2 = treeDiameter(edges2);
@@ -37,7 +37,7 @@ public class Solution100318 {
     }
 }
 /*
-100318. 合并两棵树后的最小直径
+3203. 合并两棵树后的最小直径
 https://leetcode.cn/problems/find-minimum-diameter-after-merging-two-trees/description/
 
 第 404 场周赛 T4。

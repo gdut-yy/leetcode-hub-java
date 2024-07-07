@@ -1,4 +1,4 @@
-public class Solution100340 {
+public class Solution3200 {
     public int maxHeightOfTriangle(int red, int blue) {
         int h1 = getH(new int[]{red, blue});
         int h2 = getH(new int[]{blue, red});
@@ -16,7 +16,7 @@ public class Solution100340 {
     }
 }
 /*
-100340. 三角形的最大高度
+3200. 三角形的最大高度
 https://leetcode.cn/problems/maximum-height-of-a-triangle/description/
 
 第 404 场周赛 T1。

@@ -1,7 +1,7 @@
 import java.util.HashMap;
 import java.util.Map;
 
-public class Solution100358 {
+public class Solution3202 {
     public int maximumLength(int[] nums, int k) {
         int ans = 0;
         int[][] f = new int[k][k];
@@ -47,7 +47,7 @@ public class Solution100358 {
     }
 }
 /*
-100358. 找出有效子序列的最大长度 II
+3202. 找出有效子序列的最大长度 II
 https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-ii/description/
 
 第 404 场周赛 T3。

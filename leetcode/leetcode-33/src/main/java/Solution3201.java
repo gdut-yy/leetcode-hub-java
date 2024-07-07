@@ -1,4 +1,4 @@
-public class Solution100357 {
+public class Solution3201 {
     public int maximumLength(int[] nums) {
         return maximumLength(nums, 2);
     }
@@ -17,7 +17,7 @@ public class Solution100357 {
     }
 }
 /*
-100357. 找出有效子序列的最大长度 I
+3201. 找出有效子序列的最大长度 I
 https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-i/description/
 
 第 404 场周赛 T2。
@@ -31,6 +31,6 @@ nums 的子序列 sub 的长度为 x ，如果其满足以下条件，则称其�
 2 <= nums.length <= 2 * 10^5
 1 <= nums[i] <= 10^7
 
-同: 100358. 找出有效子序列的最大长度 II
+同: 3202. 找出有效子序列的最大长度 II
 https://leetcode.cn/problems/find-the-maximum-length-of-valid-subsequence-ii/description/
  */
