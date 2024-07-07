@@ -69,4 +69,6 @@ https://leetcode.cn/problems/permutation-sequence/
 考虑使用 nextPermutation 求解，9! = 362880 < 1e6，可以过。
 相似题目: 31. 下一个排列
 https://leetcode.cn/problems/next-permutation/
+1415. 长度为 n 的开心字符串中字典序第 k 小的字符串
+https://leetcode.cn/problems/the-k-th-lexicographical-string-of-all-happy-strings-of-length-n/description/
  */

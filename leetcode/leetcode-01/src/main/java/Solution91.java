@@ -47,4 +47,6 @@ s 只包含数字，并且可能包含前导零。
 空间复杂度 O(n)
 相似题目: 剑指 Offer 46. 把数字翻译成字符串
 https://leetcode.cn/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/
+1416. 恢复数组
+https://leetcode.cn/problems/restore-the-array/description/
  */
