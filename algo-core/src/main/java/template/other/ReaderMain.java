@@ -1,4 +1,4 @@
-package template;
+package template.other;
 
 import java.io.DataInputStream;
 import java.io.FileInputStream;

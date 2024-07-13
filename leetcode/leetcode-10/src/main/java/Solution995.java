@@ -1,24 +1,23 @@
 public class Solution995 {
     public int minKBitFlips(int[] nums, int k) {
-        int len = nums.length;
+        int n = nums.length;
 
-        // 差分数组
-        int[] diff = new int[len + 1];
-        int res = 0;
-        int revCnt = 0;
-        for (int i = 0; i < len; i++) {
-            revCnt += diff[i];
+        int[] diff = new int[n + 1];
+        int ans = 0;
+        int sumD = 0;
+        for (int i = 0; i < n; i++) {
+            sumD += diff[i];
             // 说明当前元素的实际值为 0
-            if ((nums[i] + revCnt) % 2 == 0) {
-                if (i + k > len) {
+            if ((nums[i] + sumD) % 2 == 0) {
+                if (i + k > n) {
                     return -1;
                 }
-                res++;
-                revCnt++;
+                ans++;
+                sumD++;
                 diff[i + k]--;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*
@@ -33,7 +32,7 @@ k位翻转 就是从 nums 中选择一个长度为 k 的 子数组 ，同时把�
 1 <= nums.length <= 10^5
 1 <= k <= nums.length
 
-差分数组
+差分数组。
 时间复杂度 O(n)
 空间复杂度 O(n)
  */

@@ -1,51 +1,25 @@
 public class Solution2167 {
     public int minimumTime(String s) {
-        int len = s.length();
+        int n = s.length();
 
-        // dp
-        int[] dpLeft1 = new int[len];
-        int[] dpLeft2 = new int[len];
-        int[] dpRight1 = new int[len];
-        int[] dpRight2 = new int[len];
-
-        // 初始状态
-        if (s.charAt(0) == '1') {
-            dpLeft1[0] = 1;
-            dpLeft2[0] = 1;
+        // 前后缀分解
+        int[] pre = new int[n + 1];
+        for (int i = 0; i < n; i++) {
+            int pre0 = (i - 1 >= 0 ? pre[i - 1] : 0);
+            if (s.charAt(i) == '0') pre[i] = pre0;
+            else pre[i] = Math.min(pre0 + 2, i + 1);
         }
-        if (s.charAt(len - 1) == '1') {
-            dpRight1[len - 1] = 1;
-            dpRight2[len - 1] = 1;
+        int[] suf = new int[n + 1];
+        for (int i = n - 1; i >= 0; i--) {
+            if (s.charAt(i) == '0') suf[i] = suf[i + 1];
+            else suf[i] = Math.min(suf[i + 1] + 2, n - i);
         }
 
-        // 从左往右
-        for (int i = 1; i < len; i++) {
-            if (s.charAt(i) == '1') {
-                dpLeft1[i] = i + 1;
-                dpLeft2[i] = Math.min(dpLeft2[i - 1] + 2, dpLeft1[i]);
-            } else {
-                dpLeft1[i] = dpLeft1[i - 1];
-                dpLeft2[i] = dpLeft2[i - 1];
-            }
+        int ans = n;
+        for (int i = 0; i < n; i++) {
+            ans = Math.min(ans, pre[i] + suf[i]);
         }
-
-        // 右往左
-        for (int i = len - 2; i >= 0; i--) {
-            if (s.charAt(i) == '1') {
-                dpRight1[i] = len - i;
-                dpRight2[i] = Math.min(dpRight2[i + 1] + 2, dpRight1[i]);
-            } else {
-                dpRight1[i] = dpRight1[i + 1];
-                dpRight2[i] = dpRight2[i + 1];
-            }
-        }
-
-        // 上界为字符串长度
-        int min = len;
-        for (int i = 0; i < len; i++) {
-            min = Math.min(min, dpLeft2[i] + dpRight2[i]);
-        }
-        return min;
+        return ans;
     }
 }
 /*
@@ -62,10 +36,12 @@ https://leetcode.cn/problems/minimum-time-to-remove-all-cars-containing-illegal-
 返回移除所有载有违禁货物车厢所需要的 最少 单位时间数。
 注意，空的列车车厢序列视为没有车厢含违禁货物。
 
-简单分析一下，因为可能存在 0010011100 的情形，没法直接贪心，单向动态规划不满足无后效性要求，尝试双向动态规划。
-dpLeft1[i] 表示均从列车 左 端移除一节车厢所花费时间
-dpRight1[i] 表示均从列车 右 端移除一节车厢所花费时间
-dpLeft2[i] 表示均从列车 左 端移除一节车厢所花费最小时间
-dpRight2[i] 表示均从列车 右 端移除一节车厢所花费最小时间
-答案即为每对 dpLeft2[i] + dpRight2[i] 的最小值
+前后缀分解 + DP。
+pre[i] 表示移除从 s[0] 到 s[i] 的所有违禁货物车厢所花费的最少时间。
+  - 当 s[i]=0 时，无需移除车厢，则有 pre[i]=pre[i−1]；
+  - 当 s[i]=1 时，可以单独移除第 i 节车厢，也可以移除前 i 个车厢，二者取最小值，即 pre[i]=min(pre[i−1]+2,i+1)。
+suf[i] 表示移除从 s[i] 到 s[n−1] 的所有违禁货物车厢所花费的最少时间。
+  - 当 s[i]=0 时，无需移除车厢，则有 suf[i]=suf[i+1]；
+  - 当 s[i]=1 时，无需移除车厢，则有 suf[i]=min(suf[i+1]+2,n-i)。
+时间复杂度 O(n)。
  */

@@ -1,51 +1,77 @@
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Solution60 {
-    public String getPermutation(int n, int k) {
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = i + 1;
-        }
-
-        // 9! = 362880
-        for (int i = 0; i < k - 1; i++) {
-            nextPermutation(nums);
-        }
-
-        // int[] => String
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int num : nums) {
-            stringBuilder.append(num);
-        }
-        return stringBuilder.toString();
-    }
-
-    // solution31 时间复杂度 O(n)
-    private void nextPermutation(int[] nums) {
-        int i = nums.length - 2;
-        while (i >= 0 && nums[i] >= nums[i + 1]) {
-            i--;
-        }
-        if (i >= 0) {
-            int j = nums.length - 1;
-            while (j >= 0 && nums[i] >= nums[j]) {
-                j--;
+    static class V1 {
+        public String getPermutation(int n, int k) {
+            int[] ans = new int[n];
+            for (int i = 0; i < n; i++) {
+                ans[i] = i + 1;
             }
-            swap(nums, i, j);
+            // 9! = 362880
+            for (int i = 0; i < k - 1; i++) {
+                nextPermutation(ans);
+            }
+            return Arrays.stream(ans).mapToObj(String::valueOf).collect(Collectors.joining());
         }
-        reverse(nums, i + 1);
+
+        // solution31 时间复杂度 O(n)
+        private void nextPermutation(int[] nums) {
+            int i = nums.length - 2;
+            while (i >= 0 && nums[i] >= nums[i + 1]) {
+                i--;
+            }
+            if (i >= 0) {
+                int j = nums.length - 1;
+                while (j >= 0 && nums[i] >= nums[j]) {
+                    j--;
+                }
+                swap(nums, i, j);
+            }
+            reverse(nums, i + 1);
+        }
+
+        private void swap(int[] nums, int i, int j) {
+            int tmp = nums[i];
+            nums[i] = nums[j];
+            nums[j] = tmp;
+        }
+
+        private void reverse(int[] nums, int start) {
+            int right = nums.length - 1;
+            while (start < right) {
+                swap(nums, start, right);
+                start++;
+                right--;
+            }
+        }
     }
 
-    private void swap(int[] nums, int i, int j) {
-        int tmp = nums[i];
-        nums[i] = nums[j];
-        nums[j] = tmp;
-    }
+    static class V2 {
+        public String getPermutation(int n, int k) {
+            int[] factorial = new int[n];
+            factorial[0] = 1;
+            for (int i = 1; i < n; ++i) {
+                factorial[i] = factorial[i - 1] * i;
+            }
 
-    private void reverse(int[] nums, int start) {
-        int right = nums.length - 1;
-        while (start < right) {
-            swap(nums, start, right);
-            start++;
-            right--;
+            --k;
+            StringBuilder ans = new StringBuilder();
+            int[] valid = new int[n + 1];
+            Arrays.fill(valid, 1);
+            for (int i = 1; i <= n; ++i) {
+                int order = k / factorial[n - i] + 1;
+                for (int j = 1; j <= n; ++j) {
+                    order -= valid[j];
+                    if (order == 0) {
+                        ans.append(j);
+                        valid[j] = 0;
+                        break;
+                    }
+                }
+                k %= factorial[n - i];
+            }
+            return ans.toString();
         }
     }
 }

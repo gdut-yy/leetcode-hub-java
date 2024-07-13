@@ -4,26 +4,22 @@ package template;
  * 快速幂
  */
 public class QuickPower {
-    /**
-     * 快速幂 res = a^b % mod
-     */
-    private long quickPow(long a, long b, long mod) {
+    static final int MOD = (int) (1e9 + 7);
+
+    // 快速幂 res = a^b % mod
+    private long quickPow(long a, long b) {
         long res = 1L;
         while (b > 0) {
-            if ((b & 1) == 1) {
-                res = res * a % mod;
-            }
-            a = a * a % mod;
+            if ((b & 1) != 0) res = res * a % MOD;
+            a = a * a % MOD;
             b >>= 1;
         }
         return res;
     }
 
-    /**
-     * 求 a 在模 mod 下的乘法逆元
-     */
-    private long inv(long a, long mod) {
-        return quickPow(a, mod - 2, mod);
+    // 求 a 在模 mod 下的乘法逆元
+    private long inv(long a) {
+        return quickPow(a, MOD - 2);
     }
 
     /**

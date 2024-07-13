@@ -1,10 +1,11 @@
 package template;
 
+/**
+ * 并查集（路径压缩）
+ */
 public class DSU {
-    // 父节点数组/祖先数组
     int[] fa;
 
-    // 初始化
     public DSU(int n) {
         fa = new int[n];
         for (int i = 0; i < n; i++) {
@@ -12,22 +13,14 @@ public class DSU {
         }
     }
 
-    // 查找
-    int find(int x) {
-        // 路径压缩
-        if (x != fa[x]) {
-            fa[x] = find(fa[x]);
-        }
-        return fa[x];
+    int find(int x) { // 查找
+        return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
     }
 
-    // 合并
-    void union(int p, int q) {
-        int rootP = find(p);
-        int rootQ = find(q);
-        if (rootP == rootQ) {
-            return;
-        }
-        fa[rootQ] = rootP;
+    void union(int p, int q) { // 合并
+        p = find(p);
+        q = find(q);
+        if (p == q) return;
+        fa[q] = p;
     }
 }

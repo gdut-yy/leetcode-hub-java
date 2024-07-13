@@ -27,7 +27,7 @@ Day911 (2024.01.01) 已完成：
 - `leetcode-lcp` 存放 力扣杯 题目。
 - `leetcode-offer` 存放 《剑指 Offer》 题目。
 - `nowcoder-*` 存放 牛客 题目。
-- `数据库`题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
+- `数据库` 题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
 
 ## 环境信息
 
@@ -157,17 +157,7 @@ junit5 常用断言：
 
 ### 线段树
 
-- [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem/) 离散化，区间修改，区间最值
-- [699. 掉落的方块](https://leetcode.cn/problems/falling-squares/) 离散化，区间修改，区间最值
 - [2286. 以组为单位订音乐会的门票](https://leetcode.cn/problems/booking-concert-tickets-in-groups/) 单点修改、区间求和、二分最小满足下标
-
-### 动态开点线段树
-
-- [218. 天际线问题](https://leetcode.cn/problems/the-skyline-problem/) 区间修改，区间最值
-- [699. 掉落的方块](https://leetcode.cn/problems/falling-squares/) 区间修改，区间最值
-- [715. Range 模块](https://leetcode.cn/problems/range-module/) 区间修改，区间求和
-- [731. 我的日程安排表 II](https://leetcode.cn/problems/my-calendar-ii/) 区间修改，区间最值
-- [2276. 统计区间中的整数数目](https://leetcode.cn/problems/count-integers-in-intervals/) 区间修改，区间求和
 
 ### 快速幂
 
@@ -176,22 +166,7 @@ junit5 常用断言：
 - [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers/)
 - [1969. 数组元素的最小非零乘积](https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/)
 
-### 矩阵快速幂
-
-[模板代码](./leetcode-core/src/main/java/template/QuickPower.java)
-
-- [70. 爬楼梯](https://leetcode.cn/problems/climbing-stairs/)
-- [509. 斐波那契数](https://leetcode.cn/problems/fibonacci-number/)
-- [1137. 第 N 个泰波那契数](https://leetcode.cn/problems/n-th-tribonacci-number/)
-
 ### 双指针
-
-滑动窗口
-
-- [3. 无重复字符的最长子串](https://leetcode.cn/problems/longest-substring-without-repeating-characters/) 双指针-滑动窗口
-- [76. 最小覆盖子串](https://leetcode.cn/problems/minimum-window-substring/) 双指针-滑动窗口
-- [438. 找到字符串中所有字母异位词](https://leetcode.cn/problems/find-all-anagrams-in-a-string/) 固定大小窗口
-- [567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/) 固定大小窗口
 
 快慢指针
 
@@ -230,41 +205,10 @@ junit5 常用断言：
 - [$487. 最大连续 1 的个数 II](https://leetcode.cn/problems/max-consecutive-ones-ii/)
 - [1004. 最大连续 1 的个数 III](https://leetcode.cn/problems/max-consecutive-ones-iii/)
 
-### 0-1 BFS
-
-- [1368. 使网格图至少有一条有效路径的最小代价](https://leetcode.cn/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid/)
-- [2290. 到达角落需要移除障碍物的最小数目](https://leetcode.cn/problems/minimum-obstacle-removal-to-reach-corner/)
-
-### KMP 算法
-
-- [28. 实现 strStr()](https://leetcode.cn/problems/implement-strstr/)
-
 ### Manacher 马拉车算法
 
 - [5. 最长回文子串](https://leetcode.cn/problems/longest-palindromic-substring/)
 - [1960. 两个回文子字符串长度的最大乘积](https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/)
-
-### 约瑟夫环问题
-
-```java
-// n 人，编号 0 ~ n-1
-public int josephus(int n, int m) {
-    if (n == 1) {
-        return 0;
-    }
-    return (josephus(n - 1, m) + m) % n;
-}
-
-// n 人，编号 1 ~ n
-public int josephus(int n, int k) {
-    if (n == 1) {
-        return 1;
-    }
-    return (josephus(n - 1, k) + k - 1) % n + 1;
-}
-```
-
-- [1823. 找出游戏的获胜者](https://leetcode.cn/problems/find-the-winner-of-the-circular-game/)
 
 ### 数制转换
 

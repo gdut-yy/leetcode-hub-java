@@ -1,4 +1,4 @@
-package template;
+package template.seg;
 
 /**
  * 动态开点线段树

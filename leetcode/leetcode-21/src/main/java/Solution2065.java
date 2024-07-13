@@ -1,54 +1,46 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Solution2065 {
-    // dfs 全局变量
     private int[] values;
     private int maxTime;
-    private Map<Integer, Map<Integer, Integer>> neighbour;
-
-    // 合法路径的 最大 价值
-    private int max;
+    private List<int[]>[] g;
+    private boolean[] vis;
 
     public int maximalPathQuality(int[] values, int[][] edges, int maxTime) {
-        this.neighbour = new HashMap<>();
-        for (int[] edge : edges) {
-            Map<Integer, Integer> uvMap = neighbour.getOrDefault(edge[0], new HashMap<>());
-            uvMap.put(edge[1], edge[2]);
-            neighbour.put(edge[0], uvMap);
-
-            Map<Integer, Integer> vuMap = neighbour.getOrDefault(edge[1], new HashMap<>());
-            vuMap.put(edge[0], edge[2]);
-            neighbour.put(edge[1], vuMap);
-        }
         this.values = values;
         this.maxTime = maxTime;
-        int[] visited = new int[values.length];
-        dfs(0, visited, 0, 0);
-        return max;
+        int n = values.length;
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : edges) {
+            int x = p[0], y = p[1], time = p[2];
+            g[x].add(new int[]{y, time});
+            g[y].add(new int[]{x, time});
+        }
+        vis = new boolean[n];
+        vis[0] = true;
+        return dfs(0, 0, values[0]);
     }
 
-    private void dfs(int curTime, int[] visited, int curValue, int idx) {
-        // 花费的总时间 不超过 maxTime 秒
-        if (curTime > maxTime) {
-            return;
-        }
-        // 每个节点的价值 至多 算入价值总和中一次
-        if (visited[idx] == 0) {
-            curValue += values[idx];
-        }
-        visited[idx]++;
-
-        if (idx == 0) {
-            max = Math.max(max, curValue);
-        }
-        if (neighbour.containsKey(idx)) {
-            Map<Integer, Integer> map = neighbour.get(idx);
-            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
-                dfs(curTime + entry.getValue(), visited, curValue, entry.getKey());
+    private int dfs(int x, int sumTime, int sumValue) {
+        int res = x == 0 ? sumValue : 0;
+        for (int[] e : g[x]) {
+            int y = e[0], t = e[1];
+            if (sumTime + t > maxTime) {
+                continue;
+            }
+            if (vis[y]) {
+                res = Math.max(res, dfs(y, sumTime + t, sumValue));
+            } else {
+                vis[y] = true;
+                // 每个节点的价值至多算入价值总和中一次
+                res = Math.max(res, dfs(y, sumTime + t, sumValue + values[y]));
+                vis[y] = false;
             }
         }
-        visited[idx]--;
+        return res;
     }
 }
 /*

@@ -1,4 +1,4 @@
-package template;
+package template.seg;
 
 /**
  * 线段树

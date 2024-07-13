@@ -72,7 +72,7 @@ nums 是 [0, 1, 2, ..., n - 1] 的一个排列。
 2、暴力做法中，哪里有重复的子问题？状压 DP 优化了什么？
 3、状压 DP（记忆化搜索）
 4、记忆化搜索怎么输出方案
- - 泽呢么保证字典序最小
+ - 怎么保证字典序最小
 5、状压 DP（递推）
 6、递推怎么输出方案
 相似题目: 996. 正方形数组的数目
@@ -81,4 +81,6 @@ https://leetcode.cn/problems/number-of-squareful-arrays/
 https://leetcode.cn/problems/special-permutations/
 1681. 最小不兼容性
 https://leetcode.cn/problems/minimum-incompatibility/
+1363. 形成三的最大倍数
+https://leetcode.cn/problems/largest-multiple-of-three/description/
  */

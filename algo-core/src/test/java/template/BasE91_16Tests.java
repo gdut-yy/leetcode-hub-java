@@ -2,6 +2,7 @@ package template;
 
 import base.AbstractOjTests;
 import org.junit.jupiter.api.Test;
+import template.other.BasE91_16;
 
 import java.io.IOException;
 

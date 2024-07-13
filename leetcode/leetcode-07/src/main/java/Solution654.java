@@ -1,9 +1,9 @@
 public class Solution654 {
     public TreeNode constructMaximumBinaryTree(int[] nums) {
-        return constructMaximumBinaryTree(nums, 0, nums.length - 1);
+        return dfs(nums, 0, nums.length - 1);
     }
 
-    public TreeNode constructMaximumBinaryTree(int[] nums, int left, int right) {
+    public TreeNode dfs(int[] nums, int left, int right) {
         if (left > right) {
             return null;
         }
@@ -14,8 +14,8 @@ public class Solution654 {
             }
         }
         TreeNode root = new TreeNode(nums[maxIdx]);
-        root.left = constructMaximumBinaryTree(nums, left, maxIdx - 1);
-        root.right = constructMaximumBinaryTree(nums, maxIdx + 1, right);
+        root.left = dfs(nums, left, maxIdx - 1);
+        root.right = dfs(nums, maxIdx + 1, right);
         return root;
     }
 }

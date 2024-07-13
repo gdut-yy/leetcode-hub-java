@@ -32,4 +32,6 @@ n 位格雷码序列 是一个由 2^n 个整数组成的序列，其中：
 时间复杂度 O(2^n)
 相似题目: 1238. 循环码排列
 https://leetcode.cn/problems/circular-permutation-in-binary-representation/
+1611. 使整数变为 0 的最少操作次数
+https://leetcode.cn/problems/minimum-one-bit-operations-to-make-integers-zero/description/
  */

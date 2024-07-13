@@ -240,6 +240,9 @@ target 和 words[i] 仅由小写英文字母组成。
 
 字符串哈希 / 后缀数组 / AC 自动机
 https://leetcode.cn/problems/construct-string-with-minimum-cost/solutions/2833949/hou-zhui-shu-zu-by-endlesscheng-32h9/
+首先，赛时一头扎进 KMP 了，KMP 单次匹配的复杂度是 O(n+m)。因此总体复杂度会变为 O(nL)。
 相似题目: 1044. 最长重复子串
 https://leetcode.cn/problems/longest-duplicate-substring/
+3008. 找出数组中的美丽下标 II
+https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii/description/
  */

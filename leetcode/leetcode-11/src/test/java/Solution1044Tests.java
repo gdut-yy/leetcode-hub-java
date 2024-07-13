@@ -2,20 +2,23 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution1044Tests {
-    private final Solution1044 solution1044 = new Solution1044();
+    private final Solution1044.V1 solution1044_v1 = new Solution1044.V1();
+    private final Solution1044.V2 solution1044_v2 = new Solution1044.V2();
 
     @Test
     public void example1() {
         String s = "banana";
         String expected = "ana";
-        Assertions.assertEquals(expected, solution1044.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v1.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v2.longestDupSubstring(s));
     }
 
     @Test
     public void example2() {
         String s = "abcd";
         String expected = "";
-        Assertions.assertEquals(expected, solution1044.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v1.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v2.longestDupSubstring(s));
     }
 
     // 补充用例
@@ -27,7 +30,8 @@ public class Solution1044Tests {
         // dcedaddeaeddecdecbeebeedaadbcbbebcbeecedaabcacaabdbaecaeebeaedadbabecbaabbebadaccadee
         String s = UtUtils.loadingString("solution1044-example3-input.txt", 0);
         String expected = "dccdbcebdda";
-        Assertions.assertEquals(expected, solution1044.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v1.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v2.longestDupSubstring(s));
     }
 
     @Test
@@ -38,9 +42,8 @@ public class Solution1044Tests {
         // nnqevzlndnwncofmtjkgxshqqntjcfhpbzxmhiebkreawllddumhjebpworxtvnwvkfvtvbvkilddvdaqvoesdfwuxqbdgttylkvjacjbufrcxexaopyddybfziickkfcfkuditudmaskgpwfbmaxevglqlpsznojbthnppikdexcfphfmhrzfemehvqtckmuqhuewljelhtqzptvquxfgsykdksuydqaoxhzgjxixobhfsehcbnrjzvgdwlryivwdstbiaajggszntwdoymwkiyemfjfdwaqgnqwwyllxubbhglwsstfeftngzqlnlqhxewxoireeqyllvbhgykqwpmfghjijwrtchabrsztgjzbpqwqobvssduzgfjrjdlshimopirlgarmmatznwawjynxujdryjmtlppftvnwxgajpovveeqxzlalaaxcgqoytcmplrgtbljuysybcjgiugmkszqgcrywpunzjcqxhbusuajowpxoeyincuwlsahvbzfcaxjiuxsgcpiolaanbewniihbigxruobajdhaqoqmzdsacyzjheyaagkabbawlffsmsnauyjzmmolsxqzacbatdirofgwlqhgwxnlrxmyzywwthextmfdkdfxiqcunamcnpfftsicxcsmhxphtustiewomntzzulkpjectzkgidvhiubqsgyereshkxbwfedmpwejixujbasmepnsjcrzmqztczpxpbtmwigdbsvfswxazxvxsrgicosfwtlbbuyxshymodhpdejdyojbldupcxtahuyabkpzpmyumooxtggazdkhjoyskzikrrxefoueqturcafszcsttemnkscafbalkoivwjowjrbkddvpdruhskghefrghnrcqutciajfplkvecppwpacobsfrluevebccyivelnruenavisglsiticlpzavruhnzlritvrktevphifrqqqdvkzynkzscxrjqjplptrjatzheypewhjhxqxvhszlvwxxsobbyypozcpqmlgqzhavmpcmxodbdxgytbybjvkblfyspvhxmejowdjrwzfviqsvvudsdwtqvtdxajlhfasbghfnfzkhfhkffpsctzwpiyrhhpvxnuyyllkzxytfbtehdycdigfbwpdmucjucabowgwehkrlbtknrorcnfkgsfzvgqtytcrsepykuowthayulbcikkuclovnhhlqxdzbaktsziaixgfxhqgpycmlekhbkofntjhxylqdtykmfmhikfwogyiwmjdejitzvxhdhzfpwpuozwtbezygdxsqeappvwaougxogcvstkynjah
         String s = UtUtils.loadingString("solution1044-example4-input.txt", 0);
         String expected = "ezyxc";
-        String actual = solution1044.longestDupSubstring(s);
-        System.out.println(actual);
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertEquals(expected, solution1044_v1.longestDupSubstring(s));
+        Assertions.assertEquals(expected, solution1044_v2.longestDupSubstring(s));
     }
 
     public static void main(String[] args) {
