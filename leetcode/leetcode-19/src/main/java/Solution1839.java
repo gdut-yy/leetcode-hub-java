@@ -53,4 +53,6 @@ word 只包含字符 'a'，'e'，'i'，'o' 和 'u' 。
 时间复杂度 O(n)
 相似题目: 674. 最长连续递增序列
 https://leetcode.cn/problems/longest-continuous-increasing-subsequence/
+1003. 检查替换后的词是否有效
+https://leetcode.cn/problems/check-if-word-is-valid-after-substitutions/description/
  */

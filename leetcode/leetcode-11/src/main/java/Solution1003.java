@@ -25,4 +25,6 @@ s 由字母 'a'、'b' 和 'c' 组成
 栈模拟。
 因需要下标取数，使用 StringBuilder 模拟栈。
 时间复杂度 O(n)。
+相似题目: 1209. 删除字符串中的所有相邻重复项 II
+https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string-ii/description/
  */

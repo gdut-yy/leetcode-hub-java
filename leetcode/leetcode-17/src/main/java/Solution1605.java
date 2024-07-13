@@ -1,17 +1,17 @@
 public class Solution1605 {
     public int[][] restoreMatrix(int[] rowSum, int[] colSum) {
-        int M = rowSum.length;
-        int N = colSum.length;
-        int[][] res = new int[M][N];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                int min = Math.min(rowSum[i], colSum[j]);
-                res[i][j] = min;
-                rowSum[i] -= min;
-                colSum[j] -= min;
+        int m = rowSum.length;
+        int n = colSum.length;
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int mn = Math.min(rowSum[i], colSum[j]);
+                ans[i][j] = mn;
+                rowSum[i] -= mn;
+                colSum[j] -= mn;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*
@@ -30,4 +30,7 @@ https://leetcode.cn/problems/find-valid-matrix-given-row-and-column-sums/
 sum(rows) == sum(columns)
 
 贪心。
+时间复杂度 O(mn)。
+相似题目: 1253. 重构 2 行二进制矩阵
+https://leetcode.cn/problems/reconstruct-a-2-row-binary-matrix/description/
  */
