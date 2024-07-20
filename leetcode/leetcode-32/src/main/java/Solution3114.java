@@ -39,4 +39,6 @@ s[2] 是字符 ":"
 
 由 12*60-1 枚举到 0。
 时间复杂度 O(n)。
+相似题目: 1736. 替换隐藏数字得到的最晚时间
+https://leetcode.cn/problems/latest-time-by-replacing-hidden-digits/description/
  */
