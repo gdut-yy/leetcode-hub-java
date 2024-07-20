@@ -38,4 +38,6 @@ https://leetcode.cn/problems/valid-palindrome-iii/
 https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome/
 $1682. 最长回文子序列 II
 https://leetcode.cn/problems/longest-palindromic-subsequence-ii/
+1770. 执行乘法运算的最大分数
+https://leetcode.cn/problems/maximum-score-from-performing-multiplication-operations/description/
  */

@@ -57,4 +57,6 @@ position 中每个值都 不同
 模拟。按距终点的剩余距离排序，如果后车所需时间小于前车，说明后车能“超越”前车。根据题意，置为跟前车相同的速度（所需时间），计数即可。
 时间复杂度 O(nlogn)
 空间复杂度 O(n)
+相似题目: 1776. 车队 II
+https://leetcode.cn/problems/car-fleet-ii/description/
  */

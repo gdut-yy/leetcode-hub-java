@@ -167,4 +167,6 @@ $1746. 经过一次操作后的最大子数组和
 https://leetcode.cn/problems/maximum-subarray-sum-after-one-operation/
 H. Gambling
 https://codeforces.com/contest/1692/problem/H
+1749. 任意子数组和的绝对值的最大值
+https://leetcode.cn/problems/maximum-absolute-sum-of-any-subarray/description/
  */
