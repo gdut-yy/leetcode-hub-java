@@ -56,6 +56,8 @@ https://ac.nowcoder.com/acm/contest/60245/C
 游游使得相邻两个字母不等的最少操作次数。
 
 分类讨论两种情况：0开头，1开头
+相似题目: 1864. 构成交替字符串需要的最小交换次数
+https://leetcode.cn/problems/minimum-number-of-swaps-to-make-the-binary-string-alternating/description/
 ======
 
 示例1
