@@ -114,4 +114,6 @@ parents[root] == -1
 https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/
 1707. 与数组中元素的最大异或值
 https://leetcode.cn/problems/maximum-xor-with-an-element-from-array/
+1938. 查询最大基因差
+https://leetcode.cn/problems/maximum-genetic-difference-query/
  */

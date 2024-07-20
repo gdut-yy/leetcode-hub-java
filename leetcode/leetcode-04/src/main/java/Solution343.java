@@ -61,4 +61,6 @@ https://leetcode.cn/problems/integer-break/
 2 <= n <= 58
 
 数学 / 动态规划
+相似题目: 1808. 好因子的最大数目
+https://leetcode.cn/problems/maximize-number-of-nice-divisors/description/
  */
