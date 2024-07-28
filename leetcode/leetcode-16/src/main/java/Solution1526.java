@@ -22,4 +22,6 @@ https://leetcode.cn/problems/minimum-number-of-increments-on-subarrays-to-form-a
 差分思想。求出数组 target 中相邻两元素的差值，保留大于 0 的部分，累加即为答案。
 证明见官方题解 https://leetcode.cn/problems/minimum-number-of-increments-on-subarrays-to-form-a-target-array/solution/xing-cheng-mu-biao-shu-zu-de-zi-shu-zu-zui-shao-ze/
 一种近似解法：找出每个山峰，累计每个山峰减去前一个山谷的高度，再加上第一个山谷的高度。
+相似题目: 3229. 使数组等于目标数组所需的最少操作次数
+https://leetcode.cn/problems/minimum-operations-to-make-array-equal-to-target/description/
  */
