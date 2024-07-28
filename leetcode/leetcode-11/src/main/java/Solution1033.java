@@ -37,4 +37,6 @@ a != b, b != c, c != a
   - 如果 b−a=2 或者 c−b=2，那么把一颗石子移到另外两颗石子之间，只需移动 1 次移动。
   - 否则，a 移动到 b−1，c 移动到 b+1，一共 2 次移动。
 时间复杂度 O(1)
+相似题目: 1040. 移动石子直到连续 II
+https://leetcode.cn/problems/moving-stones-until-consecutive-ii/description/
  */

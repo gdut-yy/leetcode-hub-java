@@ -169,4 +169,6 @@ H. Gambling
 https://codeforces.com/contest/1692/problem/H
 1749. 任意子数组和的绝对值的最大值
 https://leetcode.cn/problems/maximum-absolute-sum-of-any-subarray/description/
+1191. K 次串联后最大子数组之和
+https://leetcode.cn/problems/k-concatenation-maximum-sum/description/
  */

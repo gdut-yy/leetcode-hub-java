@@ -62,5 +62,7 @@ n 是偶数。
 
 值域差分。
 分类讨论在替换 0/1/2 个数后的值域范围。
-相似题目: 1674
+时间复杂度 O(n)。
+相似题目: 1674. 使数组互补的最少操作次数
+https://leetcode.cn/problems/minimum-moves-to-make-array-complementary/description/
  */
