@@ -1,21 +1,21 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class Solution834 {
-    private Map<Integer, List<Integer>> adj;
+    List<Integer>[] g;
     private int[] sz, dp, ans;
 
     // https://leetcode.cn/problems/sum-of-distances-in-tree/solution/shu-zhong-ju-chi-zhi-he-by-leetcode-solution/
     public int[] sumOfDistancesInTree(int n, int[][] edges) {
-        adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : edges) {
+            g[p[0]].add(p[1]);
+            g[p[1]].add(p[0]);
         }
-        // dp[u] 表示以 u 为根的子树，它的所有子节点到它的距离之和
-        // sz[u] 表示以 u 为根的子树的节点数量
+        // dp[x] 表示以 x 为根的子树，它的所有子节点到它的距离之和
+        // sz[x] 表示以 x 为根的子树的节点数量
         sz = new int[n];
         dp = new int[n];
         ans = new int[n];
@@ -25,40 +25,36 @@ public class Solution834 {
         return ans;
     }
 
-    private void dfs(int u, int fa) {
-        sz[u] = 1;
-        dp[u] = 0;
-        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-            if (v == fa) {
-                continue;
-            }
-            dfs(v, u);
-            dp[u] += dp[v] + sz[v];
-            sz[u] += sz[v];
+    private void dfs(int x, int fa) {
+        sz[x] = 1;
+        dp[x] = 0;
+        for (int y : g[x]) {
+            if (y == fa) continue;
+            dfs(y, x);
+            dp[x] += dp[y] + sz[y];
+            sz[x] += sz[y];
         }
     }
 
-    private void reroot(int u, int fa) {
-        ans[u] = dp[u];
-        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-            if (v == fa) {
-                continue;
-            }
+    private void reroot(int x, int fa) {
+        ans[x] = dp[x];
+        for (int y : g[x]) {
+            if (y == fa) continue;
             // 让 v 换到根的位置，u 变为其孩子节点，同时维护原有的 dp 信息
-            int pu = dp[u], pv = dp[v];
-            int su = sz[u], sv = sz[v];
+            int dpx = dp[x], dpy = dp[y];
+            int szx = sz[x], szy = sz[y];
 
-            dp[u] -= dp[v] + sz[v];
-            sz[u] -= sz[v];
-            dp[v] += dp[u] + sz[u];
-            sz[v] += sz[u];
+            dp[x] -= dp[y] + sz[y];
+            sz[x] -= sz[y];
+            dp[y] += dp[x] + sz[x];
+            sz[y] += sz[x];
 
-            reroot(v, u);
+            reroot(y, x);
 
-            dp[u] = pu;
-            dp[v] = pv;
-            sz[u] = su;
-            sz[v] = sv;
+            dp[x] = dpx;
+            dp[y] = dpy;
+            sz[x] = szx;
+            sz[y] = szy;
         }
     }
 }
@@ -77,6 +73,7 @@ edges[i].length == 2
 ai != bi
 给定的输入保证为有效的树
 
-树形 DP
-官方题解: https://leetcode.cn/problems/sum-of-distances-in-tree/solution/shu-zhong-ju-chi-zhi-he-by-leetcode-solution/
+换根 DP。
+相似题目: 310. 最小高度树
+https://leetcode.cn/problems/minimum-height-trees/
  */

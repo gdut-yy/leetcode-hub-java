@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -8,117 +9,116 @@ import java.util.Queue;
 import java.util.Set;
 
 public class Solution310 {
-    public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        List<Integer> resList = new ArrayList<>();
-        if (n == 1) {
-            resList.add(0);
-            return resList;
-        }
-
-        // 无向图
-        Map<Integer, Set<Integer>> adj = new HashMap<>();
-        for (int[] edge : edges) {
-            int from = edge[0];
-            int to = edge[1];
-            adj.computeIfAbsent(from, key -> new HashSet<>()).add(to);
-            adj.computeIfAbsent(to, key -> new HashSet<>()).add(from);
-        }
-
-        // 度为 1 进队列
-        Queue<Integer> queue = new LinkedList<>();
-        boolean[] visited = new boolean[n];
-        // n 个节点的树，标记为 0 到 n - 1
-        for (int i = 0; i < n; i++) {
-            if (adj.getOrDefault(i, new HashSet<>()).size() == 1) {
-                queue.add(i);
-                visited[i] = true;
+    static class V1 {
+        public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+            List<Integer> ans = new ArrayList<>();
+            if (n == 1) {
+                ans.add(0);
+                return ans;
             }
-        }
-        while (!queue.isEmpty()) {
-            resList.clear();
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
-                resList.add(cur);
 
-                for (int next : adj.getOrDefault(cur, new HashSet<>())) {
-                    adj.get(next).remove(cur);
-                    if (!visited[next] && adj.get(next).size() == 1) {
-                        visited[next] = true;
-                        queue.add(next);
+            // 无向图
+            List<Integer>[] g = new ArrayList[n];
+            Arrays.setAll(g, e -> new ArrayList<>());
+            int[] inDeg = new int[n];
+            for (int[] p : edges) {
+                g[p[0]].add(p[1]);
+                g[p[1]].add(p[0]);
+                inDeg[p[1]]++;
+                inDeg[p[0]]++;
+            }
+
+            // 度为 1 进队列
+            Queue<Integer> q = new LinkedList<>();
+            // n 个节点的树，标记为 0 到 n - 1
+            for (int i = 0; i < n; i++) {
+                if (inDeg[i] == 1) {
+                    q.add(i);
+                }
+            }
+            while (!q.isEmpty()) {
+                ans.clear();
+                int size = q.size();
+                for (int i = 0; i < size; i++) {
+                    int x = q.remove();
+                    ans.add(x);
+
+                    for (Integer y : g[x]) {
+                        if (--inDeg[y] == 1) {
+                            q.add(y);
+                        }
                     }
                 }
             }
+            return ans;
         }
-        return resList;
     }
 
-    private Map<Integer, List<Integer>> adj;
-    private int[] f1, f2, g, p;
+    static class V2 {
+        List<Integer>[] adj;
+        private int[] f1, f2, g, p;
 
-    // 树形 DP
-    // https://leetcode.cn/problems/minimum-height-trees/solution/by-ac_oier-7xio/
-    public List<Integer> findMinHeightTrees2(int n, int[][] edges) {
-        adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
+        // 树形 DP
+        // https://leetcode.cn/problems/minimum-height-trees/solution/by-ac_oier-7xio/
+        public List<Integer> findMinHeightTrees(int n, int[][] edges) {
+            adj = new ArrayList[n];
+            Arrays.setAll(adj, e -> new ArrayList<>());
+            for (int[] p : edges) {
+                adj[p[0]].add(p[1]);
+                adj[p[1]].add(p[0]);
+            }
+            // f[u] 代表在以 0 号点为根节点的树中，以 u 节点为子树根节点时，往下的最大高度
+            // g[u] 代表在以 0 号点为根节点的树中，以 u 节点为子节点时，往上的最大高度
+            // f1 最大值，f2 次大值
+            f1 = new int[n];
+            f2 = new int[n];
+            g = new int[n];
+            // p 数组记录下取得 f1[u] 时 u 的子节点 j 为何值。
+            p = new int[n];
+
+            dfs(0, -1);
+            reroot(0, -1);
+            List<Integer> ans = new ArrayList<>();
+            int min = n;
+            for (int i = 0; i < n; i++) {
+                int cur = Math.max(f1[i], g[i]);
+                if (cur < min) {
+                    min = cur;
+                    ans.clear();
+                    ans.add(i);
+                } else if (cur == min) {
+                    ans.add(i);
+                }
+            }
+            return ans;
         }
-        // f[u] 代表在以 0 号点为根节点的树中，以 u 节点为子树根节点时，往下的最大高度
-        // g[u] 代表在以 0 号点为根节点的树中，以 u 节点为子节点时，往上的最大高度
-        // f1 最大值，f2 次大值
-        f1 = new int[n];
-        f2 = new int[n];
-        g = new int[n];
-        // p 数组记录下取得 f1[u] 时 u 的子节点 j 为何值。
-        p = new int[n];
 
-        dfs(0, -1);
-        reroot(0, -1);
-        List<Integer> ans = new ArrayList<>();
-        int min = n;
-        for (int i = 0; i < n; i++) {
-            int cur = Math.max(f1[i], g[i]);
-            if (cur < min) {
-                min = cur;
-                ans.clear();
-                ans.add(i);
-            } else if (cur == min) {
-                ans.add(i);
+        private int dfs(int x, int fa) {
+            for (int y : adj[x]) {
+                if (y == fa) continue;
+                int sub = dfs(y, x) + 1;
+                if (sub > f1[x]) {
+                    f2[x] = f1[x];
+                    f1[x] = sub;
+                    p[x] = y;
+                } else if (sub > f2[x]) {
+                    f2[x] = sub;
+                }
             }
+            return f1[x];
         }
-        return ans;
-    }
 
-    private int dfs(int u, int fa) {
-        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-            if (v == fa) {
-                continue;
+        private void reroot(int x, int fa) {
+            for (int y : adj[x]) {
+                if (y == fa) continue;
+                if (p[x] != y) {
+                    g[y] = Math.max(g[y], f1[x] + 1);
+                } else {
+                    g[y] = Math.max(g[y], f2[x] + 1);
+                }
+                g[y] = Math.max(g[y], g[x] + 1);
+                reroot(y, x);
             }
-            int sub = dfs(v, u) + 1;
-            if (sub > f1[u]) {
-                f2[u] = f1[u];
-                f1[u] = sub;
-                p[u] = v;
-            } else if (sub > f2[u]) {
-                f2[u] = sub;
-            }
-        }
-        return f1[u];
-    }
-
-    private void reroot(int u, int fa) {
-        for (int v : adj.getOrDefault(u, new ArrayList<>())) {
-            if (v == fa) {
-                continue;
-            }
-            if (p[u] != v) {
-                g[v] = Math.max(g[v], f1[u] + 1);
-            } else {
-                g[v] = Math.max(g[v], f2[u] + 1);
-            }
-            g[v] = Math.max(g[v], g[u] + 1);
-            reroot(v, u);
         }
     }
 }
@@ -140,6 +140,10 @@ ai != bi
 所有 (ai, bi) 互不相同
 给定的输入 保证 是一棵树，并且 不会有重复的边
 
-拓扑排序。
+拓扑排序 / 换根 DP。
 每次去掉度为 1 的顶点。保留最内层。
+相似题目: 834. 树中距离之和
+https://leetcode.cn/problems/sum-of-distances-in-tree/
+3241. 标记所有节点需要的时间
+https://leetcode.cn/problems/time-taken-to-mark-all-nodes/description/
  */
