@@ -1,57 +1,41 @@
 public class Solution861 {
     public int matrixScore(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+
         // step1 如果某行的第一位不是 1，进行翻转
-        int M = grid.length;
-        int N = grid[0].length;
-        for (int i = 0; i < M; i++) {
+        for (int i = 0; i < m; i++) {
             if (grid[i][0] == 0) {
-                flipRow(grid, i);
+                for (int j = 0; j < n; j++) {
+                    grid[i][j] ^= 1;
+                }
             }
         }
         // step2 在每行第一位都是 1 的前提下，逐列比较，如果某列 0 的个数大于 1 的个数，进行翻转
-        for (int j = 1; j < N; j++) {
+        for (int j = 1; j < n; j++) {
             int cnt0 = 0;
-            for (int i = 0; i < M; i++) {
-                if (grid[i][j] == 0) {
+            for (int[] row : grid) {
+                if (row[j] == 0) {
                     cnt0++;
                 }
             }
-            if (cnt0 > M - cnt0) {
-                flipCol(grid, j);
+            int cnt1 = m - cnt0;
+            if (cnt0 > cnt1) {
+                for (int i = 0; i < m; i++) {
+                    grid[i][j] ^= 1;
+                }
             }
         }
         // step3 二进制相加
-        int res = 0;
-        for (int i = 0; i < M; i++) {
-            StringBuilder stringBuilder = new StringBuilder();
-            for (int j = 0; j < N; j++) {
-                stringBuilder.append(grid[i][j]);
+        int ans = 0;
+        for (int[] row : grid) {
+            int val = 0;
+            for (int j = 0; j < n; j++) {
+                val = val << 1 | row[j];
             }
-            res += Integer.parseInt(stringBuilder.toString(), 2);
+            ans += val;
         }
-        return res;
-    }
-
-    private void flipRow(int[][] grid, int row) {
-        int N = grid[0].length;
-        for (int j = 0; j < N; j++) {
-            if (grid[row][j] == 0) {
-                grid[row][j] = 1;
-            } else {
-                grid[row][j] = 0;
-            }
-        }
-    }
-
-    private void flipCol(int[][] grid, int col) {
-        int M = grid.length;
-        for (int i = 0; i < M; i++) {
-            if (grid[i][col] == 0) {
-                grid[i][col] = 1;
-            } else {
-                grid[i][col] = 0;
-            }
-        }
+        return ans;
     }
 }
 /*

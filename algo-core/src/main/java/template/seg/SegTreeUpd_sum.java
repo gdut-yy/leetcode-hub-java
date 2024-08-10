@@ -37,7 +37,7 @@ public class SegTreeUpd_sum {
 
     void update(int p, int l, int r, int ql, int qr, int val) {
         if (ql <= l && r <= qr) {
-            tree[p] = val;
+            tree[p] = (r - l + 1L) * val;
             lazy[p] = val;
             return;
         }

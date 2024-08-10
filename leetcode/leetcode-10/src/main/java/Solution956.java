@@ -88,6 +88,6 @@ https://leetcode.cn/problems/tallest-billboard/description/
 1 <= rods[i] <= 1000
 sum(rods[i]) <= 5000
 
-技艺化搜索 / 折半搜索。
+记忆化搜索 / 折半搜索。
 时间复杂度 O(nS) / 时间复杂度 O(3^(n/2))
  */

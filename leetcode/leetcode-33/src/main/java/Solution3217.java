@@ -6,9 +6,7 @@ import java.util.Set;
 public class Solution3217 {
     public ListNode modifiedList(int[] nums, ListNode head) {
         Set<Integer> set = new HashSet<>();
-        for (int v : nums) {
-            set.add(v);
-        }
+        for (int v : nums) set.add(v);
 
         List<Integer> list = new ArrayList<>();
         while (head != null) {

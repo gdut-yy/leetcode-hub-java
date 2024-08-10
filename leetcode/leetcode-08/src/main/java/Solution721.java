@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,54 +6,47 @@ import java.util.Map;
 public class Solution721 {
     public List<List<String>> accountsMerge(List<List<String>> accounts) {
         int idx = 0;
-        // email, idx
         Map<String, Integer> emailIdxMap = new HashMap<>();
-        // email, name
-        Map<String, String> nameEmailMap = new HashMap<>();
+        Map<String, String> emailNameMap = new HashMap<>();
         for (List<String> account : accounts) {
             String name = account.get(0);
             for (int i = 1; i < account.size(); i++) {
                 String email = account.get(i);
                 emailIdxMap.putIfAbsent(email, idx++);
-                nameEmailMap.putIfAbsent(email, name);
+                emailNameMap.putIfAbsent(email, name);
             }
         }
 
-        // 并查集 合并账户
         DSU dsu = new DSU(idx);
         for (List<String> account : accounts) {
-            String firstMail = account.get(1);
+            int firstMailIdx = emailIdxMap.get(account.get(1));
             for (int i = 2; i < account.size(); i++) {
-                dsu.union(emailIdxMap.get(firstMail), emailIdxMap.get(account.get(i)));
+                dsu.union(firstMailIdx, emailIdxMap.get(account.get(i)));
             }
         }
 
-        // 同 祖先 的 emails
-        Map<Integer, List<String>> rootEmailsMap = new HashMap<>();
+        Map<Integer, List<String>> faEmailsMap = new HashMap<>();
         for (Map.Entry<String, Integer> entry : emailIdxMap.entrySet()) {
-            int root = dsu.find(entry.getValue());
-            rootEmailsMap.computeIfAbsent(root, key -> new ArrayList<>()).add(entry.getKey());
+            int fa = dsu.find(entry.getValue());
+            faEmailsMap.computeIfAbsent(fa, e -> new ArrayList<>()).add(entry.getKey());
         }
 
-        // 返回结果
-        List<List<String>> resList = new ArrayList<>();
-        for (List<String> emails : rootEmailsMap.values()) {
+        List<List<String>> ans = new ArrayList<>();
+        for (List<String> emails : faEmailsMap.values()) {
             List<String> account = new ArrayList<>();
             // 每个账户的第一个元素是名称
-            account.add(nameEmailMap.get(emails.get(0)));
+            account.add(emailNameMap.get(emails.get(0)));
             // 其余元素是 按字符 ASCII 顺序排列 的邮箱地址
-            Collections.sort(emails);
+            emails.sort(null);
             account.addAll(emails);
-            resList.add(account);
+            ans.add(account);
         }
-        return resList;
+        return ans;
     }
 
-    private static class DSU {
-        // 父节点数组/祖先数组
+    static class DSU {
         int[] fa;
 
-        // 初始化
         public DSU(int n) {
             fa = new int[n];
             for (int i = 0; i < n; i++) {
@@ -62,23 +54,15 @@ public class Solution721 {
             }
         }
 
-        // 查找
-        int find(int x) {
-            // 路径压缩
-            if (x != fa[x]) {
-                fa[x] = find(fa[x]);
-            }
-            return fa[x];
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        // 合并
-        void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP == rootQ) {
-                return;
-            }
-            fa[rootQ] = rootP;
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

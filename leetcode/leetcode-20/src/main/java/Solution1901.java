@@ -1,12 +1,11 @@
 public class Solution1901 {
     public int[] findPeakGrid(int[][] mat) {
-        int M = mat.length;
-        int N = mat[0].length;
-
+        int m = mat.length;
+        int n = mat[0].length;
         int max = 0;
         int[] res = new int[2];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (mat[i][j] > max) {
                     max = mat[i][j];
                     res = new int[]{i, j};
@@ -14,6 +13,31 @@ public class Solution1901 {
             }
         }
         return res;
+    }
+
+    static class V2 {
+        public int[] findPeakGrid(int[][] mat) {
+            int l = 0, r = mat.length - 1;
+            while (l < r) {
+                int m = l + (r - l) / 2;
+                if (checkMid(mat, m)) r = m;
+                else l = m + 1;
+            }
+            return new int[]{l, getJ(mat[l])};
+        }
+
+        private boolean checkMid(int[][] mat, int m) {
+            int j = getJ(mat[m]);
+            return mat[m][j] > mat[m + 1][j];
+        }
+
+        private int getJ(int[] a) {
+            int j = 0;
+            for (int i = 0; i < a.length; i++) {
+                if (a[i] > a[j]) j = i;
+            }
+            return j;
+        }
     }
 }
 /*

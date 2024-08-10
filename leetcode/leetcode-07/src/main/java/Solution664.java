@@ -1,20 +1,20 @@
 public class Solution664 {
     public int strangePrinter(String s) {
         int n = s.length();
-
         // f[i][j] 表示打印完成区间 [i,j] 的最少操作数
-        int[][] f = new int[n][n];
-        for (int i = n - 1; i >= 0; i--) {
+        int[][] f = new int[n + 1][n + 1];
+        for (int i = 0; i < n; i++) {
             f[i][i] = 1;
-            for (int j = i + 1; j < n; j++) {
-                if (s.charAt(i) == s.charAt(j)) {
-                    f[i][j] = f[i][j - 1];
-                } else {
-                    int min = Integer.MAX_VALUE;
-                    for (int k = i; k < j; k++) {
-                        min = Math.min(min, f[i][k] + f[k + 1][j]);
+        }
+        for (int span = 2; span <= n; span++) {
+            for (int i = 0; i + span - 1 < n; i++) {
+                int j = i + span - 1;
+
+                f[i][j] = f[i + 1][j] + 1;
+                for (int k = i + 1; k <= j; k++) {
+                    if (s.charAt(i) == s.charAt(k)) {
+                        f[i][j] = Math.min(f[i][j], f[i][k - 1] + f[k + 1][j]);
                     }
-                    f[i][j] = min;
                 }
             }
         }

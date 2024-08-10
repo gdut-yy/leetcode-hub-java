@@ -1,16 +1,16 @@
 public class Solution2296 {
     static class TextEditor {
-        private final StringBuilder stringBuilder;
+        StringBuilder sb;
         // 光标
         private int cursor;
 
         public TextEditor() {
-            this.stringBuilder = new StringBuilder();
+            this.sb = new StringBuilder();
             this.cursor = 0;
         }
 
         public void addText(String text) {
-            stringBuilder.insert(cursor, text);
+            sb.insert(cursor, text);
             // 光标移动
             cursor += text.length();
         }
@@ -18,7 +18,7 @@ public class Solution2296 {
         public int deleteText(int k) {
             // 可以删除的字符不会超过光标左侧长度
             int deleteLen = Math.min(k, cursor);
-            stringBuilder.delete(cursor - deleteLen, cursor);
+            sb.delete(cursor - deleteLen, cursor);
             // 光标移动
             cursor -= deleteLen;
             return deleteLen;
@@ -29,15 +29,15 @@ public class Solution2296 {
             cursor = Math.max(0, cursor - k);
             // 返回长度
             int echoLen = Math.min(10, cursor);
-            return stringBuilder.substring(cursor - echoLen, cursor);
+            return sb.substring(cursor - echoLen, cursor);
         }
 
         public String cursorRight(int k) {
             // 光标移动
-            cursor = Math.min(stringBuilder.length(), cursor + k);
+            cursor = Math.min(sb.length(), cursor + k);
             // 返回长度
             int echoLen = Math.min(10, cursor);
-            return stringBuilder.substring(cursor - echoLen, cursor);
+            return sb.substring(cursor - echoLen, cursor);
         }
     }
 }

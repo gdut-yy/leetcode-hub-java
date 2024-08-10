@@ -3,11 +3,15 @@ public class Solution2375 {
         int n = pattern.length();
         char[] ans = new char[n + 1];
         for (int i = 0; i < n + 1; i++) ans[i] = (char) ('1' + i);
-
-        for (int i = 0; i < n; i++) {
-            // 类 分组循环？
+        int i = 0;
+        while (i < n) {
+            if (pattern.charAt(i) == 'I') {
+                i++;
+                continue;
+            }
+            // 分组循环
             int st = i;
-            for (; i < n && pattern.charAt(i) == 'D'; i++) {
+            for (i++; i < n && pattern.charAt(i) == 'D'; i++) {
             }
             reverse(ans, st, i + 1);
         }

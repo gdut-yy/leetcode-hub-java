@@ -1,42 +1,30 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution2059 {
     public int minimumOperations(int[] nums, int start, int goal) {
-        // BFS
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        // 0 <= x <= 1000
-        boolean[] visited = new boolean[1001];
-        visited[start] = true;
-        int step = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            step++;
-            for (int i = 0; i < size; i++) {
-                Integer cur = queue.remove();
+        boolean[] vis = new boolean[1001];
+        vis[start] = true;
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(start);
+        int step = 1;
+        while (!q.isEmpty()) {
+            int sz = q.size();
+            for (int i = 0; i < sz; i++) {
+                int v = q.remove();
                 for (int num : nums) {
-                    int next1 = cur + num;
-                    int next2 = cur - num;
-                    int next3 = cur ^ num;
-                    if (next1 == goal || next2 == goal || next3 == goal) {
-                        return step;
-                    } else {
-                        if (next1 >= 0 && next1 <= 1000 && !visited[next1]) {
-                            visited[next1] = true;
-                            queue.add(next1);
+                    for (int x : new int[]{v + num, v - num, v ^ num}) {
+                        if (x == goal) {
+                            return step;
                         }
-                        if (next2 >= 0 && next2 <= 1000 && !visited[next2]) {
-                            visited[next2] = true;
-                            queue.add(next2);
-                        }
-                        if (next3 >= 0 && next3 <= 1000 && !visited[next3]) {
-                            visited[next3] = true;
-                            queue.add(next3);
+                        if (0 <= x && x <= 1000 && !vis[x]) {
+                            vis[x] = true;
+                            q.add(x);
                         }
                     }
                 }
             }
+            step++;
         }
         return -1;
     }
@@ -55,6 +43,13 @@ x - nums[i]
 x ^ nums[i]（按位异或 XOR）
 注意，你可以按任意顺序使用每个 nums[i] 任意次。使 x 越过 0 <= x <= 1000 范围的运算同样可以生效，但该该运算执行后将不能执行其他运算。
 返回将 x = start 转化为 goal 的最小操作数；如果无法完成转化，则返回 -1 。
+提示：
+1 <= nums.length <= 1000
+-10^9 <= nums[i], goal <= 10^9
+0 <= start <= 1000
+start != goal
+nums 中的所有整数互不相同
 
 BFS。
+时间复杂度 O(mn)。其中 m = max(x)。
  */

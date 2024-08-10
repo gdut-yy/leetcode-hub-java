@@ -14,7 +14,7 @@ public class Solution1444 {
                         continue;
                     }
                     int res = 0;
-                    for (int j2 = j + 1; j2 < n; j2++) {// 垂直切
+                    for (int j2 = j + 1; j2 < n; j2++) { // 垂直切
                         if (ms.sumRegion(i, j, m - 1, j2 - 1) > 0) { // 有苹果
                             res = (res + f[c - 1][i][j2]) % MOD;
                         }

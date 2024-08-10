@@ -12,18 +12,18 @@ public class Solution2279 {
         Arrays.sort(remain);
 
         // 前缀和
-        long[] preSum = new long[n + 1];
+        long[] ps = new long[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + remain[i];
+            ps[i + 1] = ps[i] + remain[i];
         }
 
         int left = 1;
-        int right = n+1;
+        int right = n + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
-            if (preSum[mid] - preSum[0] > additionalRocks) {
+            if (ps[mid] - ps[0] > additionalRocks) {
                 right = mid;
             } else {
                 left = mid + 1;
