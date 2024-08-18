@@ -1,6 +1,7 @@
 package lq240323;
 
 import java.util.Arrays;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class LQ240323T4 {
