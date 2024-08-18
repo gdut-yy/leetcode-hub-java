@@ -17,6 +17,7 @@
         <module>leetcode</module>
         <module>nowcoder</module>
         <module>lanqiao</module>
+        <module>luogu</module>
     </modules>
     <packaging>pom</packaging>
 
