@@ -22,7 +22,6 @@ public class Q6_SubSequence_xor_xor {
         }
         return "0";
     }
-
 }
 /*
 https://www.luogu.com.cn/problem/U360641
