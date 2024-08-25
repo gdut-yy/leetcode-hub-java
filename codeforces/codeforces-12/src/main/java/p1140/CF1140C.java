@@ -44,6 +44,7 @@ https://codeforces.com/contest/1140/problem/C
 输入 n k(1≤k≤n≤3e5) 和 n 个物品，每个物品输入两个属性值 t[i] 和 b[i]，范围 [1,1e6]。
 从这 n 个物品中选出至多 k 个物品，输出这 k 个物品的 sum(t) * min(b) 的最大值。
 
+rating 1600
 按照 b 从大到小排序，这样可以枚举最小的 b。把当前的 t 和左边的 t 都加到一个最小堆中，从而维护堆中最大的 k 个数的和。
 https://codeforces.com/contest/1140/submission/231732136
 ======

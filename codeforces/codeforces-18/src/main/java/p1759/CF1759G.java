@@ -114,6 +114,7 @@ https://codeforces.com/contest/1759/problem/G
 构造一个长为 n 的 1~n 的排列 p（下标从 1 开始），满足 max(p[2*i-1],p[2*i]) = b[i]。
 如果无法构造，输出 -1，否则输出字典序最小的 p。
 
+rating 1900
 https://codeforces.com/problemset/submission/1759/206226901
 正难则反。
 从大往小填数字。

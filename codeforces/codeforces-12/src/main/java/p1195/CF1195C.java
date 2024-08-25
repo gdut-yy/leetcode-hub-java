@@ -42,6 +42,7 @@ https://codeforces.com/contest/1195/problem/C
 输出所选数字之和的最大值。
 思考：如果改成 m 列要怎么做？ https://ac.nowcoder.com/acm/contest/59157/O
 
+rating 1400
 https://codeforces.com/problemset/submission/1195/214035921
 本题和打家劫舍是类似的。
 定义 f[i][0/1/2] 表示考虑前 i 列，其中第 i 列不选/只选第一行/只选第二行的情况下的最大元素和。

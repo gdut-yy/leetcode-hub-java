@@ -63,6 +63,7 @@ https://codeforces.com/contest/600/problem/C
 你可以修改多个 s[i]，使得修改后的 s，通过重新排列，可以得到回文串。
 设最少修改 x 次。输出修改 x 次且重排后字典序最小的回文串。
 
+rating 1800
 constructive algorithms
 https://codeforces.com/contest/600/submission/97136757
 提示 1：修改出现次数为奇数的字符。

@@ -62,6 +62,7 @@ https://codeforces.com/contest/148/problem/E
 你需要从这 n 个 dq 中取出 m 个数，输出这 m 个数的和的最大值。
 提示：1e8 可过。
 
+rating 1900
 https://codeforces.com/problemset/submission/148/196263614
 看成分组背包。
 每个 dq 就是一个组，需要计算在这个 dq 中选 x 个数的最大数字和。

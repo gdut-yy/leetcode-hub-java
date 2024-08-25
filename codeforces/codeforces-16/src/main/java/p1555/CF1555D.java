@@ -51,6 +51,7 @@ https://codeforces.com/contest/1555/problem/D
 对每个询问，要使 s[L] 到 s[R] 中没有长度大于等于 2 的回文子串，至少需要修改多少个字符？注意你只能使用 'a' 'b' 'c' 来修改。
 每个询问是独立的，即修改操作不影响其他询问。
 
+rating 1600
 https://codeforces.com/contest/1555/submission/130420793
 手玩一下发现只能由 abc 的某个排列重复多次，才能没有长度大于等于 2 的回文子串。
 所以预处理 abc 的 6 种排列对应的修改次数的前缀和，就可以 O(1) 回答每个询问了。

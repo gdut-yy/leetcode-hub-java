@@ -78,6 +78,7 @@ https://codeforces.com/contest/1139/problem/C
 对于长为 k 节点序列 a，走最短路，按顺序经过节点 a1 -> a2 -> ... -> ak。
 对于所有长为 k 的节点序列 a（这有 n^k 个），统计至少经过一条 c=1 的边的序列 a 的个数。
 
+rating 1500
 https://codeforces.com/contest/1139/submission/206859984
 正难则反，统计只经过 c=0 的序列数。
 相当于计算每个 c=0 组成的连通块的大小 sz，对应的只经过 c=0 序列数为 sz^k。

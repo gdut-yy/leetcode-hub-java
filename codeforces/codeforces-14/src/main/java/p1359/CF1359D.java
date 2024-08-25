@@ -49,6 +49,7 @@ https://codeforces.com/contest/1359/problem/D
 设 b 为 a 的一个非空连续子数组。
 输出 sum(b)-max(b) 的最大值。
 
+rating 2000
 https://codeforces.com/contest/1359/submission/95405228
 注意值域很小。
 枚举 max(b)，把 > max(b) 的去掉，分裂出每个子段都求一遍最大子段和（力扣 53 题）再减去枚举的 max(b)。

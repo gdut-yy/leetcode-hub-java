@@ -59,6 +59,7 @@ https://codeforces.com/contest/91/problem/A
 输出使 s2 是 t 的子序列的 x 的最小值。如果无法做到输出 -1。
 注：子序列不一定是连续的。
 
+rating 1500
 https://codeforces.com/contest/91/submission/208158075
 子序列自动机。
 用 nxt[i][c] 表示 s1[i] 右侧最近字母 c 的下标，如果没有就从头再找。

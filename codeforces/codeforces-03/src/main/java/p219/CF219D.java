@@ -137,6 +137,7 @@ https://codeforces.com/contest/219/problem/D
 你可以把边反向，定义 f(x) 表示以 x 为根时，要让 x 能够到达任意点，需要反向的边的数量。
 输出 min(f(x))，以及所有等于 min(f(x)) 的节点编号（按升序输出）。
 
+rating 1700
 换根 DP。
 不用 FastReader 会 TLE。。
 相似题目: 2581. 统计可能的树根数目

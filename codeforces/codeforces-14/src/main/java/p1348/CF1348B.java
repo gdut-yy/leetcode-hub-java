@@ -64,6 +64,7 @@ https://codeforces.com/contest/1348/problem/B
 如果无法做到，输出 -1。否则输出数组 b 的长度，以及数组 b。
 如果有多个答案，输出任意一个均可。
 
+rating 1400
 https://codeforces.com/contest/1348/submission/127732185
 相关题目：上周六双周赛第三题
 突破口在 1e4，构造一个长为 k 的循环节，这个循环节要包含 a 中所有数字。把循环节重复 n 次得到 b，这样可以保证 a 是 b 的一个子序列，且长度至多 n*k 不会超过 1e4。

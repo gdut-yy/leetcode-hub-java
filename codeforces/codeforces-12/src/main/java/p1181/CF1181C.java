@@ -130,6 +130,7 @@ https://codeforces.com/contest/1181/problem/C
 定义「国旗」为一个 3h 行的子矩阵，前 h 行的字符都相同，中间 h 行的字符都相同，后 h 行的字符都相同，它们分别记作 A B C，要求 A 和 B 的字符不同，B 和 C 的字符不同（A 和 C 无要求）。
 输出是国旗的子矩阵数量。
 
+rating 1900
 https://codeforces.com/contest/1181/submission/198473717
 提示 1：枚举子矩阵的右边界（第 j 列）。
 提示 2：枚举第 j 列的连续三种字符。

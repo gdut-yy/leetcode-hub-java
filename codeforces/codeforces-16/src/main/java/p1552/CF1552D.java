@@ -48,6 +48,7 @@ https://codeforces.com/contest/1552/problem/D
 如果存在一个长为 n 的数组 b，对于任意 i，都存在 j 和 k，使得 a[i]=b[j]-b[k]，则输出 YES，否则输出 NO。
 注意 j 可以等于 k。
 
+rating 1800
 判断 a 中是否存在两个子集，其子集和相等就行了
 证明见题解：
 https://www.luogu.com.cn/blog/endlesscheng/solution-cf1552d

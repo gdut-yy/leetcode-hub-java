@@ -62,6 +62,7 @@ https://codeforces.com/contest/981/problem/D
 最大化 sum(b[0]) AND sum(b[1]) AND ... AND sum(b[k-1])。
 这里 AND 表示按位与。
 
+rating 1900
 https://codeforces.com/contest/981/submission/213277313
 涉及到二进制的题目，其中一种思路是拆位。
 设最高位为 m。

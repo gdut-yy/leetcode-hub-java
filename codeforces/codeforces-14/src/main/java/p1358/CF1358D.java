@@ -54,6 +54,7 @@ https://codeforces.com/contest/1358/problem/D
 问在该地连续呆 x 天你最多能得到多少元。
 注意：从当年最后一月呆到下一年的第一月是可以的。
 
+rating 1900
 https://codeforces.com/problemset/submission/1358/188648522
 提示 1：看成是环形数组，那么数组复制一份接在后面，就变成非环形的了（注意 x 不超过 sum(d)）。
 提示 2：这是个窗口大小为 x 的滑窗问题，但是 x 太大了，如何优化？

@@ -82,6 +82,7 @@ https://codeforces.com/contest/1272/problem/F
 输入两个长度不超过 200 的字符串 s 和 t，只包含左右括号。
 输出 s 和 t 的最短公共超序列，要求这个超序列是一个合法括号字符串。（多解输出任意解。）
 
+rating 2200
 https://codeforces.com/problemset/submission/1272/208121980
 请先看下面这篇题解
 https://leetcode.cn/problems/shortest-common-supersequence/solutions/2194615/cong-di-gui-dao-di-tui-jiao-ni-yi-bu-bu-auy8z/

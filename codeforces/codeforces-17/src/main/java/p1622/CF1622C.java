@@ -61,6 +61,7 @@ https://codeforces.com/contest/1622/problem/C
 要使 sum(a) <= k，至少需要操作多少次？
 注意可以把 a[i] 减成负数。
 
+rating 1600
 https://codeforces.com/contest/1622/submission/155250743
 提示 1：对于减一操作来说，把两个数减一，把一个数减二，都需要操作两次。
 考虑到一个数更小，越有利于修改操作（把 a[i] 变成 a[j]），

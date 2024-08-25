@@ -68,6 +68,7 @@ https://codeforces.com/contest/1370/problem/D
 输出 min(x,y) 的最小值。
 注：子序列不一定是连续的。
 
+rating 2000
 https://codeforces.com/contest/1370/submission/95403435
 提示 1：讨论 min(x, y) 是 x 还是 y，那么问题就变成「最小化最大值」了，二分答案。
 提示 2：假设是 x，遍历 a，遇到一个 <= mid 的数，把它当作是属于 x 的，计数器+1；同时后面一个数必须要属于 y，那么随便选（因为只看 x），计数器也+1。如果最后计数器 >= k 那么 check 返回 true，否则返回 false。

@@ -114,6 +114,7 @@ https://codeforces.com/contest/337/problem/D
 然后输入 n-1 行，每行两个节点编号，表示树的边。
 输出可能存在传送门的节点的个数。注意传送门只有一个。
 
+rating 2000
 https://codeforces.com/contest/337/submission/116580503
 换根 DP。
 第一次 DFS 以 1 为根，对每个点记录往下走的最远怪物距离和次远怪物距离，以及最远怪物在哪棵子树中。

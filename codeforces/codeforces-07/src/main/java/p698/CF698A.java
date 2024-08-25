@@ -70,6 +70,7 @@ https://codeforces.com/contest/698/problem/A
 但你不想连续两天做同样的活动，这意味着，你不会连续两天做运动，也不会连续两天参加比赛。
 输出你休息的最少天数。
 
+rating 1400
 https://codeforces.com/problemset/submission/698/213038992
 状态机 DP。
 定义 f[i+1][0/1/2] 表示前 i 天最少休息天数，其中第 i 天 休息/比赛/健身。

@@ -87,6 +87,7 @@ https://codeforces.com/contest/505/problem/B
 进阶：你能想出一个低于 O(平方) 的算法吗？
 见 https://codeforces.com/contest/506/problem/D
 
+rating 1400
 https://codeforces.com/problemset/submission/505/206755341
 由于数据范围比较小，用 m 个并查集统计，对每个询问遍历这 m 种颜色去统计 v 和 w 是否相连。
 由于 m 比较小，并查集可以用哈希表实现。

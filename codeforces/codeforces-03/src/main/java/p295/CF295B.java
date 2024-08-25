@@ -56,6 +56,7 @@ https://codeforces.com/contest/295/problem/B
 然后输入 1~n 的排列，表示我要一个个地删除图上的点，每删除一个点，这个点的出边和入边都会被删除。
 输出 n 个数，第 i 个数表示第 i 次删除之前，所有剩余点对的最短路之和。
 
+rating 1700
 https://codeforces.com/contest/295/submission/202933808
 倒着加点。
 每次添加点 k 后，跑只与 k 有关的 Floyd。

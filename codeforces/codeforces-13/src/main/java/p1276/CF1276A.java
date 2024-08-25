@@ -48,6 +48,7 @@ https://codeforces.com/contest/1276/problem/A
 删除尽量少的字符，使得字符串中不存在任何连续子串为 one 或 two。
 输出：第一行为删除的字符个数。第二行为删除的字符下标（下标从 1 开始）。
 
+rating 1400
 https://codeforces.com/problemset/submission/1276/216058616
 注意到对于 oooneee 这样的字符串，删除 o 或 e 仍然会产生 one，但是删除 n 就不会有 one 了。
 同理对于 two 应该删除 w。但是，如果子串是 twone，删除 o 更好。

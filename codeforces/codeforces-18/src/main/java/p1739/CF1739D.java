@@ -85,6 +85,7 @@ https://codeforces.com/contest/1739/problem/D
 输出操作后，这颗树的最小高度。
 高度的定义为 1 到最远叶子节点的路径的边数。
 
+rating 1900
 https://codeforces.com/contest/1739/submission/188029675
 提示 1：由于最终的树越高，操作次数越少，最终的树越矮，操作次数越多，满足单调性，因此可以二分答案。
 提示 2：check 需要写一个树形 DP，自底向上计算最长路径长度，达到 mid-1 的时候，切断当前节点和父节点的边，计数器 cnt++，如果最后 cnt≤k 则说明答案不超过 mid。

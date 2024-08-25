@@ -57,6 +57,7 @@ https://codeforces.com/contest/988/problem/D
 从 a 中选择尽量多的数，组成集合 b，要求 b 中任意两个数的差的绝对值都是 2 的幂次。
 输出 b 的大小以及 b 中的每个数。（没有顺序要求，多解输出任意一解）
 
+rating 1800
 https://codeforces.com/contest/988/submission/171194913
 如果选两个数 x<y，那么枚举 k 寻找 y-x=2^k，做法类似两数之和。
 如果选三个数 x<y<z，那么必须有 y-x=z-y=2^k，否则 z-x 不是 2 的幂次。做法同 2367. 算术三元组的数目

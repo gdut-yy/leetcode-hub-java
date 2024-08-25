@@ -63,6 +63,7 @@ https://codeforces.com/contest/811/problem/C
 注：子数组是连续的。
 注：你不需要把每个 a[i] 都选上，见样例二。
 
+rating 1900
 左右位置：https://codeforces.com/contest/811/submission/174568758
 元素个数（代码更短）：https://codeforces.com/contest/811/submission/174568255
 dp[i] = dp[j-1] + xor(unique(j..i)) if a[j..i] is valid.

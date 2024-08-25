@@ -56,6 +56,7 @@ https://codeforces.com/contest/687/problem/C
 你需要计算 sum(B) 的所有可能的值。
 输出这些值的个数 q，然后按升序输出这 q 个数。
 
+rating 1900
 https://codeforces.com/problemset/submission/687/197390629
 提示 1：问题转换成，能否从 c 中选出两个不相交的子集，其中一个和为 x，另一个和为 k-x。（求所有 x）
 提示 2：相当于一个二维体积的 0-1 背包问题。

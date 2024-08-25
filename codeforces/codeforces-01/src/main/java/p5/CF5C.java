@@ -73,6 +73,7 @@ https://codeforces.com/contest/5/problem/C
 输出 s 的最长合法括号子串的长度和数量。
 如果不存在，输出 0 1。
 
+rating 1900
 https://leetcode.cn/problems/longest-valid-parentheses/solution/zui-chang-you-xiao-gua-hao-by-leetcode-solution/
 方法三的基础上额外套一个计数器。
 这里用 set 做去重处理

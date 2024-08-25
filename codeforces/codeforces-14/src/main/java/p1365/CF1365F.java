@@ -57,6 +57,7 @@ https://codeforces.com/contest/1365/problem/F
 a 能否变成 b？输出 Yes 或 No。
 进阶：如果可以做到，用 3n/2 次操作完成。
 
+rating 2100
 https://codeforces.com/problemset/submission/1365/199894156
 提示 1：操作不会改变什么性质？
 提示 2：如果两个数 x y 在交换前关于 n/2 对称，那么交换后也是对称的（即便位置变了）

@@ -52,6 +52,7 @@ https://codeforces.com/contest/1336/problem/C
 问：要使 T 是 A 的前缀，有多少种不同的操作方式？模 998244353。
 注：即使两个不同的操作方式得到了相同的字符串 A，也算不同的操作方式。
 
+rating 2200
 https://codeforces.com/problemset/submission/1336/216028319
 先假设 s 和 t 一样长。
 我们不知道 s 的第一个字母和谁匹配，但我们知道 s 的最后一个字母只能与 t[0] 或者 t[m-1] 匹配（加到开头或者末尾）。

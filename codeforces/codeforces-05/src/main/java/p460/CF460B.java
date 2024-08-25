@@ -55,6 +55,7 @@ x = b * pow(s(x),a) + c 且 0 < x < 1e9
 第一行输出 x 的个数。
 第二行按升序输出所有 x。
 
+rating 1500
 https://codeforces.com/contest/460/submission/208147283
 枚举 s(x)。
 由于 0<x<1e9，所以 1<=s(x)<=81。

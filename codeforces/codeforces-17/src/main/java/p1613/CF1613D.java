@@ -63,6 +63,7 @@ https://codeforces.com/contest/1613/problem/D
 两个子序列只要有元素下标不同，就算不同的子序列。例如 a=[0,0,0] 有 7 个不同的非空子序列。
 注：子序列不要求连续。
 
+rating 1900
 https://codeforces.com/problemset/submission/1613/214488015
 提示 1：MEX 序列的第一个数可以是哪些？第二个数呢？第三个数呢？
 提示 2：把状态机画出来，照着写一个状态机 DP。

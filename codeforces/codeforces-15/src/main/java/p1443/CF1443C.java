@@ -57,6 +57,7 @@ https://codeforces.com/contest/1443/problem/C
 输出 max(m, s) 的最小值。
 例如 a=[3,7,4,5], b=[2,1,2,4]，如果 P=[0,3], Q=[1,2]，那么 m=5, s=3，所以 max(m,s)=5。
 
+rating 1400
 https://codeforces.com/contest/1443/submission/228750000
 把 a 和 b 绑在一起，按照 a[i] 从小到大排序。
 枚举 m=a[i]，所有下标 <=i 的 b[i] 就不用选了，所以 s 等于 b[i+1] 之后的所有元素之和。

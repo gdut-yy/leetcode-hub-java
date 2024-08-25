@@ -49,6 +49,7 @@ https://codeforces.com/contest/1409/problem/E
 扩展：有 m 条线段：2209. 用地毯覆盖后的最少白色砖块
 https://leetcode.cn/problems/minimum-white-tiles-after-covering-with-carpets/
 
+rating 1800
 https://codeforces.com/contest/1409/submission/189420578
 先排序。
 如果只有一个线段，那就是双指针问题。

@@ -86,8 +86,8 @@ https://codeforces.com/contest/1042/problem/C
 操作 2 应输出 "2 i"
 下标从 1 开始。
 
-constructive algorithms
 rating 1700
+constructive algorithms
 https://codeforces.com/contest/1042/submission/162207883
 把 0 看成是垃圾桶，所有 0 扔到同一个 0 里面，然后把 0 删除，这样可以去掉所有的 0。
 如果负数有奇数个，我们需要选一个绝对值最小的负数，把它也扔到 0 里面。

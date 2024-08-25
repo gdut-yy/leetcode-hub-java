@@ -45,6 +45,7 @@ https://codeforces.com/contest/414/problem/B
 2. a[i] 整除 a[i+1]（或者说 a[i] 是 a[i+1] 的因子）。
 答案模 1e9+7。
 
+rating 1400
 https://codeforces.com/contest/414/submission/208165638
 枚举 a[1]，那么 a[2] 只能是 a[1] 的倍数，依此类推。
 比如 1,3,6 或者 2,2,6。有多种方式可以到达同一个数字 6，说明可以用动态规划优化。

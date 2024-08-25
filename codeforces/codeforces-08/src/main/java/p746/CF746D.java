@@ -46,6 +46,7 @@ https://codeforces.com/contest/746/problem/D
 构造一个长为 n 的字符串，包含 a 个 'G' 和 b 个 'B'，且不能有长度超过 k 的连续相同字母。
 如果无法构造，输出 NO，否则输出任意一个符合要求的字符串。
 
+rating 1500
 https://codeforces.com/contest/746/submission/215370490
 假设 a>=b，那么可以用 b 个 'B' 当作分割线，尽量均分 a 个 'G'。（把 a 个 'G' 均分成 b+1 段。）
 如果发现任意一段连续 'G' 长度超过 k，就输出 NO。

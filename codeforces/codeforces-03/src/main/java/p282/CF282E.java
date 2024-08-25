@@ -137,6 +137,7 @@ https://codeforces.com/contest/282/problem/E
 选择 a 的一个前缀（可以为空）和一个后缀（可以为空），要求前缀后缀不相交。
 输出所选数字的异或和的最大值。
 
+rating 2200
 前后缀分解 + 0-1 Trie
 https://codeforces.com/problemset/submission/282/212487514
 先从前到后扫一遍，把每个前缀异或和的值存到 0-1 trie 中。

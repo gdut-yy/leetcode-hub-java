@@ -82,6 +82,7 @@ https://codeforces.com/contest/1213/problem/D2
 每次操作你可以让一个 a[i] 变为 floor(a[i]/2)。
 要想得到至少 k 个相同的数，最少需要多少次操作？
 
+rating 1600
 https://codeforces.com/contest/1213/submission/193430181
 设 U=max(a)。
 O(Ulog^2U) 或者 O(UlogU) 的做法是把每个 a[i] 变成 a[i]/2^j 的次数 j 存到 x=a[i]/2^j 里面。每个 x 都有一个列表去存储次数 j。

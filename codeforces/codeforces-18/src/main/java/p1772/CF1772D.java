@@ -46,6 +46,7 @@ https://codeforces.com/contest/1772/problem/D
 选择一个整数 x(0≤x≤1e9)，生成一个序列 b，满足 b[i]=abs(a[i]-x) 且 b[i]≤b[i+1]。
 如果不存在这样的 x，输出 -1，否则输出任意一个符合要求的 x。
 
+rating 1400
 https://codeforces.com/problemset/submission/1772/214608589
 只需保证相邻两项满足 abs(a[i]-x)≤abs(a[i+1]-x)，那么整个 b[i] 就是递增的（充分必要条件）。
 分类讨论：

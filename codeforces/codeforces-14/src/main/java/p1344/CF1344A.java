@@ -40,6 +40,7 @@ https://codeforces.com/contest/1344/problem/A
 如果对于任意两个不同的整数 k1 和 k2，都满足 a[k1 mod n] + k1 ≠ a[k2 mod n] + k2，则输出 YES，否则输出 NO。
 注意对于负数 k，k mod n 的结果也在 [0,n-1] 内。
 
+rating 1600
 https://codeforces.com/contest/1344/submission/202560069
 考虑什么时候输出 NO。
 设 k1 = p1*n + i, k2 = p2*n + j

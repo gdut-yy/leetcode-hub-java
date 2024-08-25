@@ -52,6 +52,7 @@ https://codeforces.com/contest/1368/problem/D
 输出 sum(a[i]*a[i]) 的最大值，即 a[0]*a[0] + a[1]*a[1] + ... + a[n-1]*a[n-1] 的最大值。
 2023.10.8 押题成功！https://leetcode.cn/contest/weekly-contest-366/problems/apply-operations-on-array-to-maximize-sum-of-squares/
 
+rating 1700
 https://codeforces.com/contest/1368/submission/167929428
 提示 1：操作不会改变 a[i]+a[j] 的值。
 提示 2：思考一下题目的样例二，是操作前答案大，还是操作后答案大？你能提出一个更一般的猜想并证明吗？

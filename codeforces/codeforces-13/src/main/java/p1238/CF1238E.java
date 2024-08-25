@@ -64,7 +64,9 @@ https://codeforces.com/contest/1238/problem/E
 在只用一根手指的情况下，用这个键盘打出 s。
 问：构造一个怎样的键盘，可以使手指的移动距离之和最小？输出这个最小值。
 
-1879. 两个数组最小的异或值之和
+rating 2200
+相似tm: 1879. 两个数组最小的异或值之和
+https://leetcode.cn/problems/minimum-xor-sum-of-two-arrays/
 不了解排列型状压的，推荐先做这题。
 统计字符串中相邻字母对的个数，记作 cnt。
 用状态 s 表示前面填了 |s| 个字母的键盘，这里 |s| 表示 s 中二进制 1 的个数

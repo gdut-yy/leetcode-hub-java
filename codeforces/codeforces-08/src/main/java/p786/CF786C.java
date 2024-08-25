@@ -79,6 +79,7 @@ https://codeforces.com/contest/786/problem/C
 定义 f(k) 为最小的 m，使得存在一种将 a 划分成 m 段的方式，其中每段的不同数字个数都不超过 k。
 输出 f(1), f(2), ... ,f(n)。
 
+rating 2400
 https://codeforces.com/contest/786/submission/203881564
 如果所有 a[i] 都不同，那么 f(k) 的图像与 ceil(n/k) 一样，k 越大，f(k) 越小，且存在若干段连续的 k，每一段的 f(k) 都相同。进而想到，如果有相同的 a[i]，那么图像也应当是类似的。
 根据这一性质，可以不去计算所有的 f(k)，而是暴力计算两个 f(i) 和 f(j)，如果 f(i) = f(j)，那么从 i+1,i+2,...,j-1 的 f 值都等于 f(i)。

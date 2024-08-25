@@ -65,6 +65,7 @@ Alice 和 Bob 轮流从 a 中取数，Alice 先。
 游戏直到 a 为空时停止。
 如果 Alice 所取数字之和为偶数，输出 Alice，否则输出 Bob。
 
+rating 1500
 https://codeforces.com/contest/1738/submission/205538013
 提示：用记忆化搜索模拟。
 f(leftEven, leftOdd, sum, who) 表示剩余偶数个数，剩余奇数个数，Alice 所选数字之和的奇偶性，当前玩家是 Alice 还是 Bob。

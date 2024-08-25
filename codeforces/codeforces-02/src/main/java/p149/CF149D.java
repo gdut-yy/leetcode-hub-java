@@ -81,6 +81,7 @@ https://codeforces.com/contest/149/problem/D
 3. 两个相邻的染了色的括号，颜色不能相同。
 求染色方案数，模 1e9+7。
 
+rating 1900
 https://codeforces.com/contest/149/submission/203169633
 首先预处理每个左括号对应的右括号的位置，用栈来处理。
 由于是从外到内递归，从内到外转移，所以是区间 DP，可以看 https://www.bilibili.com/video/BV1Gs4y1E7EU/

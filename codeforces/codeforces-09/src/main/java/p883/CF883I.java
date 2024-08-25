@@ -65,6 +65,7 @@ https://codeforces.com/contest/883/problem/I
 计算所有组的 diff 值的最大值 mx。
 输出 mx 的最小值。
 
+rating 1900
 https://codeforces.com/problemset/submission/883/205379777
 排序后，二分答案。
 贪心分组？看上去漏洞百出，不妨考虑 DP。

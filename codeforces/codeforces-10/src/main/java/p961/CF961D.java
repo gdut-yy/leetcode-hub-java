@@ -55,6 +55,7 @@ https://codeforces.com/contest/961/problem/D
 输入 n(≤1e5) 和 n 个点 (xi,yi)，范围在 [-1e9,1e9]，所有点都是不同的。
 你能否画至多两条直线，覆盖所有点？输出 YES 或 NO。
 
+rating 2000
 https://codeforces.com/contest/961/submission/190438603
 提示 1：如果可以画，那么任意三点中必然有两个点在所画直线上。
 提示 2：枚举前三个点中的两个点，确定一条直线，然后看其余点是否在一条直线上。

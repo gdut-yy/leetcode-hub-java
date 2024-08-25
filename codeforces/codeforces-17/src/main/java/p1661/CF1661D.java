@@ -53,6 +53,7 @@ https://codeforces.com/contest/1661/problem/D
 每次操作你要选一个长度恰好等于 k 的连续子数组，从左到右，第1个数加1，第2个数加2，……第k个数加k。
 要使每个 a[i] >= b[i]，至少需要操作多少次？
 
+rating 1900
 https://codeforces.com/problemset/submission/1661/190145738
 提示 1：倒着思考，这样可以贪心处理每个下标要操作多少次。
 提示 2：用差分数组来处理这个等差数列，维护差分的差分。

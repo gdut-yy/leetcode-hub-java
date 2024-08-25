@@ -160,6 +160,7 @@ https://codeforces.com/contest/292/problem/D
 对每个询问，输出删除边后，此时有多少个连通块。
 请注意：每个询问都是独立的，在下个询问前会恢复成原图。
 
+rating 1900
 https://codeforces.com/contest/292/submission/173783235
 前后缀分解。
 预处理，对 m 条边的每个前缀和每个后缀建立大小为 n 的并查集，递推计算。每次递推在上一个并查集的基础上计算，预处理总时间 O(nm)。（每次递推都要 copy 一次并查集）

@@ -44,6 +44,7 @@ https://codeforces.com/contest/1095/problem/C
 把 n 分解为 k 个正整数，要求这些数都是 pow(2,i)，即 1,2,4,8,……
 如果无法做到，输出 NO，否则输出 YES 和这 k 个数。
 
+rating 1400
 https://codeforces.com/contest/1095/submission/202908506
 什么时候输出 NO？
 k > n，或者 k < n 的二进制中的 1 的个数。

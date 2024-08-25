@@ -64,6 +64,7 @@ https://codeforces.com/contest/520/problem/B
 至少操作多少次可以得到 m？
 如果还可以加一呢？
 
+rating 1400
 https://codeforces.com/contest/520/submission/204549550
 如果 n > m，就只能不断 -1 了，所以直接输出 n-m。
 如果 n < m，可以用 BFS（稍微限制一下数字的上界，比如不能超过 10m）。

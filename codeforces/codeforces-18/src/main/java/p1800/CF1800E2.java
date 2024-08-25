@@ -90,6 +90,7 @@ https://codeforces.com/contest/1800/problem/E2
 题目大意：
 给定整数 n, k 和长度为 n 的字符串 s, t。可以在距离 k 或者 k+1 的地方交换 s 的字母，可以交换任意次。求是否可以使 s == t
 
+rating 1500
 并查集。放力扣也就是中等题。。
 相似题目: 1202. 交换字符串中的元素
 https://leetcode.cn/problems/smallest-string-with-swaps/

@@ -44,6 +44,7 @@ https://codeforces.com/contest/1325/problem/D
 构造一个长度最短的数组，满足异或和等于 u，和等于 v。
 如果无法构造，输出 -1，否则输出数组长度和任意满足要求的数组。
 
+rating 1700
 constructive algorithms
 https://codeforces.com/contest/1325/submission/97080317
 提示 1：u <= v

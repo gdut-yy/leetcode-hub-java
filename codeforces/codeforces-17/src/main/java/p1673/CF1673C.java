@@ -62,6 +62,7 @@ https://codeforces.com/contest/1673/problem/C
 输出把 n 拆分成若干回文数之和的方案数。模 1e9+7。
 例如 3 有 3 种方案：3, 2+1, 1+1+1。
 
+rating 1500
 预处理 4e4 内的回文数，然后跑完全背包。
 如何高效枚举回文数请看代码。
 https://codeforces.com/problemset/submission/1673/231925676

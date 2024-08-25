@@ -132,6 +132,7 @@ https://codeforces.com/contest/915/problem/F
 定义 Δ(x,y) 表示从 x 到 y 的简单路径上的 a[i] 的最大值与最小值的差。
 输出所有 Δ(i,j) 的和，其中 1≤i≤j≤n。
 
+rating 2400
 https://codeforces.com/problemset/submission/915/203430331
 贡献法。
 最大值和最小值分别计算贡献。

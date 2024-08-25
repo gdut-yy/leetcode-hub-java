@@ -61,6 +61,7 @@ https://codeforces.com/contest/1296/problem/C
 输出你删除的这段子串的左右端点（下标从 1 开始）。
 如果无法做到，输出 -1。
 
+rating 1500
 https://codeforces.com/contest/1296/submission/201606705
 提示 1：如果只有左右两个方向，要怎么做？
 提示 2：转换成 -1 和 +1，问题变成去掉一个子数组，使得数组的和等于 0。

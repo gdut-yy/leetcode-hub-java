@@ -48,6 +48,7 @@ https://codeforces.com/contest/1054/problem/D
 设 mask = (1<<k)-1，每次操作你可以把任意 a[i] 修改为 a[i] XOR mask，你可以操作任意次（包括 0 次）。
 修改后，最多有多少个 a 的非空连续子数组，其异或和不等于 0？
 
+rating 1900
 https://www.luogu.com.cn/blog/endlesscheng/solution-cf1054d
 构造前缀异或和，使需要让 s 中的不同数对尽量的多。
 正难则反。思考如何让 s 中的相同数对尽量的少。

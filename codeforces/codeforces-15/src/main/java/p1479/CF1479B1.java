@@ -71,6 +71,7 @@ https://codeforces.com/contest/1479/problem/B1
 输出 f(A) + f(B) 的最大值。
 变形（这场的 B2）：输出 f(A) + f(B) 的最小值。
 
+rating 1900
 https://codeforces.com/problemset/submission/1479/204384720
 想象成往两个数组 s 和 t 的末尾不断添加元素。
 为方便计算，初始时 s 和 t 中都添加一个 0。

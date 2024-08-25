@@ -54,6 +54,7 @@ https://codeforces.com/contest/1156/problem/B
 你需要重排 s 中的字母（或者保持 s 不变），使得 abs(s[i]-s[i+1]) != 1，即任意相邻字母在字母表中不相邻。
 输出任意一个符合要求的结果，如果不存在，输出 No answer。
 
+rating 1800
 https://codeforces.com/contest/1156/submission/197311349
 提示 1：想想 s 中没有重复字母要怎么做。
 提示 2：s 排序后，按照 ASCII 码的奇偶性分组，设为 x 和 y。

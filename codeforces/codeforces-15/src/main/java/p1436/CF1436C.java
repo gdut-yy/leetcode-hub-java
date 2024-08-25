@@ -75,6 +75,7 @@ https://codeforces.com/contest/1436/problem/C
 2. 调用 BinarySearch(a, x) 的结果是 true。
 答案模 1e9+7。
 
+rating 1500
 https://codeforces.com/contest/1436/submission/96620271
 要能二分查找到正确的 x，只需要每一步的 a[middle] 和 x 的大小关系是正确的。
 因此统计二分中会遇到几次 middle < pos 的和几次 middle > pos 的。

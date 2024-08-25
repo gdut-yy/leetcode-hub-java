@@ -52,6 +52,7 @@ https://codeforces.com/contest/176/problem/B
 每次操作你可以把 s 分割成两个非空字符串 s1 和 s2，然后替换 s = s2 + s1。
 把 s 变成 t 有多少种方案？模 1e9+7。
 
+rating 1700
 https://codeforces.com/contest/176/submission/210387377
 手玩一下发现操作与「把 s 循环右移（左移）」是一样的。
 假设有 c 种不同的循环右移可以让 s=t。那么有 n-c 种不同的循环右移让 s≠t。

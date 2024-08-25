@@ -122,6 +122,7 @@ https://codeforces.com/contest/1679/problem/D
 否则输出路径上的最大点权的最小值。
 注意：你可以重复访问同一个节点。
 
+rating 1900
 二分答案 mx。
 只考虑点权 <= mx 的点。
 如果这些点组成的图是有环的，那么 check 为 true。

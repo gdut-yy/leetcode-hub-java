@@ -82,6 +82,7 @@ https://codeforces.com/contest/846/problem/C
 如果有多个满足要求的答案，输出任意一个。
 进阶：你能想出一个 O(n) 的算法吗？
 
+rating 1800
 https://codeforces.com/contest/846/submission/207819522
 用前缀和将 s(0,i)-s(i,j)+s(j,k)-s(k,n) 变成
 2*(s[i]-s[j]+s[k])-s[n]。

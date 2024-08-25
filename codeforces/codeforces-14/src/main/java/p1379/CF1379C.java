@@ -71,6 +71,7 @@ https://codeforces.com/contest/1379/problem/C
 如果第 i 种物品选 x 个（x>0），收益为 a[i]+(x-1)*b[i]。
 输出最大收益。
 
+rating 2000
 https://codeforces.com/contest/1379/submission/87405052
 提示 1：至多有一个物品要选超过 1 个。（反证法：如果有两个，只选 b 更大的那个更优）
 提示 2：枚举第 i 个物品选了超过 1 个，那么比 b[i] 大的物品必须选 1 个。

@@ -58,6 +58,7 @@ https://codeforces.com/contest/1272/problem/D
 你可以从 a 中去掉一个数（也可以不去掉）。
 输出 a 的最长严格递增连续子数组的长度。
 
+rating 1500
 https://codeforces.com/contest/1272/submission/148467966
 前后缀分解。
 计算从后往前的严格递增子数组长度 suf[i]。

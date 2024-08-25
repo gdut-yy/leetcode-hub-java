@@ -44,6 +44,7 @@ https://codeforces.com/contest/1428/problem/F
 定义 f(t) 为 t 中最长连续 '1' 的长度。（如果 t 中没有 ‘1’，f(t)=0）
 枚举 s 的所有子串 t，输出 f(t) 的和。
 
+rating 2400
 https://codeforces.com/contest/1428/submission/203608811
 增量法。
 定义 last[ones] 表示上一次出现连续 ones 个 1 的起始位置。

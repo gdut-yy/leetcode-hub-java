@@ -65,6 +65,7 @@ https://codeforces.com/contest/1102/problem/D
 修改次数应当尽量少。
 输出修改后的字典序最小的字符串。
 
+rating 1500
 https://codeforces.com/contest/1102/submission/207636737
 为了最小化修改次数，只需要修改出现次数 > n/3 的。
 从左往右，大的改成小的，例如 2->0

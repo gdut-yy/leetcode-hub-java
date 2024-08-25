@@ -69,6 +69,7 @@ https://codeforces.com/contest/1095/problem/E
 有多少个不同的 i，可以使 s 是一个合法的括号字符串？
 思考：如果可以改两个 s[i] 呢？
 
+rating 1900
 https://codeforces.com/contest/1095/submission/193708110
 记 c 为 s 的平衡度，遇到 '(' 就 +1，遇到 ')' 就 -1。
 中途 c 不能小于 -2。最后 abs(c) 必须为 2。

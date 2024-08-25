@@ -78,6 +78,7 @@ https://codeforces.com/contest/1473/problem/D
 又例如 t=""，那么只有 0，输出 1。
 每个询问互相独立。
 
+rating 1700
 https://codeforces.com/contest/1473/submission/201614540
 提示 1：前后缀分解，预处理从左往右、从右往左的信息。只需要记录哪些信息？
 提示 2：

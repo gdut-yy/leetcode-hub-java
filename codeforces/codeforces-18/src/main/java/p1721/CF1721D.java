@@ -158,6 +158,7 @@ https://codeforces.com/contest/1721/problem/D
 数组 b 可以随意打乱。
 输出 (a[1] XOR b[1]) AND (a[2] XOR b[2]) AND ... AND (a[n] XOR b[n]) 的最大值。
 
+rating 1800
 https://codeforces.com/contest/1721/submission/189632358
 提示 1：从最高位往最低位一位一位思考。
 提示 2：a 中的 0 需要和 b 中的 1 匹配，a 中的 1 需要和 b 中的 0 匹配。

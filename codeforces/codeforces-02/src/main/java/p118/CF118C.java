@@ -78,6 +78,7 @@ https://codeforces.com/contest/118/problem/C
 输出最小总花费以及修改后的 s。
 思考：如果把 s 换成一个值域范围更大的整数数组，你能想出一个更优的做法吗？
 
+rating 1900
 https://codeforces.com/contest/118/submission/197621784
 枚举 + 贪心。
 枚举修改后有 k 个 0/1/2/.../9。取花费最小且字典序最小的为答案。

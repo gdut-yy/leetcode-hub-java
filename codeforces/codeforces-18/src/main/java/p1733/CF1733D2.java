@@ -64,7 +64,10 @@ https://codeforces.com/contest/1733/problem/D2
 每次操作你可以把 s 的两个比特位翻转（0 变 1，1 变 0），如果两个比特位相邻，则代价为 x，否则为 y。
 输出把 s 变成 t 的最小代价，如果无法做到，输出 -1。
 进阶：你能做到 O(n) 时间复杂度吗？
+相似题目: 2896. 执行操作使两个字符串相等
+https://leetcode.cn/problems/apply-operations-to-make-two-strings-equal/description/
 
+rating 2000
 O(n)：https://codeforces.com/problemset/submission/1733/187727396
 空间优化：https://codeforces.com/problemset/submission/1733/187727663
 我的题解，欢迎点赞：https://www.luogu.com.cn/blog/endlesscheng/solution-cf1733d2

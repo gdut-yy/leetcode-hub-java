@@ -46,6 +46,7 @@ https://codeforces.com/contest/452/problem/D
 你必须将一件洗好的衣服立即烘干，烘干完毕后立即熨烫。
 输出处理完所有衣服的最短时间。
 
+rating 1900
 https://codeforces.com/problemset/submission/452/210604954
 题解 https://www.luogu.com.cn/blog/endlesscheng/solution-cf452d
 ======

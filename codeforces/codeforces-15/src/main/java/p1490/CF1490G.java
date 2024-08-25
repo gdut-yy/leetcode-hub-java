@@ -88,6 +88,7 @@ https://codeforces.com/contest/1490/problem/G
 对每个询问，输出 b 的前缀和中首次 ≥x 的下标（下标从 0 开始），如果不存在，输出 -1。
 所有数据的 n 之和、m 之和均不超过 2e5。
 
+rating 1900
 https://codeforces.com/contest/1490/submission/108014953
 提示 1：计算 a 的前缀和的所有 record 下标 p（record 指比上一个最大值更大的前缀和的下标）。
 因为前缀和中任何一个递减或相同的地方都是不重要的。

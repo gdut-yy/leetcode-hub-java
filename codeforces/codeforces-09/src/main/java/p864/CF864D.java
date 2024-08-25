@@ -59,6 +59,7 @@ https://codeforces.com/contest/864/problem/D
 输出最少修改次数，以及修改后的 a。
 如果有多个 a 符合要求，输出字典序最小的 a。
 
+rating 1500
 统计 a 中每个数出现了多少次，记到 cnt 数组中。
 如果 x 只出现一次，那么不用改。
 如果 x 出现多次，那么要改 cnt[x]-1 个数。

@@ -57,6 +57,7 @@ https://codeforces.com/contest/489/problem/C
 构造长为 m 的非负整数 x，无前导零，且数位和等于 s。
 输出 x 的最小值和最大值。如果没有这样的 x，输出 -1 -1。
 
+rating 1400
 https://codeforces.com/contest/489/submission/203167530
 分类讨论。
 最小的类似 1000069999

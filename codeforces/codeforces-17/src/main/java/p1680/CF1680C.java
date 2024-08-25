@@ -57,6 +57,7 @@ https://codeforces.com/contest/1680/problem/C
 注：子串是连续的。
 思考：如果改成所有子串的代价之和要怎么做？
 
+rating 1600
 二分+滑窗 or 直接滑窗
 我的题解：https://www.luogu.com.cn/blog/endlesscheng/solution-cf1680c
 ======

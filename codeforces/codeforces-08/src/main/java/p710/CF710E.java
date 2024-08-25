@@ -47,6 +47,7 @@ Zscoder 想为一些编程竞赛问题生成一个输入文件。
 最初，文本编辑器是空的。从文本文件中插入或删除字母“a”需要 x 秒，复制整个文本文件的内容需要 y 秒，并复制它。
 Zscoder 想要找到创建恰好包含 n 个字母“a”的输入文件所需的最少时间。帮助他确定生成输入所需的时间。
 
+rating 2000
 相似题目: B. Two Buttons
 https://codeforces.com/contest/520/problem/B
 ======

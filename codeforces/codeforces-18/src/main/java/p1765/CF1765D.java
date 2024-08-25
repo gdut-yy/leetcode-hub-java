@@ -57,6 +57,7 @@ https://codeforces.com/contest/1765/problem/D
 你需要下载并看完这 n 个视频。
 问：到看完最后一个视频，最少要用多少分钟？
 
+rating 1700
 https://codeforces.com/contest/1765/submission/214219665
 最多要花 n + sum(a) 分钟。在这基础上，考虑如何安排可以在看视频的同时下载。
 受到救生艇这题的启发，排序+双指针，如果 a[l]+a[r]<=m，那么先下载 a[r]，看 a[r] 的同时下载 a[l]，那么看 a[l] 的同时，又可以下载另外一个视频（因为 a[l] 加上一个<=a[r] 的必然 <= m）。

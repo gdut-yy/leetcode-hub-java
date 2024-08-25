@@ -41,6 +41,7 @@ https://codeforces.com/contest/1535/problem/C
 输出 s 中有多少个子串是灵茶字符串。
 注：子串是连续的。
 
+rating 1400
 https://codeforces.com/problemset/submission/1535/199246246
 提示 1：
 从左到右遍历 s。

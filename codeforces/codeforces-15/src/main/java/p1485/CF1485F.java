@@ -51,6 +51,7 @@ https://codeforces.com/contest/1485/problem/F
 构造下标从 1 开始的数组 a，对于每个 i，满足 b[i] = a[i] 或者 b[i] = a[1] + a[2] + ... + a[i]。
 输出有多少个不同的 a，模 1e9+7。
 
+rating 2400
 https://codeforces.com/contest/1485/submission/202820084
 提示 1：两个 a 不同，当且仅当这两个 a 的前缀和不同。那么考虑 a 的前缀和有多少不同的。
 提示 2：设 a 的前缀和为 s，则有：

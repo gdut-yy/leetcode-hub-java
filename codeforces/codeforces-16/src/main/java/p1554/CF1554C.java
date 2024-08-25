@@ -40,6 +40,7 @@ https://codeforces.com/contest/1554/problem/C
 定义数组 a = [n xor 0, n xor 1, n xor 2, ..., n xor m]。
 输出不在 a 中的最小非负整数。
 
+rating 1800
 https://codeforces.com/contest/1554/submission/164112524
 提示 1：把答案记作 mex，把所有 a[i] 和 mex 都异或上 n，
 那么 n xor mex 不能在 [0,1,2,...,m] 中，也就是 n xor mex >= m+1。

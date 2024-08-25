@@ -60,6 +60,7 @@ https://codeforces.com/contest/1765/problem/N
 s 是一个不含前导零的正整数。
 你需要删除 s 中的恰好 k 个字符，使得剩余字符的字典序最小，并且是没有前导零的正整数。
 
+rating 1500
 请看题解：
 https://www.luogu.com.cn/blog/endlesscheng/solution-cf1765n
 本题简单版本: 402. 移掉 K 位数字

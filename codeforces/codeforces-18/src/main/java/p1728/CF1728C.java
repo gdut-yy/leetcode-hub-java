@@ -73,6 +73,7 @@ https://codeforces.com/contest/1728/problem/C
 若干次操作后，将 a 和 b 排序，要求所有 a[i]=b[i]。
 输出最小操作次数。
 
+rating 1400
 https://codeforces.com/problemset/submission/1728/217090588
 注意到所有元素都 < 1e9，这意味着把一个数字替换一次，一定会得到一个 < 10 的数，替换两次，一定会得到 1。
 那么先把 a 和 b 中 >= 10 的数求交集，这些交集中的数无需替换，直接忽略，其余数字都需要替换。

@@ -70,6 +70,7 @@ https://codeforces.com/contest/708/problem/B
 如果不存在，输出 Impossible。
 注：子序列是从 s 中删除某些元素得到的。
 
+rating 1900
 constructive algorithms
 https://codeforces.com/contest/708/submission/194669010
 提示 1：根据 f(0,0) 可以求出 0 的个数 c0，因为 f(0,0) = C(c0,2)；同理可求出 1 的个数 c1。

@@ -49,6 +49,7 @@ https://codeforces.com/contest/435/problem/B
 每次操作，交换 a 的两个相邻数位。
 输出 a 的最大值。
 
+rating 1400
 https://codeforces.com/contest/435/submission/209289302
 由于 k 较小，直接模拟。
 每次循环尽量把大的换到前面。

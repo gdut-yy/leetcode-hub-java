@@ -58,6 +58,7 @@ https://codeforces.com/contest/480/problem/C
 4. |x-y|<|x-b|
 输出不同移动方案的个数，模 1e9+7。
 
+rating 1900
 https://codeforces.com/contest/479/submission/208670481
 前缀和优化 DP。
 为方便计算，如果 a>b，根据对称性调整为 a=n+1-a，b=n+1-b。这样可以保证 a<b。

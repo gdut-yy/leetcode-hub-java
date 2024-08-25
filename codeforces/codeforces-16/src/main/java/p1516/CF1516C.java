@@ -60,6 +60,7 @@ https://codeforces.com/contest/1516/problem/C
 输出最少要删除多少个数，以及这些数的下标（从 1 开始）。
 注：子序列不要求连续。
 
+rating 1700
 https://codeforces.com/contest/1516/submission/213269180
 分类讨论：
 1. 如果 sum(a) 是奇数，显然没法分，无需删除任何数字，输出 0。

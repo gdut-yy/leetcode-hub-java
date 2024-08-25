@@ -159,6 +159,7 @@ https://codeforces.com/contest/1720/problem/D2
 例如 a=[5,2,4,3,1]，构造 id=[1,2,4]，满足 a[1] XOR 2 < a[2] XOR 1 以及 a[2] XOR 4 < a[4] XOR 2。
 输出 id 的最大长度。
 
+rating 2400
 灵神解法 TLE
 https://codeforces.com/contest/1720/submission/204199800
 看到 a[i] XOR j < a[j] XOR i 这个式子，就很想把 i 移到左边，j 移到右边，这样就好处理了。

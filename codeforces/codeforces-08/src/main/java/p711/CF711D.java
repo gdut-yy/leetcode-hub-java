@@ -70,6 +70,7 @@ https://codeforces.com/contest/711/problem/D
 其中有多少种方案，可以使图中没有环？
 模 1e9+7。
 
+rating 1900
 https://codeforces.com/contest/711/submission/207047798
 前置题目：
 遍历每个环，这个环的贡献为 2^环长 - 2。

@@ -85,6 +85,7 @@ https://codeforces.com/contest/382/problem/C
 输出 x 的个数，以及所有的 x（按升序输出）。
 如果 x 有无穷多个，输出 -1。
 
+rating 1700
 https://codeforces.com/problemset/submission/382/199610473
 分类讨论，样例基本上把所有情况都列出来了，具体见代码注释。
 ======

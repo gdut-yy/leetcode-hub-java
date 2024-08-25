@@ -64,8 +64,8 @@ https://codeforces.com/contest/1015/problem/D
 问能不能恰好走 k 步，使得移动的距离之和恰好为 s？
 若不能，输出 "NO"；否则输出 "YES" 和 k 个数，表示每一步移动之后的位置。
 
-constructive algorithms
 rating 1600
+constructive algorithms
 https://codeforces.com/contest/1015/submission/163682002
 构造方法有多种，分享下我的做法（Z 字抖动）。
 大跨步：距离 = n-1

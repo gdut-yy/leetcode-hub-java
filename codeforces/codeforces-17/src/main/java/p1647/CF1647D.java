@@ -58,6 +58,7 @@ x 能否表示为一个或多个美丽数的乘积，且表示方式不唯一？
 输出 YES / NO。
 注：2*4 和 4*2 是同一种表示方式。
 
+rating 1900
 https://codeforces.com/problemset/submission/1647/211381733
 详细见代码注释
 【补充】

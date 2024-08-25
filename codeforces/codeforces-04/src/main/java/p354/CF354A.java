@@ -55,6 +55,7 @@ https://codeforces.com/contest/354/problem/A
 如果上一次和当前都是弹出队尾，则代价额外加上 qr。
 输出清空 q 的最小代价。
 
+rating 1500
 https://codeforces.com/contest/354/submission/210296537
 前后缀分解。
 枚举弹出队首 i 次，那么弹出队尾 n-i 次。

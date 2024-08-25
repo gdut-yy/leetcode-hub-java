@@ -81,6 +81,7 @@ https://codeforces.com/contest/1624/problem/E
 如果无法划分，输出 -1；否则输出划分出的子串个数 k，然后输出 k 行，每行三个数字 l r i，表示这个子串等于 a[i] 的子串 [l,r]。注意 l r i 的下标均从 1 开始。注意输出的 k 行要与划分的顺序相同。
 如果有多种划分方案，输出任意一种。
 
+rating 2000
 https://codeforces.com/contest/1624/submission/198571126
 提示 1：任意 >=4 的数字都可以拆分为若干 2 和 3 的和。
 提示 2：预处理所有长为 2 和 3 的子串及其位置。

@@ -57,6 +57,7 @@ https://codeforces.com/contest/602/problem/B
 输入 n(2≤n≤1e5) 和长为 n 的数组 a(1≤a[i]≤1e5 且 abs(a[i]-a[i-1])≤1)。
 输出 a 的最长连续子数组的长度，满足数组中的最大值减最小值不超过 1。
 
+rating 1400
 https://codeforces.com/problemset/submission/602/209863696
 双指针滑窗，视频讲解：https://www.bilibili.com/video/BV1hd4y1r7Gq/
 由于 abs(a[i]-a[i-1])≤1，问题等价于子数组内不同元素个数不超过 2，用 map 维护即可。

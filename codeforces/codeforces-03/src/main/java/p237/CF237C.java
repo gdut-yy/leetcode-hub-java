@@ -56,6 +56,7 @@ https://codeforces.com/contest/237/problem/C
 请找到最短的 L，使得对于任意 a≤x≤b-L+1 都满足：在 x,x+1,...,x+L-1 中至少有 k 个质数。
 输出 L。如果 L 不存在，输出 -1。
 
+rating 1600
 https://codeforces.com/contest/237/submission/207778331
 预处理质数（埃氏筛/欧拉筛）。如果不足 k 个，输出 -1。
 方法一：二分答案+滑窗验证（可以只在质数列表中滑窗）  O(b/logb * logb) = O(b)

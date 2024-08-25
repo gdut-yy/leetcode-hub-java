@@ -95,6 +95,7 @@ https://codeforces.com/contest/1420/problem/D
 你需要从 n 个区间中选择 k 个区间，且这 k 个区间的交集不为空。
 输出方案数模 998244353 的结果。
 
+rating 1800
 https://codeforces.com/contest/1420/submission/176225922
 https://codeforces.com/contest/1420/submission/176225199
 对于每个区间的左端点 L，可能存在某些选法，是以 L 为交集的左端点的。

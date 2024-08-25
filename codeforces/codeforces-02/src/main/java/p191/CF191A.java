@@ -54,6 +54,7 @@ https://codeforces.com/contest/191/problem/A
 输出 b 中字符串长度之和的最大值。
 注：子序列不要求连续。
 
+rating 1500
 https://codeforces.com/problemset/submission/191/214043184
 定义 f[i][j][k] 表示考虑 a 的前 i 个字符串，选出的子序列的第一个字母为 j，最后一个字母为 k。
 转移方程的 i 从 1 开始。

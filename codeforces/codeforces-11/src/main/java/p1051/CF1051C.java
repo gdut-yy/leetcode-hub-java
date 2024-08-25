@@ -77,6 +77,7 @@ https://codeforces.com/contest/1051/problem/C
 思考题：如果子序列不能为空呢？
 思考题：如果分成 k 个子序列要怎么做？
 
+rating 1500
 https://codeforces.com/contest/1051/submission/211938643
 设 s 中有 c1 个数出现一次。
 如果 c1 是偶数，那么选 c1/2 个数分到 B，其余分到 A。

@@ -91,6 +91,7 @@ https://codeforces.com/contest/543/problem/D
 定义 a(x) 表示以 x 为根时的合法标记方案数，模 1e9+7。其中【合法标记】定义为：对树的某些边做标记，使得 x 到任意点的简单路径上，至多有一条边是被标记的。
 输出 a(1),a(2),...,a(n)。
 
+rating 2300
 https://codeforces.com/contest/543/submission/214621886
 换根 DP。不了解的同学请看右边的链接。 https://leetcode.cn/problems/sum-of-distances-in-tree/solution/tu-jie-yi-zhang-tu-miao-dong-huan-gen-dp-6bgb/
 先来计算 a(1)，此时 1 为树根。

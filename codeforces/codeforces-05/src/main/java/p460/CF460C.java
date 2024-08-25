@@ -65,6 +65,7 @@ https://codeforces.com/contest/460/problem/C
 你需要操作 m 次，每次操作可以选一个长为 w 的连续子数组，把数组内的元素都加一。
 输出 min(a) 的最大值。
 
+rating 1700
 https://codeforces.com/contest/460/submission/208655653
 二分答案 low。
 用差分数组维护区间加。

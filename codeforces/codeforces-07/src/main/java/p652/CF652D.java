@@ -103,6 +103,7 @@ https://codeforces.com/contest/652/problem/D
 输入 n(≤2e5) 和 n 个闭区间，区间左右端点范围在 [-1e9,1e9]，所有端点互不相同。
 对每个区间，输出它包含多少个其它的区间。
 
+rating 1800
 https://codeforces.com/contest/652/submission/122430936
 离散化后，按照右端点排序。
 对于每个区间 [left,right]，统计从 left 到 right 之间有多少个其余的左端点。

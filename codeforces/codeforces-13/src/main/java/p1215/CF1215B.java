@@ -45,6 +45,7 @@ https://codeforces.com/contest/1215/problem/B
 思考题：如果数组中有 0 要怎么做？如果要数乘积为 0 的子数组个数呢？
 思考题：如果改成子序列呢？
 
+rating 1400
 https://codeforces.com/problemset/submission/1215/211779994
 用前缀和统计前 i 个数中有多少个负数。
 由于偶数个负数的乘积是正数，所以只需要看前缀和的奇偶性。

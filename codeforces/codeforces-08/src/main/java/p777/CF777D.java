@@ -48,6 +48,7 @@ https://codeforces.com/contest/777/problem/D
 你可以把字符串的任意后缀去掉。
 输出使得 a 变为字典序升序，至少需要去掉多少字符。
 
+rating 1800
 https://codeforces.com/contest/777/submission/171012642
 提示 1：贪心，从后往前枚举，每个字符串要保留尽可能多的字符。
 提示 2：由于字典序的传递性，只需要比较相邻的字符串。

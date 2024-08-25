@@ -2,6 +2,7 @@ package lq240727;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Scanner;
 
 public class LQ240727T4 {
     static int n;

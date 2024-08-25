@@ -43,6 +43,7 @@ https://codeforces.com/contest/997/problem/A
 目标：使 s 中只有 1。
 输出最少花费。
 
+rating 1500
 https://codeforces.com/contest/997/submission/205172377
 如果没有 0，输出 0。
 如果 x < y，那么可以把所有 0 通过多次 reverse 操作聚在一起，然后再操作一次 flip。

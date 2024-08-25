@@ -79,6 +79,7 @@ https://codeforces.com/contest/193/problem/A
 如果无法做到，输出 -1，否则输出最少修改次数。
 注：规定空集（没有 '#'）视作连通图，只有一个 '#' 也视作连通图。
 
+rating 1700
 https://codeforces.com/contest/193/submission/215507875
 脑筋急转弯。
 如果 # 个数小于 3，那么无法分成多个连通块，输出 -1。

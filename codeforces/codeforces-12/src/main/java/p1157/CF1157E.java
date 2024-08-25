@@ -90,6 +90,7 @@ https://codeforces.com/contest/1157/problem/E
 还有一个长为 n 的数组 c，其中 c[i] = (a[i] + b[i]) % n。
 输出字典序最小的 c。
 
+rating 1700
 https://codeforces.com/contest/1157/submission/198294259
 对于 a[i]，需要去找 (n-a[i])%n，如果不存在就找更大的，如果找到 n-1 都没有，就从 0 开始找。
 这样做是暴力的，有多种优化方法：

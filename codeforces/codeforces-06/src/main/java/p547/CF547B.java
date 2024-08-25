@@ -67,6 +67,7 @@ https://codeforces.com/contest/547/problem/B
 定义 f(x) 为 a 中「长为 x 的连续子数组的最小值」的最大值。
 输出 f(1), f(2), ..., f(n)。
 
+rating 1900
 https://codeforces.com/problemset/submission/547/188764909
 提示 1：考虑每个数的贡献。
 提示 2：用单调栈算出每个数 v 作为最小值的范围最大是多少，设范围最大为 size，那么所有 x <= size 的 f(x) 都应维护下最大值 v。但这样太慢了，除非你用线段树区间更新。

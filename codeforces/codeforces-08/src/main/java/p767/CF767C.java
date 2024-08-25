@@ -140,6 +140,7 @@ https://codeforces.com/contest/767/problem/C
 假设删除的边是 a->b 和 c->d，你需要输出 b 和 d。如果有多种方案，输出任意一种。
 如果无法做到，输出 -1。
 
+rating 2000
 https://codeforces.com/contest/767/submission/174193693
 做法类似双周赛 t4，每统计到一个点权和等于 total / 3 的连通块，就断开它和父节点的边。取前两个作为答案。
 https://www.bilibili.com/video/BV1cV4y157BY

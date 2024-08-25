@@ -72,6 +72,7 @@ https://codeforces.com/contest/1141/problem/F2
 输出子数组的个数 k，然后输出 k 行，每行两个数表示子数组的左右端点。
 可以按任意顺序输出，多种方案可以输出任意一种。
 
+rating 1900
 https://codeforces.com/contest/1141/submission/192610240
 暴力统计每个子数组的和，用哈希表把和相同的子数组左右端点记录下来。
 对于每一组，问题变成最多不重叠线段个数。

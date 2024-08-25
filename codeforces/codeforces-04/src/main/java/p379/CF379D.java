@@ -59,6 +59,7 @@ https://codeforces.com/contest/379/problem/D
 然后按照 s[i]=s[i-2]+s[i-1] 的方式，生成字符串 s[k]，要求子串 "AC" 在 s[k] 中恰好出现 x 次。
 如果可以构造，输出任意符合要求的 s[1] 和 s[2]，否则输出 "Happy new year!"。
 
+rating 2000
 https://codeforces.com/problemset/submission/379/187613695
 AC 只能发生在这些地方：
 s[1] 内部

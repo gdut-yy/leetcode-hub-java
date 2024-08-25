@@ -37,6 +37,7 @@ https://codeforces.com/contest/1081/problem/C
 n 块砖排成一排，把每块砖涂成 m 种颜色中的一种，要求恰好有 k 块砖的颜色与其左边相邻砖的颜色不同（第一块砖不能在这 k 块砖内）。
 输出涂色方案数，模 998244353。
 
+rating 1500
 https://codeforces.com/problemset/submission/1081/211192029
 定义 f[i][j] 表示前 i 块砖，有 j 块砖的颜色与其左边相邻砖的颜色不同，此时的涂色方案数。
 第一块砖随便涂色，f[0][0] = m。

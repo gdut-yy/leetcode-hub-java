@@ -51,6 +51,7 @@ https://codeforces.com/contest/1661/problem/C
 在第 2,4,6,... 天，你可以把一棵树的高度+2，或者不做任何事。
 要使所有树的高度一样，至少要多少天？
 
+rating 1700
 https://codeforces.com/contest/1661/submission/190218911
 提示 1：最终高度只能是 max(h) 和 max(h)+1，更高的高度只会比这两个的天数多。
 提示 2：为什么可以是 max(h)+1？因为两个 1 可以当成 2，而 2 无法当作 1。

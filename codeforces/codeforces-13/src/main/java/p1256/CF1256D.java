@@ -45,6 +45,7 @@ https://codeforces.com/contest/1256/problem/D
 输出字典序最小的结果。
 如果不是 01 串要怎么做？加强版：1505 题
 
+rating 1500
 https://codeforces.com/problemset/submission/1256/203854959
 贪心。
 0 往左移。

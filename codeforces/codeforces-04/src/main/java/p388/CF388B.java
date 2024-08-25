@@ -67,6 +67,7 @@ https://codeforces.com/contest/388/problem/B
 输出 n 以及一个 n*n 的邻接矩阵 g，如果 i 和 j 之间有边，则 g[i][j]='Y'，否则为 'N'。
 注意不能有自环，即 g[i][i] 必须为 'N'。
 
+rating 1900
 constructive algorithms
 二进制构造。
 k = x1 * 2^0 + x2 * 2^1 + ... + xn * 2^n

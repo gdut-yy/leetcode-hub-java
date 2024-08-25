@@ -83,6 +83,7 @@ find(root, x);
 把二叉树的每个节点值应用上述代码，输出你会得到多少次 false。
 注意节点值可能有重复的。
 
+rating 2100
 https://codeforces.com/contest/797/submission/190439455
 考虑有多少个节点值可以找到。
 参考 https://www.bilibili.com/video/BV14G411P7C1/ 的方法一，把合法查询范围作为递归参数传下去。

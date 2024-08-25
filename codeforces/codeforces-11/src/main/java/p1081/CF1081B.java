@@ -57,8 +57,8 @@ https://codeforces.com/contest/1081/problem/B
 要求 1<=b[i]<=n。
 如果不能构造，输出 "Impossible"；否则输出 "Possible" 和任意一个满足要求的数组 b。
 
-constructive algorithms
 rating 1500
+constructive algorithms
 https://codeforces.com/problemset/submission/1081/164214080
 提示 1：转换一下，有 n-a[i] 个数和 b[i] 相同。
 提示 2：把相同的 a[i] 分为一组。

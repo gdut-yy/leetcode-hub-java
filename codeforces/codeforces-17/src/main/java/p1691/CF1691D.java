@@ -65,6 +65,7 @@ https://codeforces.com/contest/1691/problem/D
 注：子数组是连续的。
 进阶：做到 O(n) 时间复杂度。
 
+rating 1800
 https://codeforces.com/contest/1691/submission/189346222
 提示 1：看到子数组+min/max，就要想单调栈。
 对于本题，假设把 a[i] 当作最大值，那么需要得到能把 a[i] 当作最大值的区间左端点的最小值 L，和右端点的最大值 R。这就需要单调栈了。

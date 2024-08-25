@@ -45,6 +45,7 @@ https://codeforces.com/contest/190/problem/D
 输入 n k(1≤k≤n≤4e5) 和长为 n 的数组 a(1≤a[i]≤1e9)。
 统计有多少个连续子数组 b，满足 b 中有至少 k 个数都相同。
 
+rating 1900
 https://codeforces.com/problemset/submission/190/208012570
 同向双指针。
 固定右端点 right，移动左端点 left，让子数组 [left-1, right] 中至多有一个数出现 k 次。

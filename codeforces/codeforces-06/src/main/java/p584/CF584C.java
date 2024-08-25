@@ -72,6 +72,7 @@ https://codeforces.com/contest/584/problem/C
 构造一个长为 n 由小写字母组成的 s3，使得 f(s1,s3) == f(s2,s3) == t
 如果无法构造出，输出 -1
 
+rating 1700
 constructive algorithms
 https://codeforces.com/contest/584/submission/194532015
 先算出 f(s1,s2)，记作 d。

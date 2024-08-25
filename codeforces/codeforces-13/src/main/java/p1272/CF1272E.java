@@ -75,6 +75,7 @@ https://codeforces.com/contest/1272/problem/E
 定义 d[i] 表示从 i 出发，移动到某个位置 j 的最小移动次数，要求 a[i] 和 a[j] 的奇偶性不同，如果不存在则 d[i] = -1
 返回 d[1], d[2], ..., d[n]
 
+rating 1900
 图论 BFS。注意奇偶队列添加元素技巧。
 https://codeforces.com/contest/1272/submission/193830507
 提示 1：从起点出发不好计算的话，试试从终点出发反着走。

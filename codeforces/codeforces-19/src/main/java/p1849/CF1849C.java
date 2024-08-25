@@ -66,6 +66,7 @@ https://codeforces.com/contest/1849/problem/C
 
 前后缀分解？如果去重？字符串哈希？
 ---
+rating 1600
 https://codeforces.com/blog/entry/118752
 我们可以看到，每个修改后的副本仅由两个整数 lb 和 rb 决定——字符被更改的第一个位置和最后一个位置。如果我们能找到每个副本的这样的数字，不同的配对的数量将是问题的答案。
 设 lfi 为最近的字符 0 在位置 i 或其左边的位置，rgi 为最近的字符 1 在位置 i 或其右边的位置。

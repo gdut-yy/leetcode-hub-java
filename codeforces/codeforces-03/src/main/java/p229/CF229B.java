@@ -171,6 +171,7 @@ https://codeforces.com/contest/229/problem/B
 如果无法到达 n，输出 -1。
 【易错题】
 
+rating 1700
 https://codeforces.com/contest/229/submission/206931343
 Dijkstra 的变形。
 把 dis[i] 定义成可以从 i 出发的最早时间。特别地，dis[n] 定义成到 n 的最早时间。

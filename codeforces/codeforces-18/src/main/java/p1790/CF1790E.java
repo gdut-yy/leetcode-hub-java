@@ -38,6 +38,7 @@ https://codeforces.com/contest/1790/problem/E
 题目大意：
 给定整数 x。x = a ^ b = (a+b)/2
 
+rating 1400
 位运算性质。a ^ b 可以看作 a - b。解方程再判断即可。
 ======
 

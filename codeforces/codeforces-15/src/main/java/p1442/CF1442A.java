@@ -47,6 +47,7 @@ https://codeforces.com/contest/1442/problem/A
 每次操作，你可以把 a 的任意一个前缀或后缀的元素都减一。
 你能否把所有 a[i] 都变成 0？输出 YES 或 NO。
 
+rating 1800
 https://codeforces.com/contest/1442/submission/97771793
 提示 1：区间加减，用差分数组 d 来思考。
 定义 d[0] = a[0]，d[i] = a[i] - a[i-1]。

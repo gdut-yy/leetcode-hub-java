@@ -60,6 +60,7 @@ https://codeforces.com/contest/1157/problem/C2
 从第二次操作开始，弹出的数字必须严格大于上一次弹出的数字。
 输出最多可以弹出多少个数字，以及操作序列（队首为 L，队尾为 R）。
 
+rating 1700
 https://codeforces.com/problemset/submission/1157/212155329
 贪心模拟即可。
 哪边小选哪边（但必须大于上一个数）。

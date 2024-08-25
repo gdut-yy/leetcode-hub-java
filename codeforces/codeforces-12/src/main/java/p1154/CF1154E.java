@@ -99,6 +99,7 @@ https://codeforces.com/contest/1154/problem/E
 每次操作，选择 p 中最大的数字，然后删除 p 及其左右各 k 个未被删除的元素。
 对于每个 p[i]，如果它是第 1,3,5,… 次操作被删除的，输出 1；如果它是第 2,4,6,… 次操作被删除的，输出 2。
 
+rating 1800
 双向链表模拟。
 https://codeforces.com/contest/1154/submission/201766208
 由于数据范围是 1~n，可以用一个 pos 数组记录每个数的下标，然后用双向链表模拟。

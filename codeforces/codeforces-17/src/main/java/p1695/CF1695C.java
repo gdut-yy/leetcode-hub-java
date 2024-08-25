@@ -66,6 +66,7 @@ https://codeforces.com/contest/1695/problem/C
 你从矩阵左上出发，走到右下，每步只能向下或者向右。
 路径上的元素和能否为 0？输出 YES 或 NO。
 
+rating 1700
 https://codeforces.com/contest/1695/submission/192354976
 提示 1：交换路径中的相邻两步，比如向右向下变成向下向右，路径和会发生什么变化？
 路径和会 +0/+2/-2。

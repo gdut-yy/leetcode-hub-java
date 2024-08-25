@@ -96,6 +96,7 @@ https://codeforces.com/contest/1729/problem/G
 输出最小操作次数 x。输出操作 x 次使得 s 不包含 t 的方案数，模 1e9+7。
 注：子串是连续的。
 
+rating 2100
 https://codeforces.com/contest/1729/submission/209145544 记忆化搜索（推荐先看这个）
 https://codeforces.com/contest/1729/submission/209145793 递推
 先计算最小操作次数，这可以贪心。

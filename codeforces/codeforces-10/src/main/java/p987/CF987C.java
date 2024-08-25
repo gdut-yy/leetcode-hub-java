@@ -59,6 +59,7 @@ https://codeforces.com/contest/987/problem/C
 进阶：O(nlogn)。
 进阶：改成 a 的长为 4 的递增子序列（本题长为 3）。改成 5？改成 m？
 
+rating 1400
 https://codeforces.com/contest/987/submission/211026113
 最简单的做法：枚举 j，然后枚举左边的满足 a[i]<a[j] 的最小的 b[i]，枚举右边的满足 a[k]>a[j] 的最小的 b[k]，用 b[i]+b[j]+b[k] 更新答案的最小值。
 其它做法：定义 dp[i][j=0/1/2] 表示 a 的前 i 个数中，长为 j+1 的递增子序列的 b 之和的最小值。

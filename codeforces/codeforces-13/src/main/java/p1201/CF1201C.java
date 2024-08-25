@@ -42,6 +42,7 @@ https://codeforces.com/contest/1201/problem/C
 至多操作 k 次。
 输出 a 的中位数的最大值。
 
+rating 1400
 https://codeforces.com/contest/1201/submission/201600969
 首先排序，下标小于 n/2 的都不用变。或者说，中位数至少为 a[n/2]。（注意 n 是奇数）
 方法一：二分答案 mid，统计 a[n/2:] 中有多少个小于 mid 的数要变成 mid，比较操作次数与 k。

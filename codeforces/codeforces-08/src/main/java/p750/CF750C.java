@@ -50,6 +50,7 @@ https://codeforces.com/contest/750/problem/C
 思考题：如果输入的 d 可以等于 3 呢？
 此时 d=2 表示 rating 在 1600~1899，d=3 表示 rating <= 1599
 
+rating 1600
 https://www.luogu.com.cn/blog/endlesscheng/cf750c-new-year-and-rating-ti-xie
 时间复杂度 O(n)
 ======

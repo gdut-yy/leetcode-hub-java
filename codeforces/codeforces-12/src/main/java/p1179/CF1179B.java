@@ -68,6 +68,7 @@ https://codeforces.com/contest/1179/problem/B
 你需要访问每个格子恰好一次，且每一步使用的方向向量互不相同。
 如果存在这样的移动方案，输出任意一组符合要求的 n*m 个坐标，表示你每一步所在的位置。否则输出 -1。
 
+rating 1800
 constructive algorithms
 https://codeforces.com/contest/1179/submission/108111481
 提示 1：方案一定存在。

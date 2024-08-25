@@ -118,6 +118,7 @@ https://codeforces.com/contest/1610/problem/E
 最少需要删除多少个数？
 注：子序列不要求连续。
 
+rating 2300
 https://codeforces.com/problemset/submission/1610/200982867
 提示 1：长为 3 的子序列需要满足什么性质？
 设这三个数分别为 x，y，z，那么 y <= avg = (x+y+z)/3，变形得 z >= 2y-x = 2(y-x)+x

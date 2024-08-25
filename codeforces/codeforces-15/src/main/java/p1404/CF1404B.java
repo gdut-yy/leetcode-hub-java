@@ -91,6 +91,7 @@ Bob 逃，Alice 追。
 如果在有限步内 Alice 和 Bob 能在同一个点，输出 Alice，否则输出 Bob。
 注意从 x 传送到 y，并不会经过从 x 到 y 的简单路径的中间节点。
 
+rating 1900
 https://codeforces.com/contest/1404/submission/202566203
 分类讨论：
 如果 2*da >= db，那么 Alice 每次向 Bob 移动一步，必然可以在某个时刻让 Bob 无路可走。

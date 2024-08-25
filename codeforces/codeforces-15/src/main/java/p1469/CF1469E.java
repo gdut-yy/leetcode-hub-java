@@ -84,6 +84,7 @@ https://codeforces.com/contest/1469/problem/E
 你需要找到一个长为 k 的字典序最小的 01 串 t，使得 t 与 s 的每个长为 k 的子串都「一点点相同」。
 如果不存在这样的 t，输出 NO；否则输出 YES 和 t。
 
+rating 2400
 https://www.luogu.com.cn/blog/endlesscheng/solution-cf1469e
 ======
 

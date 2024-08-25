@@ -58,6 +58,7 @@ https://codeforces.com/contest/1628/problem/B
 输出 YES 或 NO。
 注：子序列不要求连续。
 
+rating 1700
 https://codeforces.com/contest/1628/submission/157119596
 从 a[i] 的长度不超过 3 入手。
 如果 a[i] 已经是回文串，那么输出 YES。

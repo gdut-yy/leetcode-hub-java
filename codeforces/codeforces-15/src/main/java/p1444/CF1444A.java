@@ -56,6 +56,7 @@ https://codeforces.com/contest/1444/problem/A
 每组数据输入 p(1≤p≤1e18) 和 q(2≤q≤1e9)。
 输出最大的 x，满足 p 是 x 的倍数，且 x 不是 q 的倍数。
 
+rating 1500
 https://codeforces.com/problemset/submission/1444/202556296
 如果 p 不是 q 的倍数，那么答案就是 p。
 如果 p 是 q 的倍数，那么考虑质因子分解：

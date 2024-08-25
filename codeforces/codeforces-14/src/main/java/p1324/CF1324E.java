@@ -63,6 +63,7 @@ https://codeforces.com/contest/1324/problem/E
 如果 s[i]%h 落在闭区间 [L,R] 内，则分数加一。
 最大化分数。
 
+rating 1700
 https://codeforces.com/contest/1324/submission/193356533
 记忆化搜索。
 ======

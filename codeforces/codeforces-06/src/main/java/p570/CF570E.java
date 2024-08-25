@@ -66,6 +66,7 @@ https://codeforces.com/contest/570/problem/E
 问：有多少条路径对应的字符串是回文串？（见右图）
 模 1e9+7。
 
+rating 2300
 https://codeforces.com/problemset/submission/570/209046565
 https://codeforces.com/problemset/submission/570/209046793  循环优化
 转换成两个人同时从左上和右下出发，定义 f[i][r1][r2] 表示走了 i 步，两人分别在第 r1 行和第 r2 行的方案数。这样只需要三个数就能表示坐标 (r1,c1) 和 (r2,c2)。

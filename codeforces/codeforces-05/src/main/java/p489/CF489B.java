@@ -146,6 +146,7 @@ https://codeforces.com/contest/489/problem/B
 相似题目: 3008. 找出数组中的美丽下标 II
 https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii/description/
 
+rating 1200
 把 a 和 b 从小到大排序。
 考虑 a[0] 和谁组合。
 应当选一个 >=a[0]-1 的最小的 b[j]，这样后面能组成数对的可能性就更大。

@@ -87,6 +87,7 @@ https://codeforces.com/contest/1374/problem/E1
 如果无法满足输出 -1，否则输出所选书的 t 之和的最小值。
 进阶：如果要选恰好 m 本书呢？
 
+rating 1600
 https://codeforces.com/contest/1374/submission/193557671
 提示：枚举有 x 本书是两个人都喜欢的。
 剩下的就是选 k-x 本只有 A 喜欢的，k-x 本只有 B 喜欢的。

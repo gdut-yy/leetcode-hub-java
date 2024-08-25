@@ -57,6 +57,7 @@ https://codeforces.com/contest/1659/problem/D
 定义 c[j] = b[1][j] + b[2][j] + ... + b[n][j]。
 现在数组 c 输入给你了，请你构造任意一个符合要求的数组 a。输入保证数组 a 存在。
 
+rating 1900
 https://codeforces.com/problemset/submission/1659/195082636
 提示 1：从特殊到一般，思考 a 中只有一个 1 时，数组 c 会是什么样的。你可以从这个 1 在末尾开始思考。
 看到不变量了吗？

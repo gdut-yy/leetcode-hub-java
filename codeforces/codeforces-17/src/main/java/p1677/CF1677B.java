@@ -63,6 +63,7 @@ https://codeforces.com/contest/1677/problem/B
 第 i 个人标记为 s[i]。
 输出 n*m 个数，其中第 i 个数表示：第 i 个人入场后，有多少行和列包含至少一个 1？
 
+rating 1700
 https://codeforces.com/contest/1677/submission/216653925
 好题！迷你，精巧，还同时考察了多个知识点。
 先说列怎么统计：

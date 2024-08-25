@@ -132,6 +132,7 @@ https://codeforces.com/contest/1361/problem/B
 每组计算 pow(p,k[i]) 之和。
 输出这两个和的差值的最小值，对结果模 1e9+7。
 
+rating 1900
 https://codeforces.com/contest/1361/submission/192575286
 提示：从大到小遍历 k，栈，消消乐
 例如 p=3，k=[4,3,3,2,2,1,1,1]，第一个 4 放一组，剩余的放另一组。在遍历的时候为了判断能否抵消，需要用到栈来统计 k[i] 及其出现次数，如果凑齐 p 个，那么就可以合成一个更大的 k。

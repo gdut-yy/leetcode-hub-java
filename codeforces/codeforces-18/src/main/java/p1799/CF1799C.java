@@ -62,6 +62,7 @@ https://codeforces.com/contest/1799/problem/C
 定义 t = max(s, rev(s))，其中 rev(s) 为 s 反转后的字符串。
 输出字典序最小的 t。
 
+rating 1700
 从小到大遍历字母，根据 t 的定义，在遍历到一个出现奇数次的字母之前，这些应该均匀地排在左右两侧，即 aabb...bbaa。
 假设 c 出现了奇数次（比如只有一个 c），看上去其余字母全部排在左边就行，上面的 ... 就是 ddeeeffgc。
 除了一种情况：如果后续剩余字母只有一种（例如 c 后面只有 d），上面的 ... 如果排成 dddddc，不如把 c 放中间靠右，即 dddcdd。

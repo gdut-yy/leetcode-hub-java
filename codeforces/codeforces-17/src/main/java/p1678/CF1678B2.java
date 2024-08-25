@@ -46,6 +46,7 @@ https://codeforces.com/contest/1678/problem/B2
 2023.10.28 押题成功！
 https://leetcode.cn/problems/minimum-number-of-changes-to-make-binary-string-beautiful/
 
+rating 1800
 例如 s=111000，我们可以两个两个一对：11 10 00，只要有一对的字符是不同的，那么必然要修改一次。
 并且我们至少会得到两段连续相等子串。
 又例如 s=111001，两个两个一对：11 10 01，最少改两次，把 0 都改成 1 更好，因为改完后只有一段了。

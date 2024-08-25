@@ -48,6 +48,7 @@ https://codeforces.com/contest/1700/problem/C
 3. 把所有 a[i]+=1
 把所有 a[i] 都变成 0，至少要操作多少次？
 
+rating 1700
 https://codeforces.com/problemset/submission/1700/209616776
 用差分思考，计算 a 的差分数组 d。注意 d 和 a 是一一映射，a 全为 0 当且仅当 d 全为 0。
 操作 1 变成给 d[0]-=1，d[i+1]+=1。特别地，如果 i=n-1 则仅给 d[0]-=1。
