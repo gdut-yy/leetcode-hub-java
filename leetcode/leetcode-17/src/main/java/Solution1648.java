@@ -95,4 +95,6 @@ https://leetcode.cn/problems/sell-diminishing-valued-colored-balls/
 贪心。排序后模拟。
 时间复杂度 O(nlogn)
 空间复杂度 O(1)
+相似题目: 2333. 最小差值平方和
+https://leetcode.cn/problems/minimum-sum-of-squared-difference/
  */
