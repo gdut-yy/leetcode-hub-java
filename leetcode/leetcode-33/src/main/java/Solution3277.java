@@ -42,6 +42,7 @@ queries[i] = [li, ri]
 0 <= li <= ri <= n - 1
 
 区间 DP 套区间 DP。
+https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solutions/2899932/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/
 赛时以为跟 1310 一样，先做前缀和，再套 0-1 Trie，但其实不是。。
 时间复杂度 O(n^2 + q)。
 相似题目: 1310. 子数组异或查询
