@@ -42,4 +42,6 @@ verticalCut.length == n - 1
 贪心。交换论证法。
 赛时一顿 加权贪心。没整出来，但是据说 GPT 可以秒杀该题。本场最终被 unrated。
 时间复杂度 O(mlogm + nlogn)。
+相似题目: 3273. 对 Bob 造成的最少伤害
+https://leetcode.cn/problems/minimum-amount-of-damage-dealt-to-bob/description/
  */
