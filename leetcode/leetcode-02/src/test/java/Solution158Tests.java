@@ -8,7 +8,7 @@ public class Solution158Tests {
         int[] queries = {1, 2, 1};
         int[] expected = {1, 2, 0};
 
-        Solution158.Solution solution = new Solution158.Solution(file);
+        SolutionP158.Solution solution = new SolutionP158.Solution(file);
         for (int i = 0; i < queries.length; i++) {
             char[] buf = new char[expected[i]];
             int actual = solution.read(buf, queries[i]);
@@ -25,7 +25,7 @@ public class Solution158Tests {
         int[] queries = {4, 1};
         int[] expected = {3, 0};
 
-        Solution158.Solution solution = new Solution158.Solution(file);
+        SolutionP158.Solution solution = new SolutionP158.Solution(file);
         for (int i = 0; i < queries.length; i++) {
             char[] buf = new char[expected[i]];
             int actual = solution.read(buf, queries[i]);
