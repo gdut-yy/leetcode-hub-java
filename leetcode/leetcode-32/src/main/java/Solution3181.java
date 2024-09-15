@@ -10,6 +10,43 @@ public class Solution3181 {
         }
         return f.bitLength() - 1;
     }
+
+    public int maxTotalReward2(int[] rewardValues) {
+        Arrays.sort(rewardValues);
+        int n = rewardValues.length;
+        int m = rewardValues[n - 1];
+        long[] f = new long[2 * m / 64 + 1];
+        f[0] |= 1;
+        for (int v : rewardValues) {
+            int idx = (v - 1) / 64;
+            process(f, idx, v);
+        }
+        for (int i = f.length - 1; i >= 0; i--) {
+            if (f[i] != 0) {
+                return 64 * i + 64 - Long.numberOfLeadingZeros(f[i]) - 1;
+            }
+        }
+        return 0;
+    }
+
+    private void process(long[] f, int idx, int v) {
+        int shiftLeft = v % 64;
+        if (shiftLeft == 0) {
+            for (int i = 0; i <= idx; i++) {
+                f[i + idx + 1] |= f[i];
+            }
+            return;
+        }
+        long cur = f[idx] & ((1L << shiftLeft) - 1);
+        for (int i = 0; i < idx; i++) {
+            f[idx + i] |= f[i] << shiftLeft;
+            f[idx + i + 1] |= f[i] >>> (64 - shiftLeft);
+        }
+        f[idx + idx] |= cur << shiftLeft;
+        if (cur >> (64 - shiftLeft) != 0) {
+            f[idx + idx + 1] |= cur >>> (64 - shiftLeft);
+        }
+    }
 }
 /*
 3181. 执行操作可获得的最大总奖励 II

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution629 {
     static class V1 {
         private static final int MOD = (int) (1e9 + 7);
@@ -22,18 +24,41 @@ public class Solution629 {
     }
 
     static class V2 {
-        private static final int MOD = (int) (1e9 + 7);
+        final int MOD = (int) (1e9 + 7);
+        long[][] memo;
+
+        public int kInversePairs(int n, int k) {
+            memo = new long[n + 1][k + 1];
+            for (int i = 0; i < n + 1; i++) {
+                Arrays.fill(memo[i], -1);
+            }
+            return (int) dfs(n, k);
+        }
+
+        private long dfs(int i, int j) {
+            if (j < 0) return 0;
+            if (j == 0) return 1;
+            if (i == 1) return 0; // 至少两数
+            if (memo[i][j] != -1) return memo[i][j];
+            long res = dfs(i - 1, j) + dfs(i, j - 1) - dfs(i - 1, j - i);
+            res = Math.floorMod(res, MOD);
+            return memo[i][j] = res;
+        }
+    }
+
+    static class V3 {
+        final int MOD = (int) (1e9 + 7);
 
         public int kInversePairs(int n, int k) {
             long[][] f = new long[n + 1][k + 1];
             f[0][0] = 1;
             for (int i = 1; i <= n; i++) {
                 for (int j = 0; j <= k; j++) {
-                    f[i][j] = (j - 1 >= 0 ? f[i][j - 1] : 0) - (j - i >= 0 ? f[i - 1][j - i] : 0) + f[i - 1][j];
+                    f[i][j] = f[i - 1][j] + (j - 1 >= 0 ? f[i][j - 1] : 0) - (j - i >= 0 ? f[i - 1][j - i] : 0);
                     f[i][j] %= MOD;
                 }
             }
-            long ans = (f[n][k] % MOD + MOD) % MOD;
+            long ans = Math.floorMod(f[n][k], MOD);
             return (int) ans;
         }
     }
@@ -48,7 +73,7 @@ https://leetcode.cn/problems/k-inverse-pairs-array/
 说明:
 1. n 的范围是 [1, 1000] 并且 k 的范围是 [0, 1000]。
 
-前缀和优化 DP.
+前缀和优化 DP。
 f[i][j] 表示使用数字 1~i 的排列构成长度为 i 的数组，并且恰好包含 j 个逆序对的方案数
 f[i][j] = \sum_{k=0}^{i-1} f[i-1][j-k]
 ---

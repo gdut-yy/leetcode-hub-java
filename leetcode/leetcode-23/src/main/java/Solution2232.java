@@ -1,27 +1,24 @@
 public class Solution2232 {
     public String minimizeResult(String expression) {
-        int idx = expression.indexOf("+");
-        String left = expression.substring(0, idx);
-        String right = expression.substring(idx + 1);
+        String[] sp = expression.split("\\+");
+        String l = sp[0], r = sp[1];
 
         int min = Integer.MAX_VALUE;
         String ans = "";
-        for (int i = 0; i < left.length(); i++) {
-            String left1 = left.substring(0, i);
-            String left2 = left.substring(i);
-            int a = (left1.length() > 0) ? Integer.parseInt(left1) : 1;
-            int b = Integer.parseInt(left2);
+        for (int i = 0; i < l.length(); i++) { // 枚举左括号插入位置
+            String strA = l.substring(0, i);
+            int a = (i > 0) ? Integer.parseInt(strA) : 1; // 左括号左边的数（不存在时为 1）
+            int b = Integer.parseInt(l.substring(i)); // 左括号右边的数
 
-            for (int j = 1; j <= right.length(); j++) {
-                String right1 = right.substring(0, j);
-                String right2 = right.substring(j);
-                int c = Integer.parseInt(right1);
-                int d = (right2.length() > 0) ? Integer.parseInt(right2) : 1;
+            for (int j = 1; j <= r.length(); j++) { // 枚举右括号插入位置
+                int c = Integer.parseInt(r.substring(0, j)); // 右括号左边的数
+                String strD = r.substring(j);
+                int d = (j < r.length()) ? Integer.parseInt(strD) : 1; // 右括号右边的数（不存在时为 1）
 
                 int res = a * (b + c) * d;
                 if (res < min) {
                     min = res;
-                    ans = left1 + "(" + left2 + "+" + right1 + ")" + right2;
+                    ans = strA + "(" + b + "+" + c + ")" + strD;
                 }
             }
         }

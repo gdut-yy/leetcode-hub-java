@@ -1,119 +1,174 @@
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 public class Solution2426 {
-    private static final int OFFSET = (int) 1e4 * 3 + 5;
+    static class V1 {
+        private static final int OFFSET = (int) 1e4 * 3 + 5;
 
-    public long numberOfPairs(int[] nums1, int[] nums2, int diff) {
-        int n = nums1.length;
+        public long numberOfPairs(int[] nums1, int[] nums2, int diff) {
+            int n = nums1.length;
 
-        int[] nums1sub2 = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums1sub2[i] = nums1[i] - nums2[i];
+            int[] nums1sub2 = new int[n];
+            for (int i = 0; i < n; i++) {
+                nums1sub2[i] = nums1[i] - nums2[i];
+            }
+
+            DynamicSegTreeAdd seg = new DynamicSegTreeAdd();
+            long res = 0;
+            for (int i = 0; i < n; i++) {
+                int idx = nums1sub2[i] + OFFSET;
+                res += seg.getSum(1, idx);
+                seg.add(idx - diff, idx - diff, 1);
+            }
+            return res;
         }
 
-        DynamicSegTreeAdd dynamicSegTreeAdd = new DynamicSegTreeAdd();
-        long res = 0;
-        for (int i = 0; i < n; i++) {
-            int idx = nums1sub2[i] + OFFSET;
-            res += dynamicSegTreeAdd.getSum(1, idx);
-            dynamicSegTreeAdd.add(idx - diff, idx - diff, 1);
+        private static class DynamicSegTreeAdd {
+            private static final int N = Integer.MAX_VALUE;
+            private final Node root = new Node();
+
+            private static class Node {
+                Node ls, rs;
+                long sum, max, lazy;
+            }
+
+            // 区间 [l,r] 置为 val
+            public void add(int l, int r, int val) {
+                this.add(l, r, val, 1, N, root);
+            }
+
+            // 区间 [l,r] 求和
+            public long getSum(int l, int r) {
+                return this.getSum(l, r, 1, N, root);
+            }
+
+            private void add(int l, int r, int val, int s, int t, Node node) {
+                if (l <= s && t <= r) {
+                    node.sum += (t - s + 1L) * val;
+                    node.max += val;
+                    node.lazy += val;
+                    return;
+                }
+                int mid = s + (t - s) / 2;
+                pushDown(node, s, t, mid);
+                if (l <= mid) {
+                    add(l, r, val, s, mid, node.ls);
+                }
+                if (r > mid) {
+                    add(l, r, val, mid + 1, t, node.rs);
+                }
+                pushUp(node);
+            }
+
+            private long getSum(int l, int r, int s, int t, Node node) {
+                if (l <= s && t <= r) {
+                    return node.sum;
+                }
+                int mid = s + (t - s) / 2;
+                pushDown(node, s, t, mid);
+                long sum = 0;
+                if (l <= mid) {
+                    sum = getSum(l, r, s, mid, node.ls);
+                }
+                if (r > mid) {
+                    sum += getSum(l, r, mid + 1, t, node.rs);
+                }
+                return sum;
+            }
+
+            private void pushDown(Node node, int s, int t, int mid) {
+                if (node.ls == null) {
+                    node.ls = new Node();
+                }
+                if (node.rs == null) {
+                    node.rs = new Node();
+                }
+                if (node.lazy > 0) {
+                    node.ls.sum += node.lazy * (mid - s + 1L);
+                    node.rs.sum += node.lazy * (t - mid);
+                    node.ls.max += node.lazy;
+                    node.rs.max += node.lazy;
+                    node.ls.lazy += node.lazy;
+                    node.rs.lazy += node.lazy;
+                    node.lazy = 0;
+                }
+            }
+
+            private void pushUp(Node node) {
+                node.sum = node.ls.sum + node.rs.sum;
+                node.max = Math.max(node.ls.max, node.rs.max);
+            }
         }
-        return res;
     }
 
-    private static class DynamicSegTreeAdd {
-        private static final int N = Integer.MAX_VALUE;
-        private final Node root = new Node();
+    static class V2 {
+        public long numberOfPairs(int[] nums1, int[] nums2, int diff) {
+            int n = nums1.length;
+            int[] a = new int[n];
+            for (int i = 0; i < n; i++) {
+                a[i] = nums1[i] - nums2[i];
+            }
 
-        private static class Node {
-            Node ls, rs;
-            long sum, max, lazy;
+            // 离散化
+            int[] yArr = getDiscrete(a);
+
+            int sz = yArr.length;
+            BIT tr = new BIT(sz);
+
+            long ans = 0;
+            for (int i = 0; i < n; i++) {
+                int j1 = lowerBound(yArr, a[i] + diff + 1);
+                ans += tr.query(j1);
+                int j2 = lowerBound(yArr, a[i]) + 1;
+                tr.add(j2, 1);
+            }
+            return ans;
         }
 
-        // 区间 [l,r] 置为 val
-        public void add(int l, int r, int val) {
-            this.add(l, r, val, 1, N, root);
+        static int[] getDiscrete(int[] xArr) {
+            Set<Integer> set = new HashSet<>(xArr.length);
+            for (int x : xArr) set.add(x);
+            int sz = set.size();
+            int[] yArr = new int[sz];
+            int id = 0;
+            for (int x : set) yArr[id++] = x;
+            Arrays.sort(yArr);
+            return yArr;
         }
 
-        // 区间 [l,r] 求和
-        public long getSum(int l, int r) {
-            return this.getSum(l, r, 1, N, root);
+        private int lowerBound(int[] a, int key) {
+            int l = 0, r = a.length;
+            while (l < r) {
+                int m = l + (r - l) / 2;
+                if (a[m] >= key) r = m;
+                else l = m + 1;
+            }
+            return l;
         }
 
-        // 区间 [l,r] 最大值
-        public long getMax(int l, int r) {
-            return this.getMax(l, r, 1, N, root);
-        }
+        static class BIT {
+            int n;
+            int[] tree;
 
-        private void add(int l, int r, int val, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                node.sum += (t - s + 1L) * val;
-                node.max += val;
-                node.lazy += val;
-                return;
+            public BIT(int n) {
+                this.n = n;
+                tree = new int[n + 1];
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            if (l <= mid) {
-                add(l, r, val, s, mid, node.ls);
-            }
-            if (r > mid) {
-                add(l, r, val, mid + 1, t, node.rs);
-            }
-            pushUp(node);
-        }
 
-        private long getSum(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.sum;
+            int lb(int x) {
+                return x & -x;
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long sum = 0;
-            if (l <= mid) {
-                sum = getSum(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                sum += getSum(l, r, mid + 1, t, node.rs);
-            }
-            return sum;
-        }
 
-        private long getMax(int l, int r, int s, int t, Node node) {
-            if (l <= s && t <= r) {
-                return node.max;
+            void add(int pos, int val) {
+                for (; pos <= n; pos += lb(pos)) tree[pos] += val;
             }
-            int mid = s + (t - s) / 2;
-            pushDown(node, s, t, mid);
-            long max = 0;
-            if (l <= mid) {
-                max = getMax(l, r, s, mid, node.ls);
-            }
-            if (r > mid) {
-                max = Math.max(max, getMax(l, r, mid + 1, t, node.rs));
-            }
-            return max;
-        }
 
-        private void pushDown(Node node, int s, int t, int mid) {
-            if (node.ls == null) {
-                node.ls = new Node();
+            int query(int pos) {
+                int ret = 0;
+                for (; pos > 0; pos -= lb(pos)) ret += tree[pos];
+                return ret;
             }
-            if (node.rs == null) {
-                node.rs = new Node();
-            }
-            if (node.lazy > 0) {
-                node.ls.sum += node.lazy * (mid - s + 1L);
-                node.rs.sum += node.lazy * (t - mid);
-                node.ls.max += node.lazy;
-                node.rs.max += node.lazy;
-                node.ls.lazy += node.lazy;
-                node.rs.lazy += node.lazy;
-                node.lazy = 0;
-            }
-        }
-
-        private void pushUp(Node node) {
-            node.sum = node.ls.sum + node.rs.sum;
-            node.max = Math.max(node.ls.max, node.rs.max);
         }
     }
 }

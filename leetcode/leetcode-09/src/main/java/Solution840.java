@@ -1,61 +1,37 @@
 public class Solution840 {
     public int numMagicSquaresInside(int[][] grid) {
-        int gridM = grid.length;
-        int gridN = grid[0].length;
-        if (gridM < 3 || gridN < 3) {
-            return 0;
-        }
-        int cnt = 0;
-        // 枚举 3 x 3 矩阵中心点是否为 5
-        for (int i = 1; i < gridM - 1; i++) {
-            for (int j = 1; j < gridN - 1; j++) {
-                // 矩阵中心不是 5 的就不用看了
-                if (grid[i][j] == 5) {
-                    int[] nums = {
-                            grid[i - 1][j - 1], grid[i - 1][j], grid[i - 1][j + 1],
-                            grid[i][j - 1], grid[i][j], grid[i][j + 1],
-                            grid[i + 1][j - 1], grid[i + 1][j], grid[i + 1][j + 1]
-                    };
-                    if (isMagicSquares(nums)) {
-                        cnt++;
-                    }
-                }
+        int m = grid.length;
+        int n = grid[0].length;
+        int ans = 0;
+        for (int i = 1; i + 1 < m; i++) {
+            for (int j = 1; j + 1 < n; j++) {
+                if (grid[i][j] != 5) continue;
+                int[] a = {
+                        grid[i - 1][j - 1], grid[i - 1][j], grid[i - 1][j + 1],
+                        grid[i][j - 1], grid[i][j], grid[i][j + 1],
+                        grid[i + 1][j - 1], grid[i + 1][j], grid[i + 1][j + 1]
+                };
+                if (magic(a)) ans++;
             }
         }
-        return cnt;
+        return ans;
     }
 
-    /**
-     * num0 num1 num2
-     * num3 num4 num5
-     * num6 num7 num8
-     *
-     * @param nums 3 x 3 矩阵对应的一维数组
-     * @return 是否满足幻方矩阵
-     */
-    private boolean isMagicSquares(int[] nums) {
+    private boolean magic(int[] a) {
         for (int i = 0; i < 9; i++) {
             // 除矩阵中心外不能有 5（9 个 5 的用例）
-            if (nums[i] == 5 && i != 4) {
-                return false;
-            }
-            // 从 1 到 9
-            if (nums[i] < 1 || nums[i] > 9) {
-                return false;
-            }
+            if (a[i] == 5 && i != 4) return false;
+            if (a[i] < 1 || a[i] > 9) return false;
         }
-        // 行相等
-        boolean equalM = (nums[0] + nums[1] + nums[2] == 15)
-                && (nums[3] + nums[4] + nums[5] == 15)
-                && (nums[6] + nums[7] + nums[8] == 15);
-        // 列相等
-        boolean equalN = (nums[0] + nums[3] + nums[6] == 15)
-                && (nums[1] + nums[4] + nums[7] == 15)
-                && (nums[2] + nums[5] + nums[8] == 15);
-        // 对角线相等
-        boolean equalDiagonal = (nums[0] + nums[4] + nums[8] == 15)
-                && (nums[2] + nums[4] + nums[6] == 15);
-        return equalM && equalN && equalDiagonal;
+        boolean rowEq = a[0] + a[1] + a[2] == 15
+                && a[3] + a[4] + a[5] == 15
+                && a[6] + a[7] + a[8] == 15;
+        boolean colEq = a[0] + a[3] + a[6] == 15
+                && a[1] + a[4] + a[7] == 15
+                && a[2] + a[5] + a[8] == 15;
+        return (rowEq && colEq
+                && a[0] + a[4] + a[8] == 15
+                && a[2] + a[4] + a[6] == 15);
     }
 }
 /*

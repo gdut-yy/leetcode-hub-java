@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 public class Solution629Tests {
     private final Solution629.V1 solution629_v1 = new Solution629.V1();
     private final Solution629.V2 solution629_v2 = new Solution629.V2();
+    private final Solution629.V3 solution629_v3 = new Solution629.V3();
 
     @Test
     public void example1() {
@@ -12,6 +13,7 @@ public class Solution629Tests {
         int expected = 1;
         Assertions.assertEquals(expected, solution629_v1.kInversePairs(n, k));
         Assertions.assertEquals(expected, solution629_v2.kInversePairs(n, k));
+        Assertions.assertEquals(expected, solution629_v3.kInversePairs(n, k));
     }
 
     @Test
@@ -21,6 +23,7 @@ public class Solution629Tests {
         int expected = 2;
         Assertions.assertEquals(expected, solution629_v1.kInversePairs(n, k));
         Assertions.assertEquals(expected, solution629_v2.kInversePairs(n, k));
+        Assertions.assertEquals(expected, solution629_v3.kInversePairs(n, k));
     }
 
     // 补充用例
@@ -32,5 +35,6 @@ public class Solution629Tests {
         int expected = 663677020;
         Assertions.assertEquals(expected, solution629_v1.kInversePairs(n, k));
         Assertions.assertEquals(expected, solution629_v2.kInversePairs(n, k));
+        Assertions.assertEquals(expected, solution629_v3.kInversePairs(n, k));
     }
 }

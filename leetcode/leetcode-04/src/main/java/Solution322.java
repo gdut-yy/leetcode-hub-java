@@ -31,6 +31,8 @@ https://leetcode.cn/problems/coin-change/
 定义 f(i) 凑出总额为 i 的硬币需要的最少的数目。如果目标总额为 t，那么 f(t) 就是整个问题的解。
 状态转移
 当 coins[j] <= i 时，f(i) = min(f(i-coins[j])+1)
-相似题目: 518. 零钱兑换 II
-https://leetcode.cn/problems/coin-change-2/
+相似题目: 377. 组合总和 Ⅳ
+https://leetcode.cn/problems/combination-sum-iv/
+518. 零钱兑换 II
+https://leetcode.cn/problems/coin-change-ii/description/
  */

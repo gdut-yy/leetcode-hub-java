@@ -11,13 +11,14 @@ public class Solution3154 {
         return dfs(1, 0, 0);
     }
 
-    private int dfs(int i, int j, int p) {
+    // 当前位于第 i 个台阶。已经使用了 j 次操作二。一个布尔值，表示上一次操作是否使用了操作一。
+    private int dfs(int i, int j, int preDown) {
         if (i > k + 1) return 0;
-        String key = i + ":" + j + ":" + p;
+        String key = i + ":" + j + ":" + preDown;
         if (memo.containsKey(key)) return memo.get(key);
         int res = i == k ? 1 : 0;
         res += dfs(i + (1 << j), j + 1, 0);
-        if (p == 0 && i > 0) {
+        if (preDown == 0) {
             res += dfs(i - 1, j, 1);
         }
         memo.put(key, res);

@@ -1,35 +1,74 @@
 import java.util.Arrays;
+import java.util.BitSet;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Solution3265 {
-    public int countPairs(int[] nums) {
-        int n = nums.length;
-        int ans = 0;
-        for (int i = 0; i < n; i++) {
-            for (int j = i + 1; j < n; j++) {
-                if (check(nums[i], nums[j])) ans++;
+    static class V1 {
+        public int countPairs(int[] nums) {
+            int n = nums.length;
+            int ans = 0;
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if (check(nums[i], nums[j])) ans++;
+                }
             }
+            return ans;
         }
-        return ans;
+
+        private boolean check(int a, int b) {
+            String s1 = String.valueOf(a);
+            String s2 = String.valueOf(b);
+            int maxLen = Math.max(s1.length(), s2.length());
+            s1 = "0".repeat(maxLen - s1.length()) + s1;
+            s2 = "0".repeat(maxLen - s2.length()) + s2;
+            int diff = 0;
+            for (int i = 0; i < maxLen; i++) {
+                if (s1.charAt(i) != s2.charAt(i)) {
+                    diff++;
+                }
+            }
+            if (diff > 2) return false;
+            char[] s = s1.toCharArray();
+            char[] t = s2.toCharArray();
+            Arrays.sort(s);
+            Arrays.sort(t);
+            return Arrays.equals(s, t);
+        }
     }
 
-    private boolean check(int a, int b) {
-        String s1 = String.valueOf(a);
-        String s2 = String.valueOf(b);
-        int maxLen = Math.max(s1.length(), s2.length());
-        s1 = "0".repeat(maxLen - s1.length()) + s1;
-        s2 = "0".repeat(maxLen - s2.length()) + s2;
-        int diff = 0;
-        for (int i = 0; i < maxLen; i++) {
-            if (s1.charAt(i) != s2.charAt(i)) {
-                diff++;
+    // 17ms
+    static class V2 {
+        private static final int[] pow10 = {1, 10, 100, 1000, 10000, 100000, 1000000};
+
+        public int countPairs(int[] nums) {
+            int n = nums.length;
+            int m = String.valueOf(Arrays.stream(nums).max().orElseThrow()).length();
+            int ans = 0;
+            Map<Integer, BitSet> mp = new HashMap<>();
+            int[] digits = new int[m];
+            for (int pos = 0; pos < n; pos++) {
+                int x = nums[pos];
+//            BitSet s = new BitSet();
+//            if (mp.containsKey(x)) s.or(mp.get(x));
+                if (mp.containsKey(x)) ans += mp.get(x).cardinality();
+                mp.computeIfAbsent(x, e -> new BitSet()).set(pos);
+                int zz = 0;
+                for (int i = 0, v = x; i < m; i++, v /= 10) {
+                    digits[zz++] = v % 10;
+                }
+                for (int i = 0; i < m; i++) {
+                    for (int j = i + 1; j < m; j++) {
+                        if (digits[i] == digits[j]) continue;
+                        int y = x + (digits[j] - digits[i]) * (pow10[i] - pow10[j]);
+//                    if (mp.containsKey(y)) s.or(mp.get(y));
+                        mp.computeIfAbsent(y, e -> new BitSet()).set(pos);
+                    }
+                }
+//            ans += s.cardinality();
             }
+            return ans;
         }
-        if (diff > 2) return false;
-        char[] s = s1.toCharArray();
-        char[] t = s2.toCharArray();
-        Arrays.sort(s);
-        Arrays.sort(t);
-        return Arrays.equals(s, t);
     }
 }
 /*

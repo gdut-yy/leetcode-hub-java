@@ -1,45 +1,87 @@
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Solution1405 {
-    public String longestDiverseString(int a, int b, int c) {
-        // 根据数量降序排列
-        PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
-        maxHeap.add(new Node("a", a));
-        maxHeap.add(new Node("b", b));
-        maxHeap.add(new Node("c", c));
+    static class V1 {
+        public String longestDiverseString(int a, int b, int c) {
+            // 根据数量降序排列
+            PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
+            maxHeap.add(new Node("a", a));
+            maxHeap.add(new Node("b", b));
+            maxHeap.add(new Node("c", c));
 
-        StringBuilder stringBuilder = new StringBuilder();
-        while (!maxHeap.isEmpty()) {
-            Node top1 = maxHeap.remove();
-            if (top1.cnt <= 0) {
-                break;
-            }
-            if (!stringBuilder.toString().endsWith(top1.ch + top1.ch)) {
-                stringBuilder.append(top1.ch);
-                top1.cnt--;
-                maxHeap.add(top1);
-            } else {
-                Node top2 = maxHeap.remove();
-                if (top2.cnt > 0) {
-                    stringBuilder.append(top2.ch);
-                    top2.cnt--;
+            StringBuilder ans = new StringBuilder();
+            while (!maxHeap.isEmpty()) {
+                Node top1 = maxHeap.remove();
+                if (top1.cnt <= 0) {
+                    break;
+                }
+                if (!ans.toString().endsWith(top1.ch + top1.ch)) {
+                    ans.append(top1.ch);
+                    top1.cnt--;
                     maxHeap.add(top1);
-                    maxHeap.add(top2);
                 } else {
+                    Node top2 = maxHeap.remove();
+                    if (top2.cnt > 0) {
+                        ans.append(top2.ch);
+                        top2.cnt--;
+                        maxHeap.add(top1);
+                        maxHeap.add(top2);
+                    } else {
+                        break;
+                    }
+                }
+            }
+            return ans.toString();
+        }
+
+        private static class Node {
+            String ch;
+            int cnt;
+
+            public Node(String ch, int cnt) {
+                this.ch = ch;
+                this.cnt = cnt;
+            }
+        }
+    }
+
+    static class V2 {
+        public String longestDiverseString(int a, int b, int c) {
+            Pair[] arr = {new Pair('a', a), new Pair('b', b), new Pair('c', c)};
+
+            StringBuilder ans = new StringBuilder();
+            while (true) {
+                Arrays.sort(arr, (o1, o2) -> Integer.compare(o2.cnt, o1.cnt));
+                boolean hasNext = false;
+                for (Pair pair : arr) {
+                    if (pair.cnt <= 0) {
+                        break;
+                    }
+                    int m = ans.length();
+                    if (m >= 2 && ans.charAt(m - 2) == pair.ch && ans.charAt(m - 1) == pair.ch) {
+                        continue;
+                    }
+                    hasNext = true;
+                    ans.append(pair.ch);
+                    pair.cnt--;
+                    break;
+                }
+                if (!hasNext) {
                     break;
                 }
             }
+            return ans.toString();
         }
-        return stringBuilder.toString();
-    }
 
-    private static class Node {
-        String ch;
-        int cnt;
+        static class Pair {
+            char ch;
+            int cnt;
 
-        public Node(String ch, int cnt) {
-            this.ch = ch;
-            this.cnt = cnt;
+            public Pair(char ch, int cnt) {
+                this.ch = ch;
+                this.cnt = cnt;
+            }
         }
     }
 }

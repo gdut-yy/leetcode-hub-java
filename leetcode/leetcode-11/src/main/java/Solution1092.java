@@ -19,27 +19,27 @@ public class Solution1092 {
             }
         }
 
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         int i = n;
         int j = m;
         while (i > 0 || j > 0) {
             if (i == 0) {
-                stringBuilder.append(s2[j--]);
+                ans.append(s2[j--]);
             } else if (j == 0) {
-                stringBuilder.append(s1[i--]);
+                ans.append(s1[i--]);
             } else {
                 if (s1[i] == s2[j]) {
-                    stringBuilder.append(s1[i]);
+                    ans.append(s1[i]);
                     i--;
                     j--;
                 } else if (f[i][j] == f[i - 1][j]) {
-                    stringBuilder.append(s1[i--]);
+                    ans.append(s1[i--]);
                 } else {
-                    stringBuilder.append(s2[j--]);
+                    ans.append(s2[j--]);
                 }
             }
         }
-        return stringBuilder.reverse().toString();
+        return ans.reverse().toString();
     }
 }
 /*

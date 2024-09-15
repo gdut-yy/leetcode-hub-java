@@ -65,32 +65,26 @@ public class Solution2398 {
     }
 
     public int maximumRobots2(int[] chargeTimes, int[] runningCosts, long budget) {
-        int len = chargeTimes.length;
-        Deque<Integer> deque = new ArrayDeque<>();
+        int n = chargeTimes.length;
+        Deque<Integer> dq = new ArrayDeque<>();
 
         int max = 0;
         long sum = 0L;
-        // 双指针
-        int left = 0;
-        int right = 0;
-        while (right < len) {
+        int l = 0, r = 0;
+        while (r < n) {
             // 滑动窗口最大值
-            while (!deque.isEmpty() && chargeTimes[right] > deque.getLast()) {
-                deque.removeLast();
-            }
-            deque.addLast(chargeTimes[right]);
-            sum += runningCosts[right];
+            while (!dq.isEmpty() && chargeTimes[r] > dq.getLast()) dq.removeLast();
+            dq.addLast(chargeTimes[r]);
+            sum += runningCosts[r];
 
-            while (!deque.isEmpty() && deque.getFirst() + (right - left + 1) * sum > budget) {
-                if (chargeTimes[left] == deque.getFirst()) {
-                    deque.removeFirst();
-                }
-                sum -= runningCosts[left];
-                left++;
+            while (!dq.isEmpty() && dq.getFirst() + (r - l + 1) * sum > budget) {
+                if (chargeTimes[l] == dq.getFirst()) dq.removeFirst();
+                sum -= runningCosts[l];
+                l++;
             }
 
-            max = Math.max(max, right - left + 1);
-            right++;
+            max = Math.max(max, r - l + 1);
+            r++;
         }
         return max;
     }

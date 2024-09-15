@@ -245,4 +245,6 @@ https://leetcode.cn/problems/construct-string-with-minimum-cost/solutions/283394
 https://leetcode.cn/problems/longest-duplicate-substring/
 3008. 找出数组中的美丽下标 II
 https://leetcode.cn/problems/find-beautiful-indices-in-the-given-array-ii/description/
+3292. 形成目标字符串需要的最少字符串数 II
+https://leetcode.cn/problems/minimum-number-of-valid-strings-to-form-target-ii/description/
  */

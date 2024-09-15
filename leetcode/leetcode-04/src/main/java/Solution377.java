@@ -6,7 +6,9 @@ public class Solution377 {
         f[0] = 1;
         for (int j = 1; j <= target; j++) {
             for (int wi : nums) {
-                if (j >= wi) {
+                if (j - wi >= 0) {
+                    // runtime error: signed integer overflow: 2147483647 + 1 cannot be represented in type 'value_type' (aka 'int')
+                    if (f[j] >= Integer.MAX_VALUE - f[j - wi]) continue;
                     f[j] += f[j - wi];
                 }
             }
@@ -26,8 +28,11 @@ https://leetcode.cn/problems/combination-sum-iv/
 nums 中的所有元素 互不相同
 1 <= target <= 1000
 
-动态规划。完全背包。
-参考第 322 题 https://leetcode.cn/problems/coin-change/
+完全背包 求方案数。
 f(i) 表示和为 i 的排列的数目
 当 nums[j] <= i 时，f(i) = ∑f(i-nums[j])
+相似题目: 322. 零钱兑换
+https://leetcode.cn/problems/coin-change/
+518. 零钱兑换 II
+https://leetcode.cn/problems/coin-change-ii/description/
  */

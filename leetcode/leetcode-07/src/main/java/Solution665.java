@@ -1,8 +1,8 @@
 public class Solution665 {
     public boolean checkPossibility(int[] nums) {
-        int len = nums.length;
+        int n = nums.length;
         int cnt = 0;
-        for (int i = 0; i + 1 < len; i++) {
+        for (int i = 0; i + 1 < n; i++) {
             if (nums[i] > nums[i + 1]) {
                 cnt++;
                 if (cnt > 1) {
