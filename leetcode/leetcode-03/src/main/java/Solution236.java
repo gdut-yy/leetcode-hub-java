@@ -1,24 +1,11 @@
 public class Solution236 {
-    private TreeNode ans;
-
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
-        dfs(root, p, q);
-        return ans;
-    }
-
-    // root 是否包含 p q
-    private boolean dfs(TreeNode root, TreeNode p, TreeNode q) {
-        if (root == null) {
-            return false;
-        }
-        boolean left = dfs(root.left, p, q);
-        boolean right = dfs(root.right, p, q);
-        boolean rootEqPq = root.val == p.val || root.val == q.val;
-
-        if ((left && right) || rootEqPq && (left || right)) {
-            ans = root;
-        }
-        return left || right || rootEqPq;
+        if (root == null || root == p || root == q) return root;
+        TreeNode left = lowestCommonAncestor(root.left, p, q);
+        TreeNode right = lowestCommonAncestor(root.right, p, q);
+        if (left == null) return right;
+        if (right == null) return left;
+        return root;
     }
 }
 /*
@@ -39,4 +26,6 @@ p 和 q 均存在于给定的二叉树中。
 空间复杂度 O(n)
 相似题目: $1644. 二叉树的最近公共祖先 II
 https://leetcode.cn/problems/lowest-common-ancestor-of-a-binary-tree-ii/
+$1740. 找到二叉树中的距离
+https://leetcode.cn/problems/find-distance-in-a-binary-tree/description/
  */
