@@ -45,7 +45,7 @@ public class SolutionP1485 {
     }
 }
 /*
-1485. 克隆含随机指针的二叉树
+$1485. 克隆含随机指针的二叉树
 https://leetcode.cn/problems/clone-binary-tree-with-random-pointer/description/
 
 给你一个二叉树，树中每个节点都含有一个附加的随机指针，该指针可以指向树中的任何节点或者指向空（null）。

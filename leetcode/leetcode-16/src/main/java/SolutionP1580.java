@@ -29,7 +29,7 @@ public class SolutionP1580 {
     }
 }
 /*
-1580. 把箱子放进仓库里 II
+$1580. 把箱子放进仓库里 II
 https://leetcode.cn/problems/put-boxes-into-the-warehouse-ii/description/
 
 给定两个正整数数组 boxes 和 warehouse ，分别包含单位宽度的箱子的高度，以及仓库中n个房间各自的高度。仓库的房间分别从0 到 n - 1自左向右编号，warehouse[i]（索引从 0 开始）是第 i 个房间的高度。

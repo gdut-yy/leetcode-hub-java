@@ -49,7 +49,7 @@ public class SolutionP1554 {
     }
 }
 /*
-1554. 只有一个不同字符的字符串
+$1554. 只有一个不同字符的字符串
 https://leetcode.cn/problems/strings-differ-by-one-character/description/
 
 给定一个字符串列表 dict ，其中所有字符串的长度都相同。

@@ -91,7 +91,7 @@ public class SolutionP1538 {
     }
 }
 /*
-1538. 找出隐藏数组中出现次数最多的元素
+$1538. 找出隐藏数组中出现次数最多的元素
 https://leetcode.cn/problems/guess-the-majority-in-a-hidden-array/description/
 
 给定一个整数数组 nums，且 nums 中的所有整数都为 0 或 1。你不能直接访问这个数组，你需要使用 API ArrayReader ，该 API 含有下列成员函数：
