@@ -36,5 +36,7 @@ n == warehouse.length
 1 <= boxes[i], warehouse[i] <= 10^9
 
 贪心 + 排序 + 双指针
-时间复杂度 O(n^2)
+时间复杂度 O(nlogn + m)。
+相似题目: 1580. 把箱子放进仓库里 II
+https://leetcode.cn/problems/put-boxes-into-the-warehouse-ii/description/
  */
