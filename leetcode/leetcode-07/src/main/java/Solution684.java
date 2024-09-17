@@ -2,70 +2,36 @@ public class Solution684 {
     public int[] findRedundantConnection(int[][] edges) {
         int n = edges.length;
 
-        UnionFind unionFind = new UnionFind(n + 1);
+        DSU dsu = new DSU(n + 1);
         for (int[] edge : edges) {
-            if (unionFind.connected(edge[0], edge[1])) {
+            if (dsu.find(edge[0]) == dsu.find(edge[1])) {
                 return edge;
             } else {
-                unionFind.union(edge[0], edge[1]);
+                dsu.union(edge[0], edge[1]);
             }
         }
-        return new int[]{};
+        return new int[0];
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-        }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+                fa[i] = i;
             }
         }
 
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
+        }
+
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

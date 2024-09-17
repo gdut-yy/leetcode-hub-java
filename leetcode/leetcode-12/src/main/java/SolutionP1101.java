@@ -5,62 +5,38 @@ public class SolutionP1101 {
     public int earliestAcq(int[][] logs, int n) {
         Arrays.sort(logs, Comparator.comparingInt(log -> log[0]));
         // 有 N 个人。每个人都有一个从 0 到 N-1 唯一的 id 编号。
-        UnionFind unionFind = new UnionFind(n);
+        DSU dsu = new DSU(n);
         for (int[] log : logs) {
-            unionFind.union(log[1], log[2]);
-            if (unionFind.count == 1) {
+            dsu.union(log[1], log[2]);
+            if (dsu.sz == 1) {
                 return log[0];
             }
         }
         return -1;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
+        int sz;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
+            sz = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
+            sz--;
         }
     }
 }

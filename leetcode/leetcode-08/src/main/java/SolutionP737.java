@@ -5,106 +5,61 @@ import java.util.Map;
 public class SolutionP737 {
     public boolean areSentencesSimilarTwo(String[] sentence1, String[] sentence2, List<List<String>> similarPairs) {
         // 预处理，将 String 映射成 idx 编号
-        Map<String, Integer> hashMap = new HashMap<>();
+        Map<String, Integer> mp = new HashMap<>();
         int idx = 0;
         for (String s : sentence1) {
-            if (!hashMap.containsKey(s)) {
-                hashMap.put(s, idx++);
-            }
+            mp.putIfAbsent(s, idx++);
         }
         for (String s : sentence2) {
-            if (!hashMap.containsKey(s)) {
-                hashMap.put(s, idx++);
-            }
+            mp.putIfAbsent(s, idx++);
         }
         for (List<String> similarPair : similarPairs) {
             for (String s : similarPair) {
-                if (!hashMap.containsKey(s)) {
-                    hashMap.put(s, idx++);
-                }
+                mp.putIfAbsent(s, idx++);
             }
         }
 
         // 并查集
-        UnionFind unionFind = new UnionFind(idx);
+        DSU dsu = new DSU(idx);
         for (List<String> similarPair : similarPairs) {
-            int idx0 = hashMap.get(similarPair.get(0));
+            int idx0 = mp.get(similarPair.get(0));
             for (int i = 1; i < similarPair.size(); i++) {
-                int idxi = hashMap.get(similarPair.get(i));
-                unionFind.union(idx0, idxi);
+                int idxi = mp.get(similarPair.get(i));
+                dsu.union(idx0, idxi);
             }
         }
 
         // 判等
-        int len1 = sentence1.length;
-        int len2 = sentence2.length;
-        if (len1 == len2) {
-            for (int i = 0; i < len1; i++) {
-                int idx1 = hashMap.get(sentence1[i]);
-                int idx2 = hashMap.get(sentence2[i]);
-                if (!unionFind.connected(idx1, idx2)) {
-                    return false;
-                }
+        if (sentence1.length != sentence2.length) return false;
+        for (int i = 0; i < sentence1.length; i++) {
+            int idx1 = mp.get(sentence1[i]);
+            int idx2 = mp.get(sentence2[i]);
+            if (dsu.find(idx1) != dsu.find(idx2)) {
+                return false;
             }
-        } else {
-            return false;
         }
         return true;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-        }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+                fa[i] = i;
             }
         }
 
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
+        }
+
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

@@ -28,5 +28,8 @@ https://leetcode.cn/problems/house-robber-iii/
 树的节点数在 [1, 10^4] 范围内
 0 <= Node.val <= 10^4
 
-动态规划。
+树形 DP 维护两个值（选 或 不选）。
+时间复杂度 O(n)。
+相似题目: $2378. 选择边来最大化树的得分
+https://leetcode.cn/problems/choose-edges-to-maximize-score-in-a-tree/description/
  */

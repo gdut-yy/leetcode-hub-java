@@ -11,7 +11,7 @@ public class Solution685 {
         // 冲突（即导致一个节点有两个父节点）
         int conflict = -1;
         int cycle = -1;
-        UnionFind unionFind = new UnionFind(n + 1);
+        DSU dsu = new DSU(n + 1);
         for (int i = 0; i < n; i++) {
             int from = edges[i][0];
             int to = edges[i][1];
@@ -21,10 +21,10 @@ public class Solution685 {
                 conflict = i;
             } else {
                 parent[to] = from;
-                if (unionFind.find(from) == unionFind.find(to)) {
+                if (dsu.find(from) == dsu.find(to)) {
                     cycle = i;
                 } else {
-                    unionFind.union(from, to);
+                    dsu.union(from, to);
                 }
             }
         }
@@ -40,52 +40,25 @@ public class Solution685 {
         }
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

@@ -8,28 +8,26 @@ public class Solution1627 {
      */
     public List<Boolean> areConnected(int n, int threshold, int[][] queries) {
         // 编号 1 到 n
-        UnionFind unionFind = new UnionFind(n + 1);
+        DSU dsu = new DSU(n + 1);
         for (int i = threshold + 1; i <= n; i++) {
             for (int j = i + 1; j <= n; j++) {
                 if (getGCD(i, j) > threshold) {
-                    unionFind.union(i, j);
+                    dsu.union(i, j);
                 }
             }
         }
 
-        List<Boolean> resList = new ArrayList<>();
-        for (int[] query : queries) {
-            boolean connected = unionFind.connected(query[0], query[1]);
-            resList.add(connected);
+        List<Boolean> ans = new ArrayList<>();
+        for (int[] p : queries) {
+            int a = p[0], b = p[1];
+            boolean connected = dsu.find(a) == dsu.find(b);
+            ans.add(connected);
         }
-        return resList;
+        return ans;
     }
 
     private int getGCD(int num1, int num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+        return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
     }
 
     /**
@@ -38,74 +36,41 @@ public class Solution1627 {
      */
     public List<Boolean> areConnected2(int n, int threshold, int[][] queries) {
         // 编号 1 到 n
-        UnionFind unionFind = new UnionFind(n + 1);
+        DSU dsu = new DSU(n + 1);
         for (int i = threshold + 1; i <= n; i++) {
             for (int p = i, q = i * 2; q <= n; p += i, q += i) {
-                unionFind.union(p, q);
+                dsu.union(p, q);
             }
         }
 
-        List<Boolean> resList = new ArrayList<>();
-        for (int[] query : queries) {
-            boolean connected = unionFind.connected(query[0], query[1]);
-            resList.add(connected);
+        List<Boolean> ans = new ArrayList<>();
+        for (int[] p : queries) {
+            int a = p[0], b = p[1];
+            boolean connected = dsu.find(a) == dsu.find(b);
+            ans.add(connected);
         }
-        return resList;
+        return ans;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
-            }
-            count = n;
-        }
-
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
-        }
-
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
+                fa[i] = i;
             }
         }
 
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
+        }
+
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

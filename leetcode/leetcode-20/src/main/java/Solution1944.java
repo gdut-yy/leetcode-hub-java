@@ -39,4 +39,6 @@ n == heights.length
 heights 中所有数 互不相同 。
 
 单调栈。
+相似题目: $2282. 在一个网格中可以看到的人数
+https://leetcode.cn/problems/number-of-people-that-can-be-seen-in-a-grid/description/
  */

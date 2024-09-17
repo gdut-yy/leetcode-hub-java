@@ -1,7 +1,7 @@
 public class Solution1579 {
     public int maxNumEdgesToRemove(int n, int[][] edges) {
-        UnionFind alice = new UnionFind(n);
-        UnionFind bob = new UnionFind(n);
+        DSU alice = new DSU(n);
+        DSU bob = new DSU(n);
 
         int cnt = 0;
         // 公共边
@@ -11,7 +11,7 @@ public class Solution1579 {
                 int from = edge[1] - 1;
                 int to = edge[2] - 1;
 
-                if (!alice.connected(from, to)) {
+                if (alice.find(from) != alice.find(to)) {
                     alice.union(from, to);
                     bob.union(from, to);
                 } else {
@@ -26,7 +26,7 @@ public class Solution1579 {
             int to = edge[2] - 1;
             // alice 独占
             if (edge[0] == 1) {
-                if (!alice.connected(from, to)) {
+                if (alice.find(from) != alice.find(to)) {
                     alice.union(from, to);
                 } else {
                     cnt++;
@@ -34,7 +34,7 @@ public class Solution1579 {
             }
             // bob 独占
             else if (edge[0] == 2) {
-                if (!bob.connected(from, to)) {
+                if (bob.find(from) != bob.find(to)) {
                     bob.union(from, to);
                 } else {
                     cnt++;
@@ -43,65 +43,34 @@ public class Solution1579 {
         }
 
         // 如果 Alice 和 Bob 无法完全遍历图，则返回 -1 。
-        if (alice.count != 1 || bob.count != 1) {
+        if (alice.sz != 1 || bob.sz != 1) {
             return -1;
         }
         return cnt;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // (可选) 连通分量
-        int count;
+    static class DSU {
+        int[] fa;
+        int sz;
 
-        // 0 ~ n-1
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
+            sz = n;
         }
 
-        // 返回节点 x 的根节点
-        private int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        // 将 p 和 q 连通
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
-        }
-
-        // p 和 q 是否连通
-        public boolean connected(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            return rootP == rootQ;
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
+            sz--;
         }
     }
 }

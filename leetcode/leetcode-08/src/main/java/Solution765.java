@@ -1,65 +1,37 @@
 public class Solution765 {
     public int minSwapsCouples(int[] row) {
-        int len = row.length;
-        int n = len / 2;
-        UnionFind unionFind = new UnionFind(n);
-        for (int i = 0; i < len; i += 2) {
+        int n = row.length;
+        DSU unionFind = new DSU(n / 2);
+        for (int i = 0; i < n; i += 2) {
             // 利用除法向下取整
             // 如 [2, 3] => [1, 1]
             unionFind.union(row[i] / 2, row[i + 1] / 2);
         }
-        return n - unionFind.count;
+        return n / 2 - unionFind.sz;
     }
 
-    private static class UnionFind {
-        // 记录每个节点的父节点
-        int[] parent;
-        // 记录每棵树的重量
-        int[] rank;
-        // 联通分量
-        int count;
+    static class DSU {
+        int[] fa;
+        int sz;
 
-        public UnionFind(int n) {
-            parent = new int[n];
-            rank = new int[n];
+        public DSU(int n) {
+            fa = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
-                rank[i] = i;
+                fa[i] = i;
             }
-            count = n;
+            sz = n;
         }
 
-        /**
-         * 返回节点 x 的根节点
-         */
-        public int find(int x) {
-            int ret = x;
-            while (ret != parent[ret]) {
-                // 路径压缩
-                parent[ret] = parent[parent[ret]];
-                ret = parent[ret];
-            }
-            return ret;
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        /**
-         * 将 p 和 q 连通
-         */
-        public void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP != rootQ) {
-                if (rank[rootP] > rank[rootQ]) {
-                    parent[rootQ] = rootP;
-                } else if (rank[rootP] < rank[rootQ]) {
-                    parent[rootP] = rootQ;
-                } else {
-                    parent[rootQ] = rootP;
-                    // 重量平衡
-                    rank[rootP] += 1;
-                }
-                count--;
-            }
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
+            sz--;
         }
     }
 }
