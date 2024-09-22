@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SolutionP2227Tests {
+public class SolutionP2277Tests {
     private final SolutionP2277 solutionP2277 = new SolutionP2277();
 
     @Test
