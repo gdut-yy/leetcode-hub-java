@@ -93,4 +93,6 @@ KMP + 组合数学 + 矩阵快速幂。严重超纲
 https://codeforces.com/contest/176/problem/B
 3036. 匹配模式数组的子数组数目 II
 https://leetcode.cn/problems/number-of-subarrays-that-match-a-pattern-ii/description/
+$2912. 在网格上移动到目的地的方法数
+https://leetcode.cn/problems/number-of-ways-to-reach-destination-in-the-grid/description/
  */

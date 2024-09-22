@@ -164,4 +164,6 @@ https://leetcode.cn/problems/minimum-number-of-removals-to-make-mountain-array/
 https://leetcode.cn/problems/minimum-operations-to-make-a-subsequence/
 1964. 找出到每个位置为止最长的有效障碍赛跑路线
 https://leetcode.cn/problems/find-the-longest-valid-obstacle-course-at-each-position/
+$3231. 要删除的递增子序列的最小数量
+https://leetcode.cn/problems/minimum-number-of-increasing-subsequence-to-be-removed/description/
  */

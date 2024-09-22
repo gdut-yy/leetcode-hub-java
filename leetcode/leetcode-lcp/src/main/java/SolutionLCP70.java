@@ -43,4 +43,6 @@ LCCUP'22 力扣杯秋季编程大赛战队赛 T5。
 1 <= size <= 1000
 
 构造题 constructive algorithms
+相似题目: $2647. 把三角形染成红色
+https://leetcode.cn/problems/color-the-triangle-red/description/
  */

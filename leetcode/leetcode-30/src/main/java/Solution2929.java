@@ -32,4 +32,6 @@ https://leetcode.cn/problems/distribute-candies-among-children-ii/description/
 至少2个小朋友分到的糖果超过 limit：考虑分 A、B 2(limit+1) 颗糖果，剩下 k2 = n-2(limit+1) 颗分给 B、C, C(k2+2, 2) B、C 同理，3*C(k2+2, 2)
 3个小朋友分到的糖果超过 limit：k3 = n-3(limit+1) 颗分给 B、C, C(k3+2, 2) B、C 同理，3*C(k3+2, 2)
 时间复杂度 O(1)
+相似题目: $2927. 给小朋友们分糖果 III
+https://leetcode.cn/problems/distribute-candies-among-children-iii/description/
  */

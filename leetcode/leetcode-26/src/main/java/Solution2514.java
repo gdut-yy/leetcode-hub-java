@@ -54,4 +54,6 @@ s 只包含小写英文字母和空格 ' ' 。
 乘法逆元。
 每个单词自己是互相独立的，因此分别计算每个单词的同位异构字符串的数目，再用乘法原理相乘。
 时间复杂度 O(n + logM)。其中 M = 1e9+7。
+相似题目: $2539. 好子序列的个数
+https://leetcode.cn/problems/count-the-number-of-good-subsequences/description/
  */

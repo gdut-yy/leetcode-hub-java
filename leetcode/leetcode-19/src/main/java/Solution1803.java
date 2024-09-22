@@ -155,4 +155,6 @@ E. Beautiful Subarrays
 https://codeforces.com/contest/665/problem/E
 E. Choosing The Commander
 https://codeforces.com/contest/817/problem/E
+$2479. 两个不重叠子树的最大异或值
+https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees/description/
  */

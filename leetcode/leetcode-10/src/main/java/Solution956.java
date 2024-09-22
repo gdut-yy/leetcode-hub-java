@@ -90,4 +90,6 @@ sum(rods[i]) <= 5000
 
 记忆化搜索 / 折半搜索。
 时间复杂度 O(nS) / 时间复杂度 O(3^(n/2))
+相似题目: $2143. 在两个数组的区间中选取数字
+https://leetcode.cn/problems/choose-numbers-from-two-arrays-in-range/description/
  */

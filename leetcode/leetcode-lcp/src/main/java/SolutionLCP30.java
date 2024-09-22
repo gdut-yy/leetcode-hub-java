@@ -43,4 +43,6 @@ https://leetcode.cn/problems/p0NxJO/
 时间复杂度 O(nlogn)
 相似题目: 871. 最低加油次数
 https://leetcode.cn/problems/minimum-number-of-refueling-stops/
+$2599. 使前缀和数组非负
+https://leetcode.cn/problems/make-the-prefix-sum-non-negative/description/
  */

@@ -147,4 +147,6 @@ time[i].length == 4
 也可以写成双堆模拟。
 相似题目: 1834. 单线程 CPU
 https://leetcode.cn/problems/single-threaded-cpu/
+$2534. 通过门的时间
+https://leetcode.cn/problems/time-taken-to-cross-the-door/description/
  */

@@ -109,4 +109,12 @@ https://leetcode.cn/problems/maximum-xor-of-two-numbers-in-an-array/
 一般解法 时间复杂度为 O(n^2)
 0-1 Trie
 时间复杂度 O(n)
+相似题目: 1707. 与数组中元素的最大异或值
+https://leetcode.cn/problems/maximum-xor-with-an-element-from-array/
+1803. 统计异或值在范围内的数对有多少
+https://leetcode.cn/problems/count-pairs-with-xor-in-a-range/description/
+1938. 查询最大基因差
+https://leetcode.cn/problems/maximum-genetic-difference-query/
+$2479. 两个不重叠子树的最大异或值
+https://leetcode.cn/problems/maximum-xor-of-two-non-overlapping-subtrees/description/
  */

@@ -40,4 +40,6 @@ https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-i
 
 贪心/集合
 由小到大枚举。
+相似题目: $2557. 从一个范围内选择最多整数 II
+https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-ii/description/
  */

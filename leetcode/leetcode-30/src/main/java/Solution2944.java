@@ -114,4 +114,6 @@ https://leetcode.cn/problems/minimum-number-of-coins-for-fruits/description/
 可用单调队列优化至 O(n)
 相似题目: 1425. 带限制的子序列和
 https://leetcode.cn/problems/constrained-subsequence-sum/description/
+$2969. 购买水果需要的最少金币数 II
+https://leetcode.cn/problems/minimum-number-of-coins-for-fruits-ii/description/
  */
