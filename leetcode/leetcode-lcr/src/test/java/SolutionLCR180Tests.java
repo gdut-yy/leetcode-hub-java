@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SolutionLCR179_2Tests {
+public class SolutionLCR180Tests {
     private final SolutionLCR180 solutionLCR180 = new SolutionLCR180();
 
     @Test

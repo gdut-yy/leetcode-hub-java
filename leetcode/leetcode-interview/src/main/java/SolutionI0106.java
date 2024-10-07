@@ -1,26 +1,26 @@
 public class SolutionI0106 {
     public String compressString(String S) {
-        if (S.equals("")) {
-            return "";
-        }
+        int n = S.length();
+        if (n == 0) return "";
+
         // 双指针
         int left = 0;
         int right = 0;
         int cnt = 0;
-        StringBuilder stringBuilder = new StringBuilder();
-        while (left < S.length() && right < S.length()) {
+        StringBuilder sb = new StringBuilder();
+        while (left < n && right < n) {
             if (S.charAt(left) == S.charAt(right)) {
                 cnt++;
                 right++;
             } else {
-                stringBuilder.append(S.charAt(left)).append(cnt);
+                sb.append(S.charAt(left)).append(cnt);
                 cnt = 0;
                 left = right;
             }
         }
-        stringBuilder.append(S.charAt(left)).append(cnt);
-        String compressString = stringBuilder.toString();
-        return (S.length() <= compressString.length()) ? S : compressString;
+        sb.append(S.charAt(left)).append(cnt);
+        String compressString = sb.toString();
+        return (n <= compressString.length()) ? S : compressString;
     }
 }
 /*

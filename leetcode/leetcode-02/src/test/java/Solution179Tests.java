@@ -9,6 +9,7 @@ public class Solution179Tests {
         int[] nums = {10, 2};
         String expected = "210";
         Assertions.assertEquals(expected, solution179.largestNumber(nums));
+        Assertions.assertEquals(expected, solution179.largestNumber2(nums));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution179Tests {
         int[] nums = {3, 30, 34, 5, 9};
         String expected = "9534330";
         Assertions.assertEquals(expected, solution179.largestNumber(nums));
+        Assertions.assertEquals(expected, solution179.largestNumber2(nums));
     }
 }

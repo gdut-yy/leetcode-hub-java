@@ -11,8 +11,9 @@ print(between.days, 'days')
 cnt_lc_solutions = 0
 cnt_lc_tests = 0
 cwd = os.getcwd()
-exclude_paths = ['algo-core', 'atcoder', 'codeforces',
-                 'leetcode-extends', 'leetcode-lcp', 'nowcoder']
+exclude_paths = ['algo-core', 'atcoder', 'codeforces', 'lanqiao',
+                 'leetcode-extends', 'leetcode-lcp', 'luogu', 'nowcoder']
+mp = set()
 for dirpath, dirnames, filenames in os.walk(cwd):
     ok = True
     for exclude_path in exclude_paths:
@@ -24,15 +25,21 @@ for dirpath, dirnames, filenames in os.walk(cwd):
         if '\src\main\java' in dirpath:
             for filename in filenames:
                 if 'Solution' in filename:
+                    key = filename.replace('SolutionP', '').replace('Solution', '').replace('.java', '')
+                    mp.add(key)
                     cnt_lc_solutions += 1
         # 统计 Solution*Tests.java
         if '\src\\test\java' in dirpath:
             for filename in filenames:
                 if 'Tests' in filename:
+                    key = filename.replace('SolutionP', '').replace('Solution', '').replace('.java', '').replace(
+                        'Tests', '')
+                    mp.remove(key)
                     cnt_lc_tests += 1
 print('leetcode:')
 print(cnt_lc_solutions)
 print(cnt_lc_tests)
+print(mp)
 
 # 统计 codeforces 题量
 cnt_cf_mains = 0

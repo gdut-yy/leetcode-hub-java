@@ -1,20 +1,13 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Arrays;
 
 public class SolutionI0102 {
     public boolean CheckPermutation(String s1, String s2) {
-        if (s1.length() != s2.length()) {
-            return false;
-        }
-        Map<Character, Integer> cntMap1 = new HashMap<>();
-        Map<Character, Integer> cntMap2 = new HashMap<>();
-        for (char ch : s1.toCharArray()) {
-            cntMap1.put(ch, cntMap1.getOrDefault(ch, 0) + 1);
-        }
-        for (char ch : s2.toCharArray()) {
-            cntMap2.put(ch, cntMap2.getOrDefault(ch, 0) + 1);
-        }
-        return cntMap1.equals(cntMap2);
+        if (s1.length() != s2.length()) return false;
+        char[] arr1 = s1.toCharArray();
+        char[] arr2 = s2.toCharArray();
+        Arrays.sort(arr1);
+        Arrays.sort(arr2);
+        return Arrays.equals(arr1, arr2);
     }
 }
 /*
@@ -22,6 +15,9 @@ public class SolutionI0102 {
 https://leetcode.cn/problems/check-permutation-lcci/
 
 给定两个字符串 s1 和 s2，请编写一个程序，确定其中一个字符串的字符重新排列后，能否变成另一个字符串。
+说明：
+0 <= len(s1) <= 100
+0 <= len(s2) <= 100
 
-HashMap 统计频次，判等。
+模拟。
  */

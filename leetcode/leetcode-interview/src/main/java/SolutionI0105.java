@@ -52,8 +52,13 @@ public class SolutionI0105 {
 面试题 01.05. 一次编辑
 https://leetcode.cn/problems/one-away-lcci/
 
+字符串有三种编辑操作:插入一个英文字符、删除一个英文字符或者替换一个英文字符。 给定两个字符串，编写一个函数判定它们是否只需要一次(或者零次)编辑。
+
 双指针。分三种情况。
 case1: 长度相差 > 1。无解
 case2: 长度相差 = 1。双指针 + 一次机会
 case3: 长度相等。逐位比较 + 一次机会
+
+相似题目: $161. 相隔为 1 的编辑距离
+https://leetcode.cn/problems/one-edit-distance/
  */

@@ -1,9 +1,25 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Solution179 {
     public String largestNumber(int[] nums) {
+        String ans = Arrays.stream(nums)
+                .mapToObj(String::valueOf)
+                .sorted((x, y) -> (y + x).compareTo(x + y))
+                .collect(Collectors.joining());
+        // 去掉前缀 0
+        int st = 0;
+        for (int i = 0; i < ans.length(); i++) {
+            if (ans.charAt(i) != '0') {
+                return ans.substring(st);
+            }
+        }
+        return "0";
+    }
+
+    public String largestNumber2(int[] nums) {
         List<Integer> list = new ArrayList<>(Arrays.stream(nums).boxed().toList());
         list.sort((o1, o2) -> {
             long s1 = 10;

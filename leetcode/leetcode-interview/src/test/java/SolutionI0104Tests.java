@@ -9,4 +9,13 @@ public class SolutionI0104Tests {
         String s = "tactcoa";
         Assertions.assertTrue(solutionI0104.canPermutePalindrome(s));
     }
+
+    // 补充用例
+    @Test
+    public void example2() {
+        // https://leetcode.cn/problems/palindrome-permutation-lcci/submissions/570606860/
+        // 不止小写字母
+        String s = "AaBb//a";
+        Assertions.assertFalse(solutionI0104.canPermutePalindrome(s));
+    }
 }

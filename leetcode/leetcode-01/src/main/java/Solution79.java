@@ -1,15 +1,20 @@
 public class Solution79 {
-    private int M;
-    private int N;
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    private char[][] board;
+    private String word;
+    private int m, n;
+    private boolean[][] vis;
 
     public boolean exist(char[][] board, String word) {
-        this.M = board.length;
-        this.N = board[0].length;
+        this.board = board;
+        this.word = word;
+        m = board.length;
+        n = board[0].length;
 
-        boolean[][] visited = new boolean[M][N];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                if (dfs(board, word, visited, i, j, 0)) {
+        vis = new boolean[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if (dfs(i, j, 0)) {
                     return true;
                 }
             }
@@ -17,27 +22,26 @@ public class Solution79 {
         return false;
     }
 
-    private boolean dfs(char[][] board, String word, boolean[][] visited, int curM, int curN, int idx) {
-        if (board[curM][curN] != word.charAt(idx)) {
+    private boolean dfs(int x, int y, int idx) {
+        if (board[x][y] != word.charAt(idx)) {
             return false;
         } else if (idx == word.length() - 1) {
             return true;
         }
-        visited[curM][curN] = true;
-        int[][] directions = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-        for (int[] dir : directions) {
-            int nextM = curM + dir[0];
-            int nextN = curN + dir[1];
-            if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N) {
-                if (!visited[nextM][nextN]) {
-                    if (dfs(board, word, visited, nextM, nextN, idx + 1)) {
-                        visited[curM][curN] = false;
+        vis[x][y] = true;
+        for (int[] d : DIRECTIONS) {
+            int nx = x + d[0];
+            int ny = y + d[1];
+            if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                if (!vis[nx][ny]) {
+                    if (dfs(nx, ny, idx + 1)) {
+                        vis[x][y] = false;
                         return true;
                     }
                 }
             }
         }
-        visited[curM][curN] = false;
+        vis[x][y] = false;
         return false;
     }
 }

@@ -28,4 +28,6 @@ s 由英文字母、数字、符号和空格组成
 
 不定长滑动窗口（求最长/最大）
 时间复杂度 O(n)
+相似题目: LCR 167. 招式拆解 I
+https://leetcode.cn/problems/zui-chang-bu-han-zhong-fu-zi-fu-de-zi-zi-fu-chuan-lcof/
  */

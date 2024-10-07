@@ -6,10 +6,11 @@ public class SolutionI0108 {
     public void setZeroes(int[][] matrix) {
         Set<Integer> iSet = new HashSet<>();
         Set<Integer> jSet = new HashSet<>();
-        int matrixM = matrix.length;
-        int matrixN = matrix[0].length;
-        for (int i = 0; i < matrixM; i++) {
-            for (int j = 0; j < matrixN; j++) {
+
+        int m = matrix.length;
+        int n = matrix[0].length;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 if (matrix[i][j] == 0) {
                     iSet.add(i);
                     jSet.add(j);
@@ -20,7 +21,7 @@ public class SolutionI0108 {
             Arrays.fill(matrix[i], 0);
         }
         for (int j : jSet) {
-            for (int i = 0; i < matrixM; i++) {
+            for (int i = 0; i < m; i++) {
                 matrix[i][j] = 0;
             }
         }

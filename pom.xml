@@ -22,16 +22,16 @@
     <packaging>pom</packaging>
 
     <properties>
-        <org.junit.jupiter.junit-jupiter.version>5.10.0</org.junit.jupiter.junit-jupiter.version>
-        <commons-io.commons-io.version>2.13.0</commons-io.commons-io.version>
+        <org.junit.jupiter.junit-jupiter.version>5.11.2</org.junit.jupiter.junit-jupiter.version>
+        <commons-io.commons-io.version>2.17.0</commons-io.commons-io.version>
         <com.alibaba.fastjson.version>1.2.83</com.alibaba.fastjson.version>
-        <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
-        <maven-failsafe-plugin.version>3.1.2</maven-failsafe-plugin.version>
-        <jacoco-maven-plugin.version>0.8.10</jacoco-maven-plugin.version>
+        <maven-surefire-plugin.version>3.5.1</maven-surefire-plugin.version>
+        <maven-failsafe-plugin.version>3.5.1</maven-failsafe-plugin.version>
+        <jacoco-maven-plugin.version>0.8.12</jacoco-maven-plugin.version>
 
-        <java.version>17</java.version>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
