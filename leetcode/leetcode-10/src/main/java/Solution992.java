@@ -39,4 +39,6 @@ https://leetcode.cn/problems/subarrays-with-k-different-integers/
 
 双指针（没见过的三指针版本）
 对于每一个右指针下标，找到左区间 [left1, left2]
+相似题目: 3306. 元音辅音字符串计数 II
+https://leetcode.cn/problems/count-of-substrings-containing-every-vowel-and-k-consonants-ii/description/
  */

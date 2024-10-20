@@ -45,4 +45,6 @@ s 和 p 仅包含小写字母
 时间复杂度 O(n)
 相似题目: 567. 字符串的排列
 https://leetcode.cn/problems/permutation-in-string/
+3298. 统计重新排列后包含另一个字符串的子字符串数目 II
+https://leetcode.cn/problems/count-substrings-that-can-be-rearranged-to-contain-a-string-ii/description/
  */

@@ -1,18 +1,20 @@
 public class Solution1866 {
     private static final int MOD = (int) (1e9 + 7);
-    private static long[][] TABLES;
+    private static final int MAX_N = 1001;
+    private static final long[][] STIRLING1;
 
-    public int rearrangeSticks(int n, int k) {
-        if (TABLES == null) {
-            TABLES = new long[1001][1001];
-            TABLES[0][0] = 1;
-            for (int i = 1; i <= 1000; i++) {
-                for (int j = 1; j <= i; j++) {
-                    TABLES[i][j] = (TABLES[i - 1][j - 1] + (i - 1) * TABLES[i - 1][j]) % MOD;
-                }
+    static {
+        STIRLING1 = new long[MAX_N][MAX_N];
+        STIRLING1[0][0] = 1;
+        for (int n = 1; n < MAX_N; n++) {
+            for (int k = 1; k <= n; k++) {
+                STIRLING1[n][k] = (STIRLING1[n - 1][k - 1] + (n - 1) * STIRLING1[n - 1][k]) % MOD;
             }
         }
-        return (int) TABLES[n][k];
+    }
+
+    public int rearrangeSticks(int n, int k) {
+        return (int) STIRLING1[n][k];
     }
 }
 /*
@@ -26,6 +28,9 @@ https://leetcode.cn/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-vi
 1 <= n <= 1000
 1 <= k <= n
 
-第一类斯特林数 https://oi-wiki.org/math/combinatorics/stirling/
+第一类斯特林数
+https://oi-wiki.org/math/combinatorics/stirling/
 灵神题解: https://leetcode.cn/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible/solution/zhuan-huan-cheng-di-yi-lei-si-te-lin-shu-2y1k/
+相似题目: 3317. 安排活动的方案数
+https://leetcode.cn/problems/find-the-number-of-possible-ways-for-an-event/description/
  */

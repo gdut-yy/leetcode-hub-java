@@ -87,4 +87,6 @@ https://leetcode.cn/problems/count-palindromic-subsequences/
 https://leetcode.cn/problems/count-increasing-quadruplets/
 D - Match or Not
 https://atcoder.jp/contests/abc287/tasks/abc287_d
+3302. 字典序最小的合法序列
+https://leetcode.cn/problems/find-the-lexicographically-smallest-valid-sequence/description/
  */
