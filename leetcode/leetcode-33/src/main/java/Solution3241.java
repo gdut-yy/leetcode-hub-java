@@ -74,6 +74,7 @@ edges[i].length == 2
 
 换根 DP。
 时间复杂度 O(n)。
+rating 2523 (clist.by)
 相似题目: 310. 最小高度树
 https://leetcode.cn/problems/minimum-height-trees/
  */

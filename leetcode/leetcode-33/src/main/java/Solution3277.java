@@ -45,6 +45,7 @@ queries[i] = [li, ri]
 https://leetcode.cn/problems/maximum-xor-score-subarray-queries/solutions/2899932/qu-jian-dp-tao-qu-jian-dppythonjavacgo-b-w4be/
 赛时以为跟 1310 一样，先做前缀和，再套 0-1 Trie，但其实不是。。
 时间复杂度 O(n^2 + q)。
+rating 2711 (clist.by)
 相似题目: 1310. 子数组异或查询
 https://leetcode.cn/problems/xor-queries-of-a-subarray/
  */

@@ -64,4 +64,5 @@ queries[i] == [li, ri]
 
 滑动窗口+前缀和+二分查找。
 时间复杂度 O(n + qlogn)。
+rating 2675 (clist.by)
  */

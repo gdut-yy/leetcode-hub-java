@@ -75,6 +75,8 @@ nums 是 [0, 1, 2, ..., n - 1] 的一个排列。
  - 怎么保证字典序最小
 5、状压 DP（递推）
 6、递推怎么输出方案
+---
+rating 2659 (clist.by)
 相似题目: 996. 正方形数组的数目
 https://leetcode.cn/problems/number-of-squareful-arrays/
 2741. 特别的排列

@@ -86,6 +86,7 @@ words[i]  只包含小写英文字母。
 target  只包含小写英文字母。
 
 AC 自动机优化 DP / 字符串哈希+二分+跳跃游戏
+rating 2666 (clist.by)
 相似题目: 3213. 最小代价构造字符串
 https://leetcode.cn/problems/construct-string-with-minimum-cost/description/
  */

@@ -102,4 +102,5 @@ https://leetcode.cn/problems/earliest-second-to-mark-indices-ii/description/
      -> 取一个原本用快速复习搞定的，且 nums[i] 最小的，反悔这门课程的用时（快速复习的一天+考试的一天）
      -> 多出来的这两天时间，用来做当前这门课程的快速复习+考试
 时间复杂度 O(logn * mlogm)
+rating 3123 (clist.by)
  */

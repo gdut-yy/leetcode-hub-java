@@ -114,4 +114,5 @@ https://leetcode.cn/problems/block-placement-queries/description/
 平衡树用于找到插入点的前驱和后继，线段树维护 [0,x] 段最大值。
 设插入一个点 x，前驱是 lo，后继是 hi，则长度 L(=hi-lo) 被截断成 L1(=x-lo) + L2(=hi-x)。
 时间复杂度 O(qlogq)。
+rating 2542 (clist.by)
  */

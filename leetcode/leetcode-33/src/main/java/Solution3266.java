@@ -80,5 +80,6 @@ k 次操作以后，你需要将 nums 中每一个数值对 10^9 + 7 取余。
 https://leetcode.cn/problems/sell-diminishing-valued-colored-balls/
 2333. 最小差值平方和
 https://leetcode.cn/problems/minimum-sum-of-squared-difference/
-CF1181D
+rating 2521 (clist.by)
+相似题目: CF1181D
  */

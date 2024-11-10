@@ -84,4 +84,5 @@ https://leetcode.cn/problems/find-the-count-of-good-integers/description/
 预处理 回文数 + 组合数学。
 时间复杂度 O(10^m * nlogn)。其中 m = (n-1)/2
 空间复杂度 O(10^m * n)。
+rating 2402 (clist.by)
  */

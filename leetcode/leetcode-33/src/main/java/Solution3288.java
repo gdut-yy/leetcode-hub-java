@@ -76,4 +76,5 @@ coordinates 中的元素 互不相同 。
 相似题目: 354. 俄罗斯套娃信封问题
 https://leetcode.cn/problems/russian-doll-envelopes/
 进阶：包含坐标 coordinates[i] 的 最长上升路径 的长度。
+rating 2475 (clist.by)
  */

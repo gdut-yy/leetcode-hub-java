@@ -38,4 +38,5 @@ https://leetcode.cn/problems/minimize-or-of-remaining-elements-using-operations/
 
 贪心 + 位运算。从高到低考虑
 时间复杂度 O(nlogU)
+rating 2945 (clist.by)
  */

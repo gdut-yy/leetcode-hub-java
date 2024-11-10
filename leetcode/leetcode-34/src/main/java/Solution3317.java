@@ -44,6 +44,7 @@ https://oi-wiki.org/math/combinatorics/stirling/
 i 从 1 枚举到 min(n, x)。结果累加 A(x, i) * S(n, i) * y^i
 预处理时间复杂度 O(N^2)。其中 N = 1000
 时间复杂度 O(min(n, x))。
+rating 2408 (clist.by)
 相似题目: 1866. 恰有 K 根木棍可以看到的排列数目
 https://leetcode.cn/problems/number-of-ways-to-rearrange-sticks-with-k-sticks-visible/
  */

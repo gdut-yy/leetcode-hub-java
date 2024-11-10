@@ -85,6 +85,7 @@ grid[i][j] 是 0 或 1。
 上中下、上左右、左右下
 左中右、上下右、左上下
 时间复杂度 O(m^2 n^2)。
+rating 2565 (clist.by)
 相似题目: F - Non-overlapping Squares
 https://atcoder.jp/contests/abc347/tasks/abc347_f
  */

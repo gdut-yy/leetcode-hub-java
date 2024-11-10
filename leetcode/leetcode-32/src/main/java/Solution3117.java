@@ -59,4 +59,5 @@ https://leetcode.cn/problems/minimum-sum-of-values-by-dividing-array/description
 
 记忆化搜索。
 时间复杂度 O(nmlogU)。
+rating 2760 (clist.by)
  */

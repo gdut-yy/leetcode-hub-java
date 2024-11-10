@@ -103,4 +103,5 @@ positions[i] 两两互不相同。
 相邻相关排列型状压 DP。记忆化搜索。
 https://leetcode.cn/problems/maximum-number-of-moves-to-kill-all-pawns/solutions/2909069/pai-lie-xing-zhuang-ya-dpxiang-lin-xiang-q49q/
 时间复杂度 O(nL^2 + n^2 * 2^n)。其中 n = positions.length, L = 50。
+rating 2488 (clist.by)
  */

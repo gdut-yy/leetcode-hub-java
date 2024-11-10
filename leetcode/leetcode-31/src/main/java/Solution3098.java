@@ -83,4 +83,5 @@ https://leetcode.cn/problems/find-the-sum-of-subsequence-powers/description/
 
 记忆化搜索。
 时间复杂度 O(kn^2)。
+rating 2571 (clist.by)
  */

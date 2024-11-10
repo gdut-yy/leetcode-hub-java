@@ -1,7 +1,6 @@
 public class Solution3017 {
     private int[] diff;
 
-    // https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii/solutions/2613373/yong-che-xiao-de-fang-shi-si-kao-pythonj-o253
     public long[] countOfPairs(int n, int x, int y) {
         if (x > y) {
             int tmp = x;
@@ -62,5 +61,7 @@ https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii
 1 <= x, y <= n
 
 分类讨论 + 差分数组
+https://leetcode.cn/problems/count-the-number-of-houses-at-a-certain-distance-ii/solutions/2613373/yong-che-xiao-de-fang-shi-si-kao-pythonj-o253
 时间复杂度 O(n)
+rating 2719 (clist.by)
  */

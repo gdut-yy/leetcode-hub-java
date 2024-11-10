@@ -112,4 +112,5 @@ circles[i].length == 3
 转换成图上 DFS + 避免浮点数的做法
 https://leetcode.cn/problems/check-if-the-rectangle-corner-is-reachable/solutions/2860214/deng-jie-zhuan-huan-bing-cha-ji-pythonja-yf9y/
 时间复杂度 O(n^2)。
+rating 3808 (clist.by)
  */

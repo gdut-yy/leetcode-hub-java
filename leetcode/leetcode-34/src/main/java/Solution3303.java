@@ -56,4 +56,5 @@ s 和 pattern 都只包含小写英文字母。
 
 前后缀分解 + Z 函数。
 时间复杂度 O(n)。
+rating 2538 (clist.by)
  */

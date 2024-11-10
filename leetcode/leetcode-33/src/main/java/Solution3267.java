@@ -107,4 +107,5 @@ https://leetcode.cn/problems/count-almost-equal-pairs-ii/description/
 补前导 0。哈希表 枚举。
 时间复杂度 O(n + nlogU)。其中 logU = 8。
 灵神有一种暴力做法只需 892ms。
+rating 2560 (clist.by)
  */

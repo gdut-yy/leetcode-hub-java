@@ -37,4 +37,6 @@ https://leetcode.cn/problems/product-of-array-except-self/
 转变思路，预处理数的左右侧乘积，乘积即为 除自身以外数组的乘积
 同: 剑指 Offer 66. 构建乘积数组
 https://leetcode.cn/problems/gou-jian-cheng-ji-shu-zu-lcof/
+相似题目: 3334. 数组的最大因子得分
+https://leetcode.cn/problems/find-the-maximum-factor-score-of-array/description/
  */

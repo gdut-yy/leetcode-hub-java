@@ -86,6 +86,7 @@ class Solution:
             mask = (1 << v) - 1
             f |= (f & mask) << v
         return f.bit_length() - 1
+rating 2706 (clist.by)
 相似题目: 1981. 最小化目标值与所选元素的差
 https://leetcode.cn/problems/minimize-the-difference-between-target-and-chosen-elements/
  */

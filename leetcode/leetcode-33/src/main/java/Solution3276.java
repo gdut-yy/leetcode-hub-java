@@ -59,4 +59,5 @@ https://leetcode.cn/problems/select-cells-in-grid-with-maximum-score/description
 记忆化搜索。枚举值域，看每个数在每一行中 选或不选。
 时间复杂度 O(mn * 2^m)。
 本题也可以用费用流建模解决。
+rating 2420 (clist.by)
  */

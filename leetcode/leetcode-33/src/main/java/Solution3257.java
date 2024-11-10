@@ -79,6 +79,7 @@ https://leetcode.cn/problems/maximum-value-sum-by-placing-three-rooks-ii/descrip
 
 枚举中间的数，前后缀分解。
 时间复杂度 O(mn)。
+rating 2498 (clist.by)
 相似题目: D. Three Activities
 https://codeforces.com/contest/1914/problem/D
  */

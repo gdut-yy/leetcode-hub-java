@@ -61,6 +61,7 @@ w_i = (-1)^(i+1) * (k-i+1)
       f[i][<i] = -inf
 时间复杂度 O(k(n-k))
 空间复杂度 O(n)
+rating 2586 (clist.by)
 相似题目: 689. 三个无重叠子数组的最大和
 https://leetcode.cn/problems/maximum-sum-of-3-non-overlapping-subarrays/description/
  */

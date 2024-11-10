@@ -56,6 +56,7 @@ https://leetcode.cn/problems/find-the-median-of-the-uniqueness-array/description
 
 二分 + 滑动窗口。
 时间复杂度 O(nlogn)。
+rating 2482 (clist.by)
 相似题目: 713. 乘积小于K的子数组
 https://leetcode.cn/problems/subarray-product-less-than-k/
  */

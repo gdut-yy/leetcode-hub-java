@@ -49,6 +49,7 @@ word1 和 word2 只包含小写英文字母。
 
 前后缀分解 + 子序列匹配 + 贪心。
 时间复杂度 O(n)。
+rating 2511 (clist.by)
 相似题目: 2565. 最少得分子序列
 https://leetcode.cn/problems/subsequence-with-the-minimum-score/
  */

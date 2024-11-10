@@ -57,6 +57,7 @@ https://leetcode.cn/problems/find-all-possible-stable-binary-arrays-ii/descripti
 
 记忆化搜索。感觉状态定义比较难想。。
 时间复杂度 O(zero * one)。
+rating 2810 (clist.by)
 相似题目: 2929. 给小朋友们分糖果 II
 https://leetcode.cn/problems/distribute-candies-among-children-ii/description/
  */

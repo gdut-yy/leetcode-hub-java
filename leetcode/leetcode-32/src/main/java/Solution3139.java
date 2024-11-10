@@ -55,4 +55,5 @@ case2-1：d <= s-d 那么可以尽量多地使用操作 2
 case2-2：d > s-d
   代价 = (s-d) * c2 + (d*2-s) * c1
 时间复杂度 O(n)
+rating 2677 (clist.by)
  */

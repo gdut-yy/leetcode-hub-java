@@ -126,4 +126,5 @@ https://leetcode.cn/problems/alternating-groups-iii/description/
 树状数组
 https://leetcode.cn/problems/alternating-groups-iii/solutions/2868457/shu-zhuang-shu-zu-by-tsreaper-j2pg/
 @TsReaper
+rating 3107 (clist.by)
  */

@@ -63,4 +63,5 @@ https://leetcode.cn/problems/find-the-maximum-sequence-value-of-array/descriptio
 前后缀分解 + 二维 0-1 背包
 https://leetcode.cn/problems/find-the-maximum-sequence-value-of-array/solutions/2917604/qian-hou-zhui-fen-jie-er-wei-0-1-bei-bao-8icz/
 时间复杂度 O(nkU)。其中 U = 2^7。
+rating 2574 (clist.by)
  */

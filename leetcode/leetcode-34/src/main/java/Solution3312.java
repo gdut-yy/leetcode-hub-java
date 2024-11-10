@@ -61,4 +61,5 @@ gcd(a, b) 表示 a 和 b 的 最大公约数 。
 枚举+容斥+前缀和+二分。
 https://leetcode.cn/problems/sorted-gcd-pair-queries/solutions/2940415/mei-ju-rong-chi-qian-zhui-he-er-fen-pyth-ujis/
 时间复杂度 O(n + (U+q)logU)。
+rating 2514 (clist.by)
  */

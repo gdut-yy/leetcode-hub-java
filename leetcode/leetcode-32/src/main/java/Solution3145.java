@@ -110,4 +110,6 @@ a(n) = n(n-1)/2 * 2^(n-1)
 ---
 ones(2^i) = i \times 2^{i-1}
 sumE(2^i) = \frac{i(i-1)}{2} \times 2^{i-1}
+---
+rating 2877 (clist.by)
  */
