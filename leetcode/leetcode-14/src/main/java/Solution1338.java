@@ -1,29 +1,26 @@
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
 
 public class Solution1338 {
     public int minSetSize(int[] arr) {
-        int len = arr.length;
         Map<Integer, Integer> cntMap = new HashMap<>();
-        for (int num : arr) {
-            cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
-        }
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-        for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            maxHeap.add(entry.getValue());
-        }
-        int cnt = 0;
-        int ans = 0;
-        while (!maxHeap.isEmpty()) {
-            cnt += maxHeap.poll();
+        for (int v : arr) cntMap.merge(v, 1, Integer::sum);
+        List<Integer> occ = new ArrayList<>(cntMap.values());
+        occ.sort(Comparator.reverseOrder());
+
+        int cnt = 0, ans = 0;
+        for (int c : occ) {
+            cnt += c;
             ans++;
-            if (cnt >= len / 2) {
-                return ans;
+            if (cnt * 2 >= arr.length) {
+                break;
             }
         }
-        return len;
+        return ans;
     }
 }
 /*

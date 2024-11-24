@@ -205,7 +205,7 @@ public class CF1837F {
         }
     }
 
-    private static class FastReader {
+    static class FastReader {
         private final BufferedReader bufferedReader;
         private StringTokenizer stringTokenizer;
 
@@ -255,12 +255,14 @@ public class CF1837F {
 F. Editorial for Two
 https://codeforces.com/contest/1837/problem/F
 
+灵茶の试炼 2024-03-15
 题目大意：
 伯兰校际比赛刚刚结束。Monocarp 和 Polycarp，作为陪审团，将发表一篇社论。不幸的是，时间有限，因为他们必须在闭幕式前完成。
 比赛中没有任何问题。题目从 1 到 n 编号。这个问题的社论花了 11 分钟。Monocarp 和 Polycarp 将针对其中的 k 个问题发表一篇社论。
 社论内容如下。他们面前有整整 n 个问题，按顺序排列。它们在不改变剩余 k 个问题的顺序的情况下解决了 n - k 个问题。然后，Monocarp 取这 k 个问题的某个前缀(可能是一个空问题或所有问题)。Polycarp 取剩下的后缀。之后，他们去不同的房间，同时针对各自的问题发表社论。所以，这篇社论花的时间和这两篇中较长的那篇一样多。
 请帮助 Monocarp 和 Polycarp 选择问题和分裂的方式，使社论尽早完成。打印社论的持续时间。
 
+rating 2400
 二分答案 + 反悔堆
 双向链表 优化
 https://codeforces.com/blog/entry/116752

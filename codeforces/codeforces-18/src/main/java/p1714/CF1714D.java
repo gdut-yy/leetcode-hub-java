@@ -70,9 +70,11 @@ public class CF1714D {
 D. Color with Occurrences
 https://codeforces.com/contest/1714/problem/D
 
+灵茶の试炼 2024-05-08
 题目大意：
 给定文本 t，整数 n 和 n 行字符串 si，求将所有字母 t 变成红色所需要的最小步骤数 m，并输出 m 行 wj,pj，其中 wj 为索引，pj 为覆盖开始位置。
 
+rating 1600
 贪心。参考 Tutorial。
 ======
 

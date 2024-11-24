@@ -57,6 +57,7 @@ public class CF1840D {
 D. Wooden Toy Festival
 https://codeforces.com/contest/1840/problem/D
 
+灵茶の试炼 2024-07-01
 题目大意：
 在一个小镇上，有一家木工作坊。由于小镇很小，只有三个雕刻师在那里工作。
 不久，镇上计划举办一个木制玩具节。车间员工想为此做准备。
@@ -71,6 +72,7 @@ https://codeforces.com/contest/1840/problem/D
 在第二例中，雕刻家可以选择图案 3、30、60 进行准备。
 在本例中，雕刻师可选择图案 14、50、85 进行准备。
 
+rating 1400
 二分套二分
 ======
 

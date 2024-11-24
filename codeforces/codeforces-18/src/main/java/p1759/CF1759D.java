@@ -46,9 +46,11 @@ public class CF1759D {
 D. Make It Round
 https://codeforces.com/contest/1759/problem/D
 
+灵茶の试炼 2024-05-06
 题目大意：
 给定整数 n,m。n 是商品的旧价格，数字 m 意味着你可以将价格 n 增加不超过 m 次。输出末尾 0 最多的新价格。
 
+rating 1400
 贪心。由于 n 不可变而 m 可变。因此先计算 n 中有多少 2 因子和 5 因子。再从 m 尽可能凑到 cnt2 == cnt5
 ======
 

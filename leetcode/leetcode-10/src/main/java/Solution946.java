@@ -3,18 +3,18 @@ import java.util.Deque;
 
 public class Solution946 {
     public boolean validateStackSequences(int[] pushed, int[] popped) {
-        int len = pushed.length;
+        int n = pushed.length;
         // 栈模拟
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> st = new ArrayDeque<>();
         int popIdx = 0;
         for (int push : pushed) {
-            stack.push(push);
-            while (!stack.isEmpty() && popIdx < len && stack.peek() == popped[popIdx]) {
-                stack.pop();
+            st.push(push);
+            while (!st.isEmpty() && popIdx < n && st.peek() == popped[popIdx]) {
+                st.pop();
                 popIdx++;
             }
         }
-        return popIdx == len;
+        return popIdx == n;
     }
 }
 /*

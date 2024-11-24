@@ -93,9 +93,11 @@ public class CF1702E {
 E. Split Into Two Sets
 https://codeforces.com/contest/1702/problem/E
 
+灵茶の试炼 2024-03-13
 题目大意：
 给定偶数 n 和 n 行 ai bi，代表多米诺骨牌的两个整数，问是否能将牌分成两组，每组多米诺骨牌上的数字不同。
 
+rating 1600
 二部图判定，先比较 1 到 n 的频次是否均为 2。如果出现奇数环，则不是二部图。
 ======
 

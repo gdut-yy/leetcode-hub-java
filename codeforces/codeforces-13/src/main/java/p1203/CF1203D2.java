@@ -52,6 +52,8 @@ https://codeforces.com/contest/1203/submission/165288618
 那么答案为最大的 suf[j+1]-pre[j]-1。
 注意边界上的答案，即 suf[0] 和 len(s)-1-pre[-1]。
 代码实现时可以先算 suf，在计算 pre 的同时计算答案，这样可以节省一个数组。
+相似题目: 2565. 最少得分子序列
+https://leetcode.cn/problems/subsequence-with-the-minimum-score/
 ======
 
 input

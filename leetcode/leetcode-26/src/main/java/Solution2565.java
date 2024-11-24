@@ -1,65 +1,25 @@
 public class Solution2565 {
+    // CF1203D2
     public int minimumScore(String s, String t) {
         int n = s.length();
         int m = t.length();
 
-        // pre[i] = x 表示 t 前缀长度为 i 时，s 需要至少前缀长度 x 匹配
-        int[] pre = new int[m + 1];
-        pre[0] = 0;
-        int j = 1;
-        // s[j] t[i]
-        for (int i = 1; i <= m; i++) {
-            while (j <= n && s.charAt(j - 1) != t.charAt(i - 1)) {
+        int[] suf = new int[n + 1];
+        suf[n] = m;
+        for (int i = n - 1, j = m - 1; i >= 0; i--) {
+            if (s.charAt(i) == t.charAt(j)) j--;
+            if (j < 0) return 0; // t 是 s 的子序列
+            suf[i] = j + 1;
+        }
+
+        int ans = suf[0]; // 删除 t[:suf[0]]
+        for (int i = 0, j = 0; i < n; i++) {
+            if (s.charAt(i) == t.charAt(j)) { // 注意上面判断了 t 是 s 子序列的情况，这里 j 不会越界
                 j++;
-            }
-            if (j <= n) {
-                pre[i] = j++;
-            } else {
-                pre[i] = n + 1;
+                ans = Math.min(ans, suf[i + 1] - j); // 删除 t[j:suf[i+1]]
             }
         }
-
-        // suf[i] = x 表示 t 后缀长度为 i 时，s 需要至少后缀长度 x 匹配
-        int[] suf = new int[m + 1];
-//        suf[0] = 0;
-        suf[m] = 0;
-        j = 1;
-        for (int i = 1; i <= m; i++) {
-            while (j <= n && s.charAt(n - j) != t.charAt(m - i)) {
-                j++;
-            }
-            if (j <= n) {
-//                suf[i] = j++;
-                suf[m - i] = j++;
-            } else {
-//                suf[i] = n + 1;
-                suf[m - i] = n + 1;
-            }
-        }
-
-        // 二分删除长度
-        int left = 0;
-        int right = m;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T]
-            // ----------------------^
-            if (checkMid(n, m, pre, suf, mid)) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-        return left;
-    }
-
-    private boolean checkMid(int n, int m, int[] pre, int[] suf, int mid) {
-        for (int i = 0; i + mid <= m; i++) {
-            if (pre[i] + suf[i + mid] <= n) {
-                return true;
-            }
-        }
-        return false;
+        return ans;
     }
 }
 /*
@@ -80,13 +40,16 @@ https://leetcode.cn/problems/subsequence-with-the-minimum-score/
 1 <= s.length, t.length <= 10^5
 s 和 t 都只包含小写英文字母。
 
-前后缀分解 + 二分（感觉比双指针好理解）
+前后缀分解 + 判断子序列。
+时间复杂度 O(n)。
 相似题目: 2484. 统计回文子序列数目
 https://leetcode.cn/problems/count-palindromic-subsequences/
 2552. 统计上升四元组
 https://leetcode.cn/problems/count-increasing-quadruplets/
 D - Match or Not
 https://atcoder.jp/contests/abc287/tasks/abc287_d
+D2. Remove the Substring (hard version)
+https://codeforces.com/contest/1203/problem/D2
 3302. 字典序最小的合法序列
 https://leetcode.cn/problems/find-the-lexicographically-smallest-valid-sequence/description/
  */

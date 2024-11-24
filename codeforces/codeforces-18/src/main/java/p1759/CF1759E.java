@@ -85,6 +85,7 @@ public class CF1759E {
 E. The Humanoid
 https://codeforces.com/contest/1759/problem/E
 
+灵茶の试炼 2024-06-24
 题目大意：
 给定整数 n,h 和长度为 n 的数组 a。人形机器人可以做出以下 3 种动作中的 1 种：
 - 吸收一个严格小于它的宇航员能量的 一半
@@ -92,6 +93,7 @@ https://codeforces.com/contest/1759/problem/E
 - 使用蓝色血清，体力*3
 初始有 2 个绿色血清和 1 个蓝色血清
 
+rating 1500
 贪心，宇航员能量从小到大吸收，且尽可能晚用血清。
 注意爆 int
 ======

@@ -1,19 +1,24 @@
 public class Solution289 {
-    private int M;
-    private int N;
-    private int[][] origin;
+    private static final int[][] DIRECTIONS8 = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
 
     public void gameOfLife(int[][] board) {
-        M = board.length;
-        N = board[0].length;
-        origin = new int[M][N];
-        for (int i = 0; i < M; i++) {
-            System.arraycopy(board[i], 0, origin[i], 0, N);
+        int m = board.length;
+        int n = board[0].length;
+        int[][] origin = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            System.arraycopy(board[i], 0, origin[i], 0, n);
         }
 
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                int cntLive = cntLive(i, j);
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int cntLive = 0;
+                for (int[] d : DIRECTIONS8) {
+                    int nx = i + d[0];
+                    int ny = j + d[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                        if (origin[nx][ny] == 1) cntLive++;
+                    }
+                }
                 if (board[i][j] == 1) {
                     // 如果活细胞周围八个位置有两个或三个活细胞，则该位置活细胞仍然存活；
                     board[i][j] = (cntLive == 2 || cntLive == 3) ? 1 : 0;
@@ -23,22 +28,6 @@ public class Solution289 {
                 }
             }
         }
-    }
-
-    // 周围的活细胞
-    private int cntLive(int i, int j) {
-        int cnt = 0;
-        for (int row = Math.max(0, i - 1); row <= Math.min(M - 1, i + 1); row++) {
-            for (int col = Math.max(0, j - 1); col <= Math.min(N - 1, j + 1); col++) {
-                if (row == i && col == j) {
-                    continue;
-                }
-                if (origin[row][col] == 1) {
-                    cnt++;
-                }
-            }
-        }
-        return cnt;
     }
 }
 /*

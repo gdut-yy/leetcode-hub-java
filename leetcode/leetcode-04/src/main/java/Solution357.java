@@ -2,46 +2,36 @@ import java.util.Arrays;
 
 public class Solution357 {
     public int countNumbersWithUniqueDigits(int n) {
-        // 0 <= x < 10^n
-        return 1 + numDupDigitsAtMostN((int) Math.pow(10, n) - 1);
+        return count((int) (Math.pow(10, n) - 1));
     }
 
-    private char[] s;
-    private int[][] dp;
-
-    private int numDupDigitsAtMostN(int n) {
-        s = String.valueOf(n).toCharArray();
-        int len = s.length;
-        dp = new int[len][1 << 10];
-        for (int i = 0; i < len; i++) {
+    private int count(int num) {
+        s = String.valueOf(num).toCharArray();
+        dp = new int[10][1 << 10];
+        for (int i = 0; i < 10; i++) {
             Arrays.fill(dp[i], -1);
         }
         return f(0, 0, true, false);
     }
 
-    private int f(int i, int mask, boolean isLimit, boolean isNum) {
-        if (i == s.length) {
-            return isNum ? 1 : 0;
-        }
-        // 记忆化搜索
-        if (!isLimit && isNum && dp[i][mask] >= 0) {
-            return dp[i][mask];
-        }
+    private char[] s;
+    private int[][] dp;
+
+    private int f(int i, int stats, boolean isLimit, boolean isNum) {
+        if (i == s.length) return 1;
+        if (!isLimit && isNum && dp[i][stats] != -1) return dp[i][stats];
         int res = 0;
         if (!isNum) {
-            // 可以跳过当前数位
-            res = f(i + 1, mask, false, false);
+            res = f(i + 1, stats, false, false);
         }
-        for (int d = isNum ? 0 : 1, up = isLimit ? s[i] - '0' : 9; d <= up; d++) {
-            // 枚举要填入的数字 d
-            if ((mask >> d & 1) == 0) {
-                // d 不在 mask 中
-                res += f(i + 1, mask | (1 << d), isLimit && d == up, true);
+        int down = isNum ? 0 : 1;
+        int up = isLimit ? s[i] - '0' : 9;
+        for (int d = down; d <= up; d++) {
+            if ((stats >> d & 1) == 0) {
+                res += f(i + 1, stats | (1 << d), isLimit && d == up, true);
             }
         }
-        if (!isLimit && isNum) {
-            dp[i][mask] = res;
-        }
+        if (!isLimit && isNum) dp[i][stats] = res;
         return res;
     }
 }

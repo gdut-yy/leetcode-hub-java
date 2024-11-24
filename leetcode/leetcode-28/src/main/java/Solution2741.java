@@ -6,19 +6,20 @@ import java.util.Map;
 
 public class Solution2741 {
     private static final int MOD = (int) (1e9 + 7);
-    private Map<Integer, List<Integer>> adj;
+    private List<Integer>[] g;
     private long[][] memo;
     private int FULL;
 
     public int specialPerm(int[] nums) {
         int n = nums.length;
         // 预处理 建图
-        adj = new HashMap<>();
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
                 if (nums[i] % nums[j] == 0 || nums[j] % nums[i] == 0) {
-                    adj.computeIfAbsent(i, key -> new ArrayList<>()).add(j);
-                    adj.computeIfAbsent(j, key -> new ArrayList<>()).add(i);
+                    g[i].add(j);
+                    g[j].add(i);
                 }
             }
         }
@@ -40,15 +41,10 @@ public class Solution2741 {
     // O(n * 2^n)
     // 上一次选择 i, 已选数状态为 mask
     private long dfs(int i, int mask) {
-        if (mask == FULL) {
-            return 1;
-        }
-        if (memo[i][mask] != -1) {
-            return memo[i][mask];
-        }
-
+        if (mask == FULL) return 1;
+        if (memo[i][mask] != -1) return memo[i][mask];
         long res = 0;
-        for (Integer j : adj.getOrDefault(i, new ArrayList<>())) {
+        for (Integer j : g[i]) {
             if ((mask >> j & 1) == 1) continue;
             res += dfs(j, mask | (1 << j));
             res %= MOD;
