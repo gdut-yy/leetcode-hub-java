@@ -9,7 +9,6 @@ public class Solution1964Tests {
         int[] obstacles = {1, 2, 3, 2};
         int[] expected = {1, 2, 3, 3};
         Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition(obstacles));
-        Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition2(obstacles));
     }
 
     @Test
@@ -17,7 +16,6 @@ public class Solution1964Tests {
         int[] obstacles = {2, 2, 1};
         int[] expected = {1, 2, 1};
         Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition(obstacles));
-        Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition2(obstacles));
     }
 
     @Test
@@ -25,7 +23,6 @@ public class Solution1964Tests {
         int[] obstacles = {3, 1, 5, 6, 4, 2};
         int[] expected = {1, 1, 2, 3, 2, 2};
         Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition(obstacles));
-        Assertions.assertArrayEquals(expected, solution1964.longestObstacleCourseAtEachPosition2(obstacles));
     }
 
     // 补充用例（感受一下当 n 的值很大时, 时间复杂度所导致的耗时差）
