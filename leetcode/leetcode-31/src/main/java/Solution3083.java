@@ -8,6 +8,17 @@ public class Solution3083 {
         }
         return false;
     }
+
+    public boolean isSubstringPresent2(String S) {
+        char[] s = S.toCharArray();
+        boolean[][] vis = new boolean[26][26];
+        for (int i = 1; i < s.length; i++) {
+            int x = s[i - 1] - 'a', y = s[i] - 'a';
+            vis[x][y] = true;
+            if (vis[y][x]) return true;
+        }
+        return false;
+    }
 }
 /*
 3083. 字符串及其反转中是否存在同一子字符串

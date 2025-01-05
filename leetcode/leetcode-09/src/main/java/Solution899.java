@@ -1,36 +1,40 @@
 import java.util.Arrays;
 
 public class Solution899 {
-    public String orderlyQueue(String s, int _k) {
-        int n = s.length();
-        char[] chars = s.toCharArray();
-        if (_k == 1) {
-            // 最小表示法
-            // https://oi-wiki.org/string/minimal-string/
-            int k = 0;
-            int i = 0;
-            int j = 1;
-            while (k < n && i < n && j < n) {
-                if (chars[(i + k) % n] == chars[(j + k) % n]) {
-                    k++;
-                } else {
-                    if (chars[(i + k) % n] > chars[(j + k) % n]) {
-                        i = i + k + 1;
-                    } else {
-                        j = j + k + 1;
-                    }
-                    if (i == j) {
-                        i++;
-                    }
-                    k = 0;
-                }
-            }
-            i = Math.min(i, j);
-            return s.substring(i) + s.substring(0, i);
+    public String orderlyQueue(String S, int k) {
+        char[] s = S.toCharArray();
+        if (k == 1) {
+            int i = minimalString(s, true);
+            return S.substring(i) + S.substring(0, i);
         } else {
-            Arrays.sort(chars);
-            return new String(chars);
+            Arrays.sort(s);
+            return new String(s);
         }
+    }
+
+    // 最小表示法
+    private int minimalString(char[] s, boolean isMin) {
+        int n = s.length;
+        int k = 0, i = 0, j = 1;
+        while (k < n && i < n && j < n) {
+            int d = chr(s, i + k, isMin) - chr(s, j + k, isMin);
+            if (d == 0) {
+                k++;
+            } else {
+                if (d > 0 == isMin) i = i + k + 1;
+                else j = j + k + 1;
+                if (i == j) i++;
+                k = 0;
+            }
+        }
+        i = Math.min(i, j);
+        return i;
+    }
+
+    private int chr(char[] s, int i, boolean isMin) {
+        int n = s.length;
+        if (i >= n) return isMin ? s[i % n] : 0;
+        return s[i];
     }
 }
 /*
@@ -45,4 +49,6 @@ s 只由小写字母组成。
 
 最小表示法
 https://oi-wiki.org/string/minimal-string/
+相似题目: 3403. 从盒子中找出字典序最大的字符串 I
+https://leetcode.cn/problems/find-the-lexicographically-largest-string-from-the-box-i/description/
  */

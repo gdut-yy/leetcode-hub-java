@@ -46,4 +46,6 @@ n == grid[i].length
 动态规划。
 相似题目: 62. 不同路径
 https://leetcode.cn/problems/unique-paths/
+3393. 统计异或值为给定值的路径数目
+https://leetcode.cn/problems/count-paths-with-the-given-xor-value/description/
  */

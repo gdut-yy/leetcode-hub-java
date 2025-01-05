@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution1235Tests {
     private final Solution1235 solution1235 = new Solution1235();
+    private final Solution1235.V2 solution1235_v2 = new Solution1235.V2();
 
     @Test
     public void example1() {
@@ -11,6 +12,7 @@ public class Solution1235Tests {
         int[] profit = {50, 10, 40, 70};
         int expected = 120;
         Assertions.assertEquals(expected, solution1235.jobScheduling(startTime, endTime, profit));
+        Assertions.assertEquals(expected, solution1235_v2.jobScheduling(startTime, endTime, profit));
     }
 
     @Test
@@ -20,6 +22,7 @@ public class Solution1235Tests {
         int[] profit = {20, 20, 100, 70, 60};
         int expected = 150;
         Assertions.assertEquals(expected, solution1235.jobScheduling(startTime, endTime, profit));
+        Assertions.assertEquals(expected, solution1235_v2.jobScheduling(startTime, endTime, profit));
     }
 
     @Test
@@ -29,5 +32,6 @@ public class Solution1235Tests {
         int[] profit = {5, 6, 4};
         int expected = 6;
         Assertions.assertEquals(expected, solution1235.jobScheduling(startTime, endTime, profit));
+        Assertions.assertEquals(expected, solution1235_v2.jobScheduling(startTime, endTime, profit));
     }
 }

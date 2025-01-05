@@ -30,6 +30,11 @@ https://leetcode.cn/problems/number-of-pairs-of-interchangeable-rectangles/
 如果两个矩形 i 和 j（i < j）的宽高比相同，则认为这两个矩形 可互换 。
 更规范的说法是，两个矩形满足 widthi/heighti == widthj/heightj（使用实数除法而非整数除法），则认为这两个矩形 可互换 。
 计算并返回 rectangles 中有多少对 可互换 矩形。
+提示：
+n == rectangles.length
+1 <= n <= 10^5
+rectangles[i].length == 2
+1 <= widthi, heighti <= 10^5
 
 神奇。Double 也可以作为 HashMap 的 key
  */

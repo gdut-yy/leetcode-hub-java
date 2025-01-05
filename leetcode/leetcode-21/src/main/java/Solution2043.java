@@ -62,6 +62,11 @@ https://leetcode.cn/problems/simple-bank-system/
 如果交易成功，返回 true ，否则，返回 false 。
 - boolean deposit(int account, long money) 向编号为 account 的账户存款 money 美元。如果交易成功，返回 true ；否则，返回 false 。
 - boolean withdraw(int account, long money) 从编号为 account 的账户取款 money 美元。如果交易成功，返回 true ；否则，返回 false 。
+提示：
+n == balance.length
+1 <= n, account, account1, account2 <= 10^5
+0 <= balance[i], money <= 10^12
+transfer, deposit, withdraw 三个函数，每个 最多调用 10^4 次
 
 HashMap 模拟。
 2021-10-20 rejudge WA: transfer account1 account2 是同一个账户时的情况

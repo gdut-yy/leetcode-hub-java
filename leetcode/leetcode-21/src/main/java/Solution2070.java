@@ -76,6 +76,10 @@ https://leetcode.cn/problems/most-beautiful-item-for-each-query/
 同时给你一个下标从 0 开始的整数数组 queries 。对于每个查询 queries[j] ，你想求出价格小于等于 queries[j] 的物品中，最大的美丽值 是多少。
 如果不存在符合条件的物品，那么查询的结果为 0 。
 请你返回一个长度与 queries 相同的数组 answer，其中 answer[j]是第 j 个查询的答案。
+提示：
+1 <= items.length, queries.length <= 10^5
+items[i].length == 2
+1 <= pricei, beautyi, queries[j] <= 10^9
 
 预处理 + 二分。
 时间复杂度 O(nlogn)

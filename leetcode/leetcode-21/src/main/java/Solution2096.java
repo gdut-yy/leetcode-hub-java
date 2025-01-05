@@ -48,6 +48,13 @@ https://leetcode.cn/problems/step-by-step-directions-from-a-binary-tree-node-to-
 - 'R' 表示从一个节点前往它的 右孩子 节点。
 - 'U' 表示从一个节点前往它的 父 节点。
 请你返回从 s 到 t 最短路径 每一步的方向。
+提示：
+树中节点数目为 n 。
+2 <= n <= 10^5
+1 <= Node.val <= n
+树中所有节点的值 互不相同 。
+1 <= startValue, destValue <= n
+startValue != destValue
 
 DFS 分别找 root 到 startValue、destValue 的路径，移除掉相同的前缀，然后将 root 到 startValue 的字符替换为 U 即可。
  */

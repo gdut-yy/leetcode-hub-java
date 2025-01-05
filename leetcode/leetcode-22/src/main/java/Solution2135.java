@@ -1,40 +1,30 @@
-import java.util.Arrays;
-import java.util.BitSet;
 import java.util.HashSet;
 import java.util.Set;
 
 public class Solution2135 {
     public int wordCount(String[] startWords, String[] targetWords) {
-        // 预处理 startWords
-        Set<String> memo = new HashSet<>();
-        for (String startWord : startWords) {
-            int len = startWord.length();
-            char[] oldChars = startWord.toCharArray();
-            BitSet bitSet = new BitSet(26);
-            for (int i = 0; i < len; i++) {
-                bitSet.set(oldChars[i] - 'a');
-            }
-            for (int i = 0; i < 26; i++) {
-                if (!bitSet.get(i)) {
-                    String newStartWord = startWord.concat(String.valueOf((char) ('a' + i)));
-                    char[] newChars = newStartWord.toCharArray();
-                    Arrays.sort(newChars);
-                    memo.add(new String(newChars));
+        Set<Integer> set = new HashSet<>();
+        for (String word : startWords) {
+            int mask = getMask(word);
+            set.add(mask);
+        }
+        int ans = 0;
+        for (String word : targetWords) {
+            int mask = getMask(word);
+            for (char ch : word.toCharArray()) {
+                if (set.contains(mask ^ (1 << (ch - 'a')))) { // 去掉这个字符
+                    ++ans;
+                    break;
                 }
             }
         }
+        return ans;
+    }
 
-        // 统计
-        int cnt = 0;
-        for (String targetWord : targetWords) {
-            char[] chars = targetWord.toCharArray();
-            Arrays.sort(chars);
-            String key = new String(chars);
-            if (memo.contains(key)) {
-                cnt++;
-            }
-        }
-        return cnt;
+    private int getMask(String word) {
+        int mask = 0;
+        for (char ch : word.toCharArray()) mask |= 1 << (ch - 'a');
+        return mask;
     }
 }
 /*

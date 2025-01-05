@@ -38,6 +38,9 @@ https://leetcode.cn/problems/sum-of-beauty-in-the-array/
 - 1，如果满足 nums[i - 1] < nums[i] < nums[i + 1] ，且不满足前面的条件
 - 0，如果上述条件全部不满足
 返回符合 1 <= i <= nums.length - 2 的所有 nums[i] 的 美丽值的总和 。
+提示：
+3 <= nums.length <= 10^5
+1 <= nums[i] <= 10^5
 
 可以看出 美丽值 等于 2 比等于 1 严格。等于 2 的情况是 等于 1 情况的真子集。
 可以先统计 1, 然后符合 2 条件的再加上 1。

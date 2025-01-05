@@ -1,20 +1,19 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.function.Function;
 
 public class Solution1235 {
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
-        int len = startTime.length;
-
-        int[][] events = new int[len][3];
-        for (int i = 0; i < len; i++) {
+        int n = startTime.length;
+        int[][] events = new int[n][3];
+        for (int i = 0; i < n; i++) {
             events[i] = new int[]{startTime[i], endTime[i], profit[i]};
         }
-
         Arrays.sort(events, Comparator.comparingInt(o -> o[1]));
 
         // solution 1751
-        int[] f = new int[len + 1];
-        for (int i = 1; i <= len; i++) {
+        int[] f = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
             int[] event = events[i - 1];
 
 //            int last = 0;
@@ -42,7 +41,38 @@ public class Solution1235 {
             // 选 or 不选
             f[i] = Math.max(f[i - 1], f[last] + event[2]);
         }
-        return f[len];
+        return f[n];
+    }
+
+    static class V2 {
+        public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
+            int n = startTime.length;
+            int[][] zip = new int[n][3];
+            for (int i = 0; i < n; i++) {
+                zip[i] = new int[]{startTime[i], endTime[i], profit[i]};
+            }
+            Arrays.sort(zip, Comparator.comparingInt(o -> o[1])); // 按照结束时间排序
+
+            int[] f = new int[n + 1];
+            for (int i = 0; i < n; i++) {
+                int st = zip[i][0], p = zip[i][2];
+                int j = sortSearch(i, (j0) -> zip[j0][1] > st);
+                // 状态转移中，为什么是 j 不是 j+1：上面算的是 > start，-1 后得到 <= start，但由于还要 +1，抵消了
+                f[i + 1] = Math.max(f[i], f[j] + p);
+            }
+            return f[n];
+        }
+
+        // func Search(n int, f func(int) bool) int { ... }
+        private int sortSearch(int n, Function<Integer, Boolean> f) {
+            int l = 0, r = n;
+            while (l < r) {
+                int mid = l + (r - l) / 2;
+                if (f.apply(mid)) r = mid;
+                else l = mid + 1;
+            }
+            return l;
+        }
     }
 }
 /*
@@ -60,9 +90,11 @@ https://leetcode.cn/problems/maximum-profit-in-job-scheduling/
 1 <= profit[i] <= 10^4
 
 动态规划。
-时间复杂度 O(nlogn) 其中找 last 的部分可用二分优化到 O(logn)
+时间复杂度 O(nlogn) 其中找 last 的部分可用二分优化到 O(logn)。
 相似题目: 1751. 最多可以参加的会议数目 II
 https://leetcode.cn/problems/maximum-number-of-events-that-can-be-attended-ii/
 2008. 出租车的最大盈利
 https://leetcode.cn/problems/maximum-earnings-from-taxi/
+3414. 不重叠区间的最大得分
+https://leetcode.cn/problems/maximum-score-of-non-overlapping-intervals/description/
  */

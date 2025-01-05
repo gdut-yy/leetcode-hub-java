@@ -8,17 +8,20 @@ public class Solution3083Tests {
     public void example1() {
         String s = "leetcode";
         Assertions.assertTrue(solution3083.isSubstringPresent(s));
+        Assertions.assertTrue(solution3083.isSubstringPresent2(s));
     }
 
     @Test
     public void example2() {
         String s = "abcba";
         Assertions.assertTrue(solution3083.isSubstringPresent(s));
+        Assertions.assertTrue(solution3083.isSubstringPresent2(s));
     }
 
     @Test
     public void example3() {
         String s = "abcd";
         Assertions.assertFalse(solution3083.isSubstringPresent(s));
+        Assertions.assertFalse(solution3083.isSubstringPresent2(s));
     }
 }

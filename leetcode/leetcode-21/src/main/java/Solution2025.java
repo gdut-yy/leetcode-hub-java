@@ -3,132 +3,30 @@ import java.util.Map;
 
 public class Solution2025 {
     public int waysToPartition(int[] nums, int k) {
-        int len = nums.length;
-        // 前缀和
-        int[] preSum = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + nums[i];
+        int n = nums.length;
+        int[] sum = new int[n];
+        sum[0] = nums[0];
+        Map<Integer, Integer> cntR = new HashMap<>();
+        for (int i = 1; i < n; i++) {
+            sum[i] = sum[i - 1] + nums[i];
+            cntR.merge(sum[i - 1], 1, Integer::sum);
         }
-        // 不改变 数组
-        int cnt = 0;
-        if (preSum[len] % 2 == 0) {
-            for (int i = 0; i < len - 1; i++) {
-                if (preSum[i + 1] == preSum[len] / 2) {
-                    cnt++;
-                }
+        int ans = 0;
+        int tot = sum[n - 1];
+        if (tot % 2 == 0) ans = cntR.getOrDefault(tot / 2, 0); // 不修改
+
+        Map<Integer, Integer> cntL = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int s = sum[i];
+            int d = k - nums[i];
+            if ((tot + d) % 2 == 0) {
+                ans = Math.max(ans, cntL.getOrDefault((tot + d) / 2, 0)
+                        + cntR.getOrDefault((tot - d) / 2, 0));
             }
+            cntL.merge(s, 1, Integer::sum);
+            cntR.merge(s, -1, Integer::sum);
         }
-        // 如果已经达到最大值，直接返回
-        if (cnt == len - 1) {
-            return cnt;
-        }
-
-        // 改变 数组
-        Map<Integer, Integer> leftPreSumMap = new HashMap<>();
-        Map<Integer, Integer> rightPreSumMap = new HashMap<>();
-        for (int i = 1; i < len; i++) {
-            rightPreSumMap.put(preSum[i], rightPreSumMap.getOrDefault(preSum[i], 0) + 1);
-        }
-        for (int i = 0; i < len; i++) {
-            int diff = k - nums[i];
-            int newSum = preSum[len] + diff;
-            if (newSum % 2 == 0) {
-                int cnt2 = 0;
-                cnt2 += leftPreSumMap.getOrDefault(newSum / 2, 0);
-                cnt2 += rightPreSumMap.getOrDefault(newSum / 2 - diff, 0);
-
-                cnt = Math.max(cnt, cnt2);
-                // 如果已经达到最大值，直接返回
-                if (cnt == len - 1) {
-                    return cnt;
-                }
-            }
-            leftPreSumMap.put(preSum[i + 1], leftPreSumMap.getOrDefault(preSum[i + 1], 0) + 1);
-            rightPreSumMap.put(preSum[i + 1], rightPreSumMap.getOrDefault(preSum[i + 1], 0) - 1);
-        }
-        return cnt;
-    }
-
-    public int waysToPartition2(int[] nums, int k) {
-        int len = nums.length;
-        // 树状数组
-        BIT bit = new BIT(len);
-        for (int i = 0; i < len; i++) {
-            bit.update(i + 1, nums[i]);
-        }
-        int sum = bit.query(len);
-        int max = 0;
-        // 不改变 数组
-        if (sum % 2 == 0) {
-            int halfSum = sum / 2;
-            for (int i = 1; i < len; i++) {
-                if (bit.query(1, i) == halfSum) {
-                    max++;
-                }
-            }
-        }
-        if (max == len - 1) {
-            return max;
-        }
-        // 将 nums 中 一个 元素变为 k
-        for (int idx = 0; idx < len; idx++) {
-            int res = 0;
-            int change = k - nums[idx];
-            int sum1 = bit.query(len) + change;
-            if (sum1 % 2 == 0) {
-                bit.update(idx + 1, change);
-                int halfSum = sum1 / 2;
-                for (int i = 1; i < len; i++) {
-                    if (bit.query(1, i) == halfSum) {
-                        res++;
-                    }
-                }
-                max = Math.max(max, res);
-                bit.update(idx + 1, -change);
-            }
-        }
-        return max;
-    }
-
-    private static class BIT {
-        int n;
-        int[] tree;
-
-        public BIT(int n) {
-            this.n = n;
-            this.tree = new int[n + 1];
-        }
-
-        public static int lowbit(int x) {
-            return x & (-x);
-        }
-
-        public void update(int x) {
-            while (x <= n) {
-                ++tree[x];
-                x += lowbit(x);
-            }
-        }
-
-        public void update(int idx, int num) {
-            while (idx <= n) {
-                tree[idx] += num;
-                idx += lowbit(idx);
-            }
-        }
-
-        public int query(int x) {
-            int ans = 0;
-            while (x > 0) {
-                ans += tree[x];
-                x -= lowbit(x);
-            }
-            return ans;
-        }
-
-        public int query(int x, int y) {
-            return query(y) - query(x - 1);
-        }
+        return ans;
     }
 }
 /*
@@ -142,7 +40,12 @@ https://leetcode.cn/problems/maximum-number-of-ways-to-partition-an-array/
 nums[0] + nums[1] + ... + nums[pivot - 1] == nums[pivot] + nums[pivot + 1] + ... + nums[n - 1]
 同时给你一个整数 k 。你可以将 nums 中 一个 元素变为 k 或 不改变 数组。
 请你返回在 至多 改变一个元素的前提下，最多 有多少种方法 分割 nums 使得上述两个条件都满足。
+提示：
+n == nums.length
+2 <= n <= 10^5
+-10^5 <= k, nums[i] <= 10^5
 
-前缀和 + 双哈希表。
-树状数组居然会 TLE...
+前缀和 + 双哈希表 + 枚举修改元素。
+时间复杂度 O(n)。
+树状数组会 TLE...
  */

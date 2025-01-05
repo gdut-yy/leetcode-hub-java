@@ -32,6 +32,9 @@ https://leetcode.cn/problems/two-out-of-three/
 
 给你三个整数数组 nums1、nums2 和 nums3 ，请你构造并返回一个 不同 数组，且由 至少 在 两个 数组中出现的所有值组成。
 数组中的元素可以按 任意 顺序排列。
+提示：
+1 <= nums1.length, nums2.length, nums3.length <= 100
+1 <= nums1[i], nums2[j], nums3[k] <= 100
 
 模拟。
  */

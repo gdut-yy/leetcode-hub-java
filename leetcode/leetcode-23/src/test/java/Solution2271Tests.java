@@ -10,8 +10,6 @@ public class Solution2271Tests {
         int carpetLen = 10;
         int expected = 9;
         Assertions.assertEquals(expected, solution2271.maximumWhiteTiles(tiles, carpetLen));
-        Assertions.assertEquals(expected, solution2271.maximumWhiteTiles2(tiles, carpetLen));
-        Assertions.assertEquals(expected, solution2271.maximumWhiteTiles3(tiles, carpetLen));
     }
 
     @Test
@@ -20,8 +18,6 @@ public class Solution2271Tests {
         int carpetLen = 2;
         int expected = 2;
         Assertions.assertEquals(expected, solution2271.maximumWhiteTiles(tiles, carpetLen));
-        Assertions.assertEquals(expected, solution2271.maximumWhiteTiles2(tiles, carpetLen));
-        Assertions.assertEquals(expected, solution2271.maximumWhiteTiles3(tiles, carpetLen));
     }
 
     // 补充用例
@@ -33,7 +29,5 @@ public class Solution2271Tests {
         int carpetLen = UtUtils.loadingInt("solution2271-example3-input.txt", 1);
         int expected = 1625375;
         Assertions.assertEquals(expected, solution2271.maximumWhiteTiles(tiles, carpetLen));
-//        Assertions.assertEquals(expected, solution6068.maximumWhiteTiles2(tiles, carpetLen));
-        Assertions.assertEquals(expected, solution2271.maximumWhiteTiles3(tiles, carpetLen));
     }
 }

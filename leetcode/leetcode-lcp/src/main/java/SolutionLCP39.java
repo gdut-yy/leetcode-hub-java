@@ -3,26 +3,25 @@ import java.util.Map;
 
 public class SolutionLCP39 {
     public int minimumSwitchingTimes(int[][] source, int[][] target) {
-        Map<Integer, Integer> cntMap = new HashMap<>();
-        for (int[] sourc : source) {
-            for (int sour : sourc) {
-                cntMap.put(sour, cntMap.getOrDefault(sour, 0) + 1);
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int[] p : source) {
+            for (int v : p) {
+                cnt.merge(v, 1, Integer::sum);
             }
         }
-        int cnt = 0;
-        for (int[] targe : target) {
-            for (int targ : targe) {
-                if (cntMap.containsKey(targ)) {
-                    cntMap.put(targ, cntMap.get(targ) - 1);
-                    if (cntMap.get(targ) == 0) {
-                        cntMap.remove(targ);
+        int ans = 0;
+        for (int[] p : target) {
+            for (int v : p) {
+                if (cnt.containsKey(v)) {
+                    if (cnt.merge(v, -1, Integer::sum) == 0) {
+                        cnt.remove(v);
                     }
                 } else {
-                    cnt++;
+                    ans++;
                 }
             }
         }
-        return cnt;
+        return ans;
     }
 }
 /*

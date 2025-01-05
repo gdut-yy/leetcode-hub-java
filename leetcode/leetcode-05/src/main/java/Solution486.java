@@ -1,43 +1,44 @@
+import java.util.Arrays;
+
 public class Solution486 {
-    /**
-     * 递归
-     * 时间复杂度 O(2^n)
-     */
-    public boolean PredictTheWinner(int[] nums) {
-        // 偶数情况同 877
-        int len = nums.length;
-        if (len % 2 == 0) {
-            return true;
-        }
-        return play(nums, 0, len - 1) >= 0;
-    }
+    static class V1 {
+        private int[] nums;
+        private int[][] memo;
 
-    private int play(int[] nums, int left, int right) {
-        if (left > right) {
-            return 0;
-        }
-        int chooseLeft = nums[left] - play(nums, left + 1, right);
-        int chooseRight = nums[right] - play(nums, left, right - 1);
-        return Math.max(chooseLeft, chooseRight);
-    }
-
-    /**
-     * 动态规划
-     * 时间复杂度 O(n^2)
-     */
-    public boolean PredictTheWinner2(int[] nums) {
-        int len = nums.length;
-        // dp[i][j] 表示当数组剩下的部分为下标 i 到下标 j 时，即在下标范围 [i,j] 中，当前玩家与另一个玩家的分数之差的最大值
-        int[][] dp = new int[len][len];
-        for (int i = 0; i < len; i++) {
-            dp[i][i] = nums[i];
-        }
-        for (int i = len - 2; i >= 0; i--) {
-            for (int j = i + 1; j < len; j++) {
-                dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+        public boolean predictTheWinner(int[] nums) {
+            this.nums = nums;
+            int n = nums.length;
+            if (n % 2 == 0) return true; // 偶数情况同 877
+            memo = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                Arrays.fill(memo[i], -1);
             }
+            return dfs(0, n - 1) >= 0;
         }
-        return dp[0][len - 1] >= 0;
+
+        private int dfs(int i, int j) {
+            if (i > j) return 0;
+            if (memo[i][j] != -1) return memo[i][j];
+            int res = Math.max(nums[i] - dfs(i + 1, j), nums[j] - dfs(i, j - 1));
+            return memo[i][j] = res;
+        }
+    }
+
+    static class V2 {
+        public boolean predictTheWinner(int[] nums) {
+            int len = nums.length;
+            // dp[i][j] 表示当数组剩下的部分为下标 i 到下标 j 时，即在下标范围 [i,j] 中，当前玩家与另一个玩家的分数之差的最大值
+            int[][] dp = new int[len][len];
+            for (int i = 0; i < len; i++) {
+                dp[i][i] = nums[i];
+            }
+            for (int i = len - 2; i >= 0; i--) {
+                for (int j = i + 1; j < len; j++) {
+                    dp[i][j] = Math.max(nums[i] - dp[i + 1][j], nums[j] - dp[i][j - 1]);
+                }
+            }
+            return dp[0][len - 1] >= 0;
+        }
     }
 }
 /*
@@ -52,5 +53,6 @@ https://leetcode.cn/problems/predict-the-winner/
 1 <= nums.length <= 20
 0 <= nums[i] <= 10^7
 
-递归 / 动态规划
+记忆化搜索 / 动态规划。
+时间复杂度 O(n^2)。
  */

@@ -54,6 +54,36 @@ public class Solution1705 {
         }
         return cnt;
     }
+
+    // 从 O(U+nlogn) 优化至 O(nlogn)
+    static class V2 {
+        public int eatenApples(int[] apples, int[] days) {
+            int ans = 0;
+            PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[0]));
+            int i = 0;
+            for (; i < apples.length; i++) {
+                while (!pq.isEmpty() && pq.peek()[0] == i) pq.remove(); // 已腐烂
+                if (apples[i] > 0) {
+                    pq.add(new int[]{i + days[i], apples[i]});
+                }
+                if (!pq.isEmpty()) {
+                    ans++; // 吃一个最早腐烂的苹果
+                    if (--pq.peek()[1] == 0) {
+                        pq.remove();
+                    }
+                }
+            }
+
+            while (true) {
+                while (!pq.isEmpty() && pq.peek()[0] <= i) pq.remove(); // 已腐烂
+                if (pq.isEmpty()) return ans;
+                int[] top = pq.remove();
+                int k = Math.min(top[1], top[0] - i);
+                ans += k;
+                i += k;
+            }
+        }
+    }
 }
 /*
 1705. 吃苹果的最大数目

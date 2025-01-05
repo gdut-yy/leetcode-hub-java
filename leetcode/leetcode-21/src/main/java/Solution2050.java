@@ -69,6 +69,16 @@ https://leetcode.cn/problems/parallel-courses-iii/
 你可以 同时 上 任意门课程 。
 请你返回完成所有课程所需要的 最少 月份数。
 注意：测试数据保证一定可以完成所有课程（也就是先修课的关系构成一个有向无环图）。
+提示：
+1 <= n <= 5 * 10^4
+0 <= relations.length <= min(n * (n - 1) / 2, 5 * 10^4)
+relations[j].length == 2
+1 <= prevCoursej, nextCoursej <= n
+prevCoursej != nextCoursej
+所有的先修课程对 [prevCoursej, nextCoursej] 都是 互不相同 的。
+time.length == n
+1 <= time[i] <= 10^4
+先修课程图是一个有向无环图。
 
 拓扑排序 + 动态规划。
 值得一提的是，直接拓扑排序求各层最大值是不正确的，因为可以在 任意 时间开始这门课程。如 用例:

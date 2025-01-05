@@ -9,7 +9,8 @@ public class SolutionLCP40Tests {
         int[] cards = {1, 2, 8, 9};
         int cnt = 3;
         int expected = 18;
-        Assertions.assertEquals(expected, solutionLCP40.maxmiumScore(cards, cnt));
+        Assertions.assertEquals(expected, solutionLCP40.maximumScore(cards, cnt));
+        Assertions.assertEquals(expected, solutionLCP40.maximumScore2(cards, cnt));
     }
 
     @Test
@@ -17,6 +18,7 @@ public class SolutionLCP40Tests {
         int[] cards = {3, 3, 1};
         int cnt = 1;
         int expected = 0;
-        Assertions.assertEquals(expected, solutionLCP40.maxmiumScore(cards, cnt));
+        Assertions.assertEquals(expected, solutionLCP40.maximumScore(cards, cnt));
+        Assertions.assertEquals(expected, solutionLCP40.maximumScore2(cards, cnt));
     }
 }

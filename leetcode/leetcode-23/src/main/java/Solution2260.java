@@ -5,20 +5,20 @@ import java.util.Map;
 
 public class Solution2260 {
     public int minimumCardPickup(int[] cards) {
-        int len = cards.length;
+        int n = cards.length;
 
         // 预处理下标数组
-        Map<Integer, List<Integer>> idxMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            idxMap.computeIfAbsent(cards[i], key -> new ArrayList<>()).add(i);
+        Map<Integer, List<Integer>> posMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            posMap.computeIfAbsent(cards[i], e -> new ArrayList<>()).add(i);
         }
 
         // 枚举求最小值
         int min = Integer.MAX_VALUE;
-        for (List<Integer> idxList : idxMap.values()) {
-            if (idxList.size() > 1) {
-                for (int i = 1; i < idxList.size(); i++) {
-                    min = Math.min(min, idxList.get(i) - idxList.get(i - 1) + 1);
+        for (List<Integer> ids : posMap.values()) {
+            if (ids.size() > 1) {
+                for (int i = 1; i < ids.size(); i++) {
+                    min = Math.min(min, ids.get(i) - ids.get(i - 1) + 1);
                 }
             }
         }

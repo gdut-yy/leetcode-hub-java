@@ -1,44 +1,23 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 public class Solution1366 {
     public String rankTeams(String[] votes) {
-        int m = votes.length;
-        int n = votes[0].length();
-
-        // 只有一个投票者，所以排名完全按照他的意愿。
-        if (m == 1) {
-            return votes[0];
-        }
-
-        // 预处理
-        int[][] cntArr = new int[n][26];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                cntArr[j][votes[i].charAt(j) - 'A']++;
+        int m = votes[0].length();
+        int[][] cnts = new int[26][m];
+        for (String s : votes) {
+            for (int i = 0; i < m; i++) {
+                cnts[s.charAt(i) - 'A'][i]++;
             }
         }
-
-        // 转化为下标进行排序
-        List<Integer> chList = new ArrayList<>();
-        for (char ch : votes[0].toCharArray()) {
-            chList.add(ch - 'A');
-        }
-        chList.sort((o1, o2) -> {
-            for (int i = 0; i < n; i++) {
-                if (cntArr[i][o1] != cntArr[i][o2]) {
-                    return Integer.compare(cntArr[i][o2], cntArr[i][o1]);
-                }
-            }
-            return Integer.compare(o1, o2);
-        });
-
-        // => String
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int ch : chList) {
-            stringBuilder.append((char) (ch + 'A'));
-        }
-        return stringBuilder.toString();
+        return votes[0].chars()
+                .mapToObj(c -> (char) c)
+                .sorted((a, b) -> {
+                    int c = Arrays.compare(cnts[b - 'A'], cnts[a - 'A']);
+                    return c != 0 ? c : Integer.compare(a, b);
+                })
+                .map(String::valueOf)
+                .collect(Collectors.joining());
     }
 }
 /*

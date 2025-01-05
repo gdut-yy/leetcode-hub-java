@@ -4,24 +4,24 @@ import java.util.Deque;
 public class Solution1673 {
     public int[] mostCompetitive(int[] nums, int k) {
         int toDel = nums.length - k;
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> st = new ArrayDeque<>();
         for (int num : nums) {
             // 栈非空 && 待删除数量 && 栈顶元素大于当前元素
-            while (!stack.isEmpty() && toDel > 0 && stack.peek() > num) {
-                stack.pop();
+            while (!st.isEmpty() && toDel > 0 && st.peek() > num) {
+                st.pop();
                 toDel--;
             }
-            stack.push(num);
+            st.push(num);
         }
         while (toDel > 0) {
-            stack.pop();
+            st.pop();
             toDel--;
         }
-        int[] res = new int[k];
+        int[] ans = new int[k];
         for (int i = 0; i < k; i++) {
-            res[i] = stack.removeLast();
+            ans[i] = st.removeLast();
         }
-        return res;
+        return ans;
     }
 }
 /*

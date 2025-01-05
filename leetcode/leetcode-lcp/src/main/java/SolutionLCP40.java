@@ -1,8 +1,9 @@
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class SolutionLCP40 {
-    public int maxmiumScore(int[] cards, int cnt) {
+    public int maximumScore(int[] cards, int cnt) {
         // 优先队列（大顶堆）奇数偶数分组，降序排列
         PriorityQueue<Integer> oddMaxHeap = new PriorityQueue<>(Comparator.reverseOrder());
         PriorityQueue<Integer> evenMaxHeap = new PriorityQueue<>(Comparator.reverseOrder());
@@ -54,6 +55,52 @@ public class SolutionLCP40 {
         }
         res += maxEven;
         return res;
+    }
+
+    public int maximumScore2(int[] cards, int cnt) {
+        reverseSort(cards);
+        int sum = 0;
+        for (int i = 0; i < cnt; i++) {
+            sum += cards[i];
+        }
+        if (sum % 2 == 0) return sum;
+
+        int l_min_odd = Integer.MAX_VALUE, l_min_even = Integer.MAX_VALUE;
+        int r_max_odd = -1, r_max_even = -1;
+        for (int i = 0; i < cnt; i++) {
+            if (cards[i] % 2 == 0) {
+                l_min_even = Math.min(l_min_even, cards[i]);
+            } else {
+                l_min_odd = Math.min(l_min_odd, cards[i]);
+            }
+        }
+        for (int i = cnt; i < cards.length; i++) {
+            if (cards[i] % 2 == 0) {
+                r_max_even = Math.max(r_max_even, cards[i]);
+            } else {
+                r_max_odd = Math.max(r_max_odd, cards[i]);
+            }
+        }
+
+        int ans = 0;
+        // 从前 cnt 个数中去掉一个最小的奇数，从后 n−cnt 个数中加进来一个最大的偶数
+        if (l_min_odd != Integer.MAX_VALUE && r_max_even != -1) {
+            ans = sum - l_min_odd + r_max_even;
+        }
+        // 从前 cnt 个数中去掉一个最小的偶数，从后 n−cnt 个数中加进来一个最大的奇数
+        if (l_min_even != Integer.MAX_VALUE && r_max_odd != -1) {
+            ans = Math.max(ans, sum - l_min_even + r_max_odd);
+        }
+        return ans;
+    }
+
+    private void reverseSort(int[] a) {
+        Arrays.sort(a);
+        for (int l = 0, r = a.length - 1; l < r; l++, r--) {
+            int tmp = a[l];
+            a[l] = a[r];
+            a[r] = tmp;
+        }
     }
 }
 /*

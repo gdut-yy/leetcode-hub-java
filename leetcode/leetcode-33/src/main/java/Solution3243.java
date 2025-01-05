@@ -5,8 +5,10 @@ import java.util.List;
 import java.util.Queue;
 
 public class Solution3243 {
+    private List<Integer>[] g;
+
     public int[] shortestDistanceAfterQueries(int n, int[][] queries) {
-        List<Integer>[] g = new ArrayList[n];
+        g = new ArrayList[n];
         Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 1; i < n; i++) {
             g[i - 1].add(i);
@@ -17,12 +19,12 @@ public class Solution3243 {
         for (int i = 0; i < q; i++) {
             int x = queries[i][0], y = queries[i][1];
             g[x].add(y);
-            ans[i] = bfs(n, g);
+            ans[i] = bfs(n);
         }
         return ans;
     }
 
-    private int bfs(int n, List<Integer>[] g) {
+    private int bfs(int n) {
         int[] dist = new int[n];
         Arrays.fill(dist, n);
         dist[0] = 0;

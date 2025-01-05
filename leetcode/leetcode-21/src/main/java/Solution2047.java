@@ -28,6 +28,10 @@ https://leetcode.cn/problems/number-of-valid-words-in-a-sentence/
 - 至多一个 标点符号。如果存在，标点符号应当位于 token 的 末尾 。
 这里给出几个有效单词的例子："a-b."、"afad"、"ba-c"、"a!" 和 "!" 。
 给你一个字符串 sentence ，请你找出并返回 sentence 中 有效单词的数目 。
+提示：
+1 <= sentence.length <= 1000
+sentence 由小写英文字母、数字（0-9）、以及字符（' '、'-'、'!'、'.' 和 ','）组成
+句子中至少有 1 个 token
 
 状态机感觉比赛是写不出来的，手撸 if-else 模拟容易漏，不如试试正则表达式？
  */

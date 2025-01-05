@@ -95,6 +95,15 @@ https://leetcode.cn/problems/second-minimum-time-to-reach-destination/
 注意：
 你可以 任意次 穿过任意顶点，包括 1 和 n 。
 你可以假设在 启程时 ，所有信号灯刚刚变成 绿色 。
+提示：
+2 <= n <= 10^4
+n - 1 <= edges.length <= min(2 * 10^4, n * (n - 1) / 2)
+edges[i].length == 2
+1 <= ui, vi <= n
+ui != vi
+不含重复边
+每个节点都可以从其他节点直接或者间接到达
+1 <= time, change <= 10^3
 
 无向等权图 时间即路径长度。
 节点 1 到节点 n 的最短时间，即节点 1 到节点 n 的最短路径（设为 p）

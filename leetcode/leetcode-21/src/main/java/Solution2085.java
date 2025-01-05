@@ -27,6 +27,10 @@ https://leetcode.cn/problems/count-common-words-with-one-occurrence/
 第 66 场双周赛 T1。
 
 给你两个字符串数组 words1 和 words2 ，请你返回在两个字符串数组中 都恰好出现一次 的字符串的数目。
+提示：
+1 <= words1.length, words2.length <= 1000
+1 <= words1[i].length, words2[j].length <= 30
+words1[i] 和 words2[j] 都只包含小写英文字母。
 
 HashMap 统计频次即可。
  */

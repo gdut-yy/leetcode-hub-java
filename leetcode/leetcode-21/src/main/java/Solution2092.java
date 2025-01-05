@@ -112,6 +112,14 @@ https://leetcode.cn/problems/find-all-people-with-secret/
 更正式的表达是，每次会议，如果专家 xi 在时间 timei 时知晓这个秘密，那么他将会与专家 yi 分享这个秘密，反之亦然。
 秘密共享是 瞬时发生 的。也就是说，在同一时间，一个专家不光可以接收到秘密，还能在其他会议上与其他专家分享。
 在所有会议都结束之后，返回所有知晓这个秘密的专家列表。你可以按 任何顺序 返回答案。
+提示：
+2 <= n <= 10^5
+1 <= meetings.length <= 10^5
+meetings[i].length == 3
+0 <= xi, yi <= n - 1
+xi != yi
+1 <= timei <= 10^5
+1 <= firstPerson <= n - 1
 
 并查集。
  */

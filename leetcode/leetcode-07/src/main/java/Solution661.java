@@ -1,50 +1,33 @@
 public class Solution661 {
-    public int[][] imageSmoother(int[][] img) {
-        int M = img.length;
-        int N = img[0].length;
+    private int[][] ps2d;
 
-        PrefixSum2d prefixSum2d = new PrefixSum2d(img);
-        int[][] res = new int[M][N];
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                int startI = Math.max(0, i - 1);
-                int startJ = Math.max(0, j - 1);
-                int endI = Math.min(M - 1, i + 1);
-                int endJ = Math.min(N - 1, j + 1);
-                int sum = prefixSum2d.sumRegion(startI, startJ, endI, endJ);
-                int cnt = (endI - startI + 1) * (endJ - startJ + 1);
-                int floor = sum / cnt;
-                res[i][j] = floor;
+    public int[][] imageSmoother(int[][] img) {
+        int m = img.length;
+        int n = img[0].length;
+
+        ps2d = new int[m + 1][n + 1];
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                ps2d[i][j] = ps2d[i - 1][j] + ps2d[i][j - 1] - ps2d[i - 1][j - 1] + img[i - 1][j - 1];
             }
         }
-        return res;
+
+        int[][] ans = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                int r1 = Math.max(0, i - 1), c1 = Math.max(0, j - 1);
+                int r2 = Math.min(m - 1, i + 1), c2 = Math.min(n - 1, j + 1);
+                int sum = sumRegion(r1, c1, r2, c2);
+                int cnt = (r2 - r1 + 1) * (c2 - c1 + 1);
+                ans[i][j] = sum / cnt;
+            }
+        }
+        return ans;
     }
 
-    private static class PrefixSum2d {
-        private final int M;
-        private final int N;
-        private final int[][] preSum2d;
-        private final int[][] diff2d;
-
-        public PrefixSum2d(int[][] matrix) {
-            this.M = matrix.length;
-            this.N = matrix[0].length;
-            // 预处理前缀和
-            preSum2d = new int[M + 1][N + 1];
-            for (int i = 1; i <= M; i++) {
-                for (int j = 1; j <= N; j++) {
-                    // 当前格 = 上 + 左 - 左上 + 原值
-                    preSum2d[i][j] = preSum2d[i - 1][j] + preSum2d[i][j - 1] - preSum2d[i - 1][j - 1] + matrix[i - 1][j - 1];
-                }
-            }
-            // 差分 init
-            diff2d = new int[M + 1][N + 1];
-        }
-
-        // 二维前缀和：求 matrix [row1,col1] 到 [row2,col2] 的累加和
-        public int sumRegion(int row1, int col1, int row2, int col2) {
-            return preSum2d[row2 + 1][col2 + 1] - preSum2d[row2 + 1][col1] - preSum2d[row1][col2 + 1] + preSum2d[row1][col1];
-        }
+    // 求 [r1,c1] 到 [r2,c2] 的累加和
+    private int sumRegion(int r1, int c1, int r2, int c2) {
+        return ps2d[r2 + 1][c2 + 1] - ps2d[r2 + 1][c1] - ps2d[r1][c2 + 1] + ps2d[r1][c1];
     }
 }
 /*
@@ -61,5 +44,6 @@ n == img[i].length
 1 <= m, n <= 200
 0 <= img[i][j] <= 255
 
-二维前缀和
+二维前缀和。
+时间复杂度 O(mn)。
  */

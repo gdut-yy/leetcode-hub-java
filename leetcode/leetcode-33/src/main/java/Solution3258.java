@@ -11,7 +11,7 @@ public class Solution3258 {
                 cnt[s[l] - '0']--;
                 l++;
             }
-            ans += r - l+1;
+            ans += r - l + 1;
             r++;
         }
         return ans;

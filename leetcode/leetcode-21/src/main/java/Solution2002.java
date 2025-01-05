@@ -1,11 +1,11 @@
 public class Solution2002 {
     public int maxProduct(String s) {
-        int sLen = s.length();
+        int n = s.length();
         int ans = 0;
-        for (int i = 0; i < (1 << sLen); i++) {
+        for (int i = 0; i < (1 << n); i++) {
             StringBuilder leftBuilder = new StringBuilder();
             StringBuilder rightBuilder = new StringBuilder();
-            for (int j = 0; j < sLen; j++) {
+            for (int j = 0; j < n; j++) {
                 if ((i & (1 << j)) != 0) {
                     leftBuilder.append(s.charAt(j));
                 } else {
@@ -47,15 +47,20 @@ https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-su
 
 第 258 场周赛 T3。
 
-给你一个字符串 s，请你找到 s 中两个不相交回文子序列，使得它们长度的乘积最大。两个子序列在原字符串中如果没有任何相同下标的字符，则它们是不相交的。
-请你返回两个回文子序列长度可以达到的最大乘积。
+给你一个字符串 s ，请你找到 s 中两个 不相交回文子序列 ，使得它们长度的 乘积最大 。两个子序列在原字符串中如果没有任何相同下标的字符，则它们是 不相交 的。
+请你返回两个回文子序列长度可以达到的 最大乘积 。
+子序列 指的是从原字符串中删除若干个字符（可以一个也不删除）后，剩余字符不改变顺序而得到的结果。如果一个字符串从前往后读和从后往前读一模一样，那么这个字符串是一个 回文字符串 。
+提示：
+2 <= s.length <= 12
+s 只含有小写英文字母。
 
-第 1960 题 两个回文子字符串长度的最大乘积 仍历历在目
-https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
-发现马拉车并不适用（回文子串 和 回文子序列 还是有差距的）
+马拉车并不适用（回文子串 和 回文子序列 还是有差距的）
 回文子序列参考 第 516 题 最长回文子序列
 https://leetcode.cn/problems/longest-palindromic-subsequence/
-
-2 <= s.length <= 12 直接暴力即可
+n <= 12 直接暴力即可
 或者 状态压缩 + dp
+相似题目: 516. 最长回文子序列
+https://leetcode.cn/problems/longest-palindromic-subsequence/
+1960. 两个回文子字符串长度的最大乘积
+https://leetcode.cn/problems/maximum-product-of-the-length-of-two-palindromic-substrings/
  */

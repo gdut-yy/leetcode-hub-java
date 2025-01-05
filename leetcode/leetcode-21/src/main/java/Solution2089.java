@@ -64,7 +64,6 @@ https://leetcode.cn/problems/find-target-indices-after-sorting-array/
 
 二分查找。因需要排序，时间复杂度 O(nlogn)
 数据量较少，线性查找也 ok。
-
 相似题目: 34. 在排序数组中查找元素的第一个和最后一个位置
 https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/
  */

@@ -64,6 +64,10 @@ https://leetcode.cn/problems/stock-price-fluctuation/
 - int current() 返回股票 最新价格 。
 - int maximum() 返回股票 最高价格 。
 - int minimum() 返回股票 最低价格 。
+提示：
+1 <= timestamp, price <= 10^9
+update，current，maximum 和 minimum 总 调用次数不超过 10^5 。
+current，maximum 和 minimum 被调用时，update 操作 至少 已经被调用过 一次 。
 
 设 key-value 为 时间戳-股票价格。
 我们知道 java.util.TreeMap 默认是根据 key 升序排序的，本题题意需要根据 value 进行排序，但 java 类库中没有现成的数据结构。

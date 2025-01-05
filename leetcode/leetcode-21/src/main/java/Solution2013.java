@@ -57,6 +57,10 @@ https://leetcode.cn/problems/detect-squares/
 - DetectSquares() 使用空数据结构初始化对象
 - void add(int[] point) 向数据结构添加一个新的点 point = [x, y]
 - int count(int[] point) 统计按上述方式与点 point = [x, y] 共同构造 轴对齐正方形 的方案数。
+提示：
+point.length == 2
+0 <= x, y <= 1000
+调用 add 和 count 的 总次数 最多为 5000
 
 哈希表，输入点 (x,y)，枚举正方形边长 d 平行于 x 轴的另一条边纵坐标为 col，有 d = col - y 或 d = y - col
 当 d = col - y 时，四点为 (x,y) (x,col) (x+d,y) (x+d,col)

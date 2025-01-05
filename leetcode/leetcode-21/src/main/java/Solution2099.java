@@ -48,8 +48,11 @@ https://leetcode.cn/problems/find-subsequence-of-length-k-with-the-largest-sum/
 给你一个整数数组 nums 和一个整数 k 。你需要找到 nums 中长度为 k 的 子序列 ，且这个子序列的 和最大 。
 请你返回 任意 一个长度为 k 的整数子序列。
 子序列 定义为从一个数组里删除一些元素后，不改变剩下元素的顺序得到的数组。
+提示：
+1 <= nums.length <= 1000
+-10^5 <= nums[i] <= 10^5
+1 <= k <= nums.length
 
-范围 10^3
 时间复杂度 O(nlogn)
 排序后取前 k 大的数
  */

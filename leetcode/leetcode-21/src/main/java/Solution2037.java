@@ -23,6 +23,10 @@ https://leetcode.cn/problems/minimum-number-of-moves-to-seat-everyone/
 - 增加或者减少第 i 位学生的位置，每次变化量为 1 （也就是将第 i 位学生从位置 x 移动到 x + 1 或者 x - 1）
 请你返回使所有学生都有座位坐的 最少移动次数 ，并确保没有两位学生的座位相同。
 请注意，初始时有可能有多个座位或者多位学生在 同一 位置。
+提示：
+n == seats.length == students.length
+1 <= n <= 100
+1 <= seats[i], students[j] <= 100
 
 排序后累加即可。
  */

@@ -35,6 +35,12 @@ https://leetcode.cn/problems/minimum-operations-to-make-a-uni-value-grid/
 给你一个大小为 m x n 的二维整数网格 grid 和一个整数 x 。每一次操作，你可以对 grid 中的任一元素 加 x 或 减 x 。
 单值网格 是全部元素都相等的网格。
 返回使网格化为单值网格所需的 最小 操作数。如果不能，返回 -1 。
+提示：
+m == grid.length
+n == grid[i].length
+1 <= m, n <= 10^5
+1 <= m * n <= 10^5
+1 <= x, grid[i][j] <= 10^4
 
 思路:
 1.单值网格最终值大于数组最小值，小于数组最大值

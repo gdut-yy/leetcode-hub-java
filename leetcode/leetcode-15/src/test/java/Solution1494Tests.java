@@ -30,4 +30,15 @@ public class Solution1494Tests {
         int expected = 6;
         Assertions.assertEquals(expected, solution1494.minNumberOfSemesters(n, relations, k));
     }
+
+    // 补充用例
+    @Test
+    public void example4() {
+        // 财经hack
+        int n = 12;
+        int[][] relations = UtUtils.stringToInts2("[[11,10],[6,3],[2,5],[9,2],[4,12],[8,7],[9,5],[6,2],[7,2],[7,4],[9,3],[11,1],[4,3]]");
+        int k = 3;
+        int expected = 4;
+        Assertions.assertEquals(expected, solution1494.minNumberOfSemesters(n, relations, k));
+    }
 }

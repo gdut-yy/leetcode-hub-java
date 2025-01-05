@@ -10,7 +10,6 @@ public class Solution2025Tests {
         int k = 3;
         int expected = 1;
         Assertions.assertEquals(expected, solution2025.waysToPartition(nums, k));
-        Assertions.assertEquals(expected, solution2025.waysToPartition2(nums, k));
     }
 
     @Test
@@ -19,7 +18,6 @@ public class Solution2025Tests {
         int k = 1;
         int expected = 2;
         Assertions.assertEquals(expected, solution2025.waysToPartition(nums, k));
-        Assertions.assertEquals(expected, solution2025.waysToPartition2(nums, k));
     }
 
     @Test
@@ -28,7 +26,6 @@ public class Solution2025Tests {
         int k = -33;
         int expected = 4;
         Assertions.assertEquals(expected, solution2025.waysToPartition(nums, k));
-        Assertions.assertEquals(expected, solution2025.waysToPartition2(nums, k));
     }
 
     // 补充用例
@@ -39,7 +36,6 @@ public class Solution2025Tests {
         int k = UtUtils.loadingInt("solution2025-example4-input.txt", 1);
         int expected = 5003;
         Assertions.assertEquals(expected, solution2025.waysToPartition(nums, k));
-        Assertions.assertEquals(expected, solution2025.waysToPartition2(nums, k));
     }
 
     @Test
@@ -49,6 +45,5 @@ public class Solution2025Tests {
         int k = UtUtils.loadingInt("solution2025-example5-input.txt", 1);
         int expected = 43;
         Assertions.assertEquals(expected, solution2025.waysToPartition(nums, k));
-        Assertions.assertEquals(expected, solution2025.waysToPartition2(nums, k));
     }
 }

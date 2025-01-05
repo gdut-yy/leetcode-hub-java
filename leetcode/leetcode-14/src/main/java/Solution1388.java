@@ -2,21 +2,21 @@ import java.util.Arrays;
 
 public class Solution1388 {
     public int maxSizeSlices(int[] slices) {
-        int len = slices.length;
-        int[] slices1 = Arrays.copyOfRange(slices, 0, len - 1);
-        int[] slices2 = Arrays.copyOfRange(slices, 1, len);
+        int n = slices.length;
+        int[] slices1 = Arrays.copyOfRange(slices, 0, n - 1);
+        int[] slices2 = Arrays.copyOfRange(slices, 1, n);
         // 环形
-        return Math.max(rob(slices1, len), rob(slices2, len));
+        return Math.max(rob(slices1, n), rob(slices2, n));
     }
 
-    private int rob(int[] slices, int len) {
-        int k = len / 3;
+    private int rob(int[] slices, int n) {
+        int k = n / 3;
         // f[i][j] 表示从前 i 个数，选择不相邻的 j 个数 的最大值
-        int[][] f = new int[len][k + 1];
+        int[][] f = new int[n][k + 1];
         // 状态转移
         // 不选 i: f[i][j] = f[i - 1][j]
         // 选择 i: f[i][j] = f[i - 2][j - 1] + slices[i]
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             for (int j = 1; j <= k; j++) {
                 if (i - 2 >= 0) {
                     f[i][j] = Math.max(f[i - 1][j], f[i - 2][j - 1] + slices[i - 1]);
@@ -25,7 +25,7 @@ public class Solution1388 {
                 }
             }
         }
-        return f[len - 1][k];
+        return f[n - 1][k];
     }
 }
 /*

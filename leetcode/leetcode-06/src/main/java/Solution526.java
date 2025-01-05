@@ -28,4 +28,5 @@ https://leetcode.cn/problems/beautiful-arrangement/
 
 状态压缩动态规划
 时间复杂度 O(n*2^n)
+相似题目: https://www.luogu.com.cn/problem/P5369
  */
