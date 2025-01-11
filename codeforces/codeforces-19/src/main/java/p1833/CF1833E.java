@@ -1,15 +1,13 @@
 package p1833;
 
-import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
 public class CF1833E {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(System.in);
         int t = scanner.nextInt();
         while (t-- > 0) {
             int n = scanner.nextInt();
@@ -21,16 +19,17 @@ public class CF1833E {
         }
     }
 
-    private static Map<Integer, Set<Integer>> adj;
-    private static boolean[] vis;
-    private static int cntV, cntE;
+    static Set<Integer>[] g; // 注意不能用 List<Integer>[] g;
+    static boolean[] vis;
+    static int cntV, cntE;
 
     private static String solve(int n, int[] a) {
-        adj = new HashMap<>();
+        g = new HashSet[n];
+        Arrays.setAll(g, e -> new HashSet<>());
         for (int i = 0; i < n; i++) {
             int x = i, y = a[i] - 1;
-            adj.computeIfAbsent(x, key -> new HashSet<>()).add(y);
-            adj.computeIfAbsent(y, key -> new HashSet<>()).add(x);
+            g[x].add(y);
+            g[y].add(x);
         }
         // 满人
         int notFull = 0;
@@ -41,8 +40,7 @@ public class CF1833E {
                 cntV = 0;
                 cntE = 0;
                 dfs(i);
-                cntE /= 2;
-                if (cntE == cntV) {
+                if (cntE / 2 == cntV) {
                     full++;
                 } else {
                     notFull++;
@@ -57,9 +55,8 @@ public class CF1833E {
     private static void dfs(int x) {
         vis[x] = true;
         cntV++;
-        Set<Integer> yList = adj.getOrDefault(x, new HashSet<>());
-        cntE += yList.size();
-        for (Integer y : yList) {
+        cntE += g[x].size();
+        for (Integer y : g[x]) {
             if (vis[y]) continue;
             dfs(y);
         }

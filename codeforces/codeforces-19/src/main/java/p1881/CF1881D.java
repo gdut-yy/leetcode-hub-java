@@ -51,6 +51,7 @@ public class CF1881D {
 D. Divide and Equalize
 https://codeforces.com/contest/1881/problem/D
 
+灵茶の试炼 2024-11-11
 题目大意：
 给定一个由 n 个正整数组成的数组。可执行如下操作:
 1、选取一对元素 ai 和 aj(1≤i,j≤n 且 i≠j);

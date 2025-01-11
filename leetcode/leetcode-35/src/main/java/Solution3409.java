@@ -44,5 +44,5 @@ https://leetcode.cn/problems/longest-subsequence-with-decreasing-adjacent-differ
 1 <= nums[i] <= 300
 
 朴素的记忆化搜索是 O(nD^2)。需要优化成 O(nD)。
-rating ? (clist.by)
+rating 2481 (clist.by)
  */

@@ -1,38 +1,35 @@
 package c293;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Abc293_d {
+    static int n, m;
+    static List<Integer>[] g;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int n = scanner.nextInt();
-        int m = scanner.nextInt();
-        int[][] edges = new int[m][2];
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        m = scanner.nextInt();
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 0; i < m; i++) {
-            edges[i][0] = scanner.nextInt() - 1;
-            scanner.next();
-            edges[i][1] = scanner.nextInt() - 1;
-            scanner.next();
+            int a = scanner.nextInt() - 1;
+            String b = scanner.next();
+            int c = scanner.nextInt() - 1;
+            String d = scanner.next();
+            g[a].add(c);
+            g[c].add(a);
         }
-        System.out.println(solve(n, m, edges));
+        System.out.println(solve());
     }
 
-    private static Map<Integer, List<Integer>> adj;
-    private static boolean[] vis;
-    private static int cntV, cntE;
+    static boolean[] vis;
+    static int cntV, cntE;
 
-    private static String solve(int n, int m, int[][] edges) {
-        adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
-        }
-
+    private static String solve() {
         // equal, not equal
         int eq = 0, neq = 0;
         vis = new boolean[n];
@@ -52,9 +49,8 @@ public class Abc293_d {
     private static void dfs(int x) {
         vis[x] = true;
         cntV++;
-        List<Integer> yList = adj.getOrDefault(x, new ArrayList<>());
-        cntE += yList.size();
-        for (Integer y : yList) {
+        cntE += g[x].size();
+        for (int y : g[x]) {
             if (vis[y]) continue;
             dfs(y);
         }

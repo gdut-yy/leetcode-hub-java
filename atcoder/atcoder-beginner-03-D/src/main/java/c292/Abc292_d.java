@@ -1,36 +1,29 @@
 package c292;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Abc292_d {
     static int n, m;
+    static List<Integer>[] g;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
-        // MLE
-//        int[][] edges = new int[m][2];
-//        for (int i = 0; i < m; i++) {
-//            edges[i][0] = scanner.nextInt() - 1;
-//            edges[i][1] = scanner.nextInt() - 1;
-//        }
-        adj = new HashMap<>();
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 0; i < m; i++) {
             int x = scanner.nextInt() - 1;
             int y = scanner.nextInt() - 1;
-            adj.computeIfAbsent(x, key -> new ArrayList<>()).add(y);
-            adj.computeIfAbsent(y, key -> new ArrayList<>()).add(x);
+            g[x].add(y);
+            g[y].add(x);
         }
         System.out.println(solve());
     }
 
-    private static Map<Integer, List<Integer>> adj;
     private static boolean[] vis;
     private static int cntV, cntE;
 
@@ -53,9 +46,8 @@ public class Abc292_d {
     private static void dfs(int x) {
         vis[x] = true;
         cntV++;
-        List<Integer> yList = adj.getOrDefault(x, new ArrayList<>());
-        cntE += yList.size();
-        for (Integer y : yList) {
+        cntE += g[x].size();
+        for (int y : g[x]) {
             if (vis[y]) continue;
             dfs(y);
         }

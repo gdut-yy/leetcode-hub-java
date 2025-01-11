@@ -69,6 +69,7 @@ public class CF1881F {
 F. Minimum Maximum Distance
 https://codeforces.com/contest/1881/problem/F
 
+灵茶の试炼 2024-09-18
 题目大意：
 你有一个有 n 个顶点的树，其中一些被标记了。树是无环连通的无向图。
 设 fi 表示从顶点 i 到任何标记顶点的最大距离。

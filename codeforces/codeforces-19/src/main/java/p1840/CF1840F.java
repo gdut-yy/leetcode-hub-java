@@ -154,7 +154,7 @@ BFS 模拟。
 注意正确状态数应该是 O(n·m·r) 而不是 O(n·m·(n+m+r))
 ======
 
-inputCopy
+input
 5
 1 3
 4
@@ -191,7 +191,7 @@ inputCopy
 1 2 6
 16 2 6
 3 2 4
-outputCopy
+output
 5
 -1
 3

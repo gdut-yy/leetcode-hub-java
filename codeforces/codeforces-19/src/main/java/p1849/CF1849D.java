@@ -46,6 +46,7 @@ public class CF1849D {
 D. Array Painting
 https://codeforces.com/contest/1849/problem/D
 
+灵茶の试炼 2024-07-03
 题目大意：
 给定一个 n 个整数的数组，其中每个整数要么为 0，要么为 1，要么为 2。最初，数组的每个元素都是蓝色的。
 您的目标是将数组的每个元素涂成红色。为此，您可以执行两种类型的操作:

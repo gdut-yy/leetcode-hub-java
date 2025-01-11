@@ -66,16 +66,19 @@ D. Vessels
 https://codeforces.com/contest/371/problem/D
 
 灵茶の试炼 2022-09-07
+灵茶の试炼 2024-04-18
 题目大意：
 输入 n (≤2e5) 和一个长为 n 的数组 a (1≤a[i]≤1e9)，表示有 n 个盛水的容器，从上到下串起来（如下图），从上到下第 i 个容器的容量为 a[i]。初始时，所有容器都是空的。
 然后输入 m (≤2e5) 个询问，每个询问的格式如下（i 从 1 开始）：
 1 i x，表示往第 i 个容器倒 x (≤1e9) 单位的水。溢出的水会流到下一个容器，下一个容器溢出的水会流到下下一个容器，……，最后一个容器溢出的水会流到地板上。
 2 i，输出第 i 个容器有多少单位的水。
+相似题目：https://www.luogu.com.cn/problem/P7167
 
 rating 1800
 https://codeforces.com/contest/371/submission/125191890
 提示 1：并查集
 提示 2：并查集应当实现：每个容器指向当前或下一个没有装满的容器
+https://codeforces.com/problemset/submission/371/257108107
 ======
 
 input

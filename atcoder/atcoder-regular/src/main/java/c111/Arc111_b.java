@@ -1,60 +1,53 @@
 package c111;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 
 public class Arc111_b {
+    static int n;
+    static List<Integer>[] g;
+    static final int MAX_N = (int) (4e5 + 5);
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int n = scanner.nextInt();
-        int[][] ab = new int[n][2];
+        Scanner scanner = new Scanner(System.in);
+        n = scanner.nextInt();
+        g = new ArrayList[MAX_N];
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 0; i < n; i++) {
-            ab[i][0] = scanner.nextInt();
-            ab[i][1] = scanner.nextInt();
+            int v = scanner.nextInt();
+            int w = scanner.nextInt();
+            g[v].add(w);
+            g[w].add(v);
         }
-        System.out.println(solve(n, ab));
+        System.out.println(solve());
     }
 
-    private static Map<Integer, List<Integer>> adj;
-    private static Set<Integer> visitedSet;
-    private static int cntV;
-    private static int cntE;
+    static boolean[] vis;
+    static int cntV, cntE;
 
-    private static String solve(int n, int[][] edges) {
-        adj = new HashMap<>();
-        for (int[] edge : edges) {
-            adj.computeIfAbsent(edge[0], key -> new ArrayList<>()).add(edge[1]);
-            adj.computeIfAbsent(edge[1], key -> new ArrayList<>()).add(edge[0]);
-        }
-        visitedSet = new HashSet<>();
-
-        int res = 0;
-        for (int x : adj.keySet()) {
-            if (!visitedSet.contains(x)) {
+    private static String solve() {
+        vis = new boolean[MAX_N];
+        int ans = 0;
+        for (int x = 0; x < MAX_N; x++) {
+            if (!vis[x] && !g[x].isEmpty()) {
                 cntV = 0;
                 cntE = 0;
                 dfs(x);
-                res += Math.min(cntV, cntE / 2);
+                ans += Math.min(cntV, cntE / 2);
             }
         }
-        return String.valueOf(res);
+        return String.valueOf(ans);
     }
 
-    private static void dfs(int x) {
-        visitedSet.add(x);
+    private static void dfs(int v) {
+        vis[v] = true;
         cntV++;
-        List<Integer> yList = adj.getOrDefault(x, new ArrayList<>());
-        cntE += yList.size();
-        for (int y : yList) {
-            if (!visitedSet.contains(y)) {
-                visitedSet.add(y);
-                dfs(y);
+        cntE += g[v].size();
+        for (int w : g[v]) {
+            if (!vis[w]) {
+                dfs(w);
             }
         }
     }

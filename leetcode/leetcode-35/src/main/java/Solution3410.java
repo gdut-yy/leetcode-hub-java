@@ -138,5 +138,5 @@ https://leetcode.cn/problems/maximize-subarray-sum-after-removing-all-occurrence
 https://leetcode.cn/problems/maximum-segment-sum-after-removals/
 H. Gambling
 https://codeforces.com/contest/1692/problem/H
-rating ? (clist.by)
+rating 2840 (clist.by)
  */
