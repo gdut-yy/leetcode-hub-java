@@ -149,3 +149,56 @@ public class Abc357_f {
         return mergeInfo(query(o << 1, l, r), query(o << 1 | 1, l, r));
     }
 }
+/*
+F - Two Sequence Queries
+https://atcoder.jp/contests/abc357/tasks/abc357_f
+
+灵茶の试炼 2024-08-15
+题目大意：
+输入 n(1≤n≤2e5) q(1≤q≤2e5) 和两个长为 n 的数组 a b，元素范围 [0,1e9]，下标从 1 开始。
+然后输入 q 个询问，格式如下：
+"1 l r x"：把 a[l] 到 a[r] 都增加 x。
+"2 l r x"：把 b[l] 到 b[r] 都增加 x。
+"3 l r"：输出 (a[l]*b[l] + a[l+1]*b[l+1] + ... + a[r]*b[r]) % 998244353。
+
+lazy 线段树。
+线段树维护：
+区间 a[i] 之和 sa。
+区间 b[i] 之和 sb。
+区间 a[i]*b[i] 之和 sab。
+lazy tag 是区间内的 a[i] 的统一增加量，区间内的 b[i] 的统一增加量。
+应用 lazy tag（pushdown）：
+如果把 a[i] 增加 x：
+1. sa 增加 sz * x，其中 sz 是该节点的区间大小。
+2. (a[i] + x) * b[i] = a[i] * b[i] + x * b[i]，也就是 sab 增加量等于 x * sb。
+对于 b[i] 增加 x 同理。
+可以先增加 a[i]，再增加 b[i]，无需考虑同时增加。
+代码 https://atcoder.jp/contests/abc357/submissions/56473039
+======
+
+Input 1
+5 6
+1 3 5 6 8
+3 1 2 1 2
+3 1 3
+1 2 5 3
+3 1 3
+1 1 3 1
+2 5 5 2
+3 1 5
+Output 1
+16
+25
+84
+
+Input 2
+2 3
+1000000000 1000000000
+1000000000 1000000000
+3 1 1
+1 2 2 1000000000
+3 1 2
+Output 2
+716070898
+151723988
+ */
