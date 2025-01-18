@@ -149,6 +149,11 @@
             <artifactId>codeforces-20</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>codeforces-21</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
 
         <dependency>
