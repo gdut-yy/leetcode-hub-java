@@ -89,5 +89,5 @@ intervals[i] = [li, ri, weighti]
 
 相似题目: 1235. 规划兼职工作
 https://leetcode.cn/problems/maximum-profit-in-job-scheduling/
-rating 2613 (clist.by)
+rating 2724 (clist.by)
  */

@@ -26,5 +26,7 @@ https://leetcode.cn/problems/count-square-sum-triples/
 提示：
 1 <= n <= 250
 
+中国时间：2021-07-10 22:30
+在网吧打的周赛。。
 直接枚举即可
  */

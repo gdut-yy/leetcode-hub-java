@@ -57,5 +57,5 @@ coins[i] == [li, ri, ci]
 线段树会 TLE。只能滑动窗口。
 相似题目: 2271. 毯子覆盖的最多白色砖块数
 https://leetcode.cn/problems/maximum-white-tiles-covered-by-a-carpet/
-rating 2333 (clist.by)
+rating 2377 (clist.by)
  */

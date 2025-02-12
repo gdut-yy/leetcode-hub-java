@@ -59,4 +59,6 @@ https://leetcode.cn/problems/sum-of-subarray-minimums/
 单调栈分别求出左右两侧第一个比 arr[i] 小的下标。
 假设 arr[i] 为 arr[l,r] 区间内的最小值，其贡献值为 arr[i] 本身乘以 arr[l,r] 区间内包含 arr[i] 子数组的数量，即为 (i-l)*(r-i) 的乘积。
 时间复杂度 O(n)
+相似题目: 3430. 最多 K 个元素的子数组的最值之和
+https://leetcode.cn/problems/maximum-and-minimum-sums-of-at-most-size-k-subarrays/description/
  */

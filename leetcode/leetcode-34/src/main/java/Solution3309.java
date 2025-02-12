@@ -22,6 +22,7 @@ nums.length == 3
 1 <= nums[i] <= 127
 
 中国时间：2024-10-06 10:30
+国庆假期
 相似题目: bytedance-010. 数组组成最大数
 https://leetcode.cn/problems/9nsGSS/
  */
