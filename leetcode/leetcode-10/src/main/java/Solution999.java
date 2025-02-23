@@ -17,19 +17,14 @@ public class Solution999 {
 
         int ans = 0;
         for (int[] d : DIRECTIONS) {
-            for (int step = 1; ; step++) {
-                int nx = sx + d[0] * step;
-                int ny = sy + d[1] * step;
-                if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-                    if (board[nx][ny] == 'B') {
-                        break;
-                    } else if (board[nx][ny] == 'p') {
-                        ans++;
-                        break;
-                    }
-                } else {
-                    break;
-                }
+            int nx = sx + d[0];
+            int ny = sy + d[1];
+            while (nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] == '.') {
+                nx += d[0];
+                ny += d[1];
+            }
+            if (nx >= 0 && nx < n && ny >= 0 && ny < n && board[nx][ny] == 'p') {
+                ans++;
             }
         }
         return ans;

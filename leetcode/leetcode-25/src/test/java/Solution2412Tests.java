@@ -9,6 +9,7 @@ public class Solution2412Tests {
         int[][] transactions = UtUtils.stringToInts2("[[2,1],[5,0],[4,2]]");
         long expected = 10;
         Assertions.assertEquals(expected, solution2412.minimumMoney(transactions));
+        Assertions.assertEquals(expected, solution2412.minimumMoney2(transactions));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution2412Tests {
         int[][] transactions = UtUtils.stringToInts2("[[3,0],[0,3]]");
         long expected = 3;
         Assertions.assertEquals(expected, solution2412.minimumMoney(transactions));
+        Assertions.assertEquals(expected, solution2412.minimumMoney2(transactions));
     }
 
     // 补充用例
@@ -25,5 +27,6 @@ public class Solution2412Tests {
         int[][] transactions = UtUtils.stringToInts2("[[3,9],[0,4],[7,10],[3,5],[0,9],[9,3],[7,4],[0,0],[3,3],[8,0]]");
         long expected = 24;
         Assertions.assertEquals(expected, solution2412.minimumMoney(transactions));
+        Assertions.assertEquals(expected, solution2412.minimumMoney2(transactions));
     }
 }

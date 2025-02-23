@@ -9,6 +9,7 @@ public class Solution2264Tests {
         String num = "6777133339";
         String expected = "777";
         Assertions.assertEquals(expected, solution2264.largestGoodInteger(num));
+        Assertions.assertEquals(expected, solution2264.largestGoodInteger2(num));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution2264Tests {
         String num = "2300019";
         String expected = "000";
         Assertions.assertEquals(expected, solution2264.largestGoodInteger(num));
+        Assertions.assertEquals(expected, solution2264.largestGoodInteger2(num));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution2264Tests {
         String num = "42352338";
         String expected = "";
         Assertions.assertEquals(expected, solution2264.largestGoodInteger(num));
+        Assertions.assertEquals(expected, solution2264.largestGoodInteger2(num));
     }
 }

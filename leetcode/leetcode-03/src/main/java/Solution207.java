@@ -1,41 +1,31 @@
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
-import java.util.Queue;
 
 public class Solution207 {
     public boolean canFinish(int numCourses, int[][] prerequisites) {
-        Map<Integer, List<Integer>> adj = new HashMap<>();
-        int[] inDeg = new int[numCourses];
-        for (int[] prerequisite : prerequisites) {
-            int ai = prerequisite[1];
-            int bi = prerequisite[0];
-            // 其中 prerequisites[i] = [ai, bi] ，表示在选修课程 ai 前 必须 先选修 bi 。
-            adj.computeIfAbsent(ai, key -> new ArrayList<>()).add(bi);
-            inDeg[bi]++;
+        List<Integer>[] g = new ArrayList[numCourses];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] p : prerequisites) {
+            int x = p[1], y = p[0];
+            g[x].add(y);
         }
 
-        // 拓扑排序
-        Queue<Integer> queue = new ArrayDeque<>();
-        for (int id = 0; id < numCourses; id++) {
-            if (inDeg[id] == 0) {
-                queue.add(id);
-            }
+        int[] colors = new int[numCourses];
+        for (int i = 0; i < numCourses; i++) {
+            if (colors[i] == 0 && dfs(i, g, colors)) return false; // 有环
         }
-        List<Integer> resList = new ArrayList<>();
-        while (!queue.isEmpty()) {
-            int x = queue.remove();
-            resList.add(x);
-            for (int y : adj.getOrDefault(x, new ArrayList<>())) {
-                inDeg[y]--;
-                if (inDeg[y] == 0) {
-                    queue.add(y);
-                }
-            }
+        return true; // 没有环
+    }
+
+    private boolean dfs(int x, List<Integer>[] g, int[] colors) {
+        colors[x] = 1; // x 正在访问中
+        for (int y : g[x]) {
+            if (colors[y] == 1) return true;
+            if (colors[y] == 0 && dfs(y, g, colors)) return true;
         }
-        return resList.size() == numCourses;
+        colors[x] = 2; // x 完全访问完毕
+        return false; // 没有找到环
     }
 }
 /*
@@ -54,7 +44,11 @@ prerequisites[i].length == 2
 0 <= ai, bi < numCourses
 prerequisites[i] 中的所有课程对 互不相同
 
-拓扑排序。
+三色标记法 判环
+0 没有遍历过
+1 正在遍历中
+2 遍历过了
+另有 拓扑排序 解法。
 相似题目: 210. 课程表 II
 https://leetcode.cn/problems/course-schedule-ii/
  */

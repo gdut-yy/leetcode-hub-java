@@ -1,10 +1,9 @@
 public class Solution852 {
     // 遍历 时间复杂度 O(n)
     public int peakIndexInMountainArray(int[] arr) {
-        int len = arr.length;
-
+        int n = arr.length;
         // 枚举 "峰顶"
-        for (int top = 1; top <= len - 2; top++) {
+        for (int top = 1; top <= n - 2; top++) {
             if (arr[top] > arr[top - 1] && arr[top] > arr[top + 1]) {
                 return top;
             }
@@ -12,23 +11,24 @@ public class Solution852 {
         return -1;
     }
 
-    // 二分查找 时间复杂度 O(logn)
     public int peakIndexInMountainArray2(int[] arr) {
-        int len = arr.length;
-
-        int left = 1;
-        int right = len - 2;
-        while (left <= right) {
+        int left = 0;
+        int right = arr.length - 2;
+        while (left < right) {
             int mid = left + (right - left) / 2;
-            if (arr[mid] > arr[mid - 1] && arr[mid] > arr[mid + 1]) {
-                return mid;
-            } else if (arr[mid] > arr[mid - 1]) {
-                left = mid + 1;
+            // 边界二分 F, F,..., F, [T, T,..., T]
+            // ----------------------^
+            if (checkMid(arr, mid)) {
+                right = mid;
             } else {
-                right = mid - 1;
+                left = mid + 1;
             }
         }
-        return -1;
+        return left;
+    }
+
+    private boolean checkMid(int[] arr, int mid) {
+        return arr[mid] > arr[mid + 1];
     }
 }
 /*

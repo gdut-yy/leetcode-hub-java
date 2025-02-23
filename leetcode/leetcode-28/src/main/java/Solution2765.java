@@ -14,6 +14,27 @@ public class Solution2765 {
         // m 大于 1
         return ans == 1 ? -1 : ans;
     }
+
+    // O(n)
+    public int alternatingSubarray2(int[] nums) {
+        int n = nums.length;
+        int i = 0;
+        int ans = -1;
+        while (i + 1 < n) {
+            if (nums[i + 1] - nums[i] != 1) {
+                i++;
+                continue;
+            }
+            // 分组循环
+            int st = i;
+            // i 和 i+1 已经满足要求，从 i+2 开始判断
+            for (i += 2; i < n && nums[i] == nums[i - 2]; i++) {
+            }
+            ans = Math.max(ans, i - st);
+            i--;
+        }
+        return ans;
+    }
 }
 /*
 2765. 最长交替子序列

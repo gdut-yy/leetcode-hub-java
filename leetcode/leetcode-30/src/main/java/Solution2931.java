@@ -1,34 +1,56 @@
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution2931 {
-    public long maxSpending(int[][] values) {
-        int m = values.length;
-        int n = values[0].length;
-        PriorityQueue<Node> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
-        for (int i = 0; i < m; i++) {
-            minHeap.add(new Node(i, n - 1, values[i][n - 1]));
+    static class V1 {
+        public long maxSpending(int[][] values) {
+            int m = values.length;
+            int n = values[0].length;
+            PriorityQueue<Node> minHeap = new PriorityQueue<>(Comparator.comparingInt(o -> o.val));
+            for (int i = 0; i < m; i++) {
+                minHeap.add(new Node(i, n - 1, values[i][n - 1]));
+            }
+            long d = 1;
+            long ans = 0;
+            while (!minHeap.isEmpty()) {
+                Node node = minHeap.remove();
+                ans += node.val * (d++);
+                if (node.j - 1 >= 0) {
+                    int ni = node.i, nj = node.j - 1, nval = values[ni][nj];
+                    minHeap.add(new Node(ni, nj, nval));
+                }
+            }
+            return ans;
         }
-        long d = 1;
-        long ans = 0;
-        while (!minHeap.isEmpty()) {
-            Node node = minHeap.remove();
-            ans += node.val * (d++);
-            if (node.j - 1 >= 0) {
-                int ni = node.i, nj = node.j - 1, nval = values[ni][nj];
-                minHeap.add(new Node(ni, nj, nval));
+
+        static class Node {
+            int i, j, val;
+
+            public Node(int i, int j, int val) {
+                this.i = i;
+                this.j = j;
+                this.val = val;
             }
         }
-        return ans;
     }
 
-    static class Node {
-        int i, j, val;
+    static class V2 {
+        public long maxSpending(int[][] values) {
+            int m = values.length;
+            int n = values[0].length;
+            int[] a = new int[m * n];
+            for (int i = 0; i < m; i++) {
+                System.arraycopy(values[i], 0, a, i * n, n);
+            }
+            Arrays.sort(a);
 
-        public Node(int i, int j, int val) {
-            this.i = i;
-            this.j = j;
-            this.val = val;
+            long ans = 0;
+            long d = 1;
+            for (int v : a) {
+                ans += v * d++;
+            }
+            return ans;
         }
     }
 }

@@ -1,61 +1,34 @@
 import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 public class Solution2080 {
     static class RangeFreqQuery {
-        private final Map<Integer, List<Integer>> numIdxMap;
+        static final int MAX_N = (int) (1e4 + 5);
+        List<Integer>[] posMp;
 
         public RangeFreqQuery(int[] arr) {
-            numIdxMap = new HashMap<>();
+            posMp = new ArrayList[MAX_N];
+            Arrays.setAll(posMp, e -> new ArrayList<>());
             for (int i = 0; i < arr.length; i++) {
-                List<Integer> idxList = numIdxMap.getOrDefault(arr[i], new ArrayList<>());
-                idxList.add(i);
-                numIdxMap.put(arr[i], idxList);
+                posMp[arr[i]].add(i);
             }
         }
 
         public int query(int left, int right, int value) {
-            List<Integer> idxList = numIdxMap.getOrDefault(value, new ArrayList<>());
-            if (idxList.isEmpty()) {
-                return 0;
-            }
-            int leftIdx = binarySearchLeftBound(idxList, left);
-            int rightIdx = binarySearchRightBound(idxList, right);
-            return rightIdx - leftIdx + 1;
+            int i = lowerBound(posMp[value], left);
+            int j = lowerBound(posMp[value], right + 1);
+            return j - i;
         }
 
-        private int binarySearchLeftBound(List<Integer> nums, int target) {
-            int left = 0;
-            int right = nums.size();
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                if (nums.get(mid) == target) {
-                    right = mid;
-                } else if (nums.get(mid) < target) {
-                    left = mid + 1;
-                } else if (nums.get(mid) > target) {
-                    right = mid;
-                }
+        private int lowerBound(List<Integer> a, int key) {
+            int l = 0, r = a.size();
+            while (l < r) {
+                int m = l + (r - l) / 2;
+                if (a.get(m) >= key) r = m;
+                else l = m + 1;
             }
-            return left;
-        }
-
-        private static int binarySearchRightBound(List<Integer> nums, int target) {
-            int left = 0;
-            int right = nums.size();
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                if (nums.get(mid) == target) {
-                    left = mid + 1;
-                } else if (nums.get(mid) < target) {
-                    left = mid + 1;
-                } else if (nums.get(mid) > target) {
-                    right = mid;
-                }
-            }
-            return left - 1;
+            return l;
         }
     }
 }

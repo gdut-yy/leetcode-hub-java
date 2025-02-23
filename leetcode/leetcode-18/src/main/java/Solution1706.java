@@ -1,35 +1,34 @@
 public class Solution1706 {
     public int[] findBall(int[][] grid) {
-        int M = grid.length;
-        int N = grid[0].length;
+        int m = grid.length;
+        int n = grid[0].length;
 
-        int[] res = new int[N];
-        for (int i = 0; i < N; i++) {
-            res[i] = i;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = i;
         }
-
-        for (int i = 0; i < N; i++) {
-            for (int row = 0; row < M; row++) {
+        for (int i = 0; i < n; i++) {
+            for (int row = 0; row < m; row++) {
                 // 球当前列
-                int col = res[i];
+                int col = ans[i];
                 if (col != -1) {
                     if (grid[row][col] == 1) {
-                        if (col + 1 < N && grid[row][col + 1] == 1) {
-                            res[i]++;
+                        if (col + 1 < n && grid[row][col + 1] == 1) {
+                            ans[i]++;
                         } else {
-                            res[i] = -1;
+                            ans[i] = -1;
                         }
                     } else {
                         if (col - 1 >= 0 && grid[row][col - 1] == -1) {
-                            res[i]--;
+                            ans[i]--;
                         } else {
-                            res[i] = -1;
+                            ans[i] = -1;
                         }
                     }
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

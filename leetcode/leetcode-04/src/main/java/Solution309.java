@@ -1,5 +1,32 @@
+import java.util.Arrays;
+
 public class Solution309 {
+    private int[] prices;
+    private int[][] memo;
+
     public int maxProfit(int[] prices) {
+        this.prices = prices;
+        int n = prices.length;
+        memo = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(memo[i], -1);
+        }
+        return dfs(n - 1, 0);
+    }
+
+    private int dfs(int i, int hold) {
+        if (i < 0) {
+            if (hold == 1) return (int) -1e9;
+            return 0;
+        }
+        if (memo[i][hold] != -1) return memo[i][hold];
+        int res;
+        if (hold == 1) res = Math.max(dfs(i - 1, 1), dfs(i - 2, 0) - prices[i]);
+        else res = Math.max(dfs(i - 1, 0), dfs(i - 1, 1) + prices[i]);
+        return memo[i][hold] = res;
+    }
+
+    public int maxProfit2(int[] prices) {
         if (prices.length == 0) {
             return 0;
         }
@@ -29,5 +56,5 @@ https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown/
 1 <= prices.length <= 5000
 0 <= prices[i] <= 1000
 
-动态规划。
+状态机 DP
  */

@@ -1,16 +1,16 @@
 public class Solution2275 {
     public int largestCombination(int[] candidates) {
-        int max = 0;
+        int ans = 0;
         for (int i = 0; i < 30; i++) {
             int cnt = 0;
-            for (int candidate : candidates) {
-                if (((candidate >> i) & 1) == 1) {
+            for (int v : candidates) {
+                if ((v >> i & 1) == 1) {
                     cnt++;
                 }
             }
-            max = Math.max(max, cnt);
+            ans = Math.max(ans, cnt);
         }
-        return max;
+        return ans;
     }
 }
 /*

@@ -1,16 +1,11 @@
-import java.util.Comparator;
-import java.util.PriorityQueue;
-
 public class Solution1903 {
     public String largestOddNumber(String num) {
-        String[] odds = {"1", "3", "5", "7", "9"};
-        // 优先队列-大顶堆（降序排列）
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Comparator.reverseOrder());
-        for (String odd : odds) {
-            maxHeap.add(num.lastIndexOf(odd));
+        char[] s = num.toCharArray();
+        for (int i = s.length - 1; i >= 0; i--) {
+            int b = s[i] - '0';
+            if (b % 2 == 1) return num.substring(0, i + 1);
         }
-        Integer maxIndex = maxHeap.poll();
-        return num.substring(0, maxIndex + 1);
+        return "";
     }
 }
 /*

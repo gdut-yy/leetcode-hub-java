@@ -2,10 +2,11 @@ import java.util.Arrays;
 
 public class Solution1561 {
     public int maxCoins(int[] piles) {
+        int n = piles.length;
         Arrays.sort(piles);
         int ans = 0;
         // bob 拿数量最少的三分之一
-        for (int i = piles.length / 3; i < piles.length; i += 2) {
+        for (int i = n / 3; i < n; i += 2) {
             ans += piles[i];
         }
         return ans;

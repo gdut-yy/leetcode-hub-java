@@ -3,27 +3,18 @@ public class Solution63 {
         int m = obstacleGrid.length;
         int n = obstacleGrid[0].length;
 
-        if (obstacleGrid[0][0] == 1) {
-            return 0;
-        }
-
+        if (obstacleGrid[0][0] == 1) return 0;
         // f[i][j] 表示到达坐标 (i,j) 的路径总数
         int[][] f = new int[m][n];
         // 初始状态
         f[0][0] = 1;
         for (int i = 1; i < m; i++) {
-            if (obstacleGrid[i][0] == 0) {
-                f[i][0] = 1;
-            } else {
-                break;
-            }
+            if (obstacleGrid[i][0] != 0) break;
+            f[i][0] = 1;
         }
         for (int j = 1; j < n; j++) {
-            if (obstacleGrid[0][j] == 0) {
-                f[0][j] = 1;
-            } else {
-                break;
-            }
+            if (obstacleGrid[0][j] != 0) break;
+            f[0][j] = 1;
         }
         // 状态转移
         for (int i = 1; i < m; i++) {

@@ -1,5 +1,34 @@
+import java.util.Arrays;
+
 public class Solution714 {
+    private int[] prices;
+    private int fee;
+    private int[][] memo;
+
     public int maxProfit(int[] prices, int fee) {
+        this.prices = prices;
+        this.fee = fee;
+        int n = prices.length;
+        memo = new int[n][2];
+        for (int i = 0; i < n; i++) {
+            Arrays.fill(memo[i], -1);
+        }
+        return dfs(n - 1, 0);
+    }
+
+    private int dfs(int i, int hold) {
+        if (i < 0) {
+            if (hold == 1) return (int) -1e9;
+            return 0;
+        }
+        if (memo[i][hold] != -1) return memo[i][hold];
+        int res;
+        if (hold == 1) res = Math.max(dfs(i - 1, 1), dfs(i - 1, 0) - prices[i] - fee);
+        else res = Math.max(dfs(i - 1, 0), dfs(i - 1, 1) + prices[i]);
+        return memo[i][hold] = res;
+    }
+
+    public int maxProfit2(int[] prices, int fee) {
         int n = prices.length;
         int buy = prices[0] + fee;
         int profit = 0;
@@ -27,7 +56,7 @@ https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fe
 1 <= prices[i] < 5 * 10^4
 0 <= fee < 5 * 10^4
 
-贪心。
+状态机 DP
 相似题目: 122. 买卖股票的最佳时机 II
 https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/
  */

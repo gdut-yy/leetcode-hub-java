@@ -10,6 +10,7 @@ public class Solution714Tests {
         int fee = 2;
         int expected = 8;
         Assertions.assertEquals(expected, solution714.maxProfit(prices, fee));
+        Assertions.assertEquals(expected, solution714.maxProfit2(prices, fee));
     }
 
     @Test
@@ -18,5 +19,6 @@ public class Solution714Tests {
         int fee = 3;
         int expected = 6;
         Assertions.assertEquals(expected, solution714.maxProfit(prices, fee));
+        Assertions.assertEquals(expected, solution714.maxProfit2(prices, fee));
     }
 }

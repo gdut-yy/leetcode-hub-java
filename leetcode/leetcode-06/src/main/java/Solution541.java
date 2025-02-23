@@ -1,26 +1,26 @@
 public class Solution541 {
     public String reverseStr(String s, int k) {
-        int len = s.length();
+        int n = s.length();
 
         int k2 = k * 2;
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         StringBuilder preK = new StringBuilder();
-        for (int i = 0; i < len; i += k) {
-            String subStr = s.substring(i, Math.min(len, i + k));
+        for (int i = 0; i < n; i += k) {
+            String subStr = s.substring(i, Math.min(n, i + k));
             if (i % k2 < k) {
                 preK.append(subStr);
             } else {
                 if (!preK.isEmpty()) {
-                    stringBuilder.append(preK.reverse());
+                    ans.append(preK.reverse());
                     preK.delete(0, k);
                 }
-                stringBuilder.append(subStr);
+                ans.append(subStr);
             }
         }
         if (!preK.isEmpty()) {
-            stringBuilder.append(preK.reverse());
+            ans.append(preK.reverse());
         }
-        return stringBuilder.toString();
+        return ans.toString();
     }
 }
 /*

@@ -9,6 +9,24 @@ public class Solution2264 {
         }
         return "";
     }
+
+    public String largestGoodInteger2(String num) {
+        int n = num.length();
+        char[] s = num.toCharArray();
+        int i = 0;
+        int ans = -1;
+        while (i < n) {
+            // 分组循环
+            int st = i;
+            int base = s[i] - '0';
+            for (i++; i < n && s[i] == s[st]; i++) {
+            }
+            if (i - st >= 3 && base > ans) {
+                ans = base;
+            }
+        }
+        return ans == -1 ? "" : String.valueOf(ans).repeat(3);
+    }
 }
 /*
 2264. 字符串中最大的 3 位相同数字
@@ -27,5 +45,6 @@ https://leetcode.cn/problems/largest-3-same-digit-number-in-string/
 3 <= num.length <= 1000
 num 仅由数字（0 - 9）组成
 
-贪心，从 "999" 枚举到 "000"
+贪心，从 "999" 枚举到 "000"。
+分组循环。
  */

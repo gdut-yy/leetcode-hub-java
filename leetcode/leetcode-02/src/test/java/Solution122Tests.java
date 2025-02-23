@@ -9,6 +9,7 @@ public class Solution122Tests {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int expected = 7;
         Assertions.assertEquals(expected, solution122.maxProfit(prices));
+        Assertions.assertEquals(expected, solution122.maxProfit2(prices));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution122Tests {
         int[] prices = {1, 2, 3, 4, 5};
         int expected = 4;
         Assertions.assertEquals(expected, solution122.maxProfit(prices));
+        Assertions.assertEquals(expected, solution122.maxProfit2(prices));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution122Tests {
         int[] prices = {7, 6, 4, 3, 1};
         int expected = 0;
         Assertions.assertEquals(expected, solution122.maxProfit(prices));
+        Assertions.assertEquals(expected, solution122.maxProfit2(prices));
     }
 }

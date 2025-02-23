@@ -6,11 +6,11 @@ public class Solution2412 {
     public long minimumMoney(int[][] transactions) {
         List<int[]> negativeList = new ArrayList<>();
         List<int[]> positiveList = new ArrayList<>();
-        for (int[] transaction : transactions) {
-            if (transaction[1] - transaction[0] <= 0) {
-                negativeList.add(transaction);
+        for (int[] tr : transactions) {
+            if (tr[1] - tr[0] <= 0) {
+                negativeList.add(tr);
             } else {
-                positiveList.add(transaction);
+                positiveList.add(tr);
             }
         }
         negativeList.sort(Comparator.comparingInt(o -> o[1]));
@@ -18,17 +18,28 @@ public class Solution2412 {
 
         long money = 0;
         long min = Long.MAX_VALUE;
-        for (int[] ints : negativeList) {
-            money -= ints[0];
+        for (int[] p : negativeList) {
+            money -= p[0];
             min = Math.min(min, money);
-            money += ints[1];
+            money += p[1];
         }
-        for (int[] ints : positiveList) {
-            money -= ints[0];
+        for (int[] p : positiveList) {
+            money -= p[0];
             min = Math.min(min, money);
-            money += ints[1];
+            money += p[1];
         }
         return -min;
+    }
+
+    // https://leetcode.cn/problems/minimum-money-required-before-transactions/solutions/1830862/by-endlesscheng-lvym/
+    public long minimumMoney2(int[][] transactions) {
+        long totalLose = 0;
+        int mx = 0;
+        for (int[] tr : transactions) {
+            totalLose += Math.max(tr[0] - tr[1], 0);
+            mx = Math.max(mx, Math.min(tr[0], tr[1]));
+        }
+        return totalLose + mx;
     }
 }
 /*

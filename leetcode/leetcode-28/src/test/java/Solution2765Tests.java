@@ -9,6 +9,7 @@ public class Solution2765Tests {
         int[] nums = {2, 3, 4, 3, 4};
         int expected = 4;
         Assertions.assertEquals(expected, solution2765.alternatingSubarray(nums));
+        Assertions.assertEquals(expected, solution2765.alternatingSubarray2(nums));
     }
 
     @Test
@@ -16,5 +17,6 @@ public class Solution2765Tests {
         int[] nums = {4, 5, 6};
         int expected = 2;
         Assertions.assertEquals(expected, solution2765.alternatingSubarray(nums));
+        Assertions.assertEquals(expected, solution2765.alternatingSubarray2(nums));
     }
 }

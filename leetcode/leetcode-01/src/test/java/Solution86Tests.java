@@ -10,6 +10,7 @@ public class Solution86Tests {
         int x = 3;
         ListNode expected = ListNode.buildListNode(new int[]{1, 2, 2, 4, 3, 5});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution86.partition(head, x)));
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution86.partition2(head, x)));
     }
 
     @Test
@@ -18,5 +19,6 @@ public class Solution86Tests {
         int x = 2;
         ListNode expected = ListNode.buildListNode(new int[]{1, 2});
         Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution86.partition(head, x)));
+        Assertions.assertTrue(ListNode.assertListNodeEquals(expected, solution86.partition2(head, x)));
     }
 }

@@ -3,7 +3,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 public class Solution218 {
@@ -207,6 +209,120 @@ public class Solution218 {
 
             void pushUp(int p) {
                 tree[p] = Math.max(tree[p << 1], tree[p << 1 | 1]);
+            }
+        }
+    }
+
+    static class V3 {
+        // 35ms
+        public List<List<Integer>> getSkyline(int[][] buildings) {
+            Arrays.sort(buildings, Comparator.comparingInt(o -> o[2]));
+
+            int m = 0;
+            TreeMap<Integer, Integer> mp = new TreeMap<>();
+            for (int[] bu : buildings) {
+                mp.put(bu[0], 1);
+                mp.put(bu[1], 1);
+            }
+            for (Map.Entry<Integer, Integer> p : mp.entrySet()) p.setValue(m++);
+            int[] A = new int[m];
+            for (Map.Entry<Integer, Integer> p : mp.entrySet()) A[p.getValue()] = p.getKey();
+            // 离散化结束
+
+            LazySegmentTree seg = new LazySegmentTree(m);
+            for (int[] bu : buildings) {
+                int left = mp.get(bu[0]) + 1;
+                // 左闭右开
+                int right = mp.get(bu[1]) + 1 - 1;
+                seg.modify(1, 1, m, left, right, bu[2]);
+            }
+
+            // 查询左端点最值
+            List<List<Integer>> ans = new ArrayList<>();
+            int pre = 0;
+            for (int i = 1; i <= m; i++) {
+                int height = seg.query(1, 1, m, i, i).mx;
+                if (height != pre) {
+                    ans.add(List.of(A[i - 1], height));
+                    pre = height;
+                }
+            }
+            return ans;
+        }
+
+        // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
+        static class LazySegmentTree {
+            static class Info {
+                int mx, lazy;
+
+                public Info(int mx, int lazy) {
+                    this.mx = mx;
+                    this.lazy = lazy;
+                }
+            }
+
+            Info mergeInfo(Info a, Info b) {
+                int mx = Math.max(a.mx, b.mx);
+                return new Info(mx, 0);
+            }
+
+            void _do(int p, int qv) {
+                info[p].mx = qv;
+                info[p].lazy = qv;
+            }
+
+            int n;
+            Info[] info;
+
+            public LazySegmentTree(int n) {
+                this.n = n;
+                info = new Info[4 * n];
+                Arrays.setAll(info, e -> new Info(0, 0));
+            }
+
+            void build(int[] A, int p, int l, int r) {
+                if (l == r) {
+                    info[p] = new Info(0, 0);
+                    return;
+                }
+                int m = (l + r) >> 1;
+                build(A, p << 1, l, m);
+                build(A, p << 1 | 1, m + 1, r);
+                maintain(p);
+            }
+
+            void maintain(int p) {
+                info[p] = mergeInfo(info[p << 1], info[p << 1 | 1]);
+            }
+
+            void spread(int p) {
+                if (info[p].lazy == 0) return;
+                _do(p << 1, info[p].lazy);
+                _do(p << 1 | 1, info[p].lazy);
+                info[p].lazy = 0;
+            }
+
+            void modify(int p, int l, int r, int ql, int qr, int qv) {
+                if (ql <= l && r <= qr) {
+                    _do(p, qv);
+                    return;
+                }
+                spread(p);
+                int m = (l + r) >> 1;
+                if (ql <= m) modify(p << 1, l, m, ql, qr, qv);
+                if (qr > m) modify(p << 1 | 1, m + 1, r, ql, qr, qv);
+                maintain(p);
+            }
+
+            Info query(int p, int l, int r, int ql, int qr) {
+                if (ql <= l && r <= qr) {
+                    return info[p];
+                }
+                spread(p);
+                int m = (l + r) >> 1;
+                if (qr <= m) return query(p << 1, l, m, ql, qr);
+                if (ql > m) return query(p << 1 | 1, m + 1, r, ql, qr);
+                return mergeInfo(query(p << 1, l, m, ql, qr), query(p << 1 | 1, m + 1, r, ql, qr));
             }
         }
     }

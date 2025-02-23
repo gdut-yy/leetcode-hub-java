@@ -1,39 +1,48 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Solution1671 {
     public int minimumMountainRemovals(int[] nums) {
-        int len = nums.length;
+        int n = nums.length;
 
-        // LIS
-        int[] left = new int[len];
-        for (int i = 0; i < len; i++) {
-            left[i] = 1;
-            for (int j = 0; j < i; j++) {
-                // 严格递增
-                if (nums[i] > nums[j]) {
-                    left[i] = Math.max(left[i], left[j] + 1);
-                }
-            }
+        int[] pre = new int[n];
+        List<Integer> g = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int v = nums[i];
+            int j = lowerBound(g, v);
+            if (j == g.size()) g.add(v);
+            else g.set(j, v);
+            pre[i] = j + 1;
         }
 
-        // LIS
-        int[] right = new int[len];
-        for (int i = len - 1; i >= 0; i--) {
-            right[i] = 1;
-            for (int j = len - 1; j > i; j--) {
-                // 严格递增
-                if (nums[i] > nums[j]) {
-                    right[i] = Math.max(right[i], right[j] + 1);
-                }
-            }
+        int[] suf = new int[n];
+        g.clear();
+        for (int i = n - 1; i >= 0; i--) {
+            int v = nums[i];
+            int j = lowerBound(g, v);
+            if (j == g.size()) g.add(v);
+            else g.set(j, v);
+            suf[i] = j + 1;
         }
 
         // arr.length >= 3 题目保证 nums 删除一些元素后一定能得到山形数组。
         int maxLen = 3;
-        for (int i = 0; i < len; i++) {
-            if (left[i] > 1 && right[i] > 1) {
-                maxLen = Math.max(maxLen, left[i] + right[i] - 1);
+        for (int i = 0; i < n; i++) {
+            if (pre[i] > 1 && suf[i] > 1) {
+                maxLen = Math.max(maxLen, pre[i] + suf[i] - 1);
             }
         }
-        return len - maxLen;
+        return n - maxLen;
+    }
+
+    private int lowerBound(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*

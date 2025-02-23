@@ -1,16 +1,16 @@
 public class SolutionLCR177 {
     public int[] sockCollocation(int[] sockets) {
-        int ret = 0;
+        int xors = 0;
         for (int n : sockets) {
-            ret ^= n;
+            xors ^= n;
         }
-        int div = 1;
-        while ((div & ret) == 0) {
-            div <<= 1;
+        int bit = 1; // 找出首个不一样的二进制位
+        while ((bit & xors) == 0) {
+            bit <<= 1;
         }
         int a = 0, b = 0;
         for (int n : sockets) {
-            if ((div & n) != 0) {
+            if ((bit & n) != 0) {
                 a ^= n;
             } else {
                 b ^= n;
