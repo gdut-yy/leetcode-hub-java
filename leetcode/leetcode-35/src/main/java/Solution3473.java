@@ -44,8 +44,9 @@ https://leetcode.cn/problems/sum-of-k-subarrays-with-length-at-least-m/descripti
 
 划分型 DP + 前缀和优化。
 和 3077 题 几乎是一样的题目，一年前的 T4 hard，时过境迁，今年竟然放 T3 medium 了，
-（作为 T4 时候 clist rating 分是 2586，今天 T3 rating 分是 2460）
+（作为 T4 时候 clist rating 分是 2586）
 时间复杂度 O(nk)。
 相似题目: 3077. K 个不相交子数组的最大能量值
 https://leetcode.cn/problems/maximum-strength-of-k-disjoint-subarrays/description/
+rating 2251 (clist.by)
  */

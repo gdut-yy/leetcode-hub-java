@@ -32,4 +32,6 @@ piles.length % 3 == 0
 贪心。
 搞不定 Alice 就搞定 Bob。
 时间复杂度 O(nlogn)。
+相似题目: 3457. 吃披萨
+https://leetcode.cn/problems/eat-pizzas/description/
  */

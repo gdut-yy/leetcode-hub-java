@@ -46,4 +46,6 @@ s 仅由小写英文字母组成。
 
 区间 DP。
 时间复杂度 O(n^2 * k)。
+相似题目: 516. 最长回文子序列
+https://leetcode.cn/problems/longest-palindromic-subsequence/
  */

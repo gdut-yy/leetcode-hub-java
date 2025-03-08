@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class SolutionP2137Tests {
     private final SolutionP2137 solutionP2137 = new SolutionP2137();
-    // 如果你的答案和标准答案的误差不超过 10-5，那么答案将被通过。
+    // 如果你的答案和标准答案的误差不超过 10^-5，那么答案将被通过。
     private static final double DELTA = 1e-5;
 
     @Test

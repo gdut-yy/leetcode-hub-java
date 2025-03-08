@@ -1,22 +1,54 @@
+import java.util.Arrays;
+
 public class Solution516 {
-    public int longestPalindromeSubseq(String s) {
-        int n = s.length();
-        if (n == 1) return 1;
-        char[] cs = s.toCharArray();
-        // f[i][j] 表示 [i,j] 区间最长回文子序列的长度
-        int[][] f = new int[n][n];
-        for (int span = 2; span <= n; span++) {
-            for (int i = 0; i + span - 1 < n; i++) {
-                f[i][i] = 1;
-                int j = i + span - 1;
-                if (cs[i] == cs[j]) {
-                    f[i][j] = f[i + 1][j - 1] + 2;
-                } else {
-                    f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+    static class V1 {
+        public int longestPalindromeSubseq(String s) {
+            int n = s.length();
+            if (n == 1) return 1;
+            char[] cs = s.toCharArray();
+            // f[i][j] 表示 [i,j] 区间最长回文子序列的长度
+            int[][] f = new int[n][n];
+            for (int span = 2; span <= n; span++) {
+                for (int i = 0; i + span - 1 < n; i++) {
+                    f[i][i] = 1;
+                    int j = i + span - 1;
+                    if (cs[i] == cs[j]) {
+                        f[i][j] = f[i + 1][j - 1] + 2;
+                    } else {
+                        f[i][j] = Math.max(f[i + 1][j], f[i][j - 1]);
+                    }
                 }
             }
+            return f[0][n - 1];
         }
-        return f[0][n - 1];
+    }
+
+    static class V2 {
+        private char[] s;
+        private int[][] memo;
+
+        public int longestPalindromeSubseq(String S) {
+            this.s = S.toCharArray();
+            int n = s.length;
+            memo = new int[n][n];
+            for (int i = 0; i < n; i++) {
+                Arrays.fill(memo[i], -1); // -1 表示还没有计算过
+            }
+            return dfs(0, n - 1);
+        }
+
+        private int dfs(int i, int j) {
+            if (i > j) return 0; // 空串
+            if (i == j) return 1; // 只有一个字母
+            if (memo[i][j] != -1) return memo[i][j];
+            int res;
+            if (s[i] == s[j]) {
+                res = dfs(i + 1, j - 1) + 2; // 都选
+            } else {
+                res = Math.max(dfs(i + 1, j), dfs(i, j - 1)); // 枚举哪个不选
+            }
+            return memo[i][j] = res;
+        }
     }
 }
 /*
