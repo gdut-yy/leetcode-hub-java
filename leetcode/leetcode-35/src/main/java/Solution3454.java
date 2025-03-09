@@ -141,6 +141,7 @@ squares[i].length == 3
 1 <= li <= 10^9
 所有正方形的总面积不超过 10^15。
 
+矩形面积并。
 Lazy 线段树 + 扫描线
 https://leetcode.cn/problems/separate-squares-ii/solutions/3076772/sao-miao-xian-xian-duan-shu-xiang-jie-ju-d7oj/
 相似题目: 850. 矩形面积 II

@@ -1,23 +1,38 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution2506 {
     public int similarPairs(String[] words) {
-        int len = words.length;
-        int[] mask = new int[len];
-        for (int i = 0; i < len; i++) {
-            String word = words[i];
-            for (char ch : word.toCharArray()) {
+        int n = words.length;
+        int[] mask = new int[n];
+        for (int i = 0; i < n; i++) {
+            for (char ch : words[i].toCharArray()) {
                 mask[i] |= 1 << (ch - 'a');
             }
         }
 
-        int cnt = 0;
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
                 if (mask[i] == mask[j]) {
-                    cnt++;
+                    ans++;
                 }
             }
         }
-        return cnt;
+        return ans;
+    }
+
+    public int similarPairs2(String[] words) {
+        Map<Integer, Integer> cnt = new HashMap<>();
+        int ans = 0;
+        for (String s : words) {
+            int mask = 0;
+            for (char c : s.toCharArray()) {
+                mask |= 1 << (c - 'a');
+            }
+            ans += cnt.merge(mask, 1, Integer::sum) - 1;
+        }
+        return ans;
     }
 }
 /*
@@ -37,4 +52,5 @@ https://leetcode.cn/problems/count-pairs-of-similar-strings/
 words[i] 仅由小写英文字母组成
 
 暴力，可以将每个字符串状态压缩成一个整数。
+枚举右，维护左。
  */
