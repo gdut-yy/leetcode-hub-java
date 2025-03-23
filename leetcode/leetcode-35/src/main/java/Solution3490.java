@@ -73,4 +73,5 @@ https://leetcode.cn/problems/count-beautiful-numbers/description/
 时间复杂度 O(10^2 * 81 * 81) = O(656100)
 相似题目: 2827. 范围中美丽整数的数目
 https://leetcode.cn/problems/number-of-beautiful-integers-in-the-range/
+rating 2516 (clist.by)
  */

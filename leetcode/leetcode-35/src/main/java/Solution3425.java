@@ -78,5 +78,7 @@ nums.length == n
 
 树上滑窗。
 时间复杂度 O(n)。
+相似题目: 3486. 最长特殊路径 II
+https://leetcode.cn/problems/longest-special-path-ii/description/
 rating 2715 (clist.by)
  */

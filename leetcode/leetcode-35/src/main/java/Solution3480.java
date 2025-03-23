@@ -57,5 +57,5 @@ conflictingPairs[i][0] != conflictingPairs[i][1]
 b 的最小值，记作 b0。有 [i,b0-1] 所以有  b0-i.
 删除一个冲突对时，b 的次小值，记作 b1，额外增加 b1-b0.
 时间复杂度 O(n)。
-rating 2647 (clist.by)
+rating 2760 (clist.by)
  */
