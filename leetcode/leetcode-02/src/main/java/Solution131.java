@@ -3,59 +3,46 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Solution131 {
-    /**
-     * 剑指 Offer II 086. 分割回文子字符串
-     * https://leetcode.cn/problems/M99OJA/
-     */
+    // 剑指 Offer II 086. 分割回文子字符串
+    // https://leetcode.cn/problems/M99OJA/
     public String[][] partition(String s) {
-        List<List<String>> resList = partition131(s);
-        // List<List<String>> 转 String[][]
-        int resM = resList.size();
-        String[][] res = new String[resM][];
-        for (int i = 0; i < resM; i++) {
-            int resN = resList.get(i).size();
-            res[i] = new String[resN];
-            for (int j = 0; j < resN; j++) {
-                res[i][j] = resList.get(i).get(j);
-            }
-        }
-        return res;
+        V1 sol = new V1();
+        List<List<String>> res = sol.partition(s);
+        return res.stream().map(row -> row.toArray(String[]::new)).toArray(String[][]::new);
     }
 
-    /**
-     * 131. 分割回文串
-     * https://leetcode.cn/problems/palindrome-partitioning/
-     */
-    public List<List<String>> partition131(String s) {
-        List<List<String>> resList = new ArrayList<>();
-        helper(s, 0, new LinkedList<>(), resList);
-        return resList;
-    }
+    static class V1 {
+        String s;
+        List<List<String>> ans;
 
-    private void helper(String s, int start, LinkedList<String> subStrings, List<List<String>> resList) {
-        if (start == s.length()) {
-            resList.add(new ArrayList<>(subStrings));
-            return;
+        public List<List<String>> partition(String s) {
+            this.s = s;
+            ans = new ArrayList<>();
+            backtrack(0, new ArrayList<>());
+            return ans;
         }
-        for (int i = start; i < s.length(); i++) {
-            if (isPal(s, start, i)) {
-                subStrings.add(s.substring(start, i + 1));
-                helper(s, i + 1, subStrings, resList);
-                subStrings.removeLast();
+
+        // 考虑 s[i] ~ s[n-1] 怎么分割
+        private void backtrack(int i, List<String> path) {
+            if (i == s.length()) {
+                ans.add(new ArrayList<>(path));
+                return;
             }
-
-        }
-    }
-
-    private boolean isPal(String s, int start, int end) {
-        while (start < end) {
-            if (s.charAt(start) != s.charAt(end)) {
-                return false;
+            for (int j = i; j < s.length(); j++) {
+                if (isPal(i, j)) {
+                    path.add(s.substring(i, j + 1));
+                    backtrack(j + 1, path);
+                    path.removeLast();
+                }
             }
-            start++;
-            end--;
         }
-        return true;
+
+        private boolean isPal(int l, int r) {
+            while (l < r) {
+                if (s.charAt(l++) != s.charAt(r--)) return false;
+            }
+            return true;
+        }
     }
 }
 /*

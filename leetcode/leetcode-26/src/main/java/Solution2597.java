@@ -66,8 +66,9 @@ public class Solution2597 {
     static class V3 {
         public int beautifulSubsets(int[] nums, int k) {
             Map<Integer, TreeMap<Integer, Integer>> groups = new HashMap<>();
-            for (int x : nums)
+            for (int x : nums) {
                 groups.computeIfAbsent((x % k), key -> new TreeMap<>()).merge(x, 1, Integer::sum);
+            }
             int ans = 1;
             for (TreeMap<Integer, Integer> g : groups.values()) {
                 int m = g.size();
@@ -76,10 +77,11 @@ public class Solution2597 {
                 int i = 1, pre = 0;
                 for (Map.Entry<Integer, Integer> e : g.entrySet()) {
                     int cur = e.getKey();
-                    if (i > 1 && cur - pre == k)
+                    if (i > 1 && cur - pre == k) {
                         f[i] = f[i - 1] + f[i - 2] * ((1 << e.getValue()) - 1);
-                    else
+                    } else {
                         f[i] = f[i - 1] << e.getValue();
+                    }
                     pre = cur;
                     ++i;
                 }

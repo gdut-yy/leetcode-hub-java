@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 
 public class Solution131Tests {
-    private final Solution131 solution131 = new Solution131();
+    private final Solution131.V1 solution131 = new Solution131.V1();
+    private final Solution131 solutionLCR086 = new Solution131();
 
     @Test
     public void example1() {
@@ -12,7 +13,7 @@ public class Solution131Tests {
         List<List<String>> expected = UtUtils.stringToStringList2("""
                 [["a","a","b"],["aa","b"]]
                 """);
-        Assertions.assertEquals(expected, solution131.partition131(s));
+        Assertions.assertEquals(expected, solution131.partition(s));
     }
 
     @Test
@@ -21,7 +22,7 @@ public class Solution131Tests {
         List<List<String>> expected = UtUtils.stringToStringList2("""
                 [["a"]]
                 """);
-        Assertions.assertEquals(expected, solution131.partition131(s));
+        Assertions.assertEquals(expected, solution131.partition(s));
     }
 
     // 剑指 Offer II 086. 分割回文子字符串
@@ -32,7 +33,7 @@ public class Solution131Tests {
         String[][] expected = UtUtils.stringToStrings2("""
                 [["g","o","o","g","l","e"],["g","oo","g","l","e"],["goog","l","e"]]
                 """);
-        Assertions.assertArrayEquals(expected, solution131.partition(s));
+        Assertions.assertArrayEquals(expected, solutionLCR086.partition(s));
     }
 
     @Test
@@ -41,7 +42,7 @@ public class Solution131Tests {
         String[][] expected = UtUtils.stringToStrings2("""
                 [["a","a","b"],["aa","b"]]
                 """);
-        Assertions.assertArrayEquals(expected, solution131.partition(s));
+        Assertions.assertArrayEquals(expected, solutionLCR086.partition(s));
     }
 
     @Test
@@ -50,6 +51,6 @@ public class Solution131Tests {
         String[][] expected = UtUtils.stringToStrings2("""
                 [["a"]]
                 """);
-        Assertions.assertArrayEquals(expected, solution131.partition(s));
+        Assertions.assertArrayEquals(expected, solutionLCR086.partition(s));
     }
 }

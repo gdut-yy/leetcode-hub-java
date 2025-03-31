@@ -5,35 +5,35 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution2614 {
-    private static final int MAX_N = (int) 4e6 + 1;
-    private static Set<Integer> primeSet;
+    static final int MAX_N = (int) 4e6 + 1;
+    static final Set<Integer> PRIME_SET;
 
-    public int diagonalPrime(int[][] nums) {
-        if (primeSet == null) {
-            List<Integer> primes = new ArrayList<>();
-            boolean[] isPrime = new boolean[MAX_N];
-            Arrays.fill(isPrime, true);
-            for (int i = 2; i < MAX_N; i++) {
-                if (isPrime[i]) {
-                    primes.add(i);
-                }
-                for (int j = 0; j < primes.size() && i * primes.get(j) < MAX_N; j++) {
-                    isPrime[i * primes.get(j)] = false;
-                    if (i % primes.get(j) == 0) {
-                        break;
-                    }
+    static {
+        List<Integer> primes = new ArrayList<>();
+        boolean[] isPrime = new boolean[MAX_N];
+        Arrays.fill(isPrime, true);
+        for (int i = 2; i < MAX_N; i++) {
+            if (isPrime[i]) {
+                primes.add(i);
+            }
+            for (int j = 0; j < primes.size() && i * primes.get(j) < MAX_N; j++) {
+                isPrime[i * primes.get(j)] = false;
+                if (i % primes.get(j) == 0) {
+                    break;
                 }
             }
-            primeSet = new HashSet<>(primes);
         }
+        PRIME_SET = new HashSet<>(primes);
+    }
 
+    public int diagonalPrime(int[][] nums) {
         int n = nums.length;
         int max = 0;
         for (int i = 0; i < n; i++) {
-            if (primeSet.contains(nums[i][i])) {
+            if (PRIME_SET.contains(nums[i][i])) {
                 max = Math.max(max, nums[i][i]);
             }
-            if (primeSet.contains(nums[i][n - 1 - i])) {
+            if (PRIME_SET.contains(nums[i][n - 1 - i])) {
                 max = Math.max(max, nums[i][n - 1 - i]);
             }
         }

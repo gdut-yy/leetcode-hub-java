@@ -3,22 +3,21 @@ import java.util.Set;
 
 public class Solution128 {
     public int longestConsecutive(int[] nums) {
-        Set<Integer> hashSet = new HashSet<>();
-        for (int num : nums) {
-            hashSet.add(num);
+        Set<Integer> set = new HashSet<>();
+        for (int v : nums) {
+            set.add(v);
         }
 
-        int max = 0;
-        for (int num : nums) {
-            if (!hashSet.contains(num - 1)) {
-                int cnt = 0;
-                while (hashSet.contains(num + cnt)) {
-                    cnt++;
-                }
-                max = Math.max(max, cnt);
+        int ans = 0;
+        for (int v : set) {
+            if (set.contains(v - 1)) continue;
+            int cnt = 0;
+            while (set.contains(v + cnt)) {
+                cnt++;
             }
+            ans = Math.max(ans, cnt);
         }
-        return max;
+        return ans;
     }
 }
 /*

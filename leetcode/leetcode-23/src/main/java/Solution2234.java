@@ -6,9 +6,9 @@ public class Solution2234 {
         Arrays.sort(flowers);
 
         // 前缀和
-        long[] preSum = new long[n + 1];
+        long[] ps = new long[n + 1];
         for (int i = 0; i < n; i++) {
-            preSum[i + 1] = preSum[i] + flowers[i];
+            ps[i + 1] = ps[i] + flowers[i];
         }
 
         // 完善 花园数目
@@ -44,7 +44,7 @@ public class Solution2234 {
                 while (j >= i) {
                     j--;
                 }
-                while (T * (j + 1L) - preSum[j + 1] > newFlowers) {
+                while (T * (j + 1L) - ps[j + 1] > newFlowers) {
                     T--;
                     while (flowers[j] > T) {
                         j--;

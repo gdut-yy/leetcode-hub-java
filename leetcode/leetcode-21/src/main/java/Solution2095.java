@@ -2,47 +2,66 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution2095 {
-    public ListNode deleteMiddle(ListNode head) {
-        int[] nums = toArray(head);
-        int n = nums.length;
-        int[] newNums = new int[n - 1];
-        // p => nums
-        int p = 0;
-        // q => newNums
-        int q = 0;
-        while (p < n) {
-            if (p != n / 2) {
-                newNums[q] = nums[p];
-                p++;
-                q++;
-            } else {
-                p++;
+    static class V1 {
+        public ListNode deleteMiddle(ListNode head) {
+            int[] nums = toArray(head);
+            int n = nums.length;
+            int[] newNums = new int[n - 1];
+            // p => nums
+            int p = 0;
+            // q => newNums
+            int q = 0;
+            while (p < n) {
+                if (p != n / 2) {
+                    newNums[q] = nums[p];
+                    p++;
+                    q++;
+                } else {
+                    p++;
+                }
             }
+            return buildListNode(newNums);
         }
-        return buildListNode(newNums);
+
+        private ListNode buildListNode(int[] nums) {
+            ListNode dummy = new ListNode(-1);
+            ListNode head = dummy;
+            for (int num : nums) {
+                head.next = new ListNode(num);
+                head = head.next;
+            }
+            return dummy.next;
+        }
+
+        private int[] toArray(ListNode head) {
+            List<Integer> list = new ArrayList<>();
+            while (head != null) {
+                list.add(head.val);
+                head = head.next;
+            }
+            int[] res = new int[list.size()];
+            for (int i = 0; i < list.size(); i++) {
+                res[i] = list.get(i);
+            }
+            return res;
+        }
     }
 
-    private ListNode buildListNode(int[] nums) {
-        ListNode dummy = new ListNode(-1);
-        ListNode head = dummy;
-        for (int num : nums) {
-            head.next = new ListNode(num);
-            head = head.next;
-        }
-        return dummy.next;
-    }
+    static class V2 {
+        public ListNode deleteMiddle(ListNode head) {
+            if (head.next == null) return null;
 
-    private int[] toArray(ListNode head) {
-        List<Integer> list = new ArrayList<>();
-        while (head != null) {
-            list.add(head.val);
-            head = head.next;
+            ListNode slow = head;
+            ListNode fast = head;
+            ListNode pre = null;
+            while (fast != null && fast.next != null) {
+                fast = fast.next.next;
+                pre = slow;
+                slow = slow.next;
+            }
+            pre.next = pre.next.next;
+            return head;
         }
-        int[] res = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-        return res;
     }
 }
 /*

@@ -1,30 +1,30 @@
 public class Solution2012 {
     public int sumOfBeauties(int[] nums) {
-        int len = nums.length;
-        int res = 0;
-        for (int i = 1; i <= len - 2; i++) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 1; i <= n - 2; i++) {
             if (nums[i - 1] < nums[i] && nums[i] < nums[i + 1]) {
-                res++;
+                ans++;
             }
         }
         // leftMax[i] 表示 nums[0, i] 的最大值
-        int[] leftMax = new int[len];
+        int[] leftMax = new int[n];
         leftMax[0] = nums[0];
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             leftMax[i] = Math.max(leftMax[i - 1], nums[i]);
         }
         // rightMin[i] 表示 nums[i, len-1] 的最小值
-        int[] rightMin = new int[len];
-        rightMin[len - 1] = nums[len - 1];
-        for (int i = len - 2; i >= 0; i--) {
+        int[] rightMin = new int[n];
+        rightMin[n - 1] = nums[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
             rightMin[i] = Math.min(rightMin[i + 1], nums[i]);
         }
-        for (int i = 1; i <= len - 2; i++) {
+        for (int i = 1; i <= n - 2; i++) {
             if (leftMax[i - 1] < nums[i] && nums[i] < rightMin[i + 1]) {
-                res++;
+                ans++;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

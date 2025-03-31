@@ -54,10 +54,12 @@ public class Solution3446 {
             int m = grid.length;
             int n = grid[0].length;
 
-            // 令 k=i-j+n 那么右上角 k=1 左下角 k=m+n-1, j=i-k+n, i=k+j-n
-            for (int k = 1; k < m + n; k++) {
+            // 共有 m+n-1 条（主/次）对角线，k 的范围 [1, m+n-1]
+            // 主对角线（左上到右下） 令 k=i+j+1 左上角 k=1 右下角 k=m+n-1, j=k-i-1, i=k-j-1
+            // 次对角线（右上到左下） 令 k=i-j+n 右上角 k=1 左下角 k=m+n-1, j=i-k+n, i=k+j-n
+            for (int k = 1; k <= m + n - 1; k++) {
                 int min_j = Math.max(n - k, 0);
-                int max_j = Math.min(m + m - 1 - k, n - 1);
+                int max_j = Math.min(m - k + m - 1, n - 1);
 
                 List<Integer> a = new ArrayList<>();
                 for (int j = min_j; j <= max_j; j++) {
@@ -93,4 +95,6 @@ grid.length == grid[i].length == n
 
 找规律 / 遍历对角线
 时间复杂度 O(n^2 logn)。
+相似题目: 498. 对角线遍历
+https://leetcode.cn/problems/diagonal-traverse/description/
  */

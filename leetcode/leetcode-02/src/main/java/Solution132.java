@@ -1,31 +1,29 @@
 public class Solution132 {
-    public int minCut(String s) {
-        int len = s.length();
-        boolean[][] isPal = new boolean[len][len];
-        for (int i = 0; i < len; i++) {
+    public int minCut(String S) {
+        int n = S.length();
+        char[] s = S.toCharArray();
+        // 预处理
+        boolean[][] isPal = new boolean[n][n];
+        for (int i = 0; i < n; i++) {
             for (int j = 0; j <= i; j++) {
-                char ch1 = s.charAt(i);
-                char ch2 = s.charAt(j);
-                if (ch1 == ch2 && (i <= j + 1 || isPal[j + 1][i - 1])) {
+                if (s[i] == s[j] && (i - 1 <= j || isPal[j + 1][i - 1])) {
                     isPal[j][i] = true;
                 }
             }
         }
-        // dp
-        int[] dp = new int[len];
-        for (int i = 0; i < len; i++) {
-            if (isPal[0][i]) {
-                dp[i] = 0;
-            } else {
-                dp[i] = i;
+        // f[i] 表示从下标 0 到 i 的子字符串符合条件的最少分割次数，则问题解为 f[n-1]
+        int[] f = new int[n];
+        for (int i = 0; i < n; i++) {
+            if (!isPal[0][i]) {
+                f[i] = i;
                 for (int j = 1; j <= i; j++) {
                     if (isPal[j][i]) {
-                        dp[i] = Math.min(dp[i], dp[j - 1] + 1);
+                        f[i] = Math.min(f[i], f[j - 1] + 1);
                     }
                 }
             }
         }
-        return dp[len - 1];
+        return f[n - 1];
     }
 }
 /*

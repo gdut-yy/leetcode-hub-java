@@ -1,15 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Solution2588 {
     public long beautifulSubarrays(int[] nums) {
-        long res = 0L;
+        long ans = 0;
         int sumMod2Mask = 0;
-        int[] cnt = new int[1 << 20];
-        cnt[0] = 1;
-        for (int num : nums) {
-            sumMod2Mask ^= num;
-            res += cnt[sumMod2Mask];
-            cnt[sumMod2Mask]++;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        cnt.put(0, 1);
+        for (int v : nums) {
+            sumMod2Mask ^= v;
+            ans += cnt.merge(sumMod2Mask, 1, Integer::sum) - 1;
         }
-        return res;
+        return ans;
     }
 }
 /*

@@ -15,25 +15,25 @@ public class Solution2360 {
                 inDeg[edges[i]]++;
             }
         }
-        Queue<Integer> queue = new ArrayDeque<>();
+        Queue<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
             if (inDeg[i] == 0) {
-                queue.add(i);
+                q.add(i);
             }
         }
         // 环中的点
         Set<Integer> nodeSet = IntStream.range(0, n).boxed().collect(Collectors.toSet());
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        while (!q.isEmpty()) {
+            int size = q.size();
             for (int i = 0; i < size; i++) {
-                int x = queue.remove();
+                int x = q.remove();
                 nodeSet.remove(x);
 
                 int y = edges[x];
                 if (y != -1) {
                     inDeg[y]--;
                     if (inDeg[y] == 0) {
-                        queue.add(y);
+                        q.add(y);
                     }
                 }
             }

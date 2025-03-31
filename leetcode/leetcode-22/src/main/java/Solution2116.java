@@ -1,46 +1,27 @@
 public class Solution2116 {
     public boolean canBeValid(String s, String locked) {
-        // n == s.length == locked.length
         int n = s.length();
-        // 奇数不可能
-        if (n % 2 == 1) {
-            return false;
-        }
+        if (n % 2 == 1) return false; // 奇数不可能
 
         // 只需要关注 1 的位
-        // 左到右
-        int lrCnt0 = 0;
-        int lrCnt1 = 0;
+        int cnt1 = 0, cnt0 = 0;
         for (int i = 0; i < n; i++) {
-            if (locked.charAt(i) == '1') {
-                if (s.charAt(i) == ')') {
-                    lrCnt1++;
-                    if (lrCnt1 > lrCnt0) {
-                        return false;
-                    }
-                } else {
-                    lrCnt0++;
-                }
+            if (locked.charAt(i) == '1' && s.charAt(i) == ')') {
+                cnt1++;
+                if (cnt1 > cnt0) return false;
             } else {
-                lrCnt0++;
+                cnt0++;
             }
         }
 
-        int rlCnt0 = 0;
-        int rlCnt1 = 0;
-        // 左到右
+        cnt1 = 0;
+        cnt0 = 0;
         for (int i = n - 1; i >= 0; i--) {
-            if (locked.charAt(i) == '1') {
-                if (s.charAt(i) == '(') {
-                    rlCnt1++;
-                    if (rlCnt1 > rlCnt0) {
-                        return false;
-                    }
-                } else {
-                    rlCnt0++;
-                }
+            if (locked.charAt(i) == '1' && s.charAt(i) == '(') {
+                cnt1++;
+                if (cnt1 > cnt0) return false;
             } else {
-                rlCnt0++;
+                cnt0++;
             }
         }
         return true;
