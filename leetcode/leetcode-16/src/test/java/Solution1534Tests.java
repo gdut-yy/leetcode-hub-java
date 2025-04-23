@@ -12,6 +12,7 @@ public class Solution1534Tests {
         int c = 3;
         int expected = 4;
         Assertions.assertEquals(expected, solution1534.countGoodTriplets(arr, a, b, c));
+        Assertions.assertEquals(expected, solution1534.countGoodTriplets2(arr, a, b, c));
     }
 
     @Test
@@ -22,5 +23,6 @@ public class Solution1534Tests {
         int c = 1;
         int expected = 0;
         Assertions.assertEquals(expected, solution1534.countGoodTriplets(arr, a, b, c));
+        Assertions.assertEquals(expected, solution1534.countGoodTriplets2(arr, a, b, c));
     }
 }

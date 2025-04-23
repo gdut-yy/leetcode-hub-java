@@ -1,10 +1,10 @@
 public class Solution2177 {
     public long[] sumOfThree(long num) {
-        if (num % 3 == 0) {
-            long mid = num / 3;
-            return new long[]{mid - 1, mid, mid + 1};
+        if (num % 3 != 0) {
+            return new long[0];
         }
-        return new long[]{};
+        num /= 3;
+        return new long[]{num - 1, num, num + 1};
     }
 }
 /*

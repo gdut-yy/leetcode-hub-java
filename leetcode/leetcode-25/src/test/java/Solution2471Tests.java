@@ -9,6 +9,7 @@ public class Solution2471Tests {
         TreeNode root = TreeNode.buildTreeNode("[1,4,3,7,6,8,5,null,null,null,null,9,null,10]");
         int expected = 3;
         Assertions.assertEquals(expected, solution2471.minimumOperations(root));
+        Assertions.assertEquals(expected, solution2471.minimumOperations2(root));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution2471Tests {
         TreeNode root = TreeNode.buildTreeNode("[1,3,2,7,6,5,4]");
         int expected = 3;
         Assertions.assertEquals(expected, solution2471.minimumOperations(root));
+        Assertions.assertEquals(expected, solution2471.minimumOperations2(root));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution2471Tests {
         TreeNode root = TreeNode.buildTreeNode("[1,2,3,4,5,6]");
         int expected = 0;
         Assertions.assertEquals(expected, solution2471.minimumOperations(root));
+        Assertions.assertEquals(expected, solution2471.minimumOperations2(root));
     }
 }

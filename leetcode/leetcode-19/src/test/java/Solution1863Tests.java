@@ -9,6 +9,7 @@ public class Solution1863Tests {
         int[] nums = {1, 3};
         int expected = 6;
         Assertions.assertEquals(expected, solution1863.subsetXORSum(nums));
+        Assertions.assertEquals(expected, solution1863.subsetXORSum2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution1863Tests {
         int[] nums = {5, 1, 6};
         int expected = 28;
         Assertions.assertEquals(expected, solution1863.subsetXORSum(nums));
+        Assertions.assertEquals(expected, solution1863.subsetXORSum2(nums));
     }
 
     @Test
@@ -23,5 +25,6 @@ public class Solution1863Tests {
         int[] nums = {3, 4, 5, 6, 7, 8};
         int expected = 480;
         Assertions.assertEquals(expected, solution1863.subsetXORSum(nums));
+        Assertions.assertEquals(expected, solution1863.subsetXORSum2(nums));
     }
 }

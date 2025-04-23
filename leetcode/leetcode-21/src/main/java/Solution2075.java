@@ -1,26 +1,25 @@
 public class Solution2075 {
     public String decodeCiphertext(String encodedText, int rows) {
-        int len = encodedText.length();
-        int cols = len / rows;
+        int cols = encodedText.length() / rows;
         // 还原矩阵
-        char[][] chars = new char[rows][cols];
+        char[][] grid = new char[rows][cols];
         int idx = 0;
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                chars[i][j] = encodedText.charAt(idx++);
+                grid[i][j] = encodedText.charAt(idx++);
             }
         }
         // 还原 originalText
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         for (int i = 0; i < cols; i++) {
             for (int j = 0; j < rows; j++) {
                 if (j + i < cols) {
-                    stringBuilder.append(chars[j][j + i]);
+                    ans.append(grid[j][j + i]);
                 }
             }
         }
         // 移除 尾随空格
-        return stringBuilder.toString().stripTrailing();
+        return ans.toString().stripTrailing();
     }
 }
 /*

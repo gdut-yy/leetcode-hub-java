@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution2176Tests {
     private final Solution2176 solution2176 = new Solution2176();
+    private final Solution2176.V2 solution2176_v2 = new Solution2176.V2();
 
     @Test
     public void example1() {
@@ -10,6 +11,7 @@ public class Solution2176Tests {
         int k = 2;
         int expected = 4;
         Assertions.assertEquals(expected, solution2176.countPairs(nums, k));
+        Assertions.assertEquals(expected, solution2176_v2.countPairs(nums, k));
     }
 
     @Test
@@ -18,5 +20,6 @@ public class Solution2176Tests {
         int k = 1;
         int expected = 0;
         Assertions.assertEquals(expected, solution2176.countPairs(nums, k));
+        Assertions.assertEquals(expected, solution2176_v2.countPairs(nums, k));
     }
 }

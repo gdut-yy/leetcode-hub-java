@@ -78,6 +78,7 @@ public class CF1878E {
 E. Iva & Pav
 https://codeforces.com/contest/1878/problem/E
 
+灵茶の试炼 2025-02-04
 题目大意：
 Iva 和 Pav 是一对著名的塞尔维亚竞技编程夫妇。在塞尔维亚，人们称帕夫为“帕普卡”，这就是为什么他会让伊娃的所有愿望都实现。
 Iva 给了 Pav 一个 n 个元素的数组 a。

@@ -48,6 +48,7 @@ public class CF1842C {
 C. Tenzing and Balls
 https://codeforces.com/contest/1842/problem/C
 
+灵茶の试炼 2024-12-17
 题目大意：
 Tenzing 有 n 个球排成一行。左边第 i 个球的颜色是 ai。
 Tenzing 可以任意次数做以下操作:

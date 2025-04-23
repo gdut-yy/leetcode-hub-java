@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -43,6 +45,46 @@ public class Solution2471 {
             }
         }
         return res;
+    }
+
+    public int minimumOperations2(TreeNode root) {
+        int ans = 0;
+
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            List<Integer> a = new ArrayList<>();
+            int size = q.size();
+            for (int i = 0; i < size; i++) {
+                // 上下文已保证 cur 不为 null
+                TreeNode cur = q.remove();
+                a.add(cur.val);
+                if (cur.left != null) {
+                    q.add(cur.left);
+                }
+                if (cur.right != null) {
+                    q.add(cur.right);
+                }
+            }
+
+            // 置换环：对于每个环，交换次数为环的大小减一。
+            int n = a.size();
+            Integer[] ids = new Integer[n]; // 将 a 离散化
+            for (int i = 0; i < n; i++) ids[i] = i;
+            Arrays.sort(ids, Comparator.comparingInt(a::get));
+
+            ans += n;
+            boolean[] vis = new boolean[n];
+            for (Integer v : ids) {
+                if (vis[v]) continue;
+                while (!vis[v]) {
+                    vis[v] = true;
+                    v = ids[v];
+                }
+                ans -= 1;
+            }
+        }
+        return ans;
     }
 }
 /*

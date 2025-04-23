@@ -1,15 +1,59 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class Solution2176 {
     public int countPairs(int[] nums, int k) {
-        int len = nums.length;
-        int cnt = 0;
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
                 if (nums[i] == nums[j] && (i * j) % k == 0) {
-                    cnt++;
+                    ans++;
                 }
             }
         }
-        return cnt;
+        return ans;
+    }
+
+    // O(nlogn) 数学做法，枚举右维护左
+    static class V2 {
+        private static final int MX = 101;
+        private static final List<Integer>[] divisors = new ArrayList[MX];
+
+        static {
+            Arrays.setAll(divisors, e -> new ArrayList<>());
+            // 预处理每个数的因子
+            for (int i = 1; i < MX; i++) {
+                for (int j = i; j < MX; j += i) {
+                    divisors[j].add(i);
+                }
+            }
+        }
+
+        public int countPairs(int[] nums, int k) {
+            int ans = 0;
+            Map<Integer, Integer> cnt = new HashMap<>();
+            for (int j = 0; j < nums.length; j++) { // 枚举 j，计算左边有多少个符合要求的 i
+                int x = nums[j];
+                if (j > 0 && x == nums[0]) {
+                    ans++; // 单独统计 i=0 的情况
+                }
+                int k2 = k / getGCD(k, j); // i 必须是 k2 的倍数
+                // 用位运算把二元组 (x, k2) 合并成一个整数
+                ans += cnt.getOrDefault(k2 << 10 | x, 0);
+                for (int d : divisors[j]) { // j 是 d 的倍数
+                    cnt.merge(d << 10 | x, 1, Integer::sum); // cnt[d<<10|x]++
+                }
+            }
+            return ans;
+        }
+
+        private int getGCD(int num1, int num2) {
+            return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
+        }
     }
 }
 /*

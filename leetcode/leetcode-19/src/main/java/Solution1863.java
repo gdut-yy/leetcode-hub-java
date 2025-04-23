@@ -38,6 +38,16 @@ public class Solution1863 {
             subset.removeLast();
         }
     }
+
+    // O(n)
+    public int subsetXORSum2(int[] nums) {
+        int n = nums.length;
+        int or = 0;
+        for (int x : nums) {
+            or |= x;
+        }
+        return or << (n - 1);
+    }
 }
 /*
 1863. 找出所有子集的异或总和再求和

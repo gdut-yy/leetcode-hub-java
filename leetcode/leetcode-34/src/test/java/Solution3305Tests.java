@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution3305Tests {
     private final Solution3305 solution3305 = new Solution3305();
+    private final Solution3305.V2 solution3305_v2 = new Solution3305.V2();
 
     @Test
     public void example1() {
@@ -10,6 +11,7 @@ public class Solution3305Tests {
         int k = 1;
         int expected = 0;
         Assertions.assertEquals(expected, solution3305.countOfSubstrings(word, k));
+        Assertions.assertEquals(expected, solution3305_v2.countOfSubstrings(word, k));
     }
 
     @Test
@@ -18,6 +20,7 @@ public class Solution3305Tests {
         int k = 0;
         int expected = 1;
         Assertions.assertEquals(expected, solution3305.countOfSubstrings(word, k));
+        Assertions.assertEquals(expected, solution3305_v2.countOfSubstrings(word, k));
     }
 
     @Test
@@ -26,5 +29,6 @@ public class Solution3305Tests {
         int k = 1;
         int expected = 3;
         Assertions.assertEquals(expected, solution3305.countOfSubstrings(word, k));
+        Assertions.assertEquals(expected, solution3305_v2.countOfSubstrings(word, k));
     }
 }

@@ -47,6 +47,7 @@ public class CF1932C {
 C. LR-remainders
 https://codeforces.com/contest/1932/problem/C
 
+灵茶の试炼 2025-01-28
 题目大意：
 给定一个长度为 n 的数组 a，一个正整数 m，以及一串长度为 n 的命令。每个命令都是字符“L”或字符“R”。
 按照在字符串 s 中写入的顺序处理所有 n 个命令。命令的处理方法如下:

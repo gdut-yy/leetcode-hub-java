@@ -81,6 +81,49 @@ public class Solution3305 {
     private boolean isVowel(char ch) {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u';
     }
+
+    static class V2 {
+        // final int VOWEL_MASK = (1 << ('a' - 'a')) | (1 << ('e' - 'a')) | (1 << ('i' - 'a')) | (1 << ('o' - 'a')) | (1 << ('u' - 'a'));
+        private static final int VOWEL_MASK = 1065233;
+
+        public int countOfSubstrings(String word, int k) {
+            int n = word.length();
+            char[] s = word.toCharArray();
+            int l1 = 0, l2 = 0, r = 0;
+            int[] cnt1 = new int[26], cnt2 = new int[26];
+            int mask1 = 0, mask2 = 0;
+            int consonants1 = 0, consonants2 = 0;
+            int ans = 0;
+            while (r < n) {
+                int b = s[r] - 'a';
+                if (++cnt1[b] == 1) mask1 |= 1 << b;
+                if (isVowel(b)) consonants1++;
+                if (++cnt2[b] == 1) mask2 |= 1 << b;
+                if (isVowel(b)) consonants2++;
+
+                while (consonants1 > k && (mask1 & VOWEL_MASK) == VOWEL_MASK) {
+                    b = s[l1] - 'a';
+                    if (--cnt1[b] == 0) mask1 ^= 1 << b;
+                    if (isVowel(b)) consonants1--;
+                    l1++;
+                }
+                while (consonants2 > k - 1 && (mask2 & VOWEL_MASK) == VOWEL_MASK) {
+                    b = s[l2] - 'a';
+                    if (--cnt2[b] == 0) mask2 ^= 1 << b;
+                    if (isVowel(b)) consonants2--;
+                    l2++;
+                }
+
+                ans += l2 - l1;
+                r++;
+            }
+            return ans;
+        }
+
+        private boolean isVowel(int b) {
+            return (VOWEL_MASK >> b & 1) == 0;
+        }
+    }
 }
 /*
 3305. 元音辅音字符串计数 I

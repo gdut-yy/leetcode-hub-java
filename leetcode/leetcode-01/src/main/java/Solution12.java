@@ -3,19 +3,19 @@ public class Solution12 {
     private static final String[] SYMBOLS = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
     public String intToRoman(int num) {
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         for (int i = 0; i < VALUES.length; i++) {
             int value = VALUES[i];
             String symbol = SYMBOLS[i];
             while (num - value >= 0) {
                 num -= value;
-                stringBuilder.append(symbol);
+                ans.append(symbol);
             }
             if (num == 0) {
                 break;
             }
         }
-        return stringBuilder.toString();
+        return ans.toString();
     }
 }
 /*

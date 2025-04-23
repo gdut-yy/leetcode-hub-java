@@ -1,24 +1,63 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
 public class Solution1534 {
+    // O(n^3)
     public int countGoodTriplets(int[] arr, int a, int b, int c) {
-        int len = arr.length;
-        int cnt = 0;
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                if ((Math.abs(arr[i] - arr[j]) <= a)) {
-                    cnt = getCnt(arr, b, c, len, cnt, i, j);
+        int n = arr.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if ((Math.abs(arr[i] - arr[j]) > a)) continue;
+                for (int k = j + 1; k < n; k++) {
+                    if ((Math.abs(arr[j] - arr[k]) <= b) && (Math.abs(arr[i] - arr[k]) <= c)) {
+                        ans++;
+                    }
                 }
             }
         }
-        return cnt;
+        return ans;
     }
 
-    private int getCnt(int[] arr, int b, int c, int len, int cnt, int i, int j) {
-        for (int k = j + 1; k < len; k++) {
-            if ((Math.abs(arr[j] - arr[k]) <= b) && (Math.abs(arr[i] - arr[k]) <= c)) {
-                cnt++;
+    // O(n^2)
+    public int countGoodTriplets2(int[] arr, int a, int b, int c) {
+        int n = arr.length;
+        Integer[] ids = new Integer[n];
+        for (int i = 0; i < n; i++) ids[i] = i;
+        Arrays.sort(ids, Comparator.comparingInt(o -> arr[o]));
+
+        int ans = 0;
+        for (int j : ids) {
+            int y = arr[j];
+            List<Integer> left = new ArrayList<>();
+            for (int i : ids) {
+                if (i < j && Math.abs(arr[i] - y) <= a) {
+                    left.add(arr[i]);
+                }
+            }
+
+            List<Integer> right = new ArrayList<>();
+            for (int k : ids) {
+                if (k > j && Math.abs(arr[k] - y) <= b) {
+                    right.add(arr[k]);
+                }
+            }
+
+            int k1 = 0;
+            int k2 = 0;
+            for (int x : left) {
+                while (k2 < right.size() && right.get(k2) <= x + c) {
+                    k2++;
+                }
+                while (k1 < right.size() && right.get(k1) < x - c) {
+                    k1++;
+                }
+                ans += k2 - k1;
             }
         }
-        return cnt;
+        return ans;
     }
 }
 /*
@@ -40,7 +79,6 @@ https://leetcode.cn/problems/count-good-triplets/
 0 <= arr[i] <= 1000
 0 <= a, b, c <= 1000
 
-暴力枚举即可。时间复杂度 O(n^3)
-可以进行剪枝，时间复杂度 O(n^2)
-抽取方法避免嵌套过深。
+暴力枚举 / 前缀和 / 排序+三指针
+https://leetcode.cn/problems/count-good-triplets/solutions/3622921/liang-chong-fang-fa-bao-li-mei-ju-qian-z-apcv/
  */

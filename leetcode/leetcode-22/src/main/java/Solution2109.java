@@ -1,18 +1,13 @@
 public class Solution2109 {
     public String addSpaces(String s, int[] spaces) {
-        int first = spaces[0];
-        int last = spaces[spaces.length - 1];
-        StringBuilder stringBuilder = new StringBuilder();
-
-        // first
-        stringBuilder.append(s, 0, first).append(" ");
-        // middle
-        for (int i = 1; i < spaces.length; i++) {
-            stringBuilder.append(s, spaces[i - 1], spaces[i]).append(" ");
+        int n = spaces.length;
+        StringBuilder ans = new StringBuilder();
+        ans.append(s, 0, spaces[0]).append(" "); // 也可以加 0 和 s.length() 两个哨兵
+        for (int i = 1; i < n; i++) {
+            ans.append(s, spaces[i - 1], spaces[i]).append(" ");
         }
-        // last
-        stringBuilder.append(s, last, s.length());
-        return stringBuilder.toString();
+        ans.append(s, spaces[n - 1], s.length());
+        return ans.toString();
     }
 }
 /*
@@ -27,4 +22,5 @@ https://leetcode.cn/problems/adding-spaces-to-a-string/
 请你添加空格，并返回修改后的字符串。
 
 java 字符串是不可变类型，因此不用考虑在原字符串上插入空格导致下标变化问题，直接新开一个 StringBuilder 模拟即可。
+StringBuilder#append(CharSequence s, int start, int end) 等价于 StringBuilder#append(s[start:end])
  */
