@@ -20,6 +20,8 @@ https://leetcode.cn/problems/minimum-operations-to-make-array-sum-divisible-by-k
 1 <= nums[i] <= 1000
 1 <= k <= 100
 
+中国时间 2025-04-12 周六 22:30
+广州·中肿。前2天。
 数学，答案为 sum % k。
 时间复杂度 O(n)。
  */

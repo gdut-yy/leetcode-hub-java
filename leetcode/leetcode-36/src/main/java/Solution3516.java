@@ -26,5 +26,7 @@ https://leetcode.cn/problems/find-closest-person/description/
 1 <= x, y, z <= 100
 
 中国时间 2025-04-13 周日 10:30
-广州·中肿。
+广州·中肿。前1天。
+计算绝对值
+时间复杂度 O(1)。
  */

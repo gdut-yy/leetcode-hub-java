@@ -63,4 +63,6 @@ xi != yi
 子集状压 DP
 时间复杂度 O(3^n)
 空间复杂度 O(2^n)
+3530. 有向无环图中合法拓扑排序的最大利润
+https://leetcode.cn/problems/maximum-profit-from-valid-topological-order-in-dag/description/
  */

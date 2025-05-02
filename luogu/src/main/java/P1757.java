@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class LuoguP1757 {
+public class P1757 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int m = scanner.nextInt();

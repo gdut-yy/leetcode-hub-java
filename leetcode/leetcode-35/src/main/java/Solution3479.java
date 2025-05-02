@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution3479 {
     public int numOfUnplacedFruits(int[] fruits, int[] baskets) {
         int n = fruits.length;
-        LazySegmentTree seg = new LazySegmentTree(n);
+        LazyInfoSegmentTree seg = new LazyInfoSegmentTree(n);
         seg.build(baskets, 1, 0, n - 1);
         int ans = 0;
         for (int fr : fruits) {
@@ -18,7 +18,7 @@ public class Solution3479 {
     }
 
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-    static class LazySegmentTree {
+    static class LazyInfoSegmentTree {
         static class Info {
             int max0; // 区间最长连续 0 的个数
             int lazy; // 懒标记
@@ -46,7 +46,7 @@ public class Solution3479 {
         int n;
         Info[] info;
 
-        public LazySegmentTree(int n) {
+        public LazyInfoSegmentTree(int n) {
             this.n = n;
             info = new Info[4 * n];
             Arrays.setAll(info, e -> new Info(0, -1));

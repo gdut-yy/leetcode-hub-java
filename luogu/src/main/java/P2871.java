@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LuoguP2871 {
+public class P2871 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 有 N 件物品和一个容量为 M 的背包。

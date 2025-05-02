@@ -3,20 +3,19 @@ import java.util.Map;
 
 public class Solution2364 {
     public long countBadPairs(int[] nums) {
-        int len = nums.length;
-        Map<Integer, Integer> cntMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
+        int n = nums.length;
+        Map<Integer, Integer> cnt = new HashMap<>();
+        for (int i = 0; i < n; i++) {
             int diff = i - nums[i];
-            cntMap.put(diff, cntMap.getOrDefault(diff, 0) + 1);
+            cnt.merge(diff, 1, Integer::sum);
         }
 
         // 总对数
-        long total = len * (len - 1L) / 2L;
+        long total = n * (n - 1L) / 2L;
         // 相同对数
-        long same = 0L;
-        for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            int cnt = entry.getValue();
-            same += cnt * (cnt - 1L) / 2L;
+        long same = 0;
+        for (long c : cnt.values()) {
+            same += c * (c - 1) / 2;
         }
         return total - same;
     }

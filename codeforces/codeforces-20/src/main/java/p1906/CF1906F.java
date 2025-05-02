@@ -3,10 +3,7 @@ package p1906;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
@@ -82,7 +79,7 @@ public class CF1906F {
     }
 
     private static String solve() {
-        LazySegmentTree seg = new LazySegmentTree(m);
+        InfoSegmentTree seg = new InfoSegmentTree(m);
         seg.build(1, 1, m);
 
         long[] ans = new long[q];
@@ -102,7 +99,7 @@ public class CF1906F {
     }
 
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-    static class LazySegmentTree {
+    static class InfoSegmentTree {
         static class Info {
             long ans, tot, pre, suf;
 
@@ -126,7 +123,7 @@ public class CF1906F {
         int n;
         Info[] info;
 
-        public LazySegmentTree(int n) {
+        public InfoSegmentTree(int n) {
             this.n = n;
 //            info = new Info[4 * n];
             info = new Info[1 << (33 - Integer.numberOfLeadingZeros(n - 1))];

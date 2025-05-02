@@ -1,28 +1,28 @@
 public class Solution2470 {
     public int subarrayLCM(int[] nums, int k) {
-        int len = nums.length;
-
-        int cnt = 0;
-        for (int i = 0; i < len; i++) {
+        int n = nums.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
             int lcm = nums[i];
-            for (int j = i; j < len; j++) {
-                lcm = lcm / getGCD(lcm, nums[j]) * nums[j];
+            for (int j = i; j < n; j++) {
+                lcm = getLCM(lcm, nums[j]);
                 if (lcm == k) {
-                    cnt++;
+                    ans++;
                 } else if (lcm > k) {
                     // 防止溢出
                     break;
                 }
             }
         }
-        return cnt;
+        return ans;
     }
 
-    private static int getGCD(int num1, int num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+    private int getGCD(int num1, int num2) {
+        return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
+    }
+
+    private int getLCM(int num1, int num2) {
+        return num1 / getGCD(num1, num2) * num2;
     }
 }
 /*

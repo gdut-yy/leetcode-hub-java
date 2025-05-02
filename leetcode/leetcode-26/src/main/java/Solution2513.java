@@ -16,21 +16,20 @@ public class Solution2513 {
     }
 
     private boolean checkMid(int divisor1, int divisor2, int uniqueCnt1, int uniqueCnt2, int mid) {
-        // 不能整除 divisor1 的数
-        // 不能整除 divisor2 的数
-        int cnt1 = mid / divisor1 * (divisor1 - 1) + mid % divisor1;
-        int cnt2 = mid / divisor2 * (divisor2 - 1) + mid % divisor2;
-        long lcm = divisor1 / getGCD(divisor1, divisor2) * divisor2;
+        int cnt1 = mid / divisor1 * (divisor1 - 1) + mid % divisor1; // 不能整除 divisor1 的数
+        int cnt2 = mid / divisor2 * (divisor2 - 1) + mid % divisor2; // 不能整除 divisor2 的数
+        long lcm = getLCM(divisor1, divisor2);
         // 不能整除 divisor1、divisor2 的数
         long cnt3 = mid / lcm * (lcm - 1) + mid % lcm;
         return cnt1 >= uniqueCnt1 && cnt2 >= uniqueCnt2 && cnt3 >= uniqueCnt1 + uniqueCnt2;
     }
 
     private long getGCD(long num1, long num2) {
-        if (num1 == 0) {
-            return num2;
-        }
-        return getGCD(num2 % num1, num1);
+        return num1 == 0 ? num2 : getGCD(num2 % num1, num1);
+    }
+
+    private long getLCM(long num1, long num2) {
+        return num1 / getGCD(num1, num2) * num2;
     }
 }
 /*

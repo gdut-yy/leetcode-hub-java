@@ -229,7 +229,7 @@ public class Solution218 {
             for (Map.Entry<Integer, Integer> p : mp.entrySet()) A[p.getValue()] = p.getKey();
             // 离散化结束
 
-            LazySegmentTree seg = new LazySegmentTree(m);
+            LazyInfoSegmentTree seg = new LazyInfoSegmentTree(m);
             for (int[] bu : buildings) {
                 int left = mp.get(bu[0]) + 1;
                 // 左闭右开
@@ -251,7 +251,7 @@ public class Solution218 {
         }
 
         // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-        static class LazySegmentTree {
+        static class LazyInfoSegmentTree {
             static class Info {
                 int mx, lazy;
 
@@ -274,7 +274,7 @@ public class Solution218 {
             int n;
             Info[] info;
 
-            public LazySegmentTree(int n) {
+            public LazyInfoSegmentTree(int n) {
                 this.n = n;
                 info = new Info[4 * n];
                 Arrays.setAll(info, e -> new Info(0, 0));

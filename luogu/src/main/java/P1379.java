@@ -4,7 +4,7 @@ import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class LuoguP1379 {
+public class P1379 {
     static String s;
 
     public static void main(String[] args) {

@@ -26,7 +26,7 @@ public class CF2042F {
     }
 
     private static void solve() throws IOException {
-        LazySegmentTree seg = new LazySegmentTree(n);
+        InfoSegmentTree seg = new InfoSegmentTree(n);
         seg.build(a, 1, 0, n - 1);
 
         int q = scanner.nextInt();
@@ -47,7 +47,7 @@ public class CF2042F {
     }
 
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-    static class LazySegmentTree {
+    static class InfoSegmentTree {
         static final long INF = (long) 1e18;
 
         static class Info {
@@ -128,7 +128,7 @@ public class CF2042F {
         int n;
         Info[] info;
 
-        public LazySegmentTree(int n) {
+        public InfoSegmentTree(int n) {
             this.n = n;
 //            info = new Info[4 * n];
             info = new Info[1 << (33 - Integer.numberOfLeadingZeros(n - 1))];

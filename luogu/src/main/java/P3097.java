@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LuoguP3097 {
+public class P3097 {
     static int n, d;
     static int[] a;
     static int[][] queries;

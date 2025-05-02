@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class Solution3454 {
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-    static class LazySegmentTree {
+    static class LazyInfoSegmentTree {
         static class Info {
             // mn：当前节点的最小覆盖数
             // len：满足覆盖数 = 最小覆盖数的 A[i] 之和
@@ -34,7 +34,7 @@ public class Solution3454 {
         int n;
         Info[] info;
 
-        public LazySegmentTree(int n) {
+        public LazyInfoSegmentTree(int n) {
             this.n = n;
             info = new Info[4 * n];
         }
@@ -96,7 +96,7 @@ public class Solution3454 {
 
         // 求总的面积并
         long tot = 0;
-        LazySegmentTree seg = new LazySegmentTree(m);
+        LazyInfoSegmentTree seg = new LazyInfoSegmentTree(m);
         seg.build(A, 1, 1, m - 1);
         for (int i = 0; i + 1 < vec.size(); i++) {
             // 考虑水平线 y = vec[i][0] 和 y = vec[i + 1][0] 之间的情况

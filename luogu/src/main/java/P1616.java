@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class LuoguP1616 {
+public class P1616 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // 采药时间 t 和山洞草药数目 m

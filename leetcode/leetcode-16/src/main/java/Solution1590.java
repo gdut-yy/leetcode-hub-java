@@ -3,25 +3,22 @@ import java.util.Map;
 
 public class Solution1590 {
     public int minSubarray(int[] nums, int p) {
-        int len = nums.length;
-
+        int n = nums.length;
         // sum(nums[i]) 模 p 余数是 k
         int k = 0;
-        for (int num : nums) {
-            k = (k + num) % p;
+        for (int v : nums) {
+            k = (k + v) % p;
         }
+        if (k == 0) return 0;
 
-        if (k == 0) {
-            return 0;
-        }
         // 否则需找最短连续子数组，其和模 p 余数也是 k
         // 模 p 下的前缀和
         int sumMod = 0;
         // 最后一次出现下标
         Map<Integer, Integer> sumModLastMap = new HashMap<>();
         sumModLastMap.put(0, -1);
-        int min = len;
-        for (int j = 0; j < len; j++) {
+        int min = n;
+        for (int j = 0; j < n; j++) {
             sumMod = (sumMod + nums[j]) % p;
             int find = (sumMod - k + p) % p;
             if (sumModLastMap.containsKey(find)) {
@@ -30,7 +27,7 @@ public class Solution1590 {
             }
             sumModLastMap.put(sumMod, j);
         }
-        return min == len ? -1 : min;
+        return min == n ? -1 : min;
     }
 }
 /*

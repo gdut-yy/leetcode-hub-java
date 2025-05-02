@@ -30,7 +30,7 @@ public class CF2050F {
             }
         }
 
-        LazySegmentTree seg = new LazySegmentTree(n);
+        InfoSegmentTree seg = new InfoSegmentTree(n);
         seg.build(a, 1, 0, n - 1);
 
         List<Integer> ans = new ArrayList<>();
@@ -51,10 +51,9 @@ public class CF2050F {
     }
 
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-    static class LazySegmentTree {
+    static class InfoSegmentTree {
         static class Info {
             int g;
-            int lazy;
 
             public Info(int g) {
                 this.g = g;
@@ -65,16 +64,10 @@ public class CF2050F {
             return new Info((int) getGCD(a.g, b.g));
         }
 
-        // 对节点的覆盖数整个增加 qv，只影响 mn，不影响 len
-        void _do(int p, int qv) {
-//            info[p].mn += qv;
-//            info[p].lazy += qv;
-        }
-
         int n;
         Info[] info;
 
-        public LazySegmentTree(int n) {
+        public InfoSegmentTree(int n) {
             this.n = n;
             info = new Info[4 * n];
         }
@@ -94,30 +87,10 @@ public class CF2050F {
             info[p] = mergeInfo(info[p << 1], info[p << 1 | 1]);
         }
 
-        void spread(int p) {
-            if (info[p].lazy == 0) return;
-            _do(p << 1, info[p].lazy);
-            _do(p << 1 | 1, info[p].lazy);
-            info[p].lazy = 0;
-        }
-
-        void modify(int p, int l, int r, int ql, int qr, int qv) {
-            if (ql <= l && r <= qr) {
-                _do(p, qv);
-                return;
-            }
-            spread(p);
-            int m = (l + r) >> 1;
-            if (ql <= m) modify(p << 1, l, m, ql, qr, qv);
-            if (qr > m) modify(p << 1 | 1, m + 1, r, ql, qr, qv);
-            maintain(p);
-        }
-
         Info query(int p, int l, int r, int ql, int qr) {
             if (ql <= l && r <= qr) {
                 return info[p];
             }
-            spread(p);
             int m = (l + r) >> 1;
             if (qr <= m) return query(p << 1, l, m, ql, qr);
             if (ql > m) return query(p << 1 | 1, m + 1, r, ql, qr);

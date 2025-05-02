@@ -44,12 +44,12 @@ public class Solution2502 {
 
     static class Allocator {
         int n;
-        LazySegmentTree seg;
+        LazyInfoSegmentTree seg;
         Map<Integer, List<int[]>> blocks;
 
         public Allocator(int n) {
             this.n = n;
-            seg = new LazySegmentTree(n);
+            seg = new LazyInfoSegmentTree(n);
             seg.build(null, 1, 0, n - 1);
             blocks = new HashMap<>();
         }
@@ -79,7 +79,7 @@ public class Solution2502 {
         }
 
         // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的
-        static class LazySegmentTree {
+        static class LazyInfoSegmentTree {
             static class Info {
                 int pre0; // 区间前缀连续 0 的个数
                 int suf0; // 区间后缀连续 0 的个数
@@ -116,7 +116,7 @@ public class Solution2502 {
             int n;
             Info[] info;
 
-            public LazySegmentTree(int n) {
+            public LazyInfoSegmentTree(int n) {
                 this.n = n;
                 info = new Info[4 * n];
                 Arrays.setAll(info, e -> new Info(0, 0, 0, -1));

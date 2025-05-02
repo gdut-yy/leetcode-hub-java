@@ -1,18 +1,18 @@
 public class Solution2140 {
     public long mostPoints(int[][] questions) {
-        int len = questions.length;
+        int n = questions.length;
         // 从后往前 dp
-        long[] dp = new long[len];
-        dp[len - 1] = questions[len - 1][0];
-        for (int i = len - 2; i >= 0; i--) {
+        long[] f = new long[n];
+        f[n - 1] = questions[n - 1][0];
+        for (int i = n - 2; i >= 0; i--) {
             int[] question = questions[i];
-            if (i + question[1] + 1 < len) {
-                dp[i] = Math.max(dp[i + 1], question[0] + dp[i + question[1] + 1]);
+            if (i + question[1] + 1 < n) {
+                f[i] = Math.max(f[i + 1], question[0] + f[i + question[1] + 1]);
             } else {
-                dp[i] = Math.max(dp[i + 1], question[0]);
+                f[i] = Math.max(f[i + 1], question[0]);
             }
         }
-        return dp[0];
+        return f[0];
     }
 }
 /*
