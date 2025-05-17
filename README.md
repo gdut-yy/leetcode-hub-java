@@ -1,32 +1,20 @@
-# algo-hub-java
+# algo-hub-java-cpp
 
-基于 `jdk21` + `maven3.9` + `junit5` + `jacoco` 的 leetcode + codeforces + atcoder + nowcoder 练习仓库。
+基于 `jdk21` + `junit5` + `jacoco` 的 leetcode + codeforces + atcoder + nowcoder + luogu 练习仓库。
 
-`@since` 2021.07.05
+`@since` 2021.07.05，Day 1413 (2025.05.17) 已收录：
 
-~~（拼搏百天，我要完成 300 道 leetcode 题！（Day87 (2021.09.29) 已完成 303 题）~~
-
-~~（拼搏 300 天，我要完成 1000 道 leetcode 题！（Day269 (2022.03.30) 已完成 1001 题）~~
-
-~~（Day545 (2022.12.31) 已完成 1665 题）~~
-
-Day911 (2024.01.01) 已完成：
-
-- leetcode: 2251 题
-- codeforces: 559 题
-- atcoder: 290 题
+- leetcode: 3195 题
+- codeforces: 1021 题
+- atcoder: 345 题
 
 ---
 
-- `atcoder-*` 存放 atcoder 题目。
-- `codeforces-*` 存放 codeforces 题目。
 - `leetcode-n` 存放 `100 * (n - 1) + 1` ~ `100 * n` 的题目（如 `leetcode-19` 存放 `1801` ~ `1900` 的题目）。
-- `leetcode-core` 存放 leetcode 自定义对象。
 - `leetcode-extends` 存放 专场竞赛/OJ 题目
 - `leetcode-interview` 存放 《程序员面试金典》 题目。
 - `leetcode-lcp` 存放 力扣杯 题目。
 - `leetcode-offer` 存放 《剑指 Offer》 题目。
-- `nowcoder-*` 存放 牛客 题目。
 - `数据库` 题目存放于 [https://gitee.com/gdut_yy/leetcode-hub-mysql](https://gitee.com/gdut_yy/leetcode-hub-mysql)
 
 ## 环境信息
@@ -57,8 +45,6 @@ mvn clean verify -s settings.xml
 # 统计做题进度（python3）：
 python countSolutions.py
 ```
-
-![](./README/ut-coverage-report-2023.png)
 
 ## UT、TDD
 
@@ -103,41 +89,9 @@ junit5 常用断言：
 2. 使用 Java 反射实现 UT 的题目：716、2227、2276、2286；
 3. 类中提供接口，UT 中需实现该接口：341、489、702、1095、1428、1533；
 
-## 一些 Trick
-
-```java
-  // 数组 使用 Map<Integer, Integer> 统计每个数值出现的频次
-  int[] nums = {4, 1, 2, 1, 2};
-  Map<Integer, Integer> cntMap = new HashMap<>();
-  for (int num : nums) {
-      // Verbose
-      if (!cntMap.containsKey(num)) {
-          cntMap.put(num, 0);
-      }
-      cntMap.put(num, cntMap.get(num) + 1);
-      // Obvious
-      cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
-  }
-```
-
-```java
-  // 有向图 使用 Map<Integer, List<Integer>> 建图
-  int[][] edges = {{0, 1}, {0, 2}, {0, 3}, {1, 4}};
-  Map<Integer, List<Integer>> adj = new HashMap<>();
-  for (int[] edge : edges) {
-      int u = edge[0];
-      int v = edge[1];
-      // Verbose
-      if (!adj.containsKey(u)) {
-          adj.put(u, new ArrayList<>());
-      }
-      adj.get(u).add(v);
-      // Obvious
-      adj.computeIfAbsent(u, key -> new ArrayList<>()).add(v);
-  }
-```
-
 ## 常用算法模板
+
+- [一个方法团灭 LeetCode 打家劫舍问题](https://gdut-yy.github.io/doc-gitblogs-hope/module_algo/dp/state-machine/)
 
 ### 打表
 
@@ -178,20 +132,6 @@ junit5 常用断言：
 - [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
 - [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
 - [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
-
-### 买卖股票系列
-
-- [121. 买卖股票的最佳时机](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock/solution/) 暴力解法、动态规划（Java）
-- [122. 买卖股票的最佳时机 II](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii/) 暴力搜索、贪心算法、动态规划（Java）
-- [123. 买卖股票的最佳时机 III](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iii/) 动态规划（Java）
-- [188. 买卖股票的最佳时机 IV](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv) 动态规划（「力扣」更新过用例，只有优化空间的版本可以 AC）
-- [309. 最佳买卖股票时机含冷冻期](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-cooldown) 动态规划（Java）
-- [714. 买卖股票的最佳时机含手续费](https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-with-transaction-fee) 动态规划（Java）
-
-### 打家劫舍系列
-
-- [198. 打家劫舍](https://leetcode.cn/problems/house-robber/)
-- [213. 打家劫舍 II](https://leetcode.cn/problems/house-robber-ii/)
 
 ### 存在重复元素系列
 
@@ -243,34 +183,6 @@ junit5 常用断言：
 - [104. 二叉树的最大深度](https://leetcode.cn/problems/maximum-depth-of-binary-tree/)
 - [111. 二叉树的最小深度](https://leetcode.cn/problems/minimum-depth-of-binary-tree/)
 - [637. 二叉树的层平均值](https://leetcode.cn/problems/average-of-levels-in-binary-tree/)
-
-```java
-public List<List<Integer>> levelOrder(TreeNode root) {
-    List<List<Integer>> resList = new ArrayList<>();
-    if (root == null) {
-        return resList;
-    }
-    Queue<TreeNode> queue = new LinkedList<>();
-    queue.add(root);
-    while (!queue.isEmpty()) {
-        List<Integer> curLevel = new ArrayList<>();
-        int size = queue.size();
-        for (int i = 0; i < size; i++) {
-            // 上下文已保证 cur 不为 null
-            TreeNode cur = queue.remove();
-            curLevel.add(cur.val);
-            if (cur.left != null) {
-                queue.add(cur.left);
-            }
-            if (cur.right != null) {
-                queue.add(cur.right);
-            }
-        }
-        resList.add(curLevel);
-    }
-    return resList;
-}
-```
 
 二叉树序列化
 
@@ -481,4 +393,5 @@ Hierholzer 算法
 - [宫水三叶の刷题日记](https://www.acoier.com/tags/)
 - [灵茶の试炼](https://docs.qq.com/sheet/DWGFoRGVZRmxNaXFz?tab=BB08J2)
 
-（全文完）
+[![ning2ing](https://img.shields.io/badge/ning2ing-Guardian%202374-blue?style=for-the-badge)](https://leetcode.cn/u/ning2ing/)
+[![ning1ing](https://img.shields.io/badge/ning1ing-Expert%201626-blue?style=for-the-badge)](https://codeforces.com/profile/ning1ing)
