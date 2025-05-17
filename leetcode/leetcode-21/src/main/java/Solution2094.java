@@ -5,75 +5,28 @@ import java.util.List;
 import java.util.Set;
 
 public class Solution2094 {
+    // O(n + k*10^k)
     public int[] findEvenNumbers(int[] digits) {
-        // 3 <= digits.length <= 100
-        int len = digits.length;
-        Set<Integer> resSet = new HashSet<>();
-        for (int i = 0; i < len; i++) {
-            for (int j = i + 1; j < len; j++) {
-                for (int k = j + 1; k < len; k++) {
-                    resSet.addAll(arrangement(digits[i], digits[j], digits[k]));
-                }
-            }
-        }
-        List<Integer> resList = new ArrayList<>(resSet);
-        Collections.sort(resList);
-        return resList.stream().mapToInt(i -> i).toArray();
-    }
-
-    // 123 132
-    // 213 231
-    // 312 321
-    private Set<Integer> arrangement(int digit1, int digit2, int digit3) {
-        Set<Integer> resSet = new HashSet<>();
-        if (digit1 != 0) {
-            if (digit3 % 2 == 0) {
-                resSet.add(digit1 * 100 + digit2 * 10 + digit3);
-            }
-            if (digit2 % 2 == 0) {
-                resSet.add(digit1 * 100 + digit3 * 10 + digit2);
-            }
-        }
-        if (digit2 != 0) {
-            if (digit3 % 2 == 0) {
-                resSet.add(digit2 * 100 + digit1 * 10 + digit3);
-            }
-            if (digit1 % 2 == 0) {
-                resSet.add(digit2 * 100 + digit3 * 10 + digit1);
-            }
-        }
-        if (digit3 != 0) {
-            if (digit2 % 2 == 0) {
-                resSet.add(digit3 * 100 + digit1 * 10 + digit2);
-            }
-            if (digit1 % 2 == 0) {
-                resSet.add(digit3 * 100 + digit2 * 10 + digit1);
-            }
-        }
-        return resSet;
-    }
-
-    public int[] findEvenNumbers2(int[] digits) {
         int[] cnt = new int[10];
-        for (int digit : digits) {
-            cnt[digit]++;
+        for (int d : digits) {
+            cnt[d]++;
         }
-        List<Integer> resList = new ArrayList<>();
-        for (int i = 100; i < 999; i += 2) {
-            int digit1 = i / 100 % 10;
-            int digit2 = i / 10 % 10;
-            int digit3 = i % 10;
-            cnt[digit1]--;
-            cnt[digit2]--;
-            cnt[digit3]--;
-            if (cnt[digit1] >= 0 && cnt[digit2] >= 0 && cnt[digit3] >= 0) {
-                resList.add(i);
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 100; i <= 999; i += 2) {
+            int d1 = i / 100 % 10;
+            int d2 = i / 10 % 10;
+            int d3 = i % 10;
+            cnt[d1]--;
+            cnt[d2]--;
+            cnt[d3]--;
+            if (cnt[d1] >= 0 && cnt[d2] >= 0 && cnt[d3] >= 0) {
+                ans.add(i);
             }
-            cnt[digit1]++;
-            cnt[digit2]++;
-            cnt[digit3]++;
+            cnt[d1]++;
+            cnt[d2]++;
+            cnt[d3]++;
         }
-        return resList.stream().mapToInt(i -> i).toArray();
+        return ans.stream().mapToInt(Integer::intValue).toArray();
     }
 }
 /*

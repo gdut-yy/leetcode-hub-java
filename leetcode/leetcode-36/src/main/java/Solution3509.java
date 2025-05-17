@@ -61,5 +61,7 @@ https://leetcode.cn/problems/maximum-product-of-subsequences-with-an-alternating
 暴力出奇迹：如何分析状态个数
 https://leetcode.cn/problems/maximum-product-of-subsequences-with-an-alternating-sum-equal-to-k/solutions/3641716/bao-li-sou-suo-by-endlesscheng-j3bl/
 150 个 [1,12] 中的数相乘，只有 M=394 个 ≤5000 的不同乘积。
+相似题目: 3543. K 条边路径的最大边权和
+https://leetcode.cn/problems/maximum-weighted-k-edge-path/description/
 rating 2677 (clist.by)
  */

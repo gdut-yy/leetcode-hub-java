@@ -2,15 +2,16 @@ public class Solution790 {
     private static final int MOD = (int) (1e9 + 7);
 
     public int numTilings(int n) {
-        int[][] dp = new int[n + 1][4];
-        dp[0][3] = 1;
-        for (int i = 1; i <= n; i++) {
-            dp[i][0] = dp[i - 1][3];
-            dp[i][1] = (dp[i - 1][0] + dp[i - 1][2]) % MOD;
-            dp[i][2] = (dp[i - 1][0] + dp[i - 1][1]) % MOD;
-            dp[i][3] = (((dp[i - 1][0] + dp[i - 1][1]) % MOD + dp[i - 1][2]) % MOD + dp[i - 1][3]) % MOD;
+        long[][] f = new long[n + 1][4];
+        // f[i][s] 表示平铺到第 i 列时，各个状态 s 对应的平铺方法数量。
+        f[0][3] = 1;
+        for (int i = 0; i < n; i++) {
+            f[i + 1][0] = f[i][3];
+            f[i + 1][1] = (f[i][0] + f[i][2]) % MOD;
+            f[i + 1][2] = (f[i][0] + f[i][1]) % MOD;
+            f[i + 1][3] = (f[i][0] + f[i][1] + f[i][2] + f[i][3]) % MOD;
         }
-        return dp[n][3];
+        return (int) f[n][3];
     }
 }
 /*

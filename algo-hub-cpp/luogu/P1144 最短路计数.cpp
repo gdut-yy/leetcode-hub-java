@@ -5,7 +5,7 @@ typedef long long ll;
 
 const int mod = 100003;
 int n, m;
-vector<vector<int>> g;
+vector<vector<int> > g;
 
 void solve() {
     cin >> n >> m;
@@ -50,12 +50,11 @@ signed main() {
     cin.tie(nullptr);
 
     int t = 1;
-//    cin >> t;
-    while (t--) {
-        solve();
-    }
+    //    cin >> t;
+    while (t--) solve();
     return 0;
 }
+
 /*
 https://www.luogu.com.cn/problem/P1144
  */

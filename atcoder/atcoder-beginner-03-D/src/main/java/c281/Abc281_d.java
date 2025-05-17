@@ -48,6 +48,8 @@ public class Abc281_d {
 D - Max Multiple
 https://atcoder.jp/contests/abc281/tasks/abc281_d
 
+灵茶の试炼 2025-02-11
+题目大意：
 给定一个非负整数序列 a =(a 1,a 2，…，a N)。
 设 S 为非负整数的集合，它可以是 A 中 K 项的和(有不同的指标)。
 找出 S 中 D 的最大倍数。如果 S 中没有 D 的倍数，则打印-1。

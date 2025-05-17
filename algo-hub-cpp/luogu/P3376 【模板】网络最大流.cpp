@@ -14,7 +14,8 @@ void add(int x, int y, int z) {
     ver[++tot] = x, edge[tot] = 0, Next[tot] = head[y], head[y] = tot;
 }
 
-bool bfs() { // 在残量网络上构造分层图
+bool bfs() {
+    // 在残量网络上构造分层图
     memset(d, 0, sizeof(d));
     while (!q.empty()) q.pop();
     q.push(s);
@@ -33,7 +34,8 @@ bool bfs() { // 在残量网络上构造分层图
     return false;
 }
 
-int dinic(int x, int flow) { // 在当前分层图上增广
+int dinic(int x, int flow) {
+    // 在当前分层图上增广
     if (x == t) return flow;
     int rest = flow, k;
     for (int i = head[x]; i && rest; i = Next[i]) {
@@ -64,6 +66,7 @@ signed main() {
     cout << maxflow << endl;
     return 0;
 }
+
 /*
 https://www.luogu.com.cn/problem/P3376
  */

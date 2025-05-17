@@ -1,23 +1,23 @@
 public class Solution2918 {
     public long minSum(int[] nums1, int[] nums2) {
-        long s1 = 0, s2 = 0, c0_1 = 0, c0_2 = 0;
+        long s1 = 0, s2 = 0, cntZero1 = 0, cntZero2 = 0;
         for (int x : nums1) {
             if (x == 0) {
-                c0_1++;
+                cntZero1++;
             } else {
                 s1 += x;
             }
         }
         for (int x : nums2) {
             if (x == 0) {
-                c0_2++;
+                cntZero2++;
             } else {
                 s2 += x;
             }
         }
-        long up = Math.max(s1 + c0_1, s2 + c0_2);
-        if (up > s1 && c0_1 == 0) return -1;
-        if (up > s2 && c0_2 == 0) return -1;
+        long up = Math.max(s1 + cntZero1, s2 + cntZero2);
+        if (up > s1 && cntZero1 == 0) return -1;
+        if (up > s2 && cntZero2 == 0) return -1;
         return up;
     }
 }

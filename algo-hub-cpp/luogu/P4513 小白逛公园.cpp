@@ -10,6 +10,7 @@ struct DATA {
     // 分别表示 [l,r] 区间：前缀最大子段和，后缀最大子段和，最大子段和，区间和
     ll maxL, maxR, maxSum, sum;
 };
+
 vector<DATA> tr;
 
 DATA mergeInfo(DATA &ls, DATA &rs) {
@@ -96,12 +97,11 @@ signed main() {
     cin.tie(nullptr);
 
     int t = 1;
-//    cin >> t;
-    while (t--) {
-        solve();
-    }
+    //    cin >> t;
+    while (t--) solve();
     return 0;
 }
+
 /*
 https://www.luogu.com.cn/problem/P4513
  */

@@ -87,6 +87,18 @@ public class Solution3547 {
             dfs(y);
         }
     }
+
+    static class V2 {
+        // O(1)
+        // https://leetcode.cn/problems/maximum-sum-of-edge-values-in-a-graph/solutions/3673945/tan-xin-san-tiao-fa-ze-pythonjavacgo-by-0viop/
+        public long maxScore(int n, int[][] edges) {
+            long ans = ((long) n * n * 2 + n * 5 - 6) * (n - 1) / 6;
+            if (n == edges.length) { // 环
+                ans += 2;
+            }
+            return ans;
+        }
+    }
 }
 /*
 3547. 图中边值的最大和
@@ -107,6 +119,7 @@ edges[i].length == 2
 0 <= ai, bi < n
 ai != bi
 图中不存在重复边。
+图是连通的。
 每个节点最多与其他两个节点相连。
 
 因为题目出错不知道起什么标题。
