@@ -24,8 +24,6 @@ public class CF145C {
         System.out.println(solve());
     }
 
-    static final int MOD = (int) 1e9 + 7;
-
     // https://codeforces.com/contest/145/submission/310334243
     private static String solve() {
         Map<Integer, Integer> cnt = new HashMap<>();
@@ -52,14 +50,13 @@ public class CF145C {
             }
         }
 
-        Comb comb = new Comb(n);
         // for i, v := range f {
         //   ans = (ans + v*cm.c(n-tot, k-i)) % mod
         // }
         long ans = 0;
         for (int i = Math.min(m, k); i >= 0; i--) {
             if (tot + i >= k) {
-                ans += f[i] * comb.binom(tot, k - i) % MOD;
+                ans += f[i] * comb(tot, k - i) % MOD;
             }
         }
         ans %= MOD;
@@ -75,35 +72,29 @@ public class CF145C {
         return true;
     }
 
-    static class Comb {
-        long[] fac, inv_fac;
+    static int MOD = (int) 1e9 + 7, MX = (int) 1e5 + 5;
+    static long[] F = new long[MX + 1], invF = new long[MX + 1];
 
-        public Comb(int n) {
-            fac = new long[n + 1];
-            inv_fac = new long[n + 1];
-            fac[0] = fac[1] = inv_fac[0] = inv_fac[1] = 1;
-            for (int i = 2; i <= n; i++) fac[i] = fac[i - 1] * i % MOD;
-//            for (int i = 0; i <= n; i++) inv_fac[i] = quickPow(fac[i], MOD - 2);
-            inv_fac[n] = quickPow(fac[n], MOD - 2);
-            for (int i = n - 1; i >= 2; i--) inv_fac[i] = inv_fac[i + 1] * (i + 1) % MOD;
-        }
+    static {
+        F[0] = F[1] = invF[0] = invF[1] = 1;
+        for (int i = 2; i <= MX; i++) F[i] = F[i - 1] * i % MOD;
+        invF[MX] = quickPow(F[MX], MOD - 2);
+        for (int i = MX - 1; i >= 2; i--) invF[i] = invF[i + 1] * (i + 1) % MOD;
+    }
 
-        // C(n, m) = n! / m!(n-m)!
-        long binom(int n, int m) {
-            if (n < m || m < 0) return 0;
-            return fac[n] * inv_fac[m] % MOD * inv_fac[n - m] % MOD;
-        }
+    static long comb(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return F[n] * invF[n - m] % MOD * invF[m] % MOD;
+    }
 
-        // 模下的 a^b
-        long quickPow(long a, long b) {
-            long res = 1L;
-            while (b > 0) {
-                if ((b & 1) != 0) res = res * a % MOD;
-                a = a * a % MOD;
-                b >>= 1;
-            }
-            return res;
+    static long quickPow(long a, long b) {
+        long res = 1L;
+        while (b > 0) {
+            if ((b & 1) != 0) res = res * a % MOD;
+            a = a * a % MOD;
+            b >>= 1;
         }
+        return res;
     }
 
     static class FastReader {

@@ -20,10 +20,6 @@ public class CF1420D {
         System.out.println(solve());
     }
 
-    static final int MOD = 998244353;
-    static final int MAX_N = (int) 3e5;
-    static Comb comb = new Comb(MAX_N);
-
     private static String solve() {
         List<Integer> a = new ArrayList<>();
         for (int i = 0; i < n; i++) {
@@ -41,7 +37,7 @@ public class CF1420D {
             if ((x & 1) > 0) {
                 c++;
                 if ((a.get(i + 1) & 1) == 0) {
-                    ans += comb.binom(s, k) - comb.binom(s - c, k);
+                    ans += comb(s, k) - comb(s - c, k);
                     c = 0;
                 }
             }
@@ -50,39 +46,29 @@ public class CF1420D {
         return String.valueOf(ans);
     }
 
-    private static class Comb {
-        private final long[] fac, invfac;
+    static int MOD = (int) 998244353, MX = (int) 3e5 + 5;
+    static long[] F = new long[MX + 1], invF = new long[MX + 1];
 
-        public Comb(int n) {
-            fac = new long[n + 1];
-            fac[0] = 1;
-            for (int i = 1; i <= n; i++) {
-                fac[i] = fac[i - 1] * i % MOD;
-            }
-            invfac = new long[n + 1];
-            for (int i = 0; i <= n; i++) {
-                invfac[i] = quickPow(fac[i], MOD - 2);
-            }
-        }
+    static {
+        F[0] = F[1] = invF[0] = invF[1] = 1;
+        for (int i = 2; i <= MX; i++) F[i] = F[i - 1] * i % MOD;
+        invF[MX] = quickPow(F[MX], MOD - 2);
+        for (int i = MX - 1; i >= 2; i--) invF[i] = invF[i + 1] * (i + 1) % MOD;
+    }
 
-        // C(n, m) = n! / m!(n-m)!
-        private long binom(int n, int m) {
-            if (n < m || m < 0) return 0;
-            return fac[n] * invfac[m] % MOD * invfac[n - m] % MOD;
-        }
+    static long comb(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return F[n] * invF[n - m] % MOD * invF[m] % MOD;
+    }
 
-        // 模下的 a^b
-        private long quickPow(long a, long b) {
-            long res = 1L;
-            while (b > 0) {
-                if ((b & 1) == 1) {
-                    res = res * a % MOD;
-                }
-                a = a * a % MOD;
-                b >>= 1;
-            }
-            return res;
+    static long quickPow(long a, long b) {
+        long res = 1L;
+        while (b > 0) {
+            if ((b & 1) != 0) res = res * a % MOD;
+            a = a * a % MOD;
+            b >>= 1;
         }
+        return res;
     }
 }
 /*

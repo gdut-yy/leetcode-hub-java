@@ -1,75 +1,88 @@
 import java.util.Arrays;
 
 public class Solution2400 {
-    private static final long MOD = (long) (1e9 + 7);
-    private long[][] memo;
+    static class V1 {
+        private static final long MOD = (long) (1e9 + 7);
+        private long[][] memo;
 
-    // 记忆化搜索 时间复杂度 O(k^2)
-    public int numberOfWays(int startPos, int endPos, int k) {
-        int diff = Math.abs(startPos - endPos);
-        if (k - diff >= 0 && (k - diff) % 2 == 0) {
-            // 重叠部分
-            int overlap = (k - diff) / 2;
-            // 向一个方向走 diff+overlap 步, 向另一个方向走 overlap 步
-            int a = diff + overlap;
-            int b = overlap;
+        // 记忆化搜索 时间复杂度 O(k^2)
+        public int numberOfWays(int startPos, int endPos, int k) {
+            int diff = Math.abs(startPos - endPos);
+            if (k - diff >= 0 && (k - diff) % 2 == 0) {
+                // 重叠部分
+                int overlap = (k - diff) / 2;
+                // 向一个方向走 diff+overlap 步, 向另一个方向走 overlap 步
+                int a = diff + overlap;
+                int b = overlap;
 
-            memo = new long[a + 1][b + 1];
-            for (int i = 0; i < a + 1; i++) {
-                Arrays.fill(memo[i], -1);
+                memo = new long[a + 1][b + 1];
+                for (int i = 0; i < a + 1; i++) {
+                    Arrays.fill(memo[i], -1);
+                }
+                return (int) dfs(a, b);
             }
-            return (int) dfs(a, b);
-        }
-        return 0;
-    }
-
-    private long dfs(int a, int b) {
-        if (a + b == 0) {
-            return 1;
-        }
-        if (memo[a][b] != -1) {
-            return memo[a][b];
-        }
-
-        long res = 0;
-        if (a > 0) {
-            res += dfs(a - 1, b);
-            res %= MOD;
-        }
-        if (b > 0) {
-            res += dfs(a, b - 1);
-            res %= MOD;
-        }
-        memo[a][b] = res;
-        return res;
-    }
-
-    // 乘法逆元 时间复杂度 O(k)
-    public int numberOfWays2(int startPos, int endPos, int k) {
-        int diff = Math.abs(startPos - endPos);
-        if ((k - diff) % 2 != 0 || diff > k) {
             return 0;
         }
-        // 总 k 步
-        // 向左 (k-diff)/2 向右 k - (k-diff)/2
-        // C(k, (k-diff)/2)
-        return (int) combination(k, (k - diff) / 2, (int) MOD);
+
+        private long dfs(int a, int b) {
+            if (a + b == 0) {
+                return 1;
+            }
+            if (memo[a][b] != -1) {
+                return memo[a][b];
+            }
+
+            long res = 0;
+            if (a > 0) {
+                res += dfs(a - 1, b);
+                res %= MOD;
+            }
+            if (b > 0) {
+                res += dfs(a, b - 1);
+                res %= MOD;
+            }
+            memo[a][b] = res;
+            return res;
+        }
     }
 
-    // C(n, m) = n! / m!(n-m)! （n 为下标） (% mod)
-    private long combination(int n, int m, int mod) {
-        // 线性求逆元
-        long[] inv = new long[n + 1];
-        inv[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            inv[i] = (mod - mod / i) * inv[mod % i] % mod;
+    static class V2 {
+        // 乘法逆元 时间复杂度 O(k)
+        public int numberOfWays(int startPos, int endPos, int k) {
+            int diff = Math.abs(startPos - endPos);
+            if ((k - diff) % 2 != 0 || diff > k) {
+                return 0;
+            }
+            // 总 k 步
+            // 向左 (k-diff)/2 向右 k - (k-diff)/2
+            // C(k, (k-diff)/2)
+            return (int) comb(k, (k - diff) / 2);
         }
-        // 递推求组合数，初值 C(k, 0) = 1
-        long res = 1;
-        for (int i = 1; i <= m; i++) {
-            res = res * (n - i + 1) % mod * inv[i] % mod;
+
+        static int MOD = (int) 1e9 + 7, MX = (int) 1000;
+        static long[] F = new long[MX + 1], invF = new long[MX + 1];
+
+        static {
+            F[0] = F[1] = invF[0] = invF[1] = 1;
+            for (int i = 2; i <= MX; i++) F[i] = F[i - 1] * i % MOD;
+            invF[MX] = quickPow(F[MX], MOD - 2);
+            for (int i = MX - 1; i >= 2; i--) invF[i] = invF[i + 1] * (i + 1) % MOD;
         }
-        return res;
+
+        static long comb(int n, int m) {
+            if (n < m || m < 0) return 0;
+            return F[n] * invF[n - m] % MOD * invF[m] % MOD;
+        }
+
+        static long quickPow(long a, long b) {
+            long res = 1L;
+            while (b > 0) {
+                if ((b & 1) != 0) res = res * a % MOD;
+                a = a * a % MOD;
+                b >>= 1;
+            }
+            return res;
+        }
     }
 }
 /*

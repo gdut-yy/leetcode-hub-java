@@ -1,6 +1,8 @@
 package template;
 
 /**
+ * CF1825D2
+ *
  * @jiangly https://codeforces.com/contest/1824/submission/205086508
  */
 public class Comb {

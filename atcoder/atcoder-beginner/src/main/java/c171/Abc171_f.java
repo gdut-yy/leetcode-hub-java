@@ -1,6 +1,5 @@
 package c171;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Abc171_f {
@@ -8,63 +7,50 @@ public class Abc171_f {
     static String s;
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        Scanner scanner = new Scanner(System.in);
         k = scanner.nextInt();
         s = scanner.next();
         System.out.println(solve());
     }
 
-    private static final int MOD = (int) (1e9 + 7);
-
     private static String solve() {
         int n = s.length();
 
         long p26 = 1;
-        Comb comb = new Comb(n - 1 + k);
-        long p25 = comb.quickPow(25, k);
+        long p25 = quickPow(25, k);
         long inv25 = 280000002; // pow(25, mod-2)
         long ans = 0;
         for (int i = 0; i <= k; i++) {
-            ans = (ans + p26 * p25 % MOD * comb.binom(n - 1 + k - i, n - 1)) % MOD;
+            ans = (ans + p26 * p25 % MOD * comb(n - 1 + k - i, n - 1)) % MOD;
             p26 = p26 * 26 % MOD;
             p25 = p25 * inv25 % MOD;
         }
         return String.valueOf(ans);
     }
 
-    private static class Comb {
-        private final long[] fac, invfac;
+    static int MOD = (int) 1e9 + 7, MX = (int) 2e6;
+    static long[] F = new long[MX + 1], invF = new long[MX + 1];
 
-        public Comb(int n) {
-            fac = new long[n + 1];
-            fac[0] = 1;
-            for (int i = 1; i <= n; i++) {
-                fac[i] = fac[i - 1] * i % MOD;
-            }
-            invfac = new long[n + 1];
-            for (int i = 0; i <= n; i++) {
-                invfac[i] = quickPow(fac[i], MOD - 2);
-            }
-        }
+    static {
+        F[0] = F[1] = invF[0] = invF[1] = 1;
+        for (int i = 2; i <= MX; i++) F[i] = F[i - 1] * i % MOD;
+        invF[MX] = quickPow(F[MX], MOD - 2);
+        for (int i = MX - 1; i >= 2; i--) invF[i] = invF[i + 1] * (i + 1) % MOD;
+    }
 
-        // C(n, m) = n! / m!(n-m)!
-        private long binom(int n, int m) {
-            if (n < m || m < 0) return 0;
-            return fac[n] * invfac[m] % MOD * invfac[n - m] % MOD;
-        }
+    static long comb(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return F[n] * invF[n - m] % MOD * invF[m] % MOD;
+    }
 
-        // 模下的 a^b
-        private long quickPow(long a, long b) {
-            long res = 1L;
-            while (b > 0) {
-                if ((b & 1) == 1) {
-                    res = res * a % MOD;
-                }
-                a = a * a % MOD;
-                b >>= 1;
-            }
-            return res;
+    static long quickPow(long a, long b) {
+        long res = 1L;
+        while (b > 0) {
+            if ((b & 1) != 0) res = res * a % MOD;
+            a = a * a % MOD;
+            b >>= 1;
         }
+        return res;
     }
 }
 /*

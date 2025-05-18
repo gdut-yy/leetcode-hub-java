@@ -58,6 +58,7 @@ public class Solution3539 {
     }
 
     static long comb(int n, int m) {
+        if (n < m || m < 0) return 0;
         return F[n] * invF[n - m] % MOD * invF[m] % MOD;
     }
 
