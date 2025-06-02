@@ -1,27 +1,21 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.Deque;
 
 public class Solution2071 {
     public int maxTaskAssign(int[] tasks, int[] workers, int pills, int strength) {
         Arrays.sort(tasks);
-        TreeMap<Integer, Integer> treeMap = new TreeMap<>();
-        for (int worker : workers) {
-            treeMap.put(worker, treeMap.getOrDefault(worker, 0) + 1);
-        }
+        Arrays.sort(workers);
+        int mn = Math.min(tasks.length, workers.length);
 
-        // 注意边界: 任务能全部被完成
-        if (checkMid(tasks, new TreeMap<>(treeMap), pills, strength, tasks.length)) {
-            return tasks.length;
-        }
         // 二分查找
         int left = 1;
-        int right = tasks.length;
+        int right = mn + 1;
         while (left < right) {
             int mid = left + (right - left) / 2;
             // 边界二分 F, F,..., F, [T, T,..., T]
             // ----------------------^
-            if (!checkMid(tasks, new TreeMap<>(treeMap), pills, strength, mid)) {
+            if (!checkMid(tasks, workers, pills, strength, new ArrayDeque<>(), mid)) {
                 right = mid;
             } else {
                 left = mid + 1;
@@ -30,34 +24,33 @@ public class Solution2071 {
         return left - 1;
     }
 
-    // 能否完成 mid 个任务
-    private boolean checkMid(int[] tasks, TreeMap<Integer, Integer> workerMap, int pills, int strength, int mid) {
-        for (int i = mid - 1; i >= 0; i--) {
-            Map.Entry<Integer, Integer> ceilingEntry = workerMap.ceilingEntry(tasks[i]);
-            if (ceilingEntry != null) {
-                // 不使用药丸
-                if (ceilingEntry.getValue() > 1) {
-                    workerMap.put(ceilingEntry.getKey(), ceilingEntry.getValue() - 1);
-                } else {
-                    workerMap.remove(ceilingEntry.getKey());
-                }
-            } else {
-                // 使用药丸
-                if (pills == 0) {
-                    return false;
-                }
-                pills--;
-                Map.Entry<Integer, Integer> entry = workerMap.ceilingEntry(tasks[i] - strength);
-                if (entry != null) {
-                    if (entry.getValue() > 1) {
-                        workerMap.put(entry.getKey(), entry.getValue() - 1);
-                    } else {
-                        workerMap.remove(entry.getKey());
-                    }
-                } else {
-                    return false;
-                }
+    // 添加（能完成的）任务：往队尾插入数据。
+    // 删除最简单的任务：去掉队首。
+    // 删除（能完成的）最难的任务：去掉队尾。
+    private boolean checkMid(int[] tasks, int[] workers, int pills, int strength, Deque<Integer> dq, int k) {
+        // 贪心：用最强的 k 名工人，完成最简单的 k 个任务
+        int i = 0;
+        for (int j = workers.length - k; j < workers.length; j++) { // 枚举工人
+            int w = workers[j];
+            // 在吃药的情况下，把能完成的任务记录到 buf 中
+            while (i < k && tasks[i] <= w + strength) {
+                dq.addLast(tasks[i]);
+                i++;
             }
+            // 即使吃药也无法完成任务
+            if (dq.isEmpty()) return false;
+            // 无需吃药就能完成（最简单的）任务
+            if (w >= dq.getFirst()) {
+                dq.removeFirst();
+                continue;
+            }
+            // 必须吃药
+            if (pills == 0) { // 没药了
+                return false;
+            }
+            pills--;
+            // 完成（能完成的）最难的任务
+            dq.removeLast();
         }
         return true;
     }

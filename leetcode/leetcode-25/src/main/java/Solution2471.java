@@ -104,4 +104,6 @@ https://leetcode.cn/problems/minimum-number-of-operations-to-sort-a-binary-tree-
 
 问题等价于：无序数组交换任意两个元素 最少交换次数
 https://blog.csdn.net/qq_50332374/article/details/118612496
+相似题目: 3551. 数位和排序需要的最小交换次数
+https://leetcode.cn/problems/minimum-swaps-to-sort-by-digit-sum/description/
  */

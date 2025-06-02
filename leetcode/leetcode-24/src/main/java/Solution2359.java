@@ -1,7 +1,7 @@
 import java.util.Arrays;
 
 public class Solution2359 {
-    private static final int INF = 100000;
+    private static final int INF = (int) 1e5;
 
     public int closestMeetingNode(int[] edges, int node1, int node2) {
         int n = edges.length;

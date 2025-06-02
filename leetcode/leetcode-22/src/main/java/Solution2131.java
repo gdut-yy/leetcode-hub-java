@@ -3,20 +3,20 @@ import java.util.Map;
 
 public class Solution2131 {
     public int longestPalindrome(String[] words) {
-        Map<String, Integer> cntMap = new HashMap<>();
-        for (String word : words) {
-            cntMap.put(word, cntMap.getOrDefault(word, 0) + 1);
+        Map<String, Integer> cnt = new HashMap<>();
+        for (String w : words) {
+            cnt.merge(w, 1, Integer::sum);
         }
 
         // 分类讨论
         int maxLen = 0;
         boolean pickXx = false;
-        for (Map.Entry<String, Integer> entry : cntMap.entrySet()) {
+        for (Map.Entry<String, Integer> entry : cnt.entrySet()) {
             String key = entry.getKey();
             String reverseKey = new StringBuilder(key).reverse().toString();
             // xy - yx
             if (!key.equals(reverseKey)) {
-                int val = Math.min(entry.getValue(), cntMap.getOrDefault(reverseKey, 0));
+                int val = Math.min(entry.getValue(), cnt.getOrDefault(reverseKey, 0));
                 maxLen += val * 2;
             }
             // xx - xx
