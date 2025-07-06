@@ -33,6 +33,7 @@
         <module>codeforces-19</module>
         <module>codeforces-20</module>
         <module>codeforces-21</module>
+        <module>codeforces-22</module>
     </modules>
 
     <properties>

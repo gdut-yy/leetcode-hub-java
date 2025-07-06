@@ -14,3 +14,6 @@ add_executable(P3594 [POI2015] WIL "luogu/P3594 [POI2015] WIL.cpp")
 add_executable(P3901 数列找不同 "luogu/P3901 数列找不同.cpp")
 add_executable(P4513 小白逛公园 "luogu/P4513 小白逛公园.cpp")
 add_executable(P5490 【模板】扫描线 & 矩形面积并 "luogu/P5490 【模板】扫描线 & 矩形面积并.cpp")
+
+add_executable(P3572 [POI 2014] PTA-Little Bird "luogu/P3572 [POI 2014] PTA-Little Bird.cpp")
+add_executable(P3694 邦邦的大合唱站队 "luogu/P3694 邦邦的大合唱站队.cpp")
