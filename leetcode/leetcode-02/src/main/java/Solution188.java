@@ -45,4 +45,6 @@ https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-iv/
 0 <= prices[i] <= 1000
 
 状态机 DP
+相似题目: 3573. 买卖股票的最佳时机 V
+https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-v/description/
  */

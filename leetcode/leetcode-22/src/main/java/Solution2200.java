@@ -3,20 +3,35 @@ import java.util.List;
 
 public class Solution2200 {
     public List<Integer> findKDistantIndices(int[] nums, int key, int k) {
-        int len = nums.length;
-
-        List<Integer> resList = new ArrayList<>();
-        for (int i = 0; i < len; i++) {
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
             int start = Math.max(0, i - k);
-            int end = Math.min(len - 1, i + k);
+            int end = Math.min(n - 1, i + k);
             for (int j = start; j <= end; j++) {
                 if (nums[j] == key) {
-                    resList.add(i);
+                    ans.add(i);
                     break;
                 }
             }
         }
-        return resList;
+        return ans;
+    }
+
+    public List<Integer> findKDistantIndices2(int[] nums, int key, int k) {
+        int n = nums.length;
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            int start = Math.max(0, i - k);
+            int end = Math.min(n - 1, i + k);
+            for (int j = start; j <= end; j++) {
+                if (nums[j] == key) {
+                    ans.add(i);
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 }
 /*
@@ -35,4 +50,5 @@ key 是数组 nums 中的一个整数
 
 模拟。
 时间复杂度 O(nk)
+O(n) 做法 https://leetcode.cn/problems/find-all-k-distant-indices-in-an-array/solutions/1332985/mo-ni-by-endlesscheng-57j9/
  */

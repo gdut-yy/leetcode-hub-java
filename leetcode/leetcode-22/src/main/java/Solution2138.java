@@ -1,14 +1,14 @@
 public class Solution2138 {
     public String[] divideString(String s, int k, char fill) {
-        int len = s.length();
+        int n = s.length();
         s = s + String.valueOf(fill).repeat(k);
 
-        int resLen = (len % k == 0) ? (len / k) : (len / k + 1);
-        String[] res = new String[resLen];
-        for (int i = 0; i < resLen; i++) {
-            res[i] = s.substring(k * i, k * i + k);
+        int ansLen = (n % k == 0) ? (n / k) : (n / k + 1);
+        String[] ans = new String[ansLen];
+        for (int i = 0; i < ansLen; i++) {
+            ans[i] = s.substring(k * i, k * i + k);
         }
-        return res;
+        return ans;
     }
 }
 /*

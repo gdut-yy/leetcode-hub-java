@@ -24,4 +24,6 @@ https://leetcode.cn/problems/reaching-points/
 即 点 (x, y) 恢复到 (x, y-x)  或者 (x-y, y)。由于点为正整数，因此只有一种逆向可能。
 时间复杂度 O(logn)
 空间复杂度 O(1)
+相似题目: 3609. 到达目标点的最小移动次数
+https://leetcode.cn/problems/minimum-moves-to-reach-target-in-grid/description/
  */

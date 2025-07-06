@@ -1,17 +1,17 @@
 public class Solution2566 {
     public int minMaxDifference(int num) {
-        int min = Integer.MAX_VALUE;
-        int max = 0;
+        int mn = Integer.MAX_VALUE;
+        int mx = 0;
         String str = String.valueOf(num);
         for (char i = '0'; i <= '9'; i++) {
             for (char j = '0'; j <= '9'; j++) {
                 if (i == j) continue;
                 int n = Integer.parseInt(str.replace(i, j));
-                min = Math.min(min, n);
-                max = Math.max(max, n);
+                mn = Math.min(mn, n);
+                mx = Math.max(mx, n);
             }
         }
-        return max - min;
+        return mx - mn;
     }
 }
 /*

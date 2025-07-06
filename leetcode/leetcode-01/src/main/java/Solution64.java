@@ -40,4 +40,6 @@ n == grid[i].length
 定义 dp[i][j] 为 i x j 矩阵中，路径上的数字总和为最小的值。
 相似题目: 剑指 Offer 47. 礼物的最大价值
 https://leetcode.cn/problems/li-wu-de-zui-da-jie-zhi-lcof/
+3603. 交替方向的最小路径代价 II
+https://leetcode.cn/problems/minimum-cost-path-with-alternating-directions-ii/description/
  */

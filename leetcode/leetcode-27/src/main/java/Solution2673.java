@@ -30,4 +30,6 @@ https://leetcode.cn/problems/make-costs-of-paths-equal-in-a-binary-tree/
 贪心。满二叉树 性质。
 比赛时只想到最终每条路径必然是最大路径和，两个叶子都加上某个值等于其父亲加上这个值。但并没有想到两个叶子的值相等的性质。洋洋洒洒写了一大堆。。
 时间复杂度 O(n)
+相似题目: 3593. 使叶子路径成本相等的最小增量
+https://leetcode.cn/problems/minimum-increments-to-equalize-leaf-paths/description/
  */

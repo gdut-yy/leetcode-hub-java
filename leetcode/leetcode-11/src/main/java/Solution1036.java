@@ -1,3 +1,4 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -5,6 +6,7 @@ import java.util.Queue;
 import java.util.Set;
 
 public class Solution1036 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
     private static final int M = 1000000;
     private static final int N = 1000000;
 
@@ -21,33 +23,32 @@ public class Solution1036 {
     }
 
     private boolean bfs(int[] source, int[] target, Set<String> blockedSet) {
-        int[][] direction = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
         // BFS
-        Queue<int[]> queue = new LinkedList<>();
-        Set<String> visitedSet = new HashSet<>();
-        queue.add(source);
-        visitedSet.add(source[0] + ":" + source[1]);
+        Queue<int[]> q = new ArrayDeque<>();
+        Set<String> vis = new HashSet<>();
+        q.add(source);
+        vis.add(source[0] + ":" + source[1]);
 
-        // blockedS 可以围住的最大个数
-        int len = blockedSet.size();
-        int max = len * (len - 1) / 2;
+        // blockedSet 可以围住的最大个数
+        int k = blockedSet.size();
+        int max = k * (k - 1) / 2;
         int cnt = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        while (!q.isEmpty()) {
+            int size = q.size();
             cnt += size;
             for (int i = 0; i < size; i++) {
-                int[] cur = queue.remove();
+                int[] cur = q.remove();
                 // 到达目标方格
                 if (Arrays.equals(cur, target)) {
                     return true;
                 }
-                for (int[] dir : direction) {
-                    int nextM = cur[0] + dir[0];
-                    int nextN = cur[1] + dir[1];
-                    if (nextM >= 0 && nextM < M && nextN >= 0 && nextN < N && !visitedSet.contains(nextM + ":" + nextN)
-                            && !blockedSet.contains(nextM + ":" + nextN)) {
-                        visitedSet.add(nextM + ":" + nextN);
-                        queue.add(new int[]{nextM, nextN});
+                for (int[] d : DIRECTIONS) {
+                    int nx = cur[0] + d[0];
+                    int ny = cur[1] + d[1];
+                    if (nx >= 0 && nx < M && ny >= 0 && ny < N && !vis.contains(nx + ":" + ny)
+                            && !blockedSet.contains(nx + ":" + ny)) {
+                        vis.add(nx + ":" + ny);
+                        q.add(new int[]{nx, ny});
                     }
                 }
             }

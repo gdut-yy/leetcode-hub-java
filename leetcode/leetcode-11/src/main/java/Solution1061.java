@@ -1,27 +1,25 @@
 public class Solution1061 {
     public String smallestEquivalentString(String s1, String s2, String baseStr) {
-        int len = s1.length();
+        int n = s1.length();
 
         DSU dsu = new DSU(26);
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < n; i++) {
             int idx1 = s1.charAt(i) - 'a';
             int idx2 = s2.charAt(i) - 'a';
             dsu.union(idx1, idx2);
         }
 
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder ans = new StringBuilder();
         for (char ch : baseStr.toCharArray()) {
             int idx = dsu.find(ch - 'a');
-            stringBuilder.append((char) (idx + 'a'));
+            ans.append((char) (idx + 'a'));
         }
-        return stringBuilder.toString();
+        return ans.toString();
     }
 
-    private static class DSU {
-        // 父节点数组/祖先数组
+    static class DSU {
         int[] fa;
 
-        // 初始化
         public DSU(int n) {
             fa = new int[n];
             for (int i = 0; i < n; i++) {
@@ -29,28 +27,17 @@ public class Solution1061 {
             }
         }
 
-        // 查找
-        int find(int x) {
-            // 路径压缩
-            if (x != fa[x]) {
-                fa[x] = find(fa[x]);
-            }
-            return fa[x];
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        // 合并
-        void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP == rootQ) {
-                return;
-            }
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
             // 不按 rank，连接到字典序小的点
-            if (rootP < rootQ) {
-                fa[rootQ] = rootP;
-            } else {
-                fa[rootP] = rootQ;
-            }
+            if (p < q) fa[q] = p;
+            else fa[p] = q;
         }
     }
 }

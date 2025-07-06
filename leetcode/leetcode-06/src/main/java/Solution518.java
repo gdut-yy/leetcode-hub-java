@@ -27,4 +27,6 @@ coins 中的所有值 互不相同
 完全背包 求方案数。
 相似题目: 322. 零钱兑换
 https://leetcode.cn/problems/coin-change/
+3592. 硬币面值还原
+https://leetcode.cn/problems/inverse-coin-change/description/
  */

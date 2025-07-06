@@ -1,61 +1,52 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 public class Solution1857 {
     public int largestPathValue(String colors, int[][] edges) {
         int n = colors.length();
-
-        // 拓扑排序
-        Map<Integer, List<Integer>> outGraph = new HashMap<>();
-        int[] inDegrees = new int[n];
-        for (int[] edge : edges) {
-            int from = edge[0];
-            int to = edge[1];
-            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
-            inDegrees[to]++;
+        List<Integer>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        int[] inDeg = new int[n];
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+            inDeg[e[1]]++;
         }
 
-        // 入度为 0 进队列
-        Queue<Integer> queue = new LinkedList<>();
-        // 节点编号从 0 到 n - 1 。
+        Queue<Integer> q = new ArrayDeque<>();
         for (int i = 0; i < n; i++) {
-            if (inDegrees[i] == 0) {
-                queue.add(i);
+            if (inDeg[i] == 0) {
+                q.add(i);
             }
         }
         int cnt = 0;
-        // 动态规划
-        int[][] dp = new int[n][26];
-        while (!queue.isEmpty()) {
+        // f(v,c) 表示以节点 v 为终点的所有路径中，包含颜色 c 的节点数量的最大值
+        int[][] f = new int[n][26];
+        while (!q.isEmpty()) {
             cnt++;
-            int cur = queue.remove();
-            dp[cur][colors.charAt(cur) - 'a'] += 1;
+            int x = q.remove();
+            f[x][colors.charAt(x) - 'a'] += 1;
 
-            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
+            for (int y : g[x]) {
                 for (int ch = 0; ch < 26; ch++) {
-                    dp[next][ch] = Math.max(dp[next][ch], dp[cur][ch]);
+                    f[y][ch] = Math.max(f[y][ch], f[x][ch]);
                 }
-                inDegrees[next]--;
-                if (inDegrees[next] == 0) {
-                    queue.add(next);
+                if (--inDeg[y] == 0) {
+                    q.add(y);
                 }
             }
         }
-
         // 如果 cnt 不等于 n，说明图中存在环
         if (cnt != n) {
             return -1;
         }
 
-        // 求 最大值
         int max = 0;
         for (int i = 0; i < n; i++) {
             for (int c = 0; c < 26; c++) {
-                max = Math.max(max, dp[i][c]);
+                max = Math.max(max, f[i][c]);
             }
         }
         return max;

@@ -17,6 +17,25 @@ public class Solution1638 {
         }
         return ans;
     }
+
+    public int countSubstrings2(String S, String T) {
+        char[] s = S.toCharArray();
+        char[] t = T.toCharArray();
+        int n = s.length;
+        int m = t.length;
+        int ans = 0;
+        for (int d = 1 - m; d < n; ++d) { // d=i-j, j=i-d
+            int i = Math.max(d, 0);
+            for (int k0 = i - 1, k1 = k0; i < n && i - d < m; ++i) {
+                if (s[i] != t[i - d]) {
+                    k0 = k1; // 上上一个不同
+                    k1 = i;  // 上一个不同
+                }
+                ans += k1 - k0;
+            }
+        }
+        return ans;
+    }
 }
 /*
 1638. 统计只差一个字符的子串数目
@@ -32,4 +51,6 @@ s 和 t 都只包含小写英文字母。
 
 枚举。
 时间复杂度 O(mn * min(m,n))。
+【图解】非暴力 O(nm) 算法
+https://leetcode.cn/problems/count-substrings-that-differ-by-one-character/solutions/2192600/tu-jie-fei-bao-li-onm-suan-fa-pythonjava-k5og/
  */

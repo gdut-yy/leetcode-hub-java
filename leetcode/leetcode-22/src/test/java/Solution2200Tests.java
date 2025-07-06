@@ -13,6 +13,7 @@ public class Solution2200Tests {
         int k = 1;
         List<Integer> expected = List.of(1, 2, 3, 4, 5, 6);
         Assertions.assertEquals(expected, solution2200.findKDistantIndices(nums, key, k));
+        Assertions.assertEquals(expected, solution2200.findKDistantIndices2(nums, key, k));
     }
 
     @Test
@@ -22,5 +23,6 @@ public class Solution2200Tests {
         int k = 2;
         List<Integer> expected = List.of(0, 1, 2, 3, 4);
         Assertions.assertEquals(expected, solution2200.findKDistantIndices(nums, key, k));
+        Assertions.assertEquals(expected, solution2200.findKDistantIndices2(nums, key, k));
     }
 }

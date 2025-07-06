@@ -1,9 +1,11 @@
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
 import java.util.PriorityQueue;
+import java.util.stream.Collectors;
 
 public class Solution3170 {
+    record Node(char ch, int i) {
+    }
+
     public String clearStars(String s) {
         int n = s.length();
         PriorityQueue<Node> pq = new PriorityQueue<>((o1, o2) -> {
@@ -14,30 +16,12 @@ public class Solution3170 {
         });
         for (int i = 0; i < n; i++) {
             char ch = s.charAt(i);
-            if (ch == '*') {
-                pq.remove();
-            } else {
-                pq.add(new Node(ch, i));
-            }
+            if (ch == '*') pq.remove();
+            else pq.add(new Node(ch, i));
         }
-
-        List<Node> list = new ArrayList<>(pq);
-        list.sort(Comparator.comparingInt(o -> o.i));
-        StringBuilder ans = new StringBuilder();
-        for (Node node : list) {
-            ans.append(node.ch);
-        }
-        return ans.toString();
-    }
-
-    static class Node {
-        char ch;
-        int i;
-
-        public Node(char ch, int i) {
-            this.ch = ch;
-            this.i = i;
-        }
+        return pq.stream().sorted(Comparator.comparingInt(o -> o.i))
+                .map(o -> String.valueOf(o.ch))
+                .collect(Collectors.joining());
     }
 }
 /*

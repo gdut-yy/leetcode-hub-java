@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Solution3599 {
     static class V1 {
         private int n, k;
@@ -46,6 +48,30 @@ public class Solution3599 {
             return dp[n][k];
         }
     }
+
+    static class V2 {
+        public int minXor(int[] nums, int k) {
+            int n = nums.length;
+            int[][] f = new int[k + 1][n + 1];
+            Arrays.fill(f[0], Integer.MAX_VALUE);
+            f[0][0] = 0;
+            for (int i = 1; i <= k; i++) {
+                // 前后每个子数组长度至少是 1，预留空间给这些子数组
+                for (int j = i; j <= n - (k - i); j++) {
+                    int res = Integer.MAX_VALUE;
+                    int s = 0;
+                    // 枚举所有分割方案，取最小值
+                    for (int l = j - 1; l >= i - 1; l--) {
+                        s ^= nums[l];
+                        // 对于单个分割方案，子数组异或和要取最大值
+                        res = Math.min(res, Math.max(f[i - 1][l], s));
+                    }
+                    f[i][j] = res;
+                }
+            }
+            return f[k][n];
+        }
+    }
 }
 /*
 3599. 划分数组得到最小 XOR
@@ -65,4 +91,6 @@ https://leetcode.cn/problems/partition-array-to-minimize-xor/description/
 二分答案 + 划分型 DP。
 或者直接划分型 DP。
 时间复杂度 O(logU * n^3)。上界大概是 O(30 * 250^3) = O(468,750,000)
+划分型 DP 的通用套路，附二分 / Dijkstra 做法
+https://leetcode.cn/problems/partition-array-to-minimize-xor/solutions/3710966/hua-fen-xing-dp-de-tong-yong-tao-lu-pyth-lmcm/
  */

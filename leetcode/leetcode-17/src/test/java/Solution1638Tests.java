@@ -10,6 +10,7 @@ public class Solution1638Tests {
         String t = "baba";
         int expected = 6;
         Assertions.assertEquals(expected, solution1638.countSubstrings(s, t));
+        Assertions.assertEquals(expected, solution1638.countSubstrings2(s, t));
     }
 
     @Test
@@ -18,6 +19,7 @@ public class Solution1638Tests {
         String t = "bb";
         int expected = 3;
         Assertions.assertEquals(expected, solution1638.countSubstrings(s, t));
+        Assertions.assertEquals(expected, solution1638.countSubstrings2(s, t));
     }
 
     @Test
@@ -26,6 +28,7 @@ public class Solution1638Tests {
         String t = "a";
         int expected = 0;
         Assertions.assertEquals(expected, solution1638.countSubstrings(s, t));
+        Assertions.assertEquals(expected, solution1638.countSubstrings2(s, t));
     }
 
     @Test
@@ -34,5 +37,6 @@ public class Solution1638Tests {
         String t = "bbc";
         int expected = 10;
         Assertions.assertEquals(expected, solution1638.countSubstrings(s, t));
+        Assertions.assertEquals(expected, solution1638.countSubstrings2(s, t));
     }
 }

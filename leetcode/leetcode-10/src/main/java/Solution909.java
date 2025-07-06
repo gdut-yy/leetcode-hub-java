@@ -1,18 +1,18 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution909 {
     public int snakesAndLadders(int[][] board) {
         int n = board.length;
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
-        boolean[] visited = new boolean[n * n + 1];
-        visited[1] = true;
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        boolean[] vis = new boolean[n * n + 1];
+        vis[1] = true;
         int step = 0;
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        while (!q.isEmpty()) {
+            int size = q.size();
             for (int i = 0; i < size; i++) {
-                int cur = queue.remove();
+                int cur = q.remove();
                 if (cur == n * n) {
                     return step;
                 }
@@ -26,9 +26,9 @@ public class Solution909 {
                     if (board[rc[0]][rc[1]] != -1) {
                         next = board[rc[0]][rc[1]];
                     }
-                    if (!visited[next]) {
-                        visited[next] = true;
-                        queue.add(next);
+                    if (!vis[next]) {
+                        vis[next] = true;
+                        q.add(next);
                     }
                 }
             }

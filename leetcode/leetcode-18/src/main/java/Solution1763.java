@@ -65,22 +65,23 @@ public class Solution1763 {
     // 滑动窗口
     static class V3 {
         private int maxPos, maxLen;
+        private char[] s;
 
-        public String longestNiceSubstring(String s) {
+        public String longestNiceSubstring(String S) {
             maxPos = 0;
             maxLen = 0;
-            char[] cs = s.toCharArray();
+            s = S.toCharArray();
             int typeMask = 0;
-            for (char c : cs) {
+            for (char c : s) {
                 typeMask |= 1 << (Character.toLowerCase(c) - 'a');
             }
             for (int typeNum = 1; typeNum <= Integer.bitCount(typeMask); typeNum++) {
-                check(cs, typeNum);
+                check(typeNum);
             }
-            return s.substring(maxPos, maxPos + maxLen);
+            return S.substring(maxPos, maxPos + maxLen);
         }
 
-        private void check(char[] s, int typeNum) {
+        private void check(int typeNum) {
             int n = s.length, l = 0, r = 0;
             int[] cnt_lower = new int[26], cnt_upper = new int[26];
             // 同时出现大小写的字符的种类数量, 字符种类数量

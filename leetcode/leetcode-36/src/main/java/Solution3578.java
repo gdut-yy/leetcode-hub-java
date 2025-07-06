@@ -62,4 +62,6 @@ https://leetcode.cn/problems/count-partitions-with-max-min-difference-at-most-k/
 
 划分型 DP + 单调队列优化
 https://leetcode.cn/problems/count-partitions-with-max-min-difference-at-most-k/solutions/3695716/hua-fen-xing-dp-dan-diao-dui-lie-you-hua-9rtj/
+相似题目: 3589. 计数质数间隔平衡子数组
+https://leetcode.cn/problems/count-prime-gap-balanced-subarrays/description/
  */

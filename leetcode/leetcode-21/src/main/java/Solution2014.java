@@ -1,15 +1,15 @@
 import java.util.Arrays;
 
 public class Solution2014 {
-    private char[] cs;
+    private char[] s;
     private int n, k;
     private int[][] nxt;
     private StringBuilder a;
     private String ans;
 
-    public String longestSubsequenceRepeatedK(String s, int k) {
-        this.cs = s.toCharArray();
-        this.n = s.length();
+    public String longestSubsequenceRepeatedK(String S, int k) {
+        this.s = S.toCharArray();
+        this.n = S.length();
         this.k = k;
 
         // 子序列自动机
@@ -17,14 +17,13 @@ public class Solution2014 {
         Arrays.fill(pos, n);
         nxt = new int[n][26];
         for (int i = n - 1; i >= 0; i--) {
-//            nxt[i] = pos.clone();
-            System.arraycopy(pos, 0, nxt[i], 0, 26);
-            pos[cs[i] - 'a'] = i;
+            nxt[i] = pos.clone();
+            pos[s[i] - 'a'] = i;
         }
 
         int[] cnt = new int[26];
         for (int i = 0; i < n; i++) {
-            cnt[cs[i] - 'a']++;
+            cnt[s[i] - 'a']++;
         }
         // 计算所有可能出现在答案中的字符，包括重复的
         // 倒着统计，这样下面计算排列时的第一个合法方案就是答案，从而提前退出
@@ -37,7 +36,7 @@ public class Solution2014 {
 
         ans = "";
         // 从大到小枚举答案长度 m
-        for (int m = a.length(); m > 0 && ans.equals(""); m--) {
+        for (int m = a.length(); m > 0 && ans.isEmpty(); m--) {
             // 枚举长度为 m 的所有排列
             permutations(a.length(), m);
         }
@@ -96,7 +95,7 @@ public class Solution2014 {
             t[i] = a.charAt(id);
         }
         int i = 0, j = 0;
-        if (t[0] == cs[0]) {
+        if (t[0] == s[0]) {
             j = 1;
         }
         while (true) {

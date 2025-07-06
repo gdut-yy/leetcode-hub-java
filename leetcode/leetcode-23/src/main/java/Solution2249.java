@@ -3,22 +3,20 @@ import java.util.Set;
 
 public class Solution2249 {
     public int countLatticePoints(int[][] circles) {
-        Set<String> hashSet = new HashSet<>();
-        for (int[] circle : circles) {
-            int xi = circle[0];
-            int yi = circle[1];
-            int ri = circle[2];
+        Set<String> set = new HashSet<>();
+        for (int[] p : circles) {
+            int xi = p[0], yi = p[1], ri = p[2];
             for (int x = xi - ri; x <= xi + ri; x++) {
                 for (int y = yi - ri; y <= yi + ri; y++) {
                     int diffX = x - xi;
                     int diffY = y - yi;
                     if (diffX * diffX + diffY * diffY <= ri * ri) {
-                        hashSet.add(x + ":" + y);
+                        set.add(x + ":" + y);
                     }
                 }
             }
         }
-        return hashSet.size();
+        return set.size();
     }
 }
 /*
