@@ -51,4 +51,6 @@ s 中只含有小写英文字母。
 https://leetcode.cn/problems/palindrome-partitioning/
 132. 分割回文串 II
 https://leetcode.cn/problems/palindrome-partitioning-ii/
+1745. 分割回文串 IV
+https://leetcode.cn/problems/palindrome-partitioning-iv/description/
  */
