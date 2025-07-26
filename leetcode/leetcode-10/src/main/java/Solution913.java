@@ -1,64 +1,73 @@
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
 
 public class Solution913 {
-    private static final int MOUSE_WIN = 1;
-    private static final int CAT_WIN = 2;
-    private static final int DRAW = 0;
+    private static final int HOLE = 0;
 
-    private int[][] graph;
-    private int n;
-    private int[][][] dp;
-
-    public int catMouseGame(int[][] graph) {
-        this.graph = graph;
-        this.n = graph.length;
-        // {cat, mouse, turns}
-        this.dp = new int[n][n][n * 2 * (n - 1)];
+    public int catMouseGame(int[][] g) {
+        int n = g.length;
+        int[][][] deg = new int[n][n][2];
         for (int i = 0; i < n; i++) {
-            for (int j = 0; j < n; j++) {
-                Arrays.fill(dp[i][j], -1);
+            for (int j = 1; j < n; j++) {
+                deg[i][j][0] = g[i].length;
+                deg[i][j][1] = g[j].length;
+            }
+            // 对于猫来说，所有连到洞的边都不能走
+            for (int j : g[HOLE]) {
+                deg[i][j][1]--;
             }
         }
-        // 老鼠从节点 1 开始，第一个出发；猫从节点 2 开始，第二个出发。在节点 0 处有一个洞。
-        return dfs(2, 1, 0);
+
+        int[][][] winner = new int[n][n][2];
+        Queue<int[]> q = new ArrayDeque<>();
+        for (int i = 1; i < n; i++) {
+            winner[HOLE][i][1] = 1; // 鼠到达洞中（此时轮到猫移动），鼠获胜
+            winner[i][i][0] = winner[i][i][1] = 2; // 猫和鼠出现在同一个节点，无论轮到谁移动，都是猫获胜
+            q.offer(new int[]{HOLE, i, 1}); // 从终点开始倒推
+            q.offer(new int[]{i, i, 0});
+            q.offer(new int[]{i, i, 1});
+        }
+
+        while (!q.isEmpty()) {
+            int[] cur = q.poll();
+            int mouse = cur[0], cat = cur[1], turn = cur[2];
+            int win = winner[mouse][cat][turn]; // 最终谁赢了
+            for (int[] pre : getPreStates(mouse, cat, turn, g, winner)) {
+                int preMouse = pre[0], preCat = pre[1], preTurn = turn ^ 1;
+                // 情况一：如果上一回合鼠从 pre 移动到 cur，最终鼠赢，那么标记 pre 状态的 winner = 鼠
+                // 情况二：如果上一回合猫从 pre 移动到 cur，最终猫赢，那么标记 pre 状态的 winner = 猫
+                // 情况三：如果上一回合鼠从 pre 移动到 cur，最终猫赢，那么待定，直到我们发现从 pre 出发能到达的状态都是猫赢，那么标记 pre 状态的 winner = 猫
+                // 情况四：如果上一回合猫从 pre 移动到 cur，最终鼠赢，那么待定，直到我们发现从 pre 出发能到达的状态都是鼠赢，那么标记 pre 状态的 winner = 鼠
+                if (preTurn == win - 1 || --deg[preMouse][preCat][preTurn] == 0) {
+                    winner[preMouse][preCat][preTurn] = win;
+                    q.offer(new int[]{preMouse, preCat, preTurn}); // 继续倒推
+                }
+            }
+        }
+
+        // 鼠在节点 1，猫在节点 2，当前轮到鼠移动
+        return winner[1][2][0]; // 返回最终谁赢了（或者平局）
     }
 
-    private int dfs(int cat, int mouse, int turns) {
-        if (turns == n * 2 * (n - 1)) {
-            return DRAW;
-        } else {
-            if (dp[cat][mouse][turns] == -1) {
-                // 如果老鼠到达洞中，老鼠获胜。
-                if (mouse == 0) {
-                    dp[cat][mouse][turns] = MOUSE_WIN;
-                }
-                // 如果猫和老鼠出现在同一个节点，猫获胜。
-                else if (cat == mouse) {
-                    dp[cat][mouse][turns] = CAT_WIN;
-                } else {
-                    int curMove = (turns % 2 == 0) ? mouse : cat;
-                    int defaultRes = (curMove == mouse) ? CAT_WIN : MOUSE_WIN;
-                    int res = defaultRes;
-                    for (int next : graph[curMove]) {
-                        // 猫无法移动到洞中（节点 0）。
-                        if (curMove == cat && next == 0) {
-                            continue;
-                        }
-                        int nextCat = (curMove == cat) ? next : cat;
-                        int nextMouse = (curMove == mouse) ? next : mouse;
-                        int nextRes = dfs(nextCat, nextMouse, turns + 1);
-                        if (nextRes != defaultRes) {
-                            res = nextRes;
-                            if (res != DRAW) {
-                                break;
-                            }
-                        }
-                    }
-                    dp[cat][mouse][turns] = res;
+    // 获取 (mouse, cat, turn) 的上个状态（值尚未确定）
+    private List<int[]> getPreStates(int mouse, int cat, int turn, int[][] g, int[][][] winner) {
+        List<int[]> preStates = new ArrayList<>();
+        if (turn == 0) { // 当前轮到鼠移动
+            for (int preCat : g[cat]) { // 上一轮猫的位置
+                if (preCat != HOLE && winner[mouse][preCat][1] == 0) { // 猫无法移动到洞中
+                    preStates.add(new int[]{mouse, preCat});
                 }
             }
-            return dp[cat][mouse][turns];
+        } else { // 当前轮到猫移动
+            for (int preMouse : g[mouse]) { // 上一轮鼠的位置
+                if (winner[preMouse][cat][0] == 0) {
+                    preStates.add(new int[]{preMouse, cat});
+                }
+            }
         }
+        return preStates;
     }
 }
 /*
@@ -88,9 +97,8 @@ graph[i][j] != i
 graph[i] 互不相同
 猫和老鼠在游戏中总是移动
 
-动态规划。
-时间复杂度 O(n^5)
-由于老鼠可能的位置有 n 个，猫可能的位置有 n - 1 个，游戏轮数最大为 2n(n - 1)，因此动态规划的状态数是 O(n^4)，
-对于每个状态需要 O(n) 的时间计算状态值，因此总时间复杂度是 O(n^5)，该时间复杂度会超出时间限制，因此自顶向下的动态规划不适用于这道题。
-以下代码为自顶向下的动态规划的实现，仅供读者参考。
+逆向思维 + 拓扑序 DP https://leetcode.cn/problems/cat-and-mouse/solutions/3070461/ni-xiang-si-wei-tuo-bu-xu-dppythonjavacg-wp8k/
+时间复杂度 O(n^3)
+相似题目: 1728. 猫和老鼠 II
+https://leetcode.cn/problems/cat-and-mouse-ii/description/
  */
