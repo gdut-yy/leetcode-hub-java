@@ -182,4 +182,5 @@ https://leetcode.cn/problems/minimum-stability-factor-of-array/description/
 二分答案 + ST 表。
 时间复杂度 O(nlogU)
 二分答案 + logTrick。
+rating 2434 (clist.by)
  */

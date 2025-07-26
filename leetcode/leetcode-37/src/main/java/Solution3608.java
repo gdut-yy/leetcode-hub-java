@@ -1,59 +1,101 @@
+import java.util.Arrays;
+import java.util.Comparator;
+
 public class Solution3608 {
-    public int minTime(int n, int[][] edges, int k) {
-        int maxTime = 0;
-        for (int[] edge : edges) {
-            if (edge[2] > maxTime) {
-                maxTime = edge[2];
+    static class V1 {
+        public int minTime(int n, int[][] edges, int k) {
+            int maxTime = 0;
+            for (int[] edge : edges) {
+                if (edge[2] > maxTime) {
+                    maxTime = edge[2];
+                }
             }
+
+            int left = 0;
+            int right = maxTime;
+            while (left < right) {
+                int mid = left + (right - left) / 2;
+                // 边界二分 F, F,..., F, [T, T,..., T]
+                // ----------------------^
+                if (check(mid, n, edges, k)) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+            return left;
         }
 
-        int left = 0;
-        int right = maxTime;
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T]
-            // ----------------------^
-            if (check(mid, n, edges, k)) {
-                right = mid;
-            } else {
-                left = mid + 1;
+        private boolean check(int mid, int n, int[][] edges, int k) {
+            DSU dsu = new DSU(n);
+            for (int[] edge : edges) {
+                int time = edge[2];
+                if (time > mid) {
+                    int u = edge[0], v = edge[1];
+                    dsu.union(u, v);
+                }
+            }
+            return dsu.sz >= k;
+        }
+
+        static class DSU {
+            int[] fa;
+            int sz;
+
+            public DSU(int n) {
+                fa = new int[n];
+                for (int i = 0; i < n; i++) fa[i] = i;
+                sz = n;
+            }
+
+            int find(int x) { // 查找
+                return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
+            }
+
+            void union(int p, int q) { // 合并
+                p = find(p);
+                q = find(q);
+                if (p == q) return;
+                fa[q] = p;
+                sz--;
             }
         }
-        return left;
     }
 
-    private boolean check(int mid, int n, int[][] edges, int k) {
-        DSU dsu = new DSU(n);
-        for (int[] edge : edges) {
-            int time = edge[2];
-            if (time > mid) {
-                int u = edge[0], v = edge[1];
-                dsu.union(u, v);
+    static class V2 {
+        public int minTime(int n, int[][] edges, int k) {
+            DSU dsu = new DSU(n);
+            Arrays.sort(edges, Comparator.comparingInt(o -> -o[2]));
+            for (int[] e : edges) {
+                dsu.union(e[0], e[1]);
+                if (dsu.sz < k) {
+                    return e[2];
+                }
             }
-        }
-        return dsu.sz >= k;
-    }
-
-    static class DSU {
-        int[] fa;
-        int sz;
-
-        public DSU(int n) {
-            fa = new int[n];
-            for (int i = 0; i < n; i++) fa[i] = i;
-            sz = n;
+            return 0;
         }
 
-        int find(int x) { // 查找
-            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
-        }
+        static class DSU {
+            int[] fa;
+            int sz;
 
-        void union(int p, int q) { // 合并
-            p = find(p);
-            q = find(q);
-            if (p == q) return;
-            fa[q] = p;
-            sz--;
+            public DSU(int n) {
+                fa = new int[n];
+                for (int i = 0; i < n; i++) fa[i] = i;
+                sz = n;
+            }
+
+            int find(int x) { // 查找
+                return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
+            }
+
+            void union(int p, int q) { // 合并
+                p = find(p);
+                q = find(q);
+                if (p == q) return;
+                fa[q] = p;
+                sz--;
+            }
         }
     }
 }
@@ -79,4 +121,6 @@ ui != vi
 不存在重复的边。
 
 二分答案 + 并查集。
+相似题目: 3613. 最小化连通分量的最大成本
+https://leetcode.cn/problems/minimize-maximum-component-cost/description/
  */

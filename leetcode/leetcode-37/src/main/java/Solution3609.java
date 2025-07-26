@@ -74,4 +74,5 @@ https://leetcode.cn/problems/minimum-moves-to-reach-target-in-grid/description/
   2.3 x = 2y 把 x 减半得到 y，把 x 减去 y 也得到 y，所以是一样的，可以整合到 2.2
 相似题目: 780. 到达终点
 https://leetcode.cn/problems/reaching-points/
+rating 2451 (clist.by)
  */
