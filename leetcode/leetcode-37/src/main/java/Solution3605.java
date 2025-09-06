@@ -180,7 +180,9 @@ https://leetcode.cn/problems/minimum-stability-factor-of-array/description/
 0 <= maxC <= n
 
 二分答案 + ST 表。
-时间复杂度 O(nlogU)
-二分答案 + logTrick。
+时间复杂度 O(nlogn)。
+https://chat.deepseek.com/a/chat/s/ac7465ca-a7c9-4ecf-b834-6522a4c472f5
+二分答案 + LogTrick / 栈 + 滑动窗口 https://leetcode.cn/problems/minimum-stability-factor-of-array/solutions/3716266/er-fen-da-an-logtrickpythonjavacgo-by-en-jqxy/
+时间复杂度 O(nlogU + nlogM)。
 rating 2434 (clist.by)
  */

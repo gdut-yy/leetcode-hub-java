@@ -69,4 +69,5 @@ https://chat.deepseek.com/a/chat/s/1a003690-eb28-4cfd-9fa2-594bf43a252e
     - 如果 m 是偶数，检查 m * k <= n * m - c。
   - 一旦条件满足，返回当前的 m。
 时间复杂度 O(n)。
+rating 2477 (clist.by)
  */

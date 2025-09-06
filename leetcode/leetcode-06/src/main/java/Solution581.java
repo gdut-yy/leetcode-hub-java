@@ -24,4 +24,6 @@ https://leetcode.cn/problems/shortest-unsorted-continuous-subarray/description/
 
 排序 + 双指针
 时间复杂度 O(nlogn)
+相似题目: $3555. 排序每个滑动窗口中最小的子数组
+https://leetcode.cn/problems/smallest-subarray-to-sort-in-every-sliding-window/description/
  */

@@ -51,4 +51,5 @@ https://leetcode.cn/problems/maximum-product-of-two-integers-with-no-common-bits
 高维前缀和（Sum Over Subsets DP，SOS DP）
 https://chat.deepseek.com/a/chat/s/287693a9-151d-47f1-99c1-b93864dbe0bd
 时间复杂度 O(n + UlogU)。
+rating 2276 (clist.by)
  */

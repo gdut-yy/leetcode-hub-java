@@ -34,4 +34,6 @@ piles.length % 3 == 0
 时间复杂度 O(nlogn)。
 相似题目: 3457. 吃披萨
 https://leetcode.cn/problems/eat-pizzas/description/
+3627. 中位数之和的最大值
+https://leetcode.cn/problems/maximum-median-sum-of-subsequences-of-size-3/description/
  */

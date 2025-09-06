@@ -125,4 +125,5 @@ https://leetcode.cn/problems/sum-of-beautiful-subsequences/description/
 懒初始化树状数组。
 https://leetcode.cn/problems/sum-of-beautiful-subsequences/solutions/3768197/bei-shu-rong-chi-zhi-yu-shu-zhuang-shu-z-rs5w/
 时间复杂度 O(DnlogU + UlogU)，其中 n 是 nums 的长度，U=max(nums)≤7×10^4，D≤120 为单个数的最大因子个数。
+rating 2675 (clist.by)
  */

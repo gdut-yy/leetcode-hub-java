@@ -44,4 +44,6 @@ conversions.length == n - 1
 
 建图后 DFS。
 时间复杂度 O(n)。
+相似题目: $3535. 单位转换 II
+https://leetcode.cn/problems/unit-conversion-ii/description/
  */
