@@ -11,6 +11,7 @@ public class Solution2327Tests {
         int forget = 4;
         int expected = 5;
         Assertions.assertEquals(expected, solution2327.peopleAwareOfSecret(n, delay, forget));
+        Assertions.assertEquals(expected, solution2327.peopleAwareOfSecret2(n, delay, forget));
     }
 
     @Test
@@ -20,5 +21,6 @@ public class Solution2327Tests {
         int forget = 3;
         int expected = 6;
         Assertions.assertEquals(expected, solution2327.peopleAwareOfSecret(n, delay, forget));
+        Assertions.assertEquals(expected, solution2327.peopleAwareOfSecret2(n, delay, forget));
     }
 }

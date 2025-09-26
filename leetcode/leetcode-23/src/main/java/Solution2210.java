@@ -1,27 +1,19 @@
-import java.util.LinkedList;
-
 public class Solution2210 {
     public int countHillValley(int[] nums) {
         // 去重
-        LinkedList<Integer> list = new LinkedList<>();
-        for (int num : nums) {
-            if (list.isEmpty() || num != list.peekLast()) {
-                list.addLast(num);
+        int n = 1;
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] != nums[i - 1]) {
+                nums[n++] = nums[i];
             }
         }
 
-        // 统计 峰和谷
-        int size = list.size();
-        int cnt = 0;
-        for (int i = 1; i < size - 1; i++) {
-            if (list.get(i) > list.get(i - 1) && list.get(i) > list.get(i + 1)) {
-                cnt++;
-            }
-            if (list.get(i) < list.get(i - 1) && list.get(i) < list.get(i + 1)) {
-                cnt++;
-            }
+        int ans = 0;
+        for (int i = 1; i < n - 1; i++) {
+            if (nums[i - 1] < nums[i] && nums[i] > nums[i + 1]) ans++; // 峰
+            if (nums[i - 1] > nums[i] && nums[i] < nums[i + 1]) ans++; // 谷
         }
-        return cnt;
+        return ans;
     }
 }
 /*

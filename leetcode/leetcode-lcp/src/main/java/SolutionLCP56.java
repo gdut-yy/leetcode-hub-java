@@ -1,9 +1,63 @@
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Deque;
 import java.util.PriorityQueue;
 
 public class SolutionLCP56 {
+    private static final int[][] DIRECTIONS = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+
     public int conveyorBelt(String[] matrix, int[] start, int[] end) {
+        int m = matrix.length;
+        int n = matrix[0].length();
+
+        Deque<int[]> dq = new ArrayDeque<>();
+        int[][] dist = new int[m][n];
+        for (int[] p : dist) {
+            Arrays.fill(p, Integer.MAX_VALUE);
+        }
+        dq.addFirst(new int[]{start[0], start[1]});
+        dist[start[0]][start[1]] = 0;
+
+        while (!dq.isEmpty()) {
+            int sz = dq.size();
+            for (int i = 0; i < sz; i++) {
+                int[] cur = dq.removeFirst();
+                int cx = cur[0], cy = cur[1], cd = dist[cx][cy];
+                if (cx == end[0] && cur[1] == end[1]) return cd;
+
+                char ch = matrix[cx].charAt(cy);
+                int nx = cx, ny = cy;
+                switch (ch) {
+                    case '^' -> nx--; // 向上移动
+                    case 'v' -> nx++; // 向下移动
+                    case '<' -> ny--; // 向右移动
+                    default -> ny++; // 向左移动
+                }
+                // 距离为 0
+                if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                    if (cd < dist[nx][ny]) {
+                        dist[nx][ny] = cd;
+                        dq.addFirst(new int[]{nx, ny});
+                    }
+                }
+                // 距离为 1
+                for (int[] d : DIRECTIONS) {
+                    nx = cx + d[0];
+                    ny = cy + d[1];
+                    if (nx >= 0 && nx < m && ny >= 0 && ny < n) {
+                        if (cd + 1 < dist[nx][ny]) {
+                            dist[nx][ny] = cd + 1;
+                            dq.addLast(new int[]{nx, ny});
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public int conveyorBelt2(String[] matrix, int[] start, int[] end) {
         int M = matrix.length;
         int N = matrix[0].length();
 
@@ -44,7 +98,7 @@ public class SolutionLCP56 {
         return dist[end[0] * N + end[1]];
     }
 
-    private static class LinkedForwardStar {
+    static class LinkedForwardStar {
         // n 个点
         private final int N;
         // m 条边

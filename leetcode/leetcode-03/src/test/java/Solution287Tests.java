@@ -9,6 +9,7 @@ public class Solution287Tests {
         int[] nums = {1, 3, 4, 2, 2};
         int expected = 2;
         Assertions.assertEquals(expected, solution287.findDuplicate(nums));
+        Assertions.assertEquals(expected, solution287.findDuplicate2(nums));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution287Tests {
         int[] nums = {3, 1, 3, 4, 2};
         int expected = 3;
         Assertions.assertEquals(expected, solution287.findDuplicate(nums));
+        Assertions.assertEquals(expected, solution287.findDuplicate2(nums));
     }
 
     @Test
@@ -23,6 +25,7 @@ public class Solution287Tests {
         int[] nums = {1, 1};
         int expected = 1;
         Assertions.assertEquals(expected, solution287.findDuplicate(nums));
+        Assertions.assertEquals(expected, solution287.findDuplicate2(nums));
     }
 
     @Test
@@ -30,5 +33,6 @@ public class Solution287Tests {
         int[] nums = {1, 1, 2};
         int expected = 1;
         Assertions.assertEquals(expected, solution287.findDuplicate(nums));
+        Assertions.assertEquals(expected, solution287.findDuplicate2(nums));
     }
 }

@@ -11,6 +11,7 @@ public class SolutionLCP56Tests {
         int[] end = {2, 0};
         int expected = 1;
         Assertions.assertEquals(expected, solutionLCP56.conveyorBelt(matrix, start, end));
+        Assertions.assertEquals(expected, solutionLCP56.conveyorBelt2(matrix, start, end));
     }
 
     @Test
@@ -20,6 +21,7 @@ public class SolutionLCP56Tests {
         int[] end = {1, 1};
         int expected = 0;
         Assertions.assertEquals(expected, solutionLCP56.conveyorBelt(matrix, start, end));
+        Assertions.assertEquals(expected, solutionLCP56.conveyorBelt2(matrix, start, end));
     }
 
     @Test
@@ -29,5 +31,6 @@ public class SolutionLCP56Tests {
         int[] end = {1, 3};
         int expected = 3;
         Assertions.assertEquals(expected, solutionLCP56.conveyorBelt(matrix, start, end));
+        Assertions.assertEquals(expected, solutionLCP56.conveyorBelt2(matrix, start, end));
     }
 }

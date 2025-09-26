@@ -1,5 +1,5 @@
 public class Solution2327 {
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
 
     // 时间复杂度 O(n^2)
     public int peopleAwareOfSecret(int n, int delay, int forget) {
@@ -53,4 +53,6 @@ https://leetcode.cn/problems/number-of-people-aware-of-a-secret/
 提示：
 2 <= n <= 1000
 1 <= delay < forget <= n
+
+差分数组/前缀和
  */

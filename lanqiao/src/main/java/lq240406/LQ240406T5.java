@@ -34,8 +34,7 @@ public class LQ240406T5 {
     // bits.Len:
     // Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     static int bitsLen(long x) {
-        if (x == 0) return 0;
-        return Long.toBinaryString(x).length();
+        return 64 - Long.numberOfLeadingZeros(x);
     }
 }
 /*

@@ -4,12 +4,12 @@ import java.util.Map;
 public class Solution80 {
     public int removeDuplicates(int[] nums) {
         int len = nums.length;
-        Map<Integer, Integer> cntMap = new HashMap<>();
+        Map<Integer, Integer> cnt = new HashMap<>();
         int idx = 0;
         for (int i = 0; i < len; i++) {
-            if (!cntMap.containsKey(nums[i]) || cntMap.get(nums[i]) < 2) {
+            if (!cnt.containsKey(nums[i]) || cnt.get(nums[i]) < 2) {
                 nums[idx++] = nums[i];
-                cntMap.put(nums[i], cntMap.getOrDefault(nums[i], 0) + 1);
+                cnt.merge(nums[i], 1, Integer::sum);
             }
         }
         return idx;

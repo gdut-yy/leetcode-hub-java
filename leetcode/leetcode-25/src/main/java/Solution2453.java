@@ -5,21 +5,21 @@ import java.util.Map;
 
 public class Solution2453 {
     public int destroyTargets(int[] nums, int space) {
-        int max = 0;
-        Map<Integer, List<Integer>> cntMap = new HashMap<>();
-        for (int num : nums) {
-            int remain = num % space;
-            cntMap.computeIfAbsent(remain, key -> new ArrayList<>()).add(num);
-            max = Math.max(max, cntMap.get(remain).size());
+        int mx = 0;
+        Map<Integer, List<Integer>> cnt = new HashMap<>();
+        for (int v : nums) {
+            int remain = v % space;
+            cnt.computeIfAbsent(remain, e -> new ArrayList<>()).add(v);
+            mx = Math.max(mx, cnt.get(remain).size());
         }
 
-        int min = Integer.MAX_VALUE;
-        for (Map.Entry<Integer, List<Integer>> entry : cntMap.entrySet()) {
-            if (entry.getValue().size() == max) {
-                min = Math.min(min, entry.getValue().stream().min(Integer::compareTo).orElseThrow());
+        int mn = Integer.MAX_VALUE;
+        for (Map.Entry<Integer, List<Integer>> entry : cnt.entrySet()) {
+            if (entry.getValue().size() == mx) {
+                mn = Math.min(mn, entry.getValue().stream().min(Integer::compareTo).orElseThrow());
             }
         }
-        return min;
+        return mn;
     }
 }
 /*
