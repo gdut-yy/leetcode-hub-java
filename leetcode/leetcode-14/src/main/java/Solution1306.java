@@ -1,31 +1,26 @@
-import java.util.LinkedList;
+import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class Solution1306 {
     public boolean canReach(int[] arr, int start) {
-        int len = arr.length;
-
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(start);
-        boolean[] visited = new boolean[len];
-        visited[start] = true;
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-            for (int i = 0; i < size; i++) {
-                int curIdx = queue.remove();
-                if (arr[curIdx] == 0) {
+        int n = arr.length;
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(start);
+        boolean[] vis = new boolean[n];
+        vis[start] = true;
+        while (!q.isEmpty()) {
+            int sz = q.size();
+            while (sz-- > 0) {
+                int i = q.remove();
+                if (arr[i] == 0) {
                     return true;
                 }
-
                 // 可以跳到 i + arr[i] 或者 i - arr[i]
-                if (curIdx - arr[curIdx] >= 0 && !visited[curIdx - arr[curIdx]]) {
-                    visited[curIdx - arr[curIdx]] = true;
-                    queue.add(curIdx - arr[curIdx]);
-                }
-                if (curIdx + arr[curIdx] < len && !visited[curIdx + arr[curIdx]]) {
-                    visited[curIdx + arr[curIdx]] = true;
-                    queue.add(curIdx + arr[curIdx]);
+                for (int j : new int[]{i + arr[i], i - arr[i]}) {
+                    if (0 <= j && j < n && !vis[j]) {
+                        vis[j] = true;
+                        q.add(j);
+                    }
                 }
             }
         }

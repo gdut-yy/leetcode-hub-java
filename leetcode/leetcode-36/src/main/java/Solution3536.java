@@ -20,7 +20,7 @@ https://leetcode.cn/problems/maximum-product-of-two-digits/description/
 提示：
 10 <= n <= 10^9
 
-贪心。
 中国时间 2025-05-04 周日 10:30
 广州·中肿。五四青年节。
+贪心。
  */

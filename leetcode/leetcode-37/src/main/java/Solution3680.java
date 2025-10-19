@@ -41,4 +41,5 @@ https://leetcode.cn/problems/generate-schedule/description/
 幽默 T3。考察 构造题。
 听说这就是 贝格尔编排法，在国内排球比赛中广泛使用。
 时间复杂度 O(n^2)。
+rating 2380 (clist.by)
  */

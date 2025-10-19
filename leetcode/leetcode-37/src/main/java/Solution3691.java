@@ -89,4 +89,5 @@ https://leetcode.cn/problems/maximum-total-subarray-value-ii/description/
 
 ST 表 + 最大堆
 https://leetcode.cn/problems/maximum-total-subarray-value-ii/solutions/3787892/st-biao-zui-da-dui-pythonjavacgo-by-endl-igja/
+rating 2499 (clist.by)
  */

@@ -80,5 +80,11 @@ https://leetcode.cn/problems/subsequence-sum-after-capping-elements/description/
 1 <= nums[i] <= n
 1 <= k <= 4000
 
+预处理统计每个值的出现次数和后缀和（大于 x的元素个数）。
+初始化背包数组 dp，其中 dp[0] = true。
+对每个 x从 1 到 n：
+  若 x≤k，使用二进制分组优化更新背包状态。
+  枚举第二部分的选择个数 t，检查是否存在子序列和为 k。
+  若 x>k，直接检查背包状态 dp[k]。
 https://yuanbao.tencent.com/chat/naQivTmsDa/46fb2110-a302-44b3-b5eb-f5c9f557ebef
  */

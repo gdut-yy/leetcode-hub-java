@@ -2,96 +2,47 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Solution3714 {
+    private int ans = 0;
+
     public int longestBalanced(String s) {
         int n = s.length();
-        Map<Long, Integer> map1 = new HashMap<>(); // (preA - preB, preA - preC)
-        Map<Long, Integer> map2 = new HashMap<>(); // (preA - preB, preC)
-        Map<Long, Integer> map3 = new HashMap<>(); // (preA - preC, preB)
-        Map<Long, Integer> map4 = new HashMap<>(); // (preB - preC, preA)
-        Map<Long, Integer> map5 = new HashMap<>(); // (preB, preC)
-        Map<Long, Integer> map6 = new HashMap<>(); // (preA, preC)
-        Map<Long, Integer> map7 = new HashMap<>(); // (preA, preB)
+        Map<Long, Integer> mp_abc = newHashMap(); // (preA - preB, preA - preC)
+        Map<Long, Integer> mp_ab = newHashMap(); // (preA - preB, preC)
+        Map<Long, Integer> mp_ac = newHashMap(); // (preA - preC, preB)
+        Map<Long, Integer> mp_bc = newHashMap(); // (preB - preC, preA)
+        Map<Long, Integer> mp_a = newHashMap(); // (preB, preC)
+        Map<Long, Integer> mp_b = newHashMap(); // (preA, preC)
+        Map<Long, Integer> mp_c = newHashMap(); // (preA, preB)
 
         int preA = 0, preB = 0, preC = 0;
-
-        map1.put(0L, -1);
-        map2.put(0L, -1);
-        map3.put(0L, -1);
-        map4.put(0L, -1);
-        map5.put(0L, -1);
-        map6.put(0L, -1);
-        map7.put(0L, -1);
-
-        int ans = 0;
-
         for (int i = 0; i < n; i++) {
             char c = s.charAt(i);
             if (c == 'a') preA++;
             else if (c == 'b') preB++;
             else preC++;
 
-            int d1 = preA - preB;
-            int d2 = preA - preC;
-            int d3 = preB - preC;
-
-            long key = getHash(d1, d2);
-            if (map1.containsKey(key)) {
-                int start = map1.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map1.put(key, i);
-            }
-
-            key = getHash(d1, preC);
-            if (map2.containsKey(key)) {
-                int start = map2.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map2.put(key, i);
-            }
-
-            key = getHash(d2, preB);
-            if (map3.containsKey(key)) {
-                int start = map3.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map3.put(key, i);
-            }
-
-            key = getHash(d3, preA);
-            if (map4.containsKey(key)) {
-                int start = map4.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map4.put(key, i);
-            }
-
-            key = getHash(preB, preC);
-            if (map5.containsKey(key)) {
-                int start = map5.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map5.put(key, i);
-            }
-
-            key = getHash(preA, preC);
-            if (map6.containsKey(key)) {
-                int start = map6.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map6.put(key, i);
-            }
-
-            key = getHash(preA, preB);
-            if (map7.containsKey(key)) {
-                int start = map7.get(key);
-                ans = Math.max(ans, i - start);
-            } else {
-                map7.put(key, i);
-            }
+            updateAns(i, mp_abc, preA - preB, preA - preC);
+            updateAns(i, mp_ab, preA - preB, preC);
+            updateAns(i, mp_ac, preA - preC, preB);
+            updateAns(i, mp_bc, preB - preC, preA);
+            updateAns(i, mp_a, preB, preC);
+            updateAns(i, mp_b, preA, preC);
+            updateAns(i, mp_c, preA, preB);
         }
 
         return ans;
+    }
+
+    private static Map<Long, Integer> newHashMap() {
+        Map<Long, Integer> mp = new HashMap<>();
+        mp.put(0L, -1);
+        return mp;
+    }
+
+    private void updateAns(int i, Map<Long, Integer> mp, int d1, int d2) {
+        long key = getHash(d1, d2);
+        if (mp.containsKey(key)) ans = Math.max(ans, i - mp.get(key));
+        else mp.put(key, i);
     }
 
     private long getHash(long x, int y) {
@@ -112,14 +63,14 @@ https://leetcode.cn/problems/longest-balanced-substring-ii/description/
 1 <= s.length <= 10^5
 s 仅包含字符 'a'、'b' 和 'c'。
 
-枚举右维护左。
-条件1：a=b=c
-条件2：a=b且c=0
-条件3：a=c且b=0
-条件4：b=c且a=0
-条件5：只有a，那么b和c为0
-条件6：只有b
-条件7：只有c
+枚举右维护左。分类讨论。
+情况 1：a=b=c
+情况 2：a=b且c=0
+情况 3：a=c且b=0
+情况 4：b=c且a=0
+情况 5：只有a，那么b和c为0
+情况 6：只有b
+情况 7：只有c
 https://chat.deepseek.com/a/chat/s/18a4597f-9196-4512-aa7e-3bce55cbb299
 时间复杂度 O(n)。
 rating 2226 (clist.by)

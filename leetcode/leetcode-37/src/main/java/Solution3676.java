@@ -54,4 +54,5 @@ nums 由不同的元素组成。
 单调栈。统计合法下标。返回值 long 是迷惑性质。
 时间复杂度 O(n)。
 https://yuanbao.tencent.com/chat/naQivTmsDa/0f153432-97c4-4f12-972f-bae0f4f6d805
+rating 2223 (clist.by)
  */
