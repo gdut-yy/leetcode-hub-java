@@ -5,15 +5,15 @@ import java.util.Set;
 
 public class Solution448 {
     public List<Integer> findDisappearedNumbers(int[] nums) {
-        Set<Integer> resSet = new HashSet<>();
         int n = nums.length;
-        for (int i = 1; i <= n; i++) {
-            resSet.add(i);
+        Set<Integer> set = new HashSet<>();
+        for (int x = 1; x <= n; x++) {
+            set.add(x);
         }
-        for (int num : nums) {
-            resSet.remove(num);
+        for (int v : nums) {
+            set.remove(v);
         }
-        return new ArrayList<>(resSet);
+        return new ArrayList<>(set);
     }
 }
 /*

@@ -1,12 +1,10 @@
-import java.util.Locale;
-
 public class Solution125 {
     public boolean isPalindrome(String s) {
         if (s == null || s.length() == 0) {
             return true;
         }
         // 只考虑字母和数字字符，可以忽略字母的大小写
-        String str = s.toLowerCase(Locale.ENGLISH).replaceAll("[^0-9a-z]+", "");
+        String str = s.toLowerCase().replaceAll("[^0-9a-z]+", "");
         int len = str.length();
         for (int left = 0; left < len / 2; left++) {
             int right = len - 1 - left;

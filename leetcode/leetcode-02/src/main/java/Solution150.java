@@ -3,32 +3,27 @@ import java.util.Deque;
 
 public class Solution150 {
     public int evalRPN(String[] tokens) {
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (String token : tokens) {
-            if (token.equals("+") || token.equals("-") || token.equals("*") || token.equals("/")) {
-                int num1 = stack.pop();
-                int num2 = stack.pop();
-                stack.push(calculate(num2, num1, token));
+        Deque<Integer> st = new ArrayDeque<>();
+        for (String t : tokens) {
+            if (t.equals("+") || t.equals("-") || t.equals("*") || t.equals("/")) {
+                int num2 = st.pop();
+                int num1 = st.pop();
+                st.push(calc(num1, num2, t));
             } else {
-                stack.push(Integer.parseInt(token));
+                st.push(Integer.parseInt(t));
             }
         }
-        return stack.pop();
+        return st.pop();
     }
 
-    private int calculate(int num1, int num2, String operator) {
-        switch (operator) {
-            case "+":
-                return num1 + num2;
-            case "-":
-                return num1 - num2;
-            case "*":
-                return num1 * num2;
-            case "/":
-                return num1 / num2;
-            default:
-                return 0;
-        }
+    private int calc(int num1, int num2, String operator) {
+        return switch (operator) {
+            case "+" -> num1 + num2;
+            case "-" -> num1 - num2;
+            case "*" -> num1 * num2;
+            case "/" -> num1 / num2;
+            default -> 0;
+        };
     }
 }
 /*

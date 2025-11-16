@@ -76,6 +76,7 @@ public class CF1914D {
 D. Three Activities
 https://codeforces.com/contest/1914/problem/D
 
+灵茶の试炼 2025-10-27
 题目大意：
 寒假就要到了。它们将持续 n 天。
 在假期里，Monocarp 想和他的朋友们一起尝试所有这些活动一次:

@@ -1,16 +1,15 @@
 public class Solution485 {
     public int findMaxConsecutiveOnes(int[] nums) {
-        int max = 0;
-        int cnt = 0;
-        for (int num : nums) {
-            if (num == 1) {
-                cnt++;
-                max = Math.max(max, cnt);
-            } else {
-                cnt = 0;
+        int n = nums.length;
+        int i = 0, ans = 0;
+        while (i < n) {
+            // 分组循环
+            int st = i;
+            for (i++; i < n && nums[i] == nums[i - 1]; i++) {
             }
+            if (nums[st] == 1) ans = Math.max(ans, i - st);
         }
-        return max;
+        return ans;
     }
 }
 /*

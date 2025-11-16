@@ -1,8 +1,6 @@
-import java.util.Locale;
-
 public class Solution748 {
     public String shortestCompletingWord(String licensePlate, String[] words) {
-        int[] licensePlateCnt = cntCh(licensePlate.toLowerCase(Locale.ENGLISH));
+        int[] licensePlateCnt = cntCh(licensePlate.toLowerCase());
         String res = "";
         int minLen = Integer.MAX_VALUE;
         for (String word : words) {

@@ -4,20 +4,19 @@ import java.util.Deque;
 public class Solution1475 {
     public int[] finalPrices(int[] prices) {
         int n = prices.length;
-
-        int[] res = prices.clone();
+        int[] ans = prices.clone();
         // 单调栈 右侧第一个小于等于 arr[i] 的下标
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> st = new ArrayDeque<>();
         for (int i = n - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && prices[i] < prices[stack.peek()]) {
-                stack.pop();
+            while (!st.isEmpty() && prices[i] < prices[st.peek()]) {
+                st.pop();
             }
-            if (!stack.isEmpty()) {
-                res[i] -= prices[stack.peek()];
+            if (!st.isEmpty()) {
+                ans[i] -= prices[st.peek()];
             }
-            stack.push(i);
+            st.push(i);
         }
-        return res;
+        return ans;
     }
 }
 /*

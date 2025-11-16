@@ -3,55 +3,41 @@ import java.util.List;
 
 public class Solution2476 {
     public List<List<Integer>> closestNodes(TreeNode root, List<Integer> queries) {
-        List<Integer> nums = new ArrayList<>();
-        dfs(root, nums);
-        int size = nums.size();
+        List<Integer> arr = new ArrayList<>();
+        dfs(root, arr);
+        int n = arr.size();
 
-        List<List<Integer>> resList = new ArrayList<>();
-        for (int query : queries) {
-            List<Integer> res = new ArrayList<>();
-
-            int left = 0;
-            int right = size;
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T]
-                // ----------------------^
-                if (nums.get(mid) > query) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int q : queries) {
+            int j = lowerBound(arr, q);
+            int mx = j == n ? -1 : arr.get(j);
+            if (j == n || arr.get(j) != q) { // a[j]>q, a[j-1]<q
+                j--;
             }
-            res.add(left - 1 >= 0 ? nums.get(left - 1) : -1);
-
-            left = 0;
-            right = size;
-            while (left < right) {
-                int mid = left + (right - left) / 2;
-                // 边界二分 F, F,..., F, [T, T,..., T]
-                // ----------------------^
-                if (nums.get(mid) >= query) {
-                    right = mid;
-                } else {
-                    left = mid + 1;
-                }
-            }
-            res.add(left < size ? nums.get(left) : -1);
-
-            resList.add(res);
+            int mn = j < 0 ? -1 : arr.get(j);
+            ans.add(List.of(mn, mx));
         }
-        return resList;
+        return ans;
     }
 
     // BST 中序遍历
-    private void dfs(TreeNode root, List<Integer> nums) {
+    private void dfs(TreeNode root, List<Integer> arr) {
         if (root == null) {
             return;
         }
-        dfs(root.left, nums);
-        nums.add(root.val);
-        dfs(root.right, nums);
+        dfs(root.left, arr);
+        arr.add(root.val);
+        dfs(root.right, arr);
+    }
+
+    private int lowerBound(List<Integer> a, int key) {
+        int l = 0, r = a.size();
+        while (l < r) {
+            int m = l + (r - l) / 2;
+            if (a.get(m) >= key) r = m;
+            else l = m + 1;
+        }
+        return l;
     }
 }
 /*

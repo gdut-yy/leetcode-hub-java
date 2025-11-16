@@ -1,13 +1,11 @@
-import java.util.Locale;
-
 public class Solution2129 {
     public String capitalizeTitle(String title) {
         String[] words = title.split(" ");
         StringBuilder stringBuilder = new StringBuilder();
         for (String word : words) {
-            String newWord = word.toLowerCase(Locale.ENGLISH);
+            String newWord = word.toLowerCase();
             if (newWord.length() >= 3) {
-                newWord = newWord.substring(0, 1).toUpperCase(Locale.ENGLISH).concat(newWord.substring(1));
+                newWord = newWord.substring(0, 1).toUpperCase().concat(newWord.substring(1));
             }
             stringBuilder.append(newWord).append(" ");
         }

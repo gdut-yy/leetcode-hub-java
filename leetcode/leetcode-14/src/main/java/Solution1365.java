@@ -1,22 +1,21 @@
 public class Solution1365 {
     public int[] smallerNumbersThanCurrent(int[] nums) {
-        int len = 101;
-        int[] cntArr = new int[len];
-        for (int num : nums) {
-            cntArr[num]++;
+        final int mx = 100; // 值域
+        int[] cnt = new int[mx + 1];
+        for (int v : nums) {
+            cnt[v]++;
+        }
+        int[] ps = new int[cnt.length + 1];
+        for (int i = 0; i < cnt.length; i++) {
+            ps[i + 1] = ps[i] + cnt[i];
         }
 
-        // 前缀和
-        int[] preSum = new int[len + 1];
-        for (int i = 0; i < len; i++) {
-            preSum[i + 1] = preSum[i] + cntArr[i];
+        int n = nums.length;
+        int[] ans = new int[n];
+        for (int i = 0; i < n; i++) {
+            ans[i] = ps[nums[i]];
         }
-
-        int[] res = new int[nums.length];
-        for (int i = 0; i < nums.length; i++) {
-            res[i] = preSum[nums[i]];
-        }
-        return res;
+        return ans;
     }
 }
 /*

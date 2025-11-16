@@ -3,16 +3,17 @@ import java.util.Map;
 
 public class Solution645 {
     public int[] findErrorNums(int[] nums) {
-        Map<Integer, Integer> cntMap = new HashMap<>();
-        for (int num : nums) {
-            cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
+        Map<Integer, Integer> cntMp = new HashMap<>();
+        for (int v : nums) {
+            cntMp.merge(v, 1, Integer::sum);
         }
         int[] ans = new int[2];
-        for (int i = 1; i <= nums.length; i++) {
-            if (cntMap.getOrDefault(i, 0) == 2) {
-                ans[0] = i;
-            } else if (cntMap.getOrDefault(i, 0) == 0) {
-                ans[1] = i;
+        for (int x = 1; x <= nums.length; x++) {
+            Integer c = cntMp.getOrDefault(x, 0);
+            if (c == 2) {
+                ans[0] = x;
+            } else if (c == 0) {
+                ans[1] = x;
             }
         }
         return ans;

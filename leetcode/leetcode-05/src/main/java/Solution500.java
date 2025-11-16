@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 public class Solution500 {
@@ -22,7 +21,7 @@ public class Solution500 {
 
     private Set<Character> getSet(String word) {
         Set<Character> set = new HashSet<>();
-        for (char ch : word.toLowerCase(Locale.ENGLISH).toCharArray()) {
+        for (char ch : word.toLowerCase().toCharArray()) {
             set.add(ch);
         }
         return set;

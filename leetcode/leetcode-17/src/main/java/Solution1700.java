@@ -2,13 +2,13 @@ import java.util.Arrays;
 
 public class Solution1700 {
     public int countStudents(int[] students, int[] sandwiches) {
-        int len = students.length;
+        int n = students.length;
         int cnt1 = Arrays.stream(students).sum();
-        int cnt0 = len - cnt1;
-        for (int sandwich : sandwiches) {
-            if (sandwich == 0 && cnt0 > 0) {
+        int cnt0 = n - cnt1;
+        for (int sa : sandwiches) {
+            if (sa == 0 && cnt0 > 0) {
                 cnt0--;
-            } else if (sandwich == 1 && cnt1 > 0) {
+            } else if (sa == 1 && cnt1 > 0) {
                 cnt1--;
             } else {
                 break;

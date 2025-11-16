@@ -3,17 +3,16 @@ import java.util.List;
 
 public class Solution1441 {
     public List<String> buildArray(int[] target, int n) {
-        List<String> resList = new ArrayList<>();
-        int idx = 0;
-        for (int i = 1; i <= n && idx < target.length; i++) {
-            resList.add("Push");
-            if (i == target[idx]) {
-                idx++;
+        List<String> ans = new ArrayList<>();
+        for (int i = 0, num = 1; i < target.length && num <= n; num++) {
+            ans.add("Push");
+            if (target[i] == num) {
+                i++;
             } else {
-                resList.add("Pop");
+                ans.add("Pop");
             }
         }
-        return resList;
+        return ans;
     }
 }
 /*

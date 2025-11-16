@@ -1,20 +1,37 @@
 public class Solution2073 {
-    public int timeRequiredToBuy(int[] tickets, int k) {
-        int n = tickets.length;
-        int ans = 0;
-        while (tickets[k] > 0) {
-            for (int i = 0; i < n; i++) {
-                if (tickets[i] > 0) {
-                    tickets[i]--;
-                    ans++;
-                    // 退出循环
-                    if (tickets[k] == 0) {
-                        return ans;
+    static class V1 {
+        public int timeRequiredToBuy(int[] tickets, int k) {
+            int n = tickets.length;
+            int[] tk = tickets.clone();
+            int ans = 0;
+            while (tk[k] > 0) {
+                for (int i = 0; i < n; i++) {
+                    if (tk[i] > 0) {
+                        tk[i]--;
+                        ans++;
+                        // 退出循环
+                        if (tk[k] == 0) {
+                            return ans;
+                        }
                     }
                 }
             }
+            return ans;
         }
-        return ans;
+    }
+
+    // O(n)
+    static class V2 {
+        // 如果这个人初始在第 k 个人的前方，或者这个人恰好为第 k 个人，他买票所需时间即为 min(tickets[k],tickets[i])
+        // 否则，买票所需时间即为 min(tickets[k]−1,tickets[i])
+        public int timeRequiredToBuy(int[] tickets, int k) {
+            int ans = 0;
+            int tk = tickets[k];
+            for (int i = 0; i < tickets.length; i++) {
+                ans += Math.min(tickets[i], (i <= k ? tk : tk - 1));
+            }
+            return ans;
+        }
     }
 }
 /*

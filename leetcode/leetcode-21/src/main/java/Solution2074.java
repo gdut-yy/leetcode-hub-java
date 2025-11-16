@@ -3,58 +3,25 @@ import java.util.List;
 
 public class Solution2074 {
     public ListNode reverseEvenLengthGroups(ListNode head) {
-        // ListNode => int[]
-        int[] nums = toArray(head);
-
-        int len = nums.length;
-        // group 长度
-        int groupLen = 1;
-        // 下标
-        int left = 0;
-        int right = 0;
-        while (left <= right) {
-            groupLen++;
-            left = right + 1;
-            right = Math.min(len - 1, left + groupLen - 1);
-            // 反转 每个 偶数 长度组中的节点
-            if ((right - left + 1) % 2 == 0) {
-                swap(nums, left, right);
+        List<ListNode> nodes = new ArrayList<>();
+        int size = 1;
+        for (ListNode node = head; node != null; node = node.next) {
+            nodes.add(node);
+            if (nodes.size() == size || node.next == null) { // 统计到 size 个节点，或到达链表末尾
+                int n = nodes.size();
+                if (n % 2 == 0) { // 有偶数个节点
+                    for (int i = 0; i < n / 2; i++) {
+                        // 直接交换元素值
+                        int temp = nodes.get(i).val;
+                        nodes.get(i).val = nodes.get(n - 1 - i).val;
+                        nodes.get(n - 1 - i).val = temp;
+                    }
+                }
+                nodes.clear();
+                size++;
             }
         }
-        // int[] => ListNode
-        return toListNode(nums);
-    }
-
-    private void swap(int[] arr, int left, int right) {
-        int len = right - left + 1;
-        for (int i = 0; i < len / 2; i++) {
-            int tmp = arr[left + i];
-            arr[left + i] = arr[left + len - i - 1];
-            arr[left + len - i - 1] = tmp;
-        }
-    }
-
-    private int[] toArray(ListNode head) {
-        List<Integer> list = new ArrayList<>();
-        while (head != null) {
-            list.add(head.val);
-            head = head.next;
-        }
-        int[] res = new int[list.size()];
-        for (int i = 0; i < list.size(); i++) {
-            res[i] = list.get(i);
-        }
-        return res;
-    }
-
-    private ListNode toListNode(int[] nums) {
-        ListNode dummy = new ListNode(-1);
-        ListNode head = dummy;
-        for (int num : nums) {
-            head.next = new ListNode(num);
-            head = head.next;
-        }
-        return dummy.next;
+        return head;
     }
 }
 /*

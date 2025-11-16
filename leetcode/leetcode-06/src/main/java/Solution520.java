@@ -1,12 +1,8 @@
-import java.util.Locale;
-
 public class Solution520 {
     public boolean detectCapitalUse(String word) {
-        String subString = word.substring(1);
-        if (subString.equals(subString.toLowerCase(Locale.ENGLISH))) {
-            return true;
-        }
-        return subString.equals(subString.toUpperCase(Locale.ENGLISH)) && Character.isUpperCase(word.charAt(0));
+        if (word.equals(word.toUpperCase())) return true;
+        String subStr = word.substring(1);
+        return subStr.equals(subStr.toLowerCase());
     }
 }
 /*
@@ -22,5 +18,5 @@ https://leetcode.cn/problems/detect-capital/
 1 <= word.length <= 100
 word 由小写和大写英文字母组成
 
-字符串判等。
+库函数。
  */

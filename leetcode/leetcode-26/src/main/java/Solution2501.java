@@ -5,27 +5,22 @@ import java.util.Set;
 public class Solution2501 {
     public int longestSquareStreak(int[] nums) {
         Arrays.sort(nums);
-        Set<Integer> set = new HashSet<>();
-        for (int num : nums) {
-            set.add(num);
-        }
+        Set<Long> set = new HashSet<>();
+        for (long v : nums) set.add(v);
 
-        Set<Integer> visited = new HashSet<>();
-        int max = 1;
-        for (int num : nums) {
-            int x = num;
+        Set<Long> vis = new HashSet<>();
+        int mx = 1;
+        for (long v : nums) {
             int cnt = 1;
-            if (visited.contains(x)) {
-                continue;
-            }
-            while (set.contains(x * x)) {
-                visited.add(x);
-                x = x * x;
+            if (vis.contains(v)) continue;
+            while (set.contains(v * v)) {
+                vis.add(v);
+                v *= v;
                 cnt++;
-                max = Math.max(max, cnt);
+                mx = Math.max(mx, cnt);
             }
         }
-        return max == 1 ? -1 : max;
+        return mx == 1 ? -1 : mx;
     }
 }
 /*
@@ -43,5 +38,6 @@ https://leetcode.cn/problems/longest-square-streak-in-an-array/
 2 <= nums.length <= 10^5
 2 <= nums[i] <= 10^5
 
-HashSet 枚举
+HashSet 暴力枚举
+时间复杂度 O(nloglogU)
  */

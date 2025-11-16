@@ -22,7 +22,7 @@ public class Solution831 {
             return res + phoneNum.substring(len - 4);
         } else {
             // 邮箱
-            s = s.toLowerCase(java.util.Locale.ENGLISH);
+            s = s.toLowerCase();
             return s.charAt(0) + "*****" + s.substring(idx - 1);
         }
     }

@@ -3,27 +3,22 @@ import java.util.Deque;
 
 public class Solution84 {
     public int largestRectangleArea(int[] heights) {
-        Deque<Integer> stack = new ArrayDeque<>();
-        stack.push(-1);
-
+        Deque<Integer> st = new ArrayDeque<>();
+        st.push(-1);
         int maxArea = 0;
         for (int i = 0; i < heights.length; i++) {
-            while (stack.element() != -1
-                    && heights[stack.element()] >= heights[i]) {
-                int height = heights[stack.pop()];
-                int width = i - stack.element() - 1;
+            while (!st.isEmpty() && st.peek() != -1 && heights[st.peek()] >= heights[i]) {
+                int height = heights[st.pop()];
+                int width = i - st.peek() - 1;
                 maxArea = Math.max(maxArea, height * width);
             }
-
-            stack.push(i);
+            st.push(i);
         }
-
-        while (stack.element() != -1) {
-            int height = heights[stack.pop()];
-            int width = heights.length - stack.element() - 1;
+        while (!st.isEmpty() && st.peek() != -1) {
+            int height = heights[st.pop()];
+            int width = heights.length - st.peek() - 1;
             maxArea = Math.max(maxArea, height * width);
         }
-
         return maxArea;
     }
 }

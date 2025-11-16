@@ -4,27 +4,43 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Solution1968 {
-    public int[] rearrangeArray(int[] nums) {
-        List<Integer> numsList = Arrays.stream(nums).boxed().collect(Collectors.toList());
-        while (!checkList(numsList)) {
-            Collections.shuffle(numsList);
+    static class V1 {
+        public int[] rearrangeArray(int[] nums) {
+            List<Integer> list = Arrays.stream(nums).boxed().collect(Collectors.toList());
+            while (!check(list)) {
+                Collections.shuffle(list);
+            }
+            return list.stream().mapToInt(Integer::intValue).toArray();
         }
-        // List<Integer> to int[]
-        int[] res = new int[numsList.size()];
-        for (int i = 0; i < numsList.size(); i++) {
-            res[i] = numsList.get(i);
+
+        private boolean check(List<Integer> a) {
+            int n = a.size();
+            for (int i = 1; i <= n - 2; i++) {
+                if (a.get(i - 1) + a.get(i + 1) == a.get(i) + a.get(i)) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return res;
     }
 
-    private boolean checkList(List<Integer> numsList) {
-        int len = numsList.size();
-        for (int i = 1; i < len - 1; i++) {
-            if (numsList.get(i - 1) + numsList.get(i + 1) == numsList.get(i) + numsList.get(i)) {
-                return false;
+    static class V2 {
+        public int[] rearrangeArray(int[] nums) {
+            Arrays.sort(nums);
+            int n = nums.length;
+            int m = (n + 1) / 2;
+            int[] ans = new int[n];
+            int j = 0;
+            for (int i = 0; i < m; ++i) {
+                // 放入数值较小的第一部分元素
+                ans[j++] = nums[i];
+                if (i + m < n) {
+                    // （如果有）放入数值较大的第二部分元素
+                    ans[j++] = nums[i + m];
+                }
             }
+            return ans;
         }
-        return true;
     }
 }
 /*

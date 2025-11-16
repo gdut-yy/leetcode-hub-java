@@ -1,14 +1,14 @@
 public class Solution1598 {
     public int minOperations(String[] logs) {
-        int res = 0;
+        int ans = 0;
         for (String log : logs) {
             if (log.equals("../")) {
-                res = Math.max(0, res - 1);
+                ans = Math.max(0, ans - 1);
             } else if (!log.equals("./")) {
-                res++;
+                ans++;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

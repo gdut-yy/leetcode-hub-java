@@ -3,23 +3,20 @@ import java.util.Deque;
 
 public class Solution739 {
     public int[] dailyTemperatures(int[] temperatures) {
-        int len = temperatures.length;
-
-        int[] res = new int[len];
+        int n = temperatures.length;
+        int[] ans = new int[n];
         // 单调栈 存放数组元素下标而非数组元素
-        Deque<Integer> stack = new ArrayDeque<>();
-        for (int i = len - 1; i >= 0; i--) {
-            while (!stack.isEmpty() && temperatures[stack.peek()] <= temperatures[i]) {
-                stack.pop();
+        Deque<Integer> st = new ArrayDeque<>();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.isEmpty() && temperatures[st.peek()] <= temperatures[i]) {
+                st.pop();
             }
-            if (!stack.isEmpty()) {
-                res[i] = stack.peek() - i;
-            } else {
-                res[i] = 0;
+            if (!st.isEmpty()) {
+                ans[i] = st.peek() - i;
             }
-            stack.push(i);
+            st.push(i);
         }
-        return res;
+        return ans;
     }
 }
 /*

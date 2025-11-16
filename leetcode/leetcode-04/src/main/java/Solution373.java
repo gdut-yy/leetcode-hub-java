@@ -4,10 +4,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 public class Solution373 {
-    /**
-     * 优先队列（大顶堆）
-     * 时间复杂度 O(k^2logk)
-     */
+    // 优先队列（大顶堆）
+    // 时间复杂度 O(k^2logk)
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[0] + o2[1], o1[0] + o1[1]));
         for (int i = 0; i < Math.min(k, nums1.length); i++) {
@@ -31,10 +29,8 @@ public class Solution373 {
         return resList;
     }
 
-    /**
-     * 优先队列（小顶堆）
-     * 时间复杂度 O(klogk)
-     */
+    // 优先队列（小顶堆）
+    // 时间复杂度 O(klogk)
     public List<List<Integer>> kSmallestPairs2(int[] nums1, int[] nums2, int k) {
         PriorityQueue<int[]> minHeap
                 = new PriorityQueue<>(Comparator.comparingInt(o -> (nums1[o[0]] + nums2[o[1]])));
@@ -43,16 +39,16 @@ public class Solution373 {
                 minHeap.add(new int[]{i, 0});
             }
         }
-        List<List<Integer>> resList = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
         while (k > 0 && !minHeap.isEmpty()) {
             int[] ids = minHeap.remove();
-            resList.add(List.of(nums1[ids[0]], nums2[ids[1]]));
+            ans.add(List.of(nums1[ids[0]], nums2[ids[1]]));
             if (ids[1] < nums2.length - 1) {
                 minHeap.add(new int[]{ids[0], ids[1] + 1});
             }
             k--;
         }
-        return resList;
+        return ans;
     }
 }
 /*

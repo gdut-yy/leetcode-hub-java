@@ -1,13 +1,12 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Locale;
 import java.util.Map;
 import java.util.Set;
 
 public class Solution819 {
     public String mostCommonWord(String paragraph, String[] banned) {
-        String[] words = paragraph.toLowerCase(Locale.ENGLISH).split("[!?',;. ]");
+        String[] words = paragraph.toLowerCase().split("[!?',;. ]");
 
         Map<String, Integer> cntMap = new HashMap<>();
         for (String word : words) {

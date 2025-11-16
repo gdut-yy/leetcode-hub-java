@@ -1,64 +1,15 @@
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution167 {
-    /**
-     * 二分法
-     * 时间复杂度 O(nlogn)
-     */
-    public int[] twoSum2(int[] numbers, int target) {
-        for (int i = 0; i < numbers.length; i++) {
-            int cur = numbers[i];
-            int want = target - cur;
-            // 有可能不是严格递增，但因为 i 是从左到右的，如果 right 等于 i，那么 right = i + 1 即可；如果 right 不等于 i，无需处理
-            int right = Arrays.binarySearch(numbers, want);
-            if (right >= 0) {
-                if (right == i) {
-                    right = i + 1;
-                }
-                return new int[]{i + 1, right + 1};
-            }
-        }
-        return new int[]{-1, -1};
-    }
-
-    /**
-     * HashMap 法
-     * 时间复杂度 O(n)
-     */
     public int[] twoSum(int[] numbers, int target) {
-        int len = numbers.length;
-        Map<Integer, Integer> idxMap = new HashMap<>();
-        for (int i = 0; i < len; i++) {
-            idxMap.put(numbers[i], i);
-        }
-
-        for (int i = 0; i < len; i++) {
-            int want = target - numbers[i];
-            if (idxMap.containsKey(want) && idxMap.get(want) != i) {
-                // 下标 从 1 开始计数
-                return new int[]{i + 1, idxMap.get(want) + 1};
-            }
-        }
-        return new int[0];
-    }
-
-    /**
-     * 双指针
-     * 时间复杂度 O(n)
-     */
-    public int[] twoSum3(int[] numbers, int target) {
-        int left = 0;
-        int right = numbers.length - 1;
-        while (left < right) {
-            int sum = numbers[left] + numbers[right];
+        int n = numbers.length;
+        int l = 0, r = n - 1;
+        while (l < r) {
+            int sum = numbers[l] + numbers[r];
             if (sum == target) {
-                return new int[]{left + 1, right + 1};
+                return new int[]{l + 1, r + 1};
             } else if (sum < target) {
-                ++left;
+                l++;
             } else {
-                --right;
+                r--;
             }
         }
         return new int[]{-1, -1};
@@ -80,7 +31,9 @@ numbers 按 非递减顺序 排列
 -1000 <= target <= 1000
 仅存在一个有效答案
 
-第 1 题两数之和的简化版。没错，确实是简化版，区别在于第 1 题数组无序，这题数组有序。
+双指针。
+第 1 题两数之和的简化版。区别在于第 1 题数组无序，这题数组有序。
 HashMap 解法: 时间复杂度 O(n)
 二分搜索解法: 时间复杂度 O(nlogn), 本题二分搜索并不是优选方法
+时间复杂度 O(n)
  */
