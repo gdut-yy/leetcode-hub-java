@@ -1,66 +1,113 @@
 package p1845;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF1845C {
-    static String s, l, r;
-    static int m;
+    static Scanner scanner = new Scanner(System.in);
+    static PrintWriter out = new PrintWriter(System.out);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int t = scanner.nextInt();
-        while (t-- > 0) {
-            s = scanner.next();
-            m = scanner.nextInt();
-            l = scanner.next();
-            r = scanner.next();
-            System.out.println(solve());
+        int t = 1;
+        t = scanner.nextInt();
+        while (t-- > 0) V2.solve();
+        out.flush();
+    }
+
+    // 方法一
+    static class V1 {
+        private static void solve() {
+            String s = scanner.next();
+            int m = scanner.nextInt();
+            String l = scanner.next();
+            String r = scanner.next();
+
+            int n = s.length();
+            int[][] nxt = new int[n + 1][10];
+
+            for (int j = 0; j < 10; j++) {
+                nxt[n][j] = n;
+            }
+            for (int i = n - 1; i >= 0; i--) {
+                System.arraycopy(nxt[i + 1], 0, nxt[i], 0, 10);
+                nxt[i][s.charAt(i) - '0'] = i;
+            }
+
+            int cur = -1;
+            for (int i = 0; i < l.length(); i++) {
+                int start = l.charAt(i) - '0';
+                int end = r.charAt(i) - '0';
+                int maxIndex = Integer.MIN_VALUE;
+
+                for (int j = start; j <= end; j++) {
+                    maxIndex = Math.max(maxIndex, nxt[cur + 1][j]);
+                }
+                cur = maxIndex;
+                if (cur >= n) {
+                    out.println("YES");
+                    return;
+                }
+            }
+            out.println("NO");
         }
     }
 
-    // https://codeforces.com/contest/1845/submission/211453965
-    private static String solve() {
-        int n = s.length();
+    // 方法二
+    static class V2 {
+        private static void solve() {
+            String s = scanner.next();
+            int m = scanner.nextInt();
+            String l = scanner.next();
+            String r = scanner.next();
 
-        // 子序列自动机
-        // 预处理 s[i] 下一个 '0'~'9' 出现的位置
-        int[][] next = new int[n + 1][10];
-        Arrays.fill(next[n], n);
-        for (int i = n - 1; i >= 0; i--) {
-            next[i] = next[i + 1].clone();
-            next[i][s.charAt(i) - '0'] = i;
-        }
-
-        int cur = -1;
-        for (int i = 0; i < m && cur < n; i++) {
-            int nxt = 0;
-            for (int j = l.charAt(i) - '0'; j <= r.charAt(i) - '0'; j++) {
-                nxt = Math.max(nxt, next[cur + 1][j]);
+            int vis = 0, j = 0;
+            for (char b : s.toCharArray()) {
+                vis |= 1 << (b - '0');
+                int msk = (1 << (r.charAt(j) - l.charAt(j) + 1)) - 1;
+                if ((vis >> (l.charAt(j) - '0') & msk) == msk) {
+                    j++;
+                    if (j == m) {
+                        out.println("NO");
+                        return;
+                    }
+                    vis = 0;
+                }
             }
-            cur = nxt;
+            out.println("YES");
         }
-        return cur == n ? "YES" : "NO";
     }
 }
 /*
 C. Strong Password
 https://codeforces.com/contest/1845/problem/C
 
+灵茶の试炼 2025-10-28
 题目大意：
-Monocarp 终于鼓起勇气在 ForceCoders 上注册了。他想出了一个手柄，但还在考虑密码。
-他希望自己的密码越强越好，所以他提出了以下标准:
-- 密码长度应恰好为 m;
-- 密码只能由 0 到 9 的数字组成;
-- 密码不应该以子序列(不一定是连续的)的形式出现在密码数据库中(以字符串 s 的形式给出)。
-Monocarp 还提出了两个长度为 m 的字符串:l 和 r，它们都只由 0 到 9 的数字组成。他希望他的密码的第 i 位在 li 和 ri 之间，包括 li 和 ri。
-是否存在一个符合所有条件的密码?
+输入 T(≤1e4) 表示 T 组数据。所有数据的 |s| 之和 ≤3e5。
+每组数据输入一个只包含 0~9 的字符串 s(1≤|s|≤3e5)，
+然后输入 m(1≤m≤10) 和两个长为 m 的只包含 0~9 的字符串 L 和 R，保证 L[i]≤R[i]。
+是否存在长为 m 的，只包含 0~9 的字符串 t，满足 L[i]≤t[i]≤R[i] 且 t 不是 s 的子序列？
+输出 YES 或 NO。
+注：子序列不一定连续。
 
-贪心。
+rating 1400
+方法一
+预处理 s 的 子序列自动机 nxt。
+密码的第一个数字，在 s 中的位置越靠右越好。利用 nxt 可以快速求出。设这个下标为 cur。
+密码的第二个数字，从 cur+1 往右看，在 s 中的位置越靠右越好。做法同理。求出后，更新 cur。
+如果 cur >= n，那么密码可以不是 s 的子序列。
+方法二
+这个思路类似 LC2350. 不可能得到的最短骰子序列。
+遍历 s 的同时，收集遇到了哪些数字。
+如果收集到的数字包含 [l[j],r[j]] 中的所有数字，那么此刻的 s[i] 就是密码的第 j 个数字。把 j 加一。
+如果加一后 j=m，说明无论怎么填，密码都是 s 的子序列。
+利用位运算，可以做到一次遍历 + O(1) 额外空间。
+方法一代码 https://codeforces.com/problemset/submission/1845/343954985
+方法二代码 https://codeforces.com/problemset/submission/1845/343955928
+代码备份（上面打不开的同学看这个）
 ======
 
-input
+Input
 5
 88005553535123456
 2
@@ -82,16 +129,10 @@ input
 2
 10
 11
-output
+Output
 YES
 NO
 YES
 NO
 YES
-
-1
-0111110010000111100101
-10
-0010100000
-1110111100
  */
