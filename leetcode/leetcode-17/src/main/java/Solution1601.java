@@ -7,27 +7,26 @@ public class Solution1601 {
 
         int max = 0;
         // 状态压缩 dp
-        for (int state = 0; state < (1 << len); state++) {
-            int bitCount = Integer.bitCount(state);
+        for (int mask = 0; mask < (1 << len); mask++) {
+            int bitCount = Integer.bitCount(mask);
             if (bitCount < max) {
                 continue;
             }
-
-            int[] degrees = new int[n];
+            int[] inDeg = new int[n];
 
             for (int k = 0; k < len; k++) {
                 // 第 k 位被选中
-                if (((state >> k) & 1) == 1) {
+                if ((mask >> k & 1) == 1) {
                     int from = requests[k][0];
                     int to = requests[k][1];
 
-                    degrees[from]--;
-                    degrees[to]++;
+                    inDeg[from]--;
+                    inDeg[to]++;
                 }
             }
 
             // 每栋楼 离开 的员工数目 等于 该楼 搬入 的员工数数目。
-            if (Arrays.equals(expected, degrees)) {
+            if (Arrays.equals(expected, inDeg)) {
                 max = bitCount;
             }
         }

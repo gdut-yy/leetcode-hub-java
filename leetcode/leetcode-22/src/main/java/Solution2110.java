@@ -1,26 +1,25 @@
 public class Solution2110 {
     public long getDescentPeriods(int[] prices) {
         // 差分数组
-        int len = prices.length;
-        // 长度+1 避免处理边界
-        int[] diff = new int[len + 1];
+        int n = prices.length;
+        int[] diff = new int[n + 1];
         diff[0] = prices[0];
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             diff[i] = prices[i] - prices[i - 1];
         }
 
         // 平滑下降阶段 的数目
-        long res = len;
+        long ans = n;
         long cnt = 0;
-        for (int i = 1; i <= len; i++) {
+        for (int i = 1; i <= n; i++) {
             if (diff[i] == -1) {
                 cnt++;
             } else {
-                res += (cnt + 1) * cnt / 2;
+                ans += (cnt + 1) * cnt / 2;
                 cnt = 0;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

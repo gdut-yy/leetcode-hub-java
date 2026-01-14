@@ -2,21 +2,21 @@ import java.util.Arrays;
 
 public class Solution324 {
     public void wiggleSort(int[] nums) {
-        int len = nums.length;
-        int[] numsCopy = nums.clone();
-        Arrays.sort(numsCopy);
+        int n = nums.length;
+        int[] sorted = nums.clone();
+        Arrays.sort(sorted);
 
-        int x = (len + 1) / 2;
-        for (int i = 0, j = x - 1, k = len - 1; i < len; i += 2, j--, k--) {
-            nums[i] = numsCopy[j];
-            if (i + 1 < len) {
-                nums[i + 1] = numsCopy[k];
+        int x = (n + 1) / 2;
+        for (int i = 0, j = x - 1, k = n - 1; i < n; i += 2, j--, k--) {
+            nums[i] = sorted[j];
+            if (i + 1 < n) {
+                nums[i + 1] = sorted[k];
             }
         }
     }
 }
 /*
-$324. 摆动排序 II
+324. 摆动排序 II
 https://leetcode.cn/problems/wiggle-sort-ii/
 
 给你一个整数数组 nums，将它重新排列成 nums[0] < nums[1] > nums[2] < nums[3]... 的顺序。

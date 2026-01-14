@@ -238,4 +238,5 @@ https://chat.deepseek.com/a/chat/s/c862aa67-0be7-416c-9366-09ff915df41b
 复杂度分析：
 预处理时间为O(n log n)。
 每个查询处理时间为O(log n)，适用于大规模数据。
+rating 2512 (clist.by)
  */

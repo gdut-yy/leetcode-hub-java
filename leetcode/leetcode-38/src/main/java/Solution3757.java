@@ -94,4 +94,5 @@ https://chat.deepseek.com/a/chat/s/5663b32f-b8ba-47b2-9c15-1bd4d59fbde2
 为每个数组元素构建掩码，表示其在S中哪些位为1。
 使用SOS DP统计每个子集掩码的出现次数。
 应用容斥原理计算有效子序列的数量。
+rating 2807 (clist.by)
  */

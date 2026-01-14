@@ -65,6 +65,7 @@ public class CF1857F {
 F. Sum and Product
 https://codeforces.com/contest/1857/problem/F
 
+灵茶の试炼 2025-11-11
 题目大意：
 你有一个长度为 n 的数组。
 你的任务是回答 q 个问题:给定 x,y，找出 i 和 j(1≤i<j≤n)同时 ai+aj=x 和 ai·aj=y 的对 i 和 j 的个数。

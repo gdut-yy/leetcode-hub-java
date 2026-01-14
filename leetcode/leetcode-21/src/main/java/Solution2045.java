@@ -1,49 +1,41 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 public class Solution2045 {
     public int secondMinimum(int n, int[][] edges, int time, int change) {
-        // 预处理 无向图
-        Map<Integer, List<Integer>> graph = new HashMap<>();
-        for (int[] edge : edges) {
-            List<Integer> uvList = graph.getOrDefault(edge[0], new ArrayList<>());
-            uvList.add(edge[1]);
-            graph.put(edge[0], uvList);
-
-            List<Integer> vuList = graph.getOrDefault(edge[1], new ArrayList<>());
-            vuList.add(edge[0]);
-            graph.put(edge[1], vuList);
+        List<Integer>[] g = new ArrayList[n + 1];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] e : edges) {
+            g[e[0]].add(e[1]);
+            g[e[1]].add(e[0]);
         }
-        // 距离矩阵
-        int[] distances = new int[n + 1];
-        Arrays.fill(distances, Integer.MAX_VALUE);
-        distances[1] = 0;
+
+        int[] dist = new int[n + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+        dist[1] = 0;
         // 是否已经访问过（针对第二次访问）
         boolean[] second = new boolean[n + 1];
         // BFS
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(1);
-        while (!queue.isEmpty()) {
-            int cur = queue.remove();
-            List<Integer> neighbours = graph.get(cur);
-            for (int neighbour : neighbours) {
-                if (distances[neighbour] > distances[cur] + 1) {
-                    distances[neighbour] = distances[cur] + 1;
-                    queue.add(neighbour);
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(1);
+        while (!q.isEmpty()) {
+            int cur = q.remove();
+            for (int nxt : g[cur]) {
+                if (dist[nxt] > dist[cur] + 1) {
+                    dist[nxt] = dist[cur] + 1;
+                    q.add(nxt);
                 }
                 // 1-3, 1-4, 3-4 [3->4] [4->3]
-                else if (distances[neighbour] == distances[cur]
+                else if (dist[nxt] == dist[cur]
                         // 存在递推关系，若 second[3] = true, second[4] = true,
                         // 4-5 [4->5] second[5] = true,
-                        || (second[cur] && distances[neighbour] == distances[cur] + 1)) {
-                    if (!second[neighbour]) {
-                        queue.add(neighbour);
-                        second[neighbour] = true;
+                        || (second[cur] && dist[nxt] == dist[cur] + 1)) {
+                    if (!second[nxt]) {
+                        q.add(nxt);
+                        second[nxt] = true;
                     }
                 }
             }
@@ -51,9 +43,9 @@ public class Solution2045 {
         // 第二短时间 路径长度
         int secondPathLen;
         if (second[n]) {
-            secondPathLen = distances[n] + 1;
+            secondPathLen = dist[n] + 1;
         } else {
-            secondPathLen = distances[n] + 2;
+            secondPathLen = dist[n] + 2;
         }
         // 距离转时间
         return pathLen2Time(secondPathLen, time, change);

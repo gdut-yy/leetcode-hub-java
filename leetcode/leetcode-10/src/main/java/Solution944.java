@@ -1,18 +1,18 @@
 public class Solution944 {
     public int minDeletionSize(String[] strs) {
-        int lenM = strs.length;
-        int lenN = strs[0].length();
-        int res = 0;
-        for (int i = 0; i < lenN; i++) {
-            for (int j = 1; j < lenM; j++) {
+        int n = strs.length;
+        int m = strs[0].length();
+        int ans = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 1; j < n; j++) {
                 if (strs[j].charAt(i) < strs[j - 1].charAt(i)) {
-                    res++;
+                    ans++;
                     // 剪枝
                     break;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

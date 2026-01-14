@@ -1,29 +1,28 @@
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import java.util.Queue;
 
 public class Solution1591 {
     public boolean isPrintable(int[][] targetGrid) {
         // 题目转化为 是否存在一种染色顺序，使最终矩阵满足题目要求
         // 即 拓扑排序
-        int M = targetGrid.length;
-        int N = targetGrid[0].length;
+        final int mx = 60;
+        int m = targetGrid.length;
+        int n = targetGrid[0].length;
 
         // 预处理每种颜色的边界
-        int[] top = new int[61];
-        int[] right = new int[61];
-        int[] bottom = new int[61];
-        int[] left = new int[61];
+        int[] top = new int[mx + 1];
+        int[] right = new int[mx + 1];
+        int[] bottom = new int[mx + 1];
+        int[] left = new int[mx + 1];
         Arrays.fill(top, Integer.MAX_VALUE);
         Arrays.fill(left, Integer.MAX_VALUE);
         Arrays.fill(bottom, Integer.MIN_VALUE);
         Arrays.fill(right, Integer.MIN_VALUE);
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 int color = targetGrid[i][j];
                 top[color] = Math.min(top[color], i);
                 left[color] = Math.min(left[color], j);
@@ -33,21 +32,22 @@ public class Solution1591 {
         }
 
         // 建图。adj[i][j] 表示 i => j 存在有向边
-        boolean[][] adj = new boolean[61][61];
-        Map<Integer, List<Integer>> outGraph = new HashMap<>();
-        int[] inDegrees = new int[61];
+        boolean[][] adj = new boolean[mx + 1][mx + 1];
+        List<Integer>[] g = new ArrayList[mx + 1];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        int[] inDeg = new int[mx + 1];
 
-        for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
                 int to = targetGrid[i][j];
                 // 1 <= targetGrid[row][col] <= 60
-                for (int from = 1; from <= 60; from++) {
+                for (int from = 1; from <= mx; from++) {
                     if (top[from] <= i && bottom[from] >= i && left[from] <= j && right[from] >= j) {
                         if (from != to && !adj[from][to]) {
                             adj[from][to] = true;
 
-                            outGraph.computeIfAbsent(from, key -> new ArrayList<>()).add(to);
-                            inDegrees[to]++;
+                            g[from].add(to);
+                            inDeg[to]++;
                         }
                     }
                 }
@@ -55,25 +55,24 @@ public class Solution1591 {
         }
 
         // 入度为 0 进队列
-        Queue<Integer> queue = new LinkedList<>();
-        for (int i = 1; i <= 60; i++) {
-            if (inDegrees[i] == 0) {
-                queue.add(i);
+        Queue<Integer> q = new LinkedList<>();
+        for (int i = 1; i <= mx; i++) {
+            if (inDeg[i] == 0) {
+                q.add(i);
             }
         }
         int cnt = 0;
-        while (!queue.isEmpty()) {
+        while (!q.isEmpty()) {
             cnt++;
-            int cur = queue.remove();
+            int cur = q.remove();
 
-            for (int next : outGraph.getOrDefault(cur, new ArrayList<>())) {
-                inDegrees[next]--;
-                if (inDegrees[next] == 0) {
-                    queue.add(next);
+            for (int nxt : g[cur]) {
+                if (--inDeg[nxt] == 0) {
+                    q.add(nxt);
                 }
             }
         }
-        return cnt == 60;
+        return cnt == mx;
     }
 }
 /*

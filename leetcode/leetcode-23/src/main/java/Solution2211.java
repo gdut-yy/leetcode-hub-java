@@ -1,13 +1,13 @@
 public class Solution2211 {
     public int countCollisions(String directions) {
-        int len = directions.length();
-        char[] chars = directions.toCharArray();
+        int n = directions.length();
+        char[] s = directions.toCharArray();
 
         int sum = 0;
         int cnt = 0;
         // 左往右
-        for (int i = 0; i < len; i++) {
-            if (chars[i] == 'R') {
+        for (int i = 0; i < n; i++) {
+            if (s[i] == 'R') {
                 cnt++;
             } else {
                 sum += cnt;
@@ -17,8 +17,8 @@ public class Solution2211 {
 
         // 右往左
         cnt = 0;
-        for (int i = len - 1; i >= 0; i--) {
-            if (chars[i] == 'L') {
+        for (int i = n - 1; i >= 0; i--) {
+            if (s[i] == 'L') {
                 cnt++;
             } else {
                 sum += cnt;

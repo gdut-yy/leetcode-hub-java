@@ -58,6 +58,7 @@ public class CF1921D {
 D. Very Different Array
 https://codeforces.com/contest/1921/problem/D
 
+灵茶の试炼 2025-11-24
 题目大意：
 Petya 有一个 n 个整数的数组 ai。他的兄弟 Vasya 很嫉妒，决定自己做一个 n 个整数的数组。
 为了做到这一点，他找到了 m 个整数 bi (m≥n)，现在他想从中选择 n 个整数，并将它们按一定的顺序排列，得到一个长度为 n 的数组 ci。

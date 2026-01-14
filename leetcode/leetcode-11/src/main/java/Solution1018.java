@@ -6,7 +6,7 @@ public class Solution1018 {
         List<Boolean> ans = new ArrayList<>();
         int mod_int = 0;
         for (int v : nums) {
-            mod_int = ((mod_int << 1) + v) % 5;
+            mod_int = (mod_int * 2 + v) % 5;
             ans.add(mod_int == 0);
         }
         return ans;

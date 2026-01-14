@@ -16,23 +16,23 @@ public class Solution2039 {
             g[y].add(x);
         }
 
-        Queue<Integer> queue = new ArrayDeque<>();
+        Queue<Integer> q = new ArrayDeque<>();
         boolean[] vis = new boolean[n];
-        queue.add(0);
+        q.add(0);
         vis[0] = true;
 
         int ans = 0;
         int dist = 1;
-        while (!queue.isEmpty()) {
-            int sz = queue.size();
+        while (!q.isEmpty()) {
+            int sz = q.size();
             for (int i = 0; i < sz; i++) {
-                int x = queue.remove();
+                int x = q.remove();
                 for (Integer y : g[x]) {
                     if (!vis[y]) {
                         vis[y] = true;
                         int time = (dist * 2 - 1) / patience[y] * patience[y] + (dist * 2 + 1);
                         ans = Math.max(ans, time);
-                        queue.add(y);
+                        q.add(y);
                     }
                 }
             }

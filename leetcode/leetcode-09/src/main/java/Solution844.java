@@ -1,6 +1,3 @@
-import java.util.ArrayDeque;
-import java.util.Deque;
-
 public class Solution844 {
     public boolean backspaceCompare(String s, String t) {
         return backspaceStr(s).equals(backspaceStr(t));
@@ -8,22 +5,17 @@ public class Solution844 {
 
     private String backspaceStr(String str) {
         // 栈模拟
-        Deque<Character> stack = new ArrayDeque<>();
+        StringBuilder st = new StringBuilder();
         for (char ch : str.toCharArray()) {
             if (ch == '#') {
-                if (!stack.isEmpty()) {
-                    stack.pop();
+                if (!st.isEmpty()) {
+                    st.deleteCharAt(st.length() - 1);
                 }
             } else {
-                stack.push(ch);
+                st.append(ch);
             }
         }
-        // 还原为字符串
-        StringBuilder stringBuilder = new StringBuilder();
-        while (!stack.isEmpty()) {
-            stringBuilder.append(stack.pop());
-        }
-        return stringBuilder.reverse().toString();
+        return st.toString();
     }
 }
 /*

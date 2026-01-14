@@ -3,33 +3,27 @@ import java.util.Deque;
 
 public class Solution682 {
     public int calPoints(String[] ops) {
-        Deque<Integer> stack = new ArrayDeque<>();
+        Deque<Integer> st = new ArrayDeque<>();
         for (String op : ops) {
             if (op.equals("+")) {
-                int pop1 = stack.pop();
-                int pop2 = stack.pop();
+                int pop1 = st.pop();
+                int pop2 = st.pop();
                 int num = pop1 + pop2;
-                stack.push(pop2);
-                stack.push(pop1);
-                stack.push(num);
+                st.push(pop2);
+                st.push(pop1);
+                st.push(num);
             } else if (op.equals("D")) {
-                int pop1 = stack.pop();
+                int pop1 = st.pop();
                 int num = pop1 * 2;
-                stack.push(pop1);
-                stack.push(num);
+                st.push(pop1);
+                st.push(num);
             } else if (op.equals("C")) {
-                stack.pop();
+                st.pop();
             } else {
-                stack.push(Integer.parseInt(op));
+                st.push(Integer.parseInt(op));
             }
         }
-
-        // 求和
-        int sum = 0;
-        for (Integer integer : stack) {
-            sum += integer;
-        }
-        return sum;
+        return st.stream().mapToInt(Integer::intValue).sum();
     }
 }
 /*

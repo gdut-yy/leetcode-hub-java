@@ -76,4 +76,5 @@ queries[i] = [li, ri]
 第二部分：从 p 到 R，其中所有 f[i] >= L，贡献为 pref[R] - pref[p-1]。
 调整总和：从总和中减去这两部分的贡献，得到稳定子数组的数量。
 https://chat.deepseek.com/a/chat/s/135f7a33-4b5a-4a6b-967b-f94c4bebef8d
+rating 2234 (clist.by)
  */

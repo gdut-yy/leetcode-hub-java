@@ -9,6 +9,7 @@ public class Solution7Tests {
         int x = 123;
         int expected = 321;
         Assertions.assertEquals(expected, solution7.reverse(x));
+        Assertions.assertEquals(expected, solution7.reverse2(x));
     }
 
     @Test
@@ -16,6 +17,7 @@ public class Solution7Tests {
         int x = -123;
         int expected = -321;
         Assertions.assertEquals(expected, solution7.reverse(x));
+        Assertions.assertEquals(expected, solution7.reverse2(x));
     }
 
     @Test
@@ -23,6 +25,7 @@ public class Solution7Tests {
         int x = 120;
         int expected = 21;
         Assertions.assertEquals(expected, solution7.reverse(x));
+        Assertions.assertEquals(expected, solution7.reverse2(x));
     }
 
     @Test
@@ -30,5 +33,6 @@ public class Solution7Tests {
         int x = 0;
         int expected = 0;
         Assertions.assertEquals(expected, solution7.reverse(x));
+        Assertions.assertEquals(expected, solution7.reverse2(x));
     }
 }

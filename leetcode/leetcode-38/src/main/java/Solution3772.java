@@ -78,4 +78,5 @@ good.length == n
 换根 DP。
 https://chat.deepseek.com/a/chat/s/00ff5131-013f-4cdb-8e2b-2812ab01c9dd
 时间复杂度 O(n)。
+rating 2228 (clist.by)
  */

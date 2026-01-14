@@ -23,7 +23,7 @@ https://leetcode.cn/problems/compute-alternating-sum/description/
 1 <= nums[i] <= 100
 
 中国时间 2025-10-05 周日 10:30
-湖南。
+湖南·常德。
 模拟。
 时间复杂度 O(n)。
  */

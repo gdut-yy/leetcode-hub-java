@@ -13,6 +13,19 @@ public class Solution7 {
             return 0;
         }
     }
+
+    public int reverse2(int x) {
+        int ans = 0;
+        while (x != 0) { // 不能直接 > 0
+            int d = x % 10;
+            int newAns = ans * 10 + d;
+            // newAns 每次更新后除 10，如果不等于 ans，说明整数溢出
+            if (newAns / 10 != ans) return 0;
+            ans = newAns;
+            x /= 10;
+        }
+        return ans;
+    }
 }
 /*
 7. 整数反转

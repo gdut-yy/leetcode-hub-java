@@ -5,25 +5,25 @@ import java.util.Queue;
 
 public class Solution429 {
     public List<List<Integer>> levelOrder(Node root) {
-        List<List<Integer>> resList = new ArrayList<>();
+        List<List<Integer>> ans = new ArrayList<>();
         if (root == null) {
-            return resList;
+            return ans;
         }
-        Queue<Node> queue = new LinkedList<>();
-        queue.add(root);
-        while (!queue.isEmpty()) {
-            int size = queue.size();
+        Queue<Node> q = new LinkedList<>();
+        q.add(root);
+        while (!q.isEmpty()) {
+            int size = q.size();
             List<Integer> curLevel = new ArrayList<>();
             for (int i = 0; i < size; i++) {
-                Node cur = queue.remove();
+                Node cur = q.remove();
                 curLevel.add(cur.val);
                 if (cur.children != null) {
-                    queue.addAll(cur.children);
+                    q.addAll(cur.children);
                 }
             }
-            resList.add(curLevel);
+            ans.add(curLevel);
         }
-        return resList;
+        return ans;
     }
 
     static class Node {
