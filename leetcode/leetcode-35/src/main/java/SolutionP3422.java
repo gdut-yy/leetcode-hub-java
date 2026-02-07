@@ -5,19 +5,21 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.TreeMap;
 
-public class Solution480 {
+public class SolutionP3422 {
     static class V1 {
-        public double[] medianSlidingWindow(int[] nums, int k) {
-            int n = nums.length;
-            DualHeap dh = new DualHeap(k);
-            double[] ans = new double[n - k + 1];
-            for (int r = 0; r < n; r++) {
+        public long minOperations(int[] nums, int k) {
+            long ans = Long.MAX_VALUE;
+            DualHeap dh = new DualHeap();
+            for (int r = 0; r < nums.length; r++) {
                 // 1. 右进
                 dh.add(nums[r]);
                 int l = r - k + 1; // 窗口左端点
                 if (l < 0) continue; // 窗口大小不足 k，尚未形成第一个窗口
                 // 2. 更新答案
-                ans[l] = dh.median();
+                int median = dh.median();
+                long cost = dh.largeSum - median * dh.largeSize
+                        + median * dh.smallSize - dh.smallSum;
+                ans = Math.min(ans, cost);
                 // 3. 左出
                 dh.del(nums[l]);
             }
@@ -29,9 +31,8 @@ public class Solution480 {
             int smallSize, largeSize;
             long smallSum, largeSum;
             Map<Integer, Integer> delayed;
-            int k; // 窗口大小
 
-            public DualHeap(int k) {
+            public DualHeap() {
                 small = new PriorityQueue<>(Comparator.reverseOrder());
                 large = new PriorityQueue<>();
                 smallSize = 0;
@@ -39,7 +40,6 @@ public class Solution480 {
                 smallSum = 0;
                 largeSum = 0;
                 delayed = new HashMap<>();
-                this.k = k;
             }
 
             public void add(int num) {
@@ -67,14 +67,8 @@ public class Solution480 {
                 balance();
             }
 
-            public double median() {
-                Integer y = small.peek();
-                if (k % 2 == 0) {
-                    long x = large.peek();
-                    return x + (y - x) / 2.0;
-                } else {
-                    return y;
-                }
+            public int median() {
+                return small.peek();
             }
 
             public void balance() {
@@ -96,8 +90,7 @@ public class Solution480 {
                 for (PriorityQueue<Integer> pq : Arrays.asList(small, large)) {
                     while (!pq.isEmpty() && delayed.containsKey(pq.peek())) {
                         int num = pq.poll();
-                        delayed.put(num, delayed.get(num) - 1);
-                        if (delayed.get(num) == 0) {
+                        if (delayed.merge(num, -1, Integer::sum) == 0) {
                             delayed.remove(num);
                         }
                     }
@@ -107,17 +100,20 @@ public class Solution480 {
     }
 
     static class V2 {
-        public double[] medianSlidingWindow(int[] nums, int k) {
+        public long minOperations(int[] nums, int k) {
             int n = nums.length;
             MultiSets ms = new MultiSets(k, k / 2);
-            double[] ans = new double[n - k + 1];
+            long ans = Long.MAX_VALUE;
             for (int r = 0; r < n; r++) {
                 // 1. 右进
                 ms.add(nums[r]);
                 int l = r - k + 1; // 窗口左端点
                 if (l < 0) continue; // 窗口大小不足 k，尚未形成第一个窗口
                 // 2. 更新答案
-                ans[l] = ms.median();
+                long median = ms.median();
+                long cost = ms.largeSum - median * ms.largeSize
+                        + median * ms.smallSize - ms.smallSum;
+                ans = Math.min(ans, cost);
                 // 3. 左出
                 ms.del(nums[l]);
             }
@@ -128,6 +124,7 @@ public class Solution480 {
             int n, k;
             TreeMap<Integer, Integer> large, small; // 原为 x, y
             int largeSize, smallSize;
+            long largeSum, smallSum;
 
             // n:窗口大小, k:第 k 大 (0-index)
             public MultiSets(int n, int k) {
@@ -137,6 +134,8 @@ public class Solution480 {
                 this.small = new TreeMap<>();
                 this.largeSize = 0;
                 this.smallSize = 0;
+                largeSum = 0;
+                smallSum = 0;
             }
 
             private void add(int v) {
@@ -150,14 +149,8 @@ public class Solution480 {
                 balance();
             }
 
-            double median() {
-                Integer y = small.lastKey();
-                if (n % 2 == 0) {
-                    long x = large.firstKey();
-                    return x + (y - x) / 2.0;
-                } else {
-                    return y;
-                }
+            int median() {
+                return small.lastKey();
             }
 
             private void balance() {
@@ -182,40 +175,44 @@ public class Solution480 {
             private void xInsert(int v) {
                 large.merge(v, 1, Integer::sum);
                 largeSize++;
+                largeSum += v;
             }
 
             private void yInsert(int v) {
                 small.merge(v, 1, Integer::sum);
                 smallSize++;
+                smallSum += v;
             }
 
             private void xErase(int v) {
                 if (large.merge(v, -1, Integer::sum) == 0) large.remove(v);
                 largeSize--;
+                largeSum -= v;
             }
 
             private void yErase(int v) {
                 if (small.merge(v, -1, Integer::sum) == 0) small.remove(v);
                 smallSize--;
+                smallSum -= v;
             }
         }
     }
 }
 /*
-480. 滑动窗口中位数
-https://leetcode.cn/problems/sliding-window-median/description/
+$3422. 将子数组元素变为相等所需的最小操作数
+https://leetcode.cn/problems/minimum-operations-to-make-subarray-elements-equal/description/
 
-中位数是有序序列最中间的那个数。如果序列的长度是偶数，则没有最中间的数；此时中位数是最中间的两个数的平均数。
-例如：
-[2,3,4]，中位数是 3
-[2,3]，中位数是 (2 + 3) / 2 = 2.5
-给你一个数组 nums，有一个长度为 k 的窗口从最左端滑动到最右端。窗口中有 k 个数，每次窗口向右移动 1 位。你的任务是找出每次窗口移动后得到的新窗口中元素的中位数，并输出由它们组成的数组。
+给定一个整数数组 nums 和一个整数 k。你可以进行任意次以下操作：
+- 给 nums 的任何元素增加或减少 1。
+返回确保 至少 有一个大小为 k 的 nums 中的 子数组 的所有元素都相等的所需的 最小 操作数。
 提示：
-你可以假设 k 始终有效，即：k 始终小于等于输入的非空数组的元素个数。
-与真实值误差在 10 ^ -5 以内的答案将被视作正确答案。
+2 <= nums.length <= 10^5
+-10^6 <= nums[i] <= 10^6
+2 <= k <= nums.length
 
-对顶堆 / 双平衡树。
-时间复杂度 O(nlogn)
-相似题目: E - Best Performances
-https://atcoder.jp/contests/abc306/tasks/abc306_e
+对顶堆。
+相似题目: 480. 滑动窗口中位数
+https://leetcode.cn/problems/sliding-window-median/description/
+$3369. 设计数组统计跟踪器
+https://leetcode.cn/problems/design-an-array-statistics-tracker/description/
  */

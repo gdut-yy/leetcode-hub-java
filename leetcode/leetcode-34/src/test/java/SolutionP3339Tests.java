@@ -9,7 +9,7 @@ public class SolutionP3339Tests {
         int n = 3;
         int m = 4;
         int k = 2;
-        int expected = 2;
+        int expected = 8;
         Assertions.assertEquals(expected, solutionP3339.countOfArrays(n, m, k));
     }
 

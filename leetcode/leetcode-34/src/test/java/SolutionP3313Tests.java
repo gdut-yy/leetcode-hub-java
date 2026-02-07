@@ -7,8 +7,10 @@ public class SolutionP3313Tests {
     @Test
     public void example1() {
         int[][] edges = UtUtils.stringToInts2("[[0,1],[0,2]]");
-        int[] expected = {2, 2, 1};
-        Assertions.assertArrayEquals(expected, solutionP3313.lastMarkedNodes(edges));
+//        int[] expected = {2, 2, 1};
+        int[] expected = {1, 2, 1}; // 答案不唯一
+        int[] actual = solutionP3313.lastMarkedNodes(edges);
+        Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
