@@ -1,0 +1,6 @@
+7 3
+abacaba
+3
+cc
+bcb
+b
