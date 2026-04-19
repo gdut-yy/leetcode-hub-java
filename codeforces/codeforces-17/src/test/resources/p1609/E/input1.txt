@@ -1,0 +1,14 @@
+9 12
+aaabccccc
+4 a
+4 b
+2 b
+5 a
+1 b
+6 b
+5 c
+2 a
+1 a
+5 a
+6 b
+7 b

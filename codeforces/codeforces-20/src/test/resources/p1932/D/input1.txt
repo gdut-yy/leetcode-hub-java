@@ -1,0 +1,25 @@
+8
+3
+S
+3C 9S 4C 6D 3S 7S
+2
+C
+3S 5D 9S 6H
+1
+H
+6C 5D
+1
+S
+7S 3S
+1
+H
+9S 9H
+1
+S
+9S 9H
+1
+C
+9D 8H
+2
+C
+9C 9S 6H 8C
