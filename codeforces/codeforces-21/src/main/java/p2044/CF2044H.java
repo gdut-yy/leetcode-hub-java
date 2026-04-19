@@ -46,7 +46,7 @@ public class CF2044H {
             long s2 = query(r1, c1, r2, c2, 2);
             long res = (c2 - c1) * (s1 - r1 * s0) + s2 - c1 * s0;
             out.print(res);
-            out.print(" ");
+            if (i != q - 1) out.print(" ");
         }
         out.println();
     }
