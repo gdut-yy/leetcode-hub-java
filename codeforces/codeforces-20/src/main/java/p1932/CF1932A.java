@@ -1,22 +1,23 @@
 package p1932;
 
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF1932A {
-    static int n;
-    static String s;
+    static Scanner scanner = new Scanner(System.in);
+    static PrintWriter out = new PrintWriter(System.out);
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = scanner.nextInt();
-        while (t-- > 0) {
-            n = scanner.nextInt();
-            s = scanner.next();
-            System.out.println(solve());
-        }
+        int t = 1;
+        t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve() {
+    private static void solve() {
+        int n = scanner.nextInt();
+        String s = scanner.next();
+
         int j = s.indexOf("**");
         if (j < 0) j = n;
         int ans = 0;
@@ -25,7 +26,7 @@ public class CF1932A {
                 ans++;
             }
         }
-        return String.valueOf(ans);
+        out.println(ans);
     }
 }
 /*
