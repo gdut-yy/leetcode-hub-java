@@ -1,25 +1,27 @@
 package p2045;
 
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF2045H {
+    static Scanner scanner = new Scanner(System.in);
     static PrintWriter out = new PrintWriter(System.out);
     static String S;
     static char[] s;
 
-    public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in);
-        S = scanner.next();
-        s = S.toCharArray();
-        solve();
-        out.close();
+    public static void main(String[] args) {
+        int t = 1;
+//        t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
     static int[][] lcp;
 
     private static void solve() {
+        S = scanner.next();
+        s = S.toCharArray();
+
         int n = s.length;
         lcp = new int[n + 1][n + 1];
         for (int i = n - 1; i >= 0; i--) {
