@@ -18,6 +18,7 @@ public class CF2074DTests extends AbstractOjTests {
         super.doAssertion(OUTPUT1);
     }
 
+    // 补充用例
     @Test
     @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {

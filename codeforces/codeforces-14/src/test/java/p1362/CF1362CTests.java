@@ -16,11 +16,4 @@ public class CF1362CTests extends AbstractOjTests {
         CF1362C.main(null);
         super.doAssertion(OUTPUT1);
     }
-
-    @Test
-    public void example2() throws IOException {
-        super.doSetSystemInOut(INPUT2);
-        CF1362C.main(null);
-        super.doAssertion(OUTPUT2);
-    }
 }

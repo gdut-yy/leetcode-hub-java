@@ -31,6 +31,7 @@ public class CF296BTests extends AbstractOjTests {
         super.doAssertion(OUTPUT3);
     }
 
+    // 补充用例
     @Test
     public void example4() throws IOException {
         super.doSetSystemInOut(INPUT4);

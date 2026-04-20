@@ -41,4 +41,13 @@ public class CF1670FTests extends AbstractOjTests {
         CF1670F.main(null);
         super.doAssertion(OUTPUT4);
     }
+
+    // 补充用例
+    @Test
+    @Disabled("uses static PrintWriter that gets closed after first run")
+    public void example5() throws IOException {
+        super.doSetSystemInOut(INPUT5);
+        CF1670F.main(null);
+        super.doAssertion(OUTPUT5);
+    }
 }

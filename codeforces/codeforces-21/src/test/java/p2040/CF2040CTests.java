@@ -16,4 +16,12 @@ public class CF2040CTests extends AbstractOjTests {
         CF2040C.main(null);
         super.doAssertion(OUTPUT1);
     }
+
+    // 补充用例
+    @Test
+    public void example2() throws IOException {
+        super.doSetSystemInOut(INPUT2);
+        CF2040C.main(null);
+        super.doAssertion(OUTPUT2);
+    }
 }
