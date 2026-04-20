@@ -25,4 +25,12 @@ public class CF60ETests extends AbstractOjTests {
         CF60E.main(null);
         super.doAssertion(OUTPUT2);
     }
+
+    @Test
+    @Disabled("uses static PrintWriter that gets closed after first run")
+    public void example3() throws IOException {
+        super.doSetSystemInOut(INPUT3);
+        CF60E.main(null);
+        super.doAssertion(OUTPUT3);
+    }
 }

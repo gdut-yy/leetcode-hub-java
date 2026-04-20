@@ -23,4 +23,19 @@ public class CF914CTests extends AbstractOjTests {
         CF914C.main(null);
         super.doAssertion(OUTPUT2);
     }
+
+    // 补充用例
+    @Test
+    public void example3() throws IOException {
+        super.doSetSystemInOut(INPUT3);
+        CF914C.main(null);
+        super.doAssertion(OUTPUT3);
+    }
+
+    @Test
+    public void example4() throws IOException {
+        super.doSetSystemInOut(INPUT4);
+        CF914C.main(null);
+        super.doAssertion(OUTPUT4);
+    }
 }
