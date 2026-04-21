@@ -4,6 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CF2001D {
     static Scanner scanner = new Scanner(System.in);
@@ -55,10 +56,7 @@ public class CF2001D {
         }
 
         out.println(st.size());
-        for (int num : st) {
-            out.print(num + " ");
-        }
-        out.println();
+        out.println(st.stream().map(String::valueOf).collect(Collectors.joining(" ")));
     }
 }
 /*
