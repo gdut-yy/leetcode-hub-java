@@ -11,6 +11,9 @@ import java.io.PrintStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import static org.apache.commons.io.StandardLineSeparator.CRLF;
+import static org.apache.commons.io.StandardLineSeparator.LF;
+
 public abstract class AbstractOjTests {
     protected static final String INPUT1 = "input1.txt";
     protected static final String OUTPUT1 = "output1.txt";
@@ -85,6 +88,8 @@ public abstract class AbstractOjTests {
         File outputFile = new File(path + outputName);
         String expected = FileUtils.readFileToString(outputFile, StandardCharsets.UTF_8.name());
         String actual = byteArrayOutputStream.toString();
+        expected = expected.replace(CRLF.getString(), LF.getString());
+        actual = actual.replace(CRLF.getString(), LF.getString());
         Assertions.assertEquals(expected.trim(), actual.trim());
     }
 }
