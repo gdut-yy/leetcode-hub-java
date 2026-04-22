@@ -82,6 +82,7 @@ public class CF730I {
                 output.append(i + 1).append(" ");
             }
         }
+        output.deleteCharAt(output.length() - 1);
         output.append(System.lineSeparator());
         for (int i = 0; i < n; i++) {
             if (group[i] == 2) {
