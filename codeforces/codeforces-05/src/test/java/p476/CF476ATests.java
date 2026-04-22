@@ -1,0 +1,19 @@
+package p476;
+
+import base.AbstractOjTests;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+public class CF476ATests extends AbstractOjTests {
+    public CF476ATests() {
+        super("/p476/A/");
+    }
+
+    @Test
+    public void example1() throws IOException {
+        super.doSetSystemInOut(INPUT1);
+        CF476A.main(null);
+        super.doAssertion(OUTPUT1);
+    }
+}

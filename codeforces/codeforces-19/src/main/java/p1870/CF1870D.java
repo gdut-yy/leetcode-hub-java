@@ -42,7 +42,7 @@ public class CF1870D {
             k -= d * h;
             output.append((h + " ").repeat(st.get(i)[0] - st.get(i - 1)[0]));
         }
-        return output.toString();
+        return output.toString().trim();
     }
 }
 /*
