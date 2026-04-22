@@ -1,21 +1,19 @@
-package p1555;
+package p446;
 
 import base.AbstractOjTests;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-public class CF1555BTests extends AbstractOjTests {
-    public CF1555BTests() {
-        super("/p1555/B/");
+public class CF446ATests extends AbstractOjTests {
+    public CF446ATests() {
+        super("/p446/A/");
     }
 
     @Test
-    @Disabled("浮点数")
     public void example1() throws IOException {
         super.doSetSystemInOut(INPUT1);
-        CF1555B.main(null);
+        CF446A.main(null);
         super.doAssertion(OUTPUT1);
     }
 }
