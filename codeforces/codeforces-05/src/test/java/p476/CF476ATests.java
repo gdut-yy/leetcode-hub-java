@@ -16,4 +16,11 @@ public class CF476ATests extends AbstractOjTests {
         CF476A.main(null);
         super.doAssertion(OUTPUT1);
     }
+
+    @Test
+    public void example2() throws IOException {
+        super.doSetSystemInOut(INPUT2);
+        CF476A.main(null);
+        super.doAssertion(OUTPUT2);
+    }
 }

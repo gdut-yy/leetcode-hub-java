@@ -33,4 +33,13 @@ public class CF799CTests extends AbstractOjTests {
         CF799C.main(null);
         super.doAssertion(OUTPUT3);
     }
+
+    // 补充用例
+    @Test
+    @Disabled("uses static PrintWriter that gets closed after first run")
+    public void example4() throws IOException {
+        super.doSetSystemInOut(INPUT4);
+        CF799C.main(null);
+        super.doAssertion(OUTPUT4);
+    }
 }

@@ -33,4 +33,13 @@ public class CF1073ETests extends AbstractOjTests {
         CF1073E.main(null);
         super.doAssertion(OUTPUT3);
     }
+
+    // 补充用例
+    @Test
+    @Disabled("uses static PrintWriter that gets closed after first run")
+    public void example4() throws IOException {
+        super.doSetSystemInOut(INPUT4);
+        CF1073E.main(null);
+        super.doAssertion(OUTPUT4);
+    }
 }

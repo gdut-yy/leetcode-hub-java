@@ -30,4 +30,12 @@ public class CF730ITests extends AbstractOjTests {
         CF730I.main(null);
         super.doAssertion(OUTPUT3);
     }
+
+    // 补充用例
+    @Test
+    public void example4() throws IOException {
+        super.doSetSystemInOut(INPUT4);
+        CF730I.main(null);
+        super.doAssertion(OUTPUT4);
+    }
 }

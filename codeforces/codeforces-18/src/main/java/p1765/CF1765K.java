@@ -62,6 +62,7 @@ Input
 3 4
 Output
 8
+
 Input
 3
 10 10 10

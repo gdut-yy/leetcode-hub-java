@@ -25,4 +25,13 @@ public class CF226CTests extends AbstractOjTests {
         CF226C.main(null);
         super.doAssertion(OUTPUT2);
     }
+
+    // 补充用例
+    @Test
+    @Disabled("uses static PrintWriter that gets closed after first run")
+    public void example3() throws IOException {
+        super.doSetSystemInOut(INPUT3);
+        CF226C.main(null);
+        super.doAssertion(OUTPUT3);
+    }
 }
