@@ -70,16 +70,17 @@ Input
 Output
 3
 4 1 5
+
 Input
 4
 8 3 5 2
 Output
 2
 1 4
+
 Input
 5
 2 1 2 4 3
 Output
 0
-
  */
