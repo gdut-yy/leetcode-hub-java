@@ -26,5 +26,5 @@ https://leetcode.cn/problems/count-monobit-integers/description/
 0 <= n <= 1000
 
 模拟。
-时间复杂度 O(logn)。
+时间复杂度 O(nlogn)。
  */

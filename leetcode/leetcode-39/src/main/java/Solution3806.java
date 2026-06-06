@@ -64,5 +64,5 @@ https://leetcode.cn/problems/maximum-bitwise-and-after-increment-operations/desc
 
 试填法 + 贪心。
 时间复杂度 O(nlogU)
-rating 2284 (clist.by)
+rating 2274 (clist.by)
  */

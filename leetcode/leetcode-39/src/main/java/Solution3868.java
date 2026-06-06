@@ -46,6 +46,7 @@ https://leetcode.cn/problems/minimum-cost-to-equalize-arrays-using-swaps/descrip
 2 <= n == nums1.length == nums2.length <= 8 * 10^4
 1 <= nums1[i], nums2[i] <= 8 * 10^4
 
+等价转化。
 https://chat.deepseek.com/a/chat/s/d3ef0a0e-3933-4b39-829b-cde6e86c8bc2
 时间复杂度 O(n)。
  */

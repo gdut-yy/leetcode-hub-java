@@ -35,4 +35,6 @@ https://leetcode.cn/problems/length-of-the-longest-subsequence-that-sums-to-targ
 
 0-1 背包问题，刚好装满背包场景，需要初始化 -inf
 时间复杂度 O(n^2)
+相似题目: 3877. 达到目标异或值的最少删除次数
+https://leetcode.cn/problems/minimum-removals-to-achieve-target-xor/description/
  */

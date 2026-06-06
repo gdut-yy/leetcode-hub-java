@@ -3,7 +3,7 @@ import org.junit.jupiter.api.Test;
 
 public class Solution3899Tests {
     private final Solution3899 solution3899 = new Solution3899();
-    // 与真实答案的误差在 10-5 以内的结果都将被视为正确。
+    // 与真实答案的误差在 10^-5 以内的结果都将被视为正确。
     private static final double DELTA = 1e-5;
 
     @Test

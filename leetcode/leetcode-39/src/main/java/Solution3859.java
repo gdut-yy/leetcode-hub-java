@@ -50,7 +50,11 @@ https://leetcode.cn/problems/count-subarrays-with-k-distinct-integers/descriptio
 1 <= nums[i] <= 10^5
 1 <= k, m <= nums.length
 
-恰好型滑动窗口
+恰好型滑动窗口。
+本题等价于如下两个问题：
+- 子数组至少包含 k 个不同整数，且至少有 k 个不同整数都至少出现 m 次。
+- 子数组至少包含 k+1 个不同整数，且至少有 k 个不同整数都至少出现 m 次。
+二者相减，所表达的含义就是恰好包含 k 个不同整数，且至少有 k 个不同整数都至少出现 m 次。
 https://leetcode.cn/problems/count-subarrays-with-k-distinct-integers/solutions/3910806/qia-hao-xing-hua-dong-chuang-kou-pythonj-5mll/
 时间复杂度 O(n)。
  */

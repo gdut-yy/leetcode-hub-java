@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 public class Solution1467Tests {
     private final Solution1467.V1 solution1467_v1 = new Solution1467.V1();
     private final Solution1467.V2 solution1467_v2 = new Solution1467.V2();
+    // 答案与真实值误差在 10^-5 以内，则被视为正确答案
     private static final double DELTA = 1e-5;
 
     @Test
