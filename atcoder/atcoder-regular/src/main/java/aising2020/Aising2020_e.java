@@ -22,6 +22,7 @@ public class Aising2020_e {
         static long ans;
 
         public static void main(String[] args) {
+            scanner = new Scanner(System.in);
             int t = scanner.nextInt();
             while (t-- > 0) {
                 n = scanner.nextInt();

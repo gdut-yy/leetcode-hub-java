@@ -5,11 +5,12 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Agc015_c {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, m, q;
     static char[][] a;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
         q = scanner.nextInt();
