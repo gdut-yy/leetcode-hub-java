@@ -1,0 +1,9 @@
+4
+ababcd
+abcba
+a
+b
+defi
+fed
+xyz
+x

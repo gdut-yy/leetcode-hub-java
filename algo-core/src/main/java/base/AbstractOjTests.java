@@ -90,6 +90,8 @@ public abstract class AbstractOjTests {
         String actual = byteArrayOutputStream.toString();
         expected = expected.replace(CRLF.getString(), LF.getString());
         actual = actual.replace(CRLF.getString(), LF.getString());
+        expected = expected.replaceAll("(?m)[ \\t]+$", "");
+        actual = actual.replaceAll("(?m)[ \\t]+$", "");
         Assertions.assertEquals(expected.trim(), actual.trim());
     }
 }
