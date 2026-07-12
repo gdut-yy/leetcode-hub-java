@@ -1,25 +1,34 @@
 package c343;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Abc343_f {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+//        t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
     static int n, q;
     static int[] a;
 
-    public static void main(String[] args) {
+    private static void solve() {
         n = scanner.nextInt();
         q = scanner.nextInt();
         a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        System.out.println(solve());
-    }
 
-    private static String solve() {
         InfoSegmentTree seg = new InfoSegmentTree(n);
         seg.build(a, 1, 0, n - 1);
 
@@ -36,7 +45,7 @@ public class Abc343_f {
                 output.add(String.valueOf(res));
             }
         }
-        return String.join(System.lineSeparator(), output);
+        out.println(String.join(System.lineSeparator(), output));
     }
 
     // 线段树模板，只需要实现 mergeInfo 和 _do，其余都是固定的

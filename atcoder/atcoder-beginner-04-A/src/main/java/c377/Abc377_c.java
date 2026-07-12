@@ -5,10 +5,11 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class Abc377_c {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static long n, m;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
         System.out.println(solve());

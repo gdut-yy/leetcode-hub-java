@@ -6,10 +6,11 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Abc212_d {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int q;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         q = scanner.nextInt();
         System.out.println(solve());
     }

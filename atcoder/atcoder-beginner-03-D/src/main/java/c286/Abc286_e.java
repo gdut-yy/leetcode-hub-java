@@ -1,21 +1,24 @@
 package c286;
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Abc286_e {
-    static Scanner scanner = new Scanner(System.in);
-    static int n;
-    static int[] a;
+    static Scanner scanner;
+    static PrintWriter out;
 
     public static void main(String[] args) {
-        n = scanner.nextInt();
-        a = new int[n];
-        for (int i = 0; i < n; i++) {
-            a[i] = scanner.nextInt();
-        }
-        System.out.println(solve());
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+//        t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
+
+    static int n;
+    static int[] a;
 
     static final int INF = (int) 1e9;
 
@@ -29,7 +32,13 @@ public class Abc286_e {
         }
     }
 
-    private static String solve() {
+    private static void solve() {
+        n = scanner.nextInt();
+        a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = scanner.nextInt();
+        }
+
         pair[][] f = new pair[n][n];
         for (int i = 0; i < n; i++) {
             Arrays.setAll(f[i], e -> new pair(0, 0));
@@ -71,7 +80,7 @@ public class Abc286_e {
                 output[i] = p.dis + " " + (p.s + a[w]);
             }
         }
-        return String.join(System.lineSeparator(), output);
+        out.println(String.join(System.lineSeparator(), output));
     }
 }
 /*
