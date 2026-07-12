@@ -1,7 +1,6 @@
 package p145;
 
 import base.AbstractOjTests;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -19,7 +18,6 @@ public class CF145ETests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF145E.main(null);

@@ -19,7 +19,6 @@ public class CF498ETests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF498E.main(null);
@@ -27,7 +26,6 @@ public class CF498ETests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example3() throws IOException {
         super.doSetSystemInOut(INPUT3);
         CF498E.main(null);
@@ -35,7 +33,6 @@ public class CF498ETests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example4() throws IOException {
         super.doSetSystemInOut(INPUT4);
         CF498E.main(null);

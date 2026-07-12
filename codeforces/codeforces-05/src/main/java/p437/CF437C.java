@@ -3,11 +3,12 @@ package p437;
 import java.util.Scanner;
 
 public class CF437C {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, m;
     static int[] a;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         m = scanner.nextInt();
         a = new int[n];

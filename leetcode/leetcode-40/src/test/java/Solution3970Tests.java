@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution3970Tests {
-    private final Solution3970 solution = new Solution3970();
+    private final Solution3970 solution3970 = new Solution3970();
 
     @Test
     public void example1() {
@@ -11,7 +11,7 @@ public class Solution3970Tests {
         String labels = "aab";
         int k = 1;
         int expected = 3;
-        Assertions.assertEquals(expected, solution.shortestPath(n, edges, labels, k));
+        Assertions.assertEquals(expected, solution3970.shortestPath(n, edges, labels, k));
     }
 
     @Test
@@ -21,7 +21,7 @@ public class Solution3970Tests {
         String labels = "aab";
         int k = 2;
         int expected = 2;
-        Assertions.assertEquals(expected, solution.shortestPath(n, edges, labels, k));
+        Assertions.assertEquals(expected, solution3970.shortestPath(n, edges, labels, k));
     }
 
     @Test
@@ -31,6 +31,6 @@ public class Solution3970Tests {
         String labels = "aaa";
         int k = 2;
         int expected = -1;
-        Assertions.assertEquals(expected, solution.shortestPath(n, edges, labels, k));
+        Assertions.assertEquals(expected, solution3970.shortestPath(n, edges, labels, k));
     }
 }

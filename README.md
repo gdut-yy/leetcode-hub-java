@@ -1,12 +1,12 @@
 # algo-hub-java-cpp
 
-基于 `jdk21` + `junit5` + `jacoco` 的 leetcode + codeforces + atcoder + nowcoder + luogu 练习仓库。
+基于 `jdk25` + `junit5` + `jacoco` 的 leetcode + codeforces + atcoder + nowcoder + luogu 练习仓库。
 
-`@since` 2021.07.05，Day 1413 (2025.05.17) 已收录：
+`@since` 2021.07.05，Day 1834 (2026.07.12) 已收录：
 
-- leetcode: 3195 题
-- codeforces: 1021 题
-- atcoder: 345 题
+- leetcode: 3651 题
+- codeforces: 1265 题
+- atcoder: 420 题
 
 ---
 
@@ -21,26 +21,30 @@
 
 ```sh
 $ java -version
-openjdk 21 2023-09-19
-OpenJDK Runtime Environment (build 21+35-2513)
-OpenJDK 64-Bit Server VM (build 21+35-2513, mixed mode, sharing)
+openjdk version "25" 2025-09-16
+OpenJDK Runtime Environment (build 25+36-3489)
+OpenJDK 64-Bit Server VM (build 25+36-3489, mixed mode, sharing)
 
 $ mvn -v
 Apache Maven 3.9.9 (8e8579a9e76f7d015ee5ec7bfcdc97d260186937)
 Maven home: D:\programs\apache-maven-3.9.9
-Java version: 21, vendor: Oracle Corporation, runtime: D:\programs\jdk-21
+Java version: 21, vendor: Oracle Corporation, runtime: D:\programs\jdk-25
 Default locale: zh_CN, platform encoding: UTF-8
 OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
 
-IntelliJ IDEA 2024.2.2 (Community Edition)
-Build #IC-242.22855.74, built on September 18, 2024
+IntelliJ IDEA 2025.3.6
+Build #IU-253.33813.25, built on June 2, 2026
 ```
 
 ## Command 命令行
 
 ```sh
 # 运行 UT、统计覆盖率（jdk21）：
-mvn clean verify -s settings.xml
+mvn clean verify -s settings.xml -T 1C
+
+# 只测试某个 module
+mvn test -pl atcoder/atcoder-beginner-03-D -am 
+mvn test -pl codeforces/codeforces-22 -am 
 
 # 统计做题进度（python3）：
 python countSolutions.py

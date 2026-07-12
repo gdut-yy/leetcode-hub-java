@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution3966Tests {
-    private final Solution3966 solution = new Solution3966();
+    private final Solution3966 solution3966 = new Solution3966();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution3966Tests {
         long r = 15;
         int k = 1;
         long expected = 3;
-        Assertions.assertEquals(expected, solution.goodIntegers(l, r, k));
+        Assertions.assertEquals(expected, solution3966.goodIntegers(l, r, k));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution3966Tests {
         long r = 204;
         int k = 2;
         long expected = 2;
-        Assertions.assertEquals(expected, solution.goodIntegers(l, r, k));
+        Assertions.assertEquals(expected, solution3966.goodIntegers(l, r, k));
     }
 }

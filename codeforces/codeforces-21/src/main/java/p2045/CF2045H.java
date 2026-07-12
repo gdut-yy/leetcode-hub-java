@@ -4,12 +4,14 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF2045H {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
     static String S;
     static char[] s;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) solve();

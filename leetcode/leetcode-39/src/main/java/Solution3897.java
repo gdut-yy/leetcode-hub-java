@@ -76,6 +76,7 @@ https://leetcode.cn/problems/maximum-value-of-concatenated-binary-segments/descr
 nums1[i] + nums0[i] > 0
 nums1 和 nums0 中所有元素的总和不超过 2 * 10^5。
 
+贪心。
 https://chat.deepseek.com/a/chat/s/76d940f7-011c-47e3-9cfc-51906ba809f9
 相似题目: 179. 最大数
 https://leetcode.cn/problems/largest-number/

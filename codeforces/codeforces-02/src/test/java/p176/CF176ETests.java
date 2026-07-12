@@ -20,7 +20,6 @@ public class CF176ETests extends AbstractOjTests {
 
     // 补充用例
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF176E.main(null);

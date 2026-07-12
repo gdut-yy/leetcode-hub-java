@@ -6,10 +6,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class CF990G {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) solve();
@@ -18,11 +20,11 @@ public class CF990G {
 
     static final int MX = 200001;
 
-    static int[] cnt = new int[MX];
-    static int[] time = new int[MX];
-    static int[] fa = new int[MX];
-    static long[] size = new long[MX];
-    static long[] f = new long[MX];
+    static int[] cnt;
+    static int[] time;
+    static int[] fa;
+    static long[] size;
+    static long[] f;
     static ArrayList<int[]>[] es = new ArrayList[MX];
     static int now;
 
@@ -49,6 +51,12 @@ public class CF990G {
     }
 
     private static void solve() {
+        cnt = new int[MX];
+        time = new int[MX];
+        fa = new int[MX];
+        size = new long[MX];
+        f = new long[MX];
+
         int n = scanner.nextInt();
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {

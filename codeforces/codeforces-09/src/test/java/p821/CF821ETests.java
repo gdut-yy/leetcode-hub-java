@@ -19,7 +19,6 @@ public class CF821ETests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF821E.main(null);

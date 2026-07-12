@@ -5,12 +5,14 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class CF1670F {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
     static int n;
     static long l, r, z;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) V2.solve();

@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class CF264C {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, q;
     static int[][] ps; // v, c
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         q = scanner.nextInt();
         ps = new int[n][2];

@@ -52,17 +52,22 @@ def count_codeforces(cwd):
 def count_atcoder(cwd):
     cnt_at_mains = 0
     cnt_at_tests = 0
+    mp = {}
     for dirpath, dirnames, filenames in os.walk(cwd):
         if "atcoder" in dirpath:
             if '\src\main\java' in dirpath:
                 for filename in filenames:
                     if '_' in filename:
+                        key = filename.replace('_', '').replace('.java', '')
+                        mp[key] = filename
                         cnt_at_mains += 1
             if '\src\\test\java' in dirpath:
                 for filename in filenames:
                     if 'Tests' in filename:
+                        key = filename.replace('Tests.java', '')
+                        mp.pop(key, None)
                         cnt_at_tests += 1
-    return cnt_at_mains, cnt_at_tests
+    return cnt_at_mains, cnt_at_tests, mp
 
 if __name__ == '__main__':
     start = datetime.datetime(2021, 7, 4)
@@ -84,7 +89,8 @@ if __name__ == '__main__':
     print(cnt_cf_tests)
     print(mp)
 
-    cnt_at_mains, cnt_at_tests = count_atcoder(cwd)
+    cnt_at_mains, cnt_at_tests, mp = count_atcoder(cwd)
     print('atcoder:')
     print(cnt_at_mains)
     print(cnt_at_tests)
+    print(mp.values())

@@ -7,12 +7,13 @@ import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CF916E {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, q;
     static long[] a;
     static List<Integer>[] g;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         q = scanner.nextInt();
         a = new long[n];

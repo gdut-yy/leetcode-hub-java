@@ -8,12 +8,14 @@ import java.io.OutputStreamWriter;
 public class CF2042F {
     // Time limit exceeded on test 8
 //    static Scanner scanner = new Scanner(System.in);
-    static Reader scanner = new Reader();
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    static Reader scanner;
+    static BufferedWriter bw;
     static int n;
     static int[][] a;
 
     public static void main(String[] args) throws IOException {
+        scanner = new Reader();
+        bw = new BufferedWriter(new OutputStreamWriter(System.out));
         n = scanner.nextInt();
         a = new int[n][2];
         for (int i = 0; i < n; i++) {

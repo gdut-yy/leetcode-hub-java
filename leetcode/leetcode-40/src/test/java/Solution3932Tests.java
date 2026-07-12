@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution3932Tests {
-    private final Solution3932 solution = new Solution3932();
+    private final Solution3932 solution3932 = new Solution3932();
 
     @Test
     public void example1() {
@@ -10,7 +10,7 @@ public class Solution3932Tests {
         int r = 9;
         int k = 3;
         int expected = 2;
-        Assertions.assertEquals(expected, solution.countKthRoots(l, r, k));
+        Assertions.assertEquals(expected, solution3932.countKthRoots(l, r, k));
     }
 
     @Test
@@ -19,6 +19,6 @@ public class Solution3932Tests {
         int r = 30;
         int k = 2;
         int expected = 3;
-        Assertions.assertEquals(expected, solution.countKthRoots(l, r, k));
+        Assertions.assertEquals(expected, solution3932.countKthRoots(l, r, k));
     }
 }

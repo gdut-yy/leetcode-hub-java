@@ -4,12 +4,14 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF803F {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
     static final int MOD = (int) (1e9 + 7);
     static final int mx = (int) 1e5;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) solve();

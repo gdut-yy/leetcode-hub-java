@@ -11,11 +11,12 @@ import java.util.stream.Collectors;
 public class CF1672H {
     // Time limit exceeded on test 10
 //    static Scanner scanner = new Scanner(System.in);
-    static FastReader scanner = new FastReader();
+    static FastReader scanner;
     static int n, q;
     static char[] s;
 
     public static void main(String[] args) {
+        scanner = new FastReader();
         n = scanner.nextInt();
         q = scanner.nextInt();
         s = scanner.next().toCharArray();

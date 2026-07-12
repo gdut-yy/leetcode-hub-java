@@ -5,13 +5,14 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CF1401F {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int w, q;
     static int n;
     static int[] a;
     static int[] swap;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         w = scanner.nextInt();
         q = scanner.nextInt();
         n = 1 << w;

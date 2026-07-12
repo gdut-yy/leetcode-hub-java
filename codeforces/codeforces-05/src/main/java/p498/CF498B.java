@@ -4,11 +4,13 @@ import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class CF498B {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
     static int n, T;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         n = scanner.nextInt();
         T = scanner.nextInt();
         solve();

@@ -10,10 +10,12 @@ import java.util.StringTokenizer;
 public class CF60E {
     // Stuck in sleigh traffic on flight 21
 //    static Scanner scanner = new Scanner(System.in);
-    static FastReader scanner = new FastReader();
-    static PrintWriter out = new PrintWriter(System.out);
+    static FastReader scanner;
+    static PrintWriter out;
 
     public static void main(String[] args) {
+        scanner = new FastReader();
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) solve();

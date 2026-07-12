@@ -19,7 +19,6 @@ public class CF799CTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF799C.main(null);
@@ -27,7 +26,6 @@ public class CF799CTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example3() throws IOException {
         super.doSetSystemInOut(INPUT3);
         CF799C.main(null);
@@ -36,7 +34,6 @@ public class CF799CTests extends AbstractOjTests {
 
     // 补充用例
     @Test
-    @Disabled("uses static PrintWriter that gets closed after first run")
     public void example4() throws IOException {
         super.doSetSystemInOut(INPUT4);
         CF799C.main(null);

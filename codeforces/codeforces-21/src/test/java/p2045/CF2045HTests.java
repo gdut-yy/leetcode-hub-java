@@ -19,7 +19,6 @@ public class CF2045HTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("CF2045H uses static PrintWriter that gets closed after first run")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF2045H.main(null);
@@ -27,7 +26,6 @@ public class CF2045HTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("CF2045H uses static PrintWriter that gets closed after first run")
     public void example3() throws IOException {
         super.doSetSystemInOut(INPUT3);
         CF2045H.main(null);

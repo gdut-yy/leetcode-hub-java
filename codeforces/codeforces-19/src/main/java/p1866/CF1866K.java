@@ -33,14 +33,16 @@ public class CF1866K {
         long fi = 0, se = 0, fiW = 0;
     }
 
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
     static List<nb>[] g;
     static Node[] nodes;
     static long ans;
     static List<vec>[][] hulls;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int n = scanner.nextInt();
         g = new ArrayList[n];
         Arrays.setAll(g, e -> new ArrayList<>());

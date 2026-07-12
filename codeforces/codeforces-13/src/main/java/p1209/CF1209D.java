@@ -3,10 +3,11 @@ package p1209;
 import java.util.Scanner;
 
 public class CF1209D {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, k;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         k = scanner.nextInt();
         System.out.println(solve());

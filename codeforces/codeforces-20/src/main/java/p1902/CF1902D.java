@@ -8,11 +8,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class CF1902D {
-    static Scanner scanner = new Scanner(System.in);
+    static Scanner scanner;
     static int n, q;
     static char[] s;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
         n = scanner.nextInt();
         q = scanner.nextInt();
         s = scanner.next().toCharArray();

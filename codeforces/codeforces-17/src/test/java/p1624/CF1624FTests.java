@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+@Disabled("交互题")
 public class CF1624FTests extends AbstractOjTests {
     public CF1624FTests() {
         super("/p1624/F/");
     }
 
     @Test
-    @Disabled("交互题")
     public void example1() throws IOException {
         super.doSetSystemInOut(INPUT1);
         CF1624F.main(null);
@@ -20,7 +20,6 @@ public class CF1624FTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("交互题")
     public void example2() throws IOException {
         super.doSetSystemInOut(INPUT2);
         CF1624F.main(null);
@@ -28,7 +27,6 @@ public class CF1624FTests extends AbstractOjTests {
     }
 
     @Test
-    @Disabled("交互题")
     public void example3() throws IOException {
         super.doSetSystemInOut(INPUT3);
         CF1624F.main(null);

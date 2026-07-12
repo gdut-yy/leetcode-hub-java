@@ -8,10 +8,12 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class CF628E {
-    static Scanner scanner = new Scanner(System.in);
-    static PrintWriter out = new PrintWriter(System.out);
+    static Scanner scanner;
+    static PrintWriter out;
 
     public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = 1;
 //        t = scanner.nextInt();
         while (t-- > 0) V2.solve();
@@ -115,9 +117,18 @@ public class CF628E {
     }
 
     static class V2 {
+        static int n, m;
+        static long ans;
+        static int[][] emptyL, emptyR;
+        static int[] t, time;
+        static int now;
+        static List<Integer>[] delTodo;
+        static List<Integer> keys;
+
         private static void solve() {
             n = scanner.nextInt();
             m = scanner.nextInt();
+            ans = 0;
 
             emptyL = new int[n][m];
             emptyR = new int[n][m];
@@ -172,13 +183,6 @@ public class CF628E {
             out.println(ans);
         }
 
-        static int n, m;
-        static long ans;
-        static int[][] emptyL, emptyR;
-        static int[] t, time;
-        static int now;
-        static List<Integer>[] delTodo;
-        static List<Integer> keys;
 
         static void add(int i) {
             for (; i <= m; i += i & -i) {

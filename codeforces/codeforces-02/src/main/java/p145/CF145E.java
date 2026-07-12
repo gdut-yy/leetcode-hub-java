@@ -11,11 +11,12 @@ import java.util.StringTokenizer;
 public class CF145E {
     // Time limit exceeded on test 58
 //    static Scanner scanner = new Scanner(System.in);
-    static FastReader scanner = new FastReader();
+    static FastReader scanner;
     static int n, m;
     static char[] s;
 
     public static void main(String[] args) {
+        scanner = new FastReader();
         n = scanner.nextInt();
         m = scanner.nextInt();
         s = scanner.next().toCharArray();
