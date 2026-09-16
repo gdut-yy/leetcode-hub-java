@@ -3,30 +3,29 @@ import java.util.Map;
 
 public class Solution454 {
     public int fourSumCount(int[] nums1, int[] nums2, int[] nums3, int[] nums4) {
-        Map<Integer, Integer> nums1and2Map = new HashMap<>();
-        Map<Integer, Integer> nums3and4Map = new HashMap<>();
+        Map<Integer, Integer> n1_plus_n2_mp = new HashMap<>();
+        Map<Integer, Integer> n3_plus_n4_mp = new HashMap<>();
         for (int n1 : nums1) {
             for (int n2 : nums2) {
-                int sum = n1 + n2;
-                nums1and2Map.put(sum, nums1and2Map.getOrDefault(sum, 0) + 1);
+                n1_plus_n2_mp.merge(n1 + n2, 1, Integer::sum);
             }
         }
         for (int n3 : nums3) {
             for (int n4 : nums4) {
-                int sum = n3 + n4;
-                nums3and4Map.put(sum, nums3and4Map.getOrDefault(sum, 0) + 1);
+                n3_plus_n4_mp.merge(n3 + n4, 1, Integer::sum);
             }
         }
 
-        int res = 0;
-        for (Map.Entry<Integer, Integer> entry : nums1and2Map.entrySet()) {
-            int sum1 = entry.getKey();
-            int sum2 = -sum1;
-            if (nums3and4Map.containsKey(sum2)) {
-                res += entry.getValue() * nums3and4Map.get(sum2);
+        int ans = 0;
+        for (Map.Entry<Integer, Integer> entry : n1_plus_n2_mp.entrySet()) {
+            int n1n2 = entry.getKey(), cnt_n1n2 = entry.getValue();
+            int n3n4 = -n1n2;
+            if (n3_plus_n4_mp.containsKey(n3n4)) {
+                int cnt_n3n4 = n3_plus_n4_mp.get(n3n4);
+                ans += cnt_n1n2 * cnt_n3n4;
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

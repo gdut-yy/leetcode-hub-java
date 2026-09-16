@@ -2,14 +2,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class Solution43Tests {
-    private final Solution43 solution43 = new Solution43();
+    private final Solution43.V1 solution43_v1 = new Solution43.V1();
+    private final Solution43.V2 solution43_v2 = new Solution43.V2();
 
     @Test
     public void example1() {
         String num1 = "2";
         String num2 = "3";
         String expected = "6";
-        Assertions.assertEquals(expected, solution43.multiply(num1, num2));
+        Assertions.assertEquals(expected, solution43_v1.multiply(num1, num2));
+        Assertions.assertEquals(expected, solution43_v2.multiply(num1, num2));
     }
 
     @Test
@@ -17,6 +19,7 @@ public class Solution43Tests {
         String num1 = "123";
         String num2 = "456";
         String expected = "56088";
-        Assertions.assertEquals(expected, solution43.multiply(num1, num2));
+        Assertions.assertEquals(expected, solution43_v1.multiply(num1, num2));
+        Assertions.assertEquals(expected, solution43_v2.multiply(num1, num2));
     }
 }

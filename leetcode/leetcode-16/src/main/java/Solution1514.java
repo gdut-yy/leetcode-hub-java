@@ -1,99 +1,49 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class Solution1514 {
+    private ArrayList<edge>[] g;
+
+    record edge(int to, double wt) {
+    }
+
     public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
         int m = edges.length;
-
-        LinkedForwardStar adjacency = new LinkedForwardStar(n, m * 2);
+        g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
         for (int i = 0; i < m; i++) {
-            int u = edges[i][0];
-            int v = edges[i][1];
-            double w = succProb[i];
-            adjacency.add(u, v, w);
-            adjacency.add(v, u, w);
+            int u = edges[i][0], v = edges[i][1];
+            double wt = succProb[i];
+            g[u].add(new edge(v, wt));
+            g[v].add(new edge(u, wt));
         }
-
-        double[] dist = adjacency.dijkstra(start);
+        double[] dist = dijkstra_mlogm(n, start);
         return dist[end];
     }
 
-    private static class LinkedForwardStar {
-        // n 个点
-        private final int N;
-        // m 条边
-        private final int M;
-        // 链式前向星
-        private final int[] headArr;
-        private final int[] edgeArr;
-        private final int[] nextArr;
-        private final double[] weightArr;
-        private int idx;
-
-        public LinkedForwardStar(int n, int m) {
-            this.N = n + 1;
-            this.M = m + 1;
-            this.headArr = new int[N];
-            // 初始化链表头
-            Arrays.fill(headArr, -1);
-            this.edgeArr = new int[M];
-            this.nextArr = new int[M];
-            this.weightArr = new double[M];
-            this.idx = 0;
-        }
-
-        public void add(int u, int v, double w) {
-            this.edgeArr[idx] = v;
-            this.nextArr[idx] = headArr[u];
-            this.headArr[u] = idx;
-            this.weightArr[idx] = w;
-            this.idx++;
-        }
-
-        public double[] dijkstra(int src) {
-            boolean[] visited = new boolean[N];
-            double[] dist = new double[N];
-            Arrays.fill(dist, 0);
-
-            // 优先队列 按 成功概率 降序排列
-            PriorityQueue<Node> maxHeap = new PriorityQueue<>((o1, o2) -> {
-                if (o1.dist == o2.dist) {
-                    return Integer.compare(o1.node, o2.node);
-                }
-                return Double.compare(o2.dist, o1.dist);
-            });
-            maxHeap.add(new Node(src, 1));
-            dist[src] = 1;
-
-            while (!maxHeap.isEmpty()) {
-                Node poll = maxHeap.poll();
-                int id = poll.node;
-
-                if (visited[id]) {
-                    continue;
-                }
-                visited[id] = true;
-                for (int i = headArr[id]; i != -1; i = nextArr[i]) {
-                    int j = edgeArr[i];
-                    // 变种
-                    if (dist[j] < dist[id] * weightArr[i]) {
-                        dist[j] = dist[id] * weightArr[i];
-                        maxHeap.add(new Node(j, dist[j]));
-                    }
+    private double[] dijkstra_mlogm(int n, int node) {
+        PriorityQueue<edge> pq = new PriorityQueue<>(Comparator.comparingDouble(o -> -o.wt));
+        boolean[] vis = new boolean[n];
+        double[] dist = new double[n];
+        pq.add(new edge(node, 0));
+        dist[node] = 1;
+        while (!pq.isEmpty()) {
+            edge top = pq.remove();
+            int x = top.to;
+            if (vis[x]) continue;
+            vis[x] = true;
+            for (edge p : g[x]) {
+                int y = p.to;
+                double wt = p.wt;
+                if (dist[y] < dist[x] * wt) {
+                    dist[y] = dist[x] * wt;
+                    pq.add(new edge(y, dist[y]));
                 }
             }
-            return dist;
         }
-
-        private static class Node {
-            int node;
-            double dist;
-
-            public Node(int node, double dist) {
-                this.node = node;
-                this.dist = dist;
-            }
-        }
+        return dist;
     }
 }
 /*

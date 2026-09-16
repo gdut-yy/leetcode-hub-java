@@ -8,9 +8,7 @@ public class DSU {
 
     public DSU(int n) {
         fa = new int[n];
-        for (int i = 0; i < n; i++) {
-            fa[i] = i;
-        }
+        for (int i = 0; i < n; i++) fa[i] = i;
     }
 
     int find(int x) { // 查找

@@ -1,16 +1,15 @@
 public class Solution1784 {
     public boolean checkOnesSegment(String s) {
+        int n = s.length();
         int cnt = 0;
-        for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) == '1') {
-                if (i - 1 >= 0 && s.charAt(i - 1) == '1') {
-                    continue;
-                } else {
-                    cnt++;
-                }
+        int i = 0;
+        while (i < n) {
+            int st = i;
+            for (i++; i < n && s.charAt(i) == s.charAt(i - 1); i++) {
             }
+            if (s.charAt(st) == '1') cnt++;
         }
-        return cnt == 1;
+        return cnt <= 1;
     }
 }
 /*
@@ -25,5 +24,6 @@ https://leetcode.cn/problems/check-if-binary-string-has-at-most-one-segment-of-o
 s[i] 为 '0' 或 '1'
 s[0] 为 '1'
 
-模拟
+分组循环。
+时间复杂度 O(n)。
  */

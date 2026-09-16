@@ -2,26 +2,27 @@ import java.util.Arrays;
 
 public class Solution213 {
     public int rob(int[] nums) {
-        int len = nums.length;
-        if (len == 1) {
+        int n = nums.length;
+        if (n == 1) {
             return nums[0];
         }
-        int[] arr1 = Arrays.copyOfRange(nums, 0, len - 1);
-        int[] arr2 = Arrays.copyOfRange(nums, 1, len);
-        return Math.max(rob1(arr1, arr1.length), rob1(arr2, arr2.length));
+        int[] arr1 = Arrays.copyOfRange(nums, 0, n - 1);
+        int[] arr2 = Arrays.copyOfRange(nums, 1, n);
+        return Math.max(rob1(arr1), rob1(arr2));
     }
 
-    private int rob1(int[] nums, int len) {
-        int[] dp = new int[len];
-        if (len == 1) {
+    public int rob1(int[] nums) {
+        int n = nums.length;
+        if (n == 1) {
             return nums[0];
         }
-        dp[0] = nums[0];
-        dp[1] = Math.max(nums[0], nums[1]);
-        for (int i = 2; i < len; i++) {
-            dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i]);
+        int[] f = new int[n];
+        f[0] = nums[0];
+        f[1] = Math.max(nums[0], nums[1]);
+        for (int i = 2; i < n; i++) {
+            f[i] = Math.max(f[i - 1], f[i - 2] + nums[i]);
         }
-        return dp[len - 1];
+        return f[n - 1];
     }
 }
 /*

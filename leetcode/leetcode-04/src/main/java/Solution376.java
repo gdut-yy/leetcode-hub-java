@@ -1,18 +1,18 @@
 public class Solution376 {
     public int wiggleMaxLength(int[] nums) {
-        int len = nums.length;
-        if (len < 2) {
-            return len;
+        int n = nums.length;
+        if (n < 2) {
+            return n;
         }
         // up[i] 表示以前 i 个元素中的某一个为结尾的最长的，最后两项差值为正数，如 [1,3,2,4]
-        int[] up = new int[len];
+        int[] up = new int[n];
         // down[i] 表示以前 i 个元素中的某一个为结尾的最长的，最后两项差值为负数，如 [4,2,3,1]
-        int[] down = new int[len];
+        int[] down = new int[n];
         // 初始状态
         up[0] = 1;
         down[0] = 1;
         // 状态转移
-        for (int i = 1; i < len; i++) {
+        for (int i = 1; i < n; i++) {
             if (nums[i] > nums[i - 1]) {
                 up[i] = Math.max(up[i - 1], down[i - 1] + 1);
                 down[i] = down[i - 1];
@@ -24,7 +24,7 @@ public class Solution376 {
                 down[i] = down[i - 1];
             }
         }
-        return Math.max(up[len - 1], down[len - 1]);
+        return Math.max(up[n - 1], down[n - 1]);
     }
 }
 /*

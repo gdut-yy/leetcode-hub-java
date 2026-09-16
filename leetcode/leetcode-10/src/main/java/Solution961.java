@@ -1,20 +1,15 @@
-import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Solution961 {
     public int repeatedNTimes(int[] nums) {
-        int n = nums.length / 2;
-        Map<Integer, Integer> cntMap = new HashMap<>();
-        for (int num : nums) {
-            cntMap.put(num, cntMap.getOrDefault(num, 0) + 1);
-        }
-
-        for (Map.Entry<Integer, Integer> entry : cntMap.entrySet()) {
-            if (entry.getValue() == n) {
-                return entry.getKey();
+        Set<Integer> seen = new HashSet<>();
+        for (int x : nums) {
+            if (!seen.add(x)) { // x 在 seen 中
+                return x;
             }
         }
-        return -1;
+        return -1; // 代码不会执行到这里
     }
 }
 /*
@@ -32,5 +27,5 @@ nums.length == 2 * n
 0 <= nums[i] <= 10^4
 nums 由 n + 1 个 不同的 元素组成，且其中一个元素恰好重复 n 次
 
-HashMap 统计频次。
+哈希表 统计频次。
  */

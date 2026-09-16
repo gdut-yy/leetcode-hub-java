@@ -1,69 +1,62 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
 public class Solution1976 {
-    private static final long INF = (long) (1e9 * 200);
+    private static final long INF = (long) 1e18;
     private static final long MOD = (long) (1e9 + 7);
 
     public int countPaths(int n, int[][] roads) {
         // step1: 求出 0 点到其他点最短路
         long[] dist = dijkstra(n, roads);
-
         // step2: 建 DAG，拓扑序 dp 求方案数
         return topoDP(n, roads, dist);
     }
 
     private static int topoDP(int n, int[][] roads, long[] dist) {
-        Map<Integer, List<Integer>> adj2 = new HashMap<>();
-        int[] inDegrees = new int[n];
-        for (int[] road : roads) {
-            int u = road[0];
-            int v = road[1];
-            int w = road[2];
+        ArrayList<Integer>[] subG = new ArrayList[n];
+        Arrays.setAll(subG, e -> new ArrayList<>());
+        int[] inDeg = new int[n];
+        for (int[] r : roads) {
+            int u = r[0], v = r[1], w = r[2];
             if (dist[v] - dist[u] == w) {
-                adj2.computeIfAbsent(u, key -> new ArrayList<>()).add(v);
-                inDegrees[v]++;
+                subG[u].add(v);
+                inDeg[v]++;
             } else if (dist[u] - dist[v] == w) {
-                adj2.computeIfAbsent(v, key -> new ArrayList<>()).add(u);
-                inDegrees[u]++;
+                subG[v].add(u);
+                inDeg[u]++;
             }
         }
 
         // 拓扑序 dp
         long[] f = new long[n];
         f[0] = 1;
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(0);
-        while (!queue.isEmpty()) {
-            int u = queue.remove();
-
-            for (int v : adj2.getOrDefault(u, new ArrayList<>())) {
+        Queue<Integer> q = new ArrayDeque<>();
+        q.add(0);
+        while (!q.isEmpty()) {
+            int u = q.remove();
+            for (int v : subG[u]) {
                 f[v] = (f[v] + f[u]) % MOD;
-                inDegrees[v]--;
-                if (inDegrees[v] == 0) {
-                    queue.add(v);
+                if (--inDeg[v] == 0) {
+                    q.add(v);
                 }
             }
         }
         return (int) f[n - 1];
     }
 
-    private static long[] dijkstra(int n, int[][] roads) {
-        Map<Integer, List<int[]>> adj = new HashMap<>();
-        for (int[] road : roads) {
-            adj.computeIfAbsent(road[0], key -> new ArrayList<>()).add(new int[]{road[1], road[2]});
-            adj.computeIfAbsent(road[1], key -> new ArrayList<>()).add(new int[]{road[0], road[2]});
+    private long[] dijkstra(int n, int[][] roads) {
+        ArrayList<int[]>[] g = new ArrayList[n];
+        Arrays.setAll(g, e -> new ArrayList<>());
+        for (int[] r : roads) {
+            int u = r[0], v = r[1], w = r[2];
+            g[u].add(new int[]{v, w});
+            g[v].add(new int[]{u, w});
         }
-
-        // dijkstra
-        boolean[] visited = new boolean[n];
+        boolean[] vis = new boolean[n];
         long[] dist = new long[n];
         Arrays.fill(dist, INF);
         // 优先队列优化
@@ -73,13 +66,12 @@ public class Solution1976 {
         while (!minHeap.isEmpty()) {
             long[] top = minHeap.remove();
             int u = (int) top[0];
-            if (visited[u]) {
+            if (vis[u]) {
                 continue;
             }
-            visited[u] = true;
-            for (int[] tuple : adj.getOrDefault(u, new ArrayList<>())) {
-                int v = tuple[0];
-                int w = tuple[1];
+            vis[u] = true;
+            for (int[] tuple : g[u]) {
+                int v = tuple[0], w = tuple[1];
                 if (dist[v] > dist[u] + w) {
                     dist[v] = dist[u] + w;
                     minHeap.add(new long[]{v, dist[v]});
@@ -90,41 +82,36 @@ public class Solution1976 {
     }
 
     private int n;
-    private Map<Integer, List<Integer>> adj2;
+    ArrayList<Integer>[] subG;
     private long[] memo;
 
     public int countPaths2(int n, int[][] roads) {
         // step1: 求出 0 点到其他点最短路
         long[] dist = dijkstra(n, roads);
-
         // step2: 建 DAG，dfs 求方案数
         this.n = n;
-        this.adj2 = new HashMap<>();
+        subG = new ArrayList[n];
+        Arrays.setAll(subG, e -> new ArrayList<>());
         for (int[] road : roads) {
             int u = road[0];
             int v = road[1];
             int w = road[2];
             if (dist[v] - dist[u] == w) {
-                adj2.computeIfAbsent(u, key -> new ArrayList<>()).add(v);
+                subG[u].add(v);
             } else if (dist[u] - dist[v] == w) {
-                adj2.computeIfAbsent(v, key -> new ArrayList<>()).add(u);
+                subG[v].add(u);
             }
         }
-        // 记忆化搜索
         memo = new long[n];
         Arrays.fill(memo, -1);
         return (int) dfs(0);
     }
 
     private long dfs(int u) {
-        if (u == n - 1) {
-            return 1;
-        }
-        if (memo[u] != -1) {
-            return memo[u];
-        }
+        if (u == n - 1) return 1;
+        if (memo[u] != -1) return memo[u];
         memo[u] = 0;
-        for (int v : adj2.getOrDefault(u, new ArrayList<>())) {
+        for (int v : subG[u]) {
             memo[u] = (memo[u] + dfs(v)) % MOD;
         }
         return memo[u];

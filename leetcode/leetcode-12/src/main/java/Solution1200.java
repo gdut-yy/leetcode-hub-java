@@ -4,23 +4,23 @@ import java.util.List;
 
 public class Solution1200 {
     public List<List<Integer>> minimumAbsDifference(int[] arr) {
-        int len = arr.length;
+        int n = arr.length;
         Arrays.sort(arr);
 
         int pre = arr[0];
         int diff = Integer.MAX_VALUE;
-        List<List<Integer>> resList = new ArrayList<>();
-        for (int i = 1; i < len; i++) {
+        List<List<Integer>> ans = new ArrayList<>();
+        for (int i = 1; i < n; i++) {
             if (arr[i] - pre < diff) {
                 diff = arr[i] - pre;
-                resList.clear();
-                resList.add(List.of(pre, arr[i]));
+                ans.clear();
+                ans.add(List.of(pre, arr[i]));
             } else if (arr[i] - pre == diff) {
-                resList.add(List.of(pre, arr[i]));
+                ans.add(List.of(pre, arr[i]));
             }
             pre = arr[i];
         }
-        return resList;
+        return ans;
     }
 }
 /*

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class SolutionP256 {
     /**
      * 剑指 Offer II 091. 粉刷房子
@@ -5,28 +7,20 @@ public class SolutionP256 {
      */
     public int minCost(int[][] costs) {
         int n = costs.length;
-
         // f[i][j] 表示粉刷 [0, i] 行的房子且第 i 行房子颜色为 j 时的最小花费
         // 滚动数组压缩掉 i
         int[] f = new int[3];
-        // 初始状态
         for (int j = 0; j < 3; j++) {
             f[j] = costs[0][j];
         }
-        // 状态转移
         for (int i = 1; i < n; i++) {
-            int[] f1 = new int[3];
+            int[] nf = new int[3];
             for (int j = 0; j < 3; j++) {
-                f1[j] = Math.min(f[(j + 1) % 3], f[(j + 2) % 3]) + costs[i][j];
+                nf[j] = Math.min(f[(j + 1) % 3], f[(j + 2) % 3]) + costs[i][j];
             }
-            f = f1;
+            f = nf;
         }
-
-        int min = f[0];
-        for (int j = 1; j < 3; j++) {
-            min = Math.min(min, f[j]);
-        }
-        return min;
+        return Arrays.stream(f).min().orElseThrow();
     }
 }
 /*

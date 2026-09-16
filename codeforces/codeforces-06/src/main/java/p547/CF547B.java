@@ -62,6 +62,7 @@ B. Mike and Feet
 https://codeforces.com/contest/547/problem/B
 
 灵茶の试炼 2023-01-11
+灵茶の试炼 2026-06-25
 题目大意：
 输入 n(n≤2e5) 和长为 n 的数组 a(1≤a[i]≤1e9)。
 定义 f(x) 为 a 中「长为 x 的连续子数组的最小值」的最大值。

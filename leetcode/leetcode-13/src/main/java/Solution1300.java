@@ -1,37 +1,32 @@
 import java.util.Arrays;
+import java.util.function.Function;
 
 public class Solution1300 {
     public int findBestValue(int[] arr, int target) {
-        int left = 0;
-        int right = Arrays.stream(arr).max().orElseThrow();
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-            // 边界二分 F, F,..., F, [T, T,..., T]
-            // ----------------------^
-            if (checkMid(arr, target, mid)) {
-                right = mid;
-            } else {
-                left = mid + 1;
-            }
-        }
-
-        // left-1 < res <= left
-        int sum1 = 0;
-        int sum2 = 0;
-        for (int i : arr) {
-            sum1 += Math.min(i, left);
-            sum2 += Math.min(i, left - 1);
-        }
-        return (target - sum2 <= sum1 - target) ? (left - 1) : left;
+        int mx = Arrays.stream(arr).max().orElseThrow();
+        int left = sortSearch(mx, m -> getSumLeK(arr, m) >= target);
+        // left-1 < ans <= left
+        // res1 < target <= res2
+        int res1 = getSumLeK(arr, left - 1);
+        int res2 = getSumLeK(arr, left);
+        return target - res1 <= res2 - target ? left - 1 : left;
     }
 
-    // 将数组中所有大于 mid 的值变成 mid 后，数组的和 大于等于 target，FFFTTT
-    private boolean checkMid(int[] arr, int target, int mid) {
+    // <= k 的 和
+    private int getSumLeK(int[] arr, int k) {
         int sum = 0;
-        for (int i : arr) {
-            sum += Math.min(i, mid);
+        for (int v : arr) sum += Math.min(v, k);
+        return sum;
+    }
+
+    private int sortSearch(int n, Function<Integer, Boolean> f) {
+        int l = 0, r = n;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (f.apply(mid)) r = mid;
+            else l = mid + 1;
         }
-        return sum >= target;
+        return l;
     }
 }
 /*

@@ -1,52 +1,19 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class Solution1975 {
     public long maxMatrixSum(int[][] matrix) {
-        int matrixM = matrix.length;
-        int matrixN = matrix[0].length;
-
-        // 负数或零
-        List<Integer> negativeOrZeroList = new ArrayList<>();
-        // 最小的正数
-        int minPositive = Integer.MAX_VALUE;
-        long cnt = 0;
-        for (int i = 0; i < matrixM; i++) {
-            for (int j = 0; j < matrixN; j++) {
-                if (matrix[i][j] > 0) {
-                    cnt += matrix[i][j];
-                    minPositive = Math.min(minPositive, matrix[i][j]);
-                } else {
-                    negativeOrZeroList.add(matrix[i][j]);
-                }
+        int negCnt = 0, zeroCnt = 0;
+        long ans = 0;
+        int minAbs = Integer.MAX_VALUE;
+        for (int[] row : matrix) {
+            for (int v : row) {
+                if (v < 0) negCnt++;
+                else if (v == 0) zeroCnt++;
+                int abs = Math.abs(v);
+                ans += abs;
+                minAbs = Math.min(minAbs, abs);
             }
         }
-
-        // 升序排序
-        Collections.sort(negativeOrZeroList);
-        int sz = negativeOrZeroList.size();
-        if (sz % 2 == 0) {
-            for (int i = 0; i < sz; i++) {
-                // 将偶数对 负数或零 取反
-                cnt += -negativeOrZeroList.get(i);
-            }
-        } else {
-            for (int i = 0; i < sz - 1; i++) {
-                // 将偶数对 负数或零 取反
-                cnt += -negativeOrZeroList.get(i);
-            }
-            int lastNum = negativeOrZeroList.get(sz - 1);
-            // 若 |-4| > |1| 那么选择 +4-1
-            if (-lastNum > minPositive) {
-                // 互换
-                cnt = cnt + (-lastNum) - minPositive - minPositive;
-            } else {
-                // 不能互换
-                cnt += lastNum;
-            }
-        }
-        return cnt;
+        if (negCnt % 2 == 0 || zeroCnt > 0) return ans; // 若负数数量为偶数，或者存在 0，则直接返回
+        return ans - 2L * minAbs; // 给绝对值最小的数添加负号
     }
 }
 /*

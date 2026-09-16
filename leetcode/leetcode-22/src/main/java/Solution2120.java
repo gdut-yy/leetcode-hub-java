@@ -1,40 +1,31 @@
 public class Solution2120 {
     public int[] executeInstructions(int n, int[] startPos, String s) {
-        // m == s.length
         int m = s.length();
-        int[] res = new int[m];
-
+        int[] ans = new int[m];
         for (int i = 0; i < m; i++) {
             int cnt = 0;
-            int curM = startPos[0];
-            int curN = startPos[1];
-
+            int nx = startPos[0];
+            int ny = startPos[1];
             for (int j = i; j < m; j++) {
-                char ch = s.charAt(j);
-                if (ch == 'L') {
-                    curN -= 1;
-                } else if (ch == 'R') {
-                    curN += 1;
-                } else if (ch == 'U') {
-                    curM -= 1;
-                } else {
-                    curM += 1;
-                }
-
+                char c = s.charAt(j);
+                if (c == 'L') ny -= 1;
+                else if (c == 'R') ny += 1;
+                else if (c == 'U') nx -= 1;
+                else if (c == 'D') nx += 1;
                 // 不会移动到网格外
-                if (curM >= 0 && curM < n && curN >= 0 && curN < n) {
+                if (0 <= nx && nx < n && 0 <= ny && ny < n) {
                     cnt++;
                     if (j == m - 1) {
-                        res[i] = cnt;
+                        ans[i] = cnt;
                         break;
                     }
                 } else {
-                    res[i] = cnt;
+                    ans[i] = cnt;
                     break;
                 }
             }
         }
-        return res;
+        return ans;
     }
 }
 /*

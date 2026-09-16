@@ -1,20 +1,21 @@
 public class Solution2145 {
     public int numberOfArrays(int[] differences, int lower, int upper) {
-        int len = differences.length + 1;
-        int[] diff = new int[len];
-        System.arraycopy(differences, 0, diff, 1, len - 1);
+        int n = differences.length;
+        // 改为下标从 1 开始
+        int[] diff = new int[n + 1];
+        System.arraycopy(differences, 0, diff, 1, n);
 
         // 还原原数组
-        long[] res = new long[len];
-        res[0] = diff[0];
-        long max = res[0];
-        long min = res[0];
-        for (int i = 1; i < len; i++) {
-            res[i] = res[i - 1] + diff[i];
-            max = Math.max(max, res[i]);
-            min = Math.min(min, res[i]);
+        long[] a = new long[n + 1];
+        a[0] = diff[0];
+        long mx = a[0];
+        long mn = a[0];
+        for (int i = 1; i < n + 1; i++) {
+            a[i] = a[i - 1] + diff[i];
+            mx = Math.max(mx, a[i]);
+            mn = Math.min(mn, a[i]);
         }
-        long ans = (upper - lower) - (max - min) + 1;
+        long ans = (upper - lower) - (mx - mn) + 1;
         return (int) Math.max(ans, 0);
     }
 }

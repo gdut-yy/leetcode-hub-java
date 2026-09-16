@@ -1,14 +1,10 @@
-import java.util.HashMap;
-import java.util.Map;
-
 public class Solution657 {
     public boolean judgeCircle(String moves) {
-        Map<Character, Integer> map = new HashMap<>(4);
-        for (char ch : moves.toCharArray()) {
-            map.put(ch, map.getOrDefault(ch, 0) + 1);
+        int[] cnt = new int[128];
+        for (char c : moves.toCharArray()) {
+            cnt[c]++;
         }
-        return map.getOrDefault('U', 0).equals(map.getOrDefault('D', 0))
-                && map.getOrDefault('L', 0).equals(map.getOrDefault('R', 0));
+        return cnt['U'] == cnt['D'] && cnt['L'] == cnt['R'];
     }
 }
 /*
@@ -23,5 +19,5 @@ https://leetcode.cn/problems/robot-return-to-origin/
 1 <= moves.length <= 2 * 10^4
 moves 只包含字符 'U', 'D', 'L' 和 'R'
 
-统计字符次数。若 U == D 并且 L == R 即能返回原点
+统计字符次数。若 U == D 并且 L == R 即能返回原点。
  */

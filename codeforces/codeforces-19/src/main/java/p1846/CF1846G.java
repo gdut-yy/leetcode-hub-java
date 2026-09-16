@@ -83,6 +83,7 @@ public class CF1846G {
 G. Rudolf and CodeVid-23
 https://codeforces.com/contest/1846/problem/G
 
+灵茶の试炼 2026-01-08
 题目大意：
 一种名为“CodeVid-23”的新病毒在程序员中传播开来。作为一名程序员，鲁道夫无法避免这种情况。
 感染后会出现从 1 到 n 的 n 种症状。最初，鲁道夫有一些。他去药房给我买了药。

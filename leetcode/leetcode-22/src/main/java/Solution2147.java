@@ -2,28 +2,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Solution2147 {
+    private static final int MOD = (int) (1e9 + 7);
+
     public int numberOfWays(String corridor) {
         int n = corridor.length();
-        List<Integer> idxList = new ArrayList<>();
+        List<Integer> posList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             if (corridor.charAt(i) == 'S') {
-                idxList.add(i);
+                posList.add(i);
             }
         }
 
-        int cntS = idxList.size();
+        int cntS = posList.size();
         if (cntS == 0 || cntS % 2 == 1) {
             return 0;
         }
         int pair = cntS / 2;
-        long res = 1;
-        int mod = 1000000007;
+        long ans = 1;
         for (int i = 0; i < pair - 1; i++) {
-            int curRight = idxList.get(i * 2 + 1);
-            int nextLeft = idxList.get(i * 2 + 2);
-            res = res * (nextLeft - curRight) % mod;
+            int curRight = posList.get(i * 2 + 1);
+            int nextLeft = posList.get(i * 2 + 2);
+            ans = ans * (nextLeft - curRight) % MOD;
         }
-        return (int) res;
+        return (int) ans;
     }
 }
 /*

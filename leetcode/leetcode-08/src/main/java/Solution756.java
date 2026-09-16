@@ -13,27 +13,27 @@ public class Solution756 {
             trans.computeIfAbsent(p.substring(0, 2), e -> new ArrayList<>()).add(p.substring(2));
         }
         memo = new HashMap<>();
-        return search(bottom, "");
+        return dfs(bottom, "");
     }
 
-    private boolean search(String a, String b) {
+    private boolean dfs(String a, String b) {
         String key = a + ":" + b;
         if (memo.containsKey(key)) return memo.get(key);
         if (b.length() >= 2) {
-            if (!search(b, "")) return Bool(key, false);
+            if (!dfs(b, "")) return Bool(key, false);
         }
         if (a.length() == 2) {
             if (b.isEmpty()) {
                 return Bool(key, trans.containsKey(a));
             }
             for (String t : trans.getOrDefault(a, new ArrayList<>())) {
-                if (search(b + t, "")) return Bool(key, true);
+                if (dfs(b + t, "")) return Bool(key, true);
             }
             return Bool(key, false);
         }
         String sub = a.substring(1);
         for (String t : trans.getOrDefault(a.substring(0, 2), new ArrayList<>())) {
-            if (search(sub, b + t)) return Bool(key, true);
+            if (dfs(sub, b + t)) return Bool(key, true);
         }
         return Bool(key, false);
     }

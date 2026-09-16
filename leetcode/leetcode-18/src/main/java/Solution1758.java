@@ -1,15 +1,15 @@
 public class Solution1758 {
     public int minOperations(String s) {
-        int len = s.length();
+        int n = s.length();
         // 0101...
         int cnt = 0;
-        for (int i = 0; i < len; i++) {
+        for (int i = 0; i < n; i++) {
             if (s.charAt(i) - '0' == i % 2) {
                 continue;
             }
             cnt++;
         }
-        return Math.min(cnt, len - cnt);
+        return Math.min(cnt, n - cnt);
     }
 }
 /*
@@ -23,5 +23,5 @@ https://leetcode.cn/problems/minimum-changes-to-make-alternating-binary-string/
 1 <= s.length <= 10^4
 s[i] 是 '0' 或 '1'
 
-模拟/计数
+模拟/计数。
  */

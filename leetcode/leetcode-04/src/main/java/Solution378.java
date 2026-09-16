@@ -19,16 +19,16 @@ public class Solution378 {
     // 假设第 k 小的元素为 mid，大于等于 mid 的元素至少有 k 个，FFFTTT
     private boolean checkMid(int[][] matrix, int k, int mid) {
         // 左下角开始
-        int curM = matrix.length - 1;
-        int curN = 0;
+        int nx = matrix.length - 1;
+        int ny = 0;
 
         int cnt = 0;
-        while (curM >= 0 && curN < matrix.length) {
-            if (matrix[curM][curN] <= mid) {
-                cnt += curM + 1;
-                curN++;
+        while (nx >= 0 && ny < matrix.length) {
+            if (matrix[nx][ny] <= mid) {
+                cnt += nx + 1;
+                ny++;
             } else {
-                curM--;
+                nx--;
             }
         }
         return cnt >= k;
