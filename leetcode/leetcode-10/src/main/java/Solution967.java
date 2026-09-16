@@ -52,8 +52,6 @@ public class Solution967 {
 967. 连续差相同的数字
 https://leetcode.cn/problems/numbers-with-same-consecutive-differences/
 
-第 117 场周赛 T2。
-
 返回所有长度为 n 且满足其每两个连续位上的数字之间的差的绝对值为 k 的 非负整数 。
 请注意，除了 数字 0 本身之外，答案中的每个数字都 不能 有前导零。例如，01 有一个前导零，所以是无效的；但 0 是有效的。
 你可以按 任何顺序 返回答案。

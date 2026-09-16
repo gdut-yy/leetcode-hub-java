@@ -64,8 +64,6 @@ public class Solution1534 {
 1534. 统计好三元组
 https://leetcode.cn/problems/count-good-triplets/
 
-第 200 场周赛 T1。
-
 给你一个整数数组 arr ，以及 a、b 、c 三个整数。请你统计其中好三元组的数量。
 如果三元组 (arr[i], arr[j], arr[k]) 满足下列全部条件，则认为它是一个 好三元组 。
 - 0 <= i < j < k < arr.length

@@ -34,8 +34,6 @@ public class SolutionP1065 {
 $1065. 字符串的索引对
 https://leetcode.cn/problems/index-pairs-of-a-string/
 
-第 1 场双周赛 T2。
-
 给出 字符串 text 和 字符串列表 words, 返回所有的索引对 [i, j]
 使得在索引对范围内的子字符串 text[i]...text[j]（包括 i 和 j）属于字符串列表 words。
 提示:

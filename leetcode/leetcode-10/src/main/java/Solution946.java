@@ -21,8 +21,6 @@ public class Solution946 {
 946. 验证栈序列
 https://leetcode.cn/problems/validate-stack-sequences/
 
-第 112 场周赛 T2。
-
 给定 pushed 和 popped 两个序列，每个序列中的 值都不重复，只有当它们可能是在最初空栈上进行的推入 push 和弹出 pop 操作序列的结果时，返回 true；否则，返回 false 。
 提示：
 1 <= pushed.length <= 1000

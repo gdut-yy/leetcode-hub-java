@@ -45,8 +45,6 @@ public class Solution1610 {
 1610. 可见点的最大数目
 https://leetcode.cn/problems/maximum-number-of-visible-points/
 
-第 209 场周赛 T3。
-
 给你一个点数组 points 和一个表示角度的整数 angle ，你的位置是 location ，
 其中 location = [posx, posy] 且 points[i] = [xi, yi] 都表示 X-Y 平面上的整数坐标。
 最开始，你面向东方进行观测。你 不能 进行移动改变位置，但可以通过 自转 调整观测角度。换句话说，posx 和 posy 不能改变。

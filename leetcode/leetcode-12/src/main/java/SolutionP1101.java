@@ -44,8 +44,6 @@ public class SolutionP1101 {
 $1101. 彼此熟识的最早时间
 https://leetcode.cn/problems/the-earliest-moment-when-everyone-become-friends/
 
-第 3 场双周赛 T3。
-
 在一个社交圈子当中，有 N 个人。每个人都有一个从 0 到 N-1 唯一的 id 编号。
 我们有一份日志列表 logs，其中每条记录都包含一个非负整数的时间戳，以及分属两个人的不同 id，logs[i] = [timestamp, id_A, id_B]。
 每条日志标识出两个人成为好友的时间，友谊是相互的：如果 A 和 B 是好友，那么 B 和 A 也是好友。

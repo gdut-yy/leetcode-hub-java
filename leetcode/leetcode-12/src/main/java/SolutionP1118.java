@@ -17,8 +17,6 @@ public class SolutionP1118 {
 $1118. 一月有多少天
 https://leetcode.cn/problems/number-of-days-in-a-month/
 
-第 4 场双周赛 T1。
-
 指定年份 Y 和月份 M，请你帮忙计算出该月一共有多少天。
 提示：
 1583 <= year <= 2100

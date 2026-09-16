@@ -64,8 +64,6 @@ public class SolutionP1087 {
 $1087. 花括号展开
 https://leetcode.cn/problems/brace-expansion/
 
-第 2 场双周赛 T3。
-
 给定一个表示单词列表的字符串 s 。单词中的每个字母都有一个或多个选项。
 - 如果有一个选项，则字母按原样表示。
 - 如果有多个选项，则用大括号分隔选项。例如,  "{a,b,c}"  表示选项  ["a", "b", "c"]  。

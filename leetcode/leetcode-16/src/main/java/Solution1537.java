@@ -55,8 +55,6 @@ public class Solution1537 {
 1537. 最大得分
 https://leetcode.cn/problems/get-the-maximum-score/
 
-第 200 场周赛 T4。
-
 你有两个 有序 且数组内元素互不相同的数组 nums1 和 nums2 。
 一条 合法路径 定义如下：
 - 选择数组 nums1 或者 nums2 开始遍历（从下标 0 处开始）。

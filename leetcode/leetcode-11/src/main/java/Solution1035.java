@@ -23,8 +23,6 @@ public class Solution1035 {
 1035. 不相交的线
 https://leetcode.cn/problems/uncrossed-lines/
 
-第 134 场周赛 T3。
-
 在两条独立的水平线上按给定的顺序写下 nums1 和 nums2 中的整数。
 现在，可以绘制一些连接两个数字 nums1[i] 和 nums2[j] 的直线，这些直线需要同时满足满足：
 - nums1[i] == nums2[j]

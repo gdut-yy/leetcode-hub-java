@@ -54,8 +54,6 @@ public class Solution918 {
 918. 环形子数组的最大和
 https://leetcode.cn/problems/maximum-sum-circular-subarray/
 
-第 105 场周赛 T2。
-
 给定一个长度为 n 的环形整数数组nums，返回nums的非空 子数组 的最大可能和。
 环形数组意味着数组的末端将会与开头相连呈环状。形式上， nums[i] 的下一个元素是 nums[(i + 1) % n] ， nums[i]的前一个元素是 nums[(i - 1 + n) % n] 。
 子数组 最多只能包含固定缓冲区nums中的每个元素一次。形式上，对于子数组nums[i], nums[i + 1], ..., nums[j]，不存在i <= k1, k2 <= j其中k1 % n == k2 % n。

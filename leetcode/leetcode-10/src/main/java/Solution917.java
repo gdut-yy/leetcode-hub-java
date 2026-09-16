@@ -28,8 +28,6 @@ public class Solution917 {
 917. 仅仅反转字母
 https://leetcode.cn/problems/reverse-only-letters/
 
-第 105 场周赛 T1。
-
 给你一个字符串 s ，根据下述规则反转字符串：
 - 所有非英文字母保留在原有位置。
 - 所有英文字母（小写或大写）位置反转。

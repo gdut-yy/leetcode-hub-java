@@ -28,8 +28,6 @@ public class Solution914 {
 914. 卡牌分组
 https://leetcode.cn/problems/x-of-a-kind-in-a-deck-of-cards/
 
-第 104 场周赛 T1。
-
 给定一副牌，每张牌上都写着一个整数。
 此时，你需要选定一个数字 X，使我们可以将整副牌按下述规则分成 1 组或更多组：
 - 每组都有 X 张牌。

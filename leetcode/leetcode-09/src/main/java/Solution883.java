@@ -31,8 +31,6 @@ public class Solution883 {
 883. 三维形体投影面积
 https://leetcode.cn/problems/projection-area-of-3d-shapes/
 
-第 96 场周赛 T1。
-
 在 N * N 的网格中，我们放置了一些与 x，y，z 三轴对齐的 1 * 1 * 1 立方体。
 每个值 v = grid[i][j] 表示 v 个正方体叠放在单元格 (i, j) 上。
 现在，我们查看这些立方体在 xy、yz 和 zx 平面上的投影。

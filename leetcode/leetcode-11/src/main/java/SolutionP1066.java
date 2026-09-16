@@ -158,8 +158,6 @@ public class SolutionP1066 {
 $1066. 校园自行车分配 II
 https://leetcode.cn/problems/campus-bikes-ii/
 
-第 1 场双周赛 T3。
-
 在由 2D 网格表示的校园里有 n 位工人（worker）和 m 辆自行车（bike），n <= m。所有工人和自行车的位置都用网格上的 2D 坐标表示。
 我们为每一位工人分配一辆专属自行车，使每个工人与其分配到的自行车之间的曼哈顿距离最小化。
 p1 和 p2 之间的曼哈顿距离为 Manhattan(p1, p2) = |p1.x - p2.x| + |p1.y - p2.y|。

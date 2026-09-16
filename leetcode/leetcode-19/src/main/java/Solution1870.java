@@ -37,8 +37,6 @@ public class Solution1870 {
 1870. 准时到达的列车最小时速
 https://leetcode.cn/problems/minimum-speed-to-arrive-on-time/
 
-第 242 场周赛 T2。
-
 给你一个浮点数 hour ，表示你到达办公室可用的总通勤时间。要到达办公室，你必须按给定次序乘坐 n 趟列车。
 另给你一个长度为 n 的整数数组 dist ，其中 dist[i] 表示第 i 趟列车的行驶距离（单位是千米）。
 每趟列车均只能在整点发车，所以你可能需要在两趟列车之间等待一段时间。

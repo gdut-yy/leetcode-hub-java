@@ -21,8 +21,6 @@ public class Solution893 {
 893. 特殊等价字符串组
 https://leetcode.cn/problems/groups-of-special-equivalent-strings/
 
-第 99 场周赛 T2。
-
 给你一个字符串数组 words。
 一步操作中，你可以交换字符串 words[i] 的任意两个偶数下标对应的字符或任意两个奇数下标对应的字符。
 对两个字符串 words[i] 和 words[j] 而言，如果经过任意次数的操作，words[i] == words[j] ，那么这两个字符串是 特殊等价 的。

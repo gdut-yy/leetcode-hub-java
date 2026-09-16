@@ -18,8 +18,6 @@ public class Solution1880 {
 1880. 检查某单词是否等于两单词之和
 https://leetcode.cn/problems/check-if-word-equals-summation-of-two-words/
 
-第 243 场周赛 T1。
-
 字母的 字母值 取决于字母在字母表中的位置，从 0 开始 计数。即，'a' -> 0、'b' -> 1、'c' -> 2，以此类推。
 对某个由小写字母组成的字符串 s 而言，其 数值 就等于将 s 中每个字母的 字母值 按顺序 连接 并 转换 成对应整数。
 - 例如，s = "acb" ，依次连接每个字母的字母值可以得到 "021" ，转换为整数得到 21 。

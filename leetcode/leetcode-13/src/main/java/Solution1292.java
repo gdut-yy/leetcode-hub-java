@@ -53,8 +53,6 @@ public class Solution1292 {
 1292. 元素和小于等于阈值的正方形的最大边长
 https://leetcode.cn/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/
 
-第 167 场周赛 T3。
-
 给你一个大小为 m x n 的矩阵 mat 和一个整数阈值 threshold。
 请你返回元素总和小于或等于阈值的正方形区域的最大边长；如果没有这样的正方形区域，则返回 0 。
 提示：

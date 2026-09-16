@@ -19,8 +19,6 @@ public class Solution848 {
 848. 字母移位
 https://leetcode.cn/problems/shifting-letters/
 
-第 88 场周赛 T1。
-
 有一个由小写字母组成的字符串 S，和一个整数数组 shifts。
 我们将字母表中的下一个字母称为原字母的 移位（由于字母表是环绕的， 'z' 将会变成 'a'）。
 - 例如·，shift('a') = 'b'， shift('t') = 'u',， 以及 shift('z') = 'a'。

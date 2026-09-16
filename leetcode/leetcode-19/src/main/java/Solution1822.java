@@ -21,8 +21,6 @@ public class Solution1822 {
 1822. 数组元素积的符号
 https://leetcode.cn/problems/sign-of-the-product-of-an-array/
 
-第 236 场周赛 T1。
-
 已知函数 signFunc(x) 将会根据 x 的正负返回特定值：
 - 如果 x 是正数，返回 1 。
 - 如果 x 是负数，返回 -1 。

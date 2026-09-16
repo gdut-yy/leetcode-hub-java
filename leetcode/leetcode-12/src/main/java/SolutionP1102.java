@@ -82,8 +82,6 @@ public class SolutionP1102 {
 $1102. 得分最高的路径
 https://leetcode.cn/problems/path-with-maximum-minimum-value/
 
-第 3 场双周赛 T4。
-
 给你一个 R 行 C 列的整数矩阵 A。矩阵上的路径从 [0,0] 开始，在 [R-1,C-1] 结束。
 路径沿四个基本方向（上、下、左、右）展开，从一个已访问单元格移动到任一相邻的未访问单元格。
 路径的得分是该路径上的 最小 值。例如，路径 8 →  4 →  5 →  9 的值为 4 。

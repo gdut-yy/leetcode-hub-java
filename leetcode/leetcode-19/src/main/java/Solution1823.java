@@ -29,8 +29,6 @@ public class Solution1823 {
 1823. 找出游戏的获胜者
 https://leetcode.cn/problems/find-the-winner-of-the-circular-game/
 
-第 236 场周赛 T2。
-
 共有 n 名小伙伴一起做游戏。小伙伴们围成一圈，按 顺时针顺序 从 1 到 n 编号。
 确切地说，从第 i 名小伙伴顺时针移动一位会到达第 (i+1) 名小伙伴的位置，其中 1 <= i < n ，从第 n 名小伙伴顺时针移动一位会回到第 1 名小伙伴的位置。
 游戏遵循如下规则：

@@ -22,8 +22,6 @@ public class Solution933 {
 933. 最近的请求次数
 https://leetcode.cn/problems/number-of-recent-calls/
 
-第 109 场周赛 T1。
-
 写一个 RecentCounter 类来计算特定时间范围内最近的请求。
 请你实现 RecentCounter 类：
 - RecentCounter() 初始化计数器，请求数为 0 。

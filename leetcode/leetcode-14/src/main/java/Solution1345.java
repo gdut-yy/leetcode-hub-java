@@ -72,8 +72,6 @@ public class Solution1345 {
 1345. 跳跃游戏 IV
 https://leetcode.cn/problems/jump-game-iv/
 
-第 19 场双周赛 T4。
-
 给你一个整数数组 arr ，你一开始在数组的第一个元素处（下标为 0）。
 每一步，你可以从下标 i 跳到下标：
 - i + 1 满足：i + 1 < arr.length

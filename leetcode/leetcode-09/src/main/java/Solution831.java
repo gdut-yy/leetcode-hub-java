@@ -31,8 +31,6 @@ public class Solution831 {
 831. 隐藏个人信息
 https://leetcode.cn/problems/masking-personal-information/
 
-第 83 场周赛 T2。
-
 给你一条个人信息字符串 s ，可能表示一个 邮箱地址 ，也可能表示一串 电话号码 。返回按如下规则 隐藏 个人信息后的结果：
 电子邮件地址：
 一个电子邮件地址由以下部分组成：

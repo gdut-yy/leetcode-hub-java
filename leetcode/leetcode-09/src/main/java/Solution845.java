@@ -28,8 +28,6 @@ public class Solution845 {
 845. 数组中的最长山脉
 https://leetcode.cn/problems/longest-mountain-in-array/
 
-第 87 场周赛 T2。
-
 把符合下列属性的数组 arr 称为 山脉数组 ：
 - arr.length >= 3
 - 存在下标 i（0 < i < arr.length - 1），满足

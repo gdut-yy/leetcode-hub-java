@@ -25,8 +25,6 @@ public class Solution832 {
 832. 翻转图像
 https://leetcode.cn/problems/flipping-an-image/
 
-第 84 场周赛 T1。
-
 给定一个 n x n 的二进制矩阵 image ，先 水平 翻转图像，然后 反转 图像并返回 结果 。
 水平翻转图片就是将图片的每一行都进行翻转，即逆序。
 - 例如，水平翻转 [1,1,0] 的结果是 [0,1,1]。

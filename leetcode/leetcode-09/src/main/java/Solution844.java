@@ -22,8 +22,6 @@ public class Solution844 {
 844. 比较含退格的字符串
 https://leetcode.cn/problems/backspace-string-compare/
 
-第 87 场周赛 T1。
-
 给定 s 和 t 两个字符串，当它们分别被输入到空白的文本编辑器后，请你判断二者是否相等。# 代表退格字符。
 如果相等，返回 true ；否则，返回 false 。
 注意：如果对空文本输入退格字符，文本继续为空。

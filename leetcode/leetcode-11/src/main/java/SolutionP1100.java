@@ -30,8 +30,6 @@ public class SolutionP1100 {
 $1100. 长度为 K 的无重复字符子串
 https://leetcode.cn/problems/find-k-length-substrings-with-no-repeated-characters/
 
-第 3 场双周赛 T2。
-
 给你一个字符串 S，找出所有长度为 K 且不含重复字符的子串，请你返回全部满足要求的子串的 数目。
 提示：
 1 <= S.length <= 10^4
