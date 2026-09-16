@@ -43,6 +43,7 @@ Build #IU-253.33813.25, built on June 2, 2026
 mvn clean verify -s settings.xml -T 1C
 
 # 只测试某个 module
+mvn test -pl leetcode/leetcode-40 -am 
 mvn test -pl atcoder/atcoder-beginner-03-D -am 
 mvn test -pl codeforces/codeforces-22 -am 
 
@@ -96,46 +97,6 @@ junit5 常用断言：
 ## 常用算法模板
 
 - [一个方法团灭 LeetCode 打家劫舍问题](https://gdut-yy.github.io/doc-gitblogs-hope/module_algo/dp/state-machine/)
-
-### 打表
-
-[预计算结果](https://support.leetcode-cn.com/hc/kb/article/1278066)
-
-预计算结果是指：用户预先计算了部分或全部测试用例结果，并将其直接添加到至提交代码中。
-
-规则及判分方式：如果参赛者的提交代码存在预计算结果的行为，我们建议参赛者附上生成预计算结果的代码。如参赛者含预计算结果的代码 “AC” 了题目，力扣将判定参赛者的提交为有效提交。
-
-- [231. 2 的幂](https://leetcode.cn/problems/power-of-two/)
-- [326. 3 的幂](https://leetcode.cn/problems/power-of-three/)
-- [342. 4 的幂](https://leetcode.cn/problems/power-of-four/)
-- [866. 回文素数](https://leetcode.cn/problems/prime-palindrome/)
-- [906. 超级回文数](https://leetcode.cn/problems/super-palindromes/)
-- [1969. 数组元素的最小非零乘积](https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/)
-- [2048. 下一个更大的数值平衡数](https://leetcode.cn/problems/next-greater-numerically-balanced-number/)
-
-### 线段树
-
-- [2286. 以组为单位订音乐会的门票](https://leetcode.cn/problems/booking-concert-tickets-in-groups/) 单点修改、区间求和、二分最小满足下标
-
-### 快速幂
-
-[模板代码](./leetcode-core/src/main/java/template/QuickPower.java)
-
-- [1922. 统计好数字的数目](https://leetcode.cn/problems/count-good-numbers/)
-- [1969. 数组元素的最小非零乘积](https://leetcode.cn/problems/minimum-non-zero-product-of-the-array-elements/)
-
-### 双指针
-
-快慢指针
-
-- [19. 删除链表的倒数第 N 个结点](https://leetcode.cn/problems/remove-nth-node-from-end-of-list/)
-- [26. 删除有序数组中的重复项](https://leetcode.cn/problems/remove-duplicates-from-sorted-array/)
-- [27. 移除元素](https://leetcode.cn/problems/remove-element/)
-- [83. 删除排序链表中的重复元素](https://leetcode.cn/problems/remove-duplicates-from-sorted-list/)
-- [141. 环形链表](https://leetcode.cn/problems/linked-list-cycle/)
-- [142. 环形链表 II](https://leetcode.cn/problems/linked-list-cycle-ii/)
-- [283. 移动零](https://leetcode.cn/problems/move-zeroes/)
-- [876. 链表的中间结点](https://leetcode.cn/problems/middle-of-the-linked-list/)
 
 ### 存在重复元素系列
 
@@ -306,32 +267,6 @@ public int[] singleNumber2(int[] nums) {
 - 入度 indegree
 - 出度 outdegree
 
-### 拓扑排序 (Topological Sort)
-
-每次将入度为 0 的顶点加入队列。
-
-- [207. 课程表](https://leetcode.cn/problems/course-schedule/)
-- [210. 课程表 II](https://leetcode.cn/problems/course-schedule-ii/)
-- [$269. 火星词典](https://leetcode.cn/problems/alien-dictionary/) [困难]
-- [$444. 序列重建](https://leetcode.cn/problems/sequence-reconstruction/)
-- [1136. 平行课程](https://leetcode.cn/problems/parallel-courses/)
-- [2050. 并行课程 III](https://leetcode.cn/problems/parallel-courses-iii/) [困难]
-
-### 并查集 (UnionFind)
-
-[模板代码](./leetcode-core/src/main/java/template/UnionFind.java)
-
-- [200. 岛屿数量](https://leetcode.cn/problems/number-of-islands/)
-- [$323. 无向图中连通分量的数目](https://leetcode.cn/problems/number-of-connected-components-in-an-undirected-graph/)
-- [547. 省份数量](https://leetcode.cn/problems/number-of-provinces/)
-- [684. 冗余连接](https://leetcode.cn/problems/redundant-connection/)
-- [765. 情侣牵手](https://leetcode.cn/problems/couples-holding-hands/) [困难]
-- [839. 相似字符串组](https://leetcode.cn/problems/similar-string-groups/)
-- [990. 等式方程的可满足性](https://leetcode.cn/problems/satisfiability-of-equality-equations/)
-- [1319. 连通网络的操作次数](https://leetcode.cn/problems/number-of-operations-to-make-network-connected/)
-- [1992. 找到所有的农场组](https://leetcode.cn/problems/find-all-groups-of-farmland/)
-- [2076. 处理含限制条件的好友请求](https://leetcode.cn/problems/process-restricted-friend-requests/) [困难]
-
 ### 最短路 (Shortest Path)
 
 - Floyd 求任意两个结点之间的最短路。 时间复杂度 O(n^3)
@@ -382,12 +317,10 @@ Hierholzer 算法
 - [OI-Wiki](https://oi-wiki.org/)
 - [codeforces](https://codeforces.com/)
 - [atcoder](https://atcoder.jp/home)
+- [洛谷](https://www.luogu.com.cn/)
 - [acwing](https://www.acwing.com/)
 - [北大 OJ](http://poj.org/)
 - [中科大 OJ](http://acm.ustc.edu.cn/ustcoj/)
-- ~~[杭电 OJ](https://www.acm.hdu.edu.cn/)~~
-- ~~[哈工大 OJ](http://acm.hit.edu.cn/)~~
-- [洛谷](https://www.luogu.com.cn/)
 - [excalidraw](https://excalidraw.com/)
 - ~~[leetcode-rating-predictor](https://lcpredictor.onrender.com/) | [github](https://github.com/SysSn13/leetcode-rating-predictor)~~
 - [lccn.lbao.site](https://lccn.lbao.site/)
@@ -397,5 +330,5 @@ Hierholzer 算法
 - [宫水三叶の刷题日记](https://www.acoier.com/tags/)
 - [灵茶の试炼](https://docs.qq.com/sheet/DWGFoRGVZRmxNaXFz?tab=BB08J2)
 
-[![ning2ing](https://img.shields.io/badge/ning2ing-Guardian%202374-blue?style=for-the-badge)](https://leetcode.cn/u/ning2ing/)
-[![ning1ing](https://img.shields.io/badge/ning1ing-Expert%201626-blue?style=for-the-badge)](https://codeforces.com/profile/ning1ing)
+[![ning2ing](https://img.shields.io/badge/ning2ing-leetcode%202853-blue?style=for-the-badge)](https://leetcode.cn/u/ning2ing/)
+[![ning1ing](https://img.shields.io/badge/ning1ing-codeforces%201736-blue?style=for-the-badge)](https://codeforces.com/profile/ning1ing)
