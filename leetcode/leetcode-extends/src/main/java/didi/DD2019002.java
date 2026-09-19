@@ -1,21 +1,26 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class DD2019002 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.nextLine();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static final String GROUP1 = "qwertasdfgzxcv";
-
-    private static String solve(String line) {
+    private static void solve() {
+        String line = scanner.nextLine();
         String[] lines = line.split(" ");
         int n = lines.length;
 
@@ -32,14 +37,16 @@ public class DD2019002 {
             minHeap.add(new int[]{score, i});
         }
 
-        List<String> resList = new ArrayList<>();
+        List<String> output = new ArrayList<>();
         int k = 3;
         while (!minHeap.isEmpty() && k > 0) {
-            resList.add(lines[minHeap.remove()[1]]);
+            output.add(lines[minHeap.remove()[1]]);
             k--;
         }
-        return String.join(" ", resList);
+        out.println(String.join(" ", output));
     }
+
+    private static final String GROUP1 = "qwertasdfgzxcv";
 
     private static int editDistance(String word1, String word2) {
         int n = word1.length();

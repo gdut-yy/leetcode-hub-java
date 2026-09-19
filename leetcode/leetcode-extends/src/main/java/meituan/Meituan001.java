@@ -1,34 +1,26 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Meituan001 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        int T = Integer.parseInt(reader.readLine());
-        String[] ss = new String[T];
-        for (int i = 0; i < T; i++) {
-            ss[i] = reader.readLine();
-        }
+    static Scanner scanner;
+    static PrintWriter out;
 
-        // solution
-        String[] res = solution(ss);
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
 
-        // output
-        for (String re : res) {
-            writer.write(re);
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    private static void solve() {
+        String s = scanner.next();
+        String res = PATTERN.matcher(s).matches() ? "Accept" : "Wrong";
+        out.println(res);
     }
 
     /**
@@ -37,14 +29,6 @@ public class Meituan001 {
      * 3.用户名需要包含至少一个字母和一个数字。
      */
     private final static Pattern PATTERN = Pattern.compile("^[a-zA-Z][a-zA-Z]*[0-9]{1}[a-zA-Z0-9]*");
-
-    private static String[] solution(String[] ss) {
-        String[] res = new String[ss.length];
-        for (int i = 0; i < ss.length; i++) {
-            res[i] = PATTERN.matcher(ss[i]).matches() ? "Accept" : "Wrong";
-        }
-        return res;
-    }
 }
 /*
 meituan-001. 小美的用户名

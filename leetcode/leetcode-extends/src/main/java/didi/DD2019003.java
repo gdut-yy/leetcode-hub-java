@@ -1,21 +1,29 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DD2019003 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[] v = new int[n];
         for (int i = 0; i < n; i++) {
             v[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, m, v));
-    }
 
-    private static String solve(int n, int m, int[] v) {
         int min = 0;
         long sum = 0;
         for (int vi : v) {
@@ -35,7 +43,7 @@ public class DD2019003 {
                 left = mid + 1;
             }
         }
-        return String.valueOf(left - 1);
+        out.println(left - 1);
     }
 
     private static boolean checkMid(int n, int m, int[] v, long mid) {

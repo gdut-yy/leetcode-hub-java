@@ -1,6 +1,6 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,13 +8,20 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class DD2020010 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.nextLine();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String line) {
+    private static void solve() {
+        String line = scanner.nextLine();
         String[] ss = line.split(",");
         Map<String, Integer> cntMap = new HashMap<>();
         List<String> resList = new ArrayList<>();
@@ -28,7 +35,7 @@ public class DD2020010 {
                 cntMap.put(s, freq + 1);
             }
         }
-        return "['" + String.join("', '", resList) + "']";
+        out.println("['" + String.join("', '", resList) + "']");
     }
 }
 /*

@@ -1,67 +1,54 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Meituan004 {
     private static final int N = 40010;
+    static Scanner scanner;
+    static PrintWriter out;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String line0 = reader.readLine();
-        int n = Integer.parseInt(line0);
-        int[] A = new int[N];
-        int[] B = new int[N];
-        String[] line1 = reader.readLine().split(" ");
-        for (int i = 1; i <= n; i++) {
-            A[i] = Integer.parseInt(line1[i - 1]);
-            B[i] = -1;
-        }
-        String line2 = reader.readLine();
-        int m = Integer.parseInt(line2);
-        String[] lines = new String[m];
-        for (int i = 0; i < m; i++) {
-            lines[i] = reader.readLine();
-        }
-
-        // solution
-        int[] res = solution(A, B, lines);
-
-        // output
-        for (int re : res) {
-            writer.write(String.valueOf(re));
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int[] solution(int[] A, int[] B, String[] lines) {
+    private static void solve() {
+        int n = scanner.nextInt();
+        int[] A = new int[N];
+        int[] B = new int[N];
+        for (int i = 1; i <= n; i++) {
+            A[i] = scanner.nextInt();
+            B[i] = -1;
+        }
+        int m = scanner.nextInt();
+
         List<Integer> resList = new ArrayList<>();
-        for (String line : lines) {
-            String[] lineM = line.split(" ");
-            int op = Integer.parseInt(lineM[0]);
+        for (int i = 0; i < m; i++) {
+            int op = scanner.nextInt();
             if (op == 1) {
-                int k = Integer.parseInt(lineM[1]);
-                int x = Integer.parseInt(lineM[2]);
-                int y = Integer.parseInt(lineM[3]);
-                for (int i = x, j = y; i < k + x; i++, j++) {
-                    B[j] = A[i];
+                int k = scanner.nextInt();
+                int x = scanner.nextInt();
+                int y = scanner.nextInt();
+                for (int j = x, l = y; j < k + x; j++, l++) {
+                    B[l] = A[j];
                 }
             } else {
-                int x = Integer.parseInt(lineM[1]);
+                int x = scanner.nextInt();
                 resList.add(B[x]);
             }
         }
-        return resList.stream().mapToInt(i -> i).toArray();
+        int[] res = resList.stream().mapToInt(i -> i).toArray();
+
+        for (int re : res) {
+            out.println(re);
+        }
     }
 }
 /*

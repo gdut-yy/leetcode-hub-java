@@ -1,26 +1,30 @@
 package shopee;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Shopee001 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int T = scanner.nextInt();
-        for (int i = 0; i < T; i++) {
-            int N = scanner.nextInt();
-            int M = scanner.nextInt();
-            int[][] A = new int[N][M];
-            for (int j = 0; j < N; j++) {
-                for (int k = 0; k < M; k++) {
-                    A[j][k] = scanner.nextInt();
-                }
-            }
-            System.out.println(solve(N, M, A));
-        }
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(int N, int M, int[][] A) {
+    private static void solve() {
+        int N = scanner.nextInt();
+        int M = scanner.nextInt();
+        int[][] A = new int[N][M];
+        for (int j = 0; j < N; j++) {
+            for (int k = 0; k < M; k++) {
+                A[j][k] = scanner.nextInt();
+            }
+        }
+
         long[][] dp = new long[N][2];
         long cnt = 0;
         for (int i = 0; i < M; i++) {
@@ -43,7 +47,8 @@ public class Shopee001 {
             // 上一行左边走到右边
             dp[i][1] = Math.max(dp[i][1] + dp[i - 1][1], dp[i - 1][0] + l);
         }
-        return String.valueOf(Math.max(dp[N - 1][0], dp[N - 1][1]));
+
+        out.println(Math.max(dp[N - 1][0], dp[N - 1][1]));
     }
 }
 /*

@@ -1,53 +1,66 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DD2019011 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int x1 = scanner.nextInt();
         int y1 = scanner.nextInt();
         int x2 = scanner.nextInt();
         int y2 = scanner.nextInt();
-        System.out.println(solve(x1, y1, x2, y2));
-    }
 
-    private static final int MOD = (int) 1e9 + 7;
-
-    private static String solve(int x1, int y1, int x2, int y2) {
         // 对于路径上的每一点(x, y)，都保证 x <= y
         if (x1 > y1 || x2 > y2) {
-            return "0";
+            out.println(0);
+            return;
         }
         int x = Math.abs(x1 - x2);
         int y = Math.abs(y1 - y2);
         // res = C(x+y, x)
-        int res = (int) combination(x + y, x, MOD);
+        int res = (int) comb(x + y, x);
 
         int u = Math.max(x1, x2) - Math.min(y1, y2);
         if (u > 0) {
-            res -= (int) combination(x + y, u - 1, MOD);
+            res -= (int) comb(x + y, u - 1);
             res = (res + MOD) % MOD;
         }
-        return String.valueOf(res);
+        out.println(res);
     }
 
-    // C(n, m) = n! / m!(n-m)! （n 为下标） (% mod)
-    private static long combination(int n, int m, int mod) {
-        if (n == 0 && m == 0) {
-            return 1;
-        }
-        // 线性求逆元
-        long[] inv = new long[n + 1];
-        inv[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            inv[i] = (mod - mod / i) * inv[mod % i] % mod;
-        }
-        // 递推求组合数，初值 C(k, 0) = 1
-        long res = 1;
-        for (int i = 1; i <= m; i++) {
-            res = res * (n - i + 1) % mod * inv[i] % mod;
+    static int MOD = (int) 1e9 + 7, MX = (int) 2e6 + 5;
+    static long[] F = new long[MX + 1], invF = new long[MX + 1];
+
+    static {
+        F[0] = F[1] = invF[0] = invF[1] = 1;
+        for (int i = 2; i <= MX; i++) F[i] = F[i - 1] * i % MOD;
+        invF[MX] = quickPow(F[MX], MOD - 2);
+        for (int i = MX - 1; i >= 2; i--) invF[i] = invF[i + 1] * (i + 1) % MOD;
+    }
+
+    static long comb(int n, int m) {
+        if (n < m || m < 0) return 0;
+        return F[n] * invF[n - m] % MOD * invF[m] % MOD;
+    }
+
+    static long quickPow(long a, long b) {
+        long res = 1L;
+        while (b > 0) {
+            if ((b & 1) != 0) res = res * a % MOD;
+            a = a * a % MOD;
+            b >>= 1;
         }
         return res;
     }

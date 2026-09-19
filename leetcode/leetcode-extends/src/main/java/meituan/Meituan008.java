@@ -1,105 +1,102 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class Meituan008 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int n = Integer.parseInt(line0[0]);
-        int x = Integer.parseInt(line0[1]);
-        int y = Integer.parseInt(line0[2]);
-        int[][] matrix = new int[n - 1][2];
-        for (int i = 0; i < n - 1; i++) {
-            String[] line = reader.readLine().split(" ");
-            matrix[i][0] = Integer.parseInt(line[0]);
-            matrix[i][1] = Integer.parseInt(line[1]);
-        }
+    static Scanner scanner;
+    static PrintWriter out;
 
-        // solution
-        int res = solution(x, y, matrix);
-
-        // output
-        writer.write(String.valueOf(res));
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int solution(int x, int y, int[][] matrix) {
+    private static void solve() {
+        int n = scanner.nextInt();
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        int[][] matrix = new int[n - 1][2];
+        for (int i = 0; i < n - 1; i++) {
+            matrix[i][0] = scanner.nextInt();
+            matrix[i][1] = scanner.nextInt();
+        }
+
+        int res;
         if (x == y) {
-            return 0;
-        }
-        // 储存边
-        Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int[] line : matrix) {
-            int n1 = line[0];
-            int n2 = line[1];
-            List<Integer> list = map.getOrDefault(n1, new ArrayList<>());
-            list.add(n2);
-            map.put(n1, list);
-            list = map.getOrDefault(n2, new ArrayList<>());
-            list.add(n1);
-            map.put(n2, list);
-        }
-        boolean[] visitedX = new boolean[matrix.length + 2];
-        boolean[] visitedY = new boolean[matrix.length + 2];
-        visitedX[x] = visitedY[y] = true;
-        Deque<Integer> todoX = new ArrayDeque<>();
-        Deque<Integer> todoY = new ArrayDeque<>();
-        todoX.add(x);
-        todoY.add(y);
-
-        // cntY 为小团已到达但小美未到达的位置的数量
-        int cntY = 1;
-        int time = 0;
-
-        // 同时BFS, 当小团没有位置时结束
-        while (cntY > 0) {
-            time++;
-            // 小美要先BFS, 因为小团不可以去小美的位置
-            int size = todoX.size();
-            for (int i = 0; i < size; i++) {
-                int currX = todoX.poll();
-                for (int next : map.get(currX)) {
-                    if (visitedX[next]) {
-                        continue;
-                    }
-                    if (visitedY[next]) {
-                        cntY--;
-                    }
-                    todoX.add(next);
-                    visitedX[next] = true;
-                }
+            res = 0;
+        } else {
+            // 储存边
+            Map<Integer, List<Integer>> map = new HashMap<>();
+            for (int[] line : matrix) {
+                int n1 = line[0];
+                int n2 = line[1];
+                List<Integer> list = map.getOrDefault(n1, new ArrayList<>());
+                list.add(n2);
+                map.put(n1, list);
+                list = map.getOrDefault(n2, new ArrayList<>());
+                list.add(n1);
+                map.put(n2, list);
             }
-            size = todoY.size();
-            if (size > 0) {
+            boolean[] visitedX = new boolean[matrix.length + 2];
+            boolean[] visitedY = new boolean[matrix.length + 2];
+            visitedX[x] = visitedY[y] = true;
+            Deque<Integer> todoX = new ArrayDeque<>();
+            Deque<Integer> todoY = new ArrayDeque<>();
+            todoX.add(x);
+            todoY.add(y);
+
+            // cntY 为小团已到达但小美未到达的位置的数量
+            int cntY = 1;
+            int time = 0;
+
+            // 同时BFS, 当小团没有位置时结束
+            while (cntY > 0) {
+                time++;
+                // 小美要先BFS, 因为小团不可以去小美的位置
+                int size = todoX.size();
                 for (int i = 0; i < size; i++) {
-                    int currY = todoY.poll();
-                    for (int next : map.get(currY)) {
-                        if (visitedY[next] || visitedX[next]) {
+                    int currX = todoX.poll();
+                    for (int next : map.get(currX)) {
+                        if (visitedX[next]) {
                             continue;
                         }
-                        todoY.add(next);
-                        visitedY[next] = true;
-                        cntY++;
+                        if (visitedY[next]) {
+                            cntY--;
+                        }
+                        todoX.add(next);
+                        visitedX[next] = true;
+                    }
+                }
+                size = todoY.size();
+                if (size > 0) {
+                    for (int i = 0; i < size; i++) {
+                        int currY = todoY.poll();
+                        for (int next : map.get(currY)) {
+                            if (visitedY[next] || visitedX[next]) {
+                                continue;
+                            }
+                            todoY.add(next);
+                            visitedY[next] = true;
+                            cntY++;
+                        }
                     }
                 }
             }
+            res = time;
         }
-        return time;
+
+        out.print(res);
     }
 }
 /*

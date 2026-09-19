@@ -1,6 +1,6 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -11,8 +11,19 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class DD2019005 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int row = scanner.nextInt();
@@ -23,12 +34,7 @@ public class DD2019005 {
                 lines[i][j] = scanner.nextInt();
             }
         }
-        System.out.println(solve(n, m, lines));
-    }
 
-    private static final int INF = Integer.MAX_VALUE / 2;
-
-    private static String solve(int n, int m, int[][] lines) {
         // f 和 t 分别表示出发城市和到达城市的编号，取值范围 0 到 n-1，其中 0 表示 A 市，1 表示 B 市
         // a 表示航空公司编号，取值范围 0 到 m-1
         // p 表示价格，取值范围大于 0
@@ -78,8 +84,10 @@ public class DD2019005 {
                 }
             }
         }
-        return String.valueOf(Math.min(noDiscount[1], discount[1]));
+        out.println(Math.min(noDiscount[1], discount[1]));
     }
+
+    private static final int INF = Integer.MAX_VALUE / 2;
 }
 /*
 DD-2019005. 最便宜的机票

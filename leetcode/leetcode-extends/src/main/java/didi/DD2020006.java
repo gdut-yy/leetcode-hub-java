@@ -1,24 +1,32 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class DD2020006 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[] a = new int[n];
         for (int i = 0; i < n; i++) {
             a[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, m, a));
-    }
 
-    private static String solve(int n, int m, int[] a) {
         int preSum = 0;
         int leftSum = 0;
         int res = Arrays.stream(a).sum();
@@ -32,7 +40,7 @@ public class DD2020006 {
                 res = Math.min(res, preSum - leftMax);
             }
         }
-        return String.valueOf(res);
+        out.println(res);
     }
 }
 /*

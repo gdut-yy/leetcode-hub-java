@@ -1,11 +1,22 @@
 package bytedance;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Bytedance006 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int X = scanner.nextInt();
         int[] a = new int[n];
@@ -16,10 +27,6 @@ public class Bytedance006 {
             b[i] = scanner.nextInt();
             w[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, X, a, b, w));
-    }
-
-    private static String solve(int n, int X, int[] a, int[] b, int[] w) {
         for (int i = 0; i < n; i++) {
             int weight = b[i] - (a[i] - b[i]);
             // 作为物品重量
@@ -36,7 +43,7 @@ public class Bytedance006 {
                 dp[j] = Math.max(dp[j], dp[j - b[i]] + w[i]);
             }
         }
-        return String.valueOf(dp[X]);
+        out.println(dp[X]);
     }
 }
 /*

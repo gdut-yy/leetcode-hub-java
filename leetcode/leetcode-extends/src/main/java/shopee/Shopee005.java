@@ -1,6 +1,143 @@
 package shopee;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+
 public class Shopee005 {
+    static Scanner scanner;
+    static PrintWriter out;
+
+    static final int maxn = 12;
+    static final int maxd = 7;
+    static final int maxl = 5;
+    static final int INF = 0x3f3f3f3f;
+    static final int NEG_INF = -INF;
+
+    static final int[] low = {1, 1, 1, 2, 2, 2, 3, 3, 3, 4, 4, 4};
+    static final int[][] dis = {
+            {2, 2, 2, 3, 2, 2, 2, 3, 3, 5, 3, 3},
+            {2, 2, 2, 2, 3, 2, 3, 2, 3, 3, 5, 3},
+            {2, 2, 2, 2, 2, 3, 3, 3, 2, 3, 3, 5},
+            {3, 2, 2, 2, 3, 3, 5, 2, 2, 2, 3, 3},
+            {2, 3, 2, 3, 2, 3, 2, 5, 2, 3, 2, 3},
+            {2, 2, 3, 3, 3, 2, 2, 2, 5, 3, 3, 2},
+            {2, 3, 3, 5, 2, 2, 2, 3, 3, 3, 2, 2},
+            {3, 2, 3, 2, 5, 2, 3, 2, 3, 2, 3, 2},
+            {3, 3, 2, 2, 2, 5, 3, 3, 2, 2, 2, 3},
+            {5, 3, 3, 2, 3, 3, 3, 2, 2, 2, 2, 2},
+            {3, 5, 3, 3, 2, 3, 2, 3, 2, 2, 2, 2},
+            {3, 3, 5, 3, 3, 2, 2, 2, 3, 2, 2, 2}
+    };
+
+    static Map<List<Integer>, Integer> Hash;
+    static List<List<Integer>> seq;
+    static List<List<int[]>> e;
+
+    static int getID(List<Integer> vec) {
+        Integer id = Hash.get(vec);
+        if (id == null) {
+            id = Hash.size();
+            Hash.put(vec, id);
+            seq.add(vec);
+            e.add(new ArrayList<>());
+        }
+        return id;
+    }
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int m = scanner.nextInt();
+        int[][] cost = new int[maxn][maxd];
+        for (int i = 0; i < maxn; ++i) {
+            for (int j = 0; j < maxd; ++j) {
+                cost[i][j] = scanner.nextInt();
+            }
+        }
+
+        Hash = new HashMap<>();
+        seq = new ArrayList<>();
+        e = new ArrayList<>();
+
+        int[] sta = new int[maxn];
+        for (int i = 0; i < maxn; ++i) {
+            List<Integer> vec = new ArrayList<>(maxl);
+            for (int k = 0; k < maxl; ++k) vec.add(-1);
+            vec.set(maxl - 1, i);
+            sta[i] = getID(vec);
+        }
+
+        for (int i = 0; i < seq.size(); ++i) {
+            List<Integer> cur = seq.get(i);
+            int curBack = cur.get(maxl - 1);
+            for (int j = 0; j < maxn; ++j) {
+                for (int dt = dis[curBack][j]; dt <= maxd; ++dt) {
+                    int las = -maxd;
+                    List<Integer> nxt = new ArrayList<>(maxl);
+                    for (int x = 0; x < maxl; ++x) {
+                        int val = (x + dt < maxl) ? cur.get(x + dt) : -1;
+                        nxt.add(val);
+                        if (cur.get(x) == j) {
+                            las = x - dt;
+                        }
+                    }
+                    nxt.set(maxl - 1, j);
+                    int inc = cost[j][Math.min(maxl - 1 - las, maxd) - 1];
+                    int toId = getID(nxt);
+                    e.get(i).add(new int[]{toId, dt, inc});
+                }
+            }
+        }
+
+        int tot = seq.size();
+        int[][] dp = new int[maxd][tot];
+        for (int i = 0; i < maxd; ++i) {
+            Arrays.fill(dp[i], NEG_INF);
+        }
+
+        for (int i = 1; i <= m; ++i) {
+            int[] cur = new int[tot];
+            Arrays.fill(cur, NEG_INF);
+            for (int j = 0; j < maxn; ++j) {
+                if (i >= low[j]) {
+                    int idx = sta[j];
+                    cur[idx] = Math.max(cur[idx], cost[j][maxd - 1]);
+                }
+            }
+            for (int j = 0; j < tot; ++j) {
+                for (int[] it : e.get(j)) {
+                    if (i < it[1]) continue;
+                    int to = it[0];
+                    int dt = it[1];
+                    int inc = it[2];
+                    int prev = dp[(i - dt) % maxd][j];
+                    if (prev != NEG_INF) {
+                        cur[to] = Math.max(cur[to], prev + inc);
+                    }
+                }
+            }
+            dp[i % maxd] = cur;
+        }
+
+        int[] res = dp[m % maxd];
+        int ans = 0;
+        for (int val : res) {
+            if (val > ans) ans = val;
+        }
+        out.println(ans);
+    }
 }
 /*
 Shopee-005. Shopee Farm

@@ -1,18 +1,25 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DD2020003 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         String s = scanner.next();
-        System.out.println(solve(n, m, s));
-    }
-
-    private static String solve(int n, int m, String s) {
         char[] chars = s.toCharArray();
 
         int min = Integer.MAX_VALUE;
@@ -29,7 +36,7 @@ public class DD2020003 {
             }
             min = Math.min(min, opt);
         }
-        return String.valueOf(min);
+        out.println(min);
     }
 }
 /*

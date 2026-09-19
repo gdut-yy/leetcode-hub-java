@@ -1,34 +1,31 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class DD2019009 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int t = scanner.nextInt();
-        for (int i = 0; i < t; i++) {
-            int n = scanner.nextInt();
-            String[] lines = new String[n];
-            scanner.nextLine();
-            for (int j = 0; j < n; j++) {
-                lines[j] = scanner.nextLine();
-            }
+    static Scanner scanner;
+    static PrintWriter out;
 
-            List<String> res = solve(n, lines);
-            for (String re : res) {
-                System.out.println(re);
-            }
-            System.out.println();
-        }
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static final int MAX_N = 1000;
+    private static void solve() {
+        int n = scanner.nextInt();
+        String[] lines = new String[n];
+        scanner.nextLine();
+        for (int j = 0; j < n; j++) {
+            lines[j] = scanner.nextLine();
+        }
 
-    private static List<String> solve(int n, String[] lines) {
         List<String> resList = new ArrayList<>();
         int id = 0;
         Segment[] segments = new Segment[MAX_N + 1];
@@ -56,8 +53,13 @@ public class DD2019009 {
                 resList.add(String.valueOf(sz));
             }
         }
-        return resList;
+        for (String re : resList) {
+            out.println(re);
+        }
+        out.println();
     }
+
+    private static final int MAX_N = 1000;
 
     private static class DSU {
         // 父节点数组/祖先数组

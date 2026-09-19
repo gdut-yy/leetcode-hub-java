@@ -1,13 +1,22 @@
 package didi;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class DD2020001 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        FastReader scanner = new FastReader();
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[][] a = new int[n][m];
@@ -16,10 +25,7 @@ public class DD2020001 {
                 a[i][j] = scanner.nextInt();
             }
         }
-        System.out.println(solve(n, m, a));
-    }
 
-    private static String solve(int n, int m, int[][] a) {
         int sum = 0;
         for (int j = 0; j < m; j++) {
             int max = 0;
@@ -28,53 +34,7 @@ public class DD2020001 {
             }
             sum += max;
         }
-        return String.valueOf(sum);
-    }
-
-    private static class FastReader {
-        private final BufferedReader bufferedReader;
-        private StringTokenizer stringTokenizer;
-
-        public FastReader() {
-            bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        }
-
-        public String next() {
-            while (stringTokenizer == null || !stringTokenizer.hasMoreElements()) {
-                try {
-                    stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return stringTokenizer.nextToken();
-        }
-
-        public int nextInt() {
-            return Integer.parseInt(next());
-        }
-
-        public long nextLong() {
-            return Long.parseLong(next());
-        }
-
-        public double nextDouble() {
-            return Double.parseDouble(next());
-        }
-
-        public String nextLine() {
-            String str = "";
-            try {
-                if (stringTokenizer.hasMoreTokens()) {
-                    str = stringTokenizer.nextToken("\n");
-                } else {
-                    str = bufferedReader.readLine();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
-        }
+        out.println(sum);
     }
 }
 /*

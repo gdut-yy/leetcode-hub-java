@@ -1,56 +1,40 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan007 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String line0 = reader.readLine();
-        int n = Integer.parseInt(line0);
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int n = scanner.nextInt();
         int[][] intentions = new int[n][n];
         for (int i = 0; i < n; i++) {
-            String[] choices = reader.readLine().split(" ");
             for (int j = 0; j < n; j++) {
-                intentions[i][j] = Integer.parseInt(choices[j]);
+                intentions[i][j] = scanner.nextInt();
             }
         }
 
-        // solution
-        int[] res = solution(intentions);
-
-        // output
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int re : res) {
-            stringBuilder.append(re).append(" ");
-        }
-        writer.write(stringBuilder.toString().trim());
-
-        writer.close();
-        reader.close();
-    }
-
-    private static int[] solution(int[][] intentions) {
-        List<Integer> resList = new ArrayList<>();
-        boolean[] visited = new boolean[intentions.length + 1];
+        boolean[] vis = new boolean[intentions.length + 1];
         for (int[] intention : intentions) {
             for (int cur : intention) {
-                if (!visited[cur]) {
-                    visited[cur] = true;
-                    resList.add(cur);
+                if (!vis[cur]) {
+                    vis[cur] = true;
+                    out.print(cur + " ");
                     break;
                 }
             }
         }
-        return resList.stream().mapToInt(i -> i).toArray();
     }
 }
 /*

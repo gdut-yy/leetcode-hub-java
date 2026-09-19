@@ -1,21 +1,28 @@
 package bytedance;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bytedance010 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.next();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String line) {
+    private static void solve() {
+        String line = scanner.next();
         line = line.substring(1, line.length() - 1);
         String[] lines = line.split(",");
         Arrays.sort(lines, (o1, o2) -> (o2 + o1).compareTo(o1 + o2));
-        return String.join("", lines);
+        out.println(String.join("", lines));
     }
 }
 /*

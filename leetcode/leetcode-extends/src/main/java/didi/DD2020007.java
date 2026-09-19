@@ -1,17 +1,26 @@
 package didi;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.StringTokenizer;
+import java.util.Scanner;
 
 public class DD2020007 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        FastReader scanner = new FastReader();
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int d = scanner.nextInt();
@@ -24,15 +33,7 @@ public class DD2020007 {
             edges[i][0] = i + 1 + 1;
             edges[i][1] = scanner.nextInt();
         }
-        System.out.println(solve(n, m, d, p, edges));
-    }
 
-    private static boolean[] special;
-    private static Map<Integer, List<Integer>> adj;
-    private static Node[] dis;
-    private static int ans;
-
-    private static String solve(int n, int m, int d, int[] p, int[][] edges) {
         // special[i] = true 表示节点 i 为特殊点
         special = new boolean[n + 1];
         for (int x : p) {
@@ -49,8 +50,13 @@ public class DD2020007 {
 
         ans = 0;
         dfs(1, -1, Integer.MIN_VALUE, d);
-        return String.valueOf(ans);
+        out.println(ans);
     }
+
+    private static boolean[] special;
+    private static Map<Integer, List<Integer>> adj;
+    private static Node[] dis;
+    private static int ans;
 
     private static int dfs(int x, int fa) {
         int first = Integer.MIN_VALUE, second = Integer.MIN_VALUE, fx = 0;
@@ -102,52 +108,6 @@ public class DD2020007 {
             this.first = first;
             this.second = second;
             this.fx = fx;
-        }
-    }
-
-    private static class FastReader {
-        private final BufferedReader bufferedReader;
-        private StringTokenizer stringTokenizer;
-
-        public FastReader() {
-            bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        }
-
-        public String next() {
-            while (stringTokenizer == null || !stringTokenizer.hasMoreElements()) {
-                try {
-                    stringTokenizer = new StringTokenizer(bufferedReader.readLine());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            return stringTokenizer.nextToken();
-        }
-
-        public int nextInt() {
-            return Integer.parseInt(next());
-        }
-
-        public long nextLong() {
-            return Long.parseLong(next());
-        }
-
-        public double nextDouble() {
-            return Double.parseDouble(next());
-        }
-
-        public String nextLine() {
-            String str = "";
-            try {
-                if (stringTokenizer.hasMoreTokens()) {
-                    str = stringTokenizer.nextToken("\n");
-                } else {
-                    str = bufferedReader.readLine();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return str;
         }
     }
 }

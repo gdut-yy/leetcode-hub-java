@@ -1,64 +1,53 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Set;
 
 public class Meituan012 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        String[] line0 = reader.readLine().split(" ");
-        int M = Integer.parseInt(line0[0]);
-        int N = Integer.parseInt(line0[1]);
-        int Q = Integer.parseInt(line0[2]);
-        String[] qLines = new String[Q];
-        for (int i = 0; i < Q; i++) {
-            qLines[i] = reader.readLine();
-        }
-        List<Integer> resList = solution(M, N, qLines);
-        for (int res : resList) {
-            writer.write(String.valueOf(res));
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static List<Integer> solution(int M, int N, String[] qLines) {
-        List<Integer> resList = new ArrayList<>();
+    private static void solve() {
+        int M = scanner.nextInt();
+        int N = scanner.nextInt();
+        int Q = scanner.nextInt();
+
         // 书本编号从 1 到 M
         Bookshelf bookshelf = new Bookshelf(N + 1);
-        for (String line : qLines) {
-            String[] params = line.split(" ");
-            switch (params[0]) {
-                case "1":
-                    bookshelf.doCase1(Integer.parseInt(params[1]), Integer.parseInt(params[2]));
+        for (int i = 0; i < Q; i++) {
+            int op = scanner.nextInt();
+            switch (op) {
+                case 1:
+                    bookshelf.doCase1(scanner.nextInt(), scanner.nextInt());
                     break;
-                case "2":
-                    bookshelf.doCase2(Integer.parseInt(params[1]));
+                case 2:
+                    bookshelf.doCase2(scanner.nextInt());
                     break;
-                case "3":
-                    bookshelf.doCase3(Integer.parseInt(params[1]));
+                case 3:
+                    bookshelf.doCase3(scanner.nextInt());
                     break;
-                case "4":
-                    resList.add(bookshelf.doCase4(Integer.parseInt(params[1])));
+                case 4:
+                    int res = bookshelf.doCase4(scanner.nextInt());
+                    out.println(res);
                     break;
                 default:
-                    bookshelf.doCase5(Integer.parseInt(params[1]));
+                    bookshelf.doCase5(scanner.nextInt());
                     break;
             }
         }
-        return resList;
     }
 
     private static class Bookshelf {

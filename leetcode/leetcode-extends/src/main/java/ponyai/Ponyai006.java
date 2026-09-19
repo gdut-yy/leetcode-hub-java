@@ -1,6 +1,165 @@
 package ponyai;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
+
 public class Ponyai006 {
+    static FastReader scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new FastReader();
+        out = new PrintWriter(System.out);
+        int t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int K = scanner.nextInt();
+        int N = scanner.nextInt();
+
+        int[] array = new int[N];
+        int[] smallerCount = new int[N];
+
+        for (int i = 0; i < N; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        List<Integer>[] numIds = new ArrayList[10];
+        for (int i = 0; i < 10; i++) {
+            numIds[i] = new ArrayList<>();
+        }
+
+        int[] numIdsPtr = new int[10];
+        int[] numIdsPtrSum = new int[10];
+
+        for (int i = 0; i < N; i++) {
+            int c = 0;
+            for (int j = 0; j < array[i]; j++) {
+                c += numIds[j].size();
+            }
+            smallerCount[i] = c;
+            numIds[array[i]].add(i);
+        }
+
+        if (N == 1) {
+            out.println(array[0]);
+            return;
+        }
+
+        boolean first = true;
+        int[] last2 = new int[2];
+
+        for (int i = 0; i < N; i++) {
+            for (int j = 9; j >= 0; j--) {
+                if (numIdsPtr[j] < numIds[j].size()) {
+                    int nextId = numIds[j].get(numIdsPtr[j]);
+                    int price = smallerCount[nextId] - numIdsPtrSum[j];
+
+                    if (price <= K) {
+                        K -= price;
+
+                        if (i < N - 2) {
+                            if (first) {
+                                first = false;
+                            } else {
+                                out.print(" ");
+                            }
+                            out.print(j);
+                        } else {
+                            last2[i + 2 - N] = j;
+                        }
+
+                        numIdsPtr[j]++;
+
+                        for (int j2 = j + 1; j2 < 10; j2++) {
+                            numIdsPtrSum[j2]++;
+                        }
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        if (K != 0) {
+            for (int j = 0; j < 10; j++) {
+                if (numIds[j].size() > 1) {
+                    K = 0;
+                    break;
+                }
+            }
+
+            if (K % 2 != 0) {
+                int tmp = last2[0];
+                last2[0] = last2[1];
+                last2[1] = tmp;
+            }
+        }
+
+        for (int i = 0; i < 2; i++) {
+            if (first) {
+                first = false;
+            } else {
+                out.print(" ");
+            }
+            out.print(last2[i]);
+        }
+
+        out.println();
+    }
+
+    static class FastReader {
+        private final BufferedReader bufferedReader;
+        private StringTokenizer stringTokenizer;
+
+        public FastReader() {
+            bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        public String next() {
+            while (stringTokenizer == null || !stringTokenizer.hasMoreElements()) {
+                try {
+                    stringTokenizer = new StringTokenizer(bufferedReader.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            return stringTokenizer.nextToken();
+        }
+
+        public int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        public long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        public double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        public String nextLine() {
+            String str = "";
+            try {
+                if (stringTokenizer.hasMoreTokens()) {
+                    str = stringTokenizer.nextToken("\n");
+                } else {
+                    str = bufferedReader.readLine();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+    }
 }
 /*
 Pony.ai-006. 最大正整数

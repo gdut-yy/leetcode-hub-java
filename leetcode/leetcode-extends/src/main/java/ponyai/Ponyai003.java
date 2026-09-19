@@ -1,6 +1,350 @@
 package ponyai;
 
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.Scanner;
+
 public class Ponyai003 {
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        new Solver().run();
+    }
+
+    static class Edge {
+        int to, dir, dist;
+
+        Edge(int to, int dir, int dist) {
+            this.to = to;
+            this.dir = dir;
+            this.dist = dist;
+        }
+    }
+
+    static class State {
+        long d;
+        int node, dir;
+
+        State(long d, int node, int dir) {
+            this.d = d;
+            this.node = node;
+            this.dir = dir;
+        }
+    }
+
+    static class Solver {
+        int N;
+        ArrayList<int[]> roads = new ArrayList<>();
+        int H;
+        ArrayList<int[]> nodes = new ArrayList<>();
+        ArrayList<ArrayList<Edge>> graph = new ArrayList<>();
+        int[] lastNode;
+        int sourceId = -1, targetId = -1;
+        int SX, SY, TX, TY;
+        long T1, T2, T3;
+        int current_node = -1;
+        int cx = -1, cy = -1;
+
+        void run() {
+            N = scanner.nextInt();
+            for (int i = 0; i < N; i++) {
+                int x1 = scanner.nextInt();
+                int y1 = scanner.nextInt();
+                int x2 = scanner.nextInt();
+                int y2 = scanner.nextInt();
+                if (x1 == x2) {
+                    if (y1 > y2) {
+                        int tmp = y1;
+                        y1 = y2;
+                        y2 = tmp;
+                    }
+                    roads.add(new int[]{0, x1, y1, y2});
+                } else {
+                    if (x1 > x2) {
+                        int tmp = x1;
+                        x1 = x2;
+                        x2 = tmp;
+                    }
+                    roads.add(new int[]{1, y1, x1, x2});
+                }
+            }
+
+            SX = scanner.nextInt();
+            SY = scanner.nextInt();
+            TX = scanner.nextInt();
+            TY = scanner.nextInt();
+            T1 = scanner.nextLong();
+            T2 = scanner.nextLong();
+            T3 = scanner.nextLong();
+
+            if (SX == TX && SY == TY) {
+                out.println(0);
+                return;
+            }
+
+            Collections.sort(roads, (a, b) -> {
+                for (int i = 0; i < 4; i++) {
+                    if (a[i] != b[i]) return Integer.compare(a[i], b[i]);
+                }
+                return 0;
+            });
+
+            H = 0;
+            for (; H < roads.size(); H++) {
+                if (roads.get(H)[0] == 1) break;
+            }
+
+            lastNode = new int[N - H];
+            Arrays.fill(lastNode, -1);
+
+            for (int i = 0; i < H; i++) {
+                int[] road = roads.get(i);
+                int vx = road[1], vy1 = road[2], vy2 = road[3];
+
+                if (current_node < 0 || cx != vx || cy != vy1) {
+                    current_node = addNode(vx, vy1);
+                    cx = vx;
+                    cy = vy1;
+                }
+
+                for (int j = H; j < roads.size(); j++) {
+                    int[] hroad = roads.get(j);
+                    int hy = hroad[1], hx1 = hroad[2], hx2 = hroad[3];
+
+                    if (hx1 <= vx && vx <= hx2 && vy1 <= hy && hy <= vy2) {
+                        int from;
+                        if (lastNode[j - H] < 0) {
+                            if (cx == hx1 && cy == hy) {
+                                lastNode[j - H] = current_node;
+                                from = current_node;
+                            } else {
+                                from = addNode(hx1, hy);
+                            }
+                        } else {
+                            from = lastNode[j - H];
+                        }
+
+                        if (from != current_node) {
+                            lastNode[j - H] = current_node = addCross(current_node, from, vx, hy);
+                            cy = hy;
+                        }
+                    }
+                }
+
+                if (cy != vy2) {
+                    int to = addNode(vx, vy2);
+                    current_node = addSegment(current_node, to, cx, cy, vx, vy2);
+                    cy = vy2;
+                }
+            }
+
+            for (int j = H; j < roads.size(); j++) {
+                int[] hroad = roads.get(j);
+                int hy = hroad[1], hx1 = hroad[2], hx2 = hroad[3];
+
+                int from = lastNode[j - H];
+                if (from < 0) {
+                    from = addNode(hx1, hy);
+                }
+
+                int[] node = nodes.get(from);
+                int cx0 = node[0], cy0 = node[1];
+
+                if (cx0 != hx2) {
+                    int to = addNode(hx2, hy);
+                    addSegment(from, to, cx0, cy0, hx2, hy);
+                }
+            }
+
+            int nNodes = nodes.size();
+            long[] dist = new long[nNodes * 4];
+            Arrays.fill(dist, Long.MAX_VALUE);
+
+            PriorityQueue<State> pq = new PriorityQueue<>((a, b) -> {
+                if (a.d != b.d) return Long.compare(a.d, b.d);
+                if (a.node != b.node) return Integer.compare(a.node, b.node);
+                return Integer.compare(a.dir, b.dir);
+            });
+
+            for (int dir = 0; dir < 4; dir++) {
+                pq.add(new State(0, sourceId, dir));
+                dist[sourceId * 4 + dir] = 0;
+            }
+
+            while (!pq.isEmpty()) {
+                State st = pq.poll();
+                long d = st.d;
+                int nodeId = st.node;
+                int dir = st.dir;
+
+                if (nodeId == targetId) {
+                    out.println(d);
+                    return;
+                }
+
+                for (Edge e : graph.get(nodeId)) {
+                    int id2 = e.to, dir2 = e.dir, dist2 = e.dist;
+
+                    long nt;
+                    if (nodeId == sourceId) {
+                        nt = d + dist2;
+                    } else {
+                        nt = nextTime(d, dir, dir2, dist2);
+                    }
+
+                    if (nt < dist[id2 * 4 + dir2]) {
+                        dist[id2 * 4 + dir2] = nt;
+                        pq.add(new State(nt, id2, dir2));
+                    }
+                }
+            }
+
+            out.println(-1);
+        }
+
+        int addNode(int nx, int ny) {
+            if (nx == SX && ny == SY) {
+                sourceId = nodes.size();
+            }
+            if (nx == TX && ny == TY) {
+                targetId = nodes.size();
+            }
+            nodes.add(new int[]{nx, ny});
+            graph.add(new ArrayList<>());
+            return nodes.size() - 1;
+        }
+
+        void addSegmentInternal(int from, int to, int dist, int dir) {
+            graph.get(from).add(new Edge(to, dir, dist));
+            graph.get(to).add(new Edge(from, (dir + 2) % 4, dist));
+        }
+
+        int addSegment(int from, int to, int cx, int cy, int nx, int ny) {
+            int dir;
+
+            if (cx == nx) {
+                dir = 1;
+
+                if (cx == SX && cy < SY && SY < ny) {
+                    if (cx == TX && cy < TY && TY < ny) {
+                        targetId = addNode(TX, TY);
+                        sourceId = addNode(SX, SY);
+
+                        if (TY < SY) {
+                            addSegmentInternal(from, targetId, TY - cy, dir);
+                            addSegmentInternal(targetId, sourceId, SY - TY, dir);
+                            addSegmentInternal(sourceId, to, ny - SY, dir);
+                        } else {
+                            addSegmentInternal(from, sourceId, SY - cy, dir);
+                            addSegmentInternal(sourceId, targetId, TY - SY, dir);
+                            addSegmentInternal(targetId, to, ny - TY, dir);
+                        }
+                    } else {
+                        sourceId = addNode(SX, SY);
+                        addSegmentInternal(from, sourceId, SY - cy, dir);
+                        addSegmentInternal(sourceId, to, ny - SY, dir);
+                    }
+                } else if (cx == TX && cy < TY && TY < ny) {
+                    targetId = addNode(TX, TY);
+                    addSegmentInternal(from, targetId, TY - cy, dir);
+                    addSegmentInternal(targetId, to, ny - TY, dir);
+                } else {
+                    addSegmentInternal(from, to, ny - cy, dir);
+                }
+            } else {
+                dir = 0;
+
+                if (cy == SY && cx < SX && SX < nx) {
+                    if (cy == TY && cx < TX && TX < ny) {
+                        targetId = addNode(TX, TY);
+                        sourceId = addNode(SX, SY);
+
+                        if (TX < SX) {
+                            addSegmentInternal(from, targetId, TX - cx, dir);
+                            addSegmentInternal(targetId, sourceId, SX - TX, dir);
+                            addSegmentInternal(sourceId, to, nx - SX, dir);
+                        } else {
+                            addSegmentInternal(from, sourceId, SX - cx, dir);
+                            addSegmentInternal(sourceId, targetId, TX - SX, dir);
+                            addSegmentInternal(targetId, to, nx - TX, dir);
+                        }
+                    } else {
+                        sourceId = addNode(SX, SY);
+                        addSegmentInternal(from, sourceId, SX - cx, dir);
+                        addSegmentInternal(sourceId, to, nx - SX, dir);
+                    }
+                } else if (cy == TY && cx < TX && TX < nx) {
+                    targetId = addNode(TX, TY);
+                    addSegmentInternal(from, targetId, TX - cx, dir);
+                    addSegmentInternal(targetId, to, nx - TX, dir);
+                } else {
+                    addSegmentInternal(from, to, nx - cx, dir);
+                }
+            }
+
+            return to;
+        }
+
+        int addCross(int from1, int from2, int nx, int ny) {
+            int[] n1 = nodes.get(from1);
+            int[] n2 = nodes.get(from2);
+
+            int cx1 = n1[0], cy1 = n1[1];
+            int cx2 = n2[0], cy2 = n2[1];
+
+            if (cx1 == nx && cy1 == ny) {
+                addSegment(from2, from1, cx2, cy2, nx, ny);
+                return from1;
+            } else if (cx2 == nx && cy2 == ny) {
+                addSegment(from1, from2, cx1, cy1, nx, ny);
+                return from2;
+            } else {
+                int to = addNode(nx, ny);
+                addSegment(from1, to, cx1, cy1, nx, ny);
+                addSegment(from2, to, cx2, cy2, nx, ny);
+                return to;
+            }
+        }
+
+        long nextTime(long currentTime, int dir1, int dir2, int dist) {
+            int chdir = (dir2 + 4 - dir1) % 4;
+
+            if (chdir == 2) {
+                return Long.MAX_VALUE;
+            } else if (chdir == 3) {
+                return currentTime + dist;
+            } else if (chdir == 0) {
+                long r = currentTime % (T1 + T2 + T3);
+                if (r >= T1) {
+                    return currentTime + dist;
+                } else {
+                    return currentTime + T1 - r + dist;
+                }
+            } else {
+                long r = currentTime % (T1 + T2 + T3);
+                if (r >= T1 && r < T1 + T2) {
+                    return currentTime + dist;
+                } else if (r < T1) {
+                    return currentTime + T1 - r + dist;
+                } else {
+                    return currentTime + T1 + T2 + T3 - r + T1 + dist;
+                }
+            }
+        }
+    }
 }
 /*
 Pony.ai-003. 路径规划

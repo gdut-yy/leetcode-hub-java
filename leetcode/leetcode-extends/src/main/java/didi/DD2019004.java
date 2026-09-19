@@ -1,23 +1,29 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Scanner;
 
 public class DD2019004 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int[] nums = new int[4];
         for (int i = 0; i < 4; i++) {
             nums[i] = scanner.nextInt();
         }
-        System.out.println(solve(nums));
-    }
 
-    private static final int[] TARGET = {1, 2, 3, 4};
-
-    private static String solve(int[] nums) {
         int idx = 0;
         Deque<Integer> stack = new ArrayDeque<>();
         for (int num : nums) {
@@ -27,8 +33,10 @@ public class DD2019004 {
                 idx++;
             }
         }
-        return stack.isEmpty() ? "Yes" : "No";
+        out.println(stack.isEmpty() ? "Yes" : "No");
     }
+
+    private static final int[] TARGET = {1, 2, 3, 4};
 }
 /*
 DD-2019004. 火车编组题

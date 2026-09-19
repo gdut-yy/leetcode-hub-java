@@ -1,61 +1,60 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class Meituan014 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int x = Integer.parseInt(line0[0]);
-        int y = Integer.parseInt(line0[1]);
-        int[] lines = new int[x + y];
-        String[] line1 = reader.readLine().split(" ");
-        for (int i = 0; i < x + y; i++) {
-            lines[i] = Integer.parseInt(line1[i]);
-        }
-        // solution
-        String res = solution(x, y, lines);
-        // output
-        writer.write(res);
-        writer.close();
-        reader.close();
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solution(int x, int y, int[] lines) {
-        if (x == y) {
-            return "A".repeat(Math.max(0, x)) + "B".repeat(Math.max(0, y));
-        }
-        // 大顶堆
-        PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
+    private static void solve() {
+        int x = scanner.nextInt();
+        int y = scanner.nextInt();
+        int[] lines = new int[x + y];
         for (int i = 0; i < x + y; i++) {
-            maxHeap.add(new int[]{i, lines[i]});
+            lines[i] = scanner.nextInt();
         }
-        char[] chars = new char[x + y];
-        if (x < y) {
-            Arrays.fill(chars, 'B');
-            while (!maxHeap.isEmpty() && x > 0) {
-                int[] poll = maxHeap.poll();
-                chars[poll[0]] = 'A';
-                x--;
-            }
+
+        String res;
+        if (x == y) {
+            res = "A".repeat(Math.max(0, x)) + "B".repeat(Math.max(0, y));
         } else {
-            Arrays.fill(chars, 'A');
-            while (!maxHeap.isEmpty() && y > 0) {
-                int[] poll = maxHeap.poll();
-                chars[poll[0]] = 'B';
-                y--;
+            // 大顶堆
+            PriorityQueue<int[]> maxHeap = new PriorityQueue<>((o1, o2) -> Integer.compare(o2[1], o1[1]));
+            for (int i = 0; i < x + y; i++) {
+                maxHeap.add(new int[]{i, lines[i]});
             }
+            char[] cs = new char[x + y];
+            if (x < y) {
+                Arrays.fill(cs, 'B');
+                while (!maxHeap.isEmpty() && x > 0) {
+                    int[] poll = maxHeap.poll();
+                    cs[poll[0]] = 'A';
+                    x--;
+                }
+            } else {
+                Arrays.fill(cs, 'A');
+                while (!maxHeap.isEmpty() && y > 0) {
+                    int[] poll = maxHeap.poll();
+                    cs[poll[0]] = 'B';
+                    y--;
+                }
+            }
+            res = new String(cs);
         }
-        return new String(chars);
+
+        out.print(res);
     }
 }
 /*

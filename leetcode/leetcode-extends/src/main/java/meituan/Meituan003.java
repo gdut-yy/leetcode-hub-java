@@ -1,49 +1,35 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class Meituan003 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int n = Integer.parseInt(line0[0]);
-        int m = Integer.parseInt(line0[1]);
-        int[][] lineN = new int[n][2];
-        for (int i = 0; i < n; i++) {
-            String[] line = reader.readLine().split(" ");
-            lineN[i][0] = Integer.parseInt(line[0]);
-            lineN[i][1] = Integer.parseInt(line[1]);
-        }
+    static Scanner scanner;
+    static PrintWriter out;
 
-        // solution
-        int[] res = solution(m, lineN);
-        // output
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int re : res) {
-            stringBuilder.append(re).append(" ");
-        }
-        writer.write(stringBuilder.toString().trim());
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int[] solution(int m, int[][] line) {
+    private static void solve() {
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+
         // 重量升序 价格升序
         PriorityQueue<int[]> priorityQueue = new PriorityQueue<>((x, y) -> x[1] == y[1] ? y[0] - x[0] : x[1] - y[1]);
-        for (int i = 0; i < line.length; i++) {
+        for (int i = 0; i < n; i++) {
+            int v = scanner.nextInt(), w = scanner.nextInt();
             // 总价 = 跑腿价格 v ，商品重量 w kg，商品每重 1kg ，代购费用要加 2 元
-            int totalPrice = line[i][0] + line[i][1] * 2;
+            int totalPrice = v + w * 2;
             if (priorityQueue.size() < m) {
                 priorityQueue.add(new int[]{i, totalPrice});
             } else if (!priorityQueue.isEmpty() && totalPrice > priorityQueue.peek()[1]) {
@@ -56,7 +42,13 @@ public class Meituan003 {
             list.add(priorityQueue.poll()[0]);
         }
         Collections.sort(list);
-        return list.stream().mapToInt(i -> i + 1).toArray();
+        int[] res = list.stream().mapToInt(i -> i + 1).toArray();
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int re : res) {
+            stringBuilder.append(re).append(" ");
+        }
+        out.print(stringBuilder.toString().trim());
     }
 }
 /*

@@ -1,34 +1,39 @@
 package ponyai;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Ponyai005 {
     static int[][] lines;
     static int n, k, a, b;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
+    static Scanner scanner;
+    static PrintWriter out;
 
-        n = Integer.parseInt(reader.readLine());
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        n = scanner.nextInt();
         lines = new int[n][n];
         for (int i = 0; i < n; i++) {
-            String[] s = reader.readLine().split(" ");
             for (int j = 0; j < n; j++) {
-                lines[i][j] = Integer.parseInt(s[j]);
+                lines[i][j] = scanner.nextInt();
             }
         }
 
-        String[] s = reader.readLine().split(" ");
-        reader.close();
-        a = Integer.parseInt(s[0]);
-        b = Integer.parseInt(s[1]);
-        k = Integer.parseInt(s[2]);
+        a = scanner.nextInt();
+        b = scanner.nextInt();
+        k = scanner.nextInt();
 
         if (!satisfy(0)) {
-            System.out.println(-1);
+            out.println(-1);
             return;
         }
 
@@ -39,7 +44,7 @@ public class Ponyai005 {
             else R = mid - 1;
         }
 
-        System.out.println(L);
+        out.println(L);
     }
 
     static boolean satisfy(int cost) {

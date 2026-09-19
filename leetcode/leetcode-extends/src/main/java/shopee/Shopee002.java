@@ -1,28 +1,37 @@
 package shopee;
 
-import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
+import java.io.PrintWriter;
 
 public class Shopee002 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int N = scanner.nextInt();
         int K = scanner.nextInt();
         int[] V = new int[N];
         for (int j = 0; j < N; j++) {
             V[j] = scanner.nextInt();
         }
-        System.out.println(solve(N, K, V));
-    }
 
-    private static String solve(int N, int K, int[] V) {
         long[] preSum = new long[N + 1];
         for (int i = 0; i < N; i++) {
             // 每个数预处理减去K
             V[i] -= K;
             preSum[i + 1] = preSum[i] + V[i];
         }
-        return String.valueOf(mergeSort(preSum, 0, N, new long[N + 1]));
+
+        out.println(mergeSort(preSum, 0, N, new long[N + 1]));
     }
 
     private static long mergeSort(long[] sum, int l, int r, long[] tmp) {

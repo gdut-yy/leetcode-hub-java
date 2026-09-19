@@ -1,11 +1,22 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DD2020004 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         int[] a = new int[m];
@@ -14,10 +25,7 @@ public class DD2020004 {
             a[i] = scanner.nextInt();
             b[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, m, a, b));
-    }
 
-    private static String solve(int n, int m, int[] a, int[] b) {
         int res = n;
         // 我们为垃圾袋标了号，分别是 1-n
         DSU dsu = new DSU(n * 2 + 1);
@@ -29,7 +37,7 @@ public class DD2020004 {
             dsu.union(a[i], b[i] + n);
             dsu.union(a[i] + n, b[i]);
         }
-        return String.valueOf(res / 2 * 2);
+        out.println(res / 2 * 2);
     }
 
     private static class DSU {
@@ -37,26 +45,18 @@ public class DD2020004 {
 
         public DSU(int n) {
             fa = new int[n];
-            for (int i = 0; i < n; i++) {
-                fa[i] = i;
-            }
+            for (int i = 0; i < n; i++) fa[i] = i;
         }
 
-        int find(int x) {
-            // 路径压缩
-            if (x != fa[x]) {
-                fa[x] = find(fa[x]);
-            }
-            return fa[x];
+        int find(int x) { // 查找
+            return x == fa[x] ? fa[x] : (fa[x] = find(fa[x]));
         }
 
-        void union(int p, int q) {
-            int rootP = find(p);
-            int rootQ = find(q);
-            if (rootP == rootQ) {
-                return;
-            }
-            fa[rootQ] = rootP;
+        void union(int p, int q) { // 合并
+            p = find(p);
+            q = find(q);
+            if (p == q) return;
+            fa[q] = p;
         }
     }
 }

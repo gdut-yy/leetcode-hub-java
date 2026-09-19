@@ -1,44 +1,35 @@
 package ponyai;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Ponyai001 {
-    private static final int[][] DIRECTIONS8 = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
+    static Scanner scanner;
+    static PrintWriter out;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int n = Integer.parseInt(line0[0]);
-        int q = Integer.parseInt(line0[1]);
-        int[][] lines = new int[q][4];
-        for (int i = 0; i < q; i++) {
-            String[] lineStr = reader.readLine().split(" ");
-            lines[i][0] = Integer.parseInt(lineStr[0]);
-            lines[i][1] = Integer.parseInt(lineStr[1]);
-            lines[i][2] = Integer.parseInt(lineStr[2]);
-            lines[i][3] = Integer.parseInt(lineStr[3]);
-        }
-
-        // solution
-        int[] res = solution(n, lines);
-
-        // output
-        for (int re : res) {
-            writer.write(String.valueOf(re));
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int[] solution(int n, int[][] lines) {
+    private static final int[][] DIRECTIONS8 = {{1, 0}, {0, 1}, {-1, 0}, {0, -1}, {-1, -1}, {1, 1}, {-1, 1}, {1, -1}};
+
+    private static void solve() {
+        // input
+        int n = scanner.nextInt();
+        int q = scanner.nextInt();
+        int[][] lines = new int[q][4];
+        for (int i = 0; i < q; i++) {
+            lines[i][0] = scanner.nextInt();
+            lines[i][1] = scanner.nextInt();
+            lines[i][2] = scanner.nextInt();
+            lines[i][3] = scanner.nextInt();
+        }
+
         // 模拟
         int radius = 100;
         int len = radius * 2 + 1;
@@ -68,7 +59,11 @@ public class Ponyai001 {
             y2 = Math.max(Math.min(y2 + radius, len - 1), 0);
             res[idx] = sums[x2 + 1][y2 + 1] - sums[x1][y2 + 1] - sums[x2 + 1][y1] + sums[x1][y1];
         }
-        return res;
+
+        // output
+        for (int re : res) {
+            out.println(re);
+        }
     }
 
     private static void rec(int[][] vehicles, int x, int y, int add) {

@@ -1,26 +1,28 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan010 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        String[] info = reader.readLine().split(" ");
-        String[] seq = reader.readLine().split(" ");
-        reader.close();
+    static Scanner scanner;
+    static PrintWriter out;
 
-        int m = Integer.parseInt(info[0]);
-        int n = Integer.parseInt(info[1]);
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
         int[] arr = new int[n];
 
         for (int i = 0; i < n; i++) {
-            arr[i] = Integer.parseInt(seq[i]);
+            arr[i] = scanner.nextInt();
         }
 
         int res = 0;
@@ -40,13 +42,11 @@ public class Meituan010 {
             }
         }
 
-        writer.write(String.valueOf(res));
-        writer.close();
+        out.print(res);
     }
 
     private static boolean check(int[] arr, int left, int right) {
         int pre = -1;
-
         for (int x : arr) {
             if (left > x || right < x) {
                 if (x < pre) {
@@ -55,7 +55,6 @@ public class Meituan010 {
                 pre = x;
             }
         }
-
         return true;
     }
 }

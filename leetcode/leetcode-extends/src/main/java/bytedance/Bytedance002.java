@@ -1,22 +1,29 @@
 package bytedance;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class Bytedance002 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int K = scanner.nextInt();
         int N = scanner.nextInt();
         int[] T = new int[N];
         for (int i = 0; i < N; i++) {
             T[i] = scanner.nextInt();
         }
-        System.out.println(solve(K, N, T));
-    }
-
-    private static String solve(int K, int N, int[] T) {
         int left = 0;
         int right = N;
         for (int i = 0; i < N; i++) {
@@ -32,7 +39,7 @@ public class Bytedance002 {
                 left = mid + 1; // 不符合条件要+1 => 逼近下限
             }
         }
-        return String.valueOf(left);
+        out.println(left);
     }
 
     private static boolean isValid(int[] T, int K, int res) {

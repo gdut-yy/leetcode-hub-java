@@ -1,37 +1,34 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan006 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
+    static Scanner scanner;
+    static PrintWriter out;
 
-        int n = Integer.parseInt(reader.readLine());
-        String s = reader.readLine();
-        int left = 0;
-        while (left < n && s.charAt(left) != 'M') {
-            left++;
-        }
-        while (left < n && s.charAt(left) != 'T') {
-            left++;
-        }
-        left++;
-        int right = n - 1;
-        while (0 < right && s.charAt(right) != 'T') {
-            right--;
-        }
-        while (0 < right && s.charAt(right) != 'M') {
-            right--;
-        }
-        right--;
-        System.out.println(s.substring(left, right + 1));
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
 
+    private static void solve() {
+        int n = scanner.nextInt();
+        String s = scanner.next();
+        int l = 0;
+        while (l < n && s.charAt(l) != 'M') l++;
+        while (l < n && s.charAt(l) != 'T') l++;
+        l++;
+
+        int r = n - 1;
+        while (0 < r && s.charAt(r) != 'T') r--;
+        while (0 < r && s.charAt(r) != 'M') r--;
+        r--;
+        out.println(s.substring(l, r + 1));
     }
 }
 /*

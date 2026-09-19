@@ -1,55 +1,46 @@
 package ponyai;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Ponyai002 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int N = Integer.parseInt(line0[0]);
-        int M = Integer.parseInt(line0[1]);
-        String A = reader.readLine();
-        String B = reader.readLine();
+    static Scanner scanner;
+    static PrintWriter out;
 
-        // solution
-        long res = solution(N, M, A, B);
-
-        // output
-        writer.write(String.valueOf(res));
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static long solution(int n, int m, String a, String b) {
-        char[] store = a.toCharArray();
-        char[] require = b.toCharArray();
+    private static void solve() {
+        int N = scanner.nextInt();
+        int M = scanner.nextInt();
+        char[] A = scanner.next().toCharArray();
+        char[] B = scanner.next().toCharArray();
 
         int[] vehicles = new int[26];
-        for (char color : store) {
-            vehicles[color - 'a']++;
+        for (char c : A) {
+            vehicles[c - 'a']++;
         }
 
-        long res = 0;
-        int left = 0;
-        int right = 0;
-        while (right < m) {
-            int color = require[right] - 'a';
-            vehicles[color]--;
-            while (left <= right && vehicles[color] < 0) {
-                left++;
-                vehicles[require[left] - 'a']++;
+        long ans = 0;
+        int l = 0, r = 0;
+        while (r < M) {
+            int c = B[r] - 'a';
+            vehicles[c]--;
+            while (l <= r && vehicles[c] < 0) {
+                vehicles[B[l] - 'a']++;
+                l++;
             }
-            res += right - left + 1;
-            right++;
+            ans += r - l + 1;
+            r++;
         }
-        return res;
+
+        out.println(ans);
     }
 }
 /*

@@ -1,33 +1,27 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan009 {
-    private static final int MOD = 998244353;
+    static Scanner scanner;
+    static PrintWriter out;
 
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        String[] line0 = reader.readLine().split(" ");
-        int n = Integer.parseInt(line0[0]);
-        int m = Integer.parseInt(line0[1]);
-
-        // solution
-        int res = solution(n, m);
-
-        // output
-        writer.write(String.valueOf(res));
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int solution(int n, int m) {
+    private static final int MOD = 998244353;
+
+    private static void solve() {
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+
         // dp[i][j] 表示当有 i 个格子，物品最大价值为 j 时的方案数目
         int[][] dp = new int[m + 1][n + 1];
         // 边界: 当 i == 1 时，即只有 1 个格子，不管价格多少，方案数都为 1
@@ -50,7 +44,8 @@ public class Meituan009 {
             res += dp[m][j];
             res %= MOD;
         }
-        return res;
+
+        out.print(res);
     }
 }
 /*

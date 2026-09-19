@@ -1,30 +1,29 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Scanner;
 
 public class Meituan011 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        String[] line0 = reader.readLine().split(" ");
-        long[] inputs = new long[7];
-        for (int i = 0; i < 7; i++) {
-            inputs[i] = Long.parseLong(line0[i]);
-        }
-        long res = solution(inputs);
-        writer.write(String.valueOf(res));
-        writer.close();
-        reader.close();
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static long solution(long[] inputs) {
+    private static void solve() {
+        long[] inputs = new long[7];
+        for (int i = 0; i < 7; i++) {
+            inputs[i] = scanner.nextLong();
+        }
+
         long d = inputs[3];
         // 贪心。三种组合 [[a,e], [b,f], [c,g]]
         long[][] combinations = {{inputs[0], inputs[4]}, {inputs[1], inputs[5]}, {inputs[2], inputs[6]}};
@@ -32,7 +31,9 @@ public class Meituan011 {
         long max0 = Math.min(combinations[2][0], d);
         long max1 = Math.max(0, Math.min(combinations[1][0], d - max0));
         long max2 = Math.max(0, Math.min(combinations[0][0], d - max0 - max1));
-        return max0 * combinations[2][1] + max1 * combinations[1][1] + max2 * combinations[0][1];
+        long res = max0 * combinations[2][1] + max1 * combinations[1][1] + max2 * combinations[0][1];
+
+        out.print(res);
     }
 }
 /*

@@ -1,23 +1,27 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
 public class DD2019012 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        int n = scanner.nextInt();
+    static Scanner scanner;
+    static PrintWriter out;
 
-        List<String> res = solve(n);
-        for (String re : res) {
-            System.out.println(re);
-        }
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static List<String> solve(int n) {
+    private static void solve() {
+        int n = scanner.nextInt();
+
         List<String> resList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             List<String> list = new ArrayList<>();
@@ -28,7 +32,9 @@ public class DD2019012 {
             resList.add(String.join(" ", list));
         }
         Collections.reverse(resList);
-        return resList;
+        for (String re : resList) {
+            out.println(re);
+        }
     }
 
     // convert (x,y) to d

@@ -1,12 +1,23 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DD2020002 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         int[] nums = new int[n];
         String[] ops = new String[n];
@@ -16,10 +27,7 @@ public class DD2020002 {
             ops[i + 1] = scanner.next();
         }
         nums[n - 1] = scanner.nextInt();
-        System.out.println(solve(n, nums, ops));
-    }
 
-    private static String solve(int n, int[] nums, String[] ops) {
         int left = 0;
         int right = 0;
         while (right < n) {
@@ -52,7 +60,7 @@ public class DD2020002 {
         for (int i = 1; i < n; i++) {
             stringBuilder.append(" ").append(ops[i]).append(" ").append(nums[i]);
         }
-        return stringBuilder.toString();
+        out.println(stringBuilder);
     }
 }
 /*

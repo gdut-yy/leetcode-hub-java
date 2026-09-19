@@ -1,5 +1,6 @@
 package meituan;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,13 +10,23 @@ public class Meituan005 {
     private static int k;
     private static int[] level;
     private static boolean[] used;
-    private static final int MOD = 1000000007;
+    private static final int MOD = (int) (1e9 + 7);
     private static List<List<Integer>> listList;
+    static Scanner scanner;
+    static PrintWriter out;
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        k = in.nextInt();
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int n = scanner.nextInt();
+        k = scanner.nextInt();
         listList = new ArrayList<>();
         level = new int[n + 1];
         used = new boolean[n + 1];
@@ -23,20 +34,20 @@ public class Meituan005 {
             listList.add(new ArrayList<>());
         }
         for (int i = 1; i < n; i++) {
-            int x = in.nextInt();
-            int y = in.nextInt();
+            int x = scanner.nextInt();
+            int y = scanner.nextInt();
             listList.get(x).add(y);
             listList.get(y).add(x);
         }
         for (int i = 1; i <= n; i++) {
-            level[i] = in.nextInt();
+            level[i] = scanner.nextInt();
         }
         long ans = 0;
         for (int i = 1; i <= n; i++) {
             Arrays.fill(used, false);
             ans = (ans + dfs(i, i)) % MOD;
         }
-        System.out.println(ans);
+        out.println(ans);
     }
 
     private static long dfs(int u, int s) {

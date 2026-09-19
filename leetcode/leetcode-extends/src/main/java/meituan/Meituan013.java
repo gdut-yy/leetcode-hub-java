@@ -1,22 +1,28 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan013 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        String line0 = reader.readLine();
-        String line1 = reader.readLine();
-        System.out.println(solution(line1));
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int solution(String line) {
+    private static void solve() {
+        int n  = scanner.nextInt();
+        String s = scanner.next();
+
         int cnt = 0;
         int max = 0;
-        for (char ch : line.toCharArray()) {
+        for (char ch : s.toCharArray()) {
             if (ch == 'E') {
                 cnt++;
             } else {
@@ -25,7 +31,8 @@ public class Meituan013 {
             }
             max = Math.max(max, cnt);
         }
-        return max;
+
+        out.println(max);
     }
 }
 /*

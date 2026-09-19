@@ -1,24 +1,25 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DD2019006 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
         int t = scanner.nextInt();
-        for (int i = 0; i < t; i++) {
-            int n = scanner.nextInt();
-            int d = scanner.nextInt();
-            System.out.println(solve(n, d));
-        }
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    // 记忆化搜索
-    private static long[][][][][] memo;
+    private static void solve() {
+        int n = scanner.nextInt();
+        int d = scanner.nextInt();
 
-    private static String solve(int n, int d) {
         // momo[first][pos][posVal][subStrLen][cnt0]
         memo = new long[2][n + 1][2][n / 2 + 1][n / 2 + 1];
         for (int first = 0; first < 2; first++) {
@@ -36,8 +37,11 @@ public class DD2019006 {
         res += dfs(n, d, 0, 1, 0, 1, 1);
         // 第一位为 1
         res += dfs(n, d, 1, 1, 1, 1, 0);
-        return String.valueOf(res);
+        out.println(res);
     }
+
+    // 记忆化搜索
+    private static long[][][][][] memo;
 
     // 总状态 2 * 64 * 2 * 32 * 32 = 262,144
     // first:第一位数字(0/1) pos:当前下标(1~n) posVal:当前状态(0/1) subStrLen:连续子串长度(1~n/2) cnt0:0的数量

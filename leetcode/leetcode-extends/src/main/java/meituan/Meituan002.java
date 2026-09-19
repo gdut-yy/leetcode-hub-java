@@ -1,42 +1,32 @@
 package meituan;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 public class Meituan002 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        // input
-        int n = Integer.parseInt(reader.readLine());
-        int[] w = new int[n];
-        String[] line1 = reader.readLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            w[i] = Integer.parseInt(line1[i]);
-        }
-        int[] order = new int[n];
-        String[] line2 = reader.readLine().split(" ");
-        for (int i = 0; i < n; i++) {
-            order[i] = Integer.parseInt(line2[i]);
-        }
+    static Scanner scanner;
+    static PrintWriter out;
 
-        // solution
-        int[] res = solution(n, w, order);
-
-        // output
-        for (int x : res) {
-            writer.write(String.valueOf(x));
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int[] solution(int n, int[] w, int[] order) {
+    private static void solve() {
+        int n = scanner.nextInt();
+        int[] w = new int[n];
+        for (int i = 0; i < n; i++) {
+            w[i] = scanner.nextInt();
+        }
+        int[] order = new int[n];
+        for (int i = 0; i < n; i++) {
+            order[i] = scanner.nextInt();
+        }
+
         // index统一成从0开始
         for (int i = 0; i < n; i++) {
             order[i]--;
@@ -58,7 +48,10 @@ public class Meituan002 {
             }
             res[i - 1] = Math.max(res[i], unionFind.getCount(idx));
         }
-        return res;
+
+        for (int x : res) {
+            out.println(x);
+        }
     }
 
     private static class UnionFind {

@@ -1,36 +1,31 @@
 package ponyai;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Scanner;
 
 public class Ponyai004 {
-    public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in, StandardCharsets.UTF_8));
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out, StandardCharsets.UTF_8));
-        String[] line0 = reader.readLine().split(" ");
-        int n = Integer.parseInt(line0[0]);
-        int h = Integer.parseInt(line0[1]);
-        String[] line1 = reader.readLine().split(" ");
-        int[] nums = new int[n];
-        for (int i = 0; i < n; i++) {
-            nums[i] = Integer.parseInt(line1[i]);
-        }
-        int[] res = solution(n, h, nums);
-        for (int re : res) {
-            writer.write(String.valueOf(re));
-            writer.write(System.lineSeparator());
-        }
-        writer.close();
-        reader.close();
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static int[] solution(int n, int h, int[] nums) {
+    private static void solve() {
+        int n = scanner.nextInt();
+        int h = scanner.nextInt();
+        int[] nums = new int[n];
+        for (int i = 0; i < n; i++) {
+            nums[i] = scanner.nextInt();
+        }
+
         Deque<Node> stack = new ArrayDeque<>();
         int[] res = new int[n];
         for (int i = 0; i < n; i++) {
@@ -51,7 +46,10 @@ public class Ponyai004 {
             }
             stack.push(new Node(i + 1, slope));
         }
-        return res;
+
+        for (int re : res) {
+            out.println(re);
+        }
     }
 
     private static class Node {

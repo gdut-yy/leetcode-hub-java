@@ -1,27 +1,34 @@
 package bytedance;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class Bytedance004 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int N = scanner.nextInt();
         int[] H = new int[N];
         for (int i = 0; i < N; i++) {
             H[i] = scanner.nextInt();
         }
-        System.out.println(solve(N, H));
-    }
-
-    private static String solve(int N, int[] H) {
-        int res = 0;
+        int ans = 0;
         for (int i = N - 1; i >= 0; i--) {
             // 现在遇到了4, 要达到目标为res也就是0, 上一个值最小应该为多少？，应该是2, X - (4 - X) = res， 2X = res + 4
             // 向上取整所以加一
-            res = (res + H[i] + 1) / 2;
+            ans = (ans + H[i] + 1) / 2;
         }
-        return String.valueOf(res);
+        out.println(ans);
     }
 }
 /*

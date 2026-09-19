@@ -1,16 +1,23 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DD2020009 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.nextLine();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String line) {
+    private static void solve() {
+        String line = scanner.nextLine();
         // 移除空格
         line = line.replace(" ", "");
         String left = line.replace(" ", "").split("=")[0];
@@ -24,7 +31,7 @@ public class DD2020009 {
         } else {
             a = Double.parseDouble(nums[0]);
         }
-        return String.format("x=%.1f", -b / a);
+        out.println(String.format("x=%.1f", -b / a));
     }
 }
 /*

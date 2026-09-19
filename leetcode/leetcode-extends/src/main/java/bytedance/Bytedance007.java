@@ -1,6 +1,6 @@
 package bytedance;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedList;
@@ -9,39 +9,45 @@ import java.util.Scanner;
 import java.util.TreeMap;
 
 public class Bytedance007 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.next();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String line) {
-        int len = line.length();
-        char[] s = line.toCharArray();
+    private static void solve() {
+        char[] s = scanner.next().toCharArray();
+        int n = s.length;
 
         // 1. 去除括号
         Deque<String> stack = new ArrayDeque<>();
-        for (int i = 0; i < line.length(); i++) {
-            char c = line.charAt(i);
+        for (int i = 0; i < n; i++) {
+            char c = s[i];
             if (c == ']' || c == ')') {
                 // 遇到右括号: 1) 获取右侧数字-> 2) 弹栈得到数字或者字符-> 3) 压回栈中成功去除括号
                 // 1)获取右侧数字, (SO3)2 获取 2
                 StringBuilder sNum = new StringBuilder();
-                while (i + 1 < len && Character.isDigit(s[i + 1])) {
+                while (i + 1 < n && Character.isDigit(s[i + 1])) {
                     sNum.append(s[i + 1]);
                     i++;
                 }
                 if (sNum.toString().equals("")) sNum.append("1");
                 // 2) 弹栈得到数字或者字符并计算, (SO3)2 获取3 计算 3 * 2 = 6
                 LinkedList<String> sList = new LinkedList<>();
-                int n = Integer.parseInt(sNum.toString());
+                int num = Integer.parseInt(sNum.toString());
                 while (!stack.isEmpty() && (!(stack.peek().equals("(") || stack.peek().equals("[")))) {
                     String out = stack.pop();
                     if (Character.isDigit(out.charAt(0))) {
-                        sList.add(String.valueOf(Integer.parseInt(out) * n));
+                        sList.add(String.valueOf(Integer.parseInt(out) * num));
                         sList.add(stack.pop());
                     } else {
-                        sList.add("" + n);
+                        sList.add("" + num);
                         sList.add(out);
                     }
                 }
@@ -56,13 +62,13 @@ public class Bytedance007 {
                 StringBuilder element = new StringBuilder(c + "");
                 if (Character.isDigit(c)) {
                     // 数字
-                    while (i + 1 < len && Character.isDigit(s[i + 1])) {
+                    while (i + 1 < n && Character.isDigit(s[i + 1])) {
                         element.append(s[i + 1]);
                         i++;
                     }
                 } else {
                     // 元素
-                    while (i + 1 < len && s[i + 1] - 'a' >= 0 && s[i + 1] - 'a' <= 25) {
+                    while (i + 1 < n && s[i + 1] - 'a' >= 0 && s[i + 1] - 'a' <= 25) {
                         element.append(s[i + 1]);
                         i++;
                     }
@@ -84,11 +90,11 @@ public class Bytedance007 {
         }
 
         // 3. 输出结果
-        StringBuilder stringBuilder = new StringBuilder();
+        StringBuilder output = new StringBuilder();
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
-            stringBuilder.append(entry.getKey()).append(entry.getValue());
+            output.append(entry.getKey()).append(entry.getValue());
         }
-        return stringBuilder.toString();
+        out.println(output);
     }
 }
 /*

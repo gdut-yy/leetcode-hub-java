@@ -1,21 +1,27 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DD2019001 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int np = scanner.nextInt();
         int nq = scanner.nextInt();
         int nr = scanner.nextInt();
-        System.out.println(solve(np, nq, nr));
-    }
 
-    private static long[][][][] memo;
-
-    private static String solve(int np, int nq, int nr) {
         memo = new long[3][np + 1][nq + 1][nr + 1];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < np + 1; j++) {
@@ -35,16 +41,14 @@ public class DD2019001 {
         if (nr > 0) {
             res += dfs(2, np, nq, nr - 1);
         }
-        return String.valueOf(res);
+        out.println(res);
     }
 
+    private static long[][][][] memo;
+
     private static long dfs(int pre, int np, int nq, int nr) {
-        if (np + nq + nr == 0) {
-            return 1;
-        }
-        if (memo[pre][np][nq][nr] != -1) {
-            return memo[pre][np][nq][nr];
-        }
+        if (np + nq + nr == 0) return 1;
+        if (memo[pre][np][nq][nr] != -1) return memo[pre][np][nq][nr];
 
         long res = 0;
         if (pre != 0 && np > 0) {
@@ -56,8 +60,7 @@ public class DD2019001 {
         if (pre != 2 && nr > 0) {
             res += dfs(2, np, nq, nr - 1);
         }
-        memo[pre][np][nq][nr] = res;
-        return res;
+        return memo[pre][np][nq][nr] = res;
     }
 }
 /*

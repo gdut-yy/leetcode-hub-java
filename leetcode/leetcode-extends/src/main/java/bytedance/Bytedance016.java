@@ -1,6 +1,136 @@
 package bytedance;
 
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 public class Bytedance016 {
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+
+        int[] a = new int[n + 1];
+        for (int i = 1; i <= n; i++) {
+            a[i] = scanner.nextInt();
+        }
+
+        int[] cnt = new int[n + 1];
+        for (int j = 0; j < m; j++) {
+            int b = scanner.nextInt();
+            cnt[b]++;
+        }
+
+        // 计算树的最大深度（根深度为 0）
+        int maxDepth = 0;
+        for (int i = 1; i <= n; i++) {
+            int d = 0;
+            int x = i;
+            while (x > 1) {
+                d++;
+                x /= 2;
+            }
+            if (d > maxDepth) maxDepth = d;
+        }
+        int L = maxDepth + 2;
+
+        // distS[i][d]：以 i 为根的子树中，未匹配的松鼠到 i 的距离为 d 的数量
+        // distR[i][d]：以 i 为根的子树中，未匹配的房间到 i 的距离为 d 的数量
+        long[] distS = new long[(n + 1) * L];
+        long[] distR = new long[(n + 1) * L];
+
+        for (int i = 1; i <= n; i++) {
+            int base = i * L;
+            distS[base] = cnt[i];
+            distR[base] = a[i];
+        }
+
+        long ans = 0;
+
+        // 自底向上处理每个节点
+        for (int i = n; i >= 1; i--) {
+            int base = i * L;
+
+            long S = 0, R = 0, sumS = 0, sumR = 0;
+            for (int d = 0; d < L; d++) {
+                long cs = distS[base + d];
+                long cr = distR[base + d];
+                if (cs != 0) {
+                    S += cs;
+                    sumS += cs * d;
+                }
+                if (cr != 0) {
+                    R += cr;
+                    sumR += cr * d;
+                }
+            }
+
+            // 在节点 i 处尽量匹配松鼠和房间
+            if (S > 0 && R > 0) {
+                if (S <= R) {
+                    // 松鼠少，所有松鼠都被匹配，选择距离最近的 S 个房间
+                    ans += sumS;
+                    long need = S;
+                    for (int d = 0; d < L && need > 0; d++) {
+                        long cr = distR[base + d];
+                        if (cr > 0) {
+                            long take = Math.min(cr, need);
+                            ans += take * d;
+                            distR[base + d] = cr - take;
+                            need -= take;
+                        }
+                    }
+                    // 松鼠全部匹配完，清空
+                    for (int d = 0; d < L; d++) distS[base + d] = 0;
+                } else {
+                    // 房间少，所有房间都被匹配，选择距离最近的 R 个松鼠
+                    ans += sumR;
+                    long need = R;
+                    for (int d = 0; d < L && need > 0; d++) {
+                        long cs = distS[base + d];
+                        if (cs > 0) {
+                            long take = Math.min(cs, need);
+                            ans += take * d;
+                            distS[base + d] = cs - take;
+                            need -= take;
+                        }
+                    }
+                    // 房间全部匹配完，清空
+                    for (int d = 0; d < L; d++) distR[base + d] = 0;
+                }
+            }
+
+            // 将剩余未匹配的松鼠和房间向上传递给父节点，距离加 1
+            if (i > 1) {
+                int p = i / 2;
+                int pbase = p * L;
+                for (int d = 0; d < L - 1; d++) {
+                    long cs = distS[base + d];
+                    if (cs != 0) {
+                        distS[pbase + d + 1] += cs;
+                        distS[base + d] = 0;
+                    }
+                    long cr = distR[base + d];
+                    if (cr != 0) {
+                        distR[pbase + d + 1] += cr;
+                        distR[base + d] = 0;
+                    }
+                }
+            }
+        }
+
+        out.println(ans);
+    }
 }
 /*
 bytedance-016. 最短移动距离

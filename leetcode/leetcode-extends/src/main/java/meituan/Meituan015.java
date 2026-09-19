@@ -1,38 +1,50 @@
 package meituan;
 
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class Meituan015 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int m = sc.nextInt();
-        int n = sc.nextInt();
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
         // 开始点坐标
-        int startX = sc.nextInt() - 1;
-        int startY = sc.nextInt() - 1;
+        int startX = scanner.nextInt() - 1;
+        int startY = scanner.nextInt() - 1;
         // 目标点坐标
-        int endX = sc.nextInt() - 1;
-        int endY = sc.nextInt() - 1;
+        int endX = scanner.nextInt() - 1;
+        int endY = scanner.nextInt() - 1;
 
         // 左右绿灯
         int[][] a = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                a[i][j] = sc.nextInt();
+                a[i][j] = scanner.nextInt();
             }
         }
         // 上下绿灯
         int[][] b = new int[m][n];
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
-                b[i][j] = sc.nextInt();
+                b[i][j] = scanner.nextInt();
             }
         }
 
-        System.out.println(getMin(a, b, startX, startY, endX, endY));
+        out.println(getMin(a, b, startX, startY, endX, endY));
     }
 
 

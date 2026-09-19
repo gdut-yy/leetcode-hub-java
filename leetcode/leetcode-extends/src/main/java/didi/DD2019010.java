@@ -1,22 +1,30 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class DD2019010 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static void solve() {
         int n = scanner.nextInt();
         String[] lines = new String[n];
         for (int i = 0; i < n; i++) {
             lines[i] = scanner.next();
         }
-        System.out.println(solve(n, lines));
-    }
 
-    private static String solve(int n, String[] lines) {
         Trie trie = new Trie();
         for (String word : lines) {
             char[] chars = word.toCharArray();
@@ -24,7 +32,7 @@ public class DD2019010 {
                 trie.insert(chars, i);
             }
         }
-        return trie.bfs();
+        out.println(trie.bfs());
     }
 
     private static class Trie {
