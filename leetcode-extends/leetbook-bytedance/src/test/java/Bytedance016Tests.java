@@ -1,0 +1,17 @@
+import base.AbstractOjTests;
+import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+
+public class Bytedance016Tests extends AbstractOjTests {
+    public Bytedance016Tests() {
+        super("/bytedance/16/");
+    }
+
+    @Test
+    public void example1() throws IOException {
+        super.doSetSystemInOut(INPUT1);
+        Bytedance016.main(null);
+        super.doAssertion(OUTPUT1);
+    }
+}

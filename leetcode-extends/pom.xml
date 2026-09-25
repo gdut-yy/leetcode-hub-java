@@ -12,12 +12,12 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>lc-ext-bytedance</module>
-        <module>lc-ext-didi</module>
-        <module>lc-ext-meituan</module>
-        <module>lc-ext-ponyai</module>
-        <module>lc-ext-shopee</module>
-        <module>lc-ext-tusimple</module>
+        <module>leetbook-bytedance</module>
+        <module>leetbook-didi</module>
+        <module>leetbook-meituan</module>
+        <module>leetbook-ponyai</module>
+        <module>leetbook-shopee</module>
+        <module>leetbook-tusimple</module>
 
         <module>contest-autox2023</module>
         <module>contest-ccbft-2021fall</module>
