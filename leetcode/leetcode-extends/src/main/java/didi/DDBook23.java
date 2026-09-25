@@ -1,13 +1,26 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class DDBook23 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static final int INF = Integer.MAX_VALUE / 2;
+
+    private static void solve() {
         int n = scanner.nextInt();
         int m = scanner.nextInt();
         scanner.nextLine();
@@ -16,15 +29,6 @@ public class DDBook23 {
             lineN[i] = scanner.nextLine();
         }
 
-        List<String> res = solve(n, m, lineN);
-        for (String re : res) {
-            System.out.println(re);
-        }
-    }
-
-    private static final int INF = Integer.MAX_VALUE / 2;
-
-    private static List<String> solve(int n, int m, String[] lineN) {
         int[][] grid = new int[n][m];
         for (int i = 0; i < n; i++) {
             String[] lineIs = lineN[i].split(" ");
@@ -46,22 +50,20 @@ public class DDBook23 {
             }
         }
 
-        List<String> resList = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if (i == j) {
                     continue;
                 }
                 if (grid[i][j] == INF) {
-//                    resList.add(String.format("%s 到 %s 之间没路径", i, j));
-                    resList.add(String.format("There is no path between %s and %s", i, j));
+//                    out.println(String.format("%s 到 %s 之间没路径", i, j));
+                    out.println(String.format("There is no path between %s and %s", i, j));
                 } else {
-//                    resList.add(String.format("%s 到 %s 之间的最短路径长度为:%s", i, j, grid[i][j]));
-                    resList.add(String.format("The shortest distance between %s and %s is: %s", i, j, grid[i][j]));
+//                    out.println(String.format("%s 到 %s 之间的最短路径长度为:%s", i, j, grid[i][j]));
+                    out.println(String.format("The shortest distance between %s and %s is: %s", i, j, grid[i][j]));
                 }
             }
         }
-        return resList;
     }
 }
 /*

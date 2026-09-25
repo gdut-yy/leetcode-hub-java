@@ -1,13 +1,25 @@
 package didi;
 
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class DDBook26 {
-    public static void main(String[] args) throws IOException {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
+    static Scanner scanner;
+    static PrintWriter out;
+
+    public static void main(String[] args) {
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
+    }
+
+    private static final int MAX_N = 100000;
+
+    private static void solve() {
         int n = scanner.nextInt();
         int Total = scanner.nextInt();
         int Cost = scanner.nextInt();
@@ -19,12 +31,7 @@ public class DDBook26 {
         for (int i = 0; i < n; i++) {
             b[i] = scanner.nextInt();
         }
-        System.out.println(solve(n, Total, Cost, a, b));
-    }
 
-    private static final int MAX_N = 100000;
-
-    private static String solve(int n, int Total, int Cost, int[] a, int[] b) {
         int k = Total / Cost;
 
         int[] jj = new int[MAX_N + 1];
@@ -51,7 +58,7 @@ public class DDBook26 {
             dp = dq;
             dq = tmp;
         }
-        return String.valueOf(ans);
+        out.println(ans);
     }
 }
 /*

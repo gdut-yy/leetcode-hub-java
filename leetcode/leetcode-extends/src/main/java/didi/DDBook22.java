@@ -1,16 +1,23 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DDBook22 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String s = scanner.nextLine();
-        System.out.println(solve(s));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String s) {
+    private static void solve() {
+        String s = scanner.nextLine();
         int m = 0;
         int n = 0;
         for (char ch : s.toCharArray()) {
@@ -23,8 +30,8 @@ public class DDBook22 {
                 n++;
             }
         }
-//        return String.format("汉字的个数 %d 字母的个数 %d", m, n);
-        return String.format("Number of Chinese characters:%d%sNumber of letters:%d", m, System.lineSeparator(), n);
+//        out.println(String.format("汉字的个数 %d 字母的个数 %d", m, n));
+        out.println(String.format("Number of Chinese characters:%d%sNumber of letters:%d", m, System.lineSeparator(), n));
     }
 }
 /*

@@ -1,20 +1,28 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class DDBook21 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String s = scanner.nextLine();
-        System.out.println(solve(s));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    public static String solve(String s) {
+    private static void solve() {
+        String s = scanner.nextLine();
         // 长度 0 和 1
         int len = s.length();
         if (len < 2) {
-            return s;
+            out.println(s);
+            return;
         }
 
         // dp[i][j] 表示 s[i..j] 是否为回文串
@@ -54,7 +62,7 @@ public class DDBook21 {
                 }
             }
         }
-        return s.substring(resBegin, resBegin + resLen);
+        out.println(s.substring(resBegin, resBegin + resLen));
     }
 }
 /*

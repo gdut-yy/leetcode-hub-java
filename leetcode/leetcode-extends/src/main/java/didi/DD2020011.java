@@ -1,18 +1,25 @@
 package didi;
 
-import java.nio.charset.StandardCharsets;
+import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class DD2020011 {
+    static Scanner scanner;
+    static PrintWriter out;
+
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in, StandardCharsets.UTF_8);
-        String line = scanner.nextLine();
-        System.out.println(solve(line));
+        scanner = new Scanner(System.in);
+        out = new PrintWriter(System.out);
+        int t = 1;
+        // t = scanner.nextInt();
+        while (t-- > 0) solve();
+        out.flush();
     }
 
-    private static String solve(String line) {
+    private static void solve() {
+        String line = scanner.nextLine();
         String[] lines = line.split(",");
         int n = lines.length;
         int[] nums = new int[n];
@@ -20,7 +27,7 @@ public class DD2020011 {
             nums[i] = Integer.parseInt(lines[i]);
         }
         Arrays.sort(nums);
-        return Arrays.stream(nums).mapToObj(String::valueOf).collect(Collectors.joining("\t"));
+        out.println(Arrays.stream(nums).mapToObj(String::valueOf).collect(Collectors.joining("\t")));
     }
 }
 /*
