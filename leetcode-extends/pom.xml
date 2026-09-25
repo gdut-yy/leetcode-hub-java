@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>leetcode</artifactId>
+        <groupId>com.devyy</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>leetcode-extends</artifactId>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>lc-ext-bytedance</module>
+        <module>lc-ext-didi</module>
+        <module>lc-ext-meituan</module>
+        <module>lc-ext-ponyai</module>
+        <module>lc-ext-shopee</module>
+        <module>lc-ext-tusimple</module>
+
+        <module>contest-autox2023</module>
+        <module>contest-ccbft-2021fall</module>
+        <module>contest-cmbchina-2022spring</module>
+        <module>contest-cnunionpay2022</module>
+        <module>contest-cnunionpay-2022spring</module>
+        <module>contest-espressif-2021</module>
+        <module>contest-hhrc2022</module>
+        <module>contest-lc-vscode</module>
+        <module>contest-sf-tech</module>
+        <module>contest-tianchi2022</module>
+        <module>contest-ubiquant2022</module>
+        <module>contest-zj-future2022</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.release>11</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.devyy</groupId>
+            <artifactId>leetcode-core</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

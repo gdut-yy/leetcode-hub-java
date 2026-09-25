@@ -55,7 +55,6 @@
         <module>leetcode-41</module>
 
         <module>leetcode-core</module>
-        <module>leetcode-extends</module>
         <module>leetcode-interview</module>
         <module>leetcode-lcp</module>
         <module>leetcode-lcr</module>

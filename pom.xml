@@ -14,8 +14,9 @@
 
         <module>atcoder</module>
         <module>codeforces</module>
-        <module>leetcode</module>
         <module>nowcoder</module>
+        <module>leetcode</module>
+        <module>leetcode-extends</module>
         <module>lanqiao</module>
         <module>luogu</module>
     </modules>
