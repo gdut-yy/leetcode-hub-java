@@ -30,6 +30,11 @@
         <maven-failsafe-plugin.version>3.5.1</maven-failsafe-plugin.version>
         <jacoco-maven-plugin.version>0.8.15</jacoco-maven-plugin.version>
 
+        <!-- jacoco 开关：默认关闭，避免每次 mvn 都启动覆盖率 agent；需要时用 -Djacoco.skip=false 打开 -->
+        <jacoco.skip>true</jacoco.skip>
+        <!-- jacoco 关闭时 surefire 的 @{argLine} 仍需一个默认值 -->
+        <argLine></argLine>
+
         <java.version>25</java.version>
         <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -86,6 +91,9 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco-maven-plugin.version}</version>
+                <configuration>
+                    <skip>${jacoco.skip}</skip>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

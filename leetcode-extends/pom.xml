@@ -12,13 +12,6 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>leetbook-bytedance</module>
-        <module>leetbook-didi</module>
-        <module>leetbook-meituan</module>
-        <module>leetbook-ponyai</module>
-        <module>leetbook-shopee</module>
-        <module>leetbook-tusimple</module>
-
         <module>contest-autox2023</module>
         <module>contest-ccbft-2021fall</module>
         <module>contest-cmbchina-2022spring</module>
@@ -26,15 +19,25 @@
         <module>contest-cnunionpay-2022spring</module>
         <module>contest-espressif-2021</module>
         <module>contest-hhrc2022</module>
+        <module>contest-hust_1024_2023</module>
         <module>contest-lc-vscode</module>
         <module>contest-sf-tech</module>
         <module>contest-tianchi2022</module>
         <module>contest-ubiquant2022</module>
         <module>contest-zj-future2022</module>
+
+        <module>leetbook-ai-ydzy</module>
+        <module>leetbook-bytedance</module>
+        <module>leetbook-didi</module>
+        <module>leetbook-espressif</module>
+        <module>leetbook-meituan</module>
+        <module>leetbook-ponyai</module>
+        <module>leetbook-shopee</module>
+        <module>leetbook-tusimple</module>
     </modules>
 
     <properties>
-        <maven.compiler.release>11</maven.compiler.release>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

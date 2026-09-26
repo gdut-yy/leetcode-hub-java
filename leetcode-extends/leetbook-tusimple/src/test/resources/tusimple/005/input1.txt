@@ -1,0 +1,6 @@
+3 2
+novak goat 1
+goat simulator 3
+2
+novak simulator
+simulator goat

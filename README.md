@@ -39,11 +39,15 @@ Build #IU-253.33813.25, built on June 2, 2026
 ## Command 命令行
 
 ```sh
-# 运行 UT、统计覆盖率（jdk21）：
+# 运行 UT（默认关闭 jacoco，速度更快）：
 mvn clean verify -s settings.xml -T 1C
+
+# 运行 UT、统计覆盖率（需要时手动开启 jacoco；-D 参数在 PowerShell 下需加引号）：
+mvn clean verify -s settings.xml -T 1C "-Djacoco.skip=false"
 
 # 只测试某个 module
 mvn test -pl leetcode/leetcode-40 -am 
+mvn test -pl leetcode-extends/lc-ext-didi -am
 mvn test -pl atcoder/atcoder-beginner-03-D -am 
 mvn test -pl codeforces/codeforces-22 -am 
 
