@@ -30,4 +30,6 @@ source != target
 
 分类讨论。
 时间复杂度 O(1)。
+相似题目: 4061. 皇后到达目标格子的最少移动步数
+https://leetcode.cn/problems/minimum-queen-moves-to-reach-target/description/
  */

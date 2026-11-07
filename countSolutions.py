@@ -1,5 +1,6 @@
 import os
 import datetime
+import re
 
 def count_leetcode(cwd):
     cnt_lc_solutions = 0
@@ -7,6 +8,8 @@ def count_leetcode(cwd):
     mp = set()
     exclude_paths = ['algo-core', 'atcoder', 'codeforces', 'lanqiao',
                      'leetcode-extends', 'leetcode-lcp', 'luogu', 'nowcoder']
+    for i in range(1, 4100):
+        mp.add(str(i))
     for dirpath, dirnames, filenames in os.walk(cwd):
         ok = True
         for exclude_path in exclude_paths:
@@ -18,14 +21,19 @@ def count_leetcode(cwd):
                 for filename in filenames:
                     if 'Solution' in filename:
                         key = filename.replace('SolutionP', '').replace('Solution', '').replace('.java', '')
-                        mp.add(key)
+                        mp.discard(key)
                         cnt_lc_solutions += 1
+            if 'leetcode-hub-mysql' in dirpath:
+                for filename in filenames:
+                    if '.test' in filename:
+                        key = filename.replace('lc-0', '').replace('lc-', '').replace('.test', '')
+                        mp.discard(key)
             if '\src\\test\java' in dirpath:
                 for filename in filenames:
                     if 'Tests' in filename:
                         key = filename.replace('SolutionP', '').replace('Solution', '').replace('.java', '').replace(
                             'Tests', '')
-                        mp.discard(key)
+#                         mp.discard(key)
                         cnt_lc_tests += 1
     return cnt_lc_solutions, cnt_lc_tests, mp
 
@@ -81,7 +89,9 @@ if __name__ == '__main__':
     print('leetcode:')
     print(cnt_lc_solutions)
     print(cnt_lc_tests)
-    print(mp)
+    b = list(mp)
+    b.sort(key=lambda x: int(re.match(r"(\d+)", x).group()))
+    print(b)
 
     cnt_cf_mains, cnt_cf_tests, mp = count_codeforces(cwd)
     print('codeforces:')

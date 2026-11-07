@@ -6,21 +6,21 @@ public class Solution4056Tests {
 
     @Test
     public void example1() {
-        int[][] intervals = {{1, 2}, {2, 3}, {3, 4}};
+        int[][] intervals = UtUtils.stringToInts2("[[1,2],[2,3],[3,4]]");
         int expected = 2;
         Assertions.assertEquals(expected, solution4056.countIntersectingIntervals(intervals));
     }
 
     @Test
     public void example2() {
-        int[][] intervals = {{1, 5}, {2, 4}, {3, 6}};
+        int[][] intervals = UtUtils.stringToInts2("[[1,5],[2,4],[3,6]]");
         int expected = 3;
         Assertions.assertEquals(expected, solution4056.countIntersectingIntervals(intervals));
     }
 
     @Test
     public void example3() {
-        int[][] intervals = {{1, 2}, {3, 4}, {5, 6}};
+        int[][] intervals = UtUtils.stringToInts2("[[1,2],[3,4],[5,6]]");
         int expected = 0;
         Assertions.assertEquals(expected, solution4056.countIntersectingIntervals(intervals));
     }
