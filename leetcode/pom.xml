@@ -58,6 +58,7 @@
         <module>leetcode-interview</module>
         <module>leetcode-lcp</module>
         <module>leetcode-lcr</module>
+        <module>leetcode-42</module>
     </modules>
 
     <properties>
